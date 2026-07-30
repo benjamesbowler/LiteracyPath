@@ -59,7 +59,7 @@ export const questions = [
    "o": "D-VOWEL",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "apple",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,11 +81,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/apple.png",
-  "imageUrl": "/images/child-mode/initial-sounds/apple.png",
-  "targetImage": "/images/child-mode/initial-sounds/apple.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/apple.png",
-  "imageAlt": "apple"
+  "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "resolvedImageAssetKey": "apple",
+  "imageAlt": "Which letter makes the first sound in apple?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.a.v2",
@@ -110,12 +112,17 @@ export const questions = [
   "question": "Which letter makes the first sound in ant?",
   "spokenPrompt": "ant. Which letter makes the first sound in ant?",
   "choices": [
+   "t",
    "a",
    "e",
-   "o",
-   "t"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "a",
     "label": "a",
@@ -130,21 +137,16 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
+   "t": "D-POSITION",
    "e": "D-VOWEL",
-   "o": "D-VOWEL",
-   "t": "D-POSITION"
+   "o": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ant",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -169,7 +172,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/ant.png",
   "targetImage": "/images/child-mode/initial-sounds/ant.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ant.png",
-  "imageAlt": "ant"
+  "resolvedImageAssetKey": "ant",
+  "imageAlt": "Which letter makes the first sound in ant?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.a.v3",
@@ -195,22 +199,12 @@ export const questions = [
   "question": "Which one starts like ant?",
   "spokenPrompt": "ant. Which one starts with the same sound as ant?",
   "choices": [
-   "apple",
-   "egg",
    "igloo",
-   "ox"
+   "ox",
+   "apple",
+   "egg"
   ],
   "answerOptions": [
-   {
-    "value": "apple",
-    "label": "apple",
-    "text": "apple"
-   },
-   {
-    "value": "egg",
-    "label": "egg",
-    "text": "egg"
-   },
    {
     "value": "igloo",
     "label": "igloo",
@@ -220,6 +214,16 @@ export const questions = [
     "value": "ox",
     "label": "ox",
     "text": "ox"
+   },
+   {
+    "value": "apple",
+    "label": "apple",
+    "text": "apple"
+   },
+   {
+    "value": "egg",
+    "label": "egg",
+    "text": "egg"
    }
   ],
   "answer": "apple",
@@ -253,24 +257,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.a.v3_card_apple",
-    "word": "apple",
-    "value": "apple",
-    "label": "apple",
-    "image": "/images/child-mode/initial-sounds/apple.png",
-    "imagePath": "/images/child-mode/initial-sounds/apple.png",
-    "imageAlt": "apple"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.a.v3_card_egg",
-    "word": "egg",
-    "value": "egg",
-    "label": "egg",
-    "image": "/images/child-mode/initial-sounds/egg.png",
-    "imagePath": "/images/child-mode/initial-sounds/egg.png",
-    "imageAlt": "egg"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.a.v3_card_igloo",
     "word": "igloo",
     "value": "igloo",
@@ -287,6 +273,24 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/ox.png",
     "imagePath": "/images/child-mode/initial-sounds/ox.png",
     "imageAlt": "ox"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.a.v3_card_apple",
+    "word": "apple",
+    "value": "apple",
+    "label": "apple",
+    "image": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imageAlt": "apple"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.a.v3_card_egg",
+    "word": "egg",
+    "value": "egg",
+    "label": "egg",
+    "image": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imageAlt": "egg"
    }
   ]
  },
@@ -314,12 +318,17 @@ export const questions = [
   "question": "Which letter makes the first sound in astronaut?",
   "spokenPrompt": "astronaut. Which letter makes the first sound in astronaut?",
   "choices": [
+   "t",
    "a",
    "u",
-   "o",
-   "t"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "a",
     "label": "a",
@@ -334,30 +343,26 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
-   "u": "D-VOWEL",
    "o": "D-VOWEL",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "u": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "astronaut",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "initial_sounds-a-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -368,7 +373,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/a.webp",
+  "imageUrl": "/images/assessment/hfw/a.webp",
+  "targetImage": "/images/assessment/hfw/a.webp",
+  "targetImagePath": "/images/assessment/hfw/a.webp",
+  "resolvedImageAssetKey": "a",
+  "imageAlt": "Which letter makes the first sound in astronaut?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.a.v2",
@@ -428,16 +439,17 @@ export const questions = [
    "i": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "alligator",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "initial_sounds-a-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -448,7 +460,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/a.webp",
+  "imageUrl": "/images/assessment/hfw/a.webp",
+  "targetImage": "/images/assessment/hfw/a.webp",
+  "targetImagePath": "/images/assessment/hfw/a.webp",
+  "resolvedImageAssetKey": "a",
+  "imageAlt": "Which letter makes the first sound in alligator?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.a.v3",
@@ -474,17 +492,12 @@ export const questions = [
   "question": "Which one starts like apple?",
   "spokenPrompt": "apple. Which one starts with the same sound as apple?",
   "choices": [
-   "ant",
    "elephant",
    "insect",
-   "umbrella"
+   "umbrella",
+   "ant"
   ],
   "answerOptions": [
-   {
-    "value": "ant",
-    "label": "ant",
-    "text": "ant"
-   },
    {
     "value": "elephant",
     "label": "elephant",
@@ -499,14 +512,19 @@ export const questions = [
     "value": "umbrella",
     "label": "umbrella",
     "text": "umbrella"
+   },
+   {
+    "value": "ant",
+    "label": "ant",
+    "text": "ant"
    }
   ],
   "answer": "ant",
   "correctAnswer": "ant",
   "distractorRationales": {
-   "elephant": "D-VOWEL",
    "insect": "D-VOWEL",
-   "umbrella": "D-VOWEL"
+   "umbrella": "D-VOWEL",
+   "elephant": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -531,15 +549,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l2.C.a.v3_card_ant",
-    "word": "ant",
-    "value": "ant",
-    "label": "ant",
-    "image": "/images/child-mode/initial-sounds/ant.png",
-    "imagePath": "/images/child-mode/initial-sounds/ant.png",
-    "imageAlt": "ant"
-   },
    {
     "id": "lp3.initial_sounds.l2.C.a.v3_card_elephant",
     "word": "elephant",
@@ -566,6 +575,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/umbrella.png",
     "imagePath": "/images/child-mode/initial-sounds/umbrella.png",
     "imageAlt": "umbrella"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.a.v3_card_ant",
+    "word": "ant",
+    "value": "ant",
+    "label": "ant",
+    "image": "/images/child-mode/initial-sounds/ant.png",
+    "imagePath": "/images/child-mode/initial-sounds/ant.png",
+    "imageAlt": "ant"
    }
   ]
  },
@@ -593,12 +611,17 @@ export const questions = [
   "question": "Which letter makes the first sound in boat?",
   "spokenPrompt": "boat. Which letter makes the first sound in boat?",
   "choices": [
+   "t",
    "b",
    "p",
-   "d",
-   "t"
+   "d"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "b",
     "label": "b",
@@ -613,21 +636,16 @@ export const questions = [
     "value": "d",
     "label": "d",
     "text": "d"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "b",
   "correctAnswer": "b",
   "distractorRationales": {
-   "p": "D-ONSET",
    "d": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "p": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -637,6 +655,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -652,7 +671,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/boat.webp",
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageAlt": "boat"
+  "resolvedImageAssetKey": "boat",
+  "imageAlt": "Which letter makes the first sound in boat?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.b.v2",
@@ -678,22 +698,12 @@ export const questions = [
   "question": "Which letter makes the first sound in bike?",
   "spokenPrompt": "bike. Which letter makes the first sound in bike?",
   "choices": [
-   "b",
-   "p",
    "d",
-   "k"
+   "k",
+   "b",
+   "p"
   ],
   "answerOptions": [
-   {
-    "value": "b",
-    "label": "b",
-    "text": "b"
-   },
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
    {
     "value": "d",
     "label": "d",
@@ -703,6 +713,16 @@ export const questions = [
     "value": "k",
     "label": "k",
     "text": "k"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "b",
@@ -712,7 +732,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -722,6 +742,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bike",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -737,7 +758,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/bike.webp",
   "targetImage": "/images/assessment/long-vowels/bike.webp",
   "targetImagePath": "/images/assessment/long-vowels/bike.webp",
-  "imageAlt": "bike"
+  "resolvedImageAssetKey": "bike",
+  "imageAlt": "Which letter makes the first sound in bike?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.b.v3",
@@ -763,17 +785,12 @@ export const questions = [
   "question": "Listen: boat. Find the one that starts the same.",
   "spokenPrompt": "boat. Which one starts with the same sound as boat?",
   "choices": [
-   "bike",
    "pig",
    "web",
-   "duck"
+   "duck",
+   "bike"
   ],
   "answerOptions": [
-   {
-    "value": "bike",
-    "label": "bike",
-    "text": "bike"
-   },
    {
     "value": "pig",
     "label": "pig",
@@ -788,14 +805,19 @@ export const questions = [
     "value": "duck",
     "label": "duck",
     "text": "duck"
+   },
+   {
+    "value": "bike",
+    "label": "bike",
+    "text": "bike"
    }
   ],
   "answer": "bike",
   "correctAnswer": "bike",
   "distractorRationales": {
-   "pig": "D-ONSET",
    "web": "D-POSITION",
-   "duck": "D-SEMANTIC"
+   "duck": "D-SEMANTIC",
+   "pig": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -821,21 +843,12 @@ export const questions = [
   "notes": "web ends with /b/ — the position trap; duck shares the water scene",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.b.v3_card_bike",
-    "word": "bike",
-    "value": "bike",
-    "label": "bike",
-    "image": "/images/assessment/long-vowels/bike.webp",
-    "imagePath": "/images/assessment/long-vowels/bike.webp",
-    "imageAlt": "bike"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.b.v3_card_pig",
     "word": "pig",
     "value": "pig",
     "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "imageAlt": "pig"
    },
    {
@@ -855,6 +868,15 @@ export const questions = [
     "image": "/images/assessment/digraphs/duck.webp",
     "imagePath": "/images/assessment/digraphs/duck.webp",
     "imageAlt": "duck"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.b.v3_card_bike",
+    "word": "bike",
+    "value": "bike",
+    "label": "bike",
+    "image": "/images/assessment/long-vowels/bike.webp",
+    "imagePath": "/images/assessment/long-vowels/bike.webp",
+    "imageAlt": "bike"
    }
   ]
  },
@@ -882,22 +904,12 @@ export const questions = [
   "question": "Which letter makes the first sound in banana?",
   "spokenPrompt": "banana. Which letter makes the first sound in banana?",
   "choices": [
-   "b",
-   "p",
    "d",
-   "a"
+   "a",
+   "b",
+   "p"
   ],
   "answerOptions": [
-   {
-    "value": "b",
-    "label": "b",
-    "text": "b"
-   },
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
    {
     "value": "d",
     "label": "d",
@@ -907,6 +919,16 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
+   },
+   {
+    "value": "b",
+    "label": "b",
+    "text": "b"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "b",
@@ -916,16 +938,17 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "banana",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "banana",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -936,7 +959,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
+  "resolvedImageAssetKey": "banana",
+  "imageAlt": "Which letter makes the first sound in banana?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.b.v2",
@@ -962,12 +991,17 @@ export const questions = [
   "question": "Which letter makes the first sound in butterfly?",
   "spokenPrompt": "butterfly. Which letter makes the first sound in butterfly?",
   "choices": [
+   "y",
    "b",
    "p",
-   "d",
-   "y"
+   "d"
   ],
   "answerOptions": [
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
+   },
    {
     "value": "b",
     "label": "b",
@@ -982,30 +1016,26 @@ export const questions = [
     "value": "d",
     "label": "d",
     "text": "d"
-   },
-   {
-    "value": "y",
-    "label": "y",
-    "text": "y"
    }
   ],
   "answer": "b",
   "correctAnswer": "b",
   "distractorRationales": {
+   "y": "D-POSITION",
    "p": "D-ONSET",
-   "d": "D-VISUAL-NEIGHBOR",
-   "y": "D-POSITION"
+   "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "butterfly",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "butterfly",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1016,7 +1046,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "resolvedImageAssetKey": "butterfly",
+  "imageAlt": "Which letter makes the first sound in butterfly?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.b.v3",
@@ -1113,8 +1149,8 @@ export const questions = [
     "word": "pen",
     "value": "pen",
     "label": "pen",
-    "image": "/images/child-mode/initial-sounds/pen.png",
-    "imagePath": "/images/child-mode/initial-sounds/pen.png",
+    "image": "/images/assessment/rhyming/variants/en/pen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
     "imageAlt": "pen"
    },
    {
@@ -1122,8 +1158,8 @@ export const questions = [
     "word": "pot",
     "value": "pot",
     "label": "pot",
-    "image": "/images/child-mode/cvc/pot.png",
-    "imagePath": "/images/child-mode/cvc/pot.png",
+    "image": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
     "imageAlt": "pot"
    },
    {
@@ -1161,22 +1197,12 @@ export const questions = [
   "question": "Which letter makes the first sound in corn?",
   "spokenPrompt": "corn. Which letter makes the first sound in corn?",
   "choices": [
-   "c",
-   "g",
    "o",
-   "n"
+   "n",
+   "c",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "c",
-    "label": "c",
-    "text": "c"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "o",
     "label": "o",
@@ -1186,16 +1212,26 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "c",
   "correctAnswer": "c",
   "distractorRationales": {
+   "n": "D-POSITION",
    "g": "D-ONSET",
-   "o": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "o": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1205,6 +1241,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "corn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1216,11 +1253,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-  "targetImage": "/images/child-mode/initial-sounds/corn.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageAlt": "corn"
+  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "resolvedImageAssetKey": "corn",
+  "imageAlt": "Which letter makes the first sound in corn?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.c.v2",
@@ -1246,17 +1284,12 @@ export const questions = [
   "question": "Which letter makes the first sound in cap?",
   "spokenPrompt": "cap. Which letter makes the first sound in cap?",
   "choices": [
-   "c",
    "g",
    "o",
-   "p"
+   "p",
+   "c"
   ],
   "answerOptions": [
-   {
-    "value": "c",
-    "label": "c",
-    "text": "c"
-   },
    {
     "value": "g",
     "label": "g",
@@ -1271,6 +1304,11 @@ export const questions = [
     "value": "p",
     "label": "p",
     "text": "p"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
    }
   ],
   "answer": "c",
@@ -1280,7 +1318,7 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1290,6 +1328,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cap",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1301,11 +1340,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/cap.png",
-  "imageUrl": "/images/child-mode/cvc/cap.png",
-  "targetImage": "/images/child-mode/cvc/cap.png",
-  "targetImagePath": "/images/child-mode/cvc/cap.png",
-  "imageAlt": "cap"
+  "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "resolvedImageAssetKey": "cap",
+  "imageAlt": "Which letter makes the first sound in cap?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.c.v3",
@@ -1361,9 +1401,9 @@ export const questions = [
   "answer": "corn",
   "correctAnswer": "corn",
   "distractorRationales": {
+   "moon": "D-VISUAL-NEIGHBOR",
    "goat": "D-ONSET",
-   "sock": "D-POSITION",
-   "moon": "D-VISUAL-NEIGHBOR"
+   "sock": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -1393,8 +1433,8 @@ export const questions = [
     "word": "corn",
     "value": "corn",
     "label": "corn",
-    "image": "/images/child-mode/initial-sounds/corn.png",
-    "imagePath": "/images/child-mode/initial-sounds/corn.png",
+    "image": "/images/assessment/rhyming/variants/or/corn-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
     "imageAlt": "corn"
    },
    {
@@ -1450,17 +1490,12 @@ export const questions = [
   "question": "Which letter makes the first sound in caterpillar?",
   "spokenPrompt": "caterpillar. Which letter makes the first sound in caterpillar?",
   "choices": [
-   "c",
    "g",
    "o",
-   "r"
+   "r",
+   "c"
   ],
   "answerOptions": [
-   {
-    "value": "c",
-    "label": "c",
-    "text": "c"
-   },
    {
     "value": "g",
     "label": "g",
@@ -1475,6 +1510,11 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
    }
   ],
   "answer": "c",
@@ -1484,16 +1524,17 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "caterpillar",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "caterpillar",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1504,7 +1545,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
+  "resolvedImageAssetKey": "caterpillar",
+  "imageAlt": "Which letter makes the first sound in caterpillar?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.c.v2",
@@ -1530,22 +1577,12 @@ export const questions = [
   "question": "Which letter makes the first sound in camera?",
   "spokenPrompt": "camera. Which letter makes the first sound in camera?",
   "choices": [
-   "c",
-   "g",
    "e",
-   "a"
+   "a",
+   "c",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "c",
-    "label": "c",
-    "text": "c"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "e",
     "label": "e",
@@ -1555,25 +1592,36 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "c",
   "correctAnswer": "c",
   "distractorRationales": {
-   "g": "D-ONSET",
    "e": "D-VISUAL-NEIGHBOR",
-   "a": "D-POSITION"
+   "a": "D-POSITION",
+   "g": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "camera",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "camera",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1584,7 +1632,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/camera.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/camera.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/camera.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/camera.webp",
+  "resolvedImageAssetKey": "camera",
+  "imageAlt": "Which letter makes the first sound in camera?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.c.v3",
@@ -1610,12 +1664,17 @@ export const questions = [
   "question": "Which one starts like cap?",
   "spokenPrompt": "cap. Which one starts with the same sound as cap?",
   "choices": [
+   "phone",
    "cone",
    "gate",
-   "goat",
-   "phone"
+   "goat"
   ],
   "answerOptions": [
+   {
+    "value": "phone",
+    "label": "phone",
+    "text": "phone"
+   },
    {
     "value": "cone",
     "label": "cone",
@@ -1630,11 +1689,6 @@ export const questions = [
     "value": "goat",
     "label": "goat",
     "text": "goat"
-   },
-   {
-    "value": "phone",
-    "label": "phone",
-    "text": "phone"
    }
   ],
   "answer": "cone",
@@ -1668,6 +1722,15 @@ export const questions = [
   "notes": "voicing pressure from gate/goat; phone rhymes with the key and ties its one-overlap for scanners",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.c.v3_card_phone",
+    "word": "phone",
+    "value": "phone",
+    "label": "phone",
+    "image": "/images/assessment/digraphs/phone.webp",
+    "imagePath": "/images/assessment/digraphs/phone.webp",
+    "imageAlt": "phone"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.c.v3_card_cone",
     "word": "cone",
     "value": "cone",
@@ -1693,15 +1756,6 @@ export const questions = [
     "image": "/images/assessment/long-vowels/goat.webp",
     "imagePath": "/images/assessment/long-vowels/goat.webp",
     "imageAlt": "goat"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.c.v3_card_phone",
-    "word": "phone",
-    "value": "phone",
-    "label": "phone",
-    "image": "/images/assessment/digraphs/phone.webp",
-    "imagePath": "/images/assessment/digraphs/phone.webp",
-    "imageAlt": "phone"
    }
   ]
  },
@@ -1729,17 +1783,12 @@ export const questions = [
   "question": "Which letter makes the first sound in dog?",
   "spokenPrompt": "dog. Which letter makes the first sound in dog?",
   "choices": [
-   "d",
    "t",
    "b",
-   "g"
+   "g",
+   "d"
   ],
   "answerOptions": [
-   {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
    {
     "value": "t",
     "label": "t",
@@ -1754,6 +1803,11 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
    }
   ],
   "answer": "d",
@@ -1763,7 +1817,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1773,6 +1827,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1784,11 +1839,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/dog.png",
-  "imageUrl": "/images/child-mode/cvc/dog.png",
-  "targetImage": "/images/child-mode/cvc/dog.png",
-  "targetImagePath": "/images/child-mode/cvc/dog.png",
-  "imageAlt": "dog"
+  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "resolvedImageAssetKey": "dog",
+  "imageAlt": "Which letter makes the first sound in dog?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.d.v2",
@@ -1844,11 +1900,11 @@ export const questions = [
   "answer": "d",
   "correctAnswer": "d",
   "distractorRationales": {
-   "t": "D-ONSET",
    "b": "D-VISUAL-NEIGHBOR",
-   "k": "D-POSITION"
+   "k": "D-POSITION",
+   "t": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1858,6 +1914,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "duck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1873,7 +1930,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/duck.webp",
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "imageAlt": "duck"
+  "resolvedImageAssetKey": "duck",
+  "imageAlt": "Which letter makes the first sound in duck?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.d.v3",
@@ -1899,12 +1957,17 @@ export const questions = [
   "question": "Which one starts like dog?",
   "spokenPrompt": "dog. Which one starts with the same sound as dog?",
   "choices": [
+   "bone",
    "duck",
    "tent",
-   "bread",
-   "bone"
+   "bread"
   ],
   "answerOptions": [
+   {
+    "value": "bone",
+    "label": "bone",
+    "text": "bone"
+   },
    {
     "value": "duck",
     "label": "duck",
@@ -1919,11 +1982,6 @@ export const questions = [
     "value": "bread",
     "label": "bread",
     "text": "bread"
-   },
-   {
-    "value": "bone",
-    "label": "bone",
-    "text": "bone"
    }
   ],
   "answer": "duck",
@@ -1957,6 +2015,15 @@ export const questions = [
   "notes": "bread ends /d/; the bone belongs to the dog but starts /b/",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.d.v3_card_bone",
+    "word": "bone",
+    "value": "bone",
+    "label": "bone",
+    "image": "/images/assessment/long-vowels/bone.webp",
+    "imagePath": "/images/assessment/long-vowels/bone.webp",
+    "imageAlt": "bone"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.d.v3_card_duck",
     "word": "duck",
     "value": "duck",
@@ -1982,15 +2049,6 @@ export const questions = [
     "image": "/images/assessment/blends/bread.webp",
     "imagePath": "/images/assessment/blends/bread.webp",
     "imageAlt": "bread"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.d.v3_card_bone",
-    "word": "bone",
-    "value": "bone",
-    "label": "bone",
-    "image": "/images/assessment/long-vowels/bone.webp",
-    "imagePath": "/images/assessment/long-vowels/bone.webp",
-    "imageAlt": "bone"
    }
   ]
  },
@@ -2048,20 +2106,21 @@ export const questions = [
   "answer": "d",
   "correctAnswer": "d",
   "distractorRationales": {
+   "r": "D-POSITION",
    "t": "D-ONSET",
-   "b": "D-VISUAL-NEIGHBOR",
-   "r": "D-POSITION"
+   "b": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "dinosaur",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dinosaur",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2072,7 +2131,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "resolvedImageAssetKey": "dinosaur",
+  "imageAlt": "Which letter makes the first sound in dinosaur?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.d.v2",
@@ -2098,17 +2163,12 @@ export const questions = [
   "question": "Which letter makes the first sound in dolphin?",
   "spokenPrompt": "dolphin. Which letter makes the first sound in dolphin?",
   "choices": [
-   "d",
    "t",
    "b",
-   "n"
+   "n",
+   "d"
   ],
   "answerOptions": [
-   {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
    {
     "value": "t",
     "label": "t",
@@ -2123,6 +2183,11 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
    }
   ],
   "answer": "d",
@@ -2132,7 +2197,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2142,6 +2207,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dolphin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2157,7 +2223,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/dolphin.webp",
   "targetImage": "/images/assessment/digraphs/dolphin.webp",
   "targetImagePath": "/images/assessment/digraphs/dolphin.webp",
-  "imageAlt": "dolphin"
+  "resolvedImageAssetKey": "dolphin",
+  "imageAlt": "Which letter makes the first sound in dolphin?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.d.v3",
@@ -2183,22 +2250,12 @@ export const questions = [
   "question": "Which one starts like drum?",
   "spokenPrompt": "drum. Which one starts with the same sound as drum?",
   "choices": [
-   "dish",
-   "tent",
    "tie",
-   "toe"
+   "toe",
+   "dish",
+   "tent"
   ],
   "answerOptions": [
-   {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
-   },
-   {
-    "value": "tent",
-    "label": "tent",
-    "text": "tent"
-   },
    {
     "value": "tie",
     "label": "tie",
@@ -2208,14 +2265,24 @@ export const questions = [
     "value": "toe",
     "label": "toe",
     "text": "toe"
+   },
+   {
+    "value": "dish",
+    "label": "dish",
+    "text": "dish"
+   },
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
    }
   ],
   "answer": "dish",
   "correctAnswer": "dish",
   "distractorRationales": {
+   "toe": "D-ONSET",
    "tent": "D-ONSET",
-   "tie": "D-ONSET",
-   "toe": "D-ONSET"
+   "tie": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2241,24 +2308,6 @@ export const questions = [
   "notes": "voicing panel: /d/ key against three /t/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.d.v3_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.d.v3_card_tent",
-    "word": "tent",
-    "value": "tent",
-    "label": "tent",
-    "image": "/images/assessment/blends/tent.webp",
-    "imagePath": "/images/assessment/blends/tent.webp",
-    "imageAlt": "tent"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.d.v3_card_tie",
     "word": "tie",
     "value": "tie",
@@ -2275,6 +2324,24 @@ export const questions = [
     "image": "/images/assessment/long-vowels/toe.webp",
     "imagePath": "/images/assessment/long-vowels/toe.webp",
     "imageAlt": "toe"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.d.v3_card_dish",
+    "word": "dish",
+    "value": "dish",
+    "label": "dish",
+    "image": "/images/assessment/digraphs/dish.webp",
+    "imagePath": "/images/assessment/digraphs/dish.webp",
+    "imageAlt": "dish"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.d.v3_card_tent",
+    "word": "tent",
+    "value": "tent",
+    "label": "tent",
+    "image": "/images/assessment/blends/tent.webp",
+    "imagePath": "/images/assessment/blends/tent.webp",
+    "imageAlt": "tent"
    }
   ]
  },
@@ -2336,7 +2403,7 @@ export const questions = [
    "c": "D-VOWEL",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2346,6 +2413,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "egg",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2357,11 +2425,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/egg.png",
-  "imageUrl": "/images/child-mode/initial-sounds/egg.png",
-  "targetImage": "/images/child-mode/initial-sounds/egg.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/egg.png",
-  "imageAlt": "egg"
+  "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+  "resolvedImageAssetKey": "egg",
+  "imageAlt": "Which letter makes the first sound in egg?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.e.v2",
@@ -2387,12 +2456,17 @@ export const questions = [
   "question": "Which letter makes the first sound in envelope?",
   "spokenPrompt": "envelope. Which letter makes the first sound in envelope?",
   "choices": [
+   "p",
    "e",
    "i",
-   "c",
-   "p"
+   "c"
   ],
   "answerOptions": [
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
+   },
    {
     "value": "e",
     "label": "e",
@@ -2407,21 +2481,16 @@ export const questions = [
     "value": "c",
     "label": "c",
     "text": "c"
-   },
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "p": "D-POSITION",
    "i": "D-VOWEL",
-   "c": "D-VOWEL",
-   "p": "D-POSITION"
+   "c": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2431,6 +2500,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "envelope",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2446,7 +2516,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/envelope.png",
   "targetImage": "/images/child-mode/initial-sounds/envelope.png",
   "targetImagePath": "/images/child-mode/initial-sounds/envelope.png",
-  "imageAlt": "envelope"
+  "resolvedImageAssetKey": "envelope",
+  "imageAlt": "Which letter makes the first sound in envelope?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.e.v3",
@@ -2472,22 +2543,12 @@ export const questions = [
   "question": "Which one starts like egg?",
   "spokenPrompt": "egg. Which one starts with the same sound as egg?",
   "choices": [
-   "envelope",
-   "apple",
    "ink",
-   "octopus"
+   "octopus",
+   "envelope",
+   "apple"
   ],
   "answerOptions": [
-   {
-    "value": "envelope",
-    "label": "envelope",
-    "text": "envelope"
-   },
-   {
-    "value": "apple",
-    "label": "apple",
-    "text": "apple"
-   },
    {
     "value": "ink",
     "label": "ink",
@@ -2497,6 +2558,16 @@ export const questions = [
     "value": "octopus",
     "label": "octopus",
     "text": "octopus"
+   },
+   {
+    "value": "envelope",
+    "label": "envelope",
+    "text": "envelope"
+   },
+   {
+    "value": "apple",
+    "label": "apple",
+    "text": "apple"
    }
   ],
   "answer": "envelope",
@@ -2530,24 +2601,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.e.v3_card_envelope",
-    "word": "envelope",
-    "value": "envelope",
-    "label": "envelope",
-    "image": "/images/child-mode/initial-sounds/envelope.png",
-    "imagePath": "/images/child-mode/initial-sounds/envelope.png",
-    "imageAlt": "envelope"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.e.v3_card_apple",
-    "word": "apple",
-    "value": "apple",
-    "label": "apple",
-    "image": "/images/child-mode/initial-sounds/apple.png",
-    "imagePath": "/images/child-mode/initial-sounds/apple.png",
-    "imageAlt": "apple"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.e.v3_card_ink",
     "word": "ink",
     "value": "ink",
@@ -2564,6 +2617,24 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/octopus.png",
     "imagePath": "/images/child-mode/initial-sounds/octopus.png",
     "imageAlt": "octopus"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.e.v3_card_envelope",
+    "word": "envelope",
+    "value": "envelope",
+    "label": "envelope",
+    "image": "/images/child-mode/initial-sounds/envelope.png",
+    "imagePath": "/images/child-mode/initial-sounds/envelope.png",
+    "imageAlt": "envelope"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.e.v3_card_apple",
+    "word": "apple",
+    "value": "apple",
+    "label": "apple",
+    "image": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imageAlt": "apple"
    }
   ]
  },
@@ -2591,12 +2662,17 @@ export const questions = [
   "question": "Which letter makes the first sound in elephant?",
   "spokenPrompt": "elephant. Which letter makes the first sound in elephant?",
   "choices": [
+   "t",
    "e",
    "i",
-   "c",
-   "t"
+   "c"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "e",
     "label": "e",
@@ -2611,21 +2687,16 @@ export const questions = [
     "value": "c",
     "label": "c",
     "text": "c"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
-   "i": "D-VOWEL",
    "c": "D-VOWEL",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "i": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2635,6 +2706,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "elephant",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2650,7 +2722,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/elephant.webp",
   "targetImage": "/images/assessment/digraphs/elephant.webp",
   "targetImagePath": "/images/assessment/digraphs/elephant.webp",
-  "imageAlt": "elephant"
+  "resolvedImageAssetKey": "elephant",
+  "imageAlt": "Which letter makes the first sound in elephant?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.e.v2",
@@ -2710,16 +2783,17 @@ export const questions = [
    "c": "D-VOWEL",
    "w": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "elbow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "elbow",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2730,7 +2804,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
+  "resolvedImageAssetKey": "elbow",
+  "imageAlt": "Which letter makes the first sound in elbow?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.e.v3",
@@ -2756,17 +2836,12 @@ export const questions = [
   "question": "Which one starts like envelope?",
   "spokenPrompt": "envelope. Which one starts with the same sound as envelope?",
   "choices": [
-   "elephant",
    "ant",
    "igloo",
-   "uncle"
+   "uncle",
+   "elephant"
   ],
   "answerOptions": [
-   {
-    "value": "elephant",
-    "label": "elephant",
-    "text": "elephant"
-   },
    {
     "value": "ant",
     "label": "ant",
@@ -2781,14 +2856,19 @@ export const questions = [
     "value": "uncle",
     "label": "uncle",
     "text": "uncle"
+   },
+   {
+    "value": "elephant",
+    "label": "elephant",
+    "text": "elephant"
    }
   ],
   "answer": "elephant",
   "correctAnswer": "elephant",
   "distractorRationales": {
-   "ant": "D-VOWEL",
    "igloo": "D-VOWEL",
-   "uncle": "D-VOWEL"
+   "uncle": "D-VOWEL",
+   "ant": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2813,15 +2893,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l2.C.e.v3_card_elephant",
-    "word": "elephant",
-    "value": "elephant",
-    "label": "elephant",
-    "image": "/images/assessment/digraphs/elephant.webp",
-    "imagePath": "/images/assessment/digraphs/elephant.webp",
-    "imageAlt": "elephant"
-   },
    {
     "id": "lp3.initial_sounds.l2.C.e.v3_card_ant",
     "word": "ant",
@@ -2848,6 +2919,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/uncle.png",
     "imagePath": "/images/child-mode/initial-sounds/uncle.png",
     "imageAlt": "uncle"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.e.v3_card_elephant",
+    "word": "elephant",
+    "value": "elephant",
+    "label": "elephant",
+    "image": "/images/assessment/digraphs/elephant.webp",
+    "imagePath": "/images/assessment/digraphs/elephant.webp",
+    "imageAlt": "elephant"
    }
   ]
  },
@@ -2875,12 +2955,17 @@ export const questions = [
   "question": "Which letter makes the first sound in fan?",
   "spokenPrompt": "fan. Which letter makes the first sound in fan?",
   "choices": [
+   "n",
    "f",
    "v",
-   "t",
-   "n"
+   "t"
   ],
   "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
    {
     "value": "f",
     "label": "f",
@@ -2895,21 +2980,16 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
-   },
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
    }
   ],
   "answer": "f",
   "correctAnswer": "f",
   "distractorRationales": {
-   "v": "D-ONSET",
    "t": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "n": "D-POSITION",
+   "v": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2919,6 +2999,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fan",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2930,11 +3011,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fan.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fan.png",
-  "targetImage": "/images/child-mode/initial-sounds/fan.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fan.png",
-  "imageAlt": "fan"
+  "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/an/fan-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/an/fan-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+  "resolvedImageAssetKey": "fan",
+  "imageAlt": "Which letter makes the first sound in fan?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.f.v2",
@@ -2960,22 +3042,12 @@ export const questions = [
   "question": "Which letter makes the first sound in fox?",
   "spokenPrompt": "fox. Which letter makes the first sound in fox?",
   "choices": [
-   "f",
-   "v",
    "t",
-   "x"
+   "x",
+   "f",
+   "v"
   ],
   "answerOptions": [
-   {
-    "value": "f",
-    "label": "f",
-    "text": "f"
-   },
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
    {
     "value": "t",
     "label": "t",
@@ -2985,6 +3057,16 @@ export const questions = [
     "value": "x",
     "label": "x",
     "text": "x"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
    }
   ],
   "answer": "f",
@@ -2994,7 +3076,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "x": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3004,6 +3086,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fox",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3019,7 +3102,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/fox.png",
   "targetImage": "/images/child-mode/initial-sounds/fox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageAlt": "fox"
+  "resolvedImageAssetKey": "fox",
+  "imageAlt": "Which letter makes the first sound in fox?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.f.v3",
@@ -3045,17 +3129,12 @@ export const questions = [
   "question": "Which one starts like fish?",
   "spokenPrompt": "fish. Which one starts with the same sound as fish?",
   "choices": [
-   "fan",
    "van",
    "leaf",
-   "boat"
+   "boat",
+   "fan"
   ],
   "answerOptions": [
-   {
-    "value": "fan",
-    "label": "fan",
-    "text": "fan"
-   },
    {
     "value": "van",
     "label": "van",
@@ -3070,14 +3149,19 @@ export const questions = [
     "value": "boat",
     "label": "boat",
     "text": "boat"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
    }
   ],
   "answer": "fan",
   "correctAnswer": "fan",
   "distractorRationales": {
-   "van": "D-ONSET",
    "leaf": "D-POSITION",
-   "boat": "D-SEMANTIC"
+   "boat": "D-SEMANTIC",
+   "van": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3103,21 +3187,12 @@ export const questions = [
   "notes": "leaf ends /f/; van is the f/v voicing trap",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.f.v3_card_fan",
-    "word": "fan",
-    "value": "fan",
-    "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
-    "imageAlt": "fan"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.f.v3_card_van",
     "word": "van",
     "value": "van",
     "label": "van",
-    "image": "/images/child-mode/initial-sounds/van.png",
-    "imagePath": "/images/child-mode/initial-sounds/van.png",
+    "image": "/images/assessment/rhyming/variants/an/van-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
     "imageAlt": "van"
    },
    {
@@ -3137,6 +3212,15 @@ export const questions = [
     "image": "/images/assessment/long-vowels/boat.webp",
     "imagePath": "/images/assessment/long-vowels/boat.webp",
     "imageAlt": "boat"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.f.v3_card_fan",
+    "word": "fan",
+    "value": "fan",
+    "label": "fan",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imageAlt": "fan"
    }
   ]
  },
@@ -3164,22 +3248,12 @@ export const questions = [
   "question": "Which letter makes the first sound in feather?",
   "spokenPrompt": "feather. Which letter makes the first sound in feather?",
   "choices": [
-   "f",
-   "v",
    "t",
-   "r"
+   "r",
+   "f",
+   "v"
   ],
   "answerOptions": [
-   {
-    "value": "f",
-    "label": "f",
-    "text": "f"
-   },
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
    {
     "value": "t",
     "label": "t",
@@ -3189,6 +3263,16 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
    }
   ],
   "answer": "f",
@@ -3198,16 +3282,17 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "feather",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "feather",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3218,7 +3303,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
+  "resolvedImageAssetKey": "feather",
+  "imageAlt": "Which letter makes the first sound in feather?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.f.v2",
@@ -3244,12 +3335,17 @@ export const questions = [
   "question": "Which letter makes the first sound in flamingo?",
   "spokenPrompt": "flamingo. Which letter makes the first sound in flamingo?",
   "choices": [
+   "o",
    "f",
    "v",
-   "t",
-   "o"
+   "t"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "f",
     "label": "f",
@@ -3264,30 +3360,26 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "f",
   "correctAnswer": "f",
   "distractorRationales": {
+   "o": "D-POSITION",
    "v": "D-ONSET",
-   "t": "D-VISUAL-NEIGHBOR",
-   "o": "D-POSITION"
+   "t": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "flamingo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flamingo",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3298,7 +3390,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
+  "resolvedImageAssetKey": "flamingo",
+  "imageAlt": "Which letter makes the first sound in flamingo?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.f.v3",
@@ -3395,8 +3493,8 @@ export const questions = [
     "word": "van",
     "value": "van",
     "label": "van",
-    "image": "/images/child-mode/initial-sounds/van.png",
-    "imagePath": "/images/child-mode/initial-sounds/van.png",
+    "image": "/images/assessment/rhyming/variants/an/van-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
     "imageAlt": "van"
    },
    {
@@ -3443,22 +3541,12 @@ export const questions = [
   "question": "Which letter makes the first sound in goat?",
   "spokenPrompt": "goat. Which letter makes the first sound in goat?",
   "choices": [
-   "g",
-   "k",
    "q",
-   "t"
+   "t",
+   "g",
+   "k"
   ],
   "answerOptions": [
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
-   },
    {
     "value": "q",
     "label": "q",
@@ -3468,16 +3556,26 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
    }
   ],
   "answer": "g",
   "correctAnswer": "g",
   "distractorRationales": {
+   "t": "D-POSITION",
    "k": "D-ONSET",
-   "q": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "q": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3487,6 +3585,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "goat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3502,7 +3601,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/goat.webp",
   "targetImage": "/images/assessment/long-vowels/goat.webp",
   "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageAlt": "goat"
+  "resolvedImageAssetKey": "goat",
+  "imageAlt": "Which letter makes the first sound in goat?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.g.v2",
@@ -3528,17 +3628,12 @@ export const questions = [
   "question": "Which letter makes the first sound in gate?",
   "spokenPrompt": "gate. Which letter makes the first sound in gate?",
   "choices": [
-   "g",
    "c",
    "q",
-   "t"
+   "t",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "c",
     "label": "c",
@@ -3553,6 +3648,11 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "g",
@@ -3562,7 +3662,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3572,6 +3672,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3587,7 +3688,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/gate.webp",
   "targetImage": "/images/assessment/long-vowels/gate.webp",
   "targetImagePath": "/images/assessment/long-vowels/gate.webp",
-  "imageAlt": "gate"
+  "resolvedImageAssetKey": "gate",
+  "imageAlt": "Which letter makes the first sound in gate?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.g.v3",
@@ -3643,9 +3745,9 @@ export const questions = [
   "answer": "gate",
   "correctAnswer": "gate",
   "distractorRationales": {
+   "farm": "D-SEMANTIC",
    "cake": "D-ONSET",
-   "pig": "D-POSITION",
-   "farm": "D-SEMANTIC"
+   "pig": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3693,8 +3795,8 @@ export const questions = [
     "word": "pig",
     "value": "pig",
     "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "imageAlt": "pig"
    },
    {
@@ -3732,17 +3834,12 @@ export const questions = [
   "question": "Which letter makes the first sound in guitar?",
   "spokenPrompt": "guitar. Which letter makes the first sound in guitar?",
   "choices": [
-   "g",
    "k",
    "j",
-   "r"
+   "r",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "k",
     "label": "k",
@@ -3757,6 +3854,11 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "g",
@@ -3766,16 +3868,17 @@ export const questions = [
    "j": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "guitar",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "guitar",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3786,7 +3889,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
+  "resolvedImageAssetKey": "guitar",
+  "imageAlt": "Which letter makes the first sound in guitar?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.g.v2",
@@ -3812,22 +3921,12 @@ export const questions = [
   "question": "Which letter makes the first sound in gorilla?",
   "spokenPrompt": "gorilla. Which letter makes the first sound in gorilla?",
   "choices": [
-   "g",
-   "c",
    "q",
-   "a"
+   "a",
+   "g",
+   "c"
   ],
   "answerOptions": [
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
-   {
-    "value": "c",
-    "label": "c",
-    "text": "c"
-   },
    {
     "value": "q",
     "label": "q",
@@ -3837,25 +3936,36 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
+   {
+    "value": "c",
+    "label": "c",
+    "text": "c"
    }
   ],
   "answer": "g",
   "correctAnswer": "g",
   "distractorRationales": {
-   "c": "D-ONSET",
    "q": "D-VISUAL-NEIGHBOR",
-   "a": "D-POSITION"
+   "a": "D-POSITION",
+   "c": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "gorilla",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gorilla",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3866,7 +3976,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
+  "resolvedImageAssetKey": "gorilla",
+  "imageAlt": "Which letter makes the first sound in gorilla?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.g.v3",
@@ -3892,12 +4008,17 @@ export const questions = [
   "question": "Which one starts like gate?",
   "spokenPrompt": "gate. Which one starts with the same sound as gate?",
   "choices": [
+   "corn",
    "gum",
    "cake",
-   "key",
-   "corn"
+   "key"
   ],
   "answerOptions": [
+   {
+    "value": "corn",
+    "label": "corn",
+    "text": "corn"
+   },
    {
     "value": "gum",
     "label": "gum",
@@ -3912,11 +4033,6 @@ export const questions = [
     "value": "key",
     "label": "key",
     "text": "key"
-   },
-   {
-    "value": "corn",
-    "label": "corn",
-    "text": "corn"
    }
   ],
   "answer": "gum",
@@ -3950,6 +4066,15 @@ export const questions = [
   "notes": "voicing panel: /g/ key against three /k/ starters",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.g.v3_card_corn",
+    "word": "corn",
+    "value": "corn",
+    "label": "corn",
+    "image": "/images/assessment/rhyming/variants/or/corn-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+    "imageAlt": "corn"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.g.v3_card_gum",
     "word": "gum",
     "value": "gum",
@@ -3972,18 +4097,9 @@ export const questions = [
     "word": "key",
     "value": "key",
     "label": "key",
-    "image": "/images/child-mode/initial-sounds/key.png",
-    "imagePath": "/images/child-mode/initial-sounds/key.png",
+    "image": "/images/assessment/language/variants/plurals/key-keys-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/key-keys-01.webp",
     "imageAlt": "key"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.g.v3_card_corn",
-    "word": "corn",
-    "value": "corn",
-    "label": "corn",
-    "image": "/images/child-mode/initial-sounds/corn.png",
-    "imagePath": "/images/child-mode/initial-sounds/corn.png",
-    "imageAlt": "corn"
    }
   ]
  },
@@ -4011,17 +4127,12 @@ export const questions = [
   "question": "Which letter makes the first sound in hat?",
   "spokenPrompt": "hat. Which letter makes the first sound in hat?",
   "choices": [
-   "h",
    "f",
    "n",
-   "t"
+   "t",
+   "h"
   ],
   "answerOptions": [
-   {
-    "value": "h",
-    "label": "h",
-    "text": "h"
-   },
    {
     "value": "f",
     "label": "f",
@@ -4036,6 +4147,11 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
    }
   ],
   "answer": "h",
@@ -4045,7 +4161,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4055,6 +4171,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4066,11 +4183,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/hat.png",
-  "imageUrl": "/images/child-mode/cvc/hat.png",
-  "targetImage": "/images/child-mode/cvc/hat.png",
-  "targetImagePath": "/images/child-mode/cvc/hat.png",
-  "imageAlt": "hat"
+  "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "resolvedImageAssetKey": "hat",
+  "imageAlt": "Which letter makes the first sound in hat?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.h.v2",
@@ -4126,11 +4244,11 @@ export const questions = [
   "answer": "h",
   "correctAnswer": "h",
   "distractorRationales": {
-   "f": "D-ONSET",
    "b": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "n": "D-POSITION",
+   "f": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4140,6 +4258,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hen",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4151,11 +4270,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/hen.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hen.png",
-  "targetImage": "/images/child-mode/initial-sounds/hen.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hen.png",
-  "imageAlt": "hen"
+  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "resolvedImageAssetKey": "hen",
+  "imageAlt": "Which letter makes the first sound in hen?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.h.v3",
@@ -4181,12 +4301,17 @@ export const questions = [
   "question": "Which one starts like hat?",
   "spokenPrompt": "hat. Which one starts with the same sound as hat?",
   "choices": [
+   "rat",
    "hen",
    "fan",
-   "cap",
-   "rat"
+   "cap"
   ],
   "answerOptions": [
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   },
    {
     "value": "hen",
     "label": "hen",
@@ -4201,11 +4326,6 @@ export const questions = [
     "value": "cap",
     "label": "cap",
     "text": "cap"
-   },
-   {
-    "value": "rat",
-    "label": "rat",
-    "text": "rat"
    }
   ],
   "answer": "hen",
@@ -4239,12 +4359,21 @@ export const questions = [
   "notes": "cap is the other thing you wear; rat rhymes with the anchor",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.h.v3_card_rat",
+    "word": "rat",
+    "value": "rat",
+    "label": "rat",
+    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imageAlt": "rat"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.h.v3_card_hen",
     "word": "hen",
     "value": "hen",
     "label": "hen",
-    "image": "/images/child-mode/initial-sounds/hen.png",
-    "imagePath": "/images/child-mode/initial-sounds/hen.png",
+    "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
     "imageAlt": "hen"
    },
    {
@@ -4252,8 +4381,8 @@ export const questions = [
     "word": "fan",
     "value": "fan",
     "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
     "imageAlt": "fan"
    },
    {
@@ -4261,18 +4390,9 @@ export const questions = [
     "word": "cap",
     "value": "cap",
     "label": "cap",
-    "image": "/images/child-mode/cvc/cap.png",
-    "imagePath": "/images/child-mode/cvc/cap.png",
+    "image": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
     "imageAlt": "cap"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.h.v3_card_rat",
-    "word": "rat",
-    "value": "rat",
-    "label": "rat",
-    "image": "/images/child-mode/initial-sounds/rat.png",
-    "imagePath": "/images/child-mode/initial-sounds/rat.png",
-    "imageAlt": "rat"
    }
   ]
  },
@@ -4330,20 +4450,21 @@ export const questions = [
   "answer": "h",
   "correctAnswer": "h",
   "distractorRationales": {
+   "r": "D-POSITION",
    "f": "D-ONSET",
-   "n": "D-VISUAL-NEIGHBOR",
-   "r": "D-POSITION"
+   "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "helicopter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "helicopter",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4354,7 +4475,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
+  "resolvedImageAssetKey": "helicopter",
+  "imageAlt": "Which letter makes the first sound in helicopter?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.h.v2",
@@ -4380,17 +4507,12 @@ export const questions = [
   "question": "Which letter makes the first sound in hedgehog?",
   "spokenPrompt": "hedgehog. Which letter makes the first sound in hedgehog?",
   "choices": [
-   "h",
    "f",
    "b",
-   "g"
+   "g",
+   "h"
   ],
   "answerOptions": [
-   {
-    "value": "h",
-    "label": "h",
-    "text": "h"
-   },
    {
     "value": "f",
     "label": "f",
@@ -4405,6 +4527,11 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
    }
   ],
   "answer": "h",
@@ -4414,16 +4541,17 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "hedgehog",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hedgehog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4434,7 +4562,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "resolvedImageAssetKey": "hedgehog",
+  "imageAlt": "Which letter makes the first sound in hedgehog?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.h.v3",
@@ -4460,22 +4594,12 @@ export const questions = [
   "question": "Which one starts like hen?",
   "spokenPrompt": "hen. Which one starts with the same sound as hen?",
   "choices": [
-   "ham",
-   "fan",
    "fish",
-   "fin"
+   "fin",
+   "ham",
+   "fan"
   ],
   "answerOptions": [
-   {
-    "value": "ham",
-    "label": "ham",
-    "text": "ham"
-   },
-   {
-    "value": "fan",
-    "label": "fan",
-    "text": "fan"
-   },
    {
     "value": "fish",
     "label": "fish",
@@ -4485,14 +4609,24 @@ export const questions = [
     "value": "fin",
     "label": "fin",
     "text": "fin"
+   },
+   {
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
    }
   ],
   "answer": "ham",
   "correctAnswer": "ham",
   "distractorRationales": {
+   "fin": "D-ONSET",
    "fan": "D-ONSET",
-   "fish": "D-ONSET",
-   "fin": "D-ONSET"
+   "fish": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4518,24 +4652,6 @@ export const questions = [
   "notes": "breathy panel: /h/ key against three /f/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.h.v3_card_ham",
-    "word": "ham",
-    "value": "ham",
-    "label": "ham",
-    "image": "/images/child-mode/initial-sounds/ham.png",
-    "imagePath": "/images/child-mode/initial-sounds/ham.png",
-    "imageAlt": "ham"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.h.v3_card_fan",
-    "word": "fan",
-    "value": "fan",
-    "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
-    "imageAlt": "fan"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.h.v3_card_fish",
     "word": "fish",
     "value": "fish",
@@ -4549,9 +4665,27 @@ export const questions = [
     "word": "fin",
     "value": "fin",
     "label": "fin",
-    "image": "/images/child-mode/initial-sounds/fin.png",
-    "imagePath": "/images/child-mode/initial-sounds/fin.png",
+    "image": "/images/assessment/rhyming/variants/in/fin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
     "imageAlt": "fin"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.h.v3_card_ham",
+    "word": "ham",
+    "value": "ham",
+    "label": "ham",
+    "image": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imageAlt": "ham"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.h.v3_card_fan",
+    "word": "fan",
+    "value": "fan",
+    "label": "fan",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imageAlt": "fan"
    }
   ]
  },
@@ -4613,7 +4747,7 @@ export const questions = [
    "l": "D-VOWEL",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4623,6 +4757,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "igloo",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4638,7 +4773,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/igloo.png",
   "targetImage": "/images/child-mode/initial-sounds/igloo.png",
   "targetImagePath": "/images/child-mode/initial-sounds/igloo.png",
-  "imageAlt": "igloo"
+  "resolvedImageAssetKey": "igloo",
+  "imageAlt": "Which letter makes the first sound in igloo?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.i.v2",
@@ -4664,12 +4800,17 @@ export const questions = [
   "question": "Which letter makes the first sound in ink?",
   "spokenPrompt": "ink. Which letter makes the first sound in ink?",
   "choices": [
+   "k",
    "i",
    "e",
-   "l",
-   "k"
+   "l"
   ],
   "answerOptions": [
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
    {
     "value": "i",
     "label": "i",
@@ -4684,21 +4825,16 @@ export const questions = [
     "value": "l",
     "label": "l",
     "text": "l"
-   },
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
+   "k": "D-POSITION",
    "e": "D-VOWEL",
-   "l": "D-VOWEL",
-   "k": "D-POSITION"
+   "l": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4708,6 +4844,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ink",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4723,7 +4860,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/ink.png",
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
-  "imageAlt": "ink"
+  "resolvedImageAssetKey": "ink",
+  "imageAlt": "Which letter makes the first sound in ink?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.i.v3",
@@ -4749,22 +4887,12 @@ export const questions = [
   "question": "Which one starts like ink?",
   "spokenPrompt": "ink. Which one starts with the same sound as ink?",
   "choices": [
-   "igloo",
-   "egg",
    "apple",
-   "umbrella"
+   "umbrella",
+   "igloo",
+   "egg"
   ],
   "answerOptions": [
-   {
-    "value": "igloo",
-    "label": "igloo",
-    "text": "igloo"
-   },
-   {
-    "value": "egg",
-    "label": "egg",
-    "text": "egg"
-   },
    {
     "value": "apple",
     "label": "apple",
@@ -4774,6 +4902,16 @@ export const questions = [
     "value": "umbrella",
     "label": "umbrella",
     "text": "umbrella"
+   },
+   {
+    "value": "igloo",
+    "label": "igloo",
+    "text": "igloo"
+   },
+   {
+    "value": "egg",
+    "label": "egg",
+    "text": "egg"
    }
   ],
   "answer": "igloo",
@@ -4807,6 +4945,24 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.i.v3_card_apple",
+    "word": "apple",
+    "value": "apple",
+    "label": "apple",
+    "image": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imageAlt": "apple"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.i.v3_card_umbrella",
+    "word": "umbrella",
+    "value": "umbrella",
+    "label": "umbrella",
+    "image": "/images/child-mode/initial-sounds/umbrella.png",
+    "imagePath": "/images/child-mode/initial-sounds/umbrella.png",
+    "imageAlt": "umbrella"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.i.v3_card_igloo",
     "word": "igloo",
     "value": "igloo",
@@ -4820,27 +4976,9 @@ export const questions = [
     "word": "egg",
     "value": "egg",
     "label": "egg",
-    "image": "/images/child-mode/initial-sounds/egg.png",
-    "imagePath": "/images/child-mode/initial-sounds/egg.png",
+    "image": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
     "imageAlt": "egg"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_apple",
-    "word": "apple",
-    "value": "apple",
-    "label": "apple",
-    "image": "/images/child-mode/initial-sounds/apple.png",
-    "imagePath": "/images/child-mode/initial-sounds/apple.png",
-    "imageAlt": "apple"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.i.v3_card_umbrella",
-    "word": "umbrella",
-    "value": "umbrella",
-    "label": "umbrella",
-    "image": "/images/child-mode/initial-sounds/umbrella.png",
-    "imagePath": "/images/child-mode/initial-sounds/umbrella.png",
-    "imageAlt": "umbrella"
    }
   ]
  },
@@ -4868,12 +5006,17 @@ export const questions = [
   "question": "Which letter makes the first sound in insect?",
   "spokenPrompt": "insect. Which letter makes the first sound in insect?",
   "choices": [
+   "t",
    "i",
    "e",
-   "j",
-   "t"
+   "j"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "i",
     "label": "i",
@@ -4888,21 +5031,16 @@ export const questions = [
     "value": "j",
     "label": "j",
     "text": "j"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
-   "e": "D-VOWEL",
    "j": "D-VOWEL",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "e": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4912,6 +5050,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "insect",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4927,7 +5066,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/insect.png",
   "targetImage": "/images/child-mode/initial-sounds/insect.png",
   "targetImagePath": "/images/child-mode/initial-sounds/insect.png",
-  "imageAlt": "insect"
+  "resolvedImageAssetKey": "insect",
+  "imageAlt": "Which letter makes the first sound in insect?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.i.v2",
@@ -4987,16 +5127,17 @@ export const questions = [
    "l": "D-VOWEL",
    "t": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "instrument",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "initial_sounds-i-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5007,7 +5148,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/i.webp",
+  "imageUrl": "/images/assessment/hfw/i.webp",
+  "targetImage": "/images/assessment/hfw/i.webp",
+  "targetImagePath": "/images/assessment/hfw/i.webp",
+  "resolvedImageAssetKey": "i",
+  "imageAlt": "Which letter makes the first sound in instrument?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.i.v3",
@@ -5033,17 +5180,12 @@ export const questions = [
   "question": "Which one starts like igloo?",
   "spokenPrompt": "igloo. Which one starts with the same sound as igloo?",
   "choices": [
-   "insect",
    "elephant",
    "ox",
-   "ant"
+   "ant",
+   "insect"
   ],
   "answerOptions": [
-   {
-    "value": "insect",
-    "label": "insect",
-    "text": "insect"
-   },
    {
     "value": "elephant",
     "label": "elephant",
@@ -5058,14 +5200,19 @@ export const questions = [
     "value": "ant",
     "label": "ant",
     "text": "ant"
+   },
+   {
+    "value": "insect",
+    "label": "insect",
+    "text": "insect"
    }
   ],
   "answer": "insect",
   "correctAnswer": "insect",
   "distractorRationales": {
-   "elephant": "D-VOWEL",
    "ox": "D-VOWEL",
-   "ant": "D-VOWEL"
+   "ant": "D-VOWEL",
+   "elephant": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -5090,15 +5237,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l2.C.i.v3_card_insect",
-    "word": "insect",
-    "value": "insect",
-    "label": "insect",
-    "image": "/images/child-mode/initial-sounds/insect.png",
-    "imagePath": "/images/child-mode/initial-sounds/insect.png",
-    "imageAlt": "insect"
-   },
    {
     "id": "lp3.initial_sounds.l2.C.i.v3_card_elephant",
     "word": "elephant",
@@ -5125,6 +5263,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/ant.png",
     "imagePath": "/images/child-mode/initial-sounds/ant.png",
     "imageAlt": "ant"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.i.v3_card_insect",
+    "word": "insect",
+    "value": "insect",
+    "label": "insect",
+    "image": "/images/child-mode/initial-sounds/insect.png",
+    "imagePath": "/images/child-mode/initial-sounds/insect.png",
+    "imageAlt": "insect"
    }
   ]
  },
@@ -5152,12 +5299,17 @@ export const questions = [
   "question": "Which letter makes the first sound in jet?",
   "spokenPrompt": "jet. Which letter makes the first sound in jet?",
   "choices": [
+   "t",
    "j",
    "y",
-   "i",
-   "t"
+   "i"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "j",
     "label": "j",
@@ -5172,21 +5324,16 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "j",
   "correctAnswer": "j",
   "distractorRationales": {
-   "y": "D-DEVELOPMENTAL",
    "i": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "y": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5196,6 +5343,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jet",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5207,11 +5355,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/jet.png",
-  "imageUrl": "/images/child-mode/initial-sounds/jet.png",
-  "targetImage": "/images/child-mode/initial-sounds/jet.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/jet.png",
-  "imageAlt": "jet"
+  "imagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/jet-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/jet-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
+  "resolvedImageAssetKey": "jet",
+  "imageAlt": "Which letter makes the first sound in jet?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.j.v2",
@@ -5237,22 +5386,12 @@ export const questions = [
   "question": "Which letter makes the first sound in jam?",
   "spokenPrompt": "jam. Which letter makes the first sound in jam?",
   "choices": [
-   "j",
-   "y",
    "i",
-   "m"
+   "m",
+   "j",
+   "y"
   ],
   "answerOptions": [
-   {
-    "value": "j",
-    "label": "j",
-    "text": "j"
-   },
-   {
-    "value": "y",
-    "label": "y",
-    "text": "y"
-   },
    {
     "value": "i",
     "label": "i",
@@ -5262,6 +5401,16 @@ export const questions = [
     "value": "m",
     "label": "m",
     "text": "m"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   },
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
    }
   ],
   "answer": "j",
@@ -5271,7 +5420,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "m": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5281,6 +5430,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jam",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5292,11 +5442,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/jam.png",
-  "imageUrl": "/images/child-mode/initial-sounds/jam.png",
-  "targetImage": "/images/child-mode/initial-sounds/jam.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/jam.png",
-  "imageAlt": "jam"
+  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "Which letter makes the first sound in jam?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.j.v3",
@@ -5322,17 +5473,12 @@ export const questions = [
   "question": "Which one starts like jug?",
   "spokenPrompt": "jug. Which one starts with the same sound as jug?",
   "choices": [
-   "jet",
    "drum",
    "yarn",
-   "mug"
+   "mug",
+   "jet"
   ],
   "answerOptions": [
-   {
-    "value": "jet",
-    "label": "jet",
-    "text": "jet"
-   },
    {
     "value": "drum",
     "label": "drum",
@@ -5347,14 +5493,19 @@ export const questions = [
     "value": "mug",
     "label": "mug",
     "text": "mug"
+   },
+   {
+    "value": "jet",
+    "label": "jet",
+    "text": "jet"
    }
   ],
   "answer": "jet",
   "correctAnswer": "jet",
   "distractorRationales": {
-   "drum": "D-ONSET",
    "yarn": "D-DEVELOPMENTAL",
-   "mug": "D-RIME-NEAR"
+   "mug": "D-RIME-NEAR",
+   "drum": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -5380,15 +5531,6 @@ export const questions = [
   "notes": "yarn is the y-for-j glide error; mug rhymes with the anchor",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.j.v3_card_jet",
-    "word": "jet",
-    "value": "jet",
-    "label": "jet",
-    "image": "/images/child-mode/initial-sounds/jet.png",
-    "imagePath": "/images/child-mode/initial-sounds/jet.png",
-    "imageAlt": "jet"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.j.v3_card_drum",
     "word": "drum",
     "value": "drum",
@@ -5411,9 +5553,18 @@ export const questions = [
     "word": "mug",
     "value": "mug",
     "label": "mug",
-    "image": "/images/child-mode/cvc/mug.png",
-    "imagePath": "/images/child-mode/cvc/mug.png",
+    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
     "imageAlt": "mug"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.j.v3_card_jet",
+    "word": "jet",
+    "value": "jet",
+    "label": "jet",
+    "image": "/images/assessment/rhyming/variants/et/jet-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
+    "imageAlt": "jet"
    }
   ]
  },
@@ -5441,22 +5592,12 @@ export const questions = [
   "question": "Which letter makes the first sound in jacket?",
   "spokenPrompt": "jacket. Which letter makes the first sound in jacket?",
   "choices": [
-   "j",
-   "d",
    "i",
-   "t"
+   "t",
+   "j",
+   "d"
   ],
   "answerOptions": [
-   {
-    "value": "j",
-    "label": "j",
-    "text": "j"
-   },
-   {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
    {
     "value": "i",
     "label": "i",
@@ -5466,6 +5607,16 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "j",
+    "label": "j",
+    "text": "j"
+   },
+   {
+    "value": "d",
+    "label": "d",
+    "text": "d"
    }
   ],
   "answer": "j",
@@ -5475,16 +5626,17 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "jacket",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jacket",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5495,7 +5647,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
+  "resolvedImageAssetKey": "jacket",
+  "imageAlt": "Which letter makes the first sound in jacket?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.j.v2",
@@ -5521,12 +5679,17 @@ export const questions = [
   "question": "Which letter makes the first sound in jellyfish?",
   "spokenPrompt": "jellyfish. Which letter makes the first sound in jellyfish?",
   "choices": [
+   "h",
    "j",
    "y",
-   "d",
-   "h"
+   "d"
   ],
   "answerOptions": [
+   {
+    "value": "h",
+    "label": "h",
+    "text": "h"
+   },
    {
     "value": "j",
     "label": "j",
@@ -5541,30 +5704,26 @@ export const questions = [
     "value": "d",
     "label": "d",
     "text": "d"
-   },
-   {
-    "value": "h",
-    "label": "h",
-    "text": "h"
    }
   ],
   "answer": "j",
   "correctAnswer": "j",
   "distractorRationales": {
+   "h": "D-POSITION",
    "y": "D-DEVELOPMENTAL",
-   "d": "D-ONSET",
-   "h": "D-POSITION"
+   "d": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "jellyfish",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jellyfish",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5575,7 +5734,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
+  "resolvedImageAssetKey": "jellyfish",
+  "imageAlt": "Which letter makes the first sound in jellyfish?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.j.v3",
@@ -5663,8 +5828,8 @@ export const questions = [
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
     "imageAlt": "jam"
    },
    {
@@ -5720,22 +5885,12 @@ export const questions = [
   "question": "Which letter makes the first sound in kite?",
   "spokenPrompt": "kite. Which letter makes the first sound in kite?",
   "choices": [
-   "k",
-   "g",
    "h",
-   "t"
+   "t",
+   "k",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "h",
     "label": "h",
@@ -5745,16 +5900,26 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "k",
   "correctAnswer": "k",
   "distractorRationales": {
+   "t": "D-POSITION",
    "g": "D-ONSET",
-   "h": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "h": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5764,6 +5929,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "kite",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5779,7 +5945,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/kite.webp",
   "targetImage": "/images/assessment/long-vowels/kite.webp",
   "targetImagePath": "/images/assessment/long-vowels/kite.webp",
-  "imageAlt": "kite"
+  "resolvedImageAssetKey": "kite",
+  "imageAlt": "Which letter makes the first sound in kite?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.k.v2",
@@ -5805,17 +5972,12 @@ export const questions = [
   "question": "Which letter makes the first sound in king?",
   "spokenPrompt": "king. Which letter makes the first sound in king?",
   "choices": [
-   "k",
    "q",
    "h",
-   "g"
+   "g",
+   "k"
   ],
   "answerOptions": [
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
-   },
    {
     "value": "q",
     "label": "q",
@@ -5830,6 +5992,11 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
    }
   ],
   "answer": "k",
@@ -5839,7 +6006,7 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5849,6 +6016,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "king",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5860,11 +6028,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/king.png",
-  "imageUrl": "/images/child-mode/initial-sounds/king.png",
-  "targetImage": "/images/child-mode/initial-sounds/king.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/king.png",
-  "imageAlt": "king"
+  "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "resolvedImageAssetKey": "king",
+  "imageAlt": "Which letter makes the first sound in king?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.k.v3",
@@ -5920,9 +6089,9 @@ export const questions = [
   "answer": "key",
   "correctAnswer": "key",
   "distractorRationales": {
+   "bike": "D-RIME-NEAR",
    "goat": "D-ONSET",
-   "duck": "D-POSITION",
-   "bike": "D-RIME-NEAR"
+   "duck": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -5952,8 +6121,8 @@ export const questions = [
     "word": "key",
     "value": "key",
     "label": "key",
-    "image": "/images/child-mode/initial-sounds/key.png",
-    "imagePath": "/images/child-mode/initial-sounds/key.png",
+    "image": "/images/assessment/language/variants/plurals/key-keys-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/key-keys-01.webp",
     "imageAlt": "key"
    },
    {
@@ -6009,17 +6178,12 @@ export const questions = [
   "question": "Which letter makes the first sound in kangaroo?",
   "spokenPrompt": "kangaroo. Which letter makes the first sound in kangaroo?",
   "choices": [
-   "k",
    "g",
    "h",
-   "o"
+   "o",
+   "k"
   ],
   "answerOptions": [
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
-   },
    {
     "value": "g",
     "label": "g",
@@ -6034,6 +6198,11 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
    }
   ],
   "answer": "k",
@@ -6043,16 +6212,17 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "kangaroo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "kangaroo",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6063,7 +6233,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
+  "resolvedImageAssetKey": "kangaroo",
+  "imageAlt": "Which letter makes the first sound in kangaroo?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.k.v2",
@@ -6089,22 +6265,12 @@ export const questions = [
   "question": "Which letter makes the first sound in kettle?",
   "spokenPrompt": "kettle. Which letter makes the first sound in kettle?",
   "choices": [
-   "k",
-   "g",
    "h",
-   "l"
+   "l",
+   "k",
+   "g"
   ],
   "answerOptions": [
-   {
-    "value": "k",
-    "label": "k",
-    "text": "k"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
-   },
    {
     "value": "h",
     "label": "h",
@@ -6114,25 +6280,36 @@ export const questions = [
     "value": "l",
     "label": "l",
     "text": "l"
+   },
+   {
+    "value": "k",
+    "label": "k",
+    "text": "k"
+   },
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
    }
   ],
   "answer": "k",
   "correctAnswer": "k",
   "distractorRationales": {
-   "g": "D-ONSET",
    "h": "D-VISUAL-NEIGHBOR",
-   "l": "D-POSITION"
+   "l": "D-POSITION",
+   "g": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "kettle",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "kettle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6143,7 +6320,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
+  "resolvedImageAssetKey": "kettle",
+  "imageAlt": "Which letter makes the first sound in kettle?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.k.v3",
@@ -6169,12 +6352,17 @@ export const questions = [
   "question": "Listen: king. Find the one that starts the same.",
   "spokenPrompt": "king. Which one starts with the same sound as king?",
   "choices": [
+   "gum",
    "key",
    "goat",
-   "gate",
-   "gum"
+   "gate"
   ],
   "answerOptions": [
+   {
+    "value": "gum",
+    "label": "gum",
+    "text": "gum"
+   },
    {
     "value": "key",
     "label": "key",
@@ -6189,11 +6377,6 @@ export const questions = [
     "value": "gate",
     "label": "gate",
     "text": "gate"
-   },
-   {
-    "value": "gum",
-    "label": "gum",
-    "text": "gum"
    }
   ],
   "answer": "key",
@@ -6227,12 +6410,21 @@ export const questions = [
   "notes": "voicing panel: /k/ key against three /g/ starters",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.k.v3_card_gum",
+    "word": "gum",
+    "value": "gum",
+    "label": "gum",
+    "image": "/images/child-mode/initial-sounds/gum.png",
+    "imagePath": "/images/child-mode/initial-sounds/gum.png",
+    "imageAlt": "gum"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.k.v3_card_key",
     "word": "key",
     "value": "key",
     "label": "key",
-    "image": "/images/child-mode/initial-sounds/key.png",
-    "imagePath": "/images/child-mode/initial-sounds/key.png",
+    "image": "/images/assessment/language/variants/plurals/key-keys-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/key-keys-01.webp",
     "imageAlt": "key"
    },
    {
@@ -6252,15 +6444,6 @@ export const questions = [
     "image": "/images/assessment/long-vowels/gate.webp",
     "imagePath": "/images/assessment/long-vowels/gate.webp",
     "imageAlt": "gate"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.k.v3_card_gum",
-    "word": "gum",
-    "value": "gum",
-    "label": "gum",
-    "image": "/images/child-mode/initial-sounds/gum.png",
-    "imagePath": "/images/child-mode/initial-sounds/gum.png",
-    "imageAlt": "gum"
    }
   ]
  },
@@ -6288,17 +6471,12 @@ export const questions = [
   "question": "Which letter makes the first sound in lamp?",
   "spokenPrompt": "lamp. Which letter makes the first sound in lamp?",
   "choices": [
-   "l",
    "r",
    "i",
-   "p"
+   "p",
+   "l"
   ],
   "answerOptions": [
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   },
    {
     "value": "r",
     "label": "r",
@@ -6313,6 +6491,11 @@ export const questions = [
     "value": "p",
     "label": "p",
     "text": "p"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "l",
@@ -6322,7 +6505,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6332,6 +6515,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "lamp",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6347,7 +6531,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/lamp.webp",
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "imageAlt": "lamp"
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "Which letter makes the first sound in lamp?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.l.v2",
@@ -6403,11 +6588,11 @@ export const questions = [
   "answer": "l",
   "correctAnswer": "l",
   "distractorRationales": {
-   "r": "D-ONSET",
    "i": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "g": "D-POSITION",
+   "r": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6417,6 +6602,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "leg",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6428,11 +6614,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageUrl": "/images/child-mode/initial-sounds/leg.png",
-  "targetImage": "/images/child-mode/initial-sounds/leg.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageAlt": "leg"
+  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "resolvedImageAssetKey": "leg",
+  "imageAlt": "Which letter makes the first sound in leg?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.l.v3",
@@ -6458,12 +6645,17 @@ export const questions = [
   "question": "Which one starts like lamp?",
   "spokenPrompt": "lamp. Which one starts with the same sound as lamp?",
   "choices": [
+   "map",
    "lion",
    "rug",
-   "wheel",
-   "map"
+   "wheel"
   ],
   "answerOptions": [
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   },
    {
     "value": "lion",
     "label": "lion",
@@ -6478,11 +6670,6 @@ export const questions = [
     "value": "wheel",
     "label": "wheel",
     "text": "wheel"
-   },
-   {
-    "value": "map",
-    "label": "map",
-    "text": "map"
    }
   ],
   "answer": "lion",
@@ -6516,12 +6703,21 @@ export const questions = [
   "notes": "wheel ends /l/; map shares the anchor's -amp/-ap ending feel",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.l.v3_card_map",
+    "word": "map",
+    "value": "map",
+    "label": "map",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imageAlt": "map"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.l.v3_card_lion",
     "word": "lion",
     "value": "lion",
     "label": "lion",
-    "image": "/images/child-mode/initial-sounds/lion.png",
-    "imagePath": "/images/child-mode/initial-sounds/lion.png",
+    "image": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
     "imageAlt": "lion"
    },
    {
@@ -6529,8 +6725,8 @@ export const questions = [
     "word": "rug",
     "value": "rug",
     "label": "rug",
-    "image": "/images/child-mode/initial-sounds/rug.png",
-    "imagePath": "/images/child-mode/initial-sounds/rug.png",
+    "image": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
     "imageAlt": "rug"
    },
    {
@@ -6541,15 +6737,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/wheel.webp",
     "imagePath": "/images/assessment/digraphs/wheel.webp",
     "imageAlt": "wheel"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.l.v3_card_map",
-    "word": "map",
-    "value": "map",
-    "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
-    "imageAlt": "map"
    }
   ]
  },
@@ -6607,20 +6794,21 @@ export const questions = [
   "answer": "l",
   "correctAnswer": "l",
   "distractorRationales": {
+   "n": "D-POSITION",
    "r": "D-ONSET",
-   "i": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "i": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "lemon",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "lemon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6631,7 +6819,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+  "resolvedImageAssetKey": "lemon",
+  "imageAlt": "Which letter makes the first sound in lemon?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.l.v2",
@@ -6657,17 +6851,12 @@ export const questions = [
   "question": "Which letter makes the first sound in lion?",
   "spokenPrompt": "lion. Which letter makes the first sound in lion?",
   "choices": [
-   "l",
    "r",
    "t",
-   "n"
+   "n",
+   "l"
   ],
   "answerOptions": [
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   },
    {
     "value": "r",
     "label": "r",
@@ -6682,6 +6871,11 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "l",
@@ -6691,7 +6885,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6701,6 +6895,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "lion",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6712,11 +6907,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/lion.png",
-  "imageUrl": "/images/child-mode/initial-sounds/lion.png",
-  "targetImage": "/images/child-mode/initial-sounds/lion.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/lion.png",
-  "imageAlt": "lion"
+  "imagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "resolvedImageAssetKey": "lion",
+  "imageAlt": "Which letter makes the first sound in lion?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.l.v3",
@@ -6742,22 +6938,12 @@ export const questions = [
   "question": "Which one starts like lion?",
   "spokenPrompt": "lion. Which one starts with the same sound as lion?",
   "choices": [
-   "leaf",
-   "rose",
    "ring",
-   "rug"
+   "rug",
+   "leaf",
+   "rose"
   ],
   "answerOptions": [
-   {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
-   },
-   {
-    "value": "rose",
-    "label": "rose",
-    "text": "rose"
-   },
    {
     "value": "ring",
     "label": "ring",
@@ -6767,14 +6953,24 @@ export const questions = [
     "value": "rug",
     "label": "rug",
     "text": "rug"
+   },
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
+   },
+   {
+    "value": "rose",
+    "label": "rose",
+    "text": "rose"
    }
   ],
   "answer": "leaf",
   "correctAnswer": "leaf",
   "distractorRationales": {
+   "rug": "D-ONSET",
    "rose": "D-ONSET",
-   "ring": "D-ONSET",
-   "rug": "D-ONSET"
+   "ring": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -6800,6 +6996,24 @@ export const questions = [
   "notes": "liquid panel: /l/ key against three /r/ starters",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.l.v3_card_ring",
+    "word": "ring",
+    "value": "ring",
+    "label": "ring",
+    "image": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imageAlt": "ring"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.l.v3_card_rug",
+    "word": "rug",
+    "value": "rug",
+    "label": "rug",
+    "image": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+    "imageAlt": "rug"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.l.v3_card_leaf",
     "word": "leaf",
     "value": "leaf",
@@ -6816,24 +7030,6 @@ export const questions = [
     "image": "/images/assessment/long-vowels/rose.webp",
     "imagePath": "/images/assessment/long-vowels/rose.webp",
     "imageAlt": "rose"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.l.v3_card_ring",
-    "word": "ring",
-    "value": "ring",
-    "label": "ring",
-    "image": "/images/child-mode/initial-sounds/ring.png",
-    "imagePath": "/images/child-mode/initial-sounds/ring.png",
-    "imageAlt": "ring"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.l.v3_card_rug",
-    "word": "rug",
-    "value": "rug",
-    "label": "rug",
-    "image": "/images/child-mode/initial-sounds/rug.png",
-    "imagePath": "/images/child-mode/initial-sounds/rug.png",
-    "imageAlt": "rug"
    }
   ]
  },
@@ -6895,7 +7091,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6905,6 +7101,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "map",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6916,11 +7113,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/map.png",
-  "imageUrl": "/images/child-mode/cvc/map.png",
-  "targetImage": "/images/child-mode/cvc/map.png",
-  "targetImagePath": "/images/child-mode/cvc/map.png",
-  "imageAlt": "map"
+  "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "resolvedImageAssetKey": "map",
+  "imageAlt": "Which letter makes the first sound in map?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.m.v2",
@@ -6946,12 +7144,17 @@ export const questions = [
   "question": "Which letter makes the first sound in mug?",
   "spokenPrompt": "mug. Which letter makes the first sound in mug?",
   "choices": [
+   "g",
    "m",
    "n",
-   "w",
-   "g"
+   "w"
   ],
   "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
    {
     "value": "m",
     "label": "m",
@@ -6966,21 +7169,16 @@ export const questions = [
     "value": "w",
     "label": "w",
     "text": "w"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
    }
   ],
   "answer": "m",
   "correctAnswer": "m",
   "distractorRationales": {
+   "g": "D-POSITION",
    "n": "D-ONSET",
-   "w": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6990,6 +7188,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7001,11 +7200,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/mug.png",
-  "imageUrl": "/images/child-mode/cvc/mug.png",
-  "targetImage": "/images/child-mode/cvc/mug.png",
-  "targetImagePath": "/images/child-mode/cvc/mug.png",
-  "imageAlt": "mug"
+  "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "resolvedImageAssetKey": "mug",
+  "imageAlt": "Which letter makes the first sound in mug?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.m.v3",
@@ -7031,22 +7231,12 @@ export const questions = [
   "question": "Which one starts like moon?",
   "spokenPrompt": "moon. Which one starts with the same sound as moon?",
   "choices": [
-   "map",
-   "net",
    "drum",
-   "spoon"
+   "spoon",
+   "map",
+   "net"
   ],
   "answerOptions": [
-   {
-    "value": "map",
-    "label": "map",
-    "text": "map"
-   },
-   {
-    "value": "net",
-    "label": "net",
-    "text": "net"
-   },
    {
     "value": "drum",
     "label": "drum",
@@ -7056,6 +7246,16 @@ export const questions = [
     "value": "spoon",
     "label": "spoon",
     "text": "spoon"
+   },
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   },
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
    }
   ],
   "answer": "map",
@@ -7089,24 +7289,6 @@ export const questions = [
   "notes": "drum ends /m/; spoon rhymes with the anchor",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.m.v3_card_map",
-    "word": "map",
-    "value": "map",
-    "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
-    "imageAlt": "map"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.m.v3_card_net",
-    "word": "net",
-    "value": "net",
-    "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
-    "imageAlt": "net"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.m.v3_card_drum",
     "word": "drum",
     "value": "drum",
@@ -7123,6 +7305,24 @@ export const questions = [
     "image": "/images/assessment/blends/spoon.webp",
     "imagePath": "/images/assessment/blends/spoon.webp",
     "imageAlt": "spoon"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.m.v3_card_map",
+    "word": "map",
+    "value": "map",
+    "label": "map",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imageAlt": "map"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.m.v3_card_net",
+    "word": "net",
+    "value": "net",
+    "label": "net",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imageAlt": "net"
    }
   ]
  },
@@ -7150,12 +7350,17 @@ export const questions = [
   "question": "Which letter makes the first sound in mountain?",
   "spokenPrompt": "mountain. Which letter makes the first sound in mountain?",
   "choices": [
+   "t",
    "m",
    "n",
-   "w",
-   "t"
+   "w"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "m",
     "label": "m",
@@ -7170,30 +7375,26 @@ export const questions = [
     "value": "w",
     "label": "w",
     "text": "w"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "m",
   "correctAnswer": "m",
   "distractorRationales": {
-   "n": "D-ONSET",
    "w": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "n": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "mountain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mountain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7204,7 +7405,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "resolvedImageAssetKey": "mountain",
+  "imageAlt": "Which letter makes the first sound in mountain?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.m.v2",
@@ -7264,7 +7471,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7274,6 +7481,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "microphone",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7289,7 +7497,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/microphone.webp",
   "targetImage": "/images/assessment/digraphs/microphone.webp",
   "targetImagePath": "/images/assessment/digraphs/microphone.webp",
-  "imageAlt": "microphone"
+  "resolvedImageAssetKey": "microphone",
+  "imageAlt": "Which letter makes the first sound in microphone?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.m.v3",
@@ -7315,17 +7524,12 @@ export const questions = [
   "question": "Which one starts like mug?",
   "spokenPrompt": "mug. Which one starts with the same sound as mug?",
   "choices": [
-   "moon",
    "nose",
    "net",
-   "nut"
+   "nut",
+   "moon"
   ],
   "answerOptions": [
-   {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
-   },
    {
     "value": "nose",
     "label": "nose",
@@ -7340,14 +7544,19 @@ export const questions = [
     "value": "nut",
     "label": "nut",
     "text": "nut"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    }
   ],
   "answer": "moon",
   "correctAnswer": "moon",
   "distractorRationales": {
-   "nose": "D-ONSET",
    "net": "D-ONSET",
-   "nut": "D-ONSET"
+   "nut": "D-ONSET",
+   "nose": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -7373,21 +7582,12 @@ export const questions = [
   "notes": "nasal panel: /m/ key against three /n/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.m.v3_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.m.v3_card_nose",
     "word": "nose",
     "value": "nose",
     "label": "nose",
-    "image": "/images/child-mode/initial-sounds/nose.png",
-    "imagePath": "/images/child-mode/initial-sounds/nose.png",
+    "image": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+    "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
     "imageAlt": "nose"
    },
    {
@@ -7395,8 +7595,8 @@ export const questions = [
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
     "imageAlt": "net"
    },
    {
@@ -7407,6 +7607,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/nut.png",
     "imagePath": "/images/child-mode/initial-sounds/nut.png",
     "imageAlt": "nut"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.m.v3_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
    }
   ]
  },
@@ -7434,12 +7643,17 @@ export const questions = [
   "question": "Which letter makes the first sound in net?",
   "spokenPrompt": "net. Which letter makes the first sound in net?",
   "choices": [
+   "t",
    "n",
    "m",
-   "u",
-   "t"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "n",
     "label": "n",
@@ -7454,21 +7668,16 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "n",
   "correctAnswer": "n",
   "distractorRationales": {
-   "m": "D-ONSET",
    "u": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "m": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7478,6 +7687,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "net",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7489,11 +7699,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageUrl": "/images/child-mode/initial-sounds/net.png",
-  "targetImage": "/images/child-mode/initial-sounds/net.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageAlt": "net"
+  "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "resolvedImageAssetKey": "net",
+  "imageAlt": "Which letter makes the first sound in net?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.n.v2",
@@ -7519,22 +7730,12 @@ export const questions = [
   "question": "Which letter makes the first sound in nose?",
   "spokenPrompt": "nose. Which letter makes the first sound in nose?",
   "choices": [
-   "n",
-   "m",
    "u",
-   "z"
+   "z",
+   "n",
+   "m"
   ],
   "answerOptions": [
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
-   },
-   {
-    "value": "m",
-    "label": "m",
-    "text": "m"
-   },
    {
     "value": "u",
     "label": "u",
@@ -7544,6 +7745,16 @@ export const questions = [
     "value": "z",
     "label": "z",
     "text": "z"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
    }
   ],
   "answer": "n",
@@ -7553,7 +7764,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "z": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7563,6 +7774,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nose",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7574,11 +7786,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/nose.png",
-  "imageUrl": "/images/child-mode/initial-sounds/nose.png",
-  "targetImage": "/images/child-mode/initial-sounds/nose.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/nose.png",
-  "imageAlt": "nose"
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+  "resolvedImageAssetKey": "nose",
+  "imageAlt": "Which letter makes the first sound in nose?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.n.v3",
@@ -7604,17 +7817,12 @@ export const questions = [
   "question": "Which one starts like net?",
   "spokenPrompt": "net. Which one starts with the same sound as net?",
   "choices": [
-   "nose",
    "map",
    "pin",
-   "vet"
+   "vet",
+   "nose"
   ],
   "answerOptions": [
-   {
-    "value": "nose",
-    "label": "nose",
-    "text": "nose"
-   },
    {
     "value": "map",
     "label": "map",
@@ -7629,14 +7837,19 @@ export const questions = [
     "value": "vet",
     "label": "vet",
     "text": "vet"
+   },
+   {
+    "value": "nose",
+    "label": "nose",
+    "text": "nose"
    }
   ],
   "answer": "nose",
   "correctAnswer": "nose",
   "distractorRationales": {
-   "map": "D-ONSET",
    "pin": "D-POSITION",
-   "vet": "D-RIME-NEAR"
+   "vet": "D-RIME-NEAR",
+   "map": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -7662,21 +7875,12 @@ export const questions = [
   "notes": "pin ends /n/; vet rhymes with the anchor",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.n.v3_card_nose",
-    "word": "nose",
-    "value": "nose",
-    "label": "nose",
-    "image": "/images/child-mode/initial-sounds/nose.png",
-    "imagePath": "/images/child-mode/initial-sounds/nose.png",
-    "imageAlt": "nose"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.n.v3_card_map",
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
     "imageAlt": "map"
    },
    {
@@ -7684,8 +7888,8 @@ export const questions = [
     "word": "pin",
     "value": "pin",
     "label": "pin",
-    "image": "/images/child-mode/initial-sounds/pin.png",
-    "imagePath": "/images/child-mode/initial-sounds/pin.png",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
     "imageAlt": "pin"
    },
    {
@@ -7696,6 +7900,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/vet.png",
     "imagePath": "/images/child-mode/initial-sounds/vet.png",
     "imageAlt": "vet"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.n.v3_card_nose",
+    "word": "nose",
+    "value": "nose",
+    "label": "nose",
+    "image": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+    "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
+    "imageAlt": "nose"
    }
   ]
  },
@@ -7723,22 +7936,12 @@ export const questions = [
   "question": "Which letter makes the first sound in necklace?",
   "spokenPrompt": "necklace. Which letter makes the first sound in necklace?",
   "choices": [
-   "n",
-   "m",
    "u",
-   "s"
+   "s",
+   "n",
+   "m"
   ],
   "answerOptions": [
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
-   },
-   {
-    "value": "m",
-    "label": "m",
-    "text": "m"
-   },
    {
     "value": "u",
     "label": "u",
@@ -7748,6 +7951,16 @@ export const questions = [
     "value": "s",
     "label": "s",
     "text": "s"
+   },
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
+   {
+    "value": "m",
+    "label": "m",
+    "text": "m"
    }
   ],
   "answer": "n",
@@ -7757,16 +7970,17 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "s": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "necklace",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "necklace",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7777,7 +7991,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
+  "resolvedImageAssetKey": "necklace",
+  "imageAlt": "Which letter makes the first sound in necklace?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.n.v2",
@@ -7803,12 +8023,17 @@ export const questions = [
   "question": "Which letter makes the first sound in newspaper?",
   "spokenPrompt": "newspaper. Which letter makes the first sound in newspaper?",
   "choices": [
+   "r",
    "n",
    "m",
-   "u",
-   "r"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
    {
     "value": "n",
     "label": "n",
@@ -7823,30 +8048,26 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
    }
   ],
   "answer": "n",
   "correctAnswer": "n",
   "distractorRationales": {
+   "r": "D-POSITION",
    "m": "D-ONSET",
-   "u": "D-VISUAL-NEIGHBOR",
-   "r": "D-POSITION"
+   "u": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "newspaper",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "newspaper",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7857,7 +8078,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Which letter makes the first sound in newspaper?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.n.v3",
@@ -7963,8 +8190,8 @@ export const questions = [
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
     "imageAlt": "map"
    },
    {
@@ -7972,8 +8199,8 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/child-mode/initial-sounds/mop.png",
-    "imagePath": "/images/child-mode/initial-sounds/mop.png",
+    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
     "imageAlt": "mop"
    }
   ]
@@ -8002,22 +8229,12 @@ export const questions = [
   "question": "Which letter makes the first sound in ox?",
   "spokenPrompt": "ox. Which letter makes the first sound in ox?",
   "choices": [
-   "o",
-   "u",
    "c",
-   "x"
+   "x",
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "c",
     "label": "c",
@@ -8027,16 +8244,26 @@ export const questions = [
     "value": "x",
     "label": "x",
     "text": "x"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
+   "x": "D-POSITION",
    "u": "D-VOWEL",
-   "c": "D-VOWEL",
-   "x": "D-POSITION"
+   "c": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8046,6 +8273,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ox",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8061,7 +8289,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/ox.png",
   "targetImage": "/images/child-mode/initial-sounds/ox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ox.png",
-  "imageAlt": "ox"
+  "resolvedImageAssetKey": "ox",
+  "imageAlt": "Which letter makes the first sound in ox?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.o.v2",
@@ -8087,17 +8316,12 @@ export const questions = [
   "question": "Which letter makes the first sound in octopus?",
   "spokenPrompt": "octopus. Which letter makes the first sound in octopus?",
   "choices": [
-   "o",
    "u",
    "c",
-   "s"
+   "s",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "u",
     "label": "u",
@@ -8112,6 +8336,11 @@ export const questions = [
     "value": "s",
     "label": "s",
     "text": "s"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "o",
@@ -8121,7 +8350,7 @@ export const questions = [
    "c": "D-VOWEL",
    "s": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8131,6 +8360,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "octopus",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8146,7 +8376,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/octopus.png",
   "targetImage": "/images/child-mode/initial-sounds/octopus.png",
   "targetImagePath": "/images/child-mode/initial-sounds/octopus.png",
-  "imageAlt": "octopus"
+  "resolvedImageAssetKey": "octopus",
+  "imageAlt": "Which letter makes the first sound in octopus?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.o.v3",
@@ -8202,9 +8433,9 @@ export const questions = [
   "answer": "octopus",
   "correctAnswer": "octopus",
   "distractorRationales": {
+   "egg": "D-VOWEL",
    "apple": "D-VOWEL",
-   "umbrella": "D-VOWEL",
-   "egg": "D-VOWEL"
+   "umbrella": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -8243,8 +8474,8 @@ export const questions = [
     "word": "apple",
     "value": "apple",
     "label": "apple",
-    "image": "/images/child-mode/initial-sounds/apple.png",
-    "imagePath": "/images/child-mode/initial-sounds/apple.png",
+    "image": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
     "imageAlt": "apple"
    },
    {
@@ -8261,8 +8492,8 @@ export const questions = [
     "word": "egg",
     "value": "egg",
     "label": "egg",
-    "image": "/images/child-mode/initial-sounds/egg.png",
-    "imagePath": "/images/child-mode/initial-sounds/egg.png",
+    "image": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
     "imageAlt": "egg"
    }
   ]
@@ -8291,17 +8522,12 @@ export const questions = [
   "question": "Which letter makes the first sound in otter?",
   "spokenPrompt": "otter. Which letter makes the first sound in otter?",
   "choices": [
-   "o",
    "u",
    "c",
-   "r"
+   "r",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "u",
     "label": "u",
@@ -8316,6 +8542,11 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "o",
@@ -8325,16 +8556,17 @@ export const questions = [
    "c": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "otter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "otter",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8345,7 +8577,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/otter.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/otter.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/otter.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/otter.webp",
+  "resolvedImageAssetKey": "otter",
+  "imageAlt": "Which letter makes the first sound in otter?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.o.v2",
@@ -8371,22 +8609,12 @@ export const questions = [
   "question": "Which letter makes the first sound in olive?",
   "spokenPrompt": "olive. Which letter makes the first sound in olive?",
   "choices": [
-   "o",
-   "a",
    "c",
-   "v"
+   "v",
+   "o",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "c",
     "label": "c",
@@ -8396,25 +8624,36 @@ export const questions = [
     "value": "v",
     "label": "v",
     "text": "v"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "c": "D-VOWEL",
-   "v": "D-POSITION"
+   "v": "D-POSITION",
+   "a": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "olive",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "olive",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8425,7 +8664,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/olive.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/olive.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/olive.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/olive.webp",
+  "resolvedImageAssetKey": "olive",
+  "imageAlt": "Which letter makes the first sound in olive?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.o.v3",
@@ -8451,12 +8696,17 @@ export const questions = [
   "question": "Which one starts like octopus?",
   "spokenPrompt": "octopus. Which one starts with the same sound as octopus?",
   "choices": [
+   "elephant",
    "ox",
    "uncle",
-   "ink",
-   "elephant"
+   "ink"
   ],
   "answerOptions": [
+   {
+    "value": "elephant",
+    "label": "elephant",
+    "text": "elephant"
+   },
    {
     "value": "ox",
     "label": "ox",
@@ -8471,11 +8721,6 @@ export const questions = [
     "value": "ink",
     "label": "ink",
     "text": "ink"
-   },
-   {
-    "value": "elephant",
-    "label": "elephant",
-    "text": "elephant"
    }
   ],
   "answer": "ox",
@@ -8509,6 +8754,15 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.o.v3_card_elephant",
+    "word": "elephant",
+    "value": "elephant",
+    "label": "elephant",
+    "image": "/images/assessment/digraphs/elephant.webp",
+    "imagePath": "/images/assessment/digraphs/elephant.webp",
+    "imageAlt": "elephant"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.o.v3_card_ox",
     "word": "ox",
     "value": "ox",
@@ -8534,15 +8788,6 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/ink.png",
     "imagePath": "/images/child-mode/initial-sounds/ink.png",
     "imageAlt": "ink"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.o.v3_card_elephant",
-    "word": "elephant",
-    "value": "elephant",
-    "label": "elephant",
-    "image": "/images/assessment/digraphs/elephant.webp",
-    "imagePath": "/images/assessment/digraphs/elephant.webp",
-    "imageAlt": "elephant"
    }
   ]
  },
@@ -8570,17 +8815,12 @@ export const questions = [
   "question": "Which letter makes the first sound in pig?",
   "spokenPrompt": "pig. Which letter makes the first sound in pig?",
   "choices": [
-   "p",
    "b",
    "q",
-   "g"
+   "g",
+   "p"
   ],
   "answerOptions": [
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
    {
     "value": "b",
     "label": "b",
@@ -8595,6 +8835,11 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "p",
@@ -8604,7 +8849,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8614,6 +8859,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pig",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8625,11 +8871,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pig.png",
-  "targetImage": "/images/child-mode/initial-sounds/pig.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageAlt": "pig"
+  "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "resolvedImageAssetKey": "pig",
+  "imageAlt": "Which letter makes the first sound in pig?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.p.v2",
@@ -8685,11 +8932,11 @@ export const questions = [
   "answer": "p",
   "correctAnswer": "p",
   "distractorRationales": {
-   "b": "D-ONSET",
    "q": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "n": "D-POSITION",
+   "b": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8699,6 +8946,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pen",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8710,11 +8958,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/pen.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-  "targetImage": "/images/child-mode/initial-sounds/pen.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pen.png",
-  "imageAlt": "pen"
+  "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "resolvedImageAssetKey": "pen",
+  "imageAlt": "Which letter makes the first sound in pen?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.p.v3",
@@ -8740,12 +8989,17 @@ export const questions = [
   "question": "Which one starts like pig?",
   "spokenPrompt": "pig. Which one starts with the same sound as pig?",
   "choices": [
+   "dig",
    "pen",
    "boat",
-   "map",
-   "dig"
+   "map"
   ],
   "answerOptions": [
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
    {
     "value": "pen",
     "label": "pen",
@@ -8760,11 +9014,6 @@ export const questions = [
     "value": "map",
     "label": "map",
     "text": "map"
-   },
-   {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
    }
   ],
   "answer": "pen",
@@ -8798,12 +9047,21 @@ export const questions = [
   "notes": "map ends /p/; dig rhymes with the anchor",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.p.v3_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imageAlt": "dig"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.p.v3_card_pen",
     "word": "pen",
     "value": "pen",
     "label": "pen",
-    "image": "/images/child-mode/initial-sounds/pen.png",
-    "imagePath": "/images/child-mode/initial-sounds/pen.png",
+    "image": "/images/assessment/rhyming/variants/en/pen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
     "imageAlt": "pen"
    },
    {
@@ -8820,18 +9078,9 @@ export const questions = [
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
     "imageAlt": "map"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.p.v3_card_dig",
-    "word": "dig",
-    "value": "dig",
-    "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
-    "imageAlt": "dig"
    }
   ]
  },
@@ -8889,20 +9138,21 @@ export const questions = [
   "answer": "p",
   "correctAnswer": "p",
   "distractorRationales": {
+   "n": "D-POSITION",
    "b": "D-ONSET",
-   "d": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "penguin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "penguin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8913,7 +9163,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
+  "resolvedImageAssetKey": "penguin",
+  "imageAlt": "Which letter makes the first sound in penguin?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.p.v2",
@@ -8939,17 +9195,12 @@ export const questions = [
   "question": "Which letter makes the first sound in pumpkin?",
   "spokenPrompt": "pumpkin. Which letter makes the first sound in pumpkin?",
   "choices": [
-   "p",
    "b",
    "q",
-   "k"
+   "k",
+   "p"
   ],
   "answerOptions": [
-   {
-    "value": "p",
-    "label": "p",
-    "text": "p"
-   },
    {
     "value": "b",
     "label": "b",
@@ -8964,6 +9215,11 @@ export const questions = [
     "value": "k",
     "label": "k",
     "text": "k"
+   },
+   {
+    "value": "p",
+    "label": "p",
+    "text": "p"
    }
   ],
   "answer": "p",
@@ -8973,16 +9229,17 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "pumpkin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pumpkin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8993,7 +9250,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
+  "resolvedImageAssetKey": "pumpkin",
+  "imageAlt": "Which letter makes the first sound in pumpkin?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.p.v3",
@@ -9019,22 +9282,12 @@ export const questions = [
   "question": "Which one starts like pen?",
   "spokenPrompt": "pen. Which one starts with the same sound as pen?",
   "choices": [
-   "pin",
-   "bike",
    "boat",
-   "bell"
+   "bell",
+   "pin",
+   "bike"
   ],
   "answerOptions": [
-   {
-    "value": "pin",
-    "label": "pin",
-    "text": "pin"
-   },
-   {
-    "value": "bike",
-    "label": "bike",
-    "text": "bike"
-   },
    {
     "value": "boat",
     "label": "boat",
@@ -9044,14 +9297,24 @@ export const questions = [
     "value": "bell",
     "label": "bell",
     "text": "bell"
+   },
+   {
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
+   },
+   {
+    "value": "bike",
+    "label": "bike",
+    "text": "bike"
    }
   ],
   "answer": "pin",
   "correctAnswer": "pin",
   "distractorRationales": {
+   "bell": "D-ONSET",
    "bike": "D-ONSET",
-   "boat": "D-ONSET",
-   "bell": "D-ONSET"
+   "boat": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -9077,24 +9340,6 @@ export const questions = [
   "notes": "voicing panel: /p/ key against three /b/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.p.v3_card_pin",
-    "word": "pin",
-    "value": "pin",
-    "label": "pin",
-    "image": "/images/child-mode/initial-sounds/pin.png",
-    "imagePath": "/images/child-mode/initial-sounds/pin.png",
-    "imageAlt": "pin"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.p.v3_card_bike",
-    "word": "bike",
-    "value": "bike",
-    "label": "bike",
-    "image": "/images/assessment/long-vowels/bike.webp",
-    "imagePath": "/images/assessment/long-vowels/bike.webp",
-    "imageAlt": "bike"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.p.v3_card_boat",
     "word": "boat",
     "value": "boat",
@@ -9108,9 +9353,27 @@ export const questions = [
     "word": "bell",
     "value": "bell",
     "label": "bell",
-    "image": "/images/child-mode/initial-sounds/bell.png",
-    "imagePath": "/images/child-mode/initial-sounds/bell.png",
+    "image": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
     "imageAlt": "bell"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.p.v3_card_pin",
+    "word": "pin",
+    "value": "pin",
+    "label": "pin",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imageAlt": "pin"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.p.v3_card_bike",
+    "word": "bike",
+    "value": "bike",
+    "label": "bike",
+    "image": "/images/assessment/long-vowels/bike.webp",
+    "imagePath": "/images/assessment/long-vowels/bike.webp",
+    "imageAlt": "bike"
    }
   ]
  },
@@ -9172,7 +9435,7 @@ export const questions = [
    "p": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9182,6 +9445,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "queen",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9197,7 +9461,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/queen.png",
   "targetImage": "/images/child-mode/initial-sounds/queen.png",
   "targetImagePath": "/images/child-mode/initial-sounds/queen.png",
-  "imageAlt": "queen"
+  "resolvedImageAssetKey": "queen",
+  "imageAlt": "Which letter makes the first sound in queen?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.q.v2",
@@ -9223,12 +9488,17 @@ export const questions = [
   "question": "Which letter makes the first sound in quilt?",
   "spokenPrompt": "quilt. Which letter makes the first sound in quilt?",
   "choices": [
+   "t",
    "q",
    "w",
-   "p",
-   "t"
+   "p"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "q",
     "label": "q",
@@ -9243,21 +9513,16 @@ export const questions = [
     "value": "p",
     "label": "p",
     "text": "p"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "q",
   "correctAnswer": "q",
   "distractorRationales": {
+   "t": "D-POSITION",
    "w": "D-DEVELOPMENTAL",
-   "p": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "p": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9267,6 +9532,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "quilt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9282,7 +9548,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/quilt.png",
   "targetImage": "/images/child-mode/initial-sounds/quilt.png",
   "targetImagePath": "/images/child-mode/initial-sounds/quilt.png",
-  "imageAlt": "quilt"
+  "resolvedImageAssetKey": "quilt",
+  "imageAlt": "Which letter makes the first sound in quilt?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.q.v3",
@@ -9308,22 +9575,12 @@ export const questions = [
   "question": "Which one starts like queen?",
   "spokenPrompt": "queen. Which one starts with the same sound as queen?",
   "choices": [
-   "quilt",
-   "king",
    "wheel",
-   "crown"
+   "crown",
+   "quilt",
+   "king"
   ],
   "answerOptions": [
-   {
-    "value": "quilt",
-    "label": "quilt",
-    "text": "quilt"
-   },
-   {
-    "value": "king",
-    "label": "king",
-    "text": "king"
-   },
    {
     "value": "wheel",
     "label": "wheel",
@@ -9333,6 +9590,16 @@ export const questions = [
     "value": "crown",
     "label": "crown",
     "text": "crown"
+   },
+   {
+    "value": "quilt",
+    "label": "quilt",
+    "text": "quilt"
+   },
+   {
+    "value": "king",
+    "label": "king",
+    "text": "king"
    }
   ],
   "answer": "quilt",
@@ -9366,24 +9633,6 @@ export const questions = [
   "notes": "king starts the bare /k/; wheel is the /w/-component error and ties the queen ee-overlap; the crown belongs to the queen",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.q.v3_card_quilt",
-    "word": "quilt",
-    "value": "quilt",
-    "label": "quilt",
-    "image": "/images/child-mode/initial-sounds/quilt.png",
-    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
-    "imageAlt": "quilt"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.q.v3_card_king",
-    "word": "king",
-    "value": "king",
-    "label": "king",
-    "image": "/images/child-mode/initial-sounds/king.png",
-    "imagePath": "/images/child-mode/initial-sounds/king.png",
-    "imageAlt": "king"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.q.v3_card_wheel",
     "word": "wheel",
     "value": "wheel",
@@ -9400,6 +9649,24 @@ export const questions = [
     "image": "/images/assessment/blends/crown.webp",
     "imagePath": "/images/assessment/blends/crown.webp",
     "imageAlt": "crown"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.q.v3_card_quilt",
+    "word": "quilt",
+    "value": "quilt",
+    "label": "quilt",
+    "image": "/images/child-mode/initial-sounds/quilt.png",
+    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
+    "imageAlt": "quilt"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.q.v3_card_king",
+    "word": "king",
+    "value": "king",
+    "label": "king",
+    "image": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imageAlt": "king"
    }
   ]
  },
@@ -9427,12 +9694,17 @@ export const questions = [
   "question": "Which letter makes the first sound in question?",
   "spokenPrompt": "question. Which letter makes the first sound in question?",
   "choices": [
+   "n",
    "q",
    "w",
-   "g",
-   "n"
+   "g"
   ],
   "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
    {
     "value": "q",
     "label": "q",
@@ -9447,30 +9719,26 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
-   },
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
    }
   ],
   "answer": "q",
   "correctAnswer": "q",
   "distractorRationales": {
-   "w": "D-DEVELOPMENTAL",
    "g": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "n": "D-POSITION",
+   "w": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "question",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "question",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9481,7 +9749,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "resolvedImageAssetKey": "question",
+  "imageAlt": "Which letter makes the first sound in question?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.q.v2",
@@ -9541,16 +9815,17 @@ export const questions = [
    "g": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "quarter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "quarter",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9561,7 +9836,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
+  "resolvedImageAssetKey": "quarter",
+  "imageAlt": "Which letter makes the first sound in quarter?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.q.v3",
@@ -9587,17 +9868,12 @@ export const questions = [
   "question": "Which one starts like question?",
   "spokenPrompt": "question. Which one starts with the same sound as question?",
   "choices": [
-   "quiz",
    "web",
    "wheel",
-   "vest"
+   "vest",
+   "quiz"
   ],
   "answerOptions": [
-   {
-    "value": "quiz",
-    "label": "quiz",
-    "text": "quiz"
-   },
    {
     "value": "web",
     "label": "web",
@@ -9612,14 +9888,19 @@ export const questions = [
     "value": "vest",
     "label": "vest",
     "text": "vest"
+   },
+   {
+    "value": "quiz",
+    "label": "quiz",
+    "text": "quiz"
    }
   ],
   "answer": "quiz",
   "correctAnswer": "quiz",
   "distractorRationales": {
-   "web": "D-DEVELOPMENTAL",
    "wheel": "D-DEVELOPMENTAL",
-   "vest": "D-PATTERN-TRAP"
+   "vest": "D-PATTERN-TRAP",
+   "web": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -9644,15 +9925,6 @@ export const questions = [
   },
   "notes": "web/wheel are the /w/-reduction; vest ties the question st-overlap so scanning cannot win",
   "imageCards": [
-   {
-    "id": "lp3.initial_sounds.l2.C.q.v3_card_quiz",
-    "word": "quiz",
-    "value": "quiz",
-    "label": "quiz",
-    "image": "/images/child-mode/initial-sounds/quiz.png",
-    "imagePath": "/images/child-mode/initial-sounds/quiz.png",
-    "imageAlt": "quiz"
-   },
    {
     "id": "lp3.initial_sounds.l2.C.q.v3_card_web",
     "word": "web",
@@ -9679,6 +9951,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/vest.png",
     "imagePath": "/images/child-mode/initial-sounds/vest.png",
     "imageAlt": "vest"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.q.v3_card_quiz",
+    "word": "quiz",
+    "value": "quiz",
+    "label": "quiz",
+    "image": "/images/child-mode/initial-sounds/quiz.png",
+    "imagePath": "/images/child-mode/initial-sounds/quiz.png",
+    "imageAlt": "quiz"
    }
   ]
  },
@@ -9706,12 +9987,17 @@ export const questions = [
   "question": "Which letter makes the first sound in rug?",
   "spokenPrompt": "rug. Which letter makes the first sound in rug?",
   "choices": [
+   "g",
    "r",
    "w",
-   "n",
-   "g"
+   "n"
   ],
   "answerOptions": [
+   {
+    "value": "g",
+    "label": "g",
+    "text": "g"
+   },
    {
     "value": "r",
     "label": "r",
@@ -9726,21 +10012,16 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
-   },
-   {
-    "value": "g",
-    "label": "g",
-    "text": "g"
    }
   ],
   "answer": "r",
   "correctAnswer": "r",
   "distractorRationales": {
-   "w": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "g": "D-POSITION",
+   "w": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9750,6 +10031,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9761,11 +10043,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/rug.png",
-  "imageUrl": "/images/child-mode/initial-sounds/rug.png",
-  "targetImage": "/images/child-mode/initial-sounds/rug.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/rug.png",
-  "imageAlt": "rug"
+  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "resolvedImageAssetKey": "rug",
+  "imageAlt": "Which letter makes the first sound in rug?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.r.v2",
@@ -9791,22 +10074,12 @@ export const questions = [
   "question": "Which letter makes the first sound in ring?",
   "spokenPrompt": "ring. Which letter makes the first sound in ring?",
   "choices": [
-   "r",
-   "l",
    "n",
-   "g"
+   "g",
+   "r",
+   "l"
   ],
   "answerOptions": [
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
-   },
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   },
    {
     "value": "n",
     "label": "n",
@@ -9816,6 +10089,16 @@ export const questions = [
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "r",
@@ -9825,7 +10108,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9835,6 +10118,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ring",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9846,11 +10130,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/ring.png",
-  "imageUrl": "/images/child-mode/initial-sounds/ring.png",
-  "targetImage": "/images/child-mode/initial-sounds/ring.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/ring.png",
-  "imageAlt": "ring"
+  "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+  "resolvedImageAssetKey": "ring",
+  "imageAlt": "Which letter makes the first sound in ring?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.r.v3",
@@ -9876,17 +10161,12 @@ export const questions = [
   "question": "Which one starts like ring?",
   "spokenPrompt": "ring. Which one starts with the same sound as ring?",
   "choices": [
-   "rose",
    "wheel",
    "deer",
-   "king"
+   "king",
+   "rose"
   ],
   "answerOptions": [
-   {
-    "value": "rose",
-    "label": "rose",
-    "text": "rose"
-   },
    {
     "value": "wheel",
     "label": "wheel",
@@ -9901,14 +10181,19 @@ export const questions = [
     "value": "king",
     "label": "king",
     "text": "king"
+   },
+   {
+    "value": "rose",
+    "label": "rose",
+    "text": "rose"
    }
   ],
   "answer": "rose",
   "correctAnswer": "rose",
   "distractorRationales": {
-   "wheel": "D-ONSET",
    "deer": "D-POSITION",
-   "king": "D-RIME-NEAR"
+   "king": "D-RIME-NEAR",
+   "wheel": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -9934,15 +10219,6 @@ export const questions = [
   "notes": "deer ends /r/; king rhymes with the anchor",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.r.v3_card_rose",
-    "word": "rose",
-    "value": "rose",
-    "label": "rose",
-    "image": "/images/assessment/long-vowels/rose.webp",
-    "imagePath": "/images/assessment/long-vowels/rose.webp",
-    "imageAlt": "rose"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.r.v3_card_wheel",
     "word": "wheel",
     "value": "wheel",
@@ -9965,9 +10241,18 @@ export const questions = [
     "word": "king",
     "value": "king",
     "label": "king",
-    "image": "/images/child-mode/initial-sounds/king.png",
-    "imagePath": "/images/child-mode/initial-sounds/king.png",
+    "image": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
     "imageAlt": "king"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.r.v3_card_rose",
+    "word": "rose",
+    "value": "rose",
+    "label": "rose",
+    "image": "/images/assessment/long-vowels/rose.webp",
+    "imagePath": "/images/assessment/long-vowels/rose.webp",
+    "imageAlt": "rose"
    }
   ]
  },
@@ -9995,22 +10280,12 @@ export const questions = [
   "question": "Which letter makes the first sound in rainbow?",
   "spokenPrompt": "rainbow. Which letter makes the first sound in rainbow?",
   "choices": [
-   "r",
-   "w",
    "l",
-   "o"
+   "o",
+   "r",
+   "w"
   ],
   "answerOptions": [
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
-   },
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
    {
     "value": "l",
     "label": "l",
@@ -10020,6 +10295,16 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
    }
   ],
   "answer": "r",
@@ -10029,16 +10314,17 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "rainbow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rainbow",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10049,7 +10335,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
+  "resolvedImageAssetKey": "rainbow",
+  "imageAlt": "Which letter makes the first sound in rainbow?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.r.v2",
@@ -10075,12 +10367,17 @@ export const questions = [
   "question": "Which letter makes the first sound in rocket?",
   "spokenPrompt": "rocket. Which letter makes the first sound in rocket?",
   "choices": [
+   "t",
    "r",
    "w",
-   "l",
-   "t"
+   "l"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "r",
     "label": "r",
@@ -10095,30 +10392,26 @@ export const questions = [
     "value": "l",
     "label": "l",
     "text": "l"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "r",
   "correctAnswer": "r",
   "distractorRationales": {
+   "t": "D-POSITION",
    "w": "D-ONSET",
-   "l": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "l": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "rocket",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rocket",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10129,7 +10422,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
+  "resolvedImageAssetKey": "rocket",
+  "imageAlt": "Which letter makes the first sound in rocket?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.r.v3",
@@ -10217,8 +10516,8 @@ export const questions = [
     "word": "ring",
     "value": "ring",
     "label": "ring",
-    "image": "/images/child-mode/initial-sounds/ring.png",
-    "imagePath": "/images/child-mode/initial-sounds/ring.png",
+    "image": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
     "imageAlt": "ring"
    },
    {
@@ -10274,22 +10573,12 @@ export const questions = [
   "question": "Which letter makes the first sound in sun?",
   "spokenPrompt": "sun. Which letter makes the first sound in sun?",
   "choices": [
-   "s",
-   "z",
    "e",
-   "n"
+   "n",
+   "s",
+   "z"
   ],
   "answerOptions": [
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   },
-   {
-    "value": "z",
-    "label": "z",
-    "text": "z"
-   },
    {
     "value": "e",
     "label": "e",
@@ -10299,16 +10588,26 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
    }
   ],
   "answer": "s",
   "correctAnswer": "s",
   "distractorRationales": {
+   "n": "D-POSITION",
    "z": "D-ONSET",
-   "e": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "e": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10318,6 +10617,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sun",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10329,11 +10629,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/sun.png",
-  "imageUrl": "/images/child-mode/cvc/sun.png",
-  "targetImage": "/images/child-mode/cvc/sun.png",
-  "targetImagePath": "/images/child-mode/cvc/sun.png",
-  "imageAlt": "sun"
+  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "resolvedImageAssetKey": "sun",
+  "imageAlt": "Which letter makes the first sound in sun?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.s.v2",
@@ -10359,17 +10660,12 @@ export const questions = [
   "question": "Which letter makes the first sound in sock?",
   "spokenPrompt": "sock. Which letter makes the first sound in sock?",
   "choices": [
-   "s",
    "z",
    "e",
-   "k"
+   "k",
+   "s"
   ],
   "answerOptions": [
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   },
    {
     "value": "z",
     "label": "z",
@@ -10384,6 +10680,11 @@ export const questions = [
     "value": "k",
     "label": "k",
     "text": "k"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
    }
   ],
   "answer": "s",
@@ -10393,7 +10694,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10403,6 +10704,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10418,7 +10720,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/sock.webp",
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "imageAlt": "sock"
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "Which letter makes the first sound in sock?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.s.v3",
@@ -10474,9 +10777,9 @@ export const questions = [
   "answer": "sock",
   "correctAnswer": "sock",
   "distractorRationales": {
+   "run": "D-RIME-NEAR",
    "zip": "D-ONSET",
-   "glass": "D-POSITION",
-   "run": "D-RIME-NEAR"
+   "glass": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -10515,8 +10818,8 @@ export const questions = [
     "word": "zip",
     "value": "zip",
     "label": "zip",
-    "image": "/images/child-mode/initial-sounds/zip.png",
-    "imagePath": "/images/child-mode/initial-sounds/zip.png",
+    "image": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
     "imageAlt": "zip"
    },
    {
@@ -10533,8 +10836,8 @@ export const questions = [
     "word": "run",
     "value": "run",
     "label": "run",
-    "image": "/images/child-mode/initial-sounds/run.png",
-    "imagePath": "/images/child-mode/initial-sounds/run.png",
+    "image": "/images/assessment/rhyming/variants/run/run-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
     "imageAlt": "run"
    }
   ]
@@ -10563,17 +10866,12 @@ export const questions = [
   "question": "Which letter makes the first sound in sunflower?",
   "spokenPrompt": "sunflower. Which letter makes the first sound in sunflower?",
   "choices": [
-   "s",
    "z",
    "e",
-   "r"
+   "r",
+   "s"
   ],
   "answerOptions": [
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   },
    {
     "value": "z",
     "label": "z",
@@ -10588,6 +10886,11 @@ export const questions = [
     "value": "r",
     "label": "r",
     "text": "r"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
    }
   ],
   "answer": "s",
@@ -10597,16 +10900,17 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sunflower",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sunflower",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10617,7 +10921,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "resolvedImageAssetKey": "sunflower",
+  "imageAlt": "Which letter makes the first sound in sunflower?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.s.v2",
@@ -10643,22 +10953,12 @@ export const questions = [
   "question": "Which letter makes the first sound in sandwich?",
   "spokenPrompt": "sandwich. Which letter makes the first sound in sandwich?",
   "choices": [
-   "s",
-   "z",
    "e",
-   "h"
+   "h",
+   "s",
+   "z"
   ],
   "answerOptions": [
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   },
-   {
-    "value": "z",
-    "label": "z",
-    "text": "z"
-   },
    {
     "value": "e",
     "label": "e",
@@ -10668,25 +10968,36 @@ export const questions = [
     "value": "h",
     "label": "h",
     "text": "h"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
    }
   ],
   "answer": "s",
   "correctAnswer": "s",
   "distractorRationales": {
-   "z": "D-ONSET",
    "e": "D-VISUAL-NEIGHBOR",
-   "h": "D-POSITION"
+   "h": "D-POSITION",
+   "z": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sandwich",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sandwich",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10697,7 +11008,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "resolvedImageAssetKey": "sandwich",
+  "imageAlt": "Which letter makes the first sound in sandwich?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.s.v3",
@@ -10723,12 +11040,17 @@ export const questions = [
   "question": "Which one starts like sock?",
   "spokenPrompt": "sock. Which one starts with the same sound as sock?",
   "choices": [
+   "zebra",
    "sun",
    "zip",
-   "zoo",
-   "zebra"
+   "zoo"
   ],
   "answerOptions": [
+   {
+    "value": "zebra",
+    "label": "zebra",
+    "text": "zebra"
+   },
    {
     "value": "sun",
     "label": "sun",
@@ -10743,11 +11065,6 @@ export const questions = [
     "value": "zoo",
     "label": "zoo",
     "text": "zoo"
-   },
-   {
-    "value": "zebra",
-    "label": "zebra",
-    "text": "zebra"
    }
   ],
   "answer": "sun",
@@ -10781,33 +11098,6 @@ export const questions = [
   "notes": "voicing panel: /s/ key against three /z/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.s.v3_card_sun",
-    "word": "sun",
-    "value": "sun",
-    "label": "sun",
-    "image": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
-    "imageAlt": "sun"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.s.v3_card_zip",
-    "word": "zip",
-    "value": "zip",
-    "label": "zip",
-    "image": "/images/child-mode/initial-sounds/zip.png",
-    "imagePath": "/images/child-mode/initial-sounds/zip.png",
-    "imageAlt": "zip"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.s.v3_card_zoo",
-    "word": "zoo",
-    "value": "zoo",
-    "label": "zoo",
-    "image": "/images/child-mode/initial-sounds/zoo.png",
-    "imagePath": "/images/child-mode/initial-sounds/zoo.png",
-    "imageAlt": "zoo"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.s.v3_card_zebra",
     "word": "zebra",
     "value": "zebra",
@@ -10815,6 +11105,33 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/zebra.png",
     "imagePath": "/images/child-mode/initial-sounds/zebra.png",
     "imageAlt": "zebra"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.s.v3_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.s.v3_card_zip",
+    "word": "zip",
+    "value": "zip",
+    "label": "zip",
+    "image": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+    "imageAlt": "zip"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.s.v3_card_zoo",
+    "word": "zoo",
+    "value": "zoo",
+    "label": "zoo",
+    "image": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+    "imageAlt": "zoo"
    }
   ]
  },
@@ -10842,17 +11159,12 @@ export const questions = [
   "question": "Which letter makes the first sound in tent?",
   "spokenPrompt": "tent. Which letter makes the first sound in tent?",
   "choices": [
-   "t",
    "d",
    "f",
-   "n"
+   "n",
+   "t"
   ],
   "answerOptions": [
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
-   },
    {
     "value": "d",
     "label": "d",
@@ -10867,6 +11179,11 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
    }
   ],
   "answer": "t",
@@ -10876,7 +11193,7 @@ export const questions = [
    "f": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10886,6 +11203,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tent",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10901,7 +11219,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/tent.webp",
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
-  "imageAlt": "tent"
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Which letter makes the first sound in tent?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.t.v2",
@@ -10957,11 +11276,11 @@ export const questions = [
   "answer": "t",
   "correctAnswer": "t",
   "distractorRationales": {
-   "d": "D-ONSET",
    "f": "D-VISUAL-NEIGHBOR",
-   "o": "D-POSITION"
+   "o": "D-POSITION",
+   "d": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10971,6 +11290,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "toe",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10986,7 +11306,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/toe.webp",
   "targetImage": "/images/assessment/long-vowels/toe.webp",
   "targetImagePath": "/images/assessment/long-vowels/toe.webp",
-  "imageAlt": "toe"
+  "resolvedImageAssetKey": "toe",
+  "imageAlt": "Which letter makes the first sound in toe?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.t.v3",
@@ -11012,12 +11333,17 @@ export const questions = [
   "question": "Which one starts like tent?",
   "spokenPrompt": "tent. Which one starts with the same sound as tent?",
   "choices": [
+   "net",
    "toe",
    "dog",
-   "hat",
-   "net"
+   "hat"
   ],
   "answerOptions": [
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
+   },
    {
     "value": "toe",
     "label": "toe",
@@ -11032,11 +11358,6 @@ export const questions = [
     "value": "hat",
     "label": "hat",
     "text": "hat"
-   },
-   {
-    "value": "net",
-    "label": "net",
-    "text": "net"
    }
   ],
   "answer": "toe",
@@ -11070,6 +11391,15 @@ export const questions = [
   "notes": "hat ends /t/; net shares the anchor's -et ending",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.t.v3_card_net",
+    "word": "net",
+    "value": "net",
+    "label": "net",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imageAlt": "net"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.t.v3_card_toe",
     "word": "toe",
     "value": "toe",
@@ -11083,8 +11413,8 @@ export const questions = [
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
     "imageAlt": "dog"
    },
    {
@@ -11092,18 +11422,9 @@ export const questions = [
     "word": "hat",
     "value": "hat",
     "label": "hat",
-    "image": "/images/child-mode/cvc/hat.png",
-    "imagePath": "/images/child-mode/cvc/hat.png",
+    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
     "imageAlt": "hat"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.t.v3_card_net",
-    "word": "net",
-    "value": "net",
-    "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
-    "imageAlt": "net"
    }
   ]
  },
@@ -11161,11 +11482,11 @@ export const questions = [
   "answer": "t",
   "correctAnswer": "t",
   "distractorRationales": {
+   "r": "D-POSITION",
    "d": "D-ONSET",
-   "f": "D-VISUAL-NEIGHBOR",
-   "r": "D-POSITION"
+   "f": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11175,6 +11496,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tiger",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11186,11 +11508,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/tiger.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tiger.png",
-  "targetImage": "/images/child-mode/initial-sounds/tiger.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tiger.png",
-  "imageAlt": "tiger"
+  "imagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "resolvedImageAssetKey": "tiger",
+  "imageAlt": "Which letter makes the first sound in tiger?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.t.v2",
@@ -11216,17 +11539,12 @@ export const questions = [
   "question": "Which letter makes the first sound in tomato?",
   "spokenPrompt": "tomato. Which letter makes the first sound in tomato?",
   "choices": [
-   "t",
    "d",
    "l",
-   "o"
+   "o",
+   "t"
   ],
   "answerOptions": [
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
-   },
    {
     "value": "d",
     "label": "d",
@@ -11241,6 +11559,11 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
    }
   ],
   "answer": "t",
@@ -11250,16 +11573,17 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "tomato",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tomato",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11270,7 +11594,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "resolvedImageAssetKey": "tomato",
+  "imageAlt": "Which letter makes the first sound in tomato?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.t.v3",
@@ -11296,22 +11626,12 @@ export const questions = [
   "question": "Which one starts like tooth?",
   "spokenPrompt": "tooth. Which one starts with the same sound as tooth?",
   "choices": [
-   "tie",
-   "dog",
    "duck",
-   "dish"
+   "dish",
+   "tie",
+   "dog"
   ],
   "answerOptions": [
-   {
-    "value": "tie",
-    "label": "tie",
-    "text": "tie"
-   },
-   {
-    "value": "dog",
-    "label": "dog",
-    "text": "dog"
-   },
    {
     "value": "duck",
     "label": "duck",
@@ -11321,14 +11641,24 @@ export const questions = [
     "value": "dish",
     "label": "dish",
     "text": "dish"
+   },
+   {
+    "value": "tie",
+    "label": "tie",
+    "text": "tie"
+   },
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    }
   ],
   "answer": "tie",
   "correctAnswer": "tie",
   "distractorRationales": {
+   "dish": "D-ONSET",
    "dog": "D-ONSET",
-   "duck": "D-ONSET",
-   "dish": "D-ONSET"
+   "duck": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -11354,24 +11684,6 @@ export const questions = [
   "notes": "voicing panel: /t/ key against three /d/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.t.v3_card_tie",
-    "word": "tie",
-    "value": "tie",
-    "label": "tie",
-    "image": "/images/assessment/long-vowels/tie.webp",
-    "imagePath": "/images/assessment/long-vowels/tie.webp",
-    "imageAlt": "tie"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.t.v3_card_dog",
-    "word": "dog",
-    "value": "dog",
-    "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
-    "imageAlt": "dog"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.t.v3_card_duck",
     "word": "duck",
     "value": "duck",
@@ -11388,6 +11700,24 @@ export const questions = [
     "image": "/images/assessment/digraphs/dish.webp",
     "imagePath": "/images/assessment/digraphs/dish.webp",
     "imageAlt": "dish"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.t.v3_card_tie",
+    "word": "tie",
+    "value": "tie",
+    "label": "tie",
+    "image": "/images/assessment/long-vowels/tie.webp",
+    "imagePath": "/images/assessment/long-vowels/tie.webp",
+    "imageAlt": "tie"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.t.v3_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imageAlt": "dog"
    }
   ]
  },
@@ -11449,7 +11779,7 @@ export const questions = [
    "n": "D-VOWEL",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11459,6 +11789,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "umbrella",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11474,7 +11805,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/umbrella.png",
   "targetImage": "/images/child-mode/initial-sounds/umbrella.png",
   "targetImagePath": "/images/child-mode/initial-sounds/umbrella.png",
-  "imageAlt": "umbrella"
+  "resolvedImageAssetKey": "umbrella",
+  "imageAlt": "Which letter makes the first sound in umbrella?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.u.v2",
@@ -11500,12 +11832,17 @@ export const questions = [
   "question": "Which letter makes the first sound in uncle?",
   "spokenPrompt": "uncle. Which letter makes the first sound in uncle?",
   "choices": [
+   "l",
    "u",
    "o",
-   "n",
-   "l"
+   "n"
   ],
   "answerOptions": [
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
    {
     "value": "u",
     "label": "u",
@@ -11520,21 +11857,16 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
-   },
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
+   "l": "D-POSITION",
    "o": "D-VOWEL",
-   "n": "D-VOWEL",
-   "l": "D-POSITION"
+   "n": "D-VOWEL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11544,6 +11876,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "uncle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11559,7 +11892,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/uncle.png",
   "targetImage": "/images/child-mode/initial-sounds/uncle.png",
   "targetImagePath": "/images/child-mode/initial-sounds/uncle.png",
-  "imageAlt": "uncle"
+  "resolvedImageAssetKey": "uncle",
+  "imageAlt": "Which letter makes the first sound in uncle?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.u.v3",
@@ -11585,22 +11919,12 @@ export const questions = [
   "question": "Which one starts like umbrella?",
   "spokenPrompt": "umbrella. Which one starts with the same sound as umbrella?",
   "choices": [
-   "uncle",
-   "ox",
    "ant",
-   "egg"
+   "egg",
+   "uncle",
+   "ox"
   ],
   "answerOptions": [
-   {
-    "value": "uncle",
-    "label": "uncle",
-    "text": "uncle"
-   },
-   {
-    "value": "ox",
-    "label": "ox",
-    "text": "ox"
-   },
    {
     "value": "ant",
     "label": "ant",
@@ -11610,6 +11934,16 @@ export const questions = [
     "value": "egg",
     "label": "egg",
     "text": "egg"
+   },
+   {
+    "value": "uncle",
+    "label": "uncle",
+    "text": "uncle"
+   },
+   {
+    "value": "ox",
+    "label": "ox",
+    "text": "ox"
    }
   ],
   "answer": "uncle",
@@ -11643,6 +11977,24 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.u.v3_card_ant",
+    "word": "ant",
+    "value": "ant",
+    "label": "ant",
+    "image": "/images/child-mode/initial-sounds/ant.png",
+    "imagePath": "/images/child-mode/initial-sounds/ant.png",
+    "imageAlt": "ant"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.u.v3_card_egg",
+    "word": "egg",
+    "value": "egg",
+    "label": "egg",
+    "image": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
+    "imageAlt": "egg"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.u.v3_card_uncle",
     "word": "uncle",
     "value": "uncle",
@@ -11659,24 +12011,6 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/ox.png",
     "imagePath": "/images/child-mode/initial-sounds/ox.png",
     "imageAlt": "ox"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.u.v3_card_ant",
-    "word": "ant",
-    "value": "ant",
-    "label": "ant",
-    "image": "/images/child-mode/initial-sounds/ant.png",
-    "imagePath": "/images/child-mode/initial-sounds/ant.png",
-    "imageAlt": "ant"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.u.v3_card_egg",
-    "word": "egg",
-    "value": "egg",
-    "label": "egg",
-    "image": "/images/child-mode/initial-sounds/egg.png",
-    "imagePath": "/images/child-mode/initial-sounds/egg.png",
-    "imageAlt": "egg"
    }
   ]
  },
@@ -11704,12 +12038,17 @@ export const questions = [
   "question": "Which letter makes the first sound in umpire?",
   "spokenPrompt": "umpire. Which letter makes the first sound in umpire?",
   "choices": [
+   "r",
    "u",
    "o",
-   "n",
-   "r"
+   "n"
   ],
   "answerOptions": [
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
    {
     "value": "u",
     "label": "u",
@@ -11724,30 +12063,26 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
-   },
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
-   "o": "D-VOWEL",
    "n": "D-VOWEL",
-   "r": "D-POSITION"
+   "r": "D-POSITION",
+   "o": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "umpire",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "umpire",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11758,7 +12093,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
+  "resolvedImageAssetKey": "umpire",
+  "imageAlt": "Which letter makes the first sound in umpire?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.u.v2",
@@ -11780,9 +12121,9 @@ export const questions = [
   "formatType": "FIRST_SOUND",
   "templateType": "FIRST_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Which letter makes the first sound in understand?",
-  "question": "Which letter makes the first sound in understand?",
-  "spokenPrompt": "understand. Which letter makes the first sound in understand?",
+  "prompt": "Which letter makes the first sound in uniform?",
+  "question": "Which letter makes the first sound in uniform?",
+  "spokenPrompt": "uniform. Which letter makes the first sound in uniform?",
   "choices": [
    "u",
    "o",
@@ -11818,16 +12159,17 @@ export const questions = [
    "v": "D-VOWEL",
    "d": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "understand",
+  "targetWord": "uniform",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "uniform",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -11838,7 +12180,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
+  "resolvedImageAssetKey": "uniform",
+  "imageAlt": "Which letter makes the first sound in uniform?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.u.v3",
@@ -11864,17 +12212,12 @@ export const questions = [
   "question": "Which one starts like uncle?",
   "spokenPrompt": "uncle. Which one starts with the same sound as uncle?",
   "choices": [
-   "under",
    "igloo",
    "apple",
-   "octopus"
+   "octopus",
+   "under"
   ],
   "answerOptions": [
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
-   },
    {
     "value": "igloo",
     "label": "igloo",
@@ -11889,14 +12232,19 @@ export const questions = [
     "value": "octopus",
     "label": "octopus",
     "text": "octopus"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "under",
   "correctAnswer": "under",
   "distractorRationales": {
-   "igloo": "D-VOWEL",
    "apple": "D-VOWEL",
-   "octopus": "D-VOWEL"
+   "octopus": "D-VOWEL",
+   "igloo": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -11922,15 +12270,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.u.v3_card_under",
-    "word": "under",
-    "value": "under",
-    "label": "under",
-    "image": "/images/child-mode/initial-sounds/under.png",
-    "imagePath": "/images/child-mode/initial-sounds/under.png",
-    "imageAlt": "under"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.u.v3_card_igloo",
     "word": "igloo",
     "value": "igloo",
@@ -11944,8 +12283,8 @@ export const questions = [
     "word": "apple",
     "value": "apple",
     "label": "apple",
-    "image": "/images/child-mode/initial-sounds/apple.png",
-    "imagePath": "/images/child-mode/initial-sounds/apple.png",
+    "image": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
     "imageAlt": "apple"
    },
    {
@@ -11956,6 +12295,15 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/octopus.png",
     "imagePath": "/images/child-mode/initial-sounds/octopus.png",
     "imageAlt": "octopus"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.u.v3_card_under",
+    "word": "under",
+    "value": "under",
+    "label": "under",
+    "image": "/images/child-mode/initial-sounds/under.png",
+    "imagePath": "/images/child-mode/initial-sounds/under.png",
+    "imageAlt": "under"
    }
   ]
  },
@@ -11983,12 +12331,17 @@ export const questions = [
   "question": "Which letter makes the first sound in van?",
   "spokenPrompt": "van. Which letter makes the first sound in van?",
   "choices": [
+   "n",
    "v",
    "f",
-   "y",
-   "n"
+   "y"
   ],
   "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
    {
     "value": "v",
     "label": "v",
@@ -12003,21 +12356,16 @@ export const questions = [
     "value": "y",
     "label": "y",
     "text": "y"
-   },
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
    }
   ],
   "answer": "v",
   "correctAnswer": "v",
   "distractorRationales": {
-   "f": "D-ONSET",
    "y": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "n": "D-POSITION",
+   "f": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12027,6 +12375,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "van",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12038,11 +12387,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/van.png",
-  "imageUrl": "/images/child-mode/initial-sounds/van.png",
-  "targetImage": "/images/child-mode/initial-sounds/van.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/van.png",
-  "imageAlt": "van"
+  "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/an/van-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/an/van-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
+  "resolvedImageAssetKey": "van",
+  "imageAlt": "Which letter makes the first sound in van?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.v.v2",
@@ -12068,22 +12418,12 @@ export const questions = [
   "question": "Which letter makes the first sound in vet?",
   "spokenPrompt": "vet. Which letter makes the first sound in vet?",
   "choices": [
-   "v",
-   "f",
    "y",
-   "t"
+   "t",
+   "v",
+   "f"
   ],
   "answerOptions": [
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
-   {
-    "value": "f",
-    "label": "f",
-    "text": "f"
-   },
    {
     "value": "y",
     "label": "y",
@@ -12093,6 +12433,16 @@ export const questions = [
     "value": "t",
     "label": "t",
     "text": "t"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
    }
   ],
   "answer": "v",
@@ -12102,7 +12452,7 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12112,6 +12462,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vet",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12127,7 +12478,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/vet.png",
   "targetImage": "/images/child-mode/initial-sounds/vet.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
-  "imageAlt": "vet"
+  "resolvedImageAssetKey": "vet",
+  "imageAlt": "Which letter makes the first sound in vet?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.v.v3",
@@ -12153,17 +12505,12 @@ export const questions = [
   "question": "Which one starts like van?",
   "spokenPrompt": "van. Which one starts with the same sound as van?",
   "choices": [
-   "vet",
    "fan",
    "web",
-   "man"
+   "man",
+   "vet"
   ],
   "answerOptions": [
-   {
-    "value": "vet",
-    "label": "vet",
-    "text": "vet"
-   },
    {
     "value": "fan",
     "label": "fan",
@@ -12178,14 +12525,19 @@ export const questions = [
     "value": "man",
     "label": "man",
     "text": "man"
+   },
+   {
+    "value": "vet",
+    "label": "vet",
+    "text": "vet"
    }
   ],
   "answer": "vet",
   "correctAnswer": "vet",
   "distractorRationales": {
-   "fan": "D-ONSET",
    "web": "D-VISUAL-NEIGHBOR",
-   "man": "D-RIME-NEAR"
+   "man": "D-RIME-NEAR",
+   "fan": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -12211,21 +12563,12 @@ export const questions = [
   "notes": "fan is the f/v voicing trap AND rhymes with the anchor; man rhymes too",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.v.v3_card_vet",
-    "word": "vet",
-    "value": "vet",
-    "label": "vet",
-    "image": "/images/child-mode/initial-sounds/vet.png",
-    "imagePath": "/images/child-mode/initial-sounds/vet.png",
-    "imageAlt": "vet"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.v.v3_card_fan",
     "word": "fan",
     "value": "fan",
     "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
     "imageAlt": "fan"
    },
    {
@@ -12242,9 +12585,18 @@ export const questions = [
     "word": "man",
     "value": "man",
     "label": "man",
-    "image": "/images/child-mode/cvc/man.png",
-    "imagePath": "/images/child-mode/cvc/man.png",
+    "image": "/images/assessment/rhyming/variants/an/man-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/man-02.webp",
     "imageAlt": "man"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.v.v3_card_vet",
+    "word": "vet",
+    "value": "vet",
+    "label": "vet",
+    "image": "/images/child-mode/initial-sounds/vet.png",
+    "imagePath": "/images/child-mode/initial-sounds/vet.png",
+    "imageAlt": "vet"
    }
   ]
  },
@@ -12272,22 +12624,12 @@ export const questions = [
   "question": "Which letter makes the first sound in volcano?",
   "spokenPrompt": "volcano. Which letter makes the first sound in volcano?",
   "choices": [
-   "v",
-   "f",
    "y",
-   "o"
+   "o",
+   "v",
+   "f"
   ],
   "answerOptions": [
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
-   {
-    "value": "f",
-    "label": "f",
-    "text": "f"
-   },
    {
     "value": "y",
     "label": "y",
@@ -12297,6 +12639,16 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
+   },
+   {
+    "value": "f",
+    "label": "f",
+    "text": "f"
    }
   ],
   "answer": "v",
@@ -12306,16 +12658,17 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "volcano",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "volcano",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12326,7 +12679,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
+  "resolvedImageAssetKey": "volcano",
+  "imageAlt": "Which letter makes the first sound in volcano?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.v.v2",
@@ -12352,12 +12711,17 @@ export const questions = [
   "question": "Which letter makes the first sound in vulture?",
   "spokenPrompt": "vulture. Which letter makes the first sound in vulture?",
   "choices": [
+   "r",
    "v",
    "f",
-   "w",
-   "r"
+   "w"
   ],
   "answerOptions": [
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
    {
     "value": "v",
     "label": "v",
@@ -12372,30 +12736,26 @@ export const questions = [
     "value": "w",
     "label": "w",
     "text": "w"
-   },
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
    }
   ],
   "answer": "v",
   "correctAnswer": "v",
   "distractorRationales": {
+   "r": "D-POSITION",
    "f": "D-ONSET",
-   "w": "D-VISUAL-NEIGHBOR",
-   "r": "D-POSITION"
+   "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "vulture",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vulture",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12406,7 +12766,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
+  "resolvedImageAssetKey": "vulture",
+  "imageAlt": "Which letter makes the first sound in vulture?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.v.v3",
@@ -12494,8 +12860,8 @@ export const questions = [
     "word": "van",
     "value": "van",
     "label": "van",
-    "image": "/images/child-mode/initial-sounds/van.png",
-    "imagePath": "/images/child-mode/initial-sounds/van.png",
+    "image": "/images/assessment/rhyming/variants/an/van-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
     "imageAlt": "van"
    },
    {
@@ -12503,8 +12869,8 @@ export const questions = [
     "word": "fan",
     "value": "fan",
     "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
     "imageAlt": "fan"
    },
    {
@@ -12521,8 +12887,8 @@ export const questions = [
     "word": "fin",
     "value": "fin",
     "label": "fin",
-    "image": "/images/child-mode/initial-sounds/fin.png",
-    "imagePath": "/images/child-mode/initial-sounds/fin.png",
+    "image": "/images/assessment/rhyming/variants/in/fin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
     "imageAlt": "fin"
    }
   ]
@@ -12551,22 +12917,12 @@ export const questions = [
   "question": "Which letter makes the first sound in web?",
   "spokenPrompt": "web. Which letter makes the first sound in web?",
   "choices": [
-   "w",
-   "v",
    "m",
-   "b"
+   "b",
+   "w",
+   "v"
   ],
   "answerOptions": [
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
    {
     "value": "m",
     "label": "m",
@@ -12576,16 +12932,26 @@ export const questions = [
     "value": "b",
     "label": "b",
     "text": "b"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
    }
   ],
   "answer": "w",
   "correctAnswer": "w",
   "distractorRationales": {
+   "b": "D-POSITION",
    "v": "D-ONSET",
-   "m": "D-VISUAL-NEIGHBOR",
-   "b": "D-POSITION"
+   "m": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12595,6 +12961,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "web",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12610,7 +12977,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/web.png",
   "targetImage": "/images/child-mode/initial-sounds/web.png",
   "targetImagePath": "/images/child-mode/initial-sounds/web.png",
-  "imageAlt": "web"
+  "resolvedImageAssetKey": "web",
+  "imageAlt": "Which letter makes the first sound in web?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.w.v2",
@@ -12636,17 +13004,12 @@ export const questions = [
   "question": "Which letter makes the first sound in worm?",
   "spokenPrompt": "worm. Which letter makes the first sound in worm?",
   "choices": [
-   "w",
    "v",
    "u",
-   "m"
+   "m",
+   "w"
   ],
   "answerOptions": [
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
    {
     "value": "v",
     "label": "v",
@@ -12661,6 +13024,11 @@ export const questions = [
     "value": "m",
     "label": "m",
     "text": "m"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
    }
   ],
   "answer": "w",
@@ -12670,7 +13038,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "m": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12680,6 +13048,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "worm",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12695,7 +13064,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/worm.png",
   "targetImage": "/images/child-mode/initial-sounds/worm.png",
   "targetImagePath": "/images/child-mode/initial-sounds/worm.png",
-  "imageAlt": "worm"
+  "resolvedImageAssetKey": "worm",
+  "imageAlt": "Which letter makes the first sound in worm?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.w.v3",
@@ -12751,9 +13121,9 @@ export const questions = [
   "answer": "worm",
   "correctAnswer": "worm",
   "distractorRationales": {
+   "net": "D-SEMANTIC",
    "vet": "D-ONSET",
-   "mop": "D-VISUAL-NEIGHBOR",
-   "net": "D-SEMANTIC"
+   "mop": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -12801,8 +13171,8 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/child-mode/initial-sounds/mop.png",
-    "imagePath": "/images/child-mode/initial-sounds/mop.png",
+    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
     "imageAlt": "mop"
    },
    {
@@ -12810,8 +13180,8 @@ export const questions = [
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
     "imageAlt": "net"
    }
   ]
@@ -12840,17 +13210,12 @@ export const questions = [
   "question": "Which letter makes the first sound in watermelon?",
   "spokenPrompt": "watermelon. Which letter makes the first sound in watermelon?",
   "choices": [
-   "w",
    "v",
    "m",
-   "n"
+   "n",
+   "w"
   ],
   "answerOptions": [
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
    {
     "value": "v",
     "label": "v",
@@ -12865,6 +13230,11 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
    }
   ],
   "answer": "w",
@@ -12874,16 +13244,17 @@ export const questions = [
    "m": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "watermelon",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "watermelon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12894,7 +13265,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
+  "resolvedImageAssetKey": "watermelon",
+  "imageAlt": "Which letter makes the first sound in watermelon?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.w.v2",
@@ -12920,22 +13297,12 @@ export const questions = [
   "question": "Which letter makes the first sound in window?",
   "spokenPrompt": "window. Which letter makes the first sound in window?",
   "choices": [
-   "w",
-   "v",
    "u",
-   "o"
+   "o",
+   "w",
+   "v"
   ],
   "answerOptions": [
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
-   {
-    "value": "v",
-    "label": "v",
-    "text": "v"
-   },
    {
     "value": "u",
     "label": "u",
@@ -12945,25 +13312,36 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
+   },
+   {
+    "value": "v",
+    "label": "v",
+    "text": "v"
    }
   ],
   "answer": "w",
   "correctAnswer": "w",
   "distractorRationales": {
-   "v": "D-ONSET",
    "u": "D-VISUAL-NEIGHBOR",
-   "o": "D-POSITION"
+   "o": "D-POSITION",
+   "v": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "window",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "window",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -12974,7 +13352,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Which letter makes the first sound in window?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.w.v3",
@@ -13000,12 +13384,17 @@ export const questions = [
   "question": "Which one starts like wasp?",
   "spokenPrompt": "wasp. Which one starts with the same sound as wasp?",
   "choices": [
+   "vase",
    "wheel",
    "vet",
-   "van",
-   "vase"
+   "van"
   ],
   "answerOptions": [
+   {
+    "value": "vase",
+    "label": "vase",
+    "text": "vase"
+   },
    {
     "value": "wheel",
     "label": "wheel",
@@ -13020,11 +13409,6 @@ export const questions = [
     "value": "van",
     "label": "van",
     "text": "van"
-   },
-   {
-    "value": "vase",
-    "label": "vase",
-    "text": "vase"
    }
   ],
   "answer": "wheel",
@@ -13058,6 +13442,15 @@ export const questions = [
   "notes": "glide panel: /w/ key against three /v/ starters",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.w.v3_card_vase",
+    "word": "vase",
+    "value": "vase",
+    "label": "vase",
+    "image": "/images/child-mode/initial-sounds/vase.png",
+    "imagePath": "/images/child-mode/initial-sounds/vase.png",
+    "imageAlt": "vase"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.w.v3_card_wheel",
     "word": "wheel",
     "value": "wheel",
@@ -13080,18 +13473,9 @@ export const questions = [
     "word": "van",
     "value": "van",
     "label": "van",
-    "image": "/images/child-mode/initial-sounds/van.png",
-    "imagePath": "/images/child-mode/initial-sounds/van.png",
+    "image": "/images/assessment/rhyming/variants/an/van-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
     "imageAlt": "van"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.w.v3_card_vase",
-    "word": "vase",
-    "value": "vase",
-    "label": "vase",
-    "image": "/images/child-mode/initial-sounds/vase.png",
-    "imagePath": "/images/child-mode/initial-sounds/vase.png",
-    "imageAlt": "vase"
    }
   ]
  },
@@ -13119,17 +13503,12 @@ export const questions = [
   "question": "Which letter makes the first sound in yak?",
   "spokenPrompt": "yak. Which letter makes the first sound in yak?",
   "choices": [
-   "y",
    "w",
    "v",
-   "k"
+   "k",
+   "y"
   ],
   "answerOptions": [
-   {
-    "value": "y",
-    "label": "y",
-    "text": "y"
-   },
    {
     "value": "w",
     "label": "w",
@@ -13144,6 +13523,11 @@ export const questions = [
     "value": "k",
     "label": "k",
     "text": "k"
+   },
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
    }
   ],
   "answer": "y",
@@ -13153,7 +13537,7 @@ export const questions = [
    "v": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13163,6 +13547,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yak",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13178,7 +13563,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/yak.png",
   "targetImage": "/images/child-mode/initial-sounds/yak.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yak.png",
-  "imageAlt": "yak"
+  "resolvedImageAssetKey": "yak",
+  "imageAlt": "Which letter makes the first sound in yak?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.y.v2",
@@ -13234,11 +13620,11 @@ export const questions = [
   "answer": "y",
   "correctAnswer": "y",
   "distractorRationales": {
+   "n": "D-POSITION",
    "w": "D-ONSET",
-   "v": "D-VISUAL-NEIGHBOR",
-   "n": "D-POSITION"
+   "v": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13248,6 +13634,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yarn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13263,7 +13650,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/yarn.png",
   "targetImage": "/images/child-mode/initial-sounds/yarn.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
-  "imageAlt": "yarn"
+  "resolvedImageAssetKey": "yarn",
+  "imageAlt": "Which letter makes the first sound in yarn?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.y.v3",
@@ -13289,12 +13677,17 @@ export const questions = [
   "question": "Which one starts like yak?",
   "spokenPrompt": "yak. Which one starts with the same sound as yak?",
   "choices": [
+   "farm",
    "yarn",
    "wasp",
-   "jam",
-   "farm"
+   "jam"
   ],
   "answerOptions": [
+   {
+    "value": "farm",
+    "label": "farm",
+    "text": "farm"
+   },
    {
     "value": "yarn",
     "label": "yarn",
@@ -13309,11 +13702,6 @@ export const questions = [
     "value": "jam",
     "label": "jam",
     "text": "jam"
-   },
-   {
-    "value": "farm",
-    "label": "farm",
-    "text": "farm"
    }
   ],
   "answer": "yarn",
@@ -13347,6 +13735,15 @@ export const questions = [
   "notes": "jam is the j-letter-name trap; the farm is where the yak lives — and its ar ties the starts-overlap",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l1.C.y.v3_card_farm",
+    "word": "farm",
+    "value": "farm",
+    "label": "farm",
+    "image": "/images/child-mode/initial-sounds/farm.png",
+    "imagePath": "/images/child-mode/initial-sounds/farm.png",
+    "imageAlt": "farm"
+   },
+   {
     "id": "lp3.initial_sounds.l1.C.y.v3_card_yarn",
     "word": "yarn",
     "value": "yarn",
@@ -13369,18 +13766,9 @@ export const questions = [
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
     "imageAlt": "jam"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.y.v3_card_farm",
-    "word": "farm",
-    "value": "farm",
-    "label": "farm",
-    "image": "/images/child-mode/initial-sounds/farm.png",
-    "imagePath": "/images/child-mode/initial-sounds/farm.png",
-    "imageAlt": "farm"
    }
   ]
  },
@@ -13438,20 +13826,21 @@ export const questions = [
   "answer": "y",
   "correctAnswer": "y",
   "distractorRationales": {
-   "w": "D-ONSET",
    "v": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "w": "D-ONSET"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "yoghurt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yoghurt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13462,7 +13851,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
+  "resolvedImageAssetKey": "yoghurt",
+  "imageAlt": "Which letter makes the first sound in yoghurt?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.y.v2",
@@ -13488,17 +13883,12 @@ export const questions = [
   "question": "Which letter makes the first sound in yawn?",
   "spokenPrompt": "yawn. Which letter makes the first sound in yawn?",
   "choices": [
-   "y",
    "w",
    "u",
-   "n"
+   "n",
+   "y"
   ],
   "answerOptions": [
-   {
-    "value": "y",
-    "label": "y",
-    "text": "y"
-   },
    {
     "value": "w",
     "label": "w",
@@ -13513,6 +13903,11 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
+   },
+   {
+    "value": "y",
+    "label": "y",
+    "text": "y"
    }
   ],
   "answer": "y",
@@ -13522,16 +13917,17 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yawn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13542,7 +13938,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "Which letter makes the first sound in yawn?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.y.v3",
@@ -13568,22 +13970,12 @@ export const questions = [
   "question": "Which one starts like yarn?",
   "spokenPrompt": "yarn. Which one starts with the same sound as yarn?",
   "choices": [
-   "yak",
-   "jam",
    "jet",
-   "star"
+   "star",
+   "yak",
+   "jam"
   ],
   "answerOptions": [
-   {
-    "value": "yak",
-    "label": "yak",
-    "text": "yak"
-   },
-   {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
-   },
    {
     "value": "jet",
     "label": "jet",
@@ -13593,14 +13985,24 @@ export const questions = [
     "value": "star",
     "label": "star",
     "text": "star"
+   },
+   {
+    "value": "yak",
+    "label": "yak",
+    "text": "yak"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
    }
   ],
   "answer": "yak",
   "correctAnswer": "yak",
   "distractorRationales": {
-   "jam": "D-ONSET",
    "jet": "D-ONSET",
-   "star": "D-PATTERN-TRAP"
+   "star": "D-PATTERN-TRAP",
+   "jam": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -13626,6 +14028,24 @@ export const questions = [
   "notes": "jam/jet keep the yet/jet pressure; star ties the yarn ar-overlap so scanning cannot win",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.C.y.v3_card_jet",
+    "word": "jet",
+    "value": "jet",
+    "label": "jet",
+    "image": "/images/assessment/rhyming/variants/et/jet-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
+    "imageAlt": "jet"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.y.v3_card_star",
+    "word": "star",
+    "value": "star",
+    "label": "star",
+    "image": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imageAlt": "star"
+   },
+   {
     "id": "lp3.initial_sounds.l2.C.y.v3_card_yak",
     "word": "yak",
     "value": "yak",
@@ -13639,27 +14059,9 @@ export const questions = [
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
     "imageAlt": "jam"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.y.v3_card_jet",
-    "word": "jet",
-    "value": "jet",
-    "label": "jet",
-    "image": "/images/child-mode/initial-sounds/jet.png",
-    "imagePath": "/images/child-mode/initial-sounds/jet.png",
-    "imageAlt": "jet"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.C.y.v3_card_star",
-    "word": "star",
-    "value": "star",
-    "label": "star",
-    "image": "/images/child-mode/blends/star.png",
-    "imagePath": "/images/child-mode/blends/star.png",
-    "imageAlt": "star"
    }
   ]
  },
@@ -13717,11 +14119,11 @@ export const questions = [
   "answer": "z",
   "correctAnswer": "z",
   "distractorRationales": {
-   "s": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR",
-   "p": "D-POSITION"
+   "p": "D-POSITION",
+   "s": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13731,6 +14133,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zip",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13742,11 +14145,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageUrl": "/images/child-mode/initial-sounds/zip.png",
-  "targetImage": "/images/child-mode/initial-sounds/zip.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageAlt": "zip"
+  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "resolvedImageAssetKey": "zip",
+  "imageAlt": "Which letter makes the first sound in zip?"
  },
  {
   "id": "lp3.initial_sounds.l1.B.z.v2",
@@ -13772,12 +14176,17 @@ export const questions = [
   "question": "Which letter makes the first sound in zoo?",
   "spokenPrompt": "zoo. Which letter makes the first sound in zoo?",
   "choices": [
+   "o",
    "z",
    "s",
-   "n",
-   "o"
+   "n"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "z",
     "label": "z",
@@ -13792,11 +14201,6 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "z",
@@ -13806,7 +14210,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13816,6 +14220,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zoo",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -13827,11 +14232,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/zoo.png",
-  "imageUrl": "/images/child-mode/initial-sounds/zoo.png",
-  "targetImage": "/images/child-mode/initial-sounds/zoo.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/zoo.png",
-  "imageAlt": "zoo"
+  "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "resolvedImageAssetKey": "zoo",
+  "imageAlt": "Which letter makes the first sound in zoo?"
  },
  {
   "id": "lp3.initial_sounds.l1.C.z.v3",
@@ -13857,22 +14263,12 @@ export const questions = [
   "question": "Which one starts like zip?",
   "spokenPrompt": "zip. Which one starts with the same sound as zip?",
   "choices": [
-   "zoo",
-   "sock",
    "quiz",
-   "ship"
+   "ship",
+   "zoo",
+   "sock"
   ],
   "answerOptions": [
-   {
-    "value": "zoo",
-    "label": "zoo",
-    "text": "zoo"
-   },
-   {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
-   },
    {
     "value": "quiz",
     "label": "quiz",
@@ -13882,14 +14278,24 @@ export const questions = [
     "value": "ship",
     "label": "ship",
     "text": "ship"
+   },
+   {
+    "value": "zoo",
+    "label": "zoo",
+    "text": "zoo"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
    }
   ],
   "answer": "zoo",
   "correctAnswer": "zoo",
   "distractorRationales": {
-   "sock": "D-ONSET",
    "quiz": "D-POSITION",
-   "ship": "D-RIME-NEAR"
+   "ship": "D-RIME-NEAR",
+   "sock": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -13915,24 +14321,6 @@ export const questions = [
   "notes": "quiz ends /z/; ship rhymes with the anchor",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.C.z.v3_card_zoo",
-    "word": "zoo",
-    "value": "zoo",
-    "label": "zoo",
-    "image": "/images/child-mode/initial-sounds/zoo.png",
-    "imagePath": "/images/child-mode/initial-sounds/zoo.png",
-    "imageAlt": "zoo"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.C.z.v3_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
-   },
-   {
     "id": "lp3.initial_sounds.l1.C.z.v3_card_quiz",
     "word": "quiz",
     "value": "quiz",
@@ -13949,6 +14337,24 @@ export const questions = [
     "image": "/images/assessment/digraphs/ship.webp",
     "imagePath": "/images/assessment/digraphs/ship.webp",
     "imageAlt": "ship"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.z.v3_card_zoo",
+    "word": "zoo",
+    "value": "zoo",
+    "label": "zoo",
+    "image": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+    "imageAlt": "zoo"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.C.z.v3_card_sock",
+    "word": "sock",
+    "value": "sock",
+    "label": "sock",
+    "image": "/images/assessment/digraphs/sock.webp",
+    "imagePath": "/images/assessment/digraphs/sock.webp",
+    "imageAlt": "sock"
    }
   ]
  },
@@ -13976,12 +14382,17 @@ export const questions = [
   "question": "Which letter makes the first sound in zebra?",
   "spokenPrompt": "zebra. Which letter makes the first sound in zebra?",
   "choices": [
+   "a",
    "z",
    "s",
-   "n",
-   "a"
+   "n"
   ],
   "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
    {
     "value": "z",
     "label": "z",
@@ -13996,11 +14407,6 @@ export const questions = [
     "value": "n",
     "label": "n",
     "text": "n"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
    }
   ],
   "answer": "z",
@@ -14010,7 +14416,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14020,6 +14426,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zebra",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14035,7 +14442,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/zebra.png",
   "targetImage": "/images/child-mode/initial-sounds/zebra.png",
   "targetImagePath": "/images/child-mode/initial-sounds/zebra.png",
-  "imageAlt": "zebra"
+  "resolvedImageAssetKey": "zebra",
+  "imageAlt": "Which letter makes the first sound in zebra?"
  },
  {
   "id": "lp3.initial_sounds.l2.B.z.v2",
@@ -14091,20 +14499,21 @@ export const questions = [
   "answer": "z",
   "correctAnswer": "z",
   "distractorRationales": {
+   "g": "D-POSITION",
    "s": "D-ONSET",
-   "n": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "zigzag",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zigzag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14115,7 +14524,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
+  "resolvedImageAssetKey": "zigzag",
+  "imageAlt": "Which letter makes the first sound in zigzag?"
  },
  {
   "id": "lp3.initial_sounds.l2.C.z.v3",
@@ -14141,17 +14556,12 @@ export const questions = [
   "question": "Which one starts like zoo?",
   "spokenPrompt": "zoo. Which one starts with the same sound as zoo?",
   "choices": [
-   "zebra",
    "sun",
    "sock",
-   "sheep"
+   "sheep",
+   "zebra"
   ],
   "answerOptions": [
-   {
-    "value": "zebra",
-    "label": "zebra",
-    "text": "zebra"
-   },
    {
     "value": "sun",
     "label": "sun",
@@ -14166,6 +14576,11 @@ export const questions = [
     "value": "sheep",
     "label": "sheep",
     "text": "sheep"
+   },
+   {
+    "value": "zebra",
+    "label": "zebra",
+    "text": "zebra"
    }
   ],
   "answer": "zebra",
@@ -14199,21 +14614,12 @@ export const questions = [
   "notes": "voicing panel: /z/ key against three /s/ starters",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l2.C.z.v3_card_zebra",
-    "word": "zebra",
-    "value": "zebra",
-    "label": "zebra",
-    "image": "/images/child-mode/initial-sounds/zebra.png",
-    "imagePath": "/images/child-mode/initial-sounds/zebra.png",
-    "imageAlt": "zebra"
-   },
-   {
     "id": "lp3.initial_sounds.l2.C.z.v3_card_sun",
     "word": "sun",
     "value": "sun",
     "label": "sun",
-    "image": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
     "imageAlt": "sun"
    },
    {
@@ -14233,6 +14639,15 @@ export const questions = [
     "image": "/images/assessment/digraphs/sheep.webp",
     "imagePath": "/images/assessment/digraphs/sheep.webp",
     "imageAlt": "sheep"
+   },
+   {
+    "id": "lp3.initial_sounds.l2.C.z.v3_card_zebra",
+    "word": "zebra",
+    "value": "zebra",
+    "label": "zebra",
+    "image": "/images/child-mode/initial-sounds/zebra.png",
+    "imagePath": "/images/child-mode/initial-sounds/zebra.png",
+    "imageAlt": "zebra"
    }
   ]
  },
@@ -14290,20 +14705,21 @@ export const questions = [
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
+   "s": "D-POSITION",
    "e": "D-VOWEL",
-   "o": "D-VOWEL",
-   "s": "D-POSITION"
+   "o": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "ambulance",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "initial_sounds-a-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14314,7 +14730,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/a.webp",
+  "imageUrl": "/images/assessment/hfw/a.webp",
+  "targetImage": "/images/assessment/hfw/a.webp",
+  "targetImagePath": "/images/assessment/hfw/a.webp",
+  "resolvedImageAssetKey": "a",
+  "imageAlt": "Which letter makes the first sound in ambulance?"
  },
  {
   "id": "lp3.initial_sounds.l2.R.e.v7r",
@@ -14340,12 +14762,17 @@ export const questions = [
   "question": "Which letter makes the first sound in engine?",
   "spokenPrompt": "engine. Which letter makes the first sound in engine?",
   "choices": [
+   "n",
    "e",
    "i",
-   "c",
-   "n"
+   "c"
   ],
   "answerOptions": [
+   {
+    "value": "n",
+    "label": "n",
+    "text": "n"
+   },
    {
     "value": "e",
     "label": "e",
@@ -14360,30 +14787,26 @@ export const questions = [
     "value": "c",
     "label": "c",
     "text": "c"
-   },
-   {
-    "value": "n",
-    "label": "n",
-    "text": "n"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "n": "D-POSITION",
    "i": "D-VOWEL",
-   "c": "D-VOWEL",
-   "n": "D-POSITION"
+   "c": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "engine",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "engine",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14394,7 +14817,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "resolvedImageAssetKey": "engine",
+  "imageAlt": "Which letter makes the first sound in engine?"
  },
  {
   "id": "lp3.initial_sounds.l1.R.m.v7r",
@@ -14420,12 +14849,17 @@ export const questions = [
   "question": "Which letter makes the first sound in mat?",
   "spokenPrompt": "mat. Which letter makes the first sound in mat?",
   "choices": [
+   "t",
    "m",
    "n",
-   "h",
-   "t"
+   "h"
   ],
   "answerOptions": [
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   },
    {
     "value": "m",
     "label": "m",
@@ -14440,21 +14874,16 @@ export const questions = [
     "value": "h",
     "label": "h",
     "text": "h"
-   },
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
    }
   ],
   "answer": "m",
   "correctAnswer": "m",
   "distractorRationales": {
-   "n": "D-ONSET",
    "h": "D-VISUAL-NEIGHBOR",
-   "t": "D-POSITION"
+   "t": "D-POSITION",
+   "n": "D-ONSET"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -14464,6 +14893,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14475,11 +14905,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/mat.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mat.png",
-  "targetImage": "/images/child-mode/initial-sounds/mat.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mat.png",
-  "imageAlt": "mat"
+  "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/mat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/mat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
+  "resolvedImageAssetKey": "mat",
+  "imageAlt": "Which letter makes the first sound in mat?"
  },
  {
   "id": "lp3.initial_sounds.l2.R.s.v7r",
@@ -14505,22 +14936,12 @@ export const questions = [
   "question": "Which letter makes the first sound in sandcastle?",
   "spokenPrompt": "sandcastle. Which letter makes the first sound in sandcastle?",
   "choices": [
-   "s",
-   "z",
    "e",
-   "l"
+   "l",
+   "s",
+   "z"
   ],
   "answerOptions": [
-   {
-    "value": "s",
-    "label": "s",
-    "text": "s"
-   },
-   {
-    "value": "z",
-    "label": "z",
-    "text": "z"
-   },
    {
     "value": "e",
     "label": "e",
@@ -14530,6 +14951,16 @@ export const questions = [
     "value": "l",
     "label": "l",
     "text": "l"
+   },
+   {
+    "value": "s",
+    "label": "s",
+    "text": "s"
+   },
+   {
+    "value": "z",
+    "label": "z",
+    "text": "z"
    }
   ],
   "answer": "s",
@@ -14539,16 +14970,17 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "l": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "sandcastle",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sandcastle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14559,7 +14991,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "resolvedImageAssetKey": "sandcastle",
+  "imageAlt": "Which letter makes the first sound in sandcastle?"
  },
  {
   "id": "lp3.initial_sounds.l2.R.t.v7r",
@@ -14585,17 +15023,12 @@ export const questions = [
   "question": "Which letter makes the first sound in table?",
   "spokenPrompt": "table. Which letter makes the first sound in table?",
   "choices": [
-   "t",
    "d",
    "f",
-   "l"
+   "l",
+   "t"
   ],
   "answerOptions": [
-   {
-    "value": "t",
-    "label": "t",
-    "text": "t"
-   },
    {
     "value": "d",
     "label": "d",
@@ -14610,6 +15043,11 @@ export const questions = [
     "value": "l",
     "label": "l",
     "text": "l"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
    }
   ],
   "answer": "t",
@@ -14619,16 +15057,17 @@ export const questions = [
    "f": "D-VISUAL-NEIGHBOR",
    "l": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "table",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "table",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -14639,7 +15078,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "resolvedImageAssetKey": "table",
+  "imageAlt": "Which letter makes the first sound in table?"
  },
  {
   "id": "lp3.initial_sounds.l1.R.b.v7r",
@@ -14665,22 +15110,12 @@ export const questions = [
   "question": "Which one starts like bike?",
   "spokenPrompt": "bike. Which one starts with the same sound as bike?",
   "choices": [
-   "bell",
-   "pig",
    "dog",
-   "web"
+   "web",
+   "bell",
+   "pig"
   ],
   "answerOptions": [
-   {
-    "value": "bell",
-    "label": "bell",
-    "text": "bell"
-   },
-   {
-    "value": "pig",
-    "label": "pig",
-    "text": "pig"
-   },
    {
     "value": "dog",
     "label": "dog",
@@ -14690,14 +15125,24 @@ export const questions = [
     "value": "web",
     "label": "web",
     "text": "web"
+   },
+   {
+    "value": "bell",
+    "label": "bell",
+    "text": "bell"
+   },
+   {
+    "value": "pig",
+    "label": "pig",
+    "text": "pig"
    }
   ],
   "answer": "bell",
   "correctAnswer": "bell",
   "distractorRationales": {
+   "web": "D-POSITION",
    "pig": "D-ONSET",
-   "dog": "D-ONSET",
-   "web": "D-POSITION"
+   "dog": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -14723,30 +15168,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.R.b.v7r_card_bell",
-    "word": "bell",
-    "value": "bell",
-    "label": "bell",
-    "image": "/images/child-mode/initial-sounds/bell.png",
-    "imagePath": "/images/child-mode/initial-sounds/bell.png",
-    "imageAlt": "bell"
-   },
-   {
-    "id": "lp3.initial_sounds.l1.R.b.v7r_card_pig",
-    "word": "pig",
-    "value": "pig",
-    "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
-    "imageAlt": "pig"
-   },
-   {
     "id": "lp3.initial_sounds.l1.R.b.v7r_card_dog",
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
     "imageAlt": "dog"
    },
    {
@@ -14757,6 +15184,24 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/web.png",
     "imagePath": "/images/child-mode/initial-sounds/web.png",
     "imageAlt": "web"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.R.b.v7r_card_bell",
+    "word": "bell",
+    "value": "bell",
+    "label": "bell",
+    "image": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imageAlt": "bell"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.R.b.v7r_card_pig",
+    "word": "pig",
+    "value": "pig",
+    "label": "pig",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imageAlt": "pig"
    }
   ]
  },
@@ -14864,8 +15309,8 @@ export const questions = [
     "word": "king",
     "value": "king",
     "label": "king",
-    "image": "/images/child-mode/initial-sounds/king.png",
-    "imagePath": "/images/child-mode/initial-sounds/king.png",
+    "image": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
     "imageAlt": "king"
    },
    {
@@ -14873,8 +15318,8 @@ export const questions = [
     "word": "key",
     "value": "key",
     "label": "key",
-    "image": "/images/child-mode/initial-sounds/key.png",
-    "imagePath": "/images/child-mode/initial-sounds/key.png",
+    "image": "/images/assessment/language/variants/plurals/key-keys-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/key-keys-01.webp",
     "imageAlt": "key"
    }
   ]
@@ -14903,17 +15348,12 @@ export const questions = [
   "question": "Which one starts like nose?",
   "spokenPrompt": "nose. Which one starts with the same sound as nose?",
   "choices": [
-   "nap",
    "mug",
    "moon",
-   "mat"
+   "mat",
+   "nap"
   ],
   "answerOptions": [
-   {
-    "value": "nap",
-    "label": "nap",
-    "text": "nap"
-   },
    {
     "value": "mug",
     "label": "mug",
@@ -14928,14 +15368,19 @@ export const questions = [
     "value": "mat",
     "label": "mat",
     "text": "mat"
+   },
+   {
+    "value": "nap",
+    "label": "nap",
+    "text": "nap"
    }
   ],
   "answer": "nap",
   "correctAnswer": "nap",
   "distractorRationales": {
+   "mat": "D-ONSET",
    "mug": "D-ONSET",
-   "moon": "D-ONSET",
-   "mat": "D-ONSET"
+   "moon": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -14961,21 +15406,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.initial_sounds.l1.R.n.v7r_card_nap",
-    "word": "nap",
-    "value": "nap",
-    "label": "nap",
-    "image": "/images/child-mode/cvc/nap.png",
-    "imagePath": "/images/child-mode/cvc/nap.png",
-    "imageAlt": "nap"
-   },
-   {
     "id": "lp3.initial_sounds.l1.R.n.v7r_card_mug",
     "word": "mug",
     "value": "mug",
     "label": "mug",
-    "image": "/images/child-mode/cvc/mug.png",
-    "imagePath": "/images/child-mode/cvc/mug.png",
+    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
     "imageAlt": "mug"
    },
    {
@@ -14992,9 +15428,18 @@ export const questions = [
     "word": "mat",
     "value": "mat",
     "label": "mat",
-    "image": "/images/child-mode/initial-sounds/mat.png",
-    "imagePath": "/images/child-mode/initial-sounds/mat.png",
+    "image": "/images/assessment/rhyming/variants/at/mat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
     "imageAlt": "mat"
+   },
+   {
+    "id": "lp3.initial_sounds.l1.R.n.v7r_card_nap",
+    "word": "nap",
+    "value": "nap",
+    "label": "nap",
+    "image": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+    "imageAlt": "nap"
    }
   ]
  },
@@ -15022,12 +15467,17 @@ export const questions = [
   "question": "Which one starts like rose?",
   "spokenPrompt": "rose. Which one starts with the same sound as rose?",
   "choices": [
+   "web",
    "ram",
    "wasp",
-   "wheel",
-   "web"
+   "wheel"
   ],
   "answerOptions": [
+   {
+    "value": "web",
+    "label": "web",
+    "text": "web"
+   },
    {
     "value": "ram",
     "label": "ram",
@@ -15042,19 +15492,14 @@ export const questions = [
     "value": "wheel",
     "label": "wheel",
     "text": "wheel"
-   },
-   {
-    "value": "web",
-    "label": "web",
-    "text": "web"
    }
   ],
   "answer": "ram",
   "correctAnswer": "ram",
   "distractorRationales": {
-   "wasp": "D-ONSET",
    "wheel": "D-ONSET",
-   "web": "D-ONSET"
+   "web": "D-ONSET",
+   "wasp": "D-ONSET"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -15080,12 +15525,21 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.initial_sounds.l2.R.r.v7r_card_web",
+    "word": "web",
+    "value": "web",
+    "label": "web",
+    "image": "/images/child-mode/initial-sounds/web.png",
+    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "imageAlt": "web"
+   },
+   {
     "id": "lp3.initial_sounds.l2.R.r.v7r_card_ram",
     "word": "ram",
     "value": "ram",
     "label": "ram",
-    "image": "/images/child-mode/initial-sounds/ram.png",
-    "imagePath": "/images/child-mode/initial-sounds/ram.png",
+    "image": "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
     "imageAlt": "ram"
    },
    {
@@ -15105,15 +15559,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/wheel.webp",
     "imagePath": "/images/assessment/digraphs/wheel.webp",
     "imageAlt": "wheel"
-   },
-   {
-    "id": "lp3.initial_sounds.l2.R.r.v7r_card_web",
-    "word": "web",
-    "value": "web",
-    "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
-    "imageAlt": "web"
    }
   ]
  },
@@ -15221,8 +15666,8 @@ export const questions = [
     "word": "van",
     "value": "van",
     "label": "van",
-    "image": "/images/child-mode/initial-sounds/van.png",
-    "imagePath": "/images/child-mode/initial-sounds/van.png",
+    "image": "/images/assessment/rhyming/variants/an/van-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
     "imageAlt": "van"
    },
    {

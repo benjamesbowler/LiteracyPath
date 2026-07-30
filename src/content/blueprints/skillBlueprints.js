@@ -65,7 +65,16 @@ const phases = (list) => {
   return { 1: p1, 2: p2 };
 };
 
-// Level-pass thresholds shared by every skill (MASTERY_SYSTEM §3.3).
+// Phase progression is intentionally simple and learner-facing: one completed
+// phase sitting passes at 70%. Level 1 Phases 1 and 2 unlock BOTH the next
+// skill and the optional Level 2 extension. Longer-term unit evidence remains
+// available to teachers, but it never traps a learner in the current skill.
+export const PHASE_PASS_RULE = Object.freeze({
+  accuracyMin: 0.7
+});
+
+// Longer-term evidence thresholds retained for teacher diagnostics and the
+// optional "Secure" distinction. These do not control next-skill access.
 export const LEVEL_PASS_RULE = Object.freeze({
   accuracyMin: 0.85,
   minScoredDiscrete: 20,
@@ -401,15 +410,15 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
     unitRule: D_SMALL,
     sitting: 10,
     unitsByLevel: {
-      1: ["suffix_s_es", "suffix_ing", "suffix_ed", "suffix_er_person", "suffix_ful"],
-      2: ["prefix_un", "prefix_re", "suffix_less", "suffix_er_est", "suffix_ly", "prefix_pre"]
+      1: ["prefix_un", "prefix_re", "suffix_ful", "suffix_less", "suffix_er_person"],
+      2: ["suffix_s_es", "suffix_ing", "suffix_ed", "suffix_er_est", "suffix_ly", "prefix_pre"]
     },
     phaseUnitsByLevel: {
-      1: { 1: ["suffix_s_es", "suffix_ing", "suffix_ed"], 2: ["suffix_er_person", "suffix_ful"] },
-      2: { 1: ["prefix_un", "prefix_re", "suffix_less"], 2: ["suffix_er_est", "suffix_ly", "prefix_pre"] }
+      1: { 1: ["prefix_un", "prefix_re", "suffix_ful"], 2: ["suffix_less", "suffix_er_person"] },
+      2: { 1: ["suffix_s_es", "suffix_ing", "suffix_ed"], 2: ["suffix_er_est", "suffix_ly", "prefix_pre"] }
     },
     formatsByLevel: {
-      1: ["MORPHEME_BUILD", "MORPHEME_MEANING_CONTEXT"],
+      1: ["MORPHEME_MEANING_CONTEXT", "MORPHEME_TRANSFER"],
       2: ["MORPHEME_BUILD", "MORPHEME_MEANING_CONTEXT", "MORPHEME_TRANSFER"]
     },
     variantsPerUnit: { 1: 6, 2: 6 },

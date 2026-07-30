@@ -57,19 +57,20 @@ export const questions = [
   "answer": "the pond froze over",
   "correctAnswer": "the pond froze over",
   "distractorRationales": {
+   "the nights were freezing": "D-CAUSE-REVERSE",
    "the ducks flew south": "D-PLAUSIBLE-UNSUPPORTED",
-   "the park closed": "D-PLAUSIBLE-UNSUPPORTED",
-   "the nights were freezing": "D-CAUSE-REVERSE"
+   "the park closed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,7 +81,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/orange.png",
+  "imageUrl": "/images/child-mode/initial-sounds/orange.png",
+  "targetImage": "/images/child-mode/initial-sounds/orange.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/orange.png",
+  "resolvedImageAssetKey": "orange",
+  "imageAlt": "Illustration for All week the nights were freezing cold. By Saturday, the park pond wore a lid of grey ice. The ducks stood on top of it, looking puzzled, and slid about on flat orange feet."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v2",
@@ -108,12 +115,17 @@ export const questions = [
   "passage": "Zack tipped the seed packet too fast. Seeds sprayed all over the path instead of the flower bed. Within a minute, six pigeons landed and began pecking up every last one.",
   "cell": "find_effect",
   "choices": [
+   "it began to rain",
    "pigeons came to eat them",
    "the flowers grew on the path",
-   "Zack tipped the packet fast",
-   "it began to rain"
+   "Zack tipped the packet fast"
   ],
   "answerOptions": [
+   {
+    "value": "it began to rain",
+    "label": "it began to rain",
+    "text": "it began to rain"
+   },
    {
     "value": "pigeons came to eat them",
     "label": "pigeons came to eat them",
@@ -128,11 +140,6 @@ export const questions = [
     "value": "Zack tipped the packet fast",
     "label": "Zack tipped the packet fast",
     "text": "Zack tipped the packet fast"
-   },
-   {
-    "value": "it began to rain",
-    "label": "it began to rain",
-    "text": "it began to rain"
    }
   ],
   "answer": "pigeons came to eat them",
@@ -142,15 +149,16 @@ export const questions = [
    "Zack tipped the packet fast": "D-CAUSE-REVERSE",
    "it began to rain": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -161,7 +169,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/flower.webp",
+  "imageUrl": "/images/assessment/blends/flower.webp",
+  "targetImage": "/images/assessment/blends/flower.webp",
+  "targetImagePath": "/images/assessment/blends/flower.webp",
+  "resolvedImageAssetKey": "flower",
+  "imageAlt": "Illustration for Zack tipped the seed packet too fast. Seeds sprayed all over the path instead of the flower bed. Within a minute, six pigeons landed and began pecking up every last one."
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v3",
@@ -189,22 +203,12 @@ export const questions = [
   "passage": "Gran put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace.",
   "cell": "find_effect",
   "choices": [
-   "the door stopped screeching",
-   "the door screeched louder",
    "Gran bought a new door",
-   "the baby woke up crying"
+   "the baby woke up crying",
+   "the door stopped screeching",
+   "the door screeched louder"
   ],
   "answerOptions": [
-   {
-    "value": "the door stopped screeching",
-    "label": "the door stopped screeching",
-    "text": "the door stopped screeching"
-   },
-   {
-    "value": "the door screeched louder",
-    "label": "the door screeched louder",
-    "text": "the door screeched louder"
-   },
    {
     "value": "Gran bought a new door",
     "label": "Gran bought a new door",
@@ -214,24 +218,35 @@ export const questions = [
     "value": "the baby woke up crying",
     "label": "the baby woke up crying",
     "text": "the baby woke up crying"
+   },
+   {
+    "value": "the door stopped screeching",
+    "label": "the door stopped screeching",
+    "text": "the door stopped screeching"
+   },
+   {
+    "value": "the door screeched louder",
+    "label": "the door screeched louder",
+    "text": "the door screeched louder"
    }
   ],
   "answer": "the door stopped screeching",
   "correctAnswer": "the door stopped screeching",
   "distractorRationales": {
+   "the baby woke up crying": "D-OPPOSITE",
    "the door screeched louder": "D-OPPOSITE",
-   "Gran bought a new door": "D-PLAUSIBLE-UNSUPPORTED",
-   "the baby woke up crying": "D-OPPOSITE"
+   "Gran bought a new door": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -242,7 +257,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/after.webp",
+  "imageUrl": "/images/assessment/hfw/after.webp",
+  "targetImage": "/images/assessment/hfw/after.webp",
+  "targetImagePath": "/images/assessment/hfw/after.webp",
+  "resolvedImageAssetKey": "after",
+  "imageAlt": "Illustration for Gran put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace."
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v4",
@@ -270,12 +291,17 @@ export const questions = [
   "passage": "Nobody watered the classroom plant over half term. When the children came back, its leaves hung down like tired flags, and the soil in the pot was hard and pale.",
   "cell": "find_effect",
   "choices": [
+   "its flowers turned blue",
    "its leaves drooped",
    "it grew taller",
-   "the children came back",
-   "its flowers turned blue"
+   "the children came back"
   ],
   "answerOptions": [
+   {
+    "value": "its flowers turned blue",
+    "label": "its flowers turned blue",
+    "text": "its flowers turned blue"
+   },
    {
     "value": "its leaves drooped",
     "label": "its leaves drooped",
@@ -290,11 +316,6 @@ export const questions = [
     "value": "the children came back",
     "label": "the children came back",
     "text": "the children came back"
-   },
-   {
-    "value": "its flowers turned blue",
-    "label": "its flowers turned blue",
-    "text": "its flowers turned blue"
    }
   ],
   "answer": "its leaves drooped",
@@ -304,15 +325,16 @@ export const questions = [
    "the children came back": "D-CAUSE-REVERSE",
    "its flowers turned blue": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -323,7 +345,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for Nobody watered the classroom plant over half term. When the children came back, its leaves hung down like tired flags, and the soil in the pot was hard and pale."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v5",
@@ -351,22 +379,12 @@ export const questions = [
   "passage": "Dad left the crayon box on the back seat of the car on the hottest day of summer. When Mina opened the door after lunch, the crayons had melted together into one rainbow lump.",
   "cell": "find_effect",
   "choices": [
-   "melted them into one lump",
-   "snapped them in half",
    "made them longer",
-   "left them on the seat"
+   "left them on the seat",
+   "melted them into one lump",
+   "snapped them in half"
   ],
   "answerOptions": [
-   {
-    "value": "melted them into one lump",
-    "label": "melted them into one lump",
-    "text": "melted them into one lump"
-   },
-   {
-    "value": "snapped them in half",
-    "label": "snapped them in half",
-    "text": "snapped them in half"
-   },
    {
     "value": "made them longer",
     "label": "made them longer",
@@ -376,6 +394,16 @@ export const questions = [
     "value": "left them on the seat",
     "label": "left them on the seat",
     "text": "left them on the seat"
+   },
+   {
+    "value": "melted them into one lump",
+    "label": "melted them into one lump",
+    "text": "melted them into one lump"
+   },
+   {
+    "value": "snapped them in half",
+    "label": "snapped them in half",
+    "text": "snapped them in half"
    }
   ],
   "answer": "melted them into one lump",
@@ -385,15 +413,16 @@ export const questions = [
    "made them longer": "D-OPPOSITE",
    "left them on the seat": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -404,7 +433,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Dad left the crayon box on the back seat of the car on the hottest day of summer. When Mina opened the door after lunch, the crayons had melted together into one rainbow lump."
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v6",
@@ -432,17 +467,12 @@ export const questions = [
   "passage": "Leah rubbed the balloon on her jumper ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands, as if it wanted to follow it around the room.",
   "cell": "find_effect",
   "choices": [
-   "her hair stuck up toward it",
    "the balloon popped",
    "her jumper changed colour",
-   "she held it above her head"
+   "she held it above her head",
+   "her hair stuck up toward it"
   ],
   "answerOptions": [
-   {
-    "value": "her hair stuck up toward it",
-    "label": "her hair stuck up toward it",
-    "text": "her hair stuck up toward it"
-   },
    {
     "value": "the balloon popped",
     "label": "the balloon popped",
@@ -457,6 +487,11 @@ export const questions = [
     "value": "she held it above her head",
     "label": "she held it above her head",
     "text": "she held it above her head"
+   },
+   {
+    "value": "her hair stuck up toward it",
+    "label": "her hair stuck up toward it",
+    "text": "her hair stuck up toward it"
    }
   ],
   "answer": "her hair stuck up toward it",
@@ -466,15 +501,16 @@ export const questions = [
    "her jumper changed colour": "D-PLAUSIBLE-UNSUPPORTED",
    "she held it above her head": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -485,7 +521,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for Leah rubbed the balloon on her jumper ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands, as if it wanted to follow it around the room."
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v7",
@@ -513,22 +555,12 @@ export const questions = [
   "passage": "Snow fell all night without stopping. By morning it lay deeper than Papa's boots. The radio read a list of closed schools, and Amini's school was third on the list.",
   "cell": "find_effect",
   "choices": [
-   "school was closed",
-   "the radio broke",
    "Papa lost his boots",
-   "snow fell all night"
+   "snow fell all night",
+   "school was closed",
+   "the radio broke"
   ],
   "answerOptions": [
-   {
-    "value": "school was closed",
-    "label": "school was closed",
-    "text": "school was closed"
-   },
-   {
-    "value": "the radio broke",
-    "label": "the radio broke",
-    "text": "the radio broke"
-   },
    {
     "value": "Papa lost his boots",
     "label": "Papa lost his boots",
@@ -538,6 +570,16 @@ export const questions = [
     "value": "snow fell all night",
     "label": "snow fell all night",
     "text": "snow fell all night"
+   },
+   {
+    "value": "school was closed",
+    "label": "school was closed",
+    "text": "school was closed"
+   },
+   {
+    "value": "the radio broke",
+    "label": "the radio broke",
+    "text": "the radio broke"
    }
   ],
   "answer": "school was closed",
@@ -547,15 +589,16 @@ export const questions = [
    "Papa lost his boots": "D-PLAUSIBLE-UNSUPPORTED",
    "snow fell all night": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -566,7 +609,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for Snow fell all night without stopping. By morning it lay deeper than Papa's boots. The radio read a list of closed schools, and Amini's school was third on the list."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v8",
@@ -594,17 +643,12 @@ export const questions = [
   "passage": "Omar forgot to press the lid onto the popcorn pot. When the corn began to pop, it leapt from the pot like tiny white fireworks, bouncing off the counter and skittering across the kitchen floor.",
   "cell": "find_effect",
   "choices": [
-   "popcorn jumped out of the pot",
    "the corn would not pop",
    "the pot went cold",
-   "Omar pressed the lid on"
+   "Omar pressed the lid on",
+   "popcorn jumped out of the pot"
   ],
   "answerOptions": [
-   {
-    "value": "popcorn jumped out of the pot",
-    "label": "popcorn jumped out of the pot",
-    "text": "popcorn jumped out of the pot"
-   },
    {
     "value": "the corn would not pop",
     "label": "the corn would not pop",
@@ -619,24 +663,30 @@ export const questions = [
     "value": "Omar pressed the lid on",
     "label": "Omar pressed the lid on",
     "text": "Omar pressed the lid on"
+   },
+   {
+    "value": "popcorn jumped out of the pot",
+    "label": "popcorn jumped out of the pot",
+    "text": "popcorn jumped out of the pot"
    }
   ],
   "answer": "popcorn jumped out of the pot",
   "correctAnswer": "popcorn jumped out of the pot",
   "distractorRationales": {
+   "Omar pressed the lid on": "D-OPPOSITE",
    "the corn would not pop": "D-OPPOSITE",
-   "the pot went cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "Omar pressed the lid on": "D-OPPOSITE"
+   "the pot went cold": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -647,7 +697,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/press.webp",
+  "imageUrl": "/images/assessment/blends/press.webp",
+  "targetImage": "/images/assessment/blends/press.webp",
+  "targetImagePath": "/images/assessment/blends/press.webp",
+  "resolvedImageAssetKey": "press",
+  "imageAlt": "Illustration for Omar forgot to press the lid onto the popcorn pot. When the corn began to pop, it leapt from the pot like tiny white fireworks, bouncing off the counter and skittering across the kitchen floor."
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v1",
@@ -675,17 +731,12 @@ export const questions = [
   "passage": "The kettle began to whistle, high and loud. Auntie hurried in from the garden, still holding her trowel, and lifted it off the heat. The whistling faded to a sigh.",
   "cell": "find_cause",
   "choices": [
-   "the water inside had boiled",
    "Auntie hurried inside",
    "the garden was noisy",
-   "the trowel banged it"
+   "the trowel banged it",
+   "the water inside had boiled"
   ],
   "answerOptions": [
-   {
-    "value": "the water inside had boiled",
-    "label": "the water inside had boiled",
-    "text": "the water inside had boiled"
-   },
    {
     "value": "Auntie hurried inside",
     "label": "Auntie hurried inside",
@@ -700,24 +751,30 @@ export const questions = [
     "value": "the trowel banged it",
     "label": "the trowel banged it",
     "text": "the trowel banged it"
+   },
+   {
+    "value": "the water inside had boiled",
+    "label": "the water inside had boiled",
+    "text": "the water inside had boiled"
    }
   ],
   "answer": "the water inside had boiled",
   "correctAnswer": "the water inside had boiled",
   "distractorRationales": {
+   "the trowel banged it": "D-PLAUSIBLE-UNSUPPORTED",
    "Auntie hurried inside": "D-CAUSE-REVERSE",
-   "the garden was noisy": "D-PLAUSIBLE-UNSUPPORTED",
-   "the trowel banged it": "D-PLAUSIBLE-UNSUPPORTED"
+   "the garden was noisy": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -728,7 +785,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/whistle.webp",
+  "imageUrl": "/images/assessment/digraphs/whistle.webp",
+  "targetImage": "/images/assessment/digraphs/whistle.webp",
+  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
+  "resolvedImageAssetKey": "whistle",
+  "imageAlt": "Illustration for The kettle began to whistle, high and loud. Auntie hurried in from the garden, still holding her trowel, and lifted it off the heat. The whistling faded to a sigh."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v2",
@@ -756,16 +819,16 @@ export const questions = [
   "passage": "Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and the delivery man stood on the step. Bruno's ears had heard the gate creak long before any human did.",
   "cell": "find_cause",
   "choices": [
-   "he heard the gate creak first",
+   "his ears noticed movement at the entrance",
    "he saw the doorbell ring",
    "he smelled the dinner",
    "the delivery man called his name"
   ],
   "answerOptions": [
    {
-    "value": "he heard the gate creak first",
-    "label": "he heard the gate creak first",
-    "text": "he heard the gate creak first"
+    "value": "his ears noticed movement at the entrance",
+    "label": "his ears noticed movement at the entrance",
+    "text": "his ears noticed movement at the entrance"
    },
    {
     "value": "he saw the doorbell ring",
@@ -783,22 +846,23 @@ export const questions = [
     "text": "the delivery man called his name"
    }
   ],
-  "answer": "he heard the gate creak first",
-  "correctAnswer": "he heard the gate creak first",
+  "answer": "his ears noticed movement at the entrance",
+  "correctAnswer": "his ears noticed movement at the entrance",
   "distractorRationales": {
+   "the delivery man called his name": "D-PLAUSIBLE-UNSUPPORTED",
    "he saw the doorbell ring": "D-SEQUENCE-SWAP",
-   "he smelled the dinner": "D-PLAUSIBLE-UNSUPPORTED",
-   "the delivery man called his name": "D-PLAUSIBLE-UNSUPPORTED"
+   "he smelled the dinner": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -809,7 +873,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
+  "resolvedImageAssetKey": "movement",
+  "imageAlt": "Illustration for Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and the delivery man stood on the step. Bruno's ears had heard the gate creak long before any human did."
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v3",
@@ -867,19 +937,20 @@ export const questions = [
   "answer": "the rain washed the chalk away",
   "correctAnswer": "the rain washed the chalk away",
   "distractorRationales": {
+   "a faint cloud remained": "D-CAUSE-REVERSE",
    "someone rubbed it out": "D-PLAUSIBLE-UNSUPPORTED",
-   "the chalk was invisible": "D-OPPOSITE",
-   "a faint cloud remained": "D-CAUSE-REVERSE"
+   "the chalk was invisible": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -890,7 +961,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "resolvedImageAssetKey": "disappear",
+  "imageAlt": "Illustration for Hana's chalk drawing of a rocket covered the whole path. That night, rain fell for hours. In the morning only a faint pink cloud remained where the rocket had been."
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v4",
@@ -952,15 +1029,16 @@ export const questions = [
    "Milly licked too fast": "D-CAUSE-REVERSE",
    "the pavement was sticky": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -971,7 +1049,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "licking fast is the RESPONSE to melting, not the cause of drips"
+  "notes": "licking fast is the RESPONSE to melting, not the cause of drips",
+  "imagePath": "/images/assessment/digraphs/white.webp",
+  "imageUrl": "/images/assessment/digraphs/white.webp",
+  "targetImage": "/images/assessment/digraphs/white.webp",
+  "targetImagePath": "/images/assessment/digraphs/white.webp",
+  "resolvedImageAssetKey": "white",
+  "imageAlt": "Illustration for By the end of the walk, Milly was carrying her ice cream cone at a slant, licking fast. Sweet white drips raced down her fingers and dotted the pavement behind her like a trail."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v5",
@@ -999,12 +1083,17 @@ export const questions = [
   "passage": "In the tunnel under the railway, Finn shouted 'HELLO!' His own voice bounced straight back at him, twice. He grinned and tried a bark, a whoop, and a tiny polite cough.",
   "cell": "find_cause",
   "choices": [
+   "a train was passing",
    "the tunnel walls bounced the sound",
    "someone else was hiding there",
-   "he shouted hello",
-   "a train was passing"
+   "he shouted hello"
   ],
   "answerOptions": [
+   {
+    "value": "a train was passing",
+    "label": "a train was passing",
+    "text": "a train was passing"
+   },
    {
     "value": "the tunnel walls bounced the sound",
     "label": "the tunnel walls bounced the sound",
@@ -1019,29 +1108,25 @@ export const questions = [
     "value": "he shouted hello",
     "label": "he shouted hello",
     "text": "he shouted hello"
-   },
-   {
-    "value": "a train was passing",
-    "label": "a train was passing",
-    "text": "a train was passing"
    }
   ],
   "answer": "the tunnel walls bounced the sound",
   "correctAnswer": "the tunnel walls bounced the sound",
   "distractorRationales": {
-   "someone else was hiding there": "D-PLAUSIBLE-UNSUPPORTED",
    "he shouted hello": "D-CAUSE-REVERSE",
-   "a train was passing": "D-PLAUSIBLE-UNSUPPORTED"
+   "a train was passing": "D-PLAUSIBLE-UNSUPPORTED",
+   "someone else was hiding there": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1052,7 +1137,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for In the tunnel under the railway, Finn shouted 'HELLO!' His own voice bounced straight back at him, twice. He grinned and tried a bark, a whoop, and a tiny polite cough."
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v6",
@@ -1080,12 +1171,17 @@ export const questions = [
   "passage": "Mo's bike had spent the whole winter outside under no cover. In spring, the chain was stiff and the handlebars wore freckles of orange rust that had not been there before.",
   "cell": "find_cause",
   "choices": [
+   "someone painted it orange",
    "it stood out in the wet all winter",
    "Mo rode it too fast",
-   "the chain was stiff",
-   "someone painted it orange"
+   "the chain was stiff"
   ],
   "answerOptions": [
+   {
+    "value": "someone painted it orange",
+    "label": "someone painted it orange",
+    "text": "someone painted it orange"
+   },
    {
     "value": "it stood out in the wet all winter",
     "label": "it stood out in the wet all winter",
@@ -1100,11 +1196,6 @@ export const questions = [
     "value": "the chain was stiff",
     "label": "the chain was stiff",
     "text": "the chain was stiff"
-   },
-   {
-    "value": "someone painted it orange",
-    "label": "someone painted it orange",
-    "text": "someone painted it orange"
    }
   ],
   "answer": "it stood out in the wet all winter",
@@ -1114,15 +1205,16 @@ export const questions = [
    "the chain was stiff": "D-CAUSE-REVERSE",
    "someone painted it orange": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1133,7 +1225,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/vocabulary/winter.png",
+  "imageUrl": "/images/vocabulary/winter.png",
+  "targetImage": "/images/vocabulary/winter.png",
+  "targetImagePath": "/images/vocabulary/winter.png",
+  "resolvedImageAssetKey": "winter",
+  "imageAlt": "Illustration for Mo's bike had spent the whole winter outside under no cover. In spring, the chain was stiff and the handlebars wore freckles of orange rust that had not been there before."
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v7",
@@ -1161,12 +1259,17 @@ export const questions = [
   "passage": "At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By teatime, the sea had crept up the beach, and her castle softened into a smooth little hill.",
   "cell": "find_cause",
   "choices": [
+   "a dog dug it up",
    "the tide came in over it",
    "Rosa stamped on it",
-   "she built it all afternoon",
-   "a dog dug it up"
+   "she built it all afternoon"
   ],
   "answerOptions": [
+   {
+    "value": "a dog dug it up",
+    "label": "a dog dug it up",
+    "text": "a dog dug it up"
+   },
    {
     "value": "the tide came in over it",
     "label": "the tide came in over it",
@@ -1181,11 +1284,6 @@ export const questions = [
     "value": "she built it all afternoon",
     "label": "she built it all afternoon",
     "text": "she built it all afternoon"
-   },
-   {
-    "value": "a dog dug it up",
-    "label": "a dog dug it up",
-    "text": "a dog dug it up"
    }
   ],
   "answer": "the tide came in over it",
@@ -1195,15 +1293,16 @@ export const questions = [
    "she built it all afternoon": "D-CAUSE-REVERSE",
    "a dog dug it up": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,7 +1313,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "resolvedImageAssetKey": "sandcastle",
+  "imageAlt": "Illustration for At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By teatime, the sea had crept up the beach, and her castle softened into a smooth little hill."
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v8",
@@ -1242,22 +1347,12 @@ export const questions = [
   "passage": "All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost grey, while the pair in the shady corner still look brand new.",
   "cell": "find_cause",
   "choices": [
-   "years of sunlight faded them",
-   "they were washed wrong once",
    "the shady corner protected them",
-   "someone swapped the curtains"
+   "someone swapped the curtains",
+   "years of sunlight faded them",
+   "they were washed wrong once"
   ],
   "answerOptions": [
-   {
-    "value": "years of sunlight faded them",
-    "label": "years of sunlight faded them",
-    "text": "years of sunlight faded them"
-   },
-   {
-    "value": "they were washed wrong once",
-    "label": "they were washed wrong once",
-    "text": "they were washed wrong once"
-   },
    {
     "value": "the shady corner protected them",
     "label": "the shady corner protected them",
@@ -1267,6 +1362,16 @@ export const questions = [
     "value": "someone swapped the curtains",
     "label": "someone swapped the curtains",
     "text": "someone swapped the curtains"
+   },
+   {
+    "value": "years of sunlight faded them",
+    "label": "years of sunlight faded them",
+    "text": "years of sunlight faded them"
+   },
+   {
+    "value": "they were washed wrong once",
+    "label": "they were washed wrong once",
+    "text": "they were washed wrong once"
    }
   ],
   "answer": "years of sunlight faded them",
@@ -1276,15 +1381,16 @@ export const questions = [
    "the shady corner protected them": "D-CAUSE-REVERSE",
    "someone swapped the curtains": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1295,7 +1401,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost grey, while the pair in the shady corner still look brand new."
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v1",
@@ -1323,22 +1435,12 @@ export const questions = [
   "passage": "The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it.",
   "cell": "because_sentence",
   "choices": [
-   "The moth circled because the light attracted it.",
-   "The light glowed because the moth circled it.",
    "The moth circled because the garden was loud.",
-   "The moth slept because the light was warm."
+   "The moth slept because the light was warm.",
+   "The moth circled because the light attracted it.",
+   "The light glowed because the moth circled it."
   ],
   "answerOptions": [
-   {
-    "value": "The moth circled because the light attracted it.",
-    "label": "The moth circled because the light attracted it.",
-    "text": "The moth circled because the light attracted it."
-   },
-   {
-    "value": "The light glowed because the moth circled it.",
-    "label": "The light glowed because the moth circled it.",
-    "text": "The light glowed because the moth circled it."
-   },
    {
     "value": "The moth circled because the garden was loud.",
     "label": "The moth circled because the garden was loud.",
@@ -1348,24 +1450,35 @@ export const questions = [
     "value": "The moth slept because the light was warm.",
     "label": "The moth slept because the light was warm.",
     "text": "The moth slept because the light was warm."
+   },
+   {
+    "value": "The moth circled because the light attracted it.",
+    "label": "The moth circled because the light attracted it.",
+    "text": "The moth circled because the light attracted it."
+   },
+   {
+    "value": "The light glowed because the moth circled it.",
+    "label": "The light glowed because the moth circled it.",
+    "text": "The light glowed because the moth circled it."
    }
   ],
   "answer": "The moth circled because the light attracted it.",
   "correctAnswer": "The moth circled because the light attracted it.",
   "distractorRationales": {
-   "The light glowed because the moth circled it.": "D-CAUSE-REVERSE",
    "The moth circled because the garden was loud.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The moth slept because the light was warm.": "D-OPPOSITE"
+   "The moth slept because the light was warm.": "D-OPPOSITE",
+   "The light glowed because the moth circled it.": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1376,7 +1489,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/light.webp",
+  "imageUrl": "/images/assessment/long-vowels/light.webp",
+  "targetImage": "/images/assessment/long-vowels/light.webp",
+  "targetImagePath": "/images/assessment/long-vowels/light.webp",
+  "resolvedImageAssetKey": "light",
+  "imageAlt": "Illustration for The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it."
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v2",
@@ -1404,17 +1523,12 @@ export const questions = [
   "passage": "Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mum measured her feet and laughed: a whole size bigger.",
   "cell": "because_sentence",
   "choices": [
-   "Pia's shoes hurt because her feet had grown.",
    "Pia's feet grew because her shoes hurt.",
    "Pia's shoes hurt because they got wet.",
-   "Pia's feet ached because she skipped lunch."
+   "Pia's feet ached because she skipped lunch.",
+   "Pia's shoes hurt because her feet had grown."
   ],
   "answerOptions": [
-   {
-    "value": "Pia's shoes hurt because her feet had grown.",
-    "label": "Pia's shoes hurt because her feet had grown.",
-    "text": "Pia's shoes hurt because her feet had grown."
-   },
    {
     "value": "Pia's feet grew because her shoes hurt.",
     "label": "Pia's feet grew because her shoes hurt.",
@@ -1429,24 +1543,30 @@ export const questions = [
     "value": "Pia's feet ached because she skipped lunch.",
     "label": "Pia's feet ached because she skipped lunch.",
     "text": "Pia's feet ached because she skipped lunch."
+   },
+   {
+    "value": "Pia's shoes hurt because her feet had grown.",
+    "label": "Pia's shoes hurt because her feet had grown.",
+    "text": "Pia's shoes hurt because her feet had grown."
    }
   ],
   "answer": "Pia's shoes hurt because her feet had grown.",
   "correctAnswer": "Pia's shoes hurt because her feet had grown.",
   "distractorRationales": {
-   "Pia's feet grew because her shoes hurt.": "D-CAUSE-REVERSE",
    "Pia's shoes hurt because they got wet.": "D-PLAUSIBLE-UNSUPPORTED",
-   "Pia's feet ached because she skipped lunch.": "D-PLAUSIBLE-UNSUPPORTED"
+   "Pia's feet ached because she skipped lunch.": "D-PLAUSIBLE-UNSUPPORTED",
+   "Pia's feet grew because her shoes hurt.": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,7 +1577,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
+  "resolvedImageAssetKey": "shoes",
+  "imageAlt": "Illustration for Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mum measured her feet and laughed: a whole size bigger."
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v3",
@@ -1485,22 +1611,12 @@ export const questions = [
   "passage": "Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops.",
   "cell": "because_sentence",
   "choices": [
-   "The bread went hard because it was left uncovered.",
-   "The bread was left out because it went hard.",
    "The bread went hard because the board was old.",
-   "The bread stayed soft because it was covered."
+   "The bread stayed soft because it was covered.",
+   "The bread went hard because it was left uncovered.",
+   "The bread was left out because it went hard."
   ],
   "answerOptions": [
-   {
-    "value": "The bread went hard because it was left uncovered.",
-    "label": "The bread went hard because it was left uncovered.",
-    "text": "The bread went hard because it was left uncovered."
-   },
-   {
-    "value": "The bread was left out because it went hard.",
-    "label": "The bread was left out because it went hard.",
-    "text": "The bread was left out because it went hard."
-   },
    {
     "value": "The bread went hard because the board was old.",
     "label": "The bread went hard because the board was old.",
@@ -1510,24 +1626,35 @@ export const questions = [
     "value": "The bread stayed soft because it was covered.",
     "label": "The bread stayed soft because it was covered.",
     "text": "The bread stayed soft because it was covered."
+   },
+   {
+    "value": "The bread went hard because it was left uncovered.",
+    "label": "The bread went hard because it was left uncovered.",
+    "text": "The bread went hard because it was left uncovered."
+   },
+   {
+    "value": "The bread was left out because it went hard.",
+    "label": "The bread was left out because it went hard.",
+    "text": "The bread was left out because it went hard."
    }
   ],
   "answer": "The bread went hard because it was left uncovered.",
   "correctAnswer": "The bread went hard because it was left uncovered.",
   "distractorRationales": {
-   "The bread was left out because it went hard.": "D-CAUSE-REVERSE",
    "The bread went hard because the board was old.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The bread stayed soft because it was covered.": "D-OPPOSITE"
+   "The bread stayed soft because it was covered.": "D-OPPOSITE",
+   "The bread was left out because it went hard.": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1538,7 +1665,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops."
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v4",
@@ -1566,17 +1699,12 @@ export const questions = [
   "passage": "The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the skirting board.",
   "cell": "because_sentence",
   "choices": [
-   "The marble rolled because the ramp sloped down.",
    "The ramp sloped because the marble rolled.",
    "The marble rolled because the rug was red.",
-   "The marble stopped because Kip let go."
+   "The marble stopped because Kip let go.",
+   "The marble rolled because the ramp sloped down."
   ],
   "answerOptions": [
-   {
-    "value": "The marble rolled because the ramp sloped down.",
-    "label": "The marble rolled because the ramp sloped down.",
-    "text": "The marble rolled because the ramp sloped down."
-   },
    {
     "value": "The ramp sloped because the marble rolled.",
     "label": "The ramp sloped because the marble rolled.",
@@ -1591,6 +1719,11 @@ export const questions = [
     "value": "The marble stopped because Kip let go.",
     "label": "The marble stopped because Kip let go.",
     "text": "The marble stopped because Kip let go."
+   },
+   {
+    "value": "The marble rolled because the ramp sloped down.",
+    "label": "The marble rolled because the ramp sloped down.",
+    "text": "The marble rolled because the ramp sloped down."
    }
   ],
   "answer": "The marble rolled because the ramp sloped down.",
@@ -1600,15 +1733,16 @@ export const questions = [
    "The marble rolled because the rug was red.": "D-PLAUSIBLE-UNSUPPORTED",
    "The marble stopped because Kip let go.": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1619,7 +1753,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the skirting board."
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v5",
@@ -1677,19 +1817,20 @@ export const questions = [
   "answer": "The worms came up because their soil filled with rain.",
   "correctAnswer": "The worms came up because their soil filled with rain.",
   "distractorRationales": {
+   "The worms hid because the path was wet.": "D-OPPOSITE",
    "The rain fell because the worms came up.": "D-CAUSE-REVERSE",
-   "The worms came up because the stones were warm.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The worms hid because the path was wet.": "D-OPPOSITE"
+   "The worms came up because the stones were warm.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1700,7 +1841,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for It rained hard all morning. When it stopped, the path through the grass was dotted with worms, dozens of them, stretched out on the wet stones."
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v6",
@@ -1728,17 +1875,12 @@ export const questions = [
   "passage": "Ivy laughed first, at nothing much at all. Then her brother caught it, then Dad, then even Grandma behind her newspaper. Soon the whole room was laughing and nobody could say why.",
   "cell": "because_sentence",
   "choices": [
-   "The family laughed because laughing spreads.",
    "Ivy laughed because the family was laughing.",
    "The family laughed because the newspaper was funny.",
-   "Grandma stopped laughing because of Dad."
+   "Grandma stopped laughing because of Dad.",
+   "The family laughed because laughing spreads."
   ],
   "answerOptions": [
-   {
-    "value": "The family laughed because laughing spreads.",
-    "label": "The family laughed because laughing spreads.",
-    "text": "The family laughed because laughing spreads."
-   },
    {
     "value": "Ivy laughed because the family was laughing.",
     "label": "Ivy laughed because the family was laughing.",
@@ -1753,6 +1895,11 @@ export const questions = [
     "value": "Grandma stopped laughing because of Dad.",
     "label": "Grandma stopped laughing because of Dad.",
     "text": "Grandma stopped laughing because of Dad."
+   },
+   {
+    "value": "The family laughed because laughing spreads.",
+    "label": "The family laughed because laughing spreads.",
+    "text": "The family laughed because laughing spreads."
    }
   ],
   "answer": "The family laughed because laughing spreads.",
@@ -1762,15 +1909,16 @@ export const questions = [
    "The family laughed because the newspaper was funny.": "D-PLAUSIBLE-UNSUPPORTED",
    "Grandma stopped laughing because of Dad.": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1781,7 +1929,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for Ivy laughed first, at nothing much at all. Then her brother caught it, then Dad, then even Grandma behind her newspaper. Soon the whole room was laughing and nobody could say why."
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v7",
@@ -1843,15 +1997,16 @@ export const questions = [
    "The flame flickered because the wax was old.": "D-PLAUSIBLE-UNSUPPORTED",
    "The flame grew taller because of the wind.": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1862,7 +2017,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The candle flame stood tall and still until Dad opened the hallway door. Then it bent sideways, flickered wildly, and almost went out before the door clicked shut again."
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v8",
@@ -1890,16 +2051,21 @@ export const questions = [
   "passage": "Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand.",
   "cell": "because_sentence",
   "choices": [
-   "Suki fell asleep because everything made her cosy and calm.",
+   "Suki stayed awake because of the milk.",
+   "The bedtime routine relaxed Suki until she slept.",
    "Papa read the story because Suki fell asleep.",
-   "Suki fell asleep because the story was scary.",
-   "Suki stayed awake because of the milk."
+   "Suki fell asleep because the story was scary."
   ],
   "answerOptions": [
    {
-    "value": "Suki fell asleep because everything made her cosy and calm.",
-    "label": "Suki fell asleep because everything made her cosy and calm.",
-    "text": "Suki fell asleep because everything made her cosy and calm."
+    "value": "Suki stayed awake because of the milk.",
+    "label": "Suki stayed awake because of the milk.",
+    "text": "Suki stayed awake because of the milk."
+   },
+   {
+    "value": "The bedtime routine relaxed Suki until she slept.",
+    "label": "The bedtime routine relaxed Suki until she slept.",
+    "text": "The bedtime routine relaxed Suki until she slept."
    },
    {
     "value": "Papa read the story because Suki fell asleep.",
@@ -1910,29 +2076,25 @@ export const questions = [
     "value": "Suki fell asleep because the story was scary.",
     "label": "Suki fell asleep because the story was scary.",
     "text": "Suki fell asleep because the story was scary."
-   },
-   {
-    "value": "Suki stayed awake because of the milk.",
-    "label": "Suki stayed awake because of the milk.",
-    "text": "Suki stayed awake because of the milk."
    }
   ],
-  "answer": "Suki fell asleep because everything made her cosy and calm.",
-  "correctAnswer": "Suki fell asleep because everything made her cosy and calm.",
+  "answer": "The bedtime routine relaxed Suki until she slept.",
+  "correctAnswer": "The bedtime routine relaxed Suki until she slept.",
   "distractorRationales": {
    "Papa read the story because Suki fell asleep.": "D-CAUSE-REVERSE",
    "Suki fell asleep because the story was scary.": "D-OPPOSITE",
    "Suki stayed awake because of the milk.": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1943,7 +2105,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "resolvedImageAssetKey": "story",
+  "imageAlt": "Illustration for Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand."
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v1",
@@ -1971,16 +2139,21 @@ export const questions = [
   "passage": "A wasp smelled the open jam jar on the windowsill. It flew in through the kitchen window. Startled, Uncle Josh jumped back from the counter, knocked the flour bag with his elbow, and a white cloud settled slowly over the clean dishes.",
   "cell": "chain",
   "choices": [
-   "Uncle Josh jumped back from the counter",
+   "someone washed the dishes",
+   "he moved suddenly and struck the bag with his elbow",
    "the wasp smelled the jam",
-   "flour settled on the dishes",
-   "someone washed the dishes"
+   "flour settled on the dishes"
   ],
   "answerOptions": [
    {
-    "value": "Uncle Josh jumped back from the counter",
-    "label": "Uncle Josh jumped back from the counter",
-    "text": "Uncle Josh jumped back from the counter"
+    "value": "someone washed the dishes",
+    "label": "someone washed the dishes",
+    "text": "someone washed the dishes"
+   },
+   {
+    "value": "he moved suddenly and struck the bag with his elbow",
+    "label": "he moved suddenly and struck the bag with his elbow",
+    "text": "he moved suddenly and struck the bag with his elbow"
    },
    {
     "value": "the wasp smelled the jam",
@@ -1991,29 +2164,25 @@ export const questions = [
     "value": "flour settled on the dishes",
     "label": "flour settled on the dishes",
     "text": "flour settled on the dishes"
-   },
-   {
-    "value": "someone washed the dishes",
-    "label": "someone washed the dishes",
-    "text": "someone washed the dishes"
    }
   ],
-  "answer": "Uncle Josh jumped back from the counter",
-  "correctAnswer": "Uncle Josh jumped back from the counter",
+  "answer": "he moved suddenly and struck the bag with his elbow",
+  "correctAnswer": "he moved suddenly and struck the bag with his elbow",
   "distractorRationales": {
    "the wasp smelled the jam": "D-SEQUENCE-SWAP",
    "flour settled on the dishes": "D-SEQUENCE-SWAP",
    "someone washed the dishes": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2024,7 +2193,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "middle-link question: jam → wasp → jump → elbow → flour"
+  "notes": "middle-link question: jam → wasp → jump → elbow → flour",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for A wasp smelled the open jam jar on the windowsill. It flew in through the kitchen window. Startled, Uncle Josh jumped back from the counter, knocked the flour bag with his elbow, and a white cloud settled slowly over the clean dishes."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v2",
@@ -2082,19 +2257,20 @@ export const questions = [
   "answer": "its cracked pot had lost half its soil",
   "correctAnswer": "its cracked pot had lost half its soil",
   "distractorRationales": {
-   "the pigeons knocked it": "D-PLAUSIBLE-UNSUPPORTED",
    "it startled the pigeons": "D-CAUSE-REVERSE",
-   "the frost landed on its leaves": "D-TOPIC-ADJACENT"
+   "the frost landed on its leaves": "D-TOPIC-ADJACENT",
+   "the pigeons knocked it": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +2281,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The night frost cracked the old clay pot on the balcony. Soil trickled out of the crack all week. With half its soil gone, the rosemary plant tipped over in the next strong wind, and the falling pot startled the pigeons off the rail."
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v3",
@@ -2133,17 +2315,12 @@ export const questions = [
   "passage": "Dee left the bath tap running while she answered the phone. The call was long. Water crept over the edge of the bath, found the gap by the pipe, and by the time Dee hung up, a brown ring was spreading on the kitchen ceiling below.",
   "cell": "chain",
   "choices": [
-   "water found the gap by the pipe",
    "Dee answered the phone",
    "Dee hung up the phone",
-   "the kitchen ceiling was painted"
+   "the kitchen ceiling was painted",
+   "water found the gap by the pipe"
   ],
   "answerOptions": [
-   {
-    "value": "water found the gap by the pipe",
-    "label": "water found the gap by the pipe",
-    "text": "water found the gap by the pipe"
-   },
    {
     "value": "Dee answered the phone",
     "label": "Dee answered the phone",
@@ -2158,6 +2335,11 @@ export const questions = [
     "value": "the kitchen ceiling was painted",
     "label": "the kitchen ceiling was painted",
     "text": "the kitchen ceiling was painted"
+   },
+   {
+    "value": "water found the gap by the pipe",
+    "label": "water found the gap by the pipe",
+    "text": "water found the gap by the pipe"
    }
   ],
   "answer": "water found the gap by the pipe",
@@ -2167,15 +2349,16 @@ export const questions = [
    "Dee hung up the phone": "D-SEQUENCE-SWAP",
    "the kitchen ceiling was painted": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2186,7 +2369,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for Dee left the bath tap running while she answered the phone. The call was long. Water crept over the edge of the bath, found the gap by the pipe, and by the time Dee hung up, a brown ring was spreading on the kitchen ceiling below."
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v4",
@@ -2214,22 +2403,12 @@ export const questions = [
   "passage": "The football pitch flooded on Friday, so Saturday's match moved to the school yard. The yard's hard ground made the ball bounce twice as high, and twice-as-high bounces sailed over the fence, which is how Mr Njoku's tomatoes met seven footballs in one afternoon.",
   "cell": "chain",
   "choices": [
-   "the hard yard made the ball bounce higher",
-   "the pitch flooded on Friday",
    "Mr Njoku threw them back",
-   "the tomatoes attracted the balls"
+   "the tomatoes attracted the balls",
+   "the firm ground sent each bounce over the fence",
+   "the pitch flooded on Friday"
   ],
   "answerOptions": [
-   {
-    "value": "the hard yard made the ball bounce higher",
-    "label": "the hard yard made the ball bounce higher",
-    "text": "the hard yard made the ball bounce higher"
-   },
-   {
-    "value": "the pitch flooded on Friday",
-    "label": "the pitch flooded on Friday",
-    "text": "the pitch flooded on Friday"
-   },
    {
     "value": "Mr Njoku threw them back",
     "label": "Mr Njoku threw them back",
@@ -2239,24 +2418,35 @@ export const questions = [
     "value": "the tomatoes attracted the balls",
     "label": "the tomatoes attracted the balls",
     "text": "the tomatoes attracted the balls"
+   },
+   {
+    "value": "the firm ground sent each bounce over the fence",
+    "label": "the firm ground sent each bounce over the fence",
+    "text": "the firm ground sent each bounce over the fence"
+   },
+   {
+    "value": "the pitch flooded on Friday",
+    "label": "the pitch flooded on Friday",
+    "text": "the pitch flooded on Friday"
    }
   ],
-  "answer": "the hard yard made the ball bounce higher",
-  "correctAnswer": "the hard yard made the ball bounce higher",
+  "answer": "the firm ground sent each bounce over the fence",
+  "correctAnswer": "the firm ground sent each bounce over the fence",
   "distractorRationales": {
+   "the tomatoes attracted the balls": "D-CAUSE-REVERSE",
    "the pitch flooded on Friday": "D-SEQUENCE-SWAP",
-   "Mr Njoku threw them back": "D-PLAUSIBLE-UNSUPPORTED",
-   "the tomatoes attracted the balls": "D-CAUSE-REVERSE"
+   "Mr Njoku threw them back": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2267,7 +2457,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces"
+  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The football pitch flooded on Friday, so Saturday's match moved to the school yard. The yard's hard ground made the ball bounce twice as high, and twice-as-high bounces sailed over the fence, which is how Mr Njoku's tomatoes met seven footballs in one afternoon."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v5",
@@ -2295,16 +2491,21 @@ export const questions = [
   "passage": "Someone propped the freezer door open with a yoghurt pot during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, gluing the bags together in one frosty block.",
   "cell": "chain",
   "choices": [
-   "the softened ice cream dripped onto them",
+   "someone bought more peas",
+   "meltwater from above glued them into one block",
    "the door was propped open",
-   "the party guests arrived",
-   "someone bought more peas"
+   "the party guests arrived"
   ],
   "answerOptions": [
    {
-    "value": "the softened ice cream dripped onto them",
-    "label": "the softened ice cream dripped onto them",
-    "text": "the softened ice cream dripped onto them"
+    "value": "someone bought more peas",
+    "label": "someone bought more peas",
+    "text": "someone bought more peas"
+   },
+   {
+    "value": "meltwater from above glued them into one block",
+    "label": "meltwater from above glued them into one block",
+    "text": "meltwater from above glued them into one block"
    },
    {
     "value": "the door was propped open",
@@ -2315,29 +2516,25 @@ export const questions = [
     "value": "the party guests arrived",
     "label": "the party guests arrived",
     "text": "the party guests arrived"
-   },
-   {
-    "value": "someone bought more peas",
-    "label": "someone bought more peas",
-    "text": "someone bought more peas"
    }
   ],
-  "answer": "the softened ice cream dripped onto them",
-  "correctAnswer": "the softened ice cream dripped onto them",
+  "answer": "meltwater from above glued them into one block",
+  "correctAnswer": "meltwater from above glued them into one block",
   "distractorRationales": {
+   "someone bought more peas": "D-PLAUSIBLE-UNSUPPORTED",
    "the door was propped open": "D-SEQUENCE-SWAP",
-   "the party guests arrived": "D-SEQUENCE-SWAP",
-   "someone bought more peas": "D-PLAUSIBLE-UNSUPPORTED"
+   "the party guests arrived": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2348,7 +2545,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for Someone propped the freezer door open with a yoghurt pot during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, gluing the bags together in one frosty block."
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v6",
@@ -2406,19 +2609,20 @@ export const questions = [
   "answer": "the lift stopped at every floor",
   "correctAnswer": "the lift stopped at every floor",
   "distractorRationales": {
+   "she burst out of the doors": "D-CAUSE-REVERSE",
    "her name was called early": "D-PLAUSIBLE-UNSUPPORTED",
-   "she pressed every button": "D-PLAUSIBLE-UNSUPPORTED",
-   "she burst out of the doors": "D-CAUSE-REVERSE"
+   "she pressed every button": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2429,7 +2633,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The lift was crowded, and somebody's rucksack pressed every button at once. The lift began stopping at every single floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she burst out of the lift doors, breathing hard."
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v7",
@@ -2457,17 +2667,12 @@ export const questions = [
   "passage": "A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the caretaker fetched his ladder.",
   "cell": "chain",
   "choices": [
-   "the tailless kite went into a spin",
    "the caretaker wound it there",
    "the kite rattled like a bird",
-   "the string was too short"
+   "the string was too short",
+   "the tailless kite went into a spin"
   ],
   "answerOptions": [
-   {
-    "value": "the tailless kite went into a spin",
-    "label": "the tailless kite went into a spin",
-    "text": "the tailless kite went into a spin"
-   },
    {
     "value": "the caretaker wound it there",
     "label": "the caretaker wound it there",
@@ -2482,24 +2687,30 @@ export const questions = [
     "value": "the string was too short",
     "label": "the string was too short",
     "text": "the string was too short"
+   },
+   {
+    "value": "the tailless kite went into a spin",
+    "label": "the tailless kite went into a spin",
+    "text": "the tailless kite went into a spin"
    }
   ],
   "answer": "the tailless kite went into a spin",
   "correctAnswer": "the tailless kite went into a spin",
   "distractorRationales": {
-   "the caretaker wound it there": "D-PLAUSIBLE-UNSUPPORTED",
    "the kite rattled like a bird": "D-CAUSE-REVERSE",
-   "the string was too short": "D-PLAUSIBLE-UNSUPPORTED"
+   "the string was too short": "D-PLAUSIBLE-UNSUPPORTED",
+   "the caretaker wound it there": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2510,7 +2721,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the caretaker fetched his ladder."
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v8",
@@ -2538,22 +2755,12 @@ export const questions = [
   "passage": "The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine fluff all over the glass. When the mirror dried, the fluff showed worse than the steam had, so he washed the mirror properly, which is how one hot shower led to cleaning the whole bathroom.",
   "cell": "chain",
   "choices": [
-   "dried fluff showed all over the glass",
-   "the shower steamed the mirror",
    "he cleaned the whole bathroom",
-   "the towel fell in the bath"
+   "the towel fell in the bath",
+   "the first wipe left visible fibres behind",
+   "the shower steamed the mirror"
   ],
   "answerOptions": [
-   {
-    "value": "dried fluff showed all over the glass",
-    "label": "dried fluff showed all over the glass",
-    "text": "dried fluff showed all over the glass"
-   },
-   {
-    "value": "the shower steamed the mirror",
-    "label": "the shower steamed the mirror",
-    "text": "the shower steamed the mirror"
-   },
    {
     "value": "he cleaned the whole bathroom",
     "label": "he cleaned the whole bathroom",
@@ -2563,24 +2770,35 @@ export const questions = [
     "value": "the towel fell in the bath",
     "label": "the towel fell in the bath",
     "text": "the towel fell in the bath"
+   },
+   {
+    "value": "the first wipe left visible fibres behind",
+    "label": "the first wipe left visible fibres behind",
+    "text": "the first wipe left visible fibres behind"
+   },
+   {
+    "value": "the shower steamed the mirror",
+    "label": "the shower steamed the mirror",
+    "text": "the shower steamed the mirror"
    }
   ],
-  "answer": "dried fluff showed all over the glass",
-  "correctAnswer": "dried fluff showed all over the glass",
+  "answer": "the first wipe left visible fibres behind",
+  "correctAnswer": "the first wipe left visible fibres behind",
   "distractorRationales": {
    "the shower steamed the mirror": "D-SEQUENCE-SWAP",
    "he cleaned the whole bathroom": "D-SEQUENCE-SWAP",
    "the towel fell in the bath": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,7 +2809,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine fluff all over the glass. When the mirror dried, the fluff showed worse than the steam had, so he washed the mirror properly, which is how one hot shower led to cleaning the whole bathroom."
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v1",
@@ -2653,15 +2877,16 @@ export const questions = [
    "the popular baking stall": "D-DETAIL-AS-MAIN",
    "payday weekend": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2672,7 +2897,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "NOT-a-cause format: three real causes, one invented"
+  "notes": "NOT-a-cause format: three real causes, one invented",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "resolvedImageAssetKey": "weather",
+  "imageAlt": "Illustration for The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new baking stall sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual."
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v2",
@@ -2700,17 +2931,12 @@ export const questions = [
   "passage": "Rui slept through his alarm for three reasons. He had stayed up late finishing his comic. His phone had died in the night, so the alarm never rang. And the thick new curtains kept his room as dark as a cave long past sunrise.",
   "cell": "multiple_causes",
   "choices": [
-   "his little sister woke him early",
    "staying up late with his comic",
    "his phone dying overnight",
-   "the thick dark curtains"
+   "the thick dark curtains",
+   "his little sister woke him early"
   ],
   "answerOptions": [
-   {
-    "value": "his little sister woke him early",
-    "label": "his little sister woke him early",
-    "text": "his little sister woke him early"
-   },
    {
     "value": "staying up late with his comic",
     "label": "staying up late with his comic",
@@ -2725,24 +2951,30 @@ export const questions = [
     "value": "the thick dark curtains",
     "label": "the thick dark curtains",
     "text": "the thick dark curtains"
+   },
+   {
+    "value": "his little sister woke him early",
+    "label": "his little sister woke him early",
+    "text": "his little sister woke him early"
    }
   ],
   "answer": "his little sister woke him early",
   "correctAnswer": "his little sister woke him early",
   "distractorRationales": {
-   "staying up late with his comic": "D-DETAIL-AS-MAIN",
    "his phone dying overnight": "D-DETAIL-AS-MAIN",
-   "the thick dark curtains": "D-DETAIL-AS-MAIN"
+   "the thick dark curtains": "D-DETAIL-AS-MAIN",
+   "staying up late with his comic": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2753,7 +2985,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for Rui slept through his alarm for three reasons. He had stayed up late finishing his comic. His phone had died in the night, so the alarm never rang. And the thick new curtains kept his room as dark as a cave long past sunrise."
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v3",
@@ -2781,12 +3019,17 @@ export const questions = [
   "passage": "The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus wants water rarely. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again.",
   "cell": "multiple_causes",
   "choices": [
+   "cold nights by the glass",
    "too little water",
    "daily watering",
-   "a pot with no drain hole",
-   "cold nights by the glass"
+   "a pot with no drain hole"
   ],
   "answerOptions": [
+   {
+    "value": "cold nights by the glass",
+    "label": "cold nights by the glass",
+    "text": "cold nights by the glass"
+   },
    {
     "value": "too little water",
     "label": "too little water",
@@ -2801,11 +3044,6 @@ export const questions = [
     "value": "a pot with no drain hole",
     "label": "a pot with no drain hole",
     "text": "a pot with no drain hole"
-   },
-   {
-    "value": "cold nights by the glass",
-    "label": "cold nights by the glass",
-    "text": "cold nights by the glass"
    }
   ],
   "answer": "too little water",
@@ -2815,15 +3053,16 @@ export const questions = [
    "a pot with no drain hole": "D-DETAIL-AS-MAIN",
    "cold nights by the glass": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2834,7 +3073,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the invented option is the intuitive-but-backwards cause"
+  "notes": "the invented option is the intuitive-but-backwards cause",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus wants water rarely. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again."
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v4",
@@ -2862,12 +3107,17 @@ export const questions = [
   "passage": "Half the class had colds by Friday. All week the rain had kept everyone crowded indoors at break. The window monitor was away, so no one aired the stuffy room. And two children had come in sniffing on Monday instead of resting at home.",
   "cell": "multiple_causes",
   "choices": [
+   "children coming in already sniffing",
    "the class played outside too long",
    "crowding indoors all week",
-   "the unaired, stuffy room",
-   "children coming in already sniffing"
+   "the unaired, stuffy room"
   ],
   "answerOptions": [
+   {
+    "value": "children coming in already sniffing",
+    "label": "children coming in already sniffing",
+    "text": "children coming in already sniffing"
+   },
    {
     "value": "the class played outside too long",
     "label": "the class played outside too long",
@@ -2882,29 +3132,25 @@ export const questions = [
     "value": "the unaired, stuffy room",
     "label": "the unaired, stuffy room",
     "text": "the unaired, stuffy room"
-   },
-   {
-    "value": "children coming in already sniffing",
-    "label": "children coming in already sniffing",
-    "text": "children coming in already sniffing"
    }
   ],
   "answer": "the class played outside too long",
   "correctAnswer": "the class played outside too long",
   "distractorRationales": {
+   "children coming in already sniffing": "D-DETAIL-AS-MAIN",
    "crowding indoors all week": "D-DETAIL-AS-MAIN",
-   "the unaired, stuffy room": "D-DETAIL-AS-MAIN",
-   "children coming in already sniffing": "D-DETAIL-AS-MAIN"
+   "the unaired, stuffy room": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2915,7 +3161,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for Half the class had colds by Friday. All week the rain had kept everyone crowded indoors at break. The window monitor was away, so no one aired the stuffy room. And two children had come in sniffing on Monday instead of resting at home."
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v5",
@@ -2973,19 +3225,20 @@ export const questions = [
   "answer": "someone cut the rope with scissors",
   "correctAnswer": "someone cut the rope with scissors",
   "distractorRationales": {
+   "two riders at once": "D-DETAIL-AS-MAIN",
    "years of weather wearing the fibres": "D-DETAIL-AS-MAIN",
-   "the knot rubbing the branch": "D-DETAIL-AS-MAIN",
-   "two riders at once": "D-DETAIL-AS-MAIN"
+   "the knot rubbing the branch": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2996,7 +3249,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for The old rope swing finally snapped on Sunday. Years of rain and sun had chewed at the fibres. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together."
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v6",
@@ -3024,22 +3283,12 @@ export const questions = [
   "passage": "The bakery queue stretched round the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was shut for repairs. And Saturday was the first day of the famous plum tarts.",
   "cell": "multiple_causes",
   "choices": [
-   "the bakery had cut all its prices",
-   "the food show clips",
    "the rival bakery being shut",
-   "the first plum tarts of the year"
+   "the first plum tarts of the year",
+   "the bakery had cut all its prices",
+   "the food show clips"
   ],
   "answerOptions": [
-   {
-    "value": "the bakery had cut all its prices",
-    "label": "the bakery had cut all its prices",
-    "text": "the bakery had cut all its prices"
-   },
-   {
-    "value": "the food show clips",
-    "label": "the food show clips",
-    "text": "the food show clips"
-   },
    {
     "value": "the rival bakery being shut",
     "label": "the rival bakery being shut",
@@ -3049,24 +3298,35 @@ export const questions = [
     "value": "the first plum tarts of the year",
     "label": "the first plum tarts of the year",
     "text": "the first plum tarts of the year"
+   },
+   {
+    "value": "the bakery had cut all its prices",
+    "label": "the bakery had cut all its prices",
+    "text": "the bakery had cut all its prices"
+   },
+   {
+    "value": "the food show clips",
+    "label": "the food show clips",
+    "text": "the food show clips"
    }
   ],
   "answer": "the bakery had cut all its prices",
   "correctAnswer": "the bakery had cut all its prices",
   "distractorRationales": {
+   "the first plum tarts of the year": "D-DETAIL-AS-MAIN",
    "the food show clips": "D-DETAIL-AS-MAIN",
-   "the rival bakery being shut": "D-DETAIL-AS-MAIN",
-   "the first plum tarts of the year": "D-DETAIL-AS-MAIN"
+   "the rival bakery being shut": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3077,7 +3337,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/round.webp",
+  "imageUrl": "/images/assessment/hfw/round.webp",
+  "targetImage": "/images/assessment/hfw/round.webp",
+  "targetImagePath": "/images/assessment/hfw/round.webp",
+  "resolvedImageAssetKey": "round",
+  "imageAlt": "Illustration for The bakery queue stretched round the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was shut for repairs. And Saturday was the first day of the famous plum tarts."
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v7",
@@ -3105,22 +3371,12 @@ export const questions = [
   "passage": "Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was on for the cricket. And the phone itself was buried somewhere under the sofa cushions, ringing into the springs.",
   "cell": "multiple_causes",
   "choices": [
-   "the phone was switched off",
-   "the roaring blender",
    "the radio playing cricket",
-   "the phone buried in the sofa"
+   "the phone buried in the sofa",
+   "the phone was switched off",
+   "the roaring blender"
   ],
   "answerOptions": [
-   {
-    "value": "the phone was switched off",
-    "label": "the phone was switched off",
-    "text": "the phone was switched off"
-   },
-   {
-    "value": "the roaring blender",
-    "label": "the roaring blender",
-    "text": "the roaring blender"
-   },
    {
     "value": "the radio playing cricket",
     "label": "the radio playing cricket",
@@ -3130,24 +3386,35 @@ export const questions = [
     "value": "the phone buried in the sofa",
     "label": "the phone buried in the sofa",
     "text": "the phone buried in the sofa"
+   },
+   {
+    "value": "the phone was switched off",
+    "label": "the phone was switched off",
+    "text": "the phone was switched off"
+   },
+   {
+    "value": "the roaring blender",
+    "label": "the roaring blender",
+    "text": "the roaring blender"
    }
   ],
   "answer": "the phone was switched off",
   "correctAnswer": "the phone was switched off",
   "distractorRationales": {
-   "the roaring blender": "D-DETAIL-AS-MAIN",
    "the radio playing cricket": "D-DETAIL-AS-MAIN",
-   "the phone buried in the sofa": "D-DETAIL-AS-MAIN"
+   "the phone buried in the sofa": "D-DETAIL-AS-MAIN",
+   "the roaring blender": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3158,7 +3425,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "resolvedImageAssetKey": "heard",
+  "imageAlt": "Illustration for Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was on for the cricket. And the phone itself was buried somewhere under the sofa cushions, ringing into the springs."
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v8",
@@ -3186,12 +3459,17 @@ export const questions = [
   "passage": "The little boat was hard to row home. The tide had turned against them. The wind blew straight off the shore into their faces. And the afternoon's happy swimming had left both rowers with arms like wet spaghetti.",
   "cell": "multiple_causes",
   "choices": [
+   "tired arms from swimming",
    "a leak let water into the boat",
    "the tide against them",
-   "the wind in their faces",
-   "tired arms from swimming"
+   "the wind in their faces"
   ],
   "answerOptions": [
+   {
+    "value": "tired arms from swimming",
+    "label": "tired arms from swimming",
+    "text": "tired arms from swimming"
+   },
    {
     "value": "a leak let water into the boat",
     "label": "a leak let water into the boat",
@@ -3206,11 +3484,6 @@ export const questions = [
     "value": "the wind in their faces",
     "label": "the wind in their faces",
     "text": "the wind in their faces"
-   },
-   {
-    "value": "tired arms from swimming",
-    "label": "tired arms from swimming",
-    "text": "tired arms from swimming"
    }
   ],
   "answer": "a leak let water into the boat",
@@ -3220,15 +3493,16 @@ export const questions = [
    "the wind in their faces": "D-DETAIL-AS-MAIN",
    "tired arms from swimming": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3239,7 +3513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for The little boat was hard to row home. The tide had turned against them. The wind blew straight off the shore into their faces. And the afternoon's happy swimming had left both rowers with arms like wet spaghetti."
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v1",
@@ -3267,17 +3547,12 @@ export const questions = [
   "passage": "Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The dinner ladies knew better: the cat chose the sunniest spot first, and the children simply followed him to it.",
   "cell": "reversal_trap",
   "choices": [
-   "the cat picked a spot and children followed",
    "the children picked a spot and the cat followed",
    "the dinner ladies called them together",
-   "the sun followed the children"
+   "the sun followed the children",
+   "the cat picked a spot and children followed"
   ],
   "answerOptions": [
-   {
-    "value": "the cat picked a spot and children followed",
-    "label": "the cat picked a spot and children followed",
-    "text": "the cat picked a spot and children followed"
-   },
    {
     "value": "the children picked a spot and the cat followed",
     "label": "the children picked a spot and the cat followed",
@@ -3292,24 +3567,30 @@ export const questions = [
     "value": "the sun followed the children",
     "label": "the sun followed the children",
     "text": "the sun followed the children"
+   },
+   {
+    "value": "the cat picked a spot and children followed",
+    "label": "the cat picked a spot and children followed",
+    "text": "the cat picked a spot and children followed"
    }
   ],
   "answer": "the cat picked a spot and children followed",
   "correctAnswer": "the cat picked a spot and children followed",
   "distractorRationales": {
+   "the sun followed the children": "D-CAUSE-REVERSE",
    "the children picked a spot and the cat followed": "D-CAUSE-REVERSE",
-   "the dinner ladies called them together": "D-PLAUSIBLE-UNSUPPORTED",
-   "the sun followed the children": "D-CAUSE-REVERSE"
+   "the dinner ladies called them together": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3320,7 +3601,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The dinner ladies knew better: the cat chose the sunniest spot first, and the children simply followed him to it."
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v2",
@@ -3348,22 +3635,12 @@ export const questions = [
   "passage": "On sports day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was ticked.",
   "cell": "reversal_trap",
   "choices": [
-   "two months of ticked-off training",
-   "the lucky red socks",
    "winning three races",
-   "the coach's smile"
+   "the coach's smile",
+   "her steady practice over many weeks",
+   "the lucky red socks"
   ],
   "answerOptions": [
-   {
-    "value": "two months of ticked-off training",
-    "label": "two months of ticked-off training",
-    "text": "two months of ticked-off training"
-   },
-   {
-    "value": "the lucky red socks",
-    "label": "the lucky red socks",
-    "text": "the lucky red socks"
-   },
    {
     "value": "winning three races",
     "label": "winning three races",
@@ -3373,24 +3650,35 @@ export const questions = [
     "value": "the coach's smile",
     "label": "the coach's smile",
     "text": "the coach's smile"
+   },
+   {
+    "value": "her steady practice over many weeks",
+    "label": "her steady practice over many weeks",
+    "text": "her steady practice over many weeks"
+   },
+   {
+    "value": "the lucky red socks",
+    "label": "the lucky red socks",
+    "text": "the lucky red socks"
    }
   ],
-  "answer": "two months of ticked-off training",
-  "correctAnswer": "two months of ticked-off training",
+  "answer": "her steady practice over many weeks",
+  "correctAnswer": "her steady practice over many weeks",
   "distractorRationales": {
    "the lucky red socks": "D-CAUSE-REVERSE",
    "winning three races": "D-CAUSE-REVERSE",
    "the coach's smile": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3401,7 +3689,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "resolvedImageAssetKey": "practice",
+  "imageAlt": "Illustration for On sports day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was ticked."
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v3",
@@ -3429,17 +3723,12 @@ export const questions = [
   "passage": "Every time the floorboard by the kitchen creaked, Biscuit the dog appeared, and moments later food hit his bowl. A visitor might think the creak fed the dog. In truth, Dad stepping on that board meant Dad was fetching the dog food tin from that exact cupboard.",
   "cell": "reversal_trap",
   "choices": [
-   "Dad going to the food cupboard",
    "the creaking floorboard itself",
    "Biscuit appearing in the kitchen",
-   "the visitor watching"
+   "the visitor watching",
+   "Dad going to the food cupboard"
   ],
   "answerOptions": [
-   {
-    "value": "Dad going to the food cupboard",
-    "label": "Dad going to the food cupboard",
-    "text": "Dad going to the food cupboard"
-   },
    {
     "value": "the creaking floorboard itself",
     "label": "the creaking floorboard itself",
@@ -3454,24 +3743,30 @@ export const questions = [
     "value": "the visitor watching",
     "label": "the visitor watching",
     "text": "the visitor watching"
+   },
+   {
+    "value": "Dad going to the food cupboard",
+    "label": "Dad going to the food cupboard",
+    "text": "Dad going to the food cupboard"
    }
   ],
   "answer": "Dad going to the food cupboard",
   "correctAnswer": "Dad going to the food cupboard",
   "distractorRationales": {
+   "the visitor watching": "D-PLAUSIBLE-UNSUPPORTED",
    "the creaking floorboard itself": "D-CAUSE-REVERSE",
-   "Biscuit appearing in the kitchen": "D-CAUSE-REVERSE",
-   "the visitor watching": "D-PLAUSIBLE-UNSUPPORTED"
+   "Biscuit appearing in the kitchen": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3482,7 +3777,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/every.webp",
+  "imageUrl": "/images/assessment/hfw/every.webp",
+  "targetImage": "/images/assessment/hfw/every.webp",
+  "targetImagePath": "/images/assessment/hfw/every.webp",
+  "resolvedImageAssetKey": "every",
+  "imageAlt": "Illustration for Every time the floorboard by the kitchen creaked, Biscuit the dog appeared, and moments later food hit his bowl. A visitor might think the creak fed the dog. In truth, Dad stepping on that board meant Dad was fetching the dog food tin from that exact cupboard."
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v4",
@@ -3544,15 +3845,16 @@ export const questions = [
    "only the crowd made the band loud": "D-CAUSE-REVERSE",
    "the hall's engine made the noise": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +3865,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "two-way causation — the honest answer is the loop itself"
+  "notes": "two-way causation — the honest answer is the loop itself",
+  "imagePath": "/images/assessment/language/variants/adjectives/harder-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/harder-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/harder-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/harder-01.webp",
+  "resolvedImageAssetKey": "harder",
+  "imageAlt": "Illustration for The louder the crowd sang, the harder the band played. And the harder the band played, the louder the crowd sang. By the last song, no one could say who was driving whom — the whole hall had become one big engine of noise."
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v5",
@@ -3591,17 +3899,12 @@ export const questions = [
   "passage": "Umbrellas do not bring the rain, Gran says, though on our street it can look that way: the moment umbrellas bloom along the pavement, down it comes. Of course, everyone opens them because the first drops have already begun to fall.",
   "cell": "reversal_trap",
   "choices": [
-   "first drops make people open umbrellas",
    "open umbrellas pull down the rain",
    "Gran signals the street",
-   "the pavement attracts clouds"
+   "the pavement attracts clouds",
+   "first drops make people open umbrellas"
   ],
   "answerOptions": [
-   {
-    "value": "first drops make people open umbrellas",
-    "label": "first drops make people open umbrellas",
-    "text": "first drops make people open umbrellas"
-   },
    {
     "value": "open umbrellas pull down the rain",
     "label": "open umbrellas pull down the rain",
@@ -3616,6 +3919,11 @@ export const questions = [
     "value": "the pavement attracts clouds",
     "label": "the pavement attracts clouds",
     "text": "the pavement attracts clouds"
+   },
+   {
+    "value": "first drops make people open umbrellas",
+    "label": "first drops make people open umbrellas",
+    "text": "first drops make people open umbrellas"
    }
   ],
   "answer": "first drops make people open umbrellas",
@@ -3625,15 +3933,16 @@ export const questions = [
    "Gran signals the street": "D-PLAUSIBLE-UNSUPPORTED",
    "the pavement attracts clouds": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3644,7 +3953,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Umbrellas do not bring the rain, Gran says, though on our street it can look that way: the moment umbrellas bloom along the pavement, down it comes. Of course, everyone opens them because the first drops have already begun to fall."
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v6",
@@ -3706,15 +4021,16 @@ export const questions = [
    "his rumbling tummy called the van": "D-CAUSE-REVERSE",
    "Mum's laughing reminded him": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3725,7 +4041,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "resolvedImageAssetKey": "passed",
+  "imageAlt": "Illustration for Whenever the ice-cream van's tune started, Tam's tummy rumbled. Tam decided the tune made him hungry. Mum laughed: the van always came at four o'clock — exactly the hour a boy who skipped his lunchtime peas gets hungry anyway."
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v7",
@@ -3753,12 +4075,17 @@ export const questions = [
   "passage": "The rooster crowed, and the sun came up. It happened every single morning, in that order. The farmer liked to joke that his rooster raised the sun. The vet put it differently: the first grey light wakes the rooster, and the crowing follows.",
   "cell": "reversal_trap",
   "choices": [
+   "the vet taught the rooster to crow",
    "dawn light wakes the rooster, so he crows",
    "the rooster's crow raises the sun",
-   "the farmer wakes the rooster",
-   "the vet taught the rooster to crow"
+   "the farmer wakes the rooster"
   ],
   "answerOptions": [
+   {
+    "value": "the vet taught the rooster to crow",
+    "label": "the vet taught the rooster to crow",
+    "text": "the vet taught the rooster to crow"
+   },
    {
     "value": "dawn light wakes the rooster, so he crows",
     "label": "dawn light wakes the rooster, so he crows",
@@ -3773,11 +4100,6 @@ export const questions = [
     "value": "the farmer wakes the rooster",
     "label": "the farmer wakes the rooster",
     "text": "the farmer wakes the rooster"
-   },
-   {
-    "value": "the vet taught the rooster to crow",
-    "label": "the vet taught the rooster to crow",
-    "text": "the vet taught the rooster to crow"
    }
   ],
   "answer": "dawn light wakes the rooster, so he crows",
@@ -3787,15 +4109,16 @@ export const questions = [
    "the farmer wakes the rooster": "D-PLAUSIBLE-UNSUPPORTED",
    "the vet taught the rooster to crow": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3806,7 +4129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for The rooster crowed, and the sun came up. It happened every single morning, in that order. The farmer liked to joke that his rooster raised the sun. The vet put it differently: the first grey light wakes the rooster, and the crowing follows."
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v8",
@@ -3864,19 +4193,20 @@ export const questions = [
   "answer": "big fires bring many firefighters",
   "correctAnswer": "big fires bring many firefighters",
   "distractorRationales": {
+   "posters cause fewer fires": "D-PLAUSIBLE-UNSUPPORTED",
    "many firefighters make fires big": "D-CAUSE-REVERSE",
-   "small fires send firefighters away": "D-CAUSE-REVERSE",
-   "posters cause fewer fires": "D-PLAUSIBLE-UNSUPPORTED"
+   "small fires send firefighters away": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3887,7 +4217,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "resolvedImageAssetKey": "right",
+  "imageAlt": "Illustration for Firefighters arrive at big fires, and small fires have no firefighters at all. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained it the right way round: the bigger the fire already is, the more firefighters get sent to it."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v9r",
@@ -3915,12 +4251,17 @@ export const questions = [
   "passage": "Joss shook the fizzy drink can all the way home, just to hear it slosh. When Dad opened it at the table, a hissing fountain leapt out and rained on the tablecloth.",
   "cell": "find_effect",
   "choices": [
+   "the can went cold",
    "the drink sprayed out when opened",
    "the drink went flat",
-   "Dad opened it at the table",
-   "the can went cold"
+   "Dad opened it at the table"
   ],
   "answerOptions": [
+   {
+    "value": "the can went cold",
+    "label": "the can went cold",
+    "text": "the can went cold"
+   },
    {
     "value": "the drink sprayed out when opened",
     "label": "the drink sprayed out when opened",
@@ -3935,29 +4276,25 @@ export const questions = [
     "value": "Dad opened it at the table",
     "label": "Dad opened it at the table",
     "text": "Dad opened it at the table"
-   },
-   {
-    "value": "the can went cold",
-    "label": "the can went cold",
-    "text": "the can went cold"
    }
   ],
   "answer": "the drink sprayed out when opened",
   "correctAnswer": "the drink sprayed out when opened",
   "distractorRationales": {
-   "the drink went flat": "D-OPPOSITE",
    "Dad opened it at the table": "D-CAUSE-REVERSE",
-   "the can went cold": "D-PLAUSIBLE-UNSUPPORTED"
+   "the can went cold": "D-PLAUSIBLE-UNSUPPORTED",
+   "the drink went flat": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3968,7 +4305,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/objects/drink.png",
+  "imageUrl": "/images/objects/drink.png",
+  "targetImage": "/images/objects/drink.png",
+  "targetImagePath": "/images/objects/drink.png",
+  "resolvedImageAssetKey": "drink",
+  "imageAlt": "Illustration for Joss shook the fizzy drink can all the way home, just to hear it slosh. When Dad opened it at the table, a hissing fountain leapt out and rained on the tablecloth."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v10r",
@@ -3996,22 +4339,12 @@ export const questions = [
   "passage": "The torch had sat in the freezing shed all winter. When Ben clicked it on for the camp-out, the beam glowed dull orange for a minute and then gave up completely.",
   "cell": "find_effect",
   "choices": [
-   "it drained the batteries",
-   "it cracked the glass",
    "it made the beam brighter",
-   "it started the camp-out"
+   "it started the camp-out",
+   "it drained the batteries",
+   "it cracked the glass"
   ],
   "answerOptions": [
-   {
-    "value": "it drained the batteries",
-    "label": "it drained the batteries",
-    "text": "it drained the batteries"
-   },
-   {
-    "value": "it cracked the glass",
-    "label": "it cracked the glass",
-    "text": "it cracked the glass"
-   },
    {
     "value": "it made the beam brighter",
     "label": "it made the beam brighter",
@@ -4021,24 +4354,35 @@ export const questions = [
     "value": "it started the camp-out",
     "label": "it started the camp-out",
     "text": "it started the camp-out"
+   },
+   {
+    "value": "it drained the batteries",
+    "label": "it drained the batteries",
+    "text": "it drained the batteries"
+   },
+   {
+    "value": "it cracked the glass",
+    "label": "it cracked the glass",
+    "text": "it cracked the glass"
    }
   ],
   "answer": "it drained the batteries",
   "correctAnswer": "it drained the batteries",
   "distractorRationales": {
-   "it cracked the glass": "D-PLAUSIBLE-UNSUPPORTED",
    "it made the beam brighter": "D-OPPOSITE",
-   "it started the camp-out": "D-CAUSE-REVERSE"
+   "it started the camp-out": "D-CAUSE-REVERSE",
+   "it cracked the glass": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4049,7 +4393,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/vocabulary/winter.png",
+  "imageUrl": "/images/vocabulary/winter.png",
+  "targetImage": "/images/vocabulary/winter.png",
+  "targetImagePath": "/images/vocabulary/winter.png",
+  "resolvedImageAssetKey": "winter",
+  "imageAlt": "Illustration for The torch had sat in the freezing shed all winter. When Ben clicked it on for the camp-out, the beam glowed dull orange for a minute and then gave up completely."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v9r",
@@ -4077,17 +4427,12 @@ export const questions = [
   "passage": "Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap, completely comfortable, sat the neighbour's fluffy white cat.",
   "cell": "find_cause",
   "choices": [
-   "the cat's fur set off her allergy",
    "she had caught a cold saying hello",
    "her watery eyes made her sneeze",
-   "the neighbour was dusty"
+   "the neighbour was dusty",
+   "the cat's fur set off her allergy"
   ],
   "answerOptions": [
-   {
-    "value": "the cat's fur set off her allergy",
-    "label": "the cat's fur set off her allergy",
-    "text": "the cat's fur set off her allergy"
-   },
    {
     "value": "she had caught a cold saying hello",
     "label": "she had caught a cold saying hello",
@@ -4102,6 +4447,11 @@ export const questions = [
     "value": "the neighbour was dusty",
     "label": "the neighbour was dusty",
     "text": "the neighbour was dusty"
+   },
+   {
+    "value": "the cat's fur set off her allergy",
+    "label": "the cat's fur set off her allergy",
+    "text": "the cat's fur set off her allergy"
    }
   ],
   "answer": "the cat's fur set off her allergy",
@@ -4111,15 +4461,16 @@ export const questions = [
    "her watery eyes made her sneeze": "D-CAUSE-REVERSE",
    "the neighbour was dusty": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4130,7 +4481,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "resolvedImageAssetKey": "comfortable",
+  "imageAlt": "Illustration for Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap, completely comfortable, sat the neighbour's fluffy white cat."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v10r",
@@ -4192,15 +4549,16 @@ export const questions = [
    "Val found the box": "D-CAUSE-REVERSE",
    "a mouse slept on them": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4211,7 +4569,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/found.webp",
+  "imageUrl": "/images/assessment/hfw/found.webp",
+  "targetImage": "/images/assessment/hfw/found.webp",
+  "targetImagePath": "/images/assessment/hfw/found.webp",
+  "resolvedImageAssetKey": "found",
+  "imageAlt": "Illustration for The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, a soft grey fur had crept over every berry."
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v9r",
@@ -4239,12 +4603,17 @@ export const questions = [
   "passage": "The plug chain had slipped off its hook into the water. Nobody noticed while the bath emptied itself, glug by glug, until only a cold puddle was left around Otto's toes.",
   "cell": "because_sentence",
   "choices": [
+   "The bath stayed full because of the chain.",
    "The bath emptied because the plug had come loose.",
    "The plug came loose because the bath emptied.",
-   "The bath emptied because the water was cold.",
-   "The bath stayed full because of the chain."
+   "The bath emptied because the water was cold."
   ],
   "answerOptions": [
+   {
+    "value": "The bath stayed full because of the chain.",
+    "label": "The bath stayed full because of the chain.",
+    "text": "The bath stayed full because of the chain."
+   },
    {
     "value": "The bath emptied because the plug had come loose.",
     "label": "The bath emptied because the plug had come loose.",
@@ -4259,29 +4628,25 @@ export const questions = [
     "value": "The bath emptied because the water was cold.",
     "label": "The bath emptied because the water was cold.",
     "text": "The bath emptied because the water was cold."
-   },
-   {
-    "value": "The bath stayed full because of the chain.",
-    "label": "The bath stayed full because of the chain.",
-    "text": "The bath stayed full because of the chain."
    }
   ],
   "answer": "The bath emptied because the plug had come loose.",
   "correctAnswer": "The bath emptied because the plug had come loose.",
   "distractorRationales": {
+   "The bath stayed full because of the chain.": "D-OPPOSITE",
    "The plug came loose because the bath emptied.": "D-CAUSE-REVERSE",
-   "The bath emptied because the water was cold.": "D-PLAUSIBLE-UNSUPPORTED",
-   "The bath stayed full because of the chain.": "D-OPPOSITE"
+   "The bath emptied because the water was cold.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4292,7 +4657,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for The plug chain had slipped off its hook into the water. Nobody noticed while the bath emptied itself, glug by glug, until only a cold puddle was left around Otto's toes."
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v10r",
@@ -4320,22 +4691,12 @@ export const questions = [
   "passage": "Nia's birthday balloon slipped out of her hand indoors. It sailed straight up and bumped softly against the ceiling, where it stayed all week, just out of reach of the broom.",
   "cell": "because_sentence",
   "choices": [
-   "The balloon rose because the gas inside was lighter than air.",
-   "The ceiling pulled the balloon up.",
    "The balloon rose because Nia held it tight.",
-   "The broom kept the balloon up."
+   "The broom kept the balloon up.",
+   "Light gas carried the balloon upward.",
+   "The ceiling pulled the balloon up."
   ],
   "answerOptions": [
-   {
-    "value": "The balloon rose because the gas inside was lighter than air.",
-    "label": "The balloon rose because the gas inside was lighter than air.",
-    "text": "The balloon rose because the gas inside was lighter than air."
-   },
-   {
-    "value": "The ceiling pulled the balloon up.",
-    "label": "The ceiling pulled the balloon up.",
-    "text": "The ceiling pulled the balloon up."
-   },
    {
     "value": "The balloon rose because Nia held it tight.",
     "label": "The balloon rose because Nia held it tight.",
@@ -4345,24 +4706,35 @@ export const questions = [
     "value": "The broom kept the balloon up.",
     "label": "The broom kept the balloon up.",
     "text": "The broom kept the balloon up."
+   },
+   {
+    "value": "Light gas carried the balloon upward.",
+    "label": "Light gas carried the balloon upward.",
+    "text": "Light gas carried the balloon upward."
+   },
+   {
+    "value": "The ceiling pulled the balloon up.",
+    "label": "The ceiling pulled the balloon up.",
+    "text": "The ceiling pulled the balloon up."
    }
   ],
-  "answer": "The balloon rose because the gas inside was lighter than air.",
-  "correctAnswer": "The balloon rose because the gas inside was lighter than air.",
+  "answer": "Light gas carried the balloon upward.",
+  "correctAnswer": "Light gas carried the balloon upward.",
   "distractorRationales": {
    "The ceiling pulled the balloon up.": "D-PLAUSIBLE-UNSUPPORTED",
    "The balloon rose because Nia held it tight.": "D-OPPOSITE",
    "The broom kept the balloon up.": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-because_sentence-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4373,7 +4745,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for Nia's birthday balloon slipped out of her hand indoors. It sailed straight up and bumped softly against the ceiling, where it stayed all week, just out of reach of the broom."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v11r",
@@ -4401,17 +4779,12 @@ export const questions = [
   "passage": "A seagull spotted Pia's chip bag the moment she sat on the sea wall. It swooped once, low and bold, and a heartbeat later the biggest chip was travelling down the beach at wing-speed.",
   "cell": "find_effect",
   "choices": [
-   "it stole a chip",
    "Pia sat on the wall",
    "the bag blew away",
-   "the tide came in"
+   "the tide came in",
+   "it stole a chip"
   ],
   "answerOptions": [
-   {
-    "value": "it stole a chip",
-    "label": "it stole a chip",
-    "text": "it stole a chip"
-   },
    {
     "value": "Pia sat on the wall",
     "label": "Pia sat on the wall",
@@ -4426,24 +4799,30 @@ export const questions = [
     "value": "the tide came in",
     "label": "the tide came in",
     "text": "the tide came in"
+   },
+   {
+    "value": "it stole a chip",
+    "label": "it stole a chip",
+    "text": "it stole a chip"
    }
   ],
   "answer": "it stole a chip",
   "correctAnswer": "it stole a chip",
   "distractorRationales": {
+   "the tide came in": "D-PLAUSIBLE-UNSUPPORTED",
    "Pia sat on the wall": "D-CAUSE-REVERSE",
-   "the bag blew away": "D-PLAUSIBLE-UNSUPPORTED",
-   "the tide came in": "D-PLAUSIBLE-UNSUPPORTED"
+   "the bag blew away": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_effect-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,7 +4833,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/spotted-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/spotted-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
+  "resolvedImageAssetKey": "spotted",
+  "imageAlt": "Illustration for A seagull spotted Pia's chip bag the moment she sat on the sea wall. It swooped once, low and bold, and a heartbeat later the biggest chip was travelling down the beach at wing-speed."
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v11r",
@@ -4482,16 +4867,16 @@ export const questions = [
   "passage": "The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it.",
   "cell": "find_cause",
   "choices": [
-   "gum was stuck around a wheel",
+   "chewing gum stopped one wheel turning smoothly",
    "the shopping was too heavy",
    "its song annoyed Dad",
    "the floor was wet"
   ],
   "answerOptions": [
    {
-    "value": "gum was stuck around a wheel",
-    "label": "gum was stuck around a wheel",
-    "text": "gum was stuck around a wheel"
+    "value": "chewing gum stopped one wheel turning smoothly",
+    "label": "chewing gum stopped one wheel turning smoothly",
+    "text": "chewing gum stopped one wheel turning smoothly"
    },
    {
     "value": "the shopping was too heavy",
@@ -4509,22 +4894,23 @@ export const questions = [
     "text": "the floor was wet"
    }
   ],
-  "answer": "gum was stuck around a wheel",
-  "correctAnswer": "gum was stuck around a wheel",
+  "answer": "chewing gum stopped one wheel turning smoothly",
+  "correctAnswer": "chewing gum stopped one wheel turning smoothly",
   "distractorRationales": {
    "the shopping was too heavy": "D-PLAUSIBLE-UNSUPPORTED",
    "its song annoyed Dad": "D-CAUSE-REVERSE",
    "the floor was wet": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l1-find_cause-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4535,7 +4921,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it."
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v9r",
@@ -4593,19 +4985,20 @@ export const questions = [
   "answer": "gulping the fizzy drink too fast",
   "correctAnswer": "gulping the fizzy drink too fast",
   "distractorRationales": {
+   "a scary story": "D-PLAUSIBLE-UNSUPPORTED",
    "the giggling": "D-SEQUENCE-SWAP",
-   "putting the glass down": "D-SEQUENCE-SWAP",
-   "a scary story": "D-PLAUSIBLE-UNSUPPORTED"
+   "putting the glass down": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4616,7 +5009,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for Marta's hiccups started when she gulped her fizzy lemonade too fast. The hiccups made her giggle. The giggling shook more bubbles loose, which brought more hiccups, and soon she had to put the glass down until both the giggles and the hiccups wore themselves out."
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v10r",
@@ -4644,16 +5043,21 @@ export const questions = [
   "passage": "The paint tin was left open overnight. By morning a skin had formed across the top. When Dad stirred the skin in, little rubbery flecks spread through the paint, and every stroke he brushed onto the door left tiny lumps, so the whole door had to be sanded and painted again.",
   "cell": "chain",
   "choices": [
-   "flecks from the paint skin lumped the first coat",
+   "the brush was too wide",
+   "the first coat dried with bumps in it",
    "the tin was left open overnight",
-   "Dad sanded the door",
-   "the brush was too wide"
+   "Dad sanded the door"
   ],
   "answerOptions": [
    {
-    "value": "flecks from the paint skin lumped the first coat",
-    "label": "flecks from the paint skin lumped the first coat",
-    "text": "flecks from the paint skin lumped the first coat"
+    "value": "the brush was too wide",
+    "label": "the brush was too wide",
+    "text": "the brush was too wide"
+   },
+   {
+    "value": "the first coat dried with bumps in it",
+    "label": "the first coat dried with bumps in it",
+    "text": "the first coat dried with bumps in it"
    },
    {
     "value": "the tin was left open overnight",
@@ -4664,29 +5068,25 @@ export const questions = [
     "value": "Dad sanded the door",
     "label": "Dad sanded the door",
     "text": "Dad sanded the door"
-   },
-   {
-    "value": "the brush was too wide",
-    "label": "the brush was too wide",
-    "text": "the brush was too wide"
    }
   ],
-  "answer": "flecks from the paint skin lumped the first coat",
-  "correctAnswer": "flecks from the paint skin lumped the first coat",
+  "answer": "the first coat dried with bumps in it",
+  "correctAnswer": "the first coat dried with bumps in it",
   "distractorRationales": {
    "the tin was left open overnight": "D-SEQUENCE-SWAP",
    "Dad sanded the door": "D-SEQUENCE-SWAP",
    "the brush was too wide": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4697,7 +5097,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat"
+  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The paint tin was left open overnight. By morning a skin had formed across the top. When Dad stirred the skin in, little rubbery flecks spread through the paint, and every stroke he brushed onto the door left tiny lumps, so the whole door had to be sanded and painted again."
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v9r",
@@ -4725,22 +5131,12 @@ export const questions = [
   "passage": "The washing took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. And Mum had wrung nothing out, pegging everything up still dripping.",
   "cell": "multiple_causes",
   "choices": [
-   "a hot wind blew all day",
-   "the damp, misty morning",
    "the shady corner",
-   "clothes pegged up dripping"
+   "clothes pegged up dripping",
+   "a hot wind blew all day",
+   "the damp, misty morning"
   ],
   "answerOptions": [
-   {
-    "value": "a hot wind blew all day",
-    "label": "a hot wind blew all day",
-    "text": "a hot wind blew all day"
-   },
-   {
-    "value": "the damp, misty morning",
-    "label": "the damp, misty morning",
-    "text": "the damp, misty morning"
-   },
    {
     "value": "the shady corner",
     "label": "the shady corner",
@@ -4750,24 +5146,35 @@ export const questions = [
     "value": "clothes pegged up dripping",
     "label": "clothes pegged up dripping",
     "text": "clothes pegged up dripping"
+   },
+   {
+    "value": "a hot wind blew all day",
+    "label": "a hot wind blew all day",
+    "text": "a hot wind blew all day"
+   },
+   {
+    "value": "the damp, misty morning",
+    "label": "the damp, misty morning",
+    "text": "the damp, misty morning"
    }
   ],
   "answer": "a hot wind blew all day",
   "correctAnswer": "a hot wind blew all day",
   "distractorRationales": {
+   "clothes pegged up dripping": "D-DETAIL-AS-MAIN",
    "the damp, misty morning": "D-DETAIL-AS-MAIN",
-   "the shady corner": "D-DETAIL-AS-MAIN",
-   "clothes pegged up dripping": "D-DETAIL-AS-MAIN"
+   "the shady corner": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,7 +5185,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for The washing took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. And Mum had wrung nothing out, pegging everything up still dripping."
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v10r",
@@ -4806,17 +5219,12 @@ export const questions = [
   "passage": "The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The caretaker had moved the cage next to the shelf, making a perfect bridge. And carrot night meant the door had been opened one extra time.",
   "cell": "multiple_causes",
   "choices": [
-   "a child took him home",
    "the weak latch",
    "the shelf right beside the cage",
-   "the extra carrot-night opening"
+   "the extra carrot-night opening",
+   "a child took him home"
   ],
   "answerOptions": [
-   {
-    "value": "a child took him home",
-    "label": "a child took him home",
-    "text": "a child took him home"
-   },
    {
     "value": "the weak latch",
     "label": "the weak latch",
@@ -4831,6 +5239,11 @@ export const questions = [
     "value": "the extra carrot-night opening",
     "label": "the extra carrot-night opening",
     "text": "the extra carrot-night opening"
+   },
+   {
+    "value": "a child took him home",
+    "label": "a child took him home",
+    "text": "a child took him home"
    }
   ],
   "answer": "a child took him home",
@@ -4840,15 +5253,16 @@ export const questions = [
    "the shelf right beside the cage": "D-DETAIL-AS-MAIN",
    "the extra carrot-night opening": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4859,7 +5273,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/school.webp",
+  "imageUrl": "/images/assessment/generated/concepts/school.webp",
+  "targetImage": "/images/assessment/generated/concepts/school.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
+  "resolvedImageAssetKey": "school",
+  "imageAlt": "Illustration for The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The caretaker had moved the cage next to the shelf, making a perfect bridge. And carrot night meant the door had been opened one extra time."
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v9r",
@@ -4917,19 +5337,20 @@ export const questions = [
   "answer": "hot sun causes both at once",
   "correctAnswer": "hot sun causes both at once",
   "distractorRationales": {
-   "ice cream causes sunburn": "D-CAUSE-REVERSE",
    "sunburn makes people buy cones": "D-CAUSE-REVERSE",
-   "the newspaper causes July": "D-PLAUSIBLE-UNSUPPORTED"
+   "the newspaper causes July": "D-PLAUSIBLE-UNSUPPORTED",
+   "ice cream causes sunburn": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4940,7 +5361,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for Ice-cream sales and sunburn both jump in July. One silly newspaper joked that ice cream causes sunburn. Class 4 worked out the truth for their science wall: hot sunny weather causes BOTH — more cones eaten, more skin burned."
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v10r",
@@ -4968,12 +5395,17 @@ export const questions = [
   "passage": "Grandad noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark — dark enough for lights, late enough for yawns.",
   "cell": "reversal_trap",
   "choices": [
+   "the switch is in his chair",
    "evening darkness triggers both",
    "Grandad's yawns switch on the lights",
-   "the streetlights make him yawn",
-   "the switch is in his chair"
+   "the streetlights make him yawn"
   ],
   "answerOptions": [
+   {
+    "value": "the switch is in his chair",
+    "label": "the switch is in his chair",
+    "text": "the switch is in his chair"
+   },
    {
     "value": "evening darkness triggers both",
     "label": "evening darkness triggers both",
@@ -4988,29 +5420,25 @@ export const questions = [
     "value": "the streetlights make him yawn",
     "label": "the streetlights make him yawn",
     "text": "the streetlights make him yawn"
-   },
-   {
-    "value": "the switch is in his chair",
-    "label": "the switch is in his chair",
-    "text": "the switch is in his chair"
    }
   ],
   "answer": "evening darkness triggers both",
   "correctAnswer": "evening darkness triggers both",
   "distractorRationales": {
-   "Grandad's yawns switch on the lights": "D-CAUSE-REVERSE",
    "the streetlights make him yawn": "D-CAUSE-REVERSE",
-   "the switch is in his chair": "D-PLAUSIBLE-UNSUPPORTED"
+   "the switch is in his chair": "D-PLAUSIBLE-UNSUPPORTED",
+   "Grandad's yawns switch on the lights": "D-CAUSE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-reversal_trap-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +5449,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
+  "resolvedImageAssetKey": "darkness",
+  "imageAlt": "Illustration for Grandad noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark — dark enough for lights, late enough for yawns."
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v11r",
@@ -5049,22 +5483,12 @@ export const questions = [
   "passage": "The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their own starting stile.",
   "cell": "chain",
   "choices": [
-   "the magnet had pulled the compass off north",
-   "the compass broke in the rain",
    "they turned left at the fork",
-   "the stile moved"
+   "the stile moved",
+   "a pocket magnet misdirected the needle",
+   "the compass broke in the rain"
   ],
   "answerOptions": [
-   {
-    "value": "the magnet had pulled the compass off north",
-    "label": "the magnet had pulled the compass off north",
-    "text": "the magnet had pulled the compass off north"
-   },
-   {
-    "value": "the compass broke in the rain",
-    "label": "the compass broke in the rain",
-    "text": "the compass broke in the rain"
-   },
    {
     "value": "they turned left at the fork",
     "label": "they turned left at the fork",
@@ -5074,24 +5498,35 @@ export const questions = [
     "value": "the stile moved",
     "label": "the stile moved",
     "text": "the stile moved"
+   },
+   {
+    "value": "a pocket magnet misdirected the needle",
+    "label": "a pocket magnet misdirected the needle",
+    "text": "a pocket magnet misdirected the needle"
+   },
+   {
+    "value": "the compass broke in the rain",
+    "label": "the compass broke in the rain",
+    "text": "the compass broke in the rain"
    }
   ],
-  "answer": "the magnet had pulled the compass off north",
-  "correctAnswer": "the magnet had pulled the compass off north",
+  "answer": "a pocket magnet misdirected the needle",
+  "correctAnswer": "a pocket magnet misdirected the needle",
   "distractorRationales": {
    "the compass broke in the rain": "D-PLAUSIBLE-UNSUPPORTED",
    "they turned left at the fork": "D-SEQUENCE-SWAP",
    "the stile moved": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-chain-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5102,7 +5537,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Illustration for The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their own starting stile."
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v11r",
@@ -5130,17 +5571,12 @@ export const questions = [
   "passage": "The candles on the cake would not stay lit. The back door stood open to the garden. The ceiling fan spun on full. And two excited cousins were bouncing on the bench, puffing with laughter right at candle height.",
   "cell": "multiple_causes",
   "choices": [
-   "the wax was too soft",
    "the open back door",
    "the ceiling fan",
-   "the puffing cousins"
+   "the puffing cousins",
+   "the wax was too soft"
   ],
   "answerOptions": [
-   {
-    "value": "the wax was too soft",
-    "label": "the wax was too soft",
-    "text": "the wax was too soft"
-   },
    {
     "value": "the open back door",
     "label": "the open back door",
@@ -5155,6 +5591,11 @@ export const questions = [
     "value": "the puffing cousins",
     "label": "the puffing cousins",
     "text": "the puffing cousins"
+   },
+   {
+    "value": "the wax was too soft",
+    "label": "the wax was too soft",
+    "text": "the wax was too soft"
    }
   ],
   "answer": "the wax was too soft",
@@ -5164,15 +5605,16 @@ export const questions = [
    "the ceiling fan": "D-DETAIL-AS-MAIN",
    "the puffing cousins": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cause_effect-l2-multiple_causes-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5183,6 +5625,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/going.webp",
+  "imageUrl": "/images/assessment/hfw/going.webp",
+  "targetImage": "/images/assessment/hfw/going.webp",
+  "targetImagePath": "/images/assessment/hfw/going.webp",
+  "resolvedImageAssetKey": "going",
+  "imageAlt": "Illustration for The candles on the cake would not stay lit. The back door stood open to the garden. The ceiling fan spun on full. And two excited cousins were bouncing on the bench, puffing with laughter right at candle height."
  }
 ];

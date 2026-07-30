@@ -25,12 +25,17 @@ export const questions = [
   "question": "Finish: __ock",
   "spokenPrompt": "block. Which letters finish the word block?",
   "choices": [
+   "st",
    "bl",
    "cl",
-   "fl",
-   "st"
+   "fl"
   ],
   "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
    {
     "value": "bl",
     "label": "bl",
@@ -45,19 +50,14 @@ export const questions = [
     "value": "fl",
     "label": "fl",
     "text": "fl"
-   },
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
    }
   ],
   "answer": "bl",
   "correctAnswer": "bl",
   "distractorRationales": {
+   "st": "D-PATTERN-TRAP",
    "cl": "D-PATTERN-TRAP",
-   "fl": "D-PATTERN-TRAP",
-   "st": "D-PATTERN-TRAP"
+   "fl": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -70,6 +70,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "block",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -85,7 +86,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/block.webp",
   "targetImage": "/images/assessment/blends/block.webp",
   "targetImagePath": "/images/assessment/blends/block.webp",
-  "imageAlt": "block"
+  "resolvedImageAssetKey": "block",
+  "imageAlt": "Finish: __ock"
  },
  {
   "id": "lp3.blends.l1.B.bl.v2",
@@ -141,9 +143,9 @@ export const questions = [
   "answer": "block",
   "correctAnswer": "block",
   "distractorRationales": {
+   "star": "D-PATTERN-TRAP",
    "glue": "D-PATTERN-TRAP",
-   "drum": "D-PATTERN-TRAP",
-   "star": "D-PATTERN-TRAP"
+   "drum": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -200,8 +202,8 @@ export const questions = [
     "word": "star",
     "value": "star",
     "label": "star",
-    "image": "/images/child-mode/blends/star.png",
-    "imagePath": "/images/child-mode/blends/star.png",
+    "image": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
     "imageAlt": "star"
    }
   ]
@@ -230,17 +232,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "block",
    "lock",
    "black",
-   "clock"
+   "clock",
+   "block"
   ],
   "answerOptions": [
-   {
-    "value": "block",
-    "label": "block",
-    "text": "block"
-   },
    {
     "value": "lock",
     "label": "lock",
@@ -255,14 +252,19 @@ export const questions = [
     "value": "clock",
     "label": "clock",
     "text": "clock"
+   },
+   {
+    "value": "block",
+    "label": "block",
+    "text": "block"
    }
   ],
   "answer": "block",
   "correctAnswer": "block",
   "distractorRationales": {
+   "clock": "D-RIME-NEAR",
    "lock": "D-ONSET",
-   "black": "D-PATTERN-TRAP",
-   "clock": "D-RIME-NEAR"
+   "black": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -274,6 +276,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "block",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -289,7 +292,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/block.webp",
   "targetImage": "/images/assessment/blends/block.webp",
   "targetImagePath": "/images/assessment/blends/block.webp",
-  "imageAlt": "block"
+  "resolvedImageAssetKey": "block",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.bl.v4",
@@ -315,22 +319,12 @@ export const questions = [
   "question": "Finish: __ue",
   "spokenPrompt": "blue. Which letters finish the word blue?",
   "choices": [
-   "bl",
-   "cl",
    "fl",
-   "gl"
+   "gl",
+   "bl",
+   "cl"
   ],
   "answerOptions": [
-   {
-    "value": "bl",
-    "label": "bl",
-    "text": "bl"
-   },
-   {
-    "value": "cl",
-    "label": "cl",
-    "text": "cl"
-   },
    {
     "value": "fl",
     "label": "fl",
@@ -340,6 +334,16 @@ export const questions = [
     "value": "gl",
     "label": "gl",
     "text": "gl"
+   },
+   {
+    "value": "bl",
+    "label": "bl",
+    "text": "bl"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
    }
   ],
   "answer": "bl",
@@ -360,6 +364,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blue",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -375,7 +380,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/blue.webp",
   "targetImage": "/images/assessment/blends/blue.webp",
   "targetImagePath": "/images/assessment/blends/blue.webp",
-  "imageAlt": "blue"
+  "resolvedImageAssetKey": "blue",
+  "imageAlt": "Finish: __ue"
  },
  {
   "id": "lp3.blends.l1.A.cl.v1",
@@ -401,17 +407,12 @@ export const questions = [
   "question": "Finish: __ap",
   "spokenPrompt": "clap. Which letters finish the word clap?",
   "choices": [
-   "cl",
    "fl",
    "sl",
-   "tr"
+   "tr",
+   "cl"
   ],
   "answerOptions": [
-   {
-    "value": "cl",
-    "label": "cl",
-    "text": "cl"
-   },
    {
     "value": "fl",
     "label": "fl",
@@ -426,6 +427,11 @@ export const questions = [
     "value": "tr",
     "label": "tr",
     "text": "tr"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
    }
   ],
   "answer": "cl",
@@ -446,6 +452,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clap",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -461,7 +468,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/clap.webp",
   "targetImage": "/images/assessment/blends/clap.webp",
   "targetImagePath": "/images/assessment/blends/clap.webp",
-  "imageAlt": "clap"
+  "resolvedImageAssetKey": "clap",
+  "imageAlt": "Finish: __ap"
  },
  {
   "id": "lp3.blends.l1.B.cl.v2",
@@ -487,12 +495,17 @@ export const questions = [
   "question": "Which one starts like clap?",
   "spokenPrompt": "clap. Which one starts with the same sounds as clap?",
   "choices": [
+   "map",
    "clock",
    "lamp",
-   "crab",
-   "map"
+   "crab"
   ],
   "answerOptions": [
+   {
+    "value": "map",
+    "label": "map",
+    "text": "map"
+   },
    {
     "value": "clock",
     "label": "clock",
@@ -507,11 +520,6 @@ export const questions = [
     "value": "crab",
     "label": "crab",
     "text": "crab"
-   },
-   {
-    "value": "map",
-    "label": "map",
-    "text": "map"
    }
   ],
   "answer": "clock",
@@ -545,6 +553,15 @@ export const questions = [
   "notes": "lamp is the l-only reduction and ties the clap overlap; map rhymes with the anchor",
   "imageCards": [
    {
+    "id": "lp3.blends.l1.B.cl.v2_card_map",
+    "word": "map",
+    "value": "map",
+    "label": "map",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imageAlt": "map"
+   },
+   {
     "id": "lp3.blends.l1.B.cl.v2_card_clock",
     "word": "clock",
     "value": "clock",
@@ -570,15 +587,6 @@ export const questions = [
     "image": "/images/assessment/blends/crab.webp",
     "imagePath": "/images/assessment/blends/crab.webp",
     "imageAlt": "crab"
-   },
-   {
-    "id": "lp3.blends.l1.B.cl.v2_card_map",
-    "word": "map",
-    "value": "map",
-    "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
-    "imageAlt": "map"
    }
   ]
  },
@@ -650,6 +658,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -665,7 +674,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/clock.webp",
   "targetImage": "/images/assessment/blends/clock.webp",
   "targetImagePath": "/images/assessment/blends/clock.webp",
-  "imageAlt": "clock"
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.cl.v4",
@@ -721,9 +731,9 @@ export const questions = [
   "answer": "cl",
   "correctAnswer": "cl",
   "distractorRationales": {
+   "br": "D-PATTERN-TRAP",
    "bl": "D-PATTERN-TRAP",
-   "sl": "D-PATTERN-TRAP",
-   "br": "D-PATTERN-TRAP"
+   "sl": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -736,6 +746,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cloth",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -751,7 +762,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/cloth.webp",
   "targetImage": "/images/assessment/digraphs/cloth.webp",
   "targetImagePath": "/images/assessment/digraphs/cloth.webp",
-  "imageAlt": "cloth"
+  "resolvedImageAssetKey": "cloth",
+  "imageAlt": "Finish: __oth"
  },
  {
   "id": "lp3.blends.l1.A.fl.v1",
@@ -777,12 +789,17 @@ export const questions = [
   "question": "Finish: __ag",
   "spokenPrompt": "flag. Which letters finish the word flag?",
   "choices": [
+   "st",
    "fl",
    "bl",
-   "cr",
-   "st"
+   "cr"
   ],
   "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
    {
     "value": "fl",
     "label": "fl",
@@ -797,19 +814,14 @@ export const questions = [
     "value": "cr",
     "label": "cr",
     "text": "cr"
-   },
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
    }
   ],
   "answer": "fl",
   "correctAnswer": "fl",
   "distractorRationales": {
+   "st": "D-PATTERN-TRAP",
    "bl": "D-PATTERN-TRAP",
-   "cr": "D-PATTERN-TRAP",
-   "st": "D-PATTERN-TRAP"
+   "cr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -822,6 +834,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -837,7 +850,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Finish: __ag"
  },
  {
   "id": "lp3.blends.l1.B.fl.v2",
@@ -863,22 +877,12 @@ export const questions = [
   "question": "Which one starts like flower?",
   "spokenPrompt": "flower. Which one starts with the same sounds as flower?",
   "choices": [
-   "flag",
-   "frog",
    "crown",
-   "leaf"
+   "leaf",
+   "flag",
+   "frog"
   ],
   "answerOptions": [
-   {
-    "value": "flag",
-    "label": "flag",
-    "text": "flag"
-   },
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
-   },
    {
     "value": "crown",
     "label": "crown",
@@ -888,14 +892,24 @@ export const questions = [
     "value": "leaf",
     "label": "leaf",
     "text": "leaf"
+   },
+   {
+    "value": "flag",
+    "label": "flag",
+    "text": "flag"
+   },
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
    }
   ],
   "answer": "flag",
   "correctAnswer": "flag",
   "distractorRationales": {
+   "leaf": "D-ONSET",
    "frog": "D-PATTERN-TRAP",
-   "crown": "D-PATTERN-TRAP",
-   "leaf": "D-ONSET"
+   "crown": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -921,24 +935,6 @@ export const questions = [
   "notes": "crown carries the anchor's ow letters — the scanner tie",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.fl.v2_card_flag",
-    "word": "flag",
-    "value": "flag",
-    "label": "flag",
-    "image": "/images/assessment/blends/flag.webp",
-    "imagePath": "/images/assessment/blends/flag.webp",
-    "imageAlt": "flag"
-   },
-   {
-    "id": "lp3.blends.l1.B.fl.v2_card_frog",
-    "word": "frog",
-    "value": "frog",
-    "label": "frog",
-    "image": "/images/assessment/blends/frog.webp",
-    "imagePath": "/images/assessment/blends/frog.webp",
-    "imageAlt": "frog"
-   },
-   {
     "id": "lp3.blends.l1.B.fl.v2_card_crown",
     "word": "crown",
     "value": "crown",
@@ -955,6 +951,24 @@ export const questions = [
     "image": "/images/assessment/long-vowels/leaf.webp",
     "imagePath": "/images/assessment/long-vowels/leaf.webp",
     "imageAlt": "leaf"
+   },
+   {
+    "id": "lp3.blends.l1.B.fl.v2_card_flag",
+    "word": "flag",
+    "value": "flag",
+    "label": "flag",
+    "image": "/images/assessment/blends/flag.webp",
+    "imagePath": "/images/assessment/blends/flag.webp",
+    "imageAlt": "flag"
+   },
+   {
+    "id": "lp3.blends.l1.B.fl.v2_card_frog",
+    "word": "frog",
+    "value": "frog",
+    "label": "frog",
+    "image": "/images/assessment/blends/frog.webp",
+    "imagePath": "/images/assessment/blends/frog.webp",
+    "imageAlt": "frog"
    }
   ]
  },
@@ -982,12 +996,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "bag",
    "flag",
    "lag",
-   "flap",
-   "bag"
+   "flap"
   ],
   "answerOptions": [
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
    {
     "value": "flag",
     "label": "flag",
@@ -1002,19 +1021,14 @@ export const questions = [
     "value": "flap",
     "label": "flap",
     "text": "flap"
-   },
-   {
-    "value": "bag",
-    "label": "bag",
-    "text": "bag"
    }
   ],
   "answer": "flag",
   "correctAnswer": "flag",
   "distractorRationales": {
+   "bag": "D-RIME-NEAR",
    "lag": "D-ONSET",
-   "flap": "D-PATTERN-TRAP",
-   "bag": "D-RIME-NEAR"
+   "flap": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1026,6 +1040,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1041,7 +1056,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.fl.v4",
@@ -1067,22 +1083,12 @@ export const questions = [
   "question": "Finish: __ute",
   "spokenPrompt": "flute. Which letters finish the word flute?",
   "choices": [
-   "fl",
-   "cl",
    "br",
-   "gr"
+   "gr",
+   "fl",
+   "cl"
   ],
   "answerOptions": [
-   {
-    "value": "fl",
-    "label": "fl",
-    "text": "fl"
-   },
-   {
-    "value": "cl",
-    "label": "cl",
-    "text": "cl"
-   },
    {
     "value": "br",
     "label": "br",
@@ -1092,6 +1098,16 @@ export const questions = [
     "value": "gr",
     "label": "gr",
     "text": "gr"
+   },
+   {
+    "value": "fl",
+    "label": "fl",
+    "text": "fl"
+   },
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
    }
   ],
   "answer": "fl",
@@ -1112,6 +1128,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flute",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1127,7 +1144,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/flute.webp",
   "targetImage": "/images/assessment/long-vowels/flute.webp",
   "targetImagePath": "/images/assessment/long-vowels/flute.webp",
-  "imageAlt": "flute"
+  "resolvedImageAssetKey": "flute",
+  "imageAlt": "Finish: __ute"
  },
  {
   "id": "lp3.blends.l1.A.pl.v1",
@@ -1153,17 +1171,12 @@ export const questions = [
   "question": "Finish: __ug",
   "spokenPrompt": "plug. Which letters finish the word plug?",
   "choices": [
-   "pl",
    "bl",
    "sl",
-   "dr"
+   "dr",
+   "pl"
   ],
   "answerOptions": [
-   {
-    "value": "pl",
-    "label": "pl",
-    "text": "pl"
-   },
    {
     "value": "bl",
     "label": "bl",
@@ -1178,6 +1191,11 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
+   },
+   {
+    "value": "pl",
+    "label": "pl",
+    "text": "pl"
    }
   ],
   "answer": "pl",
@@ -1198,6 +1216,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1213,7 +1232,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/plug.webp",
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
-  "imageAlt": "plug"
+  "resolvedImageAssetKey": "plug",
+  "imageAlt": "Finish: __ug"
  },
  {
   "id": "lp3.blends.l1.B.pl.v2",
@@ -1239,17 +1259,12 @@ export const questions = [
   "question": "Which one starts like play?",
   "spokenPrompt": "play. Which one starts with the same sounds as play?",
   "choices": [
-   "plug",
    "lamp",
    "glue",
-   "drum"
+   "drum",
+   "plug"
   ],
   "answerOptions": [
-   {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
-   },
    {
     "value": "lamp",
     "label": "lamp",
@@ -1264,6 +1279,11 @@ export const questions = [
     "value": "drum",
     "label": "drum",
     "text": "drum"
+   },
+   {
+    "value": "plug",
+    "label": "plug",
+    "text": "plug"
    }
   ],
   "answer": "plug",
@@ -1297,15 +1317,6 @@ export const questions = [
   "notes": "anchor avoids plum/plug's shared plu-chunk; lamp ties the play la-overlap",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.pl.v2_card_plug",
-    "word": "plug",
-    "value": "plug",
-    "label": "plug",
-    "image": "/images/assessment/blends/plug.webp",
-    "imagePath": "/images/assessment/blends/plug.webp",
-    "imageAlt": "plug"
-   },
-   {
     "id": "lp3.blends.l1.B.pl.v2_card_lamp",
     "word": "lamp",
     "value": "lamp",
@@ -1331,6 +1342,15 @@ export const questions = [
     "image": "/images/assessment/blends/drum.webp",
     "imagePath": "/images/assessment/blends/drum.webp",
     "imageAlt": "drum"
+   },
+   {
+    "id": "lp3.blends.l1.B.pl.v2_card_plug",
+    "word": "plug",
+    "value": "plug",
+    "label": "plug",
+    "image": "/images/assessment/blends/plug.webp",
+    "imagePath": "/images/assessment/blends/plug.webp",
+    "imageAlt": "plug"
    }
   ]
  },
@@ -1358,22 +1378,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "plug",
-   "lug",
    "plum",
-   "rug"
+   "rug",
+   "plug",
+   "lug"
   ],
   "answerOptions": [
-   {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
-   },
-   {
-    "value": "lug",
-    "label": "lug",
-    "text": "lug"
-   },
    {
     "value": "plum",
     "label": "plum",
@@ -1383,6 +1393,16 @@ export const questions = [
     "value": "rug",
     "label": "rug",
     "text": "rug"
+   },
+   {
+    "value": "plug",
+    "label": "plug",
+    "text": "plug"
+   },
+   {
+    "value": "lug",
+    "label": "lug",
+    "text": "lug"
    }
   ],
   "answer": "plug",
@@ -1402,6 +1422,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1417,7 +1438,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/plug.webp",
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
-  "imageAlt": "plug"
+  "resolvedImageAssetKey": "plug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.pl.v4",
@@ -1473,9 +1495,9 @@ export const questions = [
   "answer": "pl",
   "correctAnswer": "pl",
   "distractorRationales": {
-   "gr": "D-PATTERN-TRAP",
    "sl": "D-PATTERN-TRAP",
-   "fr": "D-PATTERN-TRAP"
+   "fr": "D-PATTERN-TRAP",
+   "gr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -1488,6 +1510,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plant",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1503,7 +1526,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/plant.webp",
   "targetImage": "/images/assessment/blends/plant.webp",
   "targetImagePath": "/images/assessment/blends/plant.webp",
-  "imageAlt": "plant"
+  "resolvedImageAssetKey": "plant",
+  "imageAlt": "Finish: __ant"
  },
  {
   "id": "lp3.blends.l1.A.sl.v1",
@@ -1529,12 +1553,17 @@ export const questions = [
   "question": "Finish: __ed",
   "spokenPrompt": "sled. Which letters finish the word sled?",
   "choices": [
+   "st",
    "sl",
    "fl",
-   "br",
-   "st"
+   "br"
   ],
   "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
    {
     "value": "sl",
     "label": "sl",
@@ -1549,11 +1578,6 @@ export const questions = [
     "value": "br",
     "label": "br",
     "text": "br"
-   },
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
    }
   ],
   "answer": "sl",
@@ -1574,6 +1598,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sled",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1589,7 +1614,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/sled.webp",
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
-  "imageAlt": "sled"
+  "resolvedImageAssetKey": "sled",
+  "imageAlt": "Finish: __ed"
  },
  {
   "id": "lp3.blends.l1.B.sl.v2",
@@ -1734,17 +1760,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "sled",
    "led",
    "slid",
-   "red"
+   "red",
+   "sled"
   ],
   "answerOptions": [
-   {
-    "value": "sled",
-    "label": "sled",
-    "text": "sled"
-   },
    {
     "value": "led",
     "label": "led",
@@ -1759,6 +1780,11 @@ export const questions = [
     "value": "red",
     "label": "red",
     "text": "red"
+   },
+   {
+    "value": "sled",
+    "label": "sled",
+    "text": "sled"
    }
   ],
   "answer": "sled",
@@ -1778,6 +1804,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sled",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1793,7 +1820,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/sled.webp",
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
-  "imageAlt": "sled"
+  "resolvedImageAssetKey": "sled",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.sl.v4",
@@ -1819,22 +1847,12 @@ export const questions = [
   "question": "Finish: __ide",
   "spokenPrompt": "slide. Which letters finish the word slide?",
   "choices": [
-   "sl",
-   "gl",
    "br",
-   "cr"
+   "cr",
+   "sl",
+   "gl"
   ],
   "answerOptions": [
-   {
-    "value": "sl",
-    "label": "sl",
-    "text": "sl"
-   },
-   {
-    "value": "gl",
-    "label": "gl",
-    "text": "gl"
-   },
    {
     "value": "br",
     "label": "br",
@@ -1844,14 +1862,24 @@ export const questions = [
     "value": "cr",
     "label": "cr",
     "text": "cr"
+   },
+   {
+    "value": "sl",
+    "label": "sl",
+    "text": "sl"
+   },
+   {
+    "value": "gl",
+    "label": "gl",
+    "text": "gl"
    }
   ],
   "answer": "sl",
   "correctAnswer": "sl",
   "distractorRationales": {
+   "cr": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP",
-   "br": "D-PATTERN-TRAP",
-   "cr": "D-PATTERN-TRAP"
+   "br": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -1864,6 +1892,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "slide",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1879,7 +1908,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/slide.webp",
   "targetImage": "/images/assessment/blends/slide.webp",
   "targetImagePath": "/images/assessment/blends/slide.webp",
-  "imageAlt": "slide"
+  "resolvedImageAssetKey": "slide",
+  "imageAlt": "Finish: __ide"
  },
  {
   "id": "lp3.blends.l1.A.br.v1",
@@ -1905,17 +1935,12 @@ export const questions = [
   "question": "Finish: __ead",
   "spokenPrompt": "bread. Which letters finish the word bread?",
   "choices": [
-   "br",
    "dr",
    "cr",
-   "tr"
+   "tr",
+   "br"
   ],
   "answerOptions": [
-   {
-    "value": "br",
-    "label": "br",
-    "text": "br"
-   },
    {
     "value": "dr",
     "label": "dr",
@@ -1930,6 +1955,11 @@ export const questions = [
     "value": "tr",
     "label": "tr",
     "text": "tr"
+   },
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
    }
   ],
   "answer": "br",
@@ -1950,6 +1980,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bread",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1965,7 +1996,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/bread.webp",
   "targetImage": "/images/assessment/blends/bread.webp",
   "targetImagePath": "/images/assessment/blends/bread.webp",
-  "imageAlt": "bread"
+  "resolvedImageAssetKey": "bread",
+  "imageAlt": "Finish: __ead"
  },
  {
   "id": "lp3.blends.l1.B.br.v2",
@@ -1991,12 +2023,17 @@ export const questions = [
   "question": "Which one starts like brown?",
   "spokenPrompt": "brown. Which one starts with the same sounds as brown?",
   "choices": [
+   "rat",
    "bread",
    "crown",
-   "block",
-   "rat"
+   "block"
   ],
   "answerOptions": [
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   },
    {
     "value": "bread",
     "label": "bread",
@@ -2011,11 +2048,6 @@ export const questions = [
     "value": "block",
     "label": "block",
     "text": "block"
-   },
-   {
-    "value": "rat",
-    "label": "rat",
-    "text": "rat"
    }
   ],
   "answer": "bread",
@@ -2049,6 +2081,15 @@ export const questions = [
   "notes": "crown rhymes with the anchor and out-chunks the key — the scanner falls for it",
   "imageCards": [
    {
+    "id": "lp3.blends.l1.B.br.v2_card_rat",
+    "word": "rat",
+    "value": "rat",
+    "label": "rat",
+    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imageAlt": "rat"
+   },
+   {
     "id": "lp3.blends.l1.B.br.v2_card_bread",
     "word": "bread",
     "value": "bread",
@@ -2074,15 +2115,6 @@ export const questions = [
     "image": "/images/assessment/blends/block.webp",
     "imagePath": "/images/assessment/blends/block.webp",
     "imageAlt": "block"
-   },
-   {
-    "id": "lp3.blends.l1.B.br.v2_card_rat",
-    "word": "rat",
-    "value": "rat",
-    "label": "rat",
-    "image": "/images/child-mode/initial-sounds/rat.png",
-    "imagePath": "/images/child-mode/initial-sounds/rat.png",
-    "imageAlt": "rat"
    }
   ]
  },
@@ -2154,6 +2186,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bread",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2169,7 +2202,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/bread.webp",
   "targetImage": "/images/assessment/blends/bread.webp",
   "targetImagePath": "/images/assessment/blends/bread.webp",
-  "imageAlt": "bread"
+  "resolvedImageAssetKey": "bread",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.br.v4",
@@ -2225,9 +2259,9 @@ export const questions = [
   "answer": "br",
   "correctAnswer": "br",
   "distractorRationales": {
-   "tr": "D-PATTERN-TRAP",
    "st": "D-PATTERN-TRAP",
-   "cl": "D-PATTERN-TRAP"
+   "cl": "D-PATTERN-TRAP",
+   "tr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2240,6 +2274,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brick",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2255,7 +2290,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brick.webp",
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "imageAlt": "brick"
+  "resolvedImageAssetKey": "brick",
+  "imageAlt": "Finish: __ick"
  },
  {
   "id": "lp3.blends.l1.A.cr.v1",
@@ -2281,12 +2317,17 @@ export const questions = [
   "question": "Finish: __ab",
   "spokenPrompt": "crab. Which letters finish the word crab?",
   "choices": [
+   "st",
    "cr",
    "gr",
-   "dr",
-   "st"
+   "dr"
   ],
   "answerOptions": [
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
    {
     "value": "cr",
     "label": "cr",
@@ -2301,19 +2342,14 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
-   },
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
    }
   ],
   "answer": "cr",
   "correctAnswer": "cr",
   "distractorRationales": {
-   "gr": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP",
-   "st": "D-PATTERN-TRAP"
+   "st": "D-PATTERN-TRAP",
+   "gr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2326,6 +2362,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crab",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2341,7 +2378,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crab.webp",
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
-  "imageAlt": "crab"
+  "resolvedImageAssetKey": "crab",
+  "imageAlt": "Finish: __ab"
  },
  {
   "id": "lp3.blends.l1.B.cr.v2",
@@ -2367,22 +2405,12 @@ export const questions = [
   "question": "Which one starts like crown?",
   "spokenPrompt": "crown. Which one starts with the same sounds as crown?",
   "choices": [
-   "crab",
-   "brown",
    "clock",
-   "rock"
+   "rock",
+   "crab",
+   "brown"
   ],
   "answerOptions": [
-   {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
-   },
-   {
-    "value": "brown",
-    "label": "brown",
-    "text": "brown"
-   },
    {
     "value": "clock",
     "label": "clock",
@@ -2392,14 +2420,24 @@ export const questions = [
     "value": "rock",
     "label": "rock",
     "text": "rock"
+   },
+   {
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
+   },
+   {
+    "value": "brown",
+    "label": "brown",
+    "text": "brown"
    }
   ],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
-   "brown": "D-RIME-NEAR",
    "clock": "D-PATTERN-TRAP",
-   "rock": "D-ONSET"
+   "rock": "D-ONSET",
+   "brown": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2425,24 +2463,6 @@ export const questions = [
   "notes": "brown rhymes with the anchor; rock is the c-dropped reduction",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.cr.v2_card_crab",
-    "word": "crab",
-    "value": "crab",
-    "label": "crab",
-    "image": "/images/assessment/blends/crab.webp",
-    "imagePath": "/images/assessment/blends/crab.webp",
-    "imageAlt": "crab"
-   },
-   {
-    "id": "lp3.blends.l1.B.cr.v2_card_brown",
-    "word": "brown",
-    "value": "brown",
-    "label": "brown",
-    "image": "/images/assessment/blends/brown.webp",
-    "imagePath": "/images/assessment/blends/brown.webp",
-    "imageAlt": "brown"
-   },
-   {
     "id": "lp3.blends.l1.B.cr.v2_card_clock",
     "word": "clock",
     "value": "clock",
@@ -2459,6 +2479,24 @@ export const questions = [
     "image": "/images/assessment/digraphs/rock.webp",
     "imagePath": "/images/assessment/digraphs/rock.webp",
     "imageAlt": "rock"
+   },
+   {
+    "id": "lp3.blends.l1.B.cr.v2_card_crab",
+    "word": "crab",
+    "value": "crab",
+    "label": "crab",
+    "image": "/images/assessment/blends/crab.webp",
+    "imagePath": "/images/assessment/blends/crab.webp",
+    "imageAlt": "crab"
+   },
+   {
+    "id": "lp3.blends.l1.B.cr.v2_card_brown",
+    "word": "brown",
+    "value": "brown",
+    "label": "brown",
+    "image": "/images/assessment/blends/brown.webp",
+    "imagePath": "/images/assessment/blends/brown.webp",
+    "imageAlt": "brown"
    }
   ]
  },
@@ -2486,12 +2524,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "grab",
    "crab",
    "cab",
-   "crib",
-   "grab"
+   "crib"
   ],
   "answerOptions": [
+   {
+    "value": "grab",
+    "label": "grab",
+    "text": "grab"
+   },
    {
     "value": "crab",
     "label": "crab",
@@ -2506,19 +2549,14 @@ export const questions = [
     "value": "crib",
     "label": "crib",
     "text": "crib"
-   },
-   {
-    "value": "grab",
-    "label": "grab",
-    "text": "grab"
    }
   ],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
-   "cab": "D-ONSET",
    "crib": "D-PATTERN-TRAP",
-   "grab": "D-RIME-NEAR"
+   "grab": "D-RIME-NEAR",
+   "cab": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -2530,6 +2568,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crab",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2545,7 +2584,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crab.webp",
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
-  "imageAlt": "crab"
+  "resolvedImageAssetKey": "crab",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.cr.v4",
@@ -2571,22 +2611,12 @@ export const questions = [
   "question": "Finish: __own",
   "spokenPrompt": "crown. Which letters finish the word crown?",
   "choices": [
-   "cr",
-   "br",
    "fr",
-   "dr"
+   "dr",
+   "cr",
+   "br"
   ],
   "answerOptions": [
-   {
-    "value": "cr",
-    "label": "cr",
-    "text": "cr"
-   },
-   {
-    "value": "br",
-    "label": "br",
-    "text": "br"
-   },
    {
     "value": "fr",
     "label": "fr",
@@ -2596,6 +2626,16 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
+   },
+   {
+    "value": "cr",
+    "label": "cr",
+    "text": "cr"
+   },
+   {
+    "value": "br",
+    "label": "br",
+    "text": "br"
    }
   ],
   "answer": "cr",
@@ -2616,6 +2656,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crown",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2631,7 +2672,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crown.webp",
   "targetImage": "/images/assessment/blends/crown.webp",
   "targetImagePath": "/images/assessment/blends/crown.webp",
-  "imageAlt": "crown"
+  "resolvedImageAssetKey": "crown",
+  "imageAlt": "Finish: __own"
  },
  {
   "id": "lp3.blends.l1.A.dr.v1",
@@ -2657,17 +2699,12 @@ export const questions = [
   "question": "Finish: __um",
   "spokenPrompt": "drum. Which letters finish the word drum?",
   "choices": [
-   "dr",
    "br",
    "pl",
-   "gr"
+   "gr",
+   "dr"
   ],
   "answerOptions": [
-   {
-    "value": "dr",
-    "label": "dr",
-    "text": "dr"
-   },
    {
     "value": "br",
     "label": "br",
@@ -2682,14 +2719,19 @@ export const questions = [
     "value": "gr",
     "label": "gr",
     "text": "gr"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
    }
   ],
   "answer": "dr",
   "correctAnswer": "dr",
   "distractorRationales": {
+   "gr": "D-PATTERN-TRAP",
    "br": "D-PATTERN-TRAP",
-   "pl": "D-PATTERN-TRAP",
-   "gr": "D-PATTERN-TRAP"
+   "pl": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2702,6 +2744,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "drum",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2717,7 +2760,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/drum.webp",
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
-  "imageAlt": "drum"
+  "resolvedImageAssetKey": "drum",
+  "imageAlt": "Finish: __um"
  },
  {
   "id": "lp3.blends.l1.B.dr.v2",
@@ -2743,17 +2787,12 @@ export const questions = [
   "question": "Which one starts like dress?",
   "spokenPrompt": "dress. Which one starts with the same sounds as dress?",
   "choices": [
-   "drum",
    "vest",
    "crab",
-   "rat"
+   "rat",
+   "drum"
   ],
   "answerOptions": [
-   {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
-   },
    {
     "value": "vest",
     "label": "vest",
@@ -2768,14 +2807,19 @@ export const questions = [
     "value": "rat",
     "label": "rat",
     "text": "rat"
+   },
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
    }
   ],
   "answer": "drum",
   "correctAnswer": "drum",
   "distractorRationales": {
+   "rat": "D-ONSET",
    "vest": "D-RIME-NEAR",
-   "crab": "D-PATTERN-TRAP",
-   "rat": "D-ONSET"
+   "crab": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -2801,15 +2845,6 @@ export const questions = [
   "notes": "vest shares the anchor's es letters — the scanner tie",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.dr.v2_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   },
-   {
     "id": "lp3.blends.l1.B.dr.v2_card_vest",
     "word": "vest",
     "value": "vest",
@@ -2832,9 +2867,18 @@ export const questions = [
     "word": "rat",
     "value": "rat",
     "label": "rat",
-    "image": "/images/child-mode/initial-sounds/rat.png",
-    "imagePath": "/images/child-mode/initial-sounds/rat.png",
+    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
     "imageAlt": "rat"
+   },
+   {
+    "id": "lp3.blends.l1.B.dr.v2_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
    }
   ]
  },
@@ -2862,22 +2906,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "draw",
-   "raw",
    "drum",
-   "paw"
+   "paw",
+   "draw",
+   "raw"
   ],
   "answerOptions": [
-   {
-    "value": "draw",
-    "label": "draw",
-    "text": "draw"
-   },
-   {
-    "value": "raw",
-    "label": "raw",
-    "text": "raw"
-   },
    {
     "value": "drum",
     "label": "drum",
@@ -2887,14 +2921,24 @@ export const questions = [
     "value": "paw",
     "label": "paw",
     "text": "paw"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "raw",
+    "label": "raw",
+    "text": "raw"
    }
   ],
   "answer": "draw",
   "correctAnswer": "draw",
   "distractorRationales": {
+   "paw": "D-RIME-NEAR",
    "raw": "D-ONSET",
-   "drum": "D-PATTERN-TRAP",
-   "paw": "D-RIME-NEAR"
+   "drum": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -2906,6 +2950,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "draw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2921,7 +2966,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/draw.webp",
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
-  "imageAlt": "draw"
+  "resolvedImageAssetKey": "draw",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.dr.v4",
@@ -2992,6 +3038,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "draw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3007,7 +3054,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/draw.webp",
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
-  "imageAlt": "draw"
+  "resolvedImageAssetKey": "draw",
+  "imageAlt": "Finish: __aw"
  },
  {
   "id": "lp3.blends.l1.A.fr.v1",
@@ -3033,12 +3081,17 @@ export const questions = [
   "question": "Finish: __og",
   "spokenPrompt": "frog. Which letters finish the word frog?",
   "choices": [
+   "cl",
    "fr",
    "fl",
-   "dr",
-   "cl"
+   "dr"
   ],
   "answerOptions": [
+   {
+    "value": "cl",
+    "label": "cl",
+    "text": "cl"
+   },
    {
     "value": "fr",
     "label": "fr",
@@ -3053,11 +3106,6 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
-   },
-   {
-    "value": "cl",
-    "label": "cl",
-    "text": "cl"
    }
   ],
   "answer": "fr",
@@ -3078,6 +3126,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "frog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3093,7 +3142,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/frog.webp",
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
-  "imageAlt": "frog"
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Finish: __og"
  },
  {
   "id": "lp3.blends.l1.B.fr.v2",
@@ -3199,8 +3249,8 @@ export const questions = [
     "word": "ring",
     "value": "ring",
     "label": "ring",
-    "image": "/images/child-mode/initial-sounds/ring.png",
-    "imagePath": "/images/child-mode/initial-sounds/ring.png",
+    "image": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
     "imageAlt": "ring"
    },
    {
@@ -3208,8 +3258,8 @@ export const questions = [
     "word": "sit",
     "value": "sit",
     "label": "sit",
-    "image": "/images/child-mode/initial-sounds/sit.png",
-    "imagePath": "/images/child-mode/initial-sounds/sit.png",
+    "image": "/images/assessment/rhyming/variants/it/sit-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
     "imageAlt": "sit"
    }
   ]
@@ -3238,17 +3288,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "frog",
    "fog",
    "frown",
-   "log"
+   "log",
+   "frog"
   ],
   "answerOptions": [
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
-   },
    {
     "value": "fog",
     "label": "fog",
@@ -3263,6 +3308,11 @@ export const questions = [
     "value": "log",
     "label": "log",
     "text": "log"
+   },
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
    }
   ],
   "answer": "frog",
@@ -3282,6 +3332,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "frog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3297,7 +3348,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/frog.webp",
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
-  "imageAlt": "frog"
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.fr.v4",
@@ -3323,22 +3375,12 @@ export const questions = [
   "question": "Finish: __uit",
   "spokenPrompt": "fruit. Which letters finish the word fruit?",
   "choices": [
-   "fr",
-   "gr",
    "br",
-   "tr"
+   "tr",
+   "fr",
+   "gr"
   ],
   "answerOptions": [
-   {
-    "value": "fr",
-    "label": "fr",
-    "text": "fr"
-   },
-   {
-    "value": "gr",
-    "label": "gr",
-    "text": "gr"
-   },
    {
     "value": "br",
     "label": "br",
@@ -3348,14 +3390,24 @@ export const questions = [
     "value": "tr",
     "label": "tr",
     "text": "tr"
+   },
+   {
+    "value": "fr",
+    "label": "fr",
+    "text": "fr"
+   },
+   {
+    "value": "gr",
+    "label": "gr",
+    "text": "gr"
    }
   ],
   "answer": "fr",
   "correctAnswer": "fr",
   "distractorRationales": {
-   "gr": "D-PATTERN-TRAP",
    "br": "D-PATTERN-TRAP",
-   "tr": "D-PATTERN-TRAP"
+   "tr": "D-PATTERN-TRAP",
+   "gr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3368,6 +3420,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fruit",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3383,7 +3436,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/fruit.webp",
   "targetImage": "/images/assessment/blends/fruit.webp",
   "targetImagePath": "/images/assessment/blends/fruit.webp",
-  "imageAlt": "fruit"
+  "resolvedImageAssetKey": "fruit",
+  "imageAlt": "Finish: __uit"
  },
  {
   "id": "lp3.blends.l1.A.gr.v1",
@@ -3409,17 +3463,12 @@ export const questions = [
   "question": "Finish: __apes",
   "spokenPrompt": "grapes. Which letters finish the word grapes?",
   "choices": [
-   "gr",
    "dr",
    "cr",
-   "tr"
+   "tr",
+   "gr"
   ],
   "answerOptions": [
-   {
-    "value": "gr",
-    "label": "gr",
-    "text": "gr"
-   },
    {
     "value": "dr",
     "label": "dr",
@@ -3434,14 +3483,19 @@ export const questions = [
     "value": "tr",
     "label": "tr",
     "text": "tr"
+   },
+   {
+    "value": "gr",
+    "label": "gr",
+    "text": "gr"
    }
   ],
   "answer": "gr",
   "correctAnswer": "gr",
   "distractorRationales": {
-   "dr": "D-PATTERN-TRAP",
    "cr": "D-PATTERN-TRAP",
-   "tr": "D-PATTERN-TRAP"
+   "tr": "D-PATTERN-TRAP",
+   "dr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3454,6 +3508,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "grapes",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3469,7 +3524,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/grapes.webp",
   "targetImage": "/images/assessment/blends/grapes.webp",
   "targetImagePath": "/images/assessment/blends/grapes.webp",
-  "imageAlt": "grapes"
+  "resolvedImageAssetKey": "grapes",
+  "imageAlt": "Finish: __apes"
  },
  {
   "id": "lp3.blends.l1.B.gr.v2",
@@ -3495,12 +3551,17 @@ export const questions = [
   "question": "Which one starts like green?",
   "spokenPrompt": "green. Which one starts with the same sounds as green?",
   "choices": [
+   "rat",
    "grapes",
    "sheep",
-   "brick",
-   "rat"
+   "brick"
   ],
   "answerOptions": [
+   {
+    "value": "rat",
+    "label": "rat",
+    "text": "rat"
+   },
    {
     "value": "grapes",
     "label": "grapes",
@@ -3515,19 +3576,14 @@ export const questions = [
     "value": "brick",
     "label": "brick",
     "text": "brick"
-   },
-   {
-    "value": "rat",
-    "label": "rat",
-    "text": "rat"
    }
   ],
   "answer": "grapes",
   "correctAnswer": "grapes",
   "distractorRationales": {
-   "sheep": "D-RIME-NEAR",
    "brick": "D-PATTERN-TRAP",
-   "rat": "D-ONSET"
+   "rat": "D-ONSET",
+   "sheep": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -3552,6 +3608,15 @@ export const questions = [
   },
   "notes": "sheep carries the anchor's ee — the scanner tie",
   "imageCards": [
+   {
+    "id": "lp3.blends.l1.B.gr.v2_card_rat",
+    "word": "rat",
+    "value": "rat",
+    "label": "rat",
+    "image": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/rat-02.webp",
+    "imageAlt": "rat"
+   },
    {
     "id": "lp3.blends.l1.B.gr.v2_card_grapes",
     "word": "grapes",
@@ -3578,15 +3643,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/brick.webp",
     "imagePath": "/images/assessment/digraphs/brick.webp",
     "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.blends.l1.B.gr.v2_card_rat",
-    "word": "rat",
-    "value": "rat",
-    "label": "rat",
-    "image": "/images/child-mode/initial-sounds/rat.png",
-    "imagePath": "/images/child-mode/initial-sounds/rat.png",
-    "imageAlt": "rat"
    }
   ]
  },
@@ -3644,9 +3700,9 @@ export const questions = [
   "answer": "ground",
   "correctAnswer": "ground",
   "distractorRationales": {
-   "round": "D-ONSET",
    "grand": "D-PATTERN-TRAP",
-   "sound": "D-RIME-NEAR"
+   "sound": "D-RIME-NEAR",
+   "round": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3658,6 +3714,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ground",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3673,7 +3730,8 @@ export const questions = [
   "imageUrl": "/images/quest/dino/ground.webp",
   "targetImage": "/images/quest/dino/ground.webp",
   "targetImagePath": "/images/quest/dino/ground.webp",
-  "imageAlt": "ground"
+  "resolvedImageAssetKey": "ground",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.gr.v4",
@@ -3744,6 +3802,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "green",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3759,7 +3818,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/green.webp",
   "targetImage": "/images/assessment/blends/green.webp",
   "targetImagePath": "/images/assessment/blends/green.webp",
-  "imageAlt": "green"
+  "resolvedImageAssetKey": "green",
+  "imageAlt": "Finish: __een"
  },
  {
   "id": "lp3.blends.l1.A.st.v1",
@@ -3785,12 +3845,17 @@ export const questions = [
   "question": "Finish: __ar",
   "spokenPrompt": "star. Which letters finish the word star?",
   "choices": [
+   "tr",
    "st",
    "sc",
-   "sp",
-   "tr"
+   "sp"
   ],
   "answerOptions": [
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   },
    {
     "value": "st",
     "label": "st",
@@ -3805,11 +3870,6 @@ export const questions = [
     "value": "sp",
     "label": "sp",
     "text": "sp"
-   },
-   {
-    "value": "tr",
-    "label": "tr",
-    "text": "tr"
    }
   ],
   "answer": "st",
@@ -3830,6 +3890,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "star",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3841,11 +3902,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/blends/star.png",
-  "imageUrl": "/images/child-mode/blends/star.png",
-  "targetImage": "/images/child-mode/blends/star.png",
-  "targetImagePath": "/images/child-mode/blends/star.png",
-  "imageAlt": "star"
+  "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "resolvedImageAssetKey": "star",
+  "imageAlt": "Finish: __ar"
  },
  {
   "id": "lp3.blends.l1.B.st.v2",
@@ -3871,22 +3933,12 @@ export const questions = [
   "question": "Which one starts like star?",
   "spokenPrompt": "star. Which one starts with the same sounds as star?",
   "choices": [
-   "stop",
-   "car",
    "spoon",
-   "tap"
+   "tap",
+   "stop",
+   "car"
   ],
   "answerOptions": [
-   {
-    "value": "stop",
-    "label": "stop",
-    "text": "stop"
-   },
-   {
-    "value": "car",
-    "label": "car",
-    "text": "car"
-   },
    {
     "value": "spoon",
     "label": "spoon",
@@ -3896,6 +3948,16 @@ export const questions = [
     "value": "tap",
     "label": "tap",
     "text": "tap"
+   },
+   {
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
+   },
+   {
+    "value": "car",
+    "label": "car",
+    "text": "car"
    }
   ],
   "answer": "stop",
@@ -3929,24 +3991,6 @@ export const questions = [
   "notes": "the word starts contains star, so star can never be a key in this frame; car rhymes with the anchor and ties its ar-chunk",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.st.v2_card_stop",
-    "word": "stop",
-    "value": "stop",
-    "label": "stop",
-    "image": "/images/assessment/blends/stop.webp",
-    "imagePath": "/images/assessment/blends/stop.webp",
-    "imageAlt": "stop"
-   },
-   {
-    "id": "lp3.blends.l1.B.st.v2_card_car",
-    "word": "car",
-    "value": "car",
-    "label": "car",
-    "image": "/images/child-mode/initial-sounds/car.png",
-    "imagePath": "/images/child-mode/initial-sounds/car.png",
-    "imageAlt": "car"
-   },
-   {
     "id": "lp3.blends.l1.B.st.v2_card_spoon",
     "word": "spoon",
     "value": "spoon",
@@ -3960,9 +4004,27 @@ export const questions = [
     "word": "tap",
     "value": "tap",
     "label": "tap",
-    "image": "/images/child-mode/initial-sounds/tap.png",
-    "imagePath": "/images/child-mode/initial-sounds/tap.png",
+    "image": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
     "imageAlt": "tap"
+   },
+   {
+    "id": "lp3.blends.l1.B.st.v2_card_stop",
+    "word": "stop",
+    "value": "stop",
+    "label": "stop",
+    "image": "/images/assessment/blends/stop.webp",
+    "imagePath": "/images/assessment/blends/stop.webp",
+    "imageAlt": "stop"
+   },
+   {
+    "id": "lp3.blends.l1.B.st.v2_card_car",
+    "word": "car",
+    "value": "car",
+    "label": "car",
+    "image": "/images/assessment/rhyming/variants/ar/car-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+    "imageAlt": "car"
    }
   ]
  },
@@ -3990,12 +4052,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "car",
    "star",
    "tar",
-   "scar",
-   "car"
+   "scar"
   ],
   "answerOptions": [
+   {
+    "value": "car",
+    "label": "car",
+    "text": "car"
+   },
    {
     "value": "star",
     "label": "star",
@@ -4010,11 +4077,6 @@ export const questions = [
     "value": "scar",
     "label": "scar",
     "text": "scar"
-   },
-   {
-    "value": "car",
-    "label": "car",
-    "text": "car"
    }
   ],
   "answer": "star",
@@ -4034,6 +4096,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "star",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4045,11 +4108,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "tar is the s-dropped reduction",
-  "imagePath": "/images/child-mode/blends/star.png",
-  "imageUrl": "/images/child-mode/blends/star.png",
-  "targetImage": "/images/child-mode/blends/star.png",
-  "targetImagePath": "/images/child-mode/blends/star.png",
-  "imageAlt": "star"
+  "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "resolvedImageAssetKey": "star",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.st.v4",
@@ -4075,22 +4139,12 @@ export const questions = [
   "question": "Finish: __op",
   "spokenPrompt": "stop. Which letters finish the word stop?",
   "choices": [
-   "st",
-   "sh",
    "dr",
-   "cr"
+   "cr",
+   "st",
+   "sh"
   ],
   "answerOptions": [
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
-   },
-   {
-    "value": "sh",
-    "label": "sh",
-    "text": "sh"
-   },
    {
     "value": "dr",
     "label": "dr",
@@ -4100,14 +4154,24 @@ export const questions = [
     "value": "cr",
     "label": "cr",
     "text": "cr"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
+   },
+   {
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
    }
   ],
   "answer": "st",
   "correctAnswer": "st",
   "distractorRationales": {
+   "cr": "D-PATTERN-TRAP",
    "sh": "D-PATTERN-TRAP",
-   "dr": "D-PATTERN-TRAP",
-   "cr": "D-PATTERN-TRAP"
+   "dr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4120,6 +4184,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "stop",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4135,7 +4200,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/stop.webp",
   "targetImage": "/images/assessment/blends/stop.webp",
   "targetImagePath": "/images/assessment/blends/stop.webp",
-  "imageAlt": "stop"
+  "resolvedImageAssetKey": "stop",
+  "imageAlt": "Finish: __op"
  },
  {
   "id": "lp3.blends.l1.A.sw.v1",
@@ -4161,17 +4227,12 @@ export const questions = [
   "question": "Finish: __im",
   "spokenPrompt": "swim. Which letters finish the word swim?",
   "choices": [
-   "sw",
    "st",
    "sl",
-   "br"
+   "br",
+   "sw"
   ],
   "answerOptions": [
-   {
-    "value": "sw",
-    "label": "sw",
-    "text": "sw"
-   },
    {
     "value": "st",
     "label": "st",
@@ -4186,14 +4247,19 @@ export const questions = [
     "value": "br",
     "label": "br",
     "text": "br"
+   },
+   {
+    "value": "sw",
+    "label": "sw",
+    "text": "sw"
    }
   ],
   "answer": "sw",
   "correctAnswer": "sw",
   "distractorRationales": {
+   "br": "D-PATTERN-TRAP",
    "st": "D-PATTERN-TRAP",
-   "sl": "D-PATTERN-TRAP",
-   "br": "D-PATTERN-TRAP"
+   "sl": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4206,6 +4272,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "swim",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4221,7 +4288,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/swim.webp",
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
-  "imageAlt": "swim"
+  "resolvedImageAssetKey": "swim",
+  "imageAlt": "Finish: __im"
  },
  {
   "id": "lp3.blends.l1.B.sw.v2",
@@ -4247,17 +4315,12 @@ export const questions = [
   "question": "Which one starts like sweet?",
   "spokenPrompt": "sweet. Which one starts with the same sounds as sweet?",
   "choices": [
-   "swim",
    "feet",
    "star",
-   "wasp"
+   "wasp",
+   "swim"
   ],
   "answerOptions": [
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
-   },
    {
     "value": "feet",
     "label": "feet",
@@ -4272,14 +4335,19 @@ export const questions = [
     "value": "wasp",
     "label": "wasp",
     "text": "wasp"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
    }
   ],
   "answer": "swim",
   "correctAnswer": "swim",
   "distractorRationales": {
+   "wasp": "D-ONSET",
    "feet": "D-RIME-NEAR",
-   "star": "D-PATTERN-TRAP",
-   "wasp": "D-ONSET"
+   "star": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4305,15 +4373,6 @@ export const questions = [
   "notes": "feet rhymes with the anchor and out-chunks the key; wasp is the s-dropped w-start",
   "imageCards": [
    {
-    "id": "lp3.blends.l1.B.sw.v2_card_swim",
-    "word": "swim",
-    "value": "swim",
-    "label": "swim",
-    "image": "/images/assessment/blends/swim.webp",
-    "imagePath": "/images/assessment/blends/swim.webp",
-    "imageAlt": "swim"
-   },
-   {
     "id": "lp3.blends.l1.B.sw.v2_card_feet",
     "word": "feet",
     "value": "feet",
@@ -4327,8 +4386,8 @@ export const questions = [
     "word": "star",
     "value": "star",
     "label": "star",
-    "image": "/images/child-mode/blends/star.png",
-    "imagePath": "/images/child-mode/blends/star.png",
+    "image": "/images/assessment/rhyming/variants/ar/star-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
     "imageAlt": "star"
    },
    {
@@ -4339,6 +4398,15 @@ export const questions = [
     "image": "/images/assessment/blends/wasp.webp",
     "imagePath": "/images/assessment/blends/wasp.webp",
     "imageAlt": "wasp"
+   },
+   {
+    "id": "lp3.blends.l1.B.sw.v2_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
    }
   ]
  },
@@ -4366,22 +4434,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "swim",
-   "win",
    "swam",
-   "dim"
+   "dim",
+   "swim",
+   "win"
   ],
   "answerOptions": [
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
-   },
-   {
-    "value": "win",
-    "label": "win",
-    "text": "win"
-   },
    {
     "value": "swam",
     "label": "swam",
@@ -4391,14 +4449,24 @@ export const questions = [
     "value": "dim",
     "label": "dim",
     "text": "dim"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "win",
+    "label": "win",
+    "text": "win"
    }
   ],
   "answer": "swim",
   "correctAnswer": "swim",
   "distractorRationales": {
+   "dim": "D-RIME-NEAR",
    "win": "D-DEVELOPMENTAL",
-   "swam": "D-PATTERN-TRAP",
-   "dim": "D-RIME-NEAR"
+   "swam": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4410,6 +4478,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "swim",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4425,7 +4494,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/swim.webp",
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
-  "imageAlt": "swim"
+  "resolvedImageAssetKey": "swim",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.A.sw.v4",
@@ -4485,7 +4555,7 @@ export const questions = [
    "cr": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4493,9 +4563,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "swing",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "swing",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4506,7 +4577,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no swing image — but sning, gring and cring are non-words, so the completion is pinned"
+  "notes": "no swing image — but sning, gring and cring are non-words, so the completion is pinned",
+  "imagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+  "resolvedImageAssetKey": "swing",
+  "imageAlt": "Finish: __ing"
  },
  {
   "id": "lp3.blends.l2.A.sc.v1",
@@ -4562,9 +4639,9 @@ export const questions = [
   "answer": "sc",
   "correctAnswer": "sc",
   "distractorRationales": {
-   "sk": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP",
-   "st": "D-PATTERN-TRAP"
+   "st": "D-PATTERN-TRAP",
+   "sk": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4577,6 +4654,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "scarf",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4592,7 +4670,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/scarf.webp",
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
-  "imageAlt": "scarf"
+  "resolvedImageAssetKey": "scarf",
+  "imageAlt": "Finish: __arf"
  },
  {
   "id": "lp3.blends.l2.B.sc.v2",
@@ -4618,12 +4697,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "sharp",
    "scarf",
    "scar",
-   "card",
-   "sharp"
+   "card"
   ],
   "answerOptions": [
+   {
+    "value": "sharp",
+    "label": "sharp",
+    "text": "sharp"
+   },
    {
     "value": "scarf",
     "label": "scarf",
@@ -4638,19 +4722,14 @@ export const questions = [
     "value": "card",
     "label": "card",
     "text": "card"
-   },
-   {
-    "value": "sharp",
-    "label": "sharp",
-    "text": "sharp"
    }
   ],
   "answer": "scarf",
   "correctAnswer": "scarf",
   "distractorRationales": {
-   "scar": "D-DEVELOPMENTAL",
    "card": "D-RIME-NEAR",
-   "sharp": "D-PATTERN-TRAP"
+   "sharp": "D-PATTERN-TRAP",
+   "scar": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4662,6 +4741,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "scarf",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4677,7 +4757,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/scarf.webp",
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
-  "imageAlt": "scarf"
+  "resolvedImageAssetKey": "scarf",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.sc.v3",
@@ -4703,22 +4784,12 @@ export const questions = [
   "question": "Finish: __ooter",
   "spokenPrompt": "scooter. Which letters finish the word scooter?",
   "choices": [
-   "sc",
-   "sm",
    "sn",
-   "tr"
+   "tr",
+   "sc",
+   "sm"
   ],
   "answerOptions": [
-   {
-    "value": "sc",
-    "label": "sc",
-    "text": "sc"
-   },
-   {
-    "value": "sm",
-    "label": "sm",
-    "text": "sm"
-   },
    {
     "value": "sn",
     "label": "sn",
@@ -4728,16 +4799,26 @@ export const questions = [
     "value": "tr",
     "label": "tr",
     "text": "tr"
+   },
+   {
+    "value": "sc",
+    "label": "sc",
+    "text": "sc"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
    }
   ],
   "answer": "sc",
   "correctAnswer": "sc",
   "distractorRationales": {
-   "sm": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP",
-   "tr": "D-PATTERN-TRAP"
+   "tr": "D-PATTERN-TRAP",
+   "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4745,9 +4826,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "scooter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sc-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4758,7 +4840,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no scooter image — smooter, snooter and trooter are non-words"
+  "notes": "no scooter image — smooter, snooter and trooter are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ooter"
  },
  {
   "id": "lp3.blends.l2.A.sc.v4",
@@ -4784,12 +4872,17 @@ export const questions = [
   "question": "Finish: __ore",
   "spokenPrompt": "score. Which letters finish the word score?",
   "choices": [
+   "dr",
    "sc",
    "sn",
-   "sm",
-   "dr"
+   "sm"
   ],
   "answerOptions": [
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
+   },
    {
     "value": "sc",
     "label": "sc",
@@ -4804,11 +4897,6 @@ export const questions = [
     "value": "sm",
     "label": "sm",
     "text": "sm"
-   },
-   {
-    "value": "dr",
-    "label": "dr",
-    "text": "dr"
    }
   ],
   "answer": "sc",
@@ -4818,7 +4906,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4826,9 +4914,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "score",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sc-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4839,7 +4928,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words"
+  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ore"
  },
  {
   "id": "lp3.blends.l2.A.sk.v1",
@@ -4865,22 +4960,12 @@ export const questions = [
   "question": "Finish: __ateboard",
   "spokenPrompt": "skateboard. Which letters finish the word skateboard?",
   "choices": [
-   "sk",
-   "sc",
    "sp",
-   "st"
+   "st",
+   "sk",
+   "sc"
   ],
   "answerOptions": [
-   {
-    "value": "sk",
-    "label": "sk",
-    "text": "sk"
-   },
-   {
-    "value": "sc",
-    "label": "sc",
-    "text": "sc"
-   },
    {
     "value": "sp",
     "label": "sp",
@@ -4890,14 +4975,24 @@ export const questions = [
     "value": "st",
     "label": "st",
     "text": "st"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
+   {
+    "value": "sc",
+    "label": "sc",
+    "text": "sc"
    }
   ],
   "answer": "sk",
   "correctAnswer": "sk",
   "distractorRationales": {
-   "sc": "D-PATTERN-TRAP",
    "sp": "D-PATTERN-TRAP",
-   "st": "D-PATTERN-TRAP"
+   "st": "D-PATTERN-TRAP",
+   "sc": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -4910,6 +5005,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "skateboard",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4925,7 +5021,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/skateboard.webp",
   "targetImage": "/images/assessment/blends/skateboard.webp",
   "targetImagePath": "/images/assessment/blends/skateboard.webp",
-  "imageAlt": "skateboard"
+  "resolvedImageAssetKey": "skateboard",
+  "imageAlt": "Finish: __ateboard"
  },
  {
   "id": "lp3.blends.l2.B.sk.v2",
@@ -4951,22 +5048,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "skateboard",
-   "snowboard",
    "surfboard",
-   "scoreboard"
+   "scoreboard",
+   "skateboard",
+   "snowboard"
   ],
   "answerOptions": [
-   {
-    "value": "skateboard",
-    "label": "skateboard",
-    "text": "skateboard"
-   },
-   {
-    "value": "snowboard",
-    "label": "snowboard",
-    "text": "snowboard"
-   },
    {
     "value": "surfboard",
     "label": "surfboard",
@@ -4976,14 +5063,24 @@ export const questions = [
     "value": "scoreboard",
     "label": "scoreboard",
     "text": "scoreboard"
+   },
+   {
+    "value": "skateboard",
+    "label": "skateboard",
+    "text": "skateboard"
+   },
+   {
+    "value": "snowboard",
+    "label": "snowboard",
+    "text": "snowboard"
    }
   ],
   "answer": "skateboard",
   "correctAnswer": "skateboard",
   "distractorRationales": {
-   "snowboard": "D-PATTERN-TRAP",
    "surfboard": "D-RIME-NEAR",
-   "scoreboard": "D-PATTERN-TRAP"
+   "scoreboard": "D-PATTERN-TRAP",
+   "snowboard": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4995,6 +5092,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "skateboard",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5010,7 +5108,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/skateboard.webp",
   "targetImage": "/images/assessment/blends/skateboard.webp",
   "targetImagePath": "/images/assessment/blends/skateboard.webp",
-  "imageAlt": "skateboard"
+  "resolvedImageAssetKey": "skateboard",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.sk.v3",
@@ -5036,17 +5135,12 @@ export const questions = [
   "question": "Finish: __ip",
   "spokenPrompt": "skip. Which letters finish the word skip?",
   "choices": [
-   "sk",
    "sc",
    "sm",
-   "sp"
+   "sp",
+   "sk"
   ],
   "answerOptions": [
-   {
-    "value": "sk",
-    "label": "sk",
-    "text": "sk"
-   },
    {
     "value": "sc",
     "label": "sc",
@@ -5061,16 +5155,21 @@ export const questions = [
     "value": "sp",
     "label": "sp",
     "text": "sp"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
    }
   ],
   "answer": "sk",
   "correctAnswer": "sk",
   "distractorRationales": {
-   "sc": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP",
-   "sp": "D-PATTERN-TRAP"
+   "sp": "D-PATTERN-TRAP",
+   "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5078,9 +5177,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "skip",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "skip",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5091,7 +5191,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no skip image — scip, smip and spip are non-words"
+  "notes": "no skip image — scip, smip and spip are non-words",
+  "imagePath": "/images/assessment/generated/concepts/skip.webp",
+  "imageUrl": "/images/assessment/generated/concepts/skip.webp",
+  "targetImage": "/images/assessment/generated/concepts/skip.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/skip.webp",
+  "resolvedImageAssetKey": "skip",
+  "imageAlt": "Finish: __ip"
  },
  {
   "id": "lp3.blends.l2.A.sk.v4",
@@ -5117,17 +5223,12 @@ export const questions = [
   "question": "Finish: __in",
   "spokenPrompt": "skin. Which letters finish the word skin?",
   "choices": [
-   "sk",
    "sc",
    "sm",
-   "sn"
+   "sn",
+   "sk"
   ],
   "answerOptions": [
-   {
-    "value": "sk",
-    "label": "sk",
-    "text": "sk"
-   },
    {
     "value": "sc",
     "label": "sc",
@@ -5142,6 +5243,11 @@ export const questions = [
     "value": "sn",
     "label": "sn",
     "text": "sn"
+   },
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
    }
   ],
   "answer": "sk",
@@ -5151,7 +5257,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5159,9 +5265,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "skin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sk-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5172,7 +5279,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no skin image — scin and smin are non-words; snin too"
+  "notes": "no skin image — scin and smin are non-words; snin too",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __in"
  },
  {
   "id": "lp3.blends.l2.A.sm.v1",
@@ -5243,6 +5356,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "smile",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5258,7 +5372,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/smile.webp",
   "targetImage": "/images/assessment/blends/smile.webp",
   "targetImagePath": "/images/assessment/blends/smile.webp",
-  "imageAlt": "smile"
+  "resolvedImageAssetKey": "smile",
+  "imageAlt": "Finish: __ile"
  },
  {
   "id": "lp3.blends.l2.B.sm.v2",
@@ -5284,17 +5399,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "smile",
    "mile",
    "smell",
-   "tile"
+   "tile",
+   "smile"
   ],
   "answerOptions": [
-   {
-    "value": "smile",
-    "label": "smile",
-    "text": "smile"
-   },
    {
     "value": "mile",
     "label": "mile",
@@ -5309,6 +5419,11 @@ export const questions = [
     "value": "tile",
     "label": "tile",
     "text": "tile"
+   },
+   {
+    "value": "smile",
+    "label": "smile",
+    "text": "smile"
    }
   ],
   "answer": "smile",
@@ -5328,6 +5443,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "smile",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5343,7 +5459,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/smile.webp",
   "targetImage": "/images/assessment/blends/smile.webp",
   "targetImagePath": "/images/assessment/blends/smile.webp",
-  "imageAlt": "smile"
+  "resolvedImageAssetKey": "smile",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.sm.v3",
@@ -5403,7 +5520,7 @@ export const questions = [
    "sc": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5411,9 +5528,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "smell",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sm-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5424,7 +5542,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)"
+  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ell"
  },
  {
   "id": "lp3.blends.l2.A.sm.v4",
@@ -5450,12 +5574,17 @@ export const questions = [
   "question": "Finish: __oke",
   "spokenPrompt": "smoke. Which letters finish the word smoke?",
   "choices": [
+   "gl",
    "sm",
    "sn",
-   "sc",
-   "gl"
+   "sc"
   ],
   "answerOptions": [
+   {
+    "value": "gl",
+    "label": "gl",
+    "text": "gl"
+   },
    {
     "value": "sm",
     "label": "sm",
@@ -5470,21 +5599,16 @@ export const questions = [
     "value": "sc",
     "label": "sc",
     "text": "sc"
-   },
-   {
-    "value": "gl",
-    "label": "gl",
-    "text": "gl"
    }
   ],
   "answer": "sm",
   "correctAnswer": "sm",
   "distractorRationales": {
+   "gl": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP",
-   "gl": "D-PATTERN-TRAP"
+   "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5492,9 +5616,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "smoke",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sm-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5505,7 +5630,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no smoke image — snoke, scoke and gloke are non-words"
+  "notes": "no smoke image — snoke, scoke and gloke are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __oke"
  },
  {
   "id": "lp3.blends.l2.A.sn.v1",
@@ -5531,22 +5662,12 @@ export const questions = [
   "question": "Finish: __ake",
   "spokenPrompt": "snake. Which letters finish the word snake?",
   "choices": [
-   "sn",
-   "sm",
    "sc",
-   "cl"
+   "cl",
+   "sn",
+   "sm"
   ],
   "answerOptions": [
-   {
-    "value": "sn",
-    "label": "sn",
-    "text": "sn"
-   },
-   {
-    "value": "sm",
-    "label": "sm",
-    "text": "sm"
-   },
    {
     "value": "sc",
     "label": "sc",
@@ -5556,14 +5677,24 @@ export const questions = [
     "value": "cl",
     "label": "cl",
     "text": "cl"
+   },
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
+   },
+   {
+    "value": "sm",
+    "label": "sm",
+    "text": "sm"
    }
   ],
   "answer": "sn",
   "correctAnswer": "sn",
   "distractorRationales": {
+   "cl": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP",
-   "cl": "D-PATTERN-TRAP"
+   "sc": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -5576,6 +5707,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snake",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5591,7 +5723,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/snake.webp",
   "targetImage": "/images/assessment/blends/snake.webp",
   "targetImagePath": "/images/assessment/blends/snake.webp",
-  "imageAlt": "snake"
+  "resolvedImageAssetKey": "snake",
+  "imageAlt": "Finish: __ake"
  },
  {
   "id": "lp3.blends.l2.B.sn.v2",
@@ -5647,9 +5780,9 @@ export const questions = [
   "answer": "snake",
   "correctAnswer": "snake",
   "distractorRationales": {
+   "sack": "D-ONSET",
    "snack": "D-PATTERN-TRAP",
-   "rake": "D-RIME-NEAR",
-   "sack": "D-ONSET"
+   "rake": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -5661,6 +5794,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snake",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5676,7 +5810,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/snake.webp",
   "targetImage": "/images/assessment/blends/snake.webp",
   "targetImagePath": "/images/assessment/blends/snake.webp",
-  "imageAlt": "snake"
+  "resolvedImageAssetKey": "snake",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.sn.v3",
@@ -5702,12 +5837,17 @@ export const questions = [
   "question": "Finish: __ail",
   "spokenPrompt": "snail. Which letters finish the word snail?",
   "choices": [
+   "sw",
    "sn",
    "sm",
-   "sc",
-   "sw"
+   "sc"
   ],
   "answerOptions": [
+   {
+    "value": "sw",
+    "label": "sw",
+    "text": "sw"
+   },
    {
     "value": "sn",
     "label": "sn",
@@ -5722,21 +5862,16 @@ export const questions = [
     "value": "sc",
     "label": "sc",
     "text": "sc"
-   },
-   {
-    "value": "sw",
-    "label": "sw",
-    "text": "sw"
    }
   ],
   "answer": "sn",
   "correctAnswer": "sn",
   "distractorRationales": {
+   "sw": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP",
-   "sw": "D-PATTERN-TRAP"
+   "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5744,9 +5879,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "snail",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sn-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5757,7 +5893,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)"
+  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ail"
  },
  {
   "id": "lp3.blends.l2.A.sn.v4",
@@ -5783,17 +5925,12 @@ export const questions = [
   "question": "Finish: __ow",
   "spokenPrompt": "snow. Which letters finish the word snow?",
   "choices": [
-   "sn",
    "sm",
    "sk",
-   "dr"
+   "dr",
+   "sn"
   ],
   "answerOptions": [
-   {
-    "value": "sn",
-    "label": "sn",
-    "text": "sn"
-   },
    {
     "value": "sm",
     "label": "sm",
@@ -5808,6 +5945,11 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
+   },
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
    }
   ],
   "answer": "sn",
@@ -5828,6 +5970,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snow",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5843,7 +5986,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/snow.webp",
   "targetImage": "/images/assessment/long-vowels/snow.webp",
   "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageAlt": "snow"
+  "resolvedImageAssetKey": "snow",
+  "imageAlt": "Finish: __ow"
  },
  {
   "id": "lp3.blends.l2.A.sp.v1",
@@ -5914,6 +6058,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "spoon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5929,7 +6074,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/spoon.webp",
   "targetImage": "/images/assessment/blends/spoon.webp",
   "targetImagePath": "/images/assessment/blends/spoon.webp",
-  "imageAlt": "spoon"
+  "resolvedImageAssetKey": "spoon",
+  "imageAlt": "Finish: __oon"
  },
  {
   "id": "lp3.blends.l2.B.sp.v2",
@@ -5955,12 +6101,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "spin",
    "spoon",
    "soon",
-   "moon",
-   "spin"
+   "moon"
   ],
   "answerOptions": [
+   {
+    "value": "spin",
+    "label": "spin",
+    "text": "spin"
+   },
    {
     "value": "spoon",
     "label": "spoon",
@@ -5975,11 +6126,6 @@ export const questions = [
     "value": "moon",
     "label": "moon",
     "text": "moon"
-   },
-   {
-    "value": "spin",
-    "label": "spin",
-    "text": "spin"
    }
   ],
   "answer": "spoon",
@@ -5999,6 +6145,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "spoon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6014,7 +6161,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/spoon.webp",
   "targetImage": "/images/assessment/blends/spoon.webp",
   "targetImagePath": "/images/assessment/blends/spoon.webp",
-  "imageAlt": "spoon"
+  "resolvedImageAssetKey": "spoon",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.sp.v3",
@@ -6040,22 +6188,12 @@ export const questions = [
   "question": "Finish: __ort",
   "spokenPrompt": "sport. Which letters finish the word sport?",
   "choices": [
-   "sp",
-   "sn",
    "sm",
-   "sc"
+   "sc",
+   "sp",
+   "sn"
   ],
   "answerOptions": [
-   {
-    "value": "sp",
-    "label": "sp",
-    "text": "sp"
-   },
-   {
-    "value": "sn",
-    "label": "sn",
-    "text": "sn"
-   },
    {
     "value": "sm",
     "label": "sm",
@@ -6065,6 +6203,16 @@ export const questions = [
     "value": "sc",
     "label": "sc",
     "text": "sc"
+   },
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
    }
   ],
   "answer": "sp",
@@ -6074,7 +6222,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6082,9 +6230,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "sport",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sp-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6095,7 +6244,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words"
+  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ort"
  },
  {
   "id": "lp3.blends.l2.A.sp.v4",
@@ -6121,12 +6276,17 @@ export const questions = [
   "question": "Finish: __ot",
   "spokenPrompt": "spot. Which letters finish the word spot?",
   "choices": [
+   "gl",
    "sp",
    "sm",
-   "sk",
-   "gl"
+   "sk"
   ],
   "answerOptions": [
+   {
+    "value": "gl",
+    "label": "gl",
+    "text": "gl"
+   },
    {
     "value": "sp",
     "label": "sp",
@@ -6141,21 +6301,16 @@ export const questions = [
     "value": "sk",
     "label": "sk",
     "text": "sk"
-   },
-   {
-    "value": "gl",
-    "label": "gl",
-    "text": "gl"
    }
   ],
   "answer": "sp",
   "correctAnswer": "sp",
   "distractorRationales": {
-   "sm": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP",
-   "gl": "D-PATTERN-TRAP"
+   "gl": "D-PATTERN-TRAP",
+   "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6163,9 +6318,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "spot",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sp-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6176,7 +6332,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)"
+  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ot"
  },
  {
   "id": "lp3.blends.l2.A.tr.v1",
@@ -6202,22 +6364,12 @@ export const questions = [
   "question": "Finish: __uck",
   "spokenPrompt": "truck. Which letters finish the word truck?",
   "choices": [
-   "tr",
-   "dr",
    "st",
-   "cl"
+   "cl",
+   "tr",
+   "dr"
   ],
   "answerOptions": [
-   {
-    "value": "tr",
-    "label": "tr",
-    "text": "tr"
-   },
-   {
-    "value": "dr",
-    "label": "dr",
-    "text": "dr"
-   },
    {
     "value": "st",
     "label": "st",
@@ -6227,14 +6379,24 @@ export const questions = [
     "value": "cl",
     "label": "cl",
     "text": "cl"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
+   },
+   {
+    "value": "dr",
+    "label": "dr",
+    "text": "dr"
    }
   ],
   "answer": "tr",
   "correctAnswer": "tr",
   "distractorRationales": {
-   "dr": "D-PATTERN-TRAP",
    "st": "D-PATTERN-TRAP",
-   "cl": "D-PATTERN-TRAP"
+   "cl": "D-PATTERN-TRAP",
+   "dr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -6247,6 +6409,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "truck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6262,7 +6425,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/truck.webp",
   "targetImage": "/images/assessment/blends/truck.webp",
   "targetImagePath": "/images/assessment/blends/truck.webp",
-  "imageAlt": "truck"
+  "resolvedImageAssetKey": "truck",
+  "imageAlt": "Finish: __uck"
  },
  {
   "id": "lp3.blends.l2.B.tr.v2",
@@ -6288,22 +6452,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "truck",
-   "tuck",
    "track",
-   "duck"
+   "duck",
+   "truck",
+   "tuck"
   ],
   "answerOptions": [
-   {
-    "value": "truck",
-    "label": "truck",
-    "text": "truck"
-   },
-   {
-    "value": "tuck",
-    "label": "tuck",
-    "text": "tuck"
-   },
    {
     "value": "track",
     "label": "track",
@@ -6313,14 +6467,24 @@ export const questions = [
     "value": "duck",
     "label": "duck",
     "text": "duck"
+   },
+   {
+    "value": "truck",
+    "label": "truck",
+    "text": "truck"
+   },
+   {
+    "value": "tuck",
+    "label": "tuck",
+    "text": "tuck"
    }
   ],
   "answer": "truck",
   "correctAnswer": "truck",
   "distractorRationales": {
-   "tuck": "D-ONSET",
    "track": "D-PATTERN-TRAP",
-   "duck": "D-RIME-NEAR"
+   "duck": "D-RIME-NEAR",
+   "tuck": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -6332,6 +6496,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "truck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6347,7 +6512,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/truck.webp",
   "targetImage": "/images/assessment/blends/truck.webp",
   "targetImagePath": "/images/assessment/blends/truck.webp",
-  "imageAlt": "truck"
+  "resolvedImageAssetKey": "truck",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.tr.v3",
@@ -6373,17 +6539,12 @@ export const questions = [
   "question": "Finish: __ain",
   "spokenPrompt": "train. Which letters finish the word train?",
   "choices": [
-   "tr",
    "dr",
    "gr",
-   "br"
+   "br",
+   "tr"
   ],
   "answerOptions": [
-   {
-    "value": "tr",
-    "label": "tr",
-    "text": "tr"
-   },
    {
     "value": "dr",
     "label": "dr",
@@ -6398,14 +6559,19 @@ export const questions = [
     "value": "br",
     "label": "br",
     "text": "br"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
    }
   ],
   "answer": "tr",
   "correctAnswer": "tr",
   "distractorRationales": {
-   "dr": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP",
-   "br": "D-PATTERN-TRAP"
+   "br": "D-PATTERN-TRAP",
+   "dr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -6418,6 +6584,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "train",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6433,7 +6600,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/train.webp",
   "targetImage": "/images/assessment/blends/train.webp",
   "targetImagePath": "/images/assessment/blends/train.webp",
-  "imageAlt": "train"
+  "resolvedImageAssetKey": "train",
+  "imageAlt": "Finish: __ain"
  },
  {
   "id": "lp3.blends.l2.A.tr.v4",
@@ -6459,17 +6627,12 @@ export const questions = [
   "question": "Finish: __ay",
   "spokenPrompt": "tray. Which letters finish the word tray?",
   "choices": [
-   "tr",
    "sm",
    "sk",
-   "gl"
+   "gl",
+   "tr"
   ],
   "answerOptions": [
-   {
-    "value": "tr",
-    "label": "tr",
-    "text": "tr"
-   },
    {
     "value": "sm",
     "label": "sm",
@@ -6484,6 +6647,11 @@ export const questions = [
     "value": "gl",
     "label": "gl",
     "text": "gl"
+   },
+   {
+    "value": "tr",
+    "label": "tr",
+    "text": "tr"
    }
   ],
   "answer": "tr",
@@ -6504,6 +6672,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tray",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6519,7 +6688,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/tray.webp",
   "targetImage": "/images/assessment/long-vowels/tray.webp",
   "targetImagePath": "/images/assessment/long-vowels/tray.webp",
-  "imageAlt": "tray"
+  "resolvedImageAssetKey": "tray",
+  "imageAlt": "Finish: __ay"
  },
  {
   "id": "lp3.blends.l2.A.nd.v1",
@@ -6575,9 +6745,9 @@ export const questions = [
   "answer": "nd",
   "correctAnswer": "nd",
   "distractorRationales": {
-   "nt": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP",
-   "nk": "D-PATTERN-TRAP"
+   "nk": "D-PATTERN-TRAP",
+   "nt": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -6590,6 +6760,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6605,7 +6776,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
-  "imageAlt": "hand"
+  "resolvedImageAssetKey": "hand",
+  "imageAlt": "Finish: ha__"
  },
  {
   "id": "lp3.blends.l2.B.nd.v2",
@@ -6631,17 +6803,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "hand",
    "had",
    "ham",
-   "band"
+   "band",
+   "hand"
   ],
   "answerOptions": [
-   {
-    "value": "hand",
-    "label": "hand",
-    "text": "hand"
-   },
    {
     "value": "had",
     "label": "had",
@@ -6656,14 +6823,19 @@ export const questions = [
     "value": "band",
     "label": "band",
     "text": "band"
+   },
+   {
+    "value": "hand",
+    "label": "hand",
+    "text": "hand"
    }
   ],
   "answer": "hand",
   "correctAnswer": "hand",
   "distractorRationales": {
-   "had": "D-ONSET",
    "ham": "D-ONSET",
-   "band": "D-RIME-NEAR"
+   "band": "D-RIME-NEAR",
+   "had": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6675,6 +6847,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6690,7 +6863,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
-  "imageAlt": "hand"
+  "resolvedImageAssetKey": "hand",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.nd.v3",
@@ -6746,11 +6920,11 @@ export const questions = [
   "answer": "nd",
   "correctAnswer": "nd",
   "distractorRationales": {
-   "nt": "D-PATTERN-TRAP",
    "nk": "D-PATTERN-TRAP",
-   "lt": "D-PATTERN-TRAP"
+   "lt": "D-PATTERN-TRAP",
+   "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6758,9 +6932,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "pond",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pond",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6771,7 +6946,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no pond image — pont, ponk and polt are non-words"
+  "notes": "no pond image — pont, ponk and polt are non-words",
+  "imagePath": "/images/assessment/generated/concepts/pond.webp",
+  "imageUrl": "/images/assessment/generated/concepts/pond.webp",
+  "targetImage": "/images/assessment/generated/concepts/pond.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/pond.webp",
+  "resolvedImageAssetKey": "pond",
+  "imageAlt": "Finish: po__"
  },
  {
   "id": "lp3.blends.l2.A.nd.v4",
@@ -6797,12 +6978,17 @@ export const questions = [
   "question": "Finish: sa__",
   "spokenPrompt": "sand. Which letters finish the word sand?",
   "choices": [
+   "sk",
    "nd",
    "mp",
-   "nt",
-   "sk"
+   "nt"
   ],
   "answerOptions": [
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
    {
     "value": "nd",
     "label": "nd",
@@ -6817,11 +7003,6 @@ export const questions = [
     "value": "nt",
     "label": "nt",
     "text": "nt"
-   },
-   {
-    "value": "sk",
-    "label": "sk",
-    "text": "sk"
    }
   ],
   "answer": "nd",
@@ -6831,7 +7012,7 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -6839,9 +7020,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "sand",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-nd-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6852,7 +7034,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)"
+  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: sa__"
  },
  {
   "id": "lp3.blends.l2.A.nt.v1",
@@ -6878,22 +7066,12 @@ export const questions = [
   "question": "Finish: te__",
   "spokenPrompt": "tent. Which letters finish the word tent?",
   "choices": [
-   "nt",
-   "nd",
    "mp",
-   "nk"
+   "nk",
+   "nt",
+   "nd"
   ],
   "answerOptions": [
-   {
-    "value": "nt",
-    "label": "nt",
-    "text": "nt"
-   },
-   {
-    "value": "nd",
-    "label": "nd",
-    "text": "nd"
-   },
    {
     "value": "mp",
     "label": "mp",
@@ -6903,14 +7081,24 @@ export const questions = [
     "value": "nk",
     "label": "nk",
     "text": "nk"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
    }
   ],
   "answer": "nt",
   "correctAnswer": "nt",
   "distractorRationales": {
-   "nd": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP",
-   "nk": "D-PATTERN-TRAP"
+   "nk": "D-PATTERN-TRAP",
+   "nd": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -6923,6 +7111,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tent",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6938,7 +7127,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/tent.webp",
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
-  "imageAlt": "tent"
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Finish: te__"
  },
  {
   "id": "lp3.blends.l2.B.nt.v2",
@@ -6994,9 +7184,9 @@ export const questions = [
   "answer": "tent",
   "correctAnswer": "tent",
   "distractorRationales": {
-   "ten": "D-ONSET",
    "tin": "D-RIME-NEAR",
-   "bent": "D-RIME-NEAR"
+   "bent": "D-RIME-NEAR",
+   "ten": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -7008,6 +7198,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tent",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7023,7 +7214,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/tent.webp",
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
-  "imageAlt": "tent"
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.nt.v3",
@@ -7049,12 +7241,17 @@ export const questions = [
   "question": "Finish: pri__",
   "spokenPrompt": "print. Which letters finish the word print?",
   "choices": [
+   "ft",
    "nt",
    "nd",
-   "nk",
-   "ft"
+   "nk"
   ],
   "answerOptions": [
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
    {
     "value": "nt",
     "label": "nt",
@@ -7069,21 +7266,16 @@ export const questions = [
     "value": "nk",
     "label": "nk",
     "text": "nk"
-   },
-   {
-    "value": "ft",
-    "label": "ft",
-    "text": "ft"
    }
   ],
   "answer": "nt",
   "correctAnswer": "nt",
   "distractorRationales": {
-   "nd": "D-PATTERN-TRAP",
    "nk": "D-PATTERN-TRAP",
-   "ft": "D-PATTERN-TRAP"
+   "ft": "D-PATTERN-TRAP",
+   "nd": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7091,9 +7283,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "print",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-nt-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7104,7 +7297,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no print image — prind, prink and prift are non-words"
+  "notes": "no print image — prind, prink and prift are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: pri__"
  },
  {
   "id": "lp3.blends.l2.A.nt.v4",
@@ -7130,17 +7329,12 @@ export const questions = [
   "question": "Finish: pai__",
   "spokenPrompt": "paint. Which letters finish the word paint?",
   "choices": [
-   "nt",
    "nd",
    "nk",
-   "mp"
+   "mp",
+   "nt"
   ],
   "answerOptions": [
-   {
-    "value": "nt",
-    "label": "nt",
-    "text": "nt"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -7155,6 +7349,11 @@ export const questions = [
     "value": "mp",
     "label": "mp",
     "text": "mp"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
    }
   ],
   "answer": "nt",
@@ -7164,7 +7363,7 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7172,9 +7371,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "paint",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-nt-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7185,7 +7385,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "paind, paink and paimp are non-words"
+  "notes": "paind, paink and paimp are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: pai__"
  },
  {
   "id": "lp3.blends.l2.A.mp.v1",
@@ -7241,9 +7447,9 @@ export const questions = [
   "answer": "mp",
   "correctAnswer": "mp",
   "distractorRationales": {
+   "nk": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP",
-   "nt": "D-PATTERN-TRAP",
-   "nk": "D-PATTERN-TRAP"
+   "nt": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -7256,6 +7462,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "lamp",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7271,7 +7478,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/lamp.webp",
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "imageAlt": "lamp"
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "Finish: la__"
  },
  {
   "id": "lp3.blends.l2.B.mp.v2",
@@ -7297,12 +7505,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "camp",
    "lamp",
    "lap",
-   "lab",
-   "camp"
+   "lab"
   ],
   "answerOptions": [
+   {
+    "value": "camp",
+    "label": "camp",
+    "text": "camp"
+   },
    {
     "value": "lamp",
     "label": "lamp",
@@ -7317,19 +7530,14 @@ export const questions = [
     "value": "lab",
     "label": "lab",
     "text": "lab"
-   },
-   {
-    "value": "camp",
-    "label": "camp",
-    "text": "camp"
    }
   ],
   "answer": "lamp",
   "correctAnswer": "lamp",
   "distractorRationales": {
+   "camp": "D-RIME-NEAR",
    "lap": "D-ONSET",
-   "lab": "D-RIME-NEAR",
-   "camp": "D-RIME-NEAR"
+   "lab": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -7341,6 +7549,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "lamp",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7356,7 +7565,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/lamp.webp",
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "imageAlt": "lamp"
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.mp.v3",
@@ -7382,22 +7592,12 @@ export const questions = [
   "question": "Finish: ju__",
   "spokenPrompt": "jump. Which letters finish the word jump?",
   "choices": [
-   "mp",
-   "nd",
    "nt",
-   "lt"
+   "lt",
+   "mp",
+   "nd"
   ],
   "answerOptions": [
-   {
-    "value": "mp",
-    "label": "mp",
-    "text": "mp"
-   },
-   {
-    "value": "nd",
-    "label": "nd",
-    "text": "nd"
-   },
    {
     "value": "nt",
     "label": "nt",
@@ -7407,16 +7607,26 @@ export const questions = [
     "value": "lt",
     "label": "lt",
     "text": "lt"
+   },
+   {
+    "value": "mp",
+    "label": "mp",
+    "text": "mp"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
    }
   ],
   "answer": "mp",
   "correctAnswer": "mp",
   "distractorRationales": {
+   "lt": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP",
-   "nt": "D-PATTERN-TRAP",
-   "lt": "D-PATTERN-TRAP"
+   "nt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7424,9 +7634,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "jump",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jump",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7437,7 +7648,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no jump image — jund, junt and jult are non-words (just and junk stay out)"
+  "notes": "no jump image — jund, junt and jult are non-words (just and junk stay out)",
+  "imagePath": "/images/assessment/generated/concepts/jump.webp",
+  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
+  "targetImage": "/images/assessment/generated/concepts/jump.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
+  "resolvedImageAssetKey": "jump",
+  "imageAlt": "Finish: ju__"
  },
  {
   "id": "lp3.blends.l2.A.mp.v4",
@@ -7463,12 +7680,17 @@ export const questions = [
   "question": "Finish: ca__",
   "spokenPrompt": "camp. Which letters finish the word camp?",
   "choices": [
+   "sk",
    "mp",
    "nd",
-   "lt",
-   "sk"
+   "lt"
   ],
   "answerOptions": [
+   {
+    "value": "sk",
+    "label": "sk",
+    "text": "sk"
+   },
    {
     "value": "mp",
     "label": "mp",
@@ -7483,11 +7705,6 @@ export const questions = [
     "value": "lt",
     "label": "lt",
     "text": "lt"
-   },
-   {
-    "value": "sk",
-    "label": "sk",
-    "text": "sk"
    }
   ],
   "answer": "mp",
@@ -7497,7 +7714,7 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7505,9 +7722,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "camp",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-mp-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7518,7 +7736,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)"
+  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: ca__"
  },
  {
   "id": "lp3.blends.l2.A.nk.v1",
@@ -7544,22 +7768,12 @@ export const questions = [
   "question": "Finish: i__",
   "spokenPrompt": "ink. Which letters finish the word ink?",
   "choices": [
-   "nk",
-   "nd",
    "nt",
-   "ft"
+   "ft",
+   "nk",
+   "nd"
   ],
   "answerOptions": [
-   {
-    "value": "nk",
-    "label": "nk",
-    "text": "nk"
-   },
-   {
-    "value": "nd",
-    "label": "nd",
-    "text": "nd"
-   },
    {
     "value": "nt",
     "label": "nt",
@@ -7569,6 +7783,16 @@ export const questions = [
     "value": "ft",
     "label": "ft",
     "text": "ft"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
+   },
+   {
+    "value": "nd",
+    "label": "nd",
+    "text": "nd"
    }
   ],
   "answer": "nk",
@@ -7589,6 +7813,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ink",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7604,7 +7829,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/ink.png",
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
-  "imageAlt": "ink"
+  "resolvedImageAssetKey": "ink",
+  "imageAlt": "Finish: i__"
  },
  {
   "id": "lp3.blends.l2.B.nk.v2",
@@ -7630,22 +7856,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "ink",
-   "in",
    "inch",
-   "pink"
+   "pink",
+   "ink",
+   "in"
   ],
   "answerOptions": [
-   {
-    "value": "ink",
-    "label": "ink",
-    "text": "ink"
-   },
-   {
-    "value": "in",
-    "label": "in",
-    "text": "in"
-   },
    {
     "value": "inch",
     "label": "inch",
@@ -7655,6 +7871,16 @@ export const questions = [
     "value": "pink",
     "label": "pink",
     "text": "pink"
+   },
+   {
+    "value": "ink",
+    "label": "ink",
+    "text": "ink"
+   },
+   {
+    "value": "in",
+    "label": "in",
+    "text": "in"
    }
   ],
   "answer": "ink",
@@ -7674,6 +7900,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ink",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7689,7 +7916,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/ink.png",
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
-  "imageAlt": "ink"
+  "resolvedImageAssetKey": "ink",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.nk.v3",
@@ -7715,17 +7943,12 @@ export const questions = [
   "question": "Finish: thi__",
   "spokenPrompt": "think. Which letters finish the word think?",
   "choices": [
-   "nk",
    "nd",
    "nt",
-   "ft"
+   "ft",
+   "nk"
   ],
   "answerOptions": [
-   {
-    "value": "nk",
-    "label": "nk",
-    "text": "nk"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -7740,6 +7963,11 @@ export const questions = [
     "value": "ft",
     "label": "ft",
     "text": "ft"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
    }
   ],
   "answer": "nk",
@@ -7749,7 +7977,7 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7757,9 +7985,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "think",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "think",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7770,7 +7999,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no think image — thind, thint and thift are non-words"
+  "notes": "no think image — thind, thint and thift are non-words",
+  "imagePath": "/images/assessment/generated/concepts/think.webp",
+  "imageUrl": "/images/assessment/generated/concepts/think.webp",
+  "targetImage": "/images/assessment/generated/concepts/think.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/think.webp",
+  "resolvedImageAssetKey": "think",
+  "imageAlt": "Finish: thi__"
  },
  {
   "id": "lp3.blends.l2.A.nk.v4",
@@ -7796,17 +8031,12 @@ export const questions = [
   "question": "Finish: ba__",
   "spokenPrompt": "bank. Which letters finish the word bank?",
   "choices": [
-   "nk",
    "lt",
    "ft",
-   "sc"
+   "sc",
+   "nk"
   ],
   "answerOptions": [
-   {
-    "value": "nk",
-    "label": "nk",
-    "text": "nk"
-   },
    {
     "value": "lt",
     "label": "lt",
@@ -7821,16 +8051,21 @@ export const questions = [
     "value": "sc",
     "label": "sc",
     "text": "sc"
+   },
+   {
+    "value": "nk",
+    "label": "nk",
+    "text": "nk"
    }
   ],
   "answer": "nk",
   "correctAnswer": "nk",
   "distractorRationales": {
-   "lt": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP"
+   "sc": "D-PATTERN-TRAP",
+   "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7838,9 +8073,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "bank",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-nk-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7851,7 +8087,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)"
+  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: ba__"
  },
  {
   "id": "lp3.blends.l2.A.lt.v1",
@@ -7922,6 +8164,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "belt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7937,7 +8180,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/belt.webp",
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
-  "imageAlt": "belt"
+  "resolvedImageAssetKey": "belt",
+  "imageAlt": "Finish: be__"
  },
  {
   "id": "lp3.blends.l2.B.lt.v2",
@@ -7963,17 +8207,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "belt",
    "bet",
    "bell",
-   "melt"
+   "melt",
+   "belt"
   ],
   "answerOptions": [
-   {
-    "value": "belt",
-    "label": "belt",
-    "text": "belt"
-   },
    {
     "value": "bet",
     "label": "bet",
@@ -7988,6 +8227,11 @@ export const questions = [
     "value": "melt",
     "label": "melt",
     "text": "melt"
+   },
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
    }
   ],
   "answer": "belt",
@@ -8007,6 +8251,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "belt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8022,7 +8267,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/belt.webp",
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
-  "imageAlt": "belt"
+  "resolvedImageAssetKey": "belt",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.lt.v3",
@@ -8093,6 +8339,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "quilt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8108,7 +8355,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/quilt.png",
   "targetImage": "/images/child-mode/initial-sounds/quilt.png",
   "targetImagePath": "/images/child-mode/initial-sounds/quilt.png",
-  "imageAlt": "quilt"
+  "resolvedImageAssetKey": "quilt",
+  "imageAlt": "Finish: qui__"
  },
  {
   "id": "lp3.blends.l2.A.lt.v4",
@@ -8134,12 +8382,17 @@ export const questions = [
   "question": "Finish: ti__",
   "spokenPrompt": "tilt. Which letters finish the word tilt?",
   "choices": [
+   "ft",
    "lt",
    "nd",
-   "nk",
-   "ft"
+   "nk"
   ],
   "answerOptions": [
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
    {
     "value": "lt",
     "label": "lt",
@@ -8154,21 +8407,16 @@ export const questions = [
     "value": "nk",
     "label": "nk",
     "text": "nk"
-   },
-   {
-    "value": "ft",
-    "label": "ft",
-    "text": "ft"
    }
   ],
   "answer": "lt",
   "correctAnswer": "lt",
   "distractorRationales": {
+   "ft": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP",
-   "nk": "D-PATTERN-TRAP",
-   "ft": "D-PATTERN-TRAP"
+   "nk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -8176,9 +8424,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "tilt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-lt-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8189,7 +8438,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)"
+  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: ti__"
  },
  {
   "id": "lp3.blends.l2.A.ft.v1",
@@ -8215,22 +8470,12 @@ export const questions = [
   "question": "Finish: gi__",
   "spokenPrompt": "gift. Which letters finish the word gift?",
   "choices": [
-   "ft",
-   "nt",
    "nd",
-   "nk"
+   "nk",
+   "ft",
+   "nt"
   ],
   "answerOptions": [
-   {
-    "value": "ft",
-    "label": "ft",
-    "text": "ft"
-   },
-   {
-    "value": "nt",
-    "label": "nt",
-    "text": "nt"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -8240,14 +8485,24 @@ export const questions = [
     "value": "nk",
     "label": "nk",
     "text": "nk"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
+   },
+   {
+    "value": "nt",
+    "label": "nt",
+    "text": "nt"
    }
   ],
   "answer": "ft",
   "correctAnswer": "ft",
   "distractorRationales": {
-   "nt": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP",
-   "nk": "D-PATTERN-TRAP"
+   "nk": "D-PATTERN-TRAP",
+   "nt": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -8260,6 +8515,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gift",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8275,7 +8531,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/gift.webp",
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
-  "imageAlt": "gift"
+  "resolvedImageAssetKey": "gift",
+  "imageAlt": "Finish: gi__"
  },
  {
   "id": "lp3.blends.l2.B.ft.v2",
@@ -8331,9 +8588,9 @@ export const questions = [
   "answer": "gift",
   "correctAnswer": "gift",
   "distractorRationales": {
-   "lift": "D-RIME-NEAR",
    "left": "D-VOWEL",
-   "give": "D-SEMANTIC"
+   "give": "D-SEMANTIC",
+   "lift": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -8345,6 +8602,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gift",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8360,7 +8618,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/gift.webp",
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
-  "imageAlt": "gift"
+  "resolvedImageAssetKey": "gift",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.C.ft.v3",
@@ -8386,12 +8645,17 @@ export const questions = [
   "question": "Finish: le__",
   "spokenPrompt": "left. Which letters finish the word left?",
   "choices": [
+   "lt",
    "ft",
    "sk",
-   "mp",
-   "lt"
+   "mp"
   ],
   "answerOptions": [
+   {
+    "value": "lt",
+    "label": "lt",
+    "text": "lt"
+   },
    {
     "value": "ft",
     "label": "ft",
@@ -8406,21 +8670,16 @@ export const questions = [
     "value": "mp",
     "label": "mp",
     "text": "mp"
-   },
-   {
-    "value": "lt",
-    "label": "lt",
-    "text": "lt"
    }
   ],
   "answer": "ft",
   "correctAnswer": "ft",
   "distractorRationales": {
-   "sk": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP",
-   "lt": "D-PATTERN-TRAP"
+   "lt": "D-PATTERN-TRAP",
+   "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -8428,9 +8687,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "left",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "left",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8441,7 +8701,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no left image — lesk, lemp and lelt are non-words (lent and lend stay out)"
+  "notes": "no left image — lesk, lemp and lelt are non-words (lent and lend stay out)",
+  "imagePath": "/images/assessment/generated/concepts/left.webp",
+  "imageUrl": "/images/assessment/generated/concepts/left.webp",
+  "targetImage": "/images/assessment/generated/concepts/left.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/left.webp",
+  "resolvedImageAssetKey": "left",
+  "imageAlt": "Finish: le__"
  },
  {
   "id": "lp3.blends.l2.A.ft.v4",
@@ -8467,17 +8733,12 @@ export const questions = [
   "question": "Finish: so__",
   "spokenPrompt": "soft. Which letters finish the word soft?",
   "choices": [
-   "ft",
    "nd",
    "lt",
-   "mp"
+   "mp",
+   "ft"
   ],
   "answerOptions": [
-   {
-    "value": "ft",
-    "label": "ft",
-    "text": "ft"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -8492,6 +8753,11 @@ export const questions = [
     "value": "mp",
     "label": "mp",
     "text": "mp"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
    }
   ],
   "answer": "ft",
@@ -8501,7 +8767,7 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -8509,9 +8775,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "soft",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "soft",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8522,7 +8789,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no soft image — sond, solt and somp are non-words"
+  "notes": "no soft image — sond, solt and somp are non-words",
+  "imagePath": "/images/assessment/generated/concepts/soft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/soft.webp",
+  "targetImage": "/images/assessment/generated/concepts/soft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/soft.webp",
+  "resolvedImageAssetKey": "soft",
+  "imageAlt": "Finish: so__"
  },
  {
   "id": "lp3.blends.l1.R.br.v5r",
@@ -8578,9 +8851,9 @@ export const questions = [
   "answer": "br",
   "correctAnswer": "br",
   "distractorRationales": {
-   "cr": "D-PATTERN-TRAP",
    "fl": "D-PATTERN-TRAP",
-   "pl": "D-PATTERN-TRAP"
+   "pl": "D-PATTERN-TRAP",
+   "cr": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -8593,6 +8866,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brush",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8608,7 +8882,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brush.webp",
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "imageAlt": "brush"
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Finish: __ush"
  },
  {
   "id": "lp3.blends.l1.R.br.v6r",
@@ -8634,12 +8909,17 @@ export const questions = [
   "question": "Finish: __oom",
   "spokenPrompt": "broom. Which letters finish the word broom?",
   "choices": [
+   "sp",
    "br",
    "gl",
-   "dr",
-   "sp"
+   "dr"
   ],
   "answerOptions": [
+   {
+    "value": "sp",
+    "label": "sp",
+    "text": "sp"
+   },
    {
     "value": "br",
     "label": "br",
@@ -8654,11 +8934,6 @@ export const questions = [
     "value": "dr",
     "label": "dr",
     "text": "dr"
-   },
-   {
-    "value": "sp",
-    "label": "sp",
-    "text": "sp"
    }
   ],
   "answer": "br",
@@ -8679,6 +8954,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "broom",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8694,7 +8970,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/broom.webp",
   "targetImage": "/images/assessment/blends/broom.webp",
   "targetImagePath": "/images/assessment/blends/broom.webp",
-  "imageAlt": "broom"
+  "resolvedImageAssetKey": "broom",
+  "imageAlt": "Finish: __oom"
  },
  {
   "id": "lp3.blends.l1.R.cl.v5r",
@@ -8720,22 +8997,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "clap",
-   "lap",
    "clip",
-   "cap"
+   "cap",
+   "clap",
+   "lap"
   ],
   "answerOptions": [
-   {
-    "value": "clap",
-    "label": "clap",
-    "text": "clap"
-   },
-   {
-    "value": "lap",
-    "label": "lap",
-    "text": "lap"
-   },
    {
     "value": "clip",
     "label": "clip",
@@ -8745,6 +9012,16 @@ export const questions = [
     "value": "cap",
     "label": "cap",
     "text": "cap"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "lap",
+    "label": "lap",
+    "text": "lap"
    }
   ],
   "answer": "clap",
@@ -8764,6 +9041,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clap",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8779,7 +9057,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/clap.webp",
   "targetImage": "/images/assessment/blends/clap.webp",
   "targetImagePath": "/images/assessment/blends/clap.webp",
-  "imageAlt": "clap"
+  "resolvedImageAssetKey": "clap",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l2.R.sp.v5r",
@@ -8805,12 +9084,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "sing",
    "spring",
    "ring",
-   "string",
-   "sing"
+   "string"
   ],
   "answerOptions": [
+   {
+    "value": "sing",
+    "label": "sing",
+    "text": "sing"
+   },
    {
     "value": "spring",
     "label": "spring",
@@ -8825,19 +9109,14 @@ export const questions = [
     "value": "string",
     "label": "string",
     "text": "string"
-   },
-   {
-    "value": "sing",
-    "label": "sing",
-    "text": "sing"
    }
   ],
   "answer": "spring",
   "correctAnswer": "spring",
   "distractorRationales": {
-   "ring": "D-ONSET",
    "string": "D-PATTERN-TRAP",
-   "sing": "D-RIME-NEAR"
+   "sing": "D-RIME-NEAR",
+   "ring": "D-ONSET"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -8849,6 +9128,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "spring",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8864,7 +9144,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/spring.webp",
   "targetImage": "/images/assessment/blends/spring.webp",
   "targetImagePath": "/images/assessment/blends/spring.webp",
-  "imageAlt": "spring"
+  "resolvedImageAssetKey": "spring",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.R.pl.v5r",
@@ -8890,17 +9171,12 @@ export const questions = [
   "question": "Which one starts like plate?",
   "spokenPrompt": "plate. Which one starts with the same sounds as plate?",
   "choices": [
-   "plant",
    "gate",
    "frog",
-   "lamp"
+   "lamp",
+   "plant"
   ],
   "answerOptions": [
-   {
-    "value": "plant",
-    "label": "plant",
-    "text": "plant"
-   },
    {
     "value": "gate",
     "label": "gate",
@@ -8915,14 +9191,19 @@ export const questions = [
     "value": "lamp",
     "label": "lamp",
     "text": "lamp"
+   },
+   {
+    "value": "plant",
+    "label": "plant",
+    "text": "plant"
    }
   ],
   "answer": "plant",
   "correctAnswer": "plant",
   "distractorRationales": {
-   "gate": "D-RIME-NEAR",
    "frog": "D-PATTERN-TRAP",
-   "lamp": "D-ONSET"
+   "lamp": "D-ONSET",
+   "gate": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -8947,15 +9228,6 @@ export const questions = [
   },
   "notes": "gate rhymes with the anchor — the scanner tie",
   "imageCards": [
-   {
-    "id": "lp3.blends.l1.R.pl.v5r_card_plant",
-    "word": "plant",
-    "value": "plant",
-    "label": "plant",
-    "image": "/images/assessment/blends/plant.webp",
-    "imagePath": "/images/assessment/blends/plant.webp",
-    "imageAlt": "plant"
-   },
    {
     "id": "lp3.blends.l1.R.pl.v5r_card_gate",
     "word": "gate",
@@ -8982,6 +9254,15 @@ export const questions = [
     "image": "/images/assessment/blends/lamp.webp",
     "imagePath": "/images/assessment/blends/lamp.webp",
     "imageAlt": "lamp"
+   },
+   {
+    "id": "lp3.blends.l1.R.pl.v5r_card_plant",
+    "word": "plant",
+    "value": "plant",
+    "label": "plant",
+    "image": "/images/assessment/blends/plant.webp",
+    "imagePath": "/images/assessment/blends/plant.webp",
+    "imageAlt": "plant"
    }
   ]
  },
@@ -9009,22 +9290,12 @@ export const questions = [
   "question": "Finish: __ack",
   "spokenPrompt": "snack. Which letters finish the word snack?",
   "choices": [
-   "sn",
-   "sc",
    "sw",
-   "gl"
+   "gl",
+   "sn",
+   "sc"
   ],
   "answerOptions": [
-   {
-    "value": "sn",
-    "label": "sn",
-    "text": "sn"
-   },
-   {
-    "value": "sc",
-    "label": "sc",
-    "text": "sc"
-   },
    {
     "value": "sw",
     "label": "sw",
@@ -9034,6 +9305,16 @@ export const questions = [
     "value": "gl",
     "label": "gl",
     "text": "gl"
+   },
+   {
+    "value": "sn",
+    "label": "sn",
+    "text": "sn"
+   },
+   {
+    "value": "sc",
+    "label": "sc",
+    "text": "sc"
    }
   ],
   "answer": "sn",
@@ -9043,7 +9324,7 @@ export const questions = [
    "sw": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -9051,9 +9332,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "snack",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-sn-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9064,7 +9346,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)"
+  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: __ack"
  },
  {
   "id": "lp3.blends.l2.R.ft.v5r",
@@ -9090,17 +9378,12 @@ export const questions = [
   "question": "Finish: ra__",
   "spokenPrompt": "raft. Which letters finish the word raft?",
   "choices": [
-   "ft",
    "nd",
    "lt",
-   "sc"
+   "sc",
+   "ft"
   ],
   "answerOptions": [
-   {
-    "value": "ft",
-    "label": "ft",
-    "text": "ft"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -9115,16 +9398,21 @@ export const questions = [
     "value": "sc",
     "label": "sc",
     "text": "sc"
+   },
+   {
+    "value": "ft",
+    "label": "ft",
+    "text": "ft"
    }
   ],
   "answer": "ft",
   "correctAnswer": "ft",
   "distractorRationales": {
+   "sc": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP",
-   "lt": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP"
+   "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -9132,9 +9420,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "raft",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "raft",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9145,7 +9434,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)"
+  "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)",
+  "imagePath": "/images/assessment/generated/concepts/raft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
+  "targetImage": "/images/assessment/generated/concepts/raft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
+  "resolvedImageAssetKey": "raft",
+  "imageAlt": "Finish: ra__"
  },
  {
   "id": "lp3.blends.l2.R.nd.v5r",
@@ -9201,11 +9496,11 @@ export const questions = [
   "answer": "nd",
   "correctAnswer": "nd",
   "distractorRationales": {
+   "sc": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP",
-   "lt": "D-PATTERN-TRAP",
-   "sc": "D-PATTERN-TRAP"
+   "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -9213,9 +9508,10 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "stand",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "blends-nd-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9226,7 +9522,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)"
+  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: sta__"
  },
  {
   "id": "lp3.blends.l1.R.st.v5r",
@@ -9296,6 +9598,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "stop",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9311,7 +9614,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/stop.webp",
   "targetImage": "/images/assessment/blends/stop.webp",
   "targetImagePath": "/images/assessment/blends/stop.webp",
-  "imageAlt": "stop"
+  "resolvedImageAssetKey": "stop",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.blends.l1.R.cl.v6r",
@@ -9337,12 +9641,17 @@ export const questions = [
   "question": "Which one starts like clown?",
   "spokenPrompt": "clown. Which one starts with the same sounds as clown?",
   "choices": [
+   "drum",
    "cloud",
    "crown",
-   "lamp",
-   "drum"
+   "lamp"
   ],
   "answerOptions": [
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   },
    {
     "value": "cloud",
     "label": "cloud",
@@ -9357,19 +9666,14 @@ export const questions = [
     "value": "lamp",
     "label": "lamp",
     "text": "lamp"
-   },
-   {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
    }
   ],
   "answer": "cloud",
   "correctAnswer": "cloud",
   "distractorRationales": {
-   "crown": "D-RIME-NEAR",
    "lamp": "D-ONSET",
-   "drum": "D-PATTERN-TRAP"
+   "drum": "D-PATTERN-TRAP",
+   "crown": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "initial",
@@ -9394,6 +9698,15 @@ export const questions = [
   },
   "notes": "crown rhymes with the anchor and out-chunks the key",
   "imageCards": [
+   {
+    "id": "lp3.blends.l1.R.cl.v6r_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
+   },
    {
     "id": "lp3.blends.l1.R.cl.v6r_card_cloud",
     "word": "cloud",
@@ -9420,15 +9733,6 @@ export const questions = [
     "image": "/images/assessment/blends/lamp.webp",
     "imagePath": "/images/assessment/blends/lamp.webp",
     "imageAlt": "lamp"
-   },
-   {
-    "id": "lp3.blends.l1.R.cl.v6r_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
    }
   ]
  }

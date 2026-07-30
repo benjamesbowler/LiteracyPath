@@ -4,6 +4,15 @@
 
 Design goals, in order: **honest → tough → fair → simple to report**. Every rule below exists to serve one of those and is annotated with which.
 
+> **Progression decision, 2026-07-30.** Every skill has Level 1 Phase 1,
+> Level 1 Phase 2, Level 2 Phase 1, and Level 2 Phase 2. A phase passes at
+> **70%**; a lower result repeats that phase. Passing L1P2 unlocks the next
+> skill and offers optional Level 2 for greater challenge/reward. Level 1 is
+> kindergarten/entry-ESL; Level 2 is a clear Grade 1 extension. This decision
+> supersedes the older 85% level-progression wording below. Unit evidence and
+> retention still support reporting, review flags, and the optional `Secure`
+> status, but may not trap a low-ESL learner in one skill.
+
 ---
 
 ## 1. What is wrong with the current system (verified, condensed)
@@ -92,16 +101,23 @@ Rationale: 3-correct/2-items/2-days is the toughest rule the bank can honestly s
 
 Units are **blueprint cells** (e.g., `fiction × explicit-detail`, `informational × main-idea`). A cell is **Passed** when: ≥2 correct on ≥2 distinct passages across ≥2 session days, most recent correct. One passage can never evidence more than one response per cell (and passages are single-use per child — §5 guarantees this).
 
-### 3.3 Level pass (tough, guess-proof)
+### 3.3 Phase and level progression
 
-A **level is Passed** when ALL of:
+- Each phase is a fixed 10-question sitting and passes at **7/10 (70%)**.
+- Below 70% repeats the same phase with fresh items from its bank.
+- Passing Phase 1 opens Phase 2.
+- Passing L1P2 records `Level 1 passed`, unlocks the next skill, and offers
+  optional L2P1. The learner chooses; Level 2 never blocks access to later
+  skills.
+- Passing L2P2 records `Level 2 passed` and earns the higher challenge reward.
+- Unit/cell evidence remains visible to teachers and still drives
+  `Needs review`; it does not override a completed phase to create an access
+  wall.
 
-1. Every unit/cell of the level is Passed (coverage is total — this keeps the good instinct of the current all-keys gate, now aimed at a reachable rule).
-2. Aggregate level accuracy in the window ≥ **85%** with ≥ 20 scored responses for Family D (≥ 16 for Family C).
-3. The most recent completed sitting scored ≥ 80%.
-4. Evidence spans ≥ 2 session days.
-
-Guessing resistance (derived, binomial at 4 options): P(≥9/10) = 3.0e-05 per sitting; a level needs 2+ qualifying sittings plus per-unit recency, so blind-guess pass probability is < 1e-8. The old single-round 7/8 gate (P = 3.8e-04) is retired.
+Because two 70% phases can be attempted more than once, blind-guess progression
+has a tiny non-zero probability. SIM-GUESS therefore measures a rate instead of
+requiring an impossible absolute zero: the full 10,000-trial release run must
+stay below **0.1%**.
 
 ### 3.4 Skill Secure (tough + honest)
 
@@ -120,11 +136,9 @@ Guessing resistance (derived, binomial at 4 options): P(≥9/10) = 3.0e-05 per s
 
 ## 4. Sitting design (replaces free-running rounds)
 
-| Skill family | Sitting length | Sittings to Level-pass (perfect responder, derived §9) |
+| Skill family | Sitting length | Sittings to Level-pass (perfect responder) |
 | --- | --- | --- |
-| Phonological / phonics / grammar / vocabulary | 10 | 2–3 (small inventories) · 3–5 (large) |
-| HFW bands | 12 | 5 |
-| Comprehension | 8 | 2–3 |
+| All 30 skills | 10 | 2 (Phase 1 + Phase 2) |
 
 - A sitting is **composed before it starts** (whole set selected up-front, then shuffled) — composition can therefore guarantee unit coverage and zero internal repeats, instead of the current per-question greedy pick with relaxation ladders.
 - Mid-sitting media failure swaps in a same-unit, same-form spare without scoring (existing fail-closed behavior preserved).

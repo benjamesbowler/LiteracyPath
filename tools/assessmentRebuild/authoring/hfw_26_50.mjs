@@ -73,7 +73,7 @@ export default {
   items: [
     // ============ L1 phase 1: all an but by can do each had how if not one or ============
     cz("all", 1, 1, 1, "She fed ___ of the cats.", ["all", "one", "each", "both"], [FS, FS, FS]),
-    cz("all", 1, 1, 2, "He drank ___ of the milk — the jug is empty!", ["all", "some", "one", "most"], [FS, DV, FS],
+    cz("all", 1, 1, 2, "He drank ___ the milk. The jug is empty!", ["all", "some", "one", "most"], [FS, DV, FS],
       "the empty jug pins all; some and most parse but contradict it"),
     rf("all", 1, 1, 3, ["all", "ball", "tall", "doll"], [VN, VN, VN]),
     cz("an", 1, 1, 1, "I ate ___ egg.", ["an", "a", "the", "one"], [DV, FS, FS],
@@ -153,7 +153,7 @@ export default {
     cz("what", 1, 2, 1, "___ is in the big box?", ["what", "which", "when", "that"], [FS, DV, DV]),
     cz("what", 1, 2, 2, "Guess ___ I made for you!", ["what", "which", "when", "if"], [FS, DV, DV]),
     rf("what", 1, 2, 3, ["what", "that", "when", "hat"], [VN, VN, VN]),
-    cz("when", 1, 2, 1, "___ does the show start — at two or three?", ["when", "how", "what", "that"], [FS, DV, DV],
+    cz("when", 1, 2, 1, "___ does the show start?", ["when", "how", "what", "that"], [FS, DV, DV],
       "the two-or-three tag pins when over how"),
     cz("when", 1, 2, 2, "I clap ___ you sing.", ["when", "if", "as", "and"], [FS, FS, DV]),
     rf("when", 1, 2, 3, ["when", "then", "hen", "what"], [VN, VN, VN]),

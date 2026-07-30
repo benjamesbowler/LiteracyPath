@@ -25,17 +25,12 @@ export const questions = [
   "question": "Finish: r__n",
   "spokenPrompt": "rain. Which letters finish the word rain?",
   "choices": [
-   "ai",
    "ay",
    "ee",
-   "oa"
+   "oa",
+   "ai"
   ],
   "answerOptions": [
-   {
-    "value": "ai",
-    "label": "ai",
-    "text": "ai"
-   },
    {
     "value": "ay",
     "label": "ay",
@@ -50,14 +45,19 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
    }
   ],
   "answer": "ai",
   "correctAnswer": "ai",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ay": "D-PATTERN-TRAP",
-   "ee": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ee": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -84,7 +85,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/rain.webp",
   "targetImage": "/images/assessment/long-vowels/rain.webp",
   "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageAlt": "rain"
+  "resolvedImageAssetKey": "rain",
+  "imageAlt": "Finish: r__n"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v2",
@@ -110,22 +112,12 @@ export const questions = [
   "question": "Finish: tr__n",
   "spokenPrompt": "train. Which letters finish the word train?",
   "choices": [
-   "ai",
-   "ee",
    "oa",
-   "igh"
+   "igh",
+   "ai",
+   "ee"
   ],
   "answerOptions": [
-   {
-    "value": "ai",
-    "label": "ai",
-    "text": "ai"
-   },
-   {
-    "value": "ee",
-    "label": "ee",
-    "text": "ee"
-   },
    {
     "value": "oa",
     "label": "oa",
@@ -135,14 +127,24 @@ export const questions = [
     "value": "igh",
     "label": "igh",
     "text": "igh"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
    }
   ],
   "answer": "ai",
   "correctAnswer": "ai",
   "distractorRationales": {
+   "igh": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP",
-   "igh": "D-PATTERN-TRAP"
+   "oa": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "train",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -169,7 +172,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/train.webp",
   "targetImage": "/images/assessment/long-vowels/train.webp",
   "targetImagePath": "/images/assessment/long-vowels/train.webp",
-  "imageAlt": "train"
+  "resolvedImageAssetKey": "train",
+  "imageAlt": "Finish: tr__n"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v3",
@@ -195,12 +199,17 @@ export const questions = [
   "question": "Which word has the long a sound?",
   "spokenPrompt": "Which word has the long a sound?",
   "choices": [
+   "frog",
    "rain",
    "bed",
-   "ship",
-   "frog"
+   "ship"
   ],
   "answerOptions": [
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
+   },
    {
     "value": "rain",
     "label": "rain",
@@ -215,29 +224,25 @@ export const questions = [
     "value": "ship",
     "label": "ship",
     "text": "ship"
-   },
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
    }
   ],
   "answer": "rain",
   "correctAnswer": "rain",
   "distractorRationales": {
+   "frog": "D-VOWEL",
    "bed": "D-VOWEL",
-   "ship": "D-VOWEL",
-   "frog": "D-VOWEL"
+   "ship": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ai-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -248,7 +253,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the instructional-standards CPS exemplar, now actually published"
+  "notes": "the instructional-standards CPS exemplar, now actually published",
+  "imagePath": "/images/assessment/long-vowels/rain.webp",
+  "imageUrl": "/images/assessment/long-vowels/rain.webp",
+  "targetImage": "/images/assessment/long-vowels/rain.webp",
+  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
+  "resolvedImageAssetKey": "rain",
+  "imageAlt": "Which word has the long a sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ai.v4",
@@ -308,15 +319,16 @@ export const questions = [
    "sock": "D-VOWEL",
    "hen": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ai-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -327,7 +339,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "chin is one letter from the key with the short sound"
+  "notes": "chin is one letter from the key with the short sound",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "Which word has the long a sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v5",
@@ -353,17 +371,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "snail. Which is the real way to write snail?",
   "choices": [
-   "snail",
    "snale",
    "snayl",
-   "snaile"
+   "snaile",
+   "snail"
   ],
   "answerOptions": [
-   {
-    "value": "snail",
-    "label": "snail",
-    "text": "snail"
-   },
    {
     "value": "snale",
     "label": "snale",
@@ -378,25 +391,31 @@ export const questions = [
     "value": "snaile",
     "label": "snaile",
     "text": "snaile"
+   },
+   {
+    "value": "snail",
+    "label": "snail",
+    "text": "snail"
    }
   ],
   "answer": "snail",
   "correctAnswer": "snail",
   "distractorRationales": {
-   "snale": "D-DEVELOPMENTAL",
    "snayl": "D-DEVELOPMENTAL",
-   "snaile": "D-DEVELOPMENTAL"
+   "snaile": "D-DEVELOPMENTAL",
+   "snale": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "snail",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ai-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -407,7 +426,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v6",
@@ -433,22 +458,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "paint. Which is the real way to write paint?",
   "choices": [
-   "paint",
-   "paynt",
    "pante",
-   "painte"
+   "painte",
+   "paint",
+   "paynt"
   ],
   "answerOptions": [
-   {
-    "value": "paint",
-    "label": "paint",
-    "text": "paint"
-   },
-   {
-    "value": "paynt",
-    "label": "paynt",
-    "text": "paynt"
-   },
    {
     "value": "pante",
     "label": "pante",
@@ -458,6 +473,16 @@ export const questions = [
     "value": "painte",
     "label": "painte",
     "text": "painte"
+   },
+   {
+    "value": "paint",
+    "label": "paint",
+    "text": "paint"
+   },
+   {
+    "value": "paynt",
+    "label": "paynt",
+    "text": "paynt"
    }
   ],
   "answer": "paint",
@@ -467,16 +492,17 @@ export const questions = [
    "pante": "D-DEVELOPMENTAL",
    "painte": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "paint",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ai-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -487,7 +513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v1",
@@ -513,12 +545,17 @@ export const questions = [
   "question": "Finish: pl__",
   "spokenPrompt": "play. Which letters finish the word play?",
   "choices": [
+   "oa",
    "ay",
    "ai",
-   "ee",
-   "oa"
+   "ee"
   ],
   "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
    {
     "value": "ay",
     "label": "ay",
@@ -533,19 +570,14 @@ export const questions = [
     "value": "ee",
     "label": "ee",
     "text": "ee"
-   },
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
    }
   ],
   "answer": "ay",
   "correctAnswer": "ay",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP",
-   "ee": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ee": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -557,6 +589,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "play",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -572,7 +605,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/play.webp",
   "targetImage": "/images/assessment/long-vowels/play.webp",
   "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "imageAlt": "play"
+  "resolvedImageAssetKey": "play",
+  "imageAlt": "Finish: pl__"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v2",
@@ -628,9 +662,9 @@ export const questions = [
   "answer": "ay",
   "correctAnswer": "ay",
   "distractorRationales": {
+   "ew": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP",
-   "ew": "D-PATTERN-TRAP"
+   "oa": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -642,6 +676,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tray",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -657,7 +692,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/tray.webp",
   "targetImage": "/images/assessment/long-vowels/tray.webp",
   "targetImagePath": "/images/assessment/long-vowels/tray.webp",
-  "imageAlt": "tray"
+  "resolvedImageAssetKey": "tray",
+  "imageAlt": "Finish: tr__"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v3",
@@ -683,17 +719,12 @@ export const questions = [
   "question": "Which word has the long a sound?",
   "spokenPrompt": "Which word has the long a sound?",
   "choices": [
-   "play",
    "plan",
    "pot",
-   "bug"
+   "bug",
+   "play"
   ],
   "answerOptions": [
-   {
-    "value": "play",
-    "label": "play",
-    "text": "play"
-   },
    {
     "value": "plan",
     "label": "plan",
@@ -708,24 +739,30 @@ export const questions = [
     "value": "bug",
     "label": "bug",
     "text": "bug"
+   },
+   {
+    "value": "play",
+    "label": "play",
+    "text": "play"
    }
   ],
   "answer": "play",
   "correctAnswer": "play",
   "distractorRationales": {
+   "bug": "D-VOWEL",
    "plan": "D-PATTERN-TRAP",
-   "pot": "D-VOWEL",
-   "bug": "D-VOWEL"
+   "pot": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ay-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -736,7 +773,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "plan shares three letters with the key but keeps the short a"
+  "notes": "plan shares three letters with the key but keeps the short a",
+  "imagePath": "/images/assessment/long-vowels/play.webp",
+  "imageUrl": "/images/assessment/long-vowels/play.webp",
+  "targetImage": "/images/assessment/long-vowels/play.webp",
+  "targetImagePath": "/images/assessment/long-vowels/play.webp",
+  "resolvedImageAssetKey": "play",
+  "imageAlt": "Which word has the long a sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v4",
@@ -762,22 +805,12 @@ export const questions = [
   "question": "Which word has the long a sound?",
   "spokenPrompt": "Which word has the long a sound?",
   "choices": [
-   "day",
-   "dad",
    "pin",
-   "mud"
+   "mud",
+   "day",
+   "dad"
   ],
   "answerOptions": [
-   {
-    "value": "day",
-    "label": "day",
-    "text": "day"
-   },
-   {
-    "value": "dad",
-    "label": "dad",
-    "text": "dad"
-   },
    {
     "value": "pin",
     "label": "pin",
@@ -787,6 +820,16 @@ export const questions = [
     "value": "mud",
     "label": "mud",
     "text": "mud"
+   },
+   {
+    "value": "day",
+    "label": "day",
+    "text": "day"
+   },
+   {
+    "value": "dad",
+    "label": "dad",
+    "text": "dad"
    }
   ],
   "answer": "day",
@@ -796,15 +839,16 @@ export const questions = [
    "pin": "D-VOWEL",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ay-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -815,7 +859,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "resolvedImageAssetKey": "day",
+  "imageAlt": "Which word has the long a sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v5",
@@ -841,12 +891,17 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "day. Which is the real way to write day?",
   "choices": [
+   "dae",
    "day",
    "dai",
-   "daye",
-   "dae"
+   "daye"
   ],
   "answerOptions": [
+   {
+    "value": "dae",
+    "label": "dae",
+    "text": "dae"
+   },
    {
     "value": "day",
     "label": "day",
@@ -861,30 +916,26 @@ export const questions = [
     "value": "daye",
     "label": "daye",
     "text": "daye"
-   },
-   {
-    "value": "dae",
-    "label": "dae",
-    "text": "dae"
    }
   ],
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {
-   "dai": "D-DEVELOPMENTAL",
    "daye": "D-DEVELOPMENTAL",
-   "dae": "D-DEVELOPMENTAL"
+   "dae": "D-DEVELOPMENTAL",
+   "dai": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "day",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "day",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -895,7 +946,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "resolvedImageAssetKey": "day",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v6",
@@ -955,16 +1012,17 @@ export const questions = [
    "staye": "D-DEVELOPMENTAL",
    "stae": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "stay",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ay-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -975,7 +1033,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v1",
@@ -1001,17 +1065,12 @@ export const questions = [
   "question": "Finish: sh__p",
   "spokenPrompt": "sheep. Which letters finish the word sheep?",
   "choices": [
-   "ee",
    "ea",
    "ai",
-   "oa"
+   "oa",
+   "ee"
   ],
   "answerOptions": [
-   {
-    "value": "ee",
-    "label": "ee",
-    "text": "ee"
-   },
    {
     "value": "ea",
     "label": "ea",
@@ -1026,14 +1085,19 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
    }
   ],
   "answer": "ee",
   "correctAnswer": "ee",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ea": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1045,6 +1109,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sheep",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1060,7 +1125,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/sheep.webp",
   "targetImage": "/images/assessment/long-vowels/sheep.webp",
   "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
-  "imageAlt": "sheep"
+  "resolvedImageAssetKey": "sheep",
+  "imageAlt": "Finish: sh__p"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v2",
@@ -1086,22 +1152,12 @@ export const questions = [
   "question": "Finish: gr__n",
   "spokenPrompt": "green. Which letters finish the word green?",
   "choices": [
-   "ee",
-   "ea",
    "ai",
-   "oo"
+   "oo",
+   "ee",
+   "ea"
   ],
   "answerOptions": [
-   {
-    "value": "ee",
-    "label": "ee",
-    "text": "ee"
-   },
-   {
-    "value": "ea",
-    "label": "ea",
-    "text": "ea"
-   },
    {
     "value": "ai",
     "label": "ai",
@@ -1111,14 +1167,24 @@ export const questions = [
     "value": "oo",
     "label": "oo",
     "text": "oo"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
    }
   ],
   "answer": "ee",
   "correctAnswer": "ee",
   "distractorRationales": {
+   "oo": "D-PATTERN-TRAP",
    "ea": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP",
-   "oo": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1130,6 +1196,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "green",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1145,7 +1212,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/green.webp",
   "targetImage": "/images/assessment/blends/green.webp",
   "targetImagePath": "/images/assessment/blends/green.webp",
-  "imageAlt": "green"
+  "resolvedImageAssetKey": "green",
+  "imageAlt": "Finish: gr__n"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v3",
@@ -1171,12 +1239,17 @@ export const questions = [
   "question": "Which word has the long e sound?",
   "spokenPrompt": "Which word has the long e sound?",
   "choices": [
+   "mud",
    "feet",
    "fan",
-   "sock",
-   "mud"
+   "sock"
   ],
   "answerOptions": [
+   {
+    "value": "mud",
+    "label": "mud",
+    "text": "mud"
+   },
    {
     "value": "feet",
     "label": "feet",
@@ -1191,29 +1264,25 @@ export const questions = [
     "value": "sock",
     "label": "sock",
     "text": "sock"
-   },
-   {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
    }
   ],
   "answer": "feet",
   "correctAnswer": "feet",
   "distractorRationales": {
+   "mud": "D-VOWEL",
    "fan": "D-VOWEL",
-   "sock": "D-VOWEL",
-   "mud": "D-VOWEL"
+   "sock": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ee-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1224,7 +1293,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/feet.png",
+  "imageUrl": "/images/child-mode/initial-sounds/feet.png",
+  "targetImage": "/images/child-mode/initial-sounds/feet.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/feet.png",
+  "resolvedImageAssetKey": "feet",
+  "imageAlt": "Which word has the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v4",
@@ -1284,15 +1359,16 @@ export const questions = [
    "bag": "D-VOWEL",
    "log": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ee-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1303,7 +1379,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/tree.webp",
+  "imageUrl": "/images/assessment/long-vowels/tree.webp",
+  "targetImage": "/images/assessment/long-vowels/tree.webp",
+  "targetImagePath": "/images/assessment/long-vowels/tree.webp",
+  "resolvedImageAssetKey": "tree",
+  "imageAlt": "Which word has the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v5",
@@ -1329,17 +1411,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "sheep. Which is the real way to write sheep?",
   "choices": [
-   "sheep",
    "sheap",
    "shepe",
-   "shiep"
+   "shiep",
+   "sheep"
   ],
   "answerOptions": [
-   {
-    "value": "sheep",
-    "label": "sheep",
-    "text": "sheep"
-   },
    {
     "value": "sheap",
     "label": "sheap",
@@ -1354,16 +1431,21 @@ export const questions = [
     "value": "shiep",
     "label": "shiep",
     "text": "shiep"
+   },
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
    }
   ],
   "answer": "sheep",
   "correctAnswer": "sheep",
   "distractorRationales": {
-   "sheap": "D-DEVELOPMENTAL",
    "shepe": "D-DEVELOPMENTAL",
-   "shiep": "D-DEVELOPMENTAL"
+   "shiep": "D-DEVELOPMENTAL",
+   "sheap": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1373,6 +1455,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sheep",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1388,7 +1471,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/sheep.webp",
   "targetImage": "/images/assessment/long-vowels/sheep.webp",
   "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
-  "imageAlt": "sheep"
+  "resolvedImageAssetKey": "sheep",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v6",
@@ -1414,22 +1498,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "bee. Which is the real way to write bee?",
   "choices": [
-   "bee",
-   "bea",
    "bie",
-   "beey"
+   "beey",
+   "bee",
+   "bea"
   ],
   "answerOptions": [
-   {
-    "value": "bee",
-    "label": "bee",
-    "text": "bee"
-   },
-   {
-    "value": "bea",
-    "label": "bea",
-    "text": "bea"
-   },
    {
     "value": "bie",
     "label": "bie",
@@ -1439,6 +1513,16 @@ export const questions = [
     "value": "beey",
     "label": "beey",
     "text": "beey"
+   },
+   {
+    "value": "bee",
+    "label": "bee",
+    "text": "bee"
+   },
+   {
+    "value": "bea",
+    "label": "bea",
+    "text": "bea"
    }
   ],
   "answer": "bee",
@@ -1448,7 +1532,7 @@ export const questions = [
    "bie": "D-DEVELOPMENTAL",
    "beey": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1458,6 +1542,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bee",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1469,11 +1554,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/child-mode/vowel-teams/bee.png",
-  "imageUrl": "/images/child-mode/vowel-teams/bee.png",
-  "targetImage": "/images/child-mode/vowel-teams/bee.png",
-  "targetImagePath": "/images/child-mode/vowel-teams/bee.png",
-  "imageAlt": "bee"
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
+  "resolvedImageAssetKey": "bee",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v1",
@@ -1499,12 +1585,17 @@ export const questions = [
   "question": "Finish: l__f",
   "spokenPrompt": "leaf. Which letters finish the word leaf?",
   "choices": [
+   "oa",
    "ea",
    "ee",
-   "ai",
-   "oa"
+   "ai"
   ],
   "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
    {
     "value": "ea",
     "label": "ea",
@@ -1519,19 +1610,14 @@ export const questions = [
     "value": "ai",
     "label": "ai",
     "text": "ai"
-   },
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
    }
   ],
   "answer": "ea",
   "correctAnswer": "ea",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1543,6 +1629,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "leaf",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1558,7 +1645,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/leaf.webp",
   "targetImage": "/images/assessment/long-vowels/leaf.webp",
   "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
-  "imageAlt": "leaf"
+  "resolvedImageAssetKey": "leaf",
+  "imageAlt": "Finish: l__f"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v2",
@@ -1614,9 +1702,9 @@ export const questions = [
   "answer": "ea",
   "correctAnswer": "ea",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1628,6 +1716,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "meat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1643,7 +1732,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/meat.png",
   "targetImage": "/images/child-mode/initial-sounds/meat.png",
   "targetImagePath": "/images/child-mode/initial-sounds/meat.png",
-  "imageAlt": "meat"
+  "resolvedImageAssetKey": "meat",
+  "imageAlt": "Finish: m__t"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v3",
@@ -1669,17 +1759,12 @@ export const questions = [
   "question": "Which word has the long e sound?",
   "spokenPrompt": "Which word has the long e sound?",
   "choices": [
-   "leaf",
    "leg",
    "fish",
-   "drum"
+   "drum",
+   "leaf"
   ],
   "answerOptions": [
-   {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
-   },
    {
     "value": "leg",
     "label": "leg",
@@ -1694,24 +1779,30 @@ export const questions = [
     "value": "drum",
     "label": "drum",
     "text": "drum"
+   },
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
    }
   ],
   "answer": "leaf",
   "correctAnswer": "leaf",
   "distractorRationales": {
+   "drum": "D-VOWEL",
    "leg": "D-PATTERN-TRAP",
-   "fish": "D-VOWEL",
-   "drum": "D-VOWEL"
+   "fish": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ea-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1722,7 +1813,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/leaf.webp",
+  "imageUrl": "/images/assessment/long-vowels/leaf.webp",
+  "targetImage": "/images/assessment/long-vowels/leaf.webp",
+  "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
+  "resolvedImageAssetKey": "leaf",
+  "imageAlt": "Which word has the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v4",
@@ -1748,22 +1845,12 @@ export const questions = [
   "question": "Which word does NOT have the long e sound?",
   "spokenPrompt": "Which word does not have the long e sound?",
   "choices": [
-   "bread",
-   "meat",
    "leaf",
-   "beach"
+   "beach",
+   "bread",
+   "meat"
   ],
   "answerOptions": [
-   {
-    "value": "bread",
-    "label": "bread",
-    "text": "bread"
-   },
-   {
-    "value": "meat",
-    "label": "meat",
-    "text": "meat"
-   },
    {
     "value": "leaf",
     "label": "leaf",
@@ -1773,6 +1860,16 @@ export const questions = [
     "value": "beach",
     "label": "beach",
     "text": "beach"
+   },
+   {
+    "value": "bread",
+    "label": "bread",
+    "text": "bread"
+   },
+   {
+    "value": "meat",
+    "label": "meat",
+    "text": "meat"
    }
   ],
   "answer": "bread",
@@ -1782,15 +1879,16 @@ export const questions = [
    "leaf": "D-PATTERN-TRAP",
    "beach": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ea-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1801,7 +1899,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "ea's two sounds — bread keeps the letters and loses the sound"
+  "notes": "ea's two sounds — bread keeps the letters and loses the sound",
+  "imagePath": "/images/assessment/blends/bread.webp",
+  "imageUrl": "/images/assessment/blends/bread.webp",
+  "targetImage": "/images/assessment/blends/bread.webp",
+  "targetImagePath": "/images/assessment/blends/bread.webp",
+  "resolvedImageAssetKey": "bread",
+  "imageAlt": "Which word does NOT have the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v5",
@@ -1827,12 +1931,17 @@ export const questions = [
   "question": "Which word does NOT have the long e sound?",
   "spokenPrompt": "Which word does not have the long e sound?",
   "choices": [
+   "peach",
    "head",
    "sea",
-   "beach",
-   "peach"
+   "beach"
   ],
   "answerOptions": [
+   {
+    "value": "peach",
+    "label": "peach",
+    "text": "peach"
+   },
    {
     "value": "head",
     "label": "head",
@@ -1847,29 +1956,25 @@ export const questions = [
     "value": "beach",
     "label": "beach",
     "text": "beach"
-   },
-   {
-    "value": "peach",
-    "label": "peach",
-    "text": "peach"
    }
   ],
   "answer": "head",
   "correctAnswer": "head",
   "distractorRationales": {
-   "sea": "D-PATTERN-TRAP",
    "beach": "D-PATTERN-TRAP",
-   "peach": "D-PATTERN-TRAP"
+   "peach": "D-PATTERN-TRAP",
+   "sea": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ea-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1880,7 +1985,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "resolvedImageAssetKey": "long",
+  "imageAlt": "Which word does NOT have the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v6",
@@ -1940,7 +2051,7 @@ export const questions = [
    "beache": "D-DEVELOPMENTAL",
    "biech": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1950,6 +2061,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "beach",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1965,7 +2077,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/beach.webp",
   "targetImage": "/images/assessment/long-vowels/beach.webp",
   "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageAlt": "beach"
+  "resolvedImageAssetKey": "beach",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v1",
@@ -1991,17 +2104,12 @@ export const questions = [
   "question": "Finish: b__t",
   "spokenPrompt": "boat. Which letters finish the word boat?",
   "choices": [
-   "oa",
    "ee",
    "ai",
-   "igh"
+   "igh",
+   "oa"
   ],
   "answerOptions": [
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
-   },
    {
     "value": "ee",
     "label": "ee",
@@ -2016,6 +2124,11 @@ export const questions = [
     "value": "igh",
     "label": "igh",
     "text": "igh"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
    }
   ],
   "answer": "oa",
@@ -2035,6 +2148,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2050,7 +2164,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/boat.webp",
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageAlt": "boat"
+  "resolvedImageAssetKey": "boat",
+  "imageAlt": "Finish: b__t"
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v2",
@@ -2076,22 +2191,12 @@ export const questions = [
   "question": "Finish: g__t",
   "spokenPrompt": "goat. Which letters finish the word goat?",
   "choices": [
-   "oa",
-   "ea",
    "ai",
-   "ee"
+   "ee",
+   "oa",
+   "ea"
   ],
   "answerOptions": [
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
-   },
-   {
-    "value": "ea",
-    "label": "ea",
-    "text": "ea"
-   },
    {
     "value": "ai",
     "label": "ai",
@@ -2101,6 +2206,16 @@ export const questions = [
     "value": "ee",
     "label": "ee",
     "text": "ee"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ea",
+    "label": "ea",
+    "text": "ea"
    }
   ],
   "answer": "oa",
@@ -2120,6 +2235,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "goat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2135,7 +2251,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/goat.webp",
   "targetImage": "/images/assessment/long-vowels/goat.webp",
   "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageAlt": "goat"
+  "resolvedImageAssetKey": "goat",
+  "imageAlt": "Finish: g__t"
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v3",
@@ -2161,12 +2278,17 @@ export const questions = [
   "question": "Which word has the long o sound?",
   "spokenPrompt": "Which word has the long o sound?",
   "choices": [
+   "hen",
    "goat",
    "got",
-   "pin",
-   "hen"
+   "pin"
   ],
   "answerOptions": [
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
    {
     "value": "goat",
     "label": "goat",
@@ -2181,11 +2303,6 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
-   },
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
    }
   ],
   "answer": "goat",
@@ -2195,15 +2312,16 @@ export const questions = [
    "pin": "D-VOWEL",
    "hen": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oa-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2214,7 +2332,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "got is the key minus its team — the short sibling"
+  "notes": "got is the key minus its team — the short sibling",
+  "imagePath": "/images/assessment/long-vowels/goat.webp",
+  "imageUrl": "/images/assessment/long-vowels/goat.webp",
+  "targetImage": "/images/assessment/long-vowels/goat.webp",
+  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
+  "resolvedImageAssetKey": "goat",
+  "imageAlt": "Which word has the long o sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v4",
@@ -2270,19 +2394,20 @@ export const questions = [
   "answer": "road",
   "correctAnswer": "road",
   "distractorRationales": {
-   "rod": "D-PATTERN-TRAP",
    "cup": "D-VOWEL",
-   "leg": "D-VOWEL"
+   "leg": "D-VOWEL",
+   "rod": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oa-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2293,7 +2418,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/vowels/road.png",
+  "imageUrl": "/images/child-mode/vowels/road.png",
+  "targetImage": "/images/child-mode/vowels/road.png",
+  "targetImagePath": "/images/child-mode/vowels/road.png",
+  "resolvedImageAssetKey": "road",
+  "imageAlt": "Which word has the long o sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v5",
@@ -2319,17 +2450,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "boat. Which is the real way to write boat?",
   "choices": [
-   "boat",
    "bote",
    "boet",
-   "boate"
+   "boate",
+   "boat"
   ],
   "answerOptions": [
-   {
-    "value": "boat",
-    "label": "boat",
-    "text": "boat"
-   },
    {
     "value": "bote",
     "label": "bote",
@@ -2344,6 +2470,11 @@ export const questions = [
     "value": "boate",
     "label": "boate",
     "text": "boate"
+   },
+   {
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
    }
   ],
   "answer": "boat",
@@ -2353,7 +2484,7 @@ export const questions = [
    "boet": "D-DEVELOPMENTAL",
    "boate": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2363,6 +2494,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2378,7 +2510,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/boat.webp",
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageAlt": "boat"
+  "resolvedImageAssetKey": "boat",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v6",
@@ -2404,22 +2537,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "coat. Which is the real way to write coat?",
   "choices": [
-   "coat",
-   "cote",
    "coate",
-   "koat"
+   "koat",
+   "coat",
+   "cote"
   ],
   "answerOptions": [
-   {
-    "value": "coat",
-    "label": "coat",
-    "text": "coat"
-   },
-   {
-    "value": "cote",
-    "label": "cote",
-    "text": "cote"
-   },
    {
     "value": "coate",
     "label": "coate",
@@ -2429,16 +2552,26 @@ export const questions = [
     "value": "koat",
     "label": "koat",
     "text": "koat"
+   },
+   {
+    "value": "coat",
+    "label": "coat",
+    "text": "coat"
+   },
+   {
+    "value": "cote",
+    "label": "cote",
+    "text": "cote"
    }
   ],
   "answer": "coat",
   "correctAnswer": "coat",
   "distractorRationales": {
-   "cote": "D-DEVELOPMENTAL",
    "coate": "D-DEVELOPMENTAL",
-   "koat": "D-DEVELOPMENTAL"
+   "koat": "D-DEVELOPMENTAL",
+   "cote": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2448,6 +2581,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "coat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2459,11 +2593,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/child-mode/initial-sounds/coat.png",
-  "imageUrl": "/images/child-mode/initial-sounds/coat.png",
-  "targetImage": "/images/child-mode/initial-sounds/coat.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/coat.png",
-  "imageAlt": "coat"
+  "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/oat/coat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/oat/coat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
+  "resolvedImageAssetKey": "coat",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v1",
@@ -2489,12 +2624,17 @@ export const questions = [
   "question": "Finish: l__t",
   "spokenPrompt": "light. Which letters finish the word light?",
   "choices": [
+   "oa",
    "igh",
    "ai",
-   "ee",
-   "oa"
+   "ee"
   ],
   "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
    {
     "value": "igh",
     "label": "igh",
@@ -2509,11 +2649,6 @@ export const questions = [
     "value": "ee",
     "label": "ee",
     "text": "ee"
-   },
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
    }
   ],
   "answer": "igh",
@@ -2533,6 +2668,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "light",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2548,7 +2684,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/light.webp",
   "targetImage": "/images/assessment/long-vowels/light.webp",
   "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "imageAlt": "light"
+  "resolvedImageAssetKey": "light",
+  "imageAlt": "Finish: l__t"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v2",
@@ -2604,9 +2741,9 @@ export const questions = [
   "answer": "igh",
   "correctAnswer": "igh",
   "distractorRationales": {
+   "oa": "D-PATTERN-TRAP",
    "ai": "D-PATTERN-TRAP",
-   "ee": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "ee": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -2618,6 +2755,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "night",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2633,7 +2771,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/night.webp",
   "targetImage": "/images/assessment/long-vowels/night.webp",
   "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "imageAlt": "night"
+  "resolvedImageAssetKey": "night",
+  "imageAlt": "Finish: n__t"
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v3",
@@ -2659,17 +2798,12 @@ export const questions = [
   "question": "Which word has the long i sound?",
   "spokenPrompt": "Which word has the long i sound?",
   "choices": [
-   "night",
    "pin",
    "dog",
-   "cup"
+   "cup",
+   "night"
   ],
   "answerOptions": [
-   {
-    "value": "night",
-    "label": "night",
-    "text": "night"
-   },
    {
     "value": "pin",
     "label": "pin",
@@ -2684,6 +2818,11 @@ export const questions = [
     "value": "cup",
     "label": "cup",
     "text": "cup"
+   },
+   {
+    "value": "night",
+    "label": "night",
+    "text": "night"
    }
   ],
   "answer": "night",
@@ -2693,15 +2832,16 @@ export const questions = [
    "dog": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-igh-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2712,7 +2852,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/night.webp",
+  "imageUrl": "/images/assessment/long-vowels/night.webp",
+  "targetImage": "/images/assessment/long-vowels/night.webp",
+  "targetImagePath": "/images/assessment/long-vowels/night.webp",
+  "resolvedImageAssetKey": "night",
+  "imageAlt": "Which word has the long i sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v4",
@@ -2738,22 +2884,12 @@ export const questions = [
   "question": "Which word has the long i sound?",
   "spokenPrompt": "Which word has the long i sound?",
   "choices": [
-   "light",
-   "lit",
    "bag",
-   "pot"
+   "pot",
+   "light",
+   "lit"
   ],
   "answerOptions": [
-   {
-    "value": "light",
-    "label": "light",
-    "text": "light"
-   },
-   {
-    "value": "lit",
-    "label": "lit",
-    "text": "lit"
-   },
    {
     "value": "bag",
     "label": "bag",
@@ -2763,24 +2899,35 @@ export const questions = [
     "value": "pot",
     "label": "pot",
     "text": "pot"
+   },
+   {
+    "value": "light",
+    "label": "light",
+    "text": "light"
+   },
+   {
+    "value": "lit",
+    "label": "lit",
+    "text": "lit"
    }
   ],
   "answer": "light",
   "correctAnswer": "light",
   "distractorRationales": {
-   "lit": "D-PATTERN-TRAP",
    "bag": "D-VOWEL",
-   "pot": "D-VOWEL"
+   "pot": "D-VOWEL",
+   "lit": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-igh-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2791,7 +2938,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "lit is the key minus its team"
+  "notes": "lit is the key minus its team",
+  "imagePath": "/images/assessment/long-vowels/light.webp",
+  "imageUrl": "/images/assessment/long-vowels/light.webp",
+  "targetImage": "/images/assessment/long-vowels/light.webp",
+  "targetImagePath": "/images/assessment/long-vowels/light.webp",
+  "resolvedImageAssetKey": "light",
+  "imageAlt": "Which word has the long i sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v5",
@@ -2817,12 +2970,17 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "light. Which is the real way to write light?",
   "choices": [
+   "lyte",
    "light",
    "lite",
-   "liht",
-   "lyte"
+   "liht"
   ],
   "answerOptions": [
+   {
+    "value": "lyte",
+    "label": "lyte",
+    "text": "lyte"
+   },
    {
     "value": "light",
     "label": "light",
@@ -2837,21 +2995,16 @@ export const questions = [
     "value": "liht",
     "label": "liht",
     "text": "liht"
-   },
-   {
-    "value": "lyte",
-    "label": "lyte",
-    "text": "lyte"
    }
   ],
   "answer": "light",
   "correctAnswer": "light",
   "distractorRationales": {
-   "lite": "D-DEVELOPMENTAL",
    "liht": "D-DEVELOPMENTAL",
-   "lyte": "D-DEVELOPMENTAL"
+   "lyte": "D-DEVELOPMENTAL",
+   "lite": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2861,6 +3014,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "light",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2876,7 +3030,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/light.webp",
   "targetImage": "/images/assessment/long-vowels/light.webp",
   "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "imageAlt": "light"
+  "resolvedImageAssetKey": "light",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v6",
@@ -2932,11 +3087,11 @@ export const questions = [
   "answer": "night",
   "correctAnswer": "night",
   "distractorRationales": {
-   "nite": "D-DEVELOPMENTAL",
    "niht": "D-DEVELOPMENTAL",
-   "nighte": "D-DEVELOPMENTAL"
+   "nighte": "D-DEVELOPMENTAL",
+   "nite": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2946,6 +3101,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "night",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2961,7 +3117,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/night.webp",
   "targetImage": "/images/assessment/long-vowels/night.webp",
   "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "imageAlt": "night"
+  "resolvedImageAssetKey": "night",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v1",
@@ -2987,22 +3144,12 @@ export const questions = [
   "question": "Finish: m__n",
   "spokenPrompt": "moon. Which letters finish the word moon?",
   "choices": [
-   "oo",
-   "ew",
    "oa",
-   "ou"
+   "ou",
+   "oo",
+   "ew"
   ],
   "answerOptions": [
-   {
-    "value": "oo",
-    "label": "oo",
-    "text": "oo"
-   },
-   {
-    "value": "ew",
-    "label": "ew",
-    "text": "ew"
-   },
    {
     "value": "oa",
     "label": "oa",
@@ -3012,14 +3159,24 @@ export const questions = [
     "value": "ou",
     "label": "ou",
     "text": "ou"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
    }
   ],
   "answer": "oo",
   "correctAnswer": "oo",
   "distractorRationales": {
-   "ew": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP",
-   "ou": "D-PATTERN-TRAP"
+   "ou": "D-PATTERN-TRAP",
+   "ew": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3031,6 +3188,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "moon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3046,7 +3204,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/moon.webp",
   "targetImage": "/images/assessment/long-vowels/moon.webp",
   "targetImagePath": "/images/assessment/long-vowels/moon.webp",
-  "imageAlt": "moon"
+  "resolvedImageAssetKey": "moon",
+  "imageAlt": "Finish: m__n"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v2",
@@ -3072,17 +3231,12 @@ export const questions = [
   "question": "Finish: sp__n",
   "spokenPrompt": "spoon. Which letters finish the word spoon?",
   "choices": [
-   "oo",
    "ew",
    "oa",
-   "ai"
+   "ai",
+   "oo"
   ],
   "answerOptions": [
-   {
-    "value": "oo",
-    "label": "oo",
-    "text": "oo"
-   },
    {
     "value": "ew",
     "label": "ew",
@@ -3097,14 +3251,19 @@ export const questions = [
     "value": "ai",
     "label": "ai",
     "text": "ai"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
    }
   ],
   "answer": "oo",
   "correctAnswer": "oo",
   "distractorRationales": {
-   "ew": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP",
+   "ew": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3116,6 +3275,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "spoon",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3131,7 +3291,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/spoon.webp",
   "targetImage": "/images/assessment/long-vowels/spoon.webp",
   "targetImagePath": "/images/assessment/long-vowels/spoon.webp",
-  "imageAlt": "spoon"
+  "resolvedImageAssetKey": "spoon",
+  "imageAlt": "Finish: sp__n"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v3",
@@ -3187,20 +3348,21 @@ export const questions = [
   "answer": "broom",
   "correctAnswer": "broom",
   "distractorRationales": {
-   "book": "D-PATTERN-TRAP",
    "bed": "D-VOWEL",
-   "pig": "D-VOWEL"
+   "pig": "D-VOWEL",
+   "book": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "blue",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3211,7 +3373,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "book keeps the letters and swaps the sound — the two-oo contrast"
+  "notes": "book keeps the letters and swaps the sound — the two-oo contrast",
+  "imagePath": "/images/assessment/long-vowels/blue.webp",
+  "imageUrl": "/images/assessment/long-vowels/blue.webp",
+  "targetImage": "/images/assessment/long-vowels/blue.webp",
+  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
+  "resolvedImageAssetKey": "blue",
+  "imageAlt": "Which word has the same sound as blue?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v4",
@@ -3237,17 +3405,12 @@ export const questions = [
   "question": "Which word has the same sound as glue?",
   "spokenPrompt": "glue. Which word has the same middle sound as glue?",
   "choices": [
-   "zoo",
    "look",
    "fan",
-   "net"
+   "net",
+   "zoo"
   ],
   "answerOptions": [
-   {
-    "value": "zoo",
-    "label": "zoo",
-    "text": "zoo"
-   },
    {
     "value": "look",
     "label": "look",
@@ -3262,6 +3425,11 @@ export const questions = [
     "value": "net",
     "label": "net",
     "text": "net"
+   },
+   {
+    "value": "zoo",
+    "label": "zoo",
+    "text": "zoo"
    }
   ],
   "answer": "zoo",
@@ -3271,16 +3439,17 @@ export const questions = [
    "fan": "D-VOWEL",
    "net": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "glue",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3291,7 +3460,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/glue.webp",
+  "imageUrl": "/images/assessment/long-vowels/glue.webp",
+  "targetImage": "/images/assessment/long-vowels/glue.webp",
+  "targetImagePath": "/images/assessment/long-vowels/glue.webp",
+  "resolvedImageAssetKey": "glue",
+  "imageAlt": "Which word has the same sound as glue?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v5",
@@ -3347,19 +3522,20 @@ export const questions = [
   "answer": "book",
   "correctAnswer": "book",
   "distractorRationales": {
+   "zoo": "D-PATTERN-TRAP",
    "moon": "D-PATTERN-TRAP",
-   "spoon": "D-PATTERN-TRAP",
-   "zoo": "D-PATTERN-TRAP"
+   "spoon": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3370,7 +3546,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "resolvedImageAssetKey": "book",
+  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v6",
@@ -3396,12 +3578,17 @@ export const questions = [
   "question": "Which word does NOT have the oo (as in moon) sound?",
   "spokenPrompt": "Which word does not have the oo (as in moon) sound?",
   "choices": [
+   "room",
    "look",
    "broom",
-   "boot",
-   "room"
+   "boot"
   ],
   "answerOptions": [
+   {
+    "value": "room",
+    "label": "room",
+    "text": "room"
+   },
    {
     "value": "look",
     "label": "look",
@@ -3416,11 +3603,6 @@ export const questions = [
     "value": "boot",
     "label": "boot",
     "text": "boot"
-   },
-   {
-    "value": "room",
-    "label": "room",
-    "text": "room"
    }
   ],
   "answer": "look",
@@ -3430,15 +3612,16 @@ export const questions = [
    "boot": "D-PATTERN-TRAP",
    "room": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3449,7 +3632,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/hfw/look.webp",
+  "imageUrl": "/images/assessment/hfw/look.webp",
+  "targetImage": "/images/assessment/hfw/look.webp",
+  "targetImagePath": "/images/assessment/hfw/look.webp",
+  "resolvedImageAssetKey": "look",
+  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v1",
@@ -3505,9 +3694,9 @@ export const questions = [
   "answer": "ow",
   "correctAnswer": "ow",
   "distractorRationales": {
-   "ou": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP",
-   "oo": "D-PATTERN-TRAP"
+   "oo": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3519,6 +3708,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snow",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3534,7 +3724,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/snow.webp",
   "targetImage": "/images/assessment/long-vowels/snow.webp",
   "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageAlt": "snow"
+  "resolvedImageAssetKey": "snow",
+  "imageAlt": "Finish: sn__"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v2",
@@ -3560,12 +3751,17 @@ export const questions = [
   "question": "Finish: gr__",
   "spokenPrompt": "grow. Which letters finish the word grow?",
   "choices": [
+   "aw",
    "ow",
    "ou",
-   "oa",
-   "aw"
+   "oa"
   ],
   "answerOptions": [
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
    {
     "value": "ow",
     "label": "ow",
@@ -3580,30 +3776,26 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
-   },
-   {
-    "value": "aw",
-    "label": "aw",
-    "text": "aw"
    }
   ],
   "answer": "ow",
   "correctAnswer": "ow",
   "distractorRationales": {
-   "ou": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP",
-   "aw": "D-PATTERN-TRAP"
+   "aw": "D-PATTERN-TRAP",
+   "ou": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "grow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3614,7 +3806,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: gr__"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v3",
@@ -3640,22 +3838,12 @@ export const questions = [
   "question": "Which word has the same sound as boat?",
   "spokenPrompt": "boat. Which word has the same middle sound as boat?",
   "choices": [
-   "grow",
-   "cow",
    "hat",
-   "bed"
+   "bed",
+   "grow",
+   "cow"
   ],
   "answerOptions": [
-   {
-    "value": "grow",
-    "label": "grow",
-    "text": "grow"
-   },
-   {
-    "value": "cow",
-    "label": "cow",
-    "text": "cow"
-   },
    {
     "value": "hat",
     "label": "hat",
@@ -3665,25 +3853,36 @@ export const questions = [
     "value": "bed",
     "label": "bed",
     "text": "bed"
+   },
+   {
+    "value": "grow",
+    "label": "grow",
+    "text": "grow"
+   },
+   {
+    "value": "cow",
+    "label": "cow",
+    "text": "cow"
    }
   ],
   "answer": "grow",
   "correctAnswer": "grow",
   "distractorRationales": {
-   "cow": "D-PATTERN-TRAP",
    "hat": "D-VOWEL",
-   "bed": "D-VOWEL"
+   "bed": "D-VOWEL",
+   "cow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3694,7 +3893,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cow keeps the letters and swaps the sound"
+  "notes": "cow keeps the letters and swaps the sound",
+  "imagePath": "/images/assessment/long-vowels/boat.webp",
+  "imageUrl": "/images/assessment/long-vowels/boat.webp",
+  "targetImage": "/images/assessment/long-vowels/boat.webp",
+  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
+  "resolvedImageAssetKey": "boat",
+  "imageAlt": "Which word has the same sound as boat?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v4",
@@ -3720,12 +3925,17 @@ export const questions = [
   "question": "Which word has the same sound as loud?",
   "spokenPrompt": "loud. Which word has the same middle sound as loud?",
   "choices": [
+   "mud",
    "town",
    "snow",
-   "pin",
-   "mud"
+   "pin"
   ],
   "answerOptions": [
+   {
+    "value": "mud",
+    "label": "mud",
+    "text": "mud"
+   },
    {
     "value": "town",
     "label": "town",
@@ -3740,11 +3950,6 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
-   },
-   {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
    }
   ],
   "answer": "town",
@@ -3754,16 +3959,17 @@ export const questions = [
    "pin": "D-VOWEL",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "loud",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3774,7 +3980,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/loud.webp",
+  "imageUrl": "/images/assessment/generated/concepts/loud.webp",
+  "targetImage": "/images/assessment/generated/concepts/loud.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/loud.webp",
+  "resolvedImageAssetKey": "loud",
+  "imageAlt": "Which word has the same sound as loud?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v5",
@@ -3800,22 +4012,12 @@ export const questions = [
   "question": "Which word does NOT have the ow (as in cow) sound?",
   "spokenPrompt": "Which word does not have the ow (as in cow) sound?",
   "choices": [
-   "snow",
-   "town",
    "down",
-   "how"
+   "how",
+   "snow",
+   "town"
   ],
   "answerOptions": [
-   {
-    "value": "snow",
-    "label": "snow",
-    "text": "snow"
-   },
-   {
-    "value": "town",
-    "label": "town",
-    "text": "town"
-   },
    {
     "value": "down",
     "label": "down",
@@ -3825,24 +4027,35 @@ export const questions = [
     "value": "how",
     "label": "how",
     "text": "how"
+   },
+   {
+    "value": "snow",
+    "label": "snow",
+    "text": "snow"
+   },
+   {
+    "value": "town",
+    "label": "town",
+    "text": "town"
    }
   ],
   "answer": "snow",
   "correctAnswer": "snow",
   "distractorRationales": {
+   "how": "D-PATTERN-TRAP",
    "town": "D-PATTERN-TRAP",
-   "down": "D-PATTERN-TRAP",
-   "how": "D-PATTERN-TRAP"
+   "down": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3853,7 +4066,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/long-vowels/snow.webp",
+  "imageUrl": "/images/assessment/long-vowels/snow.webp",
+  "targetImage": "/images/assessment/long-vowels/snow.webp",
+  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
+  "resolvedImageAssetKey": "snow",
+  "imageAlt": "Which word does NOT have the ow (as in cow) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v6",
@@ -3879,17 +4098,12 @@ export const questions = [
   "question": "Which word does NOT have the ow (as in snow) sound?",
   "spokenPrompt": "Which word does not have the ow (as in snow) sound?",
   "choices": [
-   "cow",
    "grow",
    "slow",
-   "show"
+   "show",
+   "cow"
   ],
   "answerOptions": [
-   {
-    "value": "cow",
-    "label": "cow",
-    "text": "cow"
-   },
    {
     "value": "grow",
     "label": "grow",
@@ -3904,6 +4118,11 @@ export const questions = [
     "value": "show",
     "label": "show",
     "text": "show"
+   },
+   {
+    "value": "cow",
+    "label": "cow",
+    "text": "cow"
    }
   ],
   "answer": "cow",
@@ -3913,15 +4132,16 @@ export const questions = [
    "slow": "D-PATTERN-TRAP",
    "show": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3932,7 +4152,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "resolvedImageAssetKey": "cow",
+  "imageAlt": "Which word does NOT have the ow (as in snow) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v1",
@@ -3958,22 +4184,12 @@ export const questions = [
   "question": "Finish: cl__d",
   "spokenPrompt": "cloud. Which letters finish the word cloud?",
   "choices": [
-   "ou",
-   "ow",
    "oo",
-   "oa"
+   "oa",
+   "ou",
+   "ow"
   ],
   "answerOptions": [
-   {
-    "value": "ou",
-    "label": "ou",
-    "text": "ou"
-   },
-   {
-    "value": "ow",
-    "label": "ow",
-    "text": "ow"
-   },
    {
     "value": "oo",
     "label": "oo",
@@ -3983,6 +4199,16 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
+   },
+   {
+    "value": "ow",
+    "label": "ow",
+    "text": "ow"
    }
   ],
   "answer": "ou",
@@ -4002,6 +4228,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cloud",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4017,7 +4244,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/blends/cloud.png",
   "targetImage": "/images/child-mode/blends/cloud.png",
   "targetImagePath": "/images/child-mode/blends/cloud.png",
-  "imageAlt": "cloud"
+  "resolvedImageAssetKey": "cloud",
+  "imageAlt": "Finish: cl__d"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v2",
@@ -4043,17 +4271,12 @@ export const questions = [
   "question": "Finish: h__se",
   "spokenPrompt": "house. Which letters finish the word house?",
   "choices": [
-   "ou",
    "ow",
    "oo",
-   "oa"
+   "oa",
+   "ou"
   ],
   "answerOptions": [
-   {
-    "value": "ou",
-    "label": "ou",
-    "text": "ou"
-   },
    {
     "value": "ow",
     "label": "ow",
@@ -4068,6 +4291,11 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ou",
+    "label": "ou",
+    "text": "ou"
    }
   ],
   "answer": "ou",
@@ -4087,6 +4315,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "house",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4098,11 +4327,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/house.png",
-  "imageUrl": "/images/child-mode/initial-sounds/house.png",
-  "targetImage": "/images/child-mode/initial-sounds/house.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/house.png",
-  "imageAlt": "house"
+  "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/house/house-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/house/house-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
+  "resolvedImageAssetKey": "house",
+  "imageAlt": "Finish: h__se"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v3",
@@ -4162,16 +4392,17 @@ export const questions = [
    "hat": "D-VOWEL",
    "zip": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "cow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ou-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4182,7 +4413,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk"
+  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk",
+  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "resolvedImageAssetKey": "cow",
+  "imageAlt": "Which word has the same sound as cow?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v4",
@@ -4208,17 +4445,12 @@ export const questions = [
   "question": "Which word has the same sound as how?",
   "spokenPrompt": "how. Which word has the same middle sound as how?",
   "choices": [
-   "mouth",
    "moth",
    "bag",
-   "pin"
+   "pin",
+   "mouth"
   ],
   "answerOptions": [
-   {
-    "value": "mouth",
-    "label": "mouth",
-    "text": "mouth"
-   },
    {
     "value": "moth",
     "label": "moth",
@@ -4233,25 +4465,31 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
+   },
+   {
+    "value": "mouth",
+    "label": "mouth",
+    "text": "mouth"
    }
   ],
   "answer": "mouth",
   "correctAnswer": "mouth",
   "distractorRationales": {
+   "pin": "D-VOWEL",
    "moth": "D-PATTERN-TRAP",
-   "bag": "D-VOWEL",
-   "pin": "D-VOWEL"
+   "bag": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ou-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4262,7 +4500,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "moth is the key minus one letter with a different vowel entirely"
+  "notes": "moth is the key minus one letter with a different vowel entirely",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "Which word has the same sound as how?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v5",
@@ -4322,15 +4566,16 @@ export const questions = [
    "shout": "D-PATTERN-TRAP",
    "loud": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ou-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4341,7 +4586,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "soup's ou says oo — the variable-team contrast"
+  "notes": "soup's ou says oo — the variable-team contrast",
+  "imagePath": "/images/child-mode/blends/cloud.png",
+  "imageUrl": "/images/child-mode/blends/cloud.png",
+  "targetImage": "/images/child-mode/blends/cloud.png",
+  "targetImagePath": "/images/child-mode/blends/cloud.png",
+  "resolvedImageAssetKey": "cloud",
+  "imageAlt": "Which word does NOT have the ou (as in cloud) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v6",
@@ -4367,12 +4618,17 @@ export const questions = [
   "question": "Which word does NOT have the ou (as in cloud) sound?",
   "spokenPrompt": "Which word does not have the ou (as in cloud) sound?",
   "choices": [
+   "shout",
    "could",
    "house",
-   "mouse",
-   "shout"
+   "mouse"
   ],
   "answerOptions": [
+   {
+    "value": "shout",
+    "label": "shout",
+    "text": "shout"
+   },
    {
     "value": "could",
     "label": "could",
@@ -4387,29 +4643,25 @@ export const questions = [
     "value": "mouse",
     "label": "mouse",
     "text": "mouse"
-   },
-   {
-    "value": "shout",
-    "label": "shout",
-    "text": "shout"
    }
   ],
   "answer": "could",
   "correctAnswer": "could",
   "distractorRationales": {
+   "shout": "D-PATTERN-TRAP",
    "house": "D-PATTERN-TRAP",
-   "mouse": "D-PATTERN-TRAP",
-   "shout": "D-PATTERN-TRAP"
+   "mouse": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ou-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4420,7 +4672,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "could's ou says the book-oo"
+  "notes": "could's ou says the book-oo",
+  "imagePath": "/images/assessment/hfw/could.webp",
+  "imageUrl": "/images/assessment/hfw/could.webp",
+  "targetImage": "/images/assessment/hfw/could.webp",
+  "targetImagePath": "/images/assessment/hfw/could.webp",
+  "resolvedImageAssetKey": "could",
+  "imageAlt": "Which word does NOT have the ou (as in cloud) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v1",
@@ -4480,16 +4738,17 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4500,7 +4759,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: c__n"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v2",
@@ -4526,12 +4791,17 @@ export const questions = [
   "question": "Finish: b__l",
   "spokenPrompt": "boil. Which letters finish the word boil?",
   "choices": [
+   "oo",
    "oi",
    "oy",
-   "ea",
-   "oo"
+   "ea"
   ],
   "answerOptions": [
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
    {
     "value": "oi",
     "label": "oi",
@@ -4546,11 +4816,6 @@ export const questions = [
     "value": "ea",
     "label": "ea",
     "text": "ea"
-   },
-   {
-    "value": "oo",
-    "label": "oo",
-    "text": "oo"
    }
   ],
   "answer": "oi",
@@ -4560,16 +4825,17 @@ export const questions = [
    "ea": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boil",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boil",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4580,7 +4846,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/boil.webp",
+  "imageUrl": "/images/assessment/generated/concepts/boil.webp",
+  "targetImage": "/images/assessment/generated/concepts/boil.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/boil.webp",
+  "resolvedImageAssetKey": "boil",
+  "imageAlt": "Finish: b__l"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v3",
@@ -4606,22 +4878,12 @@ export const questions = [
   "question": "Which word has the same sound as toy?",
   "spokenPrompt": "toy. Which word has the same middle sound as toy?",
   "choices": [
-   "coin",
-   "cot",
    "pin",
-   "bag"
+   "bag",
+   "coin",
+   "cot"
   ],
   "answerOptions": [
-   {
-    "value": "coin",
-    "label": "coin",
-    "text": "coin"
-   },
-   {
-    "value": "cot",
-    "label": "cot",
-    "text": "cot"
-   },
    {
     "value": "pin",
     "label": "pin",
@@ -4631,6 +4893,16 @@ export const questions = [
     "value": "bag",
     "label": "bag",
     "text": "bag"
+   },
+   {
+    "value": "coin",
+    "label": "coin",
+    "text": "coin"
+   },
+   {
+    "value": "cot",
+    "label": "cot",
+    "text": "cot"
    }
   ],
   "answer": "coin",
@@ -4640,16 +4912,17 @@ export const questions = [
    "pin": "D-VOWEL",
    "bag": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4660,7 +4933,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "resolvedImageAssetKey": "toy",
+  "imageAlt": "Which word has the same sound as toy?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v4",
@@ -4686,12 +4965,17 @@ export const questions = [
   "question": "Which word has the same sound as boy?",
   "spokenPrompt": "boy. Which word has the same middle sound as boy?",
   "choices": [
+   "cup",
    "oil",
    "log",
-   "pen",
-   "cup"
+   "pen"
   ],
   "answerOptions": [
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
    {
     "value": "oil",
     "label": "oil",
@@ -4706,30 +4990,26 @@ export const questions = [
     "value": "pen",
     "label": "pen",
     "text": "pen"
-   },
-   {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
    }
   ],
   "answer": "oil",
   "correctAnswer": "oil",
   "distractorRationales": {
+   "cup": "D-VOWEL",
    "log": "D-VOWEL",
-   "pen": "D-VOWEL",
-   "cup": "D-VOWEL"
+   "pen": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,7 +5020,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "resolvedImageAssetKey": "boy",
+  "imageAlt": "Which word has the same sound as boy?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v5",
@@ -4766,22 +5052,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "coin. Which is the real way to write coin?",
   "choices": [
-   "coin",
-   "coyn",
    "koin",
-   "coine"
+   "coine",
+   "coin",
+   "coyn"
   ],
   "answerOptions": [
-   {
-    "value": "coin",
-    "label": "coin",
-    "text": "coin"
-   },
-   {
-    "value": "coyn",
-    "label": "coyn",
-    "text": "coyn"
-   },
    {
     "value": "koin",
     "label": "koin",
@@ -4791,6 +5067,16 @@ export const questions = [
     "value": "coine",
     "label": "coine",
     "text": "coine"
+   },
+   {
+    "value": "coin",
+    "label": "coin",
+    "text": "coin"
+   },
+   {
+    "value": "coyn",
+    "label": "coyn",
+    "text": "coyn"
    }
   ],
   "answer": "coin",
@@ -4800,16 +5086,17 @@ export const questions = [
    "koin": "D-DEVELOPMENTAL",
    "coine": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4820,7 +5107,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "coyn is the oy-in-the-middle position error"
+  "notes": "coyn is the oy-in-the-middle position error",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v6",
@@ -4846,17 +5139,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "point. Which is the real way to write point?",
   "choices": [
-   "point",
    "poynt",
    "poient",
-   "pointe"
+   "pointe",
+   "point"
   ],
   "answerOptions": [
-   {
-    "value": "point",
-    "label": "point",
-    "text": "point"
-   },
    {
     "value": "poynt",
     "label": "poynt",
@@ -4871,25 +5159,31 @@ export const questions = [
     "value": "pointe",
     "label": "pointe",
     "text": "pointe"
+   },
+   {
+    "value": "point",
+    "label": "point",
+    "text": "point"
    }
   ],
   "answer": "point",
   "correctAnswer": "point",
   "distractorRationales": {
+   "pointe": "D-DEVELOPMENTAL",
    "poynt": "D-DEVELOPMENTAL",
-   "poient": "D-DEVELOPMENTAL",
-   "pointe": "D-DEVELOPMENTAL"
+   "poient": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "point",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4900,7 +5194,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v1",
@@ -4926,22 +5226,12 @@ export const questions = [
   "question": "Finish: b__",
   "spokenPrompt": "boy. Which letters finish the word boy?",
   "choices": [
-   "oy",
-   "oi",
    "ai",
-   "ay"
+   "ay",
+   "oy",
+   "oi"
   ],
   "answerOptions": [
-   {
-    "value": "oy",
-    "label": "oy",
-    "text": "oy"
-   },
-   {
-    "value": "oi",
-    "label": "oi",
-    "text": "oi"
-   },
    {
     "value": "ai",
     "label": "ai",
@@ -4951,6 +5241,16 @@ export const questions = [
     "value": "ay",
     "label": "ay",
     "text": "ay"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
+   },
+   {
+    "value": "oi",
+    "label": "oi",
+    "text": "oi"
    }
   ],
   "answer": "oy",
@@ -4960,16 +5260,17 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ay": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boy",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4980,7 +5281,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bay is real — the boy image pins the target; boi is the position error"
+  "notes": "bay is real — the boy image pins the target; boi is the position error",
+  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "resolvedImageAssetKey": "boy",
+  "imageAlt": "Finish: b__"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v2",
@@ -5006,17 +5313,12 @@ export const questions = [
   "question": "Finish: j__",
   "spokenPrompt": "joy. Which letters finish the word joy?",
   "choices": [
-   "oy",
    "oi",
    "ai",
-   "ee"
+   "ee",
+   "oy"
   ],
   "answerOptions": [
-   {
-    "value": "oy",
-    "label": "oy",
-    "text": "oy"
-   },
    {
     "value": "oi",
     "label": "oi",
@@ -5031,6 +5333,11 @@ export const questions = [
     "value": "ee",
     "label": "ee",
     "text": "ee"
+   },
+   {
+    "value": "oy",
+    "label": "oy",
+    "text": "oy"
    }
   ],
   "answer": "oy",
@@ -5040,16 +5347,17 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "joy",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5060,7 +5368,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "joi, jai and jee are non-words"
+  "notes": "joi, jai and jee are non-words",
+  "imagePath": "/images/assessment/generated/concepts/joy.webp",
+  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
+  "targetImage": "/images/assessment/generated/concepts/joy.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
+  "resolvedImageAssetKey": "joy",
+  "imageAlt": "Finish: j__"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v3",
@@ -5120,16 +5434,17 @@ export const questions = [
    "net": "D-VOWEL",
    "rug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oy-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5140,7 +5455,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "resolvedImageAssetKey": "toy",
+  "imageAlt": "Which word has the same sound as coin?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v4",
@@ -5166,17 +5487,12 @@ export const questions = [
   "question": "Which word has the same sound as oil?",
   "spokenPrompt": "oil. Which word has the same middle sound as oil?",
   "choices": [
-   "joy",
    "jog",
    "pin",
-   "hen"
+   "hen",
+   "joy"
   ],
   "answerOptions": [
-   {
-    "value": "joy",
-    "label": "joy",
-    "text": "joy"
-   },
    {
     "value": "jog",
     "label": "jog",
@@ -5191,25 +5507,31 @@ export const questions = [
     "value": "hen",
     "label": "hen",
     "text": "hen"
+   },
+   {
+    "value": "joy",
+    "label": "joy",
+    "text": "joy"
    }
   ],
   "answer": "joy",
   "correctAnswer": "joy",
   "distractorRationales": {
+   "hen": "D-VOWEL",
    "jog": "D-PATTERN-TRAP",
-   "pin": "D-VOWEL",
-   "hen": "D-VOWEL"
+   "pin": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oy-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5220,7 +5542,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/oil.webp",
+  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
+  "targetImage": "/images/assessment/generated/concepts/oil.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
+  "resolvedImageAssetKey": "oil",
+  "imageAlt": "Which word has the same sound as oil?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v5",
@@ -5280,16 +5608,17 @@ export const questions = [
    "boye": "D-DEVELOPMENTAL",
    "boey": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "boy",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5300,7 +5629,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "boi is the oi-at-the-end position error"
+  "notes": "boi is the oi-at-the-end position error",
+  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "resolvedImageAssetKey": "boy",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v6",
@@ -5326,12 +5661,17 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "toy. Which is the real way to write toy?",
   "choices": [
+   "toey",
    "toy",
    "toi",
-   "toye",
-   "toey"
+   "toye"
   ],
   "answerOptions": [
+   {
+    "value": "toey",
+    "label": "toey",
+    "text": "toey"
+   },
    {
     "value": "toy",
     "label": "toy",
@@ -5346,30 +5686,26 @@ export const questions = [
     "value": "toye",
     "label": "toye",
     "text": "toye"
-   },
-   {
-    "value": "toey",
-    "label": "toey",
-    "text": "toey"
    }
   ],
   "answer": "toy",
   "correctAnswer": "toy",
   "distractorRationales": {
+   "toey": "D-DEVELOPMENTAL",
    "toi": "D-DEVELOPMENTAL",
-   "toye": "D-DEVELOPMENTAL",
-   "toey": "D-DEVELOPMENTAL"
+   "toye": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "toy",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5380,7 +5716,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "resolvedImageAssetKey": "toy",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v1",
@@ -5450,6 +5792,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "screw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5465,7 +5808,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/screw.webp",
   "targetImage": "/images/assessment/blends/screw.webp",
   "targetImagePath": "/images/assessment/blends/screw.webp",
-  "imageAlt": "screw"
+  "resolvedImageAssetKey": "screw",
+  "imageAlt": "Finish: scr__"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v2",
@@ -5491,12 +5835,17 @@ export const questions = [
   "question": "Finish: ch__",
   "spokenPrompt": "chew. Which letters finish the word chew?",
   "choices": [
+   "aw",
    "ew",
    "oo",
-   "ue",
-   "aw"
+   "ue"
   ],
   "answerOptions": [
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
    {
     "value": "ew",
     "label": "ew",
@@ -5511,11 +5860,6 @@ export const questions = [
     "value": "ue",
     "label": "ue",
     "text": "ue"
-   },
-   {
-    "value": "aw",
-    "label": "aw",
-    "text": "aw"
    }
   ],
   "answer": "ew",
@@ -5535,6 +5879,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "chew",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5550,7 +5895,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/chew.webp",
   "targetImage": "/images/assessment/long-vowels/chew.webp",
   "targetImagePath": "/images/assessment/long-vowels/chew.webp",
-  "imageAlt": "chew"
+  "resolvedImageAssetKey": "chew",
+  "imageAlt": "Finish: ch__"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v3",
@@ -5576,22 +5922,12 @@ export const questions = [
   "question": "Which word has the same sound as moon?",
   "spokenPrompt": "moon. Which word has the same middle sound as moon?",
   "choices": [
-   "new",
-   "net",
    "bag",
-   "dog"
+   "dog",
+   "new",
+   "net"
   ],
   "answerOptions": [
-   {
-    "value": "new",
-    "label": "new",
-    "text": "new"
-   },
-   {
-    "value": "net",
-    "label": "net",
-    "text": "net"
-   },
    {
     "value": "bag",
     "label": "bag",
@@ -5601,6 +5937,16 @@ export const questions = [
     "value": "dog",
     "label": "dog",
     "text": "dog"
+   },
+   {
+    "value": "new",
+    "label": "new",
+    "text": "new"
+   },
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
    }
   ],
   "answer": "new",
@@ -5610,16 +5956,17 @@ export const questions = [
    "bag": "D-VOWEL",
    "dog": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ew-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5630,7 +5977,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/moon.webp",
+  "imageUrl": "/images/assessment/long-vowels/moon.webp",
+  "targetImage": "/images/assessment/long-vowels/moon.webp",
+  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
+  "resolvedImageAssetKey": "moon",
+  "imageAlt": "Which word has the same sound as moon?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v4",
@@ -5656,12 +6009,17 @@ export const questions = [
   "question": "Which word has the same sound as zoo?",
   "spokenPrompt": "zoo. Which word has the same middle sound as zoo?",
   "choices": [
+   "ram",
    "flew",
    "fled",
-   "sock",
-   "ram"
+   "sock"
   ],
   "answerOptions": [
+   {
+    "value": "ram",
+    "label": "ram",
+    "text": "ram"
+   },
    {
     "value": "flew",
     "label": "flew",
@@ -5676,30 +6034,26 @@ export const questions = [
     "value": "sock",
     "label": "sock",
     "text": "sock"
-   },
-   {
-    "value": "ram",
-    "label": "ram",
-    "text": "ram"
    }
   ],
   "answer": "flew",
   "correctAnswer": "flew",
   "distractorRationales": {
+   "ram": "D-VOWEL",
    "fled": "D-PATTERN-TRAP",
-   "sock": "D-VOWEL",
-   "ram": "D-VOWEL"
+   "sock": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "zoo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ew-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5710,7 +6064,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "resolvedImageAssetKey": "zoo",
+  "imageAlt": "Which word has the same sound as zoo?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v5",
@@ -5736,22 +6096,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "new. Which is the real way to write new?",
   "choices": [
-   "new",
-   "noo",
    "nue",
-   "newe"
+   "newe",
+   "new",
+   "noo"
   ],
   "answerOptions": [
-   {
-    "value": "new",
-    "label": "new",
-    "text": "new"
-   },
-   {
-    "value": "noo",
-    "label": "noo",
-    "text": "noo"
-   },
    {
     "value": "nue",
     "label": "nue",
@@ -5761,6 +6111,16 @@ export const questions = [
     "value": "newe",
     "label": "newe",
     "text": "newe"
+   },
+   {
+    "value": "new",
+    "label": "new",
+    "text": "new"
+   },
+   {
+    "value": "noo",
+    "label": "noo",
+    "text": "noo"
    }
   ],
   "answer": "new",
@@ -5770,7 +6130,7 @@ export const questions = [
    "nue": "D-DEVELOPMENTAL",
    "newe": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5780,6 +6140,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "new",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5795,7 +6156,8 @@ export const questions = [
   "imageUrl": "/images/assessment/hfw/new.webp",
   "targetImage": "/images/assessment/hfw/new.webp",
   "targetImagePath": "/images/assessment/hfw/new.webp",
-  "imageAlt": "new"
+  "resolvedImageAssetKey": "new",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v6",
@@ -5821,17 +6183,12 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "grew. Which is the real way to write grew?",
   "choices": [
-   "grew",
    "groo",
    "grue",
-   "grewe"
+   "grewe",
+   "grew"
   ],
   "answerOptions": [
-   {
-    "value": "grew",
-    "label": "grew",
-    "text": "grew"
-   },
    {
     "value": "groo",
     "label": "groo",
@@ -5846,25 +6203,31 @@ export const questions = [
     "value": "grewe",
     "label": "grewe",
     "text": "grewe"
+   },
+   {
+    "value": "grew",
+    "label": "grew",
+    "text": "grew"
    }
   ],
   "answer": "grew",
   "correctAnswer": "grew",
   "distractorRationales": {
+   "grewe": "D-DEVELOPMENTAL",
    "groo": "D-DEVELOPMENTAL",
-   "grue": "D-DEVELOPMENTAL",
-   "grewe": "D-DEVELOPMENTAL"
+   "grue": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "grew",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ew-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5875,7 +6238,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v1",
@@ -5901,22 +6270,12 @@ export const questions = [
   "question": "Finish: dr__",
   "spokenPrompt": "draw. Which letters finish the word draw?",
   "choices": [
-   "aw",
-   "ew",
    "ow",
-   "oa"
+   "oa",
+   "aw",
+   "ew"
   ],
   "answerOptions": [
-   {
-    "value": "aw",
-    "label": "aw",
-    "text": "aw"
-   },
-   {
-    "value": "ew",
-    "label": "ew",
-    "text": "ew"
-   },
    {
     "value": "ow",
     "label": "ow",
@@ -5926,6 +6285,16 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
    }
   ],
   "answer": "aw",
@@ -5945,6 +6314,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "draw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5960,7 +6330,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/draw.webp",
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
-  "imageAlt": "draw"
+  "resolvedImageAssetKey": "draw",
+  "imageAlt": "Finish: dr__"
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v2",
@@ -5986,17 +6357,12 @@ export const questions = [
   "question": "Finish: y__n",
   "spokenPrompt": "yawn. Which letters finish the word yawn?",
   "choices": [
-   "aw",
    "ew",
    "oo",
-   "oa"
+   "oa",
+   "aw"
   ],
   "answerOptions": [
-   {
-    "value": "aw",
-    "label": "aw",
-    "text": "aw"
-   },
    {
     "value": "ew",
     "label": "ew",
@@ -6011,6 +6377,11 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "aw",
+    "label": "aw",
+    "text": "aw"
    }
   ],
   "answer": "aw",
@@ -6020,16 +6391,17 @@ export const questions = [
    "oo": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yawn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6040,7 +6412,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "yewn, yoon and yoan are non-words"
+  "notes": "yewn, yoon and yoan are non-words",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "Finish: y__n"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v3",
@@ -6100,16 +6478,17 @@ export const questions = [
    "pin": "D-VOWEL",
    "mug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6120,7 +6499,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "resolvedImageAssetKey": "ball",
+  "imageAlt": "Which word has the same sound as ball?"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v4",
@@ -6146,17 +6531,12 @@ export const questions = [
   "question": "Which word has the same sound as tall?",
   "spokenPrompt": "tall. Which word has the same middle sound as tall?",
   "choices": [
-   "paw",
    "pan",
    "bed",
-   "zip"
+   "zip",
+   "paw"
   ],
   "answerOptions": [
-   {
-    "value": "paw",
-    "label": "paw",
-    "text": "paw"
-   },
    {
     "value": "pan",
     "label": "pan",
@@ -6171,25 +6551,31 @@ export const questions = [
     "value": "zip",
     "label": "zip",
     "text": "zip"
+   },
+   {
+    "value": "paw",
+    "label": "paw",
+    "text": "paw"
    }
   ],
   "answer": "paw",
   "correctAnswer": "paw",
   "distractorRationales": {
+   "zip": "D-VOWEL",
    "pan": "D-PATTERN-TRAP",
-   "bed": "D-VOWEL",
-   "zip": "D-VOWEL"
+   "bed": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "tall",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6200,7 +6586,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "resolvedImageAssetKey": "tall",
+  "imageAlt": "Which word has the same sound as tall?"
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v5",
@@ -6260,16 +6652,17 @@ export const questions = [
    "sawe": "D-DEVELOPMENTAL",
    "soar": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "saw",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6280,7 +6673,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "soar is a real word but not this one — the picture decides"
+  "notes": "soar is a real word but not this one — the picture decides",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v6",
@@ -6306,12 +6705,17 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "claw. Which is the real way to write claw?",
   "choices": [
+   "cloar",
    "claw",
    "clau",
-   "clawe",
-   "cloar"
+   "clawe"
   ],
   "answerOptions": [
+   {
+    "value": "cloar",
+    "label": "cloar",
+    "text": "cloar"
+   },
    {
     "value": "claw",
     "label": "claw",
@@ -6326,30 +6730,26 @@ export const questions = [
     "value": "clawe",
     "label": "clawe",
     "text": "clawe"
-   },
-   {
-    "value": "cloar",
-    "label": "cloar",
-    "text": "cloar"
    }
   ],
   "answer": "claw",
   "correctAnswer": "claw",
   "distractorRationales": {
+   "cloar": "D-DEVELOPMENTAL",
    "clau": "D-DEVELOPMENTAL",
-   "clawe": "D-DEVELOPMENTAL",
-   "cloar": "D-DEVELOPMENTAL"
+   "clawe": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "claw",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6360,7 +6760,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "rival spellings are pronounceable developmental errors",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
+  "resolvedImageAssetKey": "real",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v7r",
@@ -6386,22 +6792,12 @@ export const questions = [
   "question": "Finish: t__l",
   "spokenPrompt": "tail. Which letters finish the word tail?",
   "choices": [
-   "ai",
-   "ay",
    "ee",
-   "oa"
+   "oa",
+   "ai",
+   "ay"
   ],
   "answerOptions": [
-   {
-    "value": "ai",
-    "label": "ai",
-    "text": "ai"
-   },
-   {
-    "value": "ay",
-    "label": "ay",
-    "text": "ay"
-   },
    {
     "value": "ee",
     "label": "ee",
@@ -6411,25 +6807,36 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ai",
+    "label": "ai",
+    "text": "ai"
+   },
+   {
+    "value": "ay",
+    "label": "ay",
+    "text": "ay"
    }
   ],
   "answer": "ai",
   "correctAnswer": "ai",
   "distractorRationales": {
-   "ay": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP",
-   "oa": "D-PATTERN-TRAP"
+   "oa": "D-PATTERN-TRAP",
+   "ay": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "tail",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tail",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6440,7 +6847,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "tayl, teel and toal are non-words"
+  "notes": "tayl, teel and toal are non-words",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "resolvedImageAssetKey": "tail",
+  "imageAlt": "Finish: t__l"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v7r",
@@ -6466,17 +6879,12 @@ export const questions = [
   "question": "Finish: t__st",
   "spokenPrompt": "toast. Which letters finish the word toast?",
   "choices": [
-   "oa",
    "ee",
    "ai",
-   "oo"
+   "oo",
+   "oa"
   ],
   "answerOptions": [
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
-   },
    {
     "value": "ee",
     "label": "ee",
@@ -6491,6 +6899,11 @@ export const questions = [
     "value": "oo",
     "label": "oo",
     "text": "oo"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
    }
   ],
   "answer": "oa",
@@ -6500,16 +6913,17 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "toast",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oa-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6520,7 +6934,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: t__st"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ea.v7r",
@@ -6576,19 +6996,20 @@ export const questions = [
   "answer": "beach",
   "correctAnswer": "beach",
   "distractorRationales": {
-   "bench": "D-PATTERN-TRAP",
    "dog": "D-VOWEL",
-   "cup": "D-VOWEL"
+   "cup": "D-VOWEL",
+   "bench": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ea-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6599,7 +7020,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/beach.webp",
+  "imageUrl": "/images/assessment/long-vowels/beach.webp",
+  "targetImage": "/images/assessment/long-vowels/beach.webp",
+  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
+  "resolvedImageAssetKey": "beach",
+  "imageAlt": "Which word has the long e sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v7r",
@@ -6625,17 +7052,12 @@ export const questions = [
   "question": "Which word has the same sound as flew?",
   "spokenPrompt": "flew. Which word has the same middle sound as flew?",
   "choices": [
-   "boot",
    "book",
    "pig",
-   "jam"
+   "jam",
+   "boot"
   ],
   "answerOptions": [
-   {
-    "value": "boot",
-    "label": "boot",
-    "text": "boot"
-   },
    {
     "value": "book",
     "label": "book",
@@ -6650,6 +7072,11 @@ export const questions = [
     "value": "jam",
     "label": "jam",
     "text": "jam"
+   },
+   {
+    "value": "boot",
+    "label": "boot",
+    "text": "boot"
    }
   ],
   "answer": "boot",
@@ -6659,16 +7086,17 @@ export const questions = [
    "pig": "D-VOWEL",
    "jam": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6679,7 +7107,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/flew.webp",
+  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
+  "targetImage": "/images/assessment/generated/concepts/flew.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
+  "resolvedImageAssetKey": "flew",
+  "imageAlt": "Which word has the same sound as flew?"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v8r",
@@ -6705,12 +7139,17 @@ export const questions = [
   "question": "Which is the real word?",
   "spokenPrompt": "rain. Which is the real way to write rain?",
   "choices": [
+   "raine",
    "rain",
    "rane",
-   "rayn",
-   "raine"
+   "rayn"
   ],
   "answerOptions": [
+   {
+    "value": "raine",
+    "label": "raine",
+    "text": "raine"
+   },
    {
     "value": "rain",
     "label": "rain",
@@ -6725,11 +7164,6 @@ export const questions = [
     "value": "rayn",
     "label": "rayn",
     "text": "rayn"
-   },
-   {
-    "value": "raine",
-    "label": "raine",
-    "text": "raine"
    }
   ],
   "answer": "rain",
@@ -6739,7 +7173,7 @@ export const questions = [
    "rayn": "D-DEVELOPMENTAL",
    "raine": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-optional",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -6749,6 +7183,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6764,7 +7199,8 @@ export const questions = [
   "imageUrl": "/images/assessment/long-vowels/rain.webp",
   "targetImage": "/images/assessment/long-vowels/rain.webp",
   "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageAlt": "rain"
+  "resolvedImageAssetKey": "rain",
+  "imageAlt": "Which is the real word?"
  },
  {
   "id": "lp3.vowel_teams.l2.R.ow.v7r",
@@ -6824,15 +7260,16 @@ export const questions = [
    "show": "D-PATTERN-TRAP",
    "slow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-ow-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6843,7 +7280,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/blends/brown.webp",
+  "imageUrl": "/images/assessment/blends/brown.webp",
+  "targetImage": "/images/assessment/blends/brown.webp",
+  "targetImagePath": "/images/assessment/blends/brown.webp",
+  "resolvedImageAssetKey": "brown",
+  "imageAlt": "Which word does NOT have the ow (as in snow) sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v8r",
@@ -6869,22 +7312,12 @@ export const questions = [
   "question": "Finish: r__d",
   "spokenPrompt": "road. Which letters finish the word road?",
   "choices": [
-   "oa",
-   "ee",
    "ai",
-   "igh"
+   "igh",
+   "oa",
+   "ee"
   ],
   "answerOptions": [
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
-   },
-   {
-    "value": "ee",
-    "label": "ee",
-    "text": "ee"
-   },
    {
     "value": "ai",
     "label": "ai",
@@ -6894,14 +7327,24 @@ export const questions = [
     "value": "igh",
     "label": "igh",
     "text": "igh"
+   },
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
+   {
+    "value": "ee",
+    "label": "ee",
+    "text": "ee"
    }
   ],
   "answer": "oa",
   "correctAnswer": "oa",
   "distractorRationales": {
+   "igh": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP",
-   "ai": "D-PATTERN-TRAP",
-   "igh": "D-PATTERN-TRAP"
+   "ai": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -6913,6 +7356,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "road",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6928,7 +7372,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/vowels/road.png",
   "targetImage": "/images/child-mode/vowels/road.png",
   "targetImagePath": "/images/child-mode/vowels/road.png",
-  "imageAlt": "road"
+  "resolvedImageAssetKey": "road",
+  "imageAlt": "Finish: r__d"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oi.v7r",
@@ -6954,12 +7399,17 @@ export const questions = [
   "question": "Which word has the same sound as joy?",
   "spokenPrompt": "joy. Which word has the same middle sound as joy?",
   "choices": [
+   "sun",
    "boil",
    "bell",
-   "pot",
-   "sun"
+   "pot"
   ],
   "answerOptions": [
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
    {
     "value": "boil",
     "label": "boil",
@@ -6974,30 +7424,26 @@ export const questions = [
     "value": "pot",
     "label": "pot",
     "text": "pot"
-   },
-   {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
    }
   ],
   "answer": "boil",
   "correctAnswer": "boil",
   "distractorRationales": {
+   "sun": "D-VOWEL",
    "bell": "D-PATTERN-TRAP",
-   "pot": "D-VOWEL",
-   "sun": "D-VOWEL"
+   "pot": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oi-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7008,7 +7454,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/joy.webp",
+  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
+  "targetImage": "/images/assessment/generated/concepts/joy.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
+  "resolvedImageAssetKey": "joy",
+  "imageAlt": "Which word has the same sound as joy?"
  },
  {
   "id": "lp3.vowel_teams.l2.R.ew.v7r",
@@ -7034,22 +7486,12 @@ export const questions = [
   "question": "Finish: n__",
   "spokenPrompt": "new. Which letters finish the word new?",
   "choices": [
-   "ew",
-   "oo",
    "ow",
-   "oy"
+   "oy",
+   "ew",
+   "oo"
   ],
   "answerOptions": [
-   {
-    "value": "ew",
-    "label": "ew",
-    "text": "ew"
-   },
-   {
-    "value": "oo",
-    "label": "oo",
-    "text": "oo"
-   },
    {
     "value": "ow",
     "label": "ow",
@@ -7059,14 +7501,24 @@ export const questions = [
     "value": "oy",
     "label": "oy",
     "text": "oy"
+   },
+   {
+    "value": "ew",
+    "label": "ew",
+    "text": "ew"
+   },
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
    }
   ],
   "answer": "ew",
   "correctAnswer": "ew",
   "distractorRationales": {
+   "oy": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP",
-   "ow": "D-PATTERN-TRAP",
-   "oy": "D-PATTERN-TRAP"
+   "ow": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -7078,6 +7530,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "new",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7093,7 +7546,8 @@ export const questions = [
   "imageUrl": "/images/assessment/hfw/new.webp",
   "targetImage": "/images/assessment/hfw/new.webp",
   "targetImagePath": "/images/assessment/hfw/new.webp",
-  "imageAlt": "new"
+  "resolvedImageAssetKey": "new",
+  "imageAlt": "Finish: n__"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v7r",
@@ -7119,17 +7573,12 @@ export const questions = [
   "question": "Which word has the same sound as ball?",
   "spokenPrompt": "ball. Which word has the same middle sound as ball?",
   "choices": [
-   "straw",
    "strap",
    "bin",
-   "leg"
+   "leg",
+   "straw"
   ],
   "answerOptions": [
-   {
-    "value": "straw",
-    "label": "straw",
-    "text": "straw"
-   },
    {
     "value": "strap",
     "label": "strap",
@@ -7144,25 +7593,31 @@ export const questions = [
     "value": "leg",
     "label": "leg",
     "text": "leg"
+   },
+   {
+    "value": "straw",
+    "label": "straw",
+    "text": "straw"
    }
   ],
   "answer": "straw",
   "correctAnswer": "straw",
   "distractorRationales": {
+   "leg": "D-VOWEL",
    "strap": "D-PATTERN-TRAP",
-   "bin": "D-VOWEL",
-   "leg": "D-VOWEL"
+   "bin": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7173,7 +7628,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
+  "resolvedImageAssetKey": "ball",
+  "imageAlt": "Which word has the same sound as ball?"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v8r",
@@ -7229,19 +7690,20 @@ export const questions = [
   "answer": "good",
   "correctAnswer": "good",
   "distractorRationales": {
-   "room": "D-PATTERN-TRAP",
    "zoo": "D-PATTERN-TRAP",
-   "food": "D-PATTERN-TRAP"
+   "food": "D-PATTERN-TRAP",
+   "room": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-oo-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7252,7 +7714,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
+  "resolvedImageAssetKey": "good",
+  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v8r",
@@ -7278,12 +7746,17 @@ export const questions = [
   "question": "Finish: cr__l",
   "spokenPrompt": "crawl. Which letters finish the word crawl?",
   "choices": [
+   "oo",
    "aw",
    "ow",
-   "ee",
-   "oo"
+   "ee"
   ],
   "answerOptions": [
+   {
+    "value": "oo",
+    "label": "oo",
+    "text": "oo"
+   },
    {
     "value": "aw",
     "label": "aw",
@@ -7298,11 +7771,6 @@ export const questions = [
     "value": "ee",
     "label": "ee",
     "text": "ee"
-   },
-   {
-    "value": "oo",
-    "label": "oo",
-    "text": "oo"
    }
   ],
   "answer": "aw",
@@ -7312,16 +7780,17 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "crawl",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vowel_teams-aw-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7332,6 +7801,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "crowl, creel and crool are non-words"
+  "notes": "crowl, creel and crool are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: cr__l"
  }
 ];

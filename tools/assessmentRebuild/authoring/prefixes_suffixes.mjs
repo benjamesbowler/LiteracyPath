@@ -1,277 +1,225 @@
-// Prefixes & Suffixes — v3 authored bank (wave W11, paired with plurals).
-// Three formats. MORPHEME_BUILD: "Add -ing to jump." — three same-base forms
-// tie the base chunk, plus ONE same-affix-different-base carrier so the named
-// affix never sits in exactly one option (patternMatch rule). MEANING_CONTEXT:
-// the affix's meaning is forced by the frame; near-miss frames carry a
-// defended D-PLAUSIBLE-UNSUPPORTED note. TRANSFER (L2): apply a taught gloss
-// to a NEW word; every option repeats the base so the gloss word ties, and
-// the gloss-swap trap (D-MORPH-LITERAL) mirrors any long shared word.
-// Glosses are natural sentences, never a formula repeated verbatim.
-// Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §20.
+// Prefixes & Suffixes — v3 authored bank.
+// Level 1 is deliberately ESL-accessible: one familiar base word, one common
+// affix meaning, short spoken language, and one supporting scene. Inflection,
+// spelling changes and transfer to less-familiar vocabulary begin at Level 2.
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 
-const FS = "D-FUNCTION-SWAP";   // right base, wrong affix for the frame
-const PT = "D-PATTERN-TRAP";    // right affix, wrong base
-const ML = "D-MORPH-LITERAL";   // gloss-swap: the taught example, not the new word
-const SEM = "D-SEMANTIC";
+const FS = "D-FUNCTION-SWAP";
+const PT = "D-PATTERN-TRAP";
 const OPP = "D-OPPOSITE";
-const PU = "D-PLAUSIBLE-UNSUPPORTED";
+const SEM = "D-SEMANTIC";
 
-const mb = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "MORPHEME_BUILD",
+const choices = (key, distractors) => [
+  K(key),
+  ...distractors.map((text, index) => P(text, [OPP, PT, SEM][index] || SEM))
+];
+
+const l1 = (u, ph, v, fmt, prompt, key, distractors, img) => ({
+  u,
+  lvl: 1,
+  ph,
+  v,
+  fmt,
   prompt,
   spoken: prompt,
-  choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-  media: "text",
-  note
+  choices: choices(key, distractors),
+  media: "image-required",
+  img,
+  imgAlt: img.replace(/-/g, " "),
+  // In the explicit un- unit, spotting un- is the taught construct rather
+  // than an answer leak. Other morpheme units remain scanner-gated.
+  scannerExpected: u === "prefix_un"
 });
 
-const mmc = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "MORPHEME_MEANING_CONTEXT",
+const build = (u, ph, v, prompt, key, distractors) => ({
+  u,
+  lvl: 2,
+  ph,
+  v,
+  fmt: "MORPHEME_BUILD",
+  prompt,
+  spoken: prompt,
+  choices: [
+    K(key),
+    P(distractors[0], FS),
+    P(distractors[1], FS),
+    P(distractors[2], PT)
+  ],
+  media: "image-required",
+  img: `${u}-${v}`,
+  imgAlt: prompt.replace(/[.?!]/g, "")
+});
+
+const context = (u, ph, v, sentence, key, distractors, note = "") => ({
+  u,
+  lvl: 2,
+  ph,
+  v,
+  fmt: "MORPHEME_MEANING_CONTEXT",
   prompt: sentence,
-  spoken: sentence.includes("___")
-    ? `Which word fits? ${sentence.replace("___", "hmm")}`
-    : sentence,
-  sentence: sentence.includes("___") ? sentence : undefined,
-  choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-  media: "text",
+  spoken: `Which word fits? ${sentence.replace("___", "…")}`,
+  sentence,
+  choices: [
+    K(key),
+    P(distractors[0], FS),
+    P(distractors[1], FS),
+    P(distractors[2], PT)
+  ],
+  media: "image-required",
+  img: `${u}-${v}`,
+  imgAlt: sentence.replace("___", key),
   note
 });
 
-const mt = (u, lvl, ph, v, prompt, phrases, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "MORPHEME_TRANSFER",
+const transfer = (u, ph, v, prompt, key, distractors) => ({
+  u,
+  lvl: 2,
+  ph,
+  v,
+  fmt: "MORPHEME_TRANSFER",
   prompt,
   spoken: prompt,
-  choices: phrases.map((p, i) => (i === 0 ? K(p) : P(p, rationales[i - 1]))),
-  media: "text",
-  note
+  choices: choices(key, distractors),
+  media: "image-required",
+  img: `${u}-${v}`,
+  imgAlt: prompt
 });
+
+const levelOneItems = [
+  // un- = not / opposite
+  l1("prefix_un", 1, 1, "MORPHEME_MEANING_CONTEXT",
+    "Which word means not happy?", "unhappy", ["replay", "helpful", "singer"], "child-feeling-unhappy"),
+  l1("prefix_un", 1, 2, "MORPHEME_MEANING_CONTEXT",
+    "Which word means not fair?", "unfair", ["remake", "careful", "reader"], "two-children-unfair-share"),
+  l1("prefix_un", 1, 3, "MORPHEME_MEANING_CONTEXT",
+    "Which word means not kind?", "unkind", ["repaint", "joyful", "teacher"], "child-being-unkind"),
+  l1("prefix_un", 1, 4, "MORPHEME_TRANSFER",
+    "Mia feels sad. Which word also means not happy?", "unhappy", ["unfair", "joyful", "painter"], "sad-child"),
+  l1("prefix_un", 1, 5, "MORPHEME_TRANSFER",
+    "The game is not fair. Which word means not fair?", "unfair", ["careful", "remake", "painter"], "unfair-game"),
+  l1("prefix_un", 1, 6, "MORPHEME_TRANSFER",
+    "The words were not kind. Which word means not kind?", "unkind", ["joyful", "reread", "helper"], "unkind-words"),
+
+  // re- = again
+  l1("prefix_re", 1, 1, "MORPHEME_MEANING_CONTEXT",
+    "Which word means play again?", "replay", ["unhappy", "playful", "player"], "children-replay-game"),
+  l1("prefix_re", 1, 2, "MORPHEME_MEANING_CONTEXT",
+    "Which word means make again?", "remake", ["unfair", "helpful", "maker"], "child-remakes-model"),
+  l1("prefix_re", 1, 3, "MORPHEME_MEANING_CONTEXT",
+    "Which word means read again?", "reread", ["unkind", "careful", "reader"], "child-rereads-book"),
+  l1("prefix_re", 1, 4, "MORPHEME_TRANSFER",
+    "The picture went wrong. I will make it again. Which word fits?", "remake", ["unmake", "maker", "making"], "child-remakes-picture"),
+  l1("prefix_re", 1, 5, "MORPHEME_TRANSFER",
+    "I missed the page. I will read it again. Which word fits?", "reread", ["reader", "reading", "unread"], "child-rereads-page"),
+  l1("prefix_re", 1, 6, "MORPHEME_TRANSFER",
+    "We loved the song. We will play it again. Which word fits?", "replay", ["player", "playful", "unplayed"], "children-replay-song"),
+
+  // -ful = full of / showing
+  l1("suffix_ful", 1, 1, "MORPHEME_MEANING_CONTEXT",
+    "Which word means ready to help?", "helpful", ["helpless", "helper", "rehelp"], "helpful-child"),
+  l1("suffix_ful", 1, 2, "MORPHEME_MEANING_CONTEXT",
+    "Which word means full of joy?", "joyful", ["joyless", "enjoy", "rejoice"], "joyful-child"),
+  l1("suffix_ful", 1, 3, "MORPHEME_MEANING_CONTEXT",
+    "Which word means using care?", "careful", ["careless", "carer", "recare"], "careful-child-carrying-glass"),
+  l1("suffix_ful", 1, 4, "MORPHEME_TRANSFER",
+    "Ava helps her friend. Which word describes Ava?", "helpful", ["helpless", "replay", "singer"], "child-helping-friend"),
+  l1("suffix_ful", 1, 5, "MORPHEME_TRANSFER",
+    "Noah smiles with joy. Which word describes Noah?", "joyful", ["joyless", "unfair", "reader"], "child-smiling-with-joy"),
+  l1("suffix_ful", 1, 6, "MORPHEME_TRANSFER",
+    "Kim carries the glass slowly. Which word describes Kim?", "careful", ["careless", "remake", "teacher"], "child-carefully-carrying-glass"),
+
+  // -less = without
+  l1("suffix_less", 2, 1, "MORPHEME_MEANING_CONTEXT",
+    "Which word means without hope?", "hopeless", ["hopeful", "helper", "rehope"], "child-feeling-hopeless"),
+  l1("suffix_less", 2, 2, "MORPHEME_MEANING_CONTEXT",
+    "Which word means without fear?", "fearless", ["fearful", "farmer", "refear"], "fearless-child"),
+  l1("suffix_less", 2, 3, "MORPHEME_MEANING_CONTEXT",
+    "Which word means without harm?", "harmless", ["harmful", "helper", "reharm"], "harmless-butterfly"),
+  l1("suffix_less", 2, 4, "MORPHEME_TRANSFER",
+    "The tiny butterfly cannot hurt you. Which word describes it?", "harmless", ["harmful", "helpful", "replay"], "harmless-butterfly-on-hand"),
+  l1("suffix_less", 2, 5, "MORPHEME_TRANSFER",
+    "Leo is not afraid to try. Which word describes Leo?", "fearless", ["fearful", "careful", "reader"], "child-trying-bravely"),
+  l1("suffix_less", 2, 6, "MORPHEME_TRANSFER",
+    "The team thinks it cannot win. Which word describes the team?", "hopeless", ["hopeful", "joyful", "painter"], "team-feeling-hopeless"),
+
+  // -er = a person who
+  l1("suffix_er_person", 2, 1, "MORPHEME_MEANING_CONTEXT",
+    "A person who sings is a…", "singer", ["singing", "sings", "replay"], "person-singing"),
+  l1("suffix_er_person", 2, 2, "MORPHEME_MEANING_CONTEXT",
+    "A person who teaches is a…", "teacher", ["teaching", "teaches", "unfair"], "teacher-with-class"),
+  l1("suffix_er_person", 2, 3, "MORPHEME_MEANING_CONTEXT",
+    "A person who helps is a…", "helper", ["helping", "helpful", "remake"], "child-helper"),
+  l1("suffix_er_person", 2, 4, "MORPHEME_TRANSFER",
+    "Who reads books to the class?", "reader", ["reading", "reread", "careful"], "person-reading-to-class"),
+  l1("suffix_er_person", 2, 5, "MORPHEME_TRANSFER",
+    "Who paints a picture?", "painter", ["painting", "repaint", "joyful"], "person-painting"),
+  l1("suffix_er_person", 2, 6, "MORPHEME_TRANSFER",
+    "Who works on a farm?", "farmer", ["farming", "farm", "fearless"], "farmer-on-farm")
+];
+
+const levelTwoItems = [
+  build("suffix_s_es", 1, 1, "Add -s to hen.", "hens", ["hen", "hennes", "pens"]),
+  build("suffix_s_es", 1, 2, "Add -es to fox.", "foxes", ["fox", "foxs", "dishes"]),
+  build("suffix_s_es", 1, 3, "Add -s to cup.", "cups", ["cup", "cupes", "caps"]),
+  context("suffix_s_es", 1, 4, "Every day, Dad ___ the car.", "washes", ["wash", "washing", "washed"]),
+  context("suffix_s_es", 1, 5, "My cat ___ on the mat each day.", "naps", ["nap", "napping", "napped"]),
+  context("suffix_s_es", 1, 6, "Gran ___ bread every Sunday.", "bakes", ["bake", "baking", "baked"]),
+
+  build("suffix_ing", 1, 1, "Add -ing to jump.", "jumping", ["jumps", "jumped", "singing"]),
+  build("suffix_ing", 1, 2, "Add -ing to read.", "reading", ["reads", "ready", "singing"]),
+  build("suffix_ing", 1, 3, "Add -ing to play.", "playing", ["plays", "played", "doing"]),
+  context("suffix_ing", 1, 4, "Right now, the pot is ___ on the stove.", "boiling", ["boils", "boil", "sleeping"]),
+  context("suffix_ing", 1, 5, "We are ___ a sandcastle today.", "building", ["builds", "build", "painting"]),
+  context("suffix_ing", 1, 6, "Keep ___! The finish line is close.", "running", ["runs", "run", "singing"]),
+
+  build("suffix_ed", 1, 1, "Add -ed to walk.", "walked", ["walks", "walking", "opened"]),
+  build("suffix_ed", 1, 2, "Add -ed to help.", "helped", ["helps", "helping", "hopped"]),
+  build("suffix_ed", 1, 3, "Add -ed to jump.", "jumped", ["jumping", "jumps", "landed"]),
+  context("suffix_ed", 1, 4, "Yesterday we ___ to the park.", "walked", ["walk", "walking", "jumped"]),
+  context("suffix_ed", 1, 5, "Last night, the baby ___ for hours.", "cried", ["cries", "crying", "called"]),
+  context("suffix_ed", 1, 6, "We ___ the door before bed.", "locked", ["locks", "locking", "filled"]),
+
+  build("suffix_er_est", 2, 1, "Add -est to tall.", "tallest", ["taller", "tall", "fastest"]),
+  build("suffix_er_est", 2, 2, "Add -er to fast.", "faster", ["fastest", "fast", "taller"]),
+  context("suffix_er_est", 2, 3, "Ben is tall, but Ana is even ___.", "taller", ["tallest", "tall", "faster"]),
+  context("suffix_er_est", 2, 4, "Of all three dogs, Rex is the ___.", "fastest", ["faster", "fast", "tallest"]),
+  transfer("suffix_er_est", 2, 5, "Which word compares two tall things?", "taller", ["tallest", "tall", "slowest"]),
+  transfer("suffix_er_est", 2, 6, "Which word picks the slow one from every snail?", "slowest", ["slower", "slow", "tallest"]),
+
+  build("suffix_ly", 2, 1, "Add -ly to quick.", "quickly", ["quicker", "quickest", "softly"]),
+  build("suffix_ly", 2, 2, "Add -ly to soft.", "softly", ["softer", "soft", "quickly"]),
+  context("suffix_ly", 2, 3, "Set the eggs down ___, with no bumps.", "gently", ["gentle", "gentler", "quickly"]),
+  context("suffix_ly", 2, 4, "The mouse crept ___ past the cat.", "quietly", ["quiet", "quieter", "loudly"]),
+  transfer("suffix_ly", 2, 5, "What does bravely mean?", "in a brave way", ["in a soft way", "a brave person", "being afraid"]),
+  transfer("suffix_ly", 2, 6, "What does proudly mean?", "in a proud way", ["in a quick way", "a proud person", "being sad"]),
+
+  build("prefix_pre", 2, 1, "Add pre- to heat.", "preheat", ["heated", "heats", "preview"]),
+  build("prefix_pre", 2, 2, "Add pre- to view.", "preview", ["views", "viewed", "preheat"]),
+  context("prefix_pre", 2, 3, "___ the oven before you mix the batter.", "Preheat", ["Heat", "Heated", "Preview"]),
+  context("prefix_pre", 2, 4, "We watched a ___ before the film opened.", "preview", ["view", "viewed", "preheat"]),
+  transfer("prefix_pre", 2, 5, "What is a pretest?", "a test before", ["a test after", "the best test", "a look before"]),
+  transfer("prefix_pre", 2, 6, "What does preorder mean?", "order before it is out", ["order after it is out", "heat the order", "order more"])
+];
+
+const retentionItems = [
+  l1("prefix_un", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means not safe?", "unsafe", ["resafe", "safety", "helper"], "unsafe-bridge"),
+  l1("prefix_re", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means paint again?", "repaint", ["unpaint", "painter", "paintful"], "child-repaints-wall"),
+  l1("suffix_ful", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means full of hope?", "hopeful", ["hopeless", "hoping", "unhappy"], "hopeful-child"),
+  l1("suffix_less", 2, 7, "MORPHEME_MEANING_CONTEXT", "Which word means without care?", "careless", ["careful", "caring", "unsafe"], "careless-spill"),
+  l1("suffix_er_person", 2, 7, "MORPHEME_MEANING_CONTEXT", "A person who bakes is a…", "baker", ["baking", "bakes", "remake"], "baker-with-bread"),
+  l1("prefix_re", 1, 8, "MORPHEME_TRANSFER", "The block tower fell. Which word means build again?", "rebuild", ["builder", "building", "unbuilt"], "child-rebuilds-block-tower"),
+  build("suffix_s_es", 1, 7, "Add -es to bus.", "buses", ["bus", "buss", "foxes"]),
+  build("suffix_ing", 1, 7, "Add -ing to cook.", "cooking", ["cooks", "cooked", "reading"]),
+  build("suffix_ed", 1, 7, "Add -ed to play.", "played", ["plays", "playing", "walked"]),
+  context("suffix_er_est", 2, 7, "Sam is quick, but Ali is even ___.", "quicker", ["quickest", "quick", "softer"]),
+  build("suffix_ly", 2, 7, "Add -ly to brave.", "bravely", ["braver", "bravest", "softly"]),
+  build("prefix_pre", 2, 7, "Add pre- to school.", "preschool", ["schools", "schooling", "preheat"])
+].map(item => ({ ...item, retention: true }));
 
 export default {
   skillId: "prefixes_suffixes",
   skillName: "Prefixes & Suffixes",
-  items: [
-    // ================= L1 phase 1: suffix_s_es =================
-    mb("suffix_s_es", 1, 1, 1, "Add -s to hen.",
-      ["hens", "hen", "pens", "pen"], [FS, PT, SEM]),
-    mb("suffix_s_es", 1, 1, 2, "Add -es to fox.",
-      ["foxes", "fox", "dishes", "dish"], [FS, PT, SEM],
-      "dishes carries -es too, so the named affix never sits in one option alone"),
-    mb("suffix_s_es", 1, 1, 3, "Add -s to cup.",
-      ["cups", "cup", "caps", "cap"], [FS, PT, SEM]),
-    mmc("suffix_s_es", 1, 1, 4, "Every day, Dad ___ the car.",
-      ["washes", "wash", "washing", "washed"], [FS, FS, FS],
-      "the car, not the dishes — dishes hands the key its shes chunk"),
-    mmc("suffix_s_es", 1, 1, 5, "My cat ___ on the mat all day.",
-      ["naps", "nap", "napping", "napped"], [FS, FS, FS]),
-    mmc("suffix_s_es", 1, 1, 6, "Gran ___ brown bread every Sunday.",
-      ["bakes", "bake", "baking", "baked"], [FS, FS, FS],
-      "brown bread, not fresh loaves — fresh and loaves both gift es to the key"),
-
-    // ================= L1 phase 1: suffix_ing =================
-    mb("suffix_ing", 1, 1, 1, "Add -ing to jump.",
-      ["jumping", "jumps", "jumped", "going"], [FS, FS, PT]),
-    mb("suffix_ing", 1, 1, 2, "Add -ing to read.",
-      ["reading", "reads", "ready", "singing"], [FS, "D-VISUAL-NEIGHBOR", PT]),
-    mb("suffix_ing", 1, 1, 3, "Add -ing to play.",
-      ["playing", "plays", "played", "doing"], [FS, FS, PT]),
-    mmc("suffix_ing", 1, 1, 4, "Right now, the pot is ___ on the stove.",
-      ["boiling", "boils", "boil", "sleeping"], [FS, FS, PT]),
-    mmc("suffix_ing", 1, 1, 5, "We are ___ a sandcastle today.",
-      ["building", "builds", "build", "painting"], [FS, FS, PT]),
-    mmc("suffix_ing", 1, 1, 6, "Keep ___! The finish line is close.",
-      ["running", "singing", "runs", "run"], [PT, FS, FS],
-      "finish and line gift in to the key — singing carries in too and ties it"),
-
-    // ================= L1 phase 1: suffix_ed =================
-    mb("suffix_ed", 1, 1, 1, "Add -ed to walk.",
-      ["walked", "walks", "walking", "opened"], [FS, FS, PT]),
-    mb("suffix_ed", 1, 1, 2, "Add -ed to help.",
-      ["helped", "helps", "helping", "hopped"], [FS, FS, PT]),
-    mb("suffix_ed", 1, 1, 3, "Add -ed to jump.",
-      ["jumped", "jumping", "jumps", "landed"], [FS, FS, PT]),
-    mmc("suffix_ed", 1, 1, 4, "Yesterday we ___ to the park.",
-      ["walked", "walk", "walking", "jumped"], [FS, FS, PT]),
-    mmc("suffix_ed", 1, 1, 5, "Last night, the baby ___ for hours.",
-      ["cried", "cries", "crying", "called"], [FS, FS, PT]),
-    mmc("suffix_ed", 1, 1, 6, "We ___ the door before bed last night.",
-      ["locked", "locks", "locking", "filled"], [FS, FS, PT],
-      "bed gifts ed to the key — filled carries ed and ties it"),
-
-    // ================= L1 phase 2: suffix_er_person =================
-    mb("suffix_er_person", 1, 2, 1, "Add -er to sing.",
-      ["singer", "sings", "singing", "helper"], [FS, FS, PT]),
-    mb("suffix_er_person", 1, 2, 2, "Add -er to paint.",
-      ["painter", "paints", "painted", "farmer"], [FS, FS, PT]),
-    mb("suffix_er_person", 1, 2, 3, "Add -er to help.",
-      ["helper", "helped", "helping", "singer"], [FS, FS, PT]),
-    mmc("suffix_er_person", 1, 2, 4, "A person who sings is a ___.",
-      ["singer", "singing", "sings", "teacher"], [FS, FS, PT],
-      "the prompt's own verb outscores every option — scanner takes sings, not the key"),
-    mmc("suffix_er_person", 1, 2, 5, "A person who teaches is a ___.",
-      ["teacher", "teaches", "teaching", "painter"], [FS, FS, PT]),
-    mmc("suffix_er_person", 1, 2, 6, "A person who helps is a ___.",
-      ["helper", "helps", "helping", "farmer"], [FS, FS, PT]),
-
-    // ================= L1 phase 2: suffix_ful =================
-    mb("suffix_ful", 1, 2, 1, "Add -ful to care.",
-      ["careful", "cares", "caring", "helpful"], [FS, FS, PT]),
-    mb("suffix_ful", 1, 2, 2, "Add -ful to help.",
-      ["helpful", "helper", "helping", "careful"], [FS, FS, PT]),
-    mb("suffix_ful", 1, 2, 3, "Add -ful to joy.",
-      ["joyful", "joys", "enjoy", "playful"], [FS, "D-VISUAL-NEIGHBOR", PT]),
-    mmc("suffix_ful", 1, 2, 4, "A face full of joy is a ___ face.",
-      ["joyful", "joy", "joys", "careful"], [FS, FS, PT],
-      "joy and full tie every option at three letters — no gift anywhere"),
-    mmc("suffix_ful", 1, 2, 5, "Sam is always ___ with the baby bird.",
-      ["careful", "care", "cares", "helpful"], [FS, FS, PT]),
-    mmc("suffix_ful", 1, 2, 6, "Thank you! That was very ___ of you.",
-      ["helpful", "help", "helped", "joyful"], [FS, FS, PT]),
-
-    // ================= L2 phase 1: prefix_un =================
-    mb("prefix_un", 2, 1, 1, "Add un- to lock.",
-      ["unlock", "locked", "locks", "unhappy"], [FS, FS, PT]),
-    mb("prefix_un", 2, 1, 2, "Add un- to tie.",
-      ["untie", "tied", "ties", "unpack"], [FS, FS, PT]),
-    mmc("prefix_un", 2, 1, 3, "The door was ___, so we walked right in.",
-      ["unlocked", "locked", "unlock", "locking"], [OPP, FS, FS],
-      "in sits in locking alone, so the scanner takes a distractor, never the key"),
-    mmc("prefix_un", 2, 1, 4, "My shoelace came ___ on the run.",
-      ["undone", "done", "doing", "untied"], [FS, FS, PT],
-      "run and on gift chunks to key, done and untied together — three-way tie"),
-    mt("prefix_un", 2, 1, 5, "'Untie' undoes a knot. What does 'unzip' do?",
-      ["opens the zip", "closes the zip", "makes a new zip", "loses the zip"],
-      [OPP, SEM, SEM],
-      "zip repeats in every option — the shared chunk ties all four"),
-    mt("prefix_un", 2, 1, 6, "'Unhappy' is the opposite of happy. Which one is 'unkind'?",
-      ["not kind", "very kind", "kind again", "kind of"],
-      [OPP, PT, SEM]),
-
-    // ================= L2 phase 1: prefix_re =================
-    mb("prefix_re", 2, 1, 1, "Add re- to read.",
-      ["reread", "reading", "reads", "redo"], [FS, FS, PT]),
-    mb("prefix_re", 2, 1, 2, "Add re- to fill.",
-      ["refill", "filled", "fills", "retell"], [FS, FS, PT]),
-    mmc("prefix_re", 2, 1, 3, "The tower fell, so we will ___ it.",
-      ["rebuild", "build", "built", "redo"], [PU, FS, SEM],
-      "build alone is possible — but the tower stood once already, and fell pins build-AGAIN; will gifts il to key, build and built together"),
-    mmc("prefix_re", 2, 1, 4, "This maze was fun! I want to ___ it tomorrow.",
-      ["redo", "did", "doing", "refill"], [FS, FS, PT],
-      "want to DO it again tomorrow — redo is the again-verb; did breaks the frame's tense"),
-    mt("prefix_re", 2, 1, 5, "'Reread' is read again. What is 'retell'?",
-      ["tell again", "read again", "tell first", "stop telling"],
-      [ML, SEM, OPP],
-      "read again mirrors the gloss and ties the key's again chunk"),
-    mt("prefix_re", 2, 1, 6, "'Redo' is do it over. What is 'rebuild'?",
-      ["build it over", "build it first", "knock it down", "buy a new one"],
-      [SEM, OPP, SEM]),
-
-    // ================= L2 phase 1: suffix_less =================
-    mb("suffix_less", 2, 1, 1, "Add -less to fear.",
-      ["fearless", "fears", "feared", "careless"], [FS, FS, PT]),
-    mb("suffix_less", 2, 1, 2, "Add -less to care.",
-      ["careless", "cares", "caring", "fearless"], [FS, FS, PT]),
-    mmc("suffix_less", 2, 1, 3, "The scratch was tiny and ___ — it did not hurt at all.",
-      ["harmless", "harmful", "harm", "helpless"], [OPP, FS, PT]),
-    mmc("suffix_less", 2, 1, 4, "The old torch is ___ without batteries.",
-      ["useless", "useful", "uses", "helpless"], [OPP, FS, PT],
-      "batteries gifts es to key, uses and helpless together — three-way tie"),
-    mt("suffix_less", 2, 1, 5, "'Fearless' is without fear. What is 'careless'?",
-      ["without care", "without fear", "full of care", "care again"],
-      [ML, OPP, PT],
-      "without fear mirrors the gloss and ties the key's without chunk"),
-    mt("suffix_less", 2, 1, 6, "'Useless' is no use at all. What is 'hopeless'?",
-      ["no hope at all", "no fear at all", "full of hope", "hope again"],
-      [ML, OPP, PT],
-      "no fear at all carries the no chunk too, so the pattern rule never fires alone"),
-
-    // ================= L2 phase 2: suffix_er_est =================
-    mb("suffix_er_est", 2, 2, 1, "Add -est to tall.",
-      ["tallest", "taller", "tall", "fastest"], [FS, FS, PT]),
-    mb("suffix_er_est", 2, 2, 2, "Add -er to fast.",
-      ["faster", "fastest", "fast", "taller"], [FS, FS, PT]),
-    mmc("suffix_er_est", 2, 2, 3, "Ben is tall, but Ana is even ___.",
-      ["taller", "tallest", "tall", "faster"], [FS, FS, PT],
-      "tall in the prompt ties key, tallest and tall at four letters"),
-    mmc("suffix_er_est", 2, 2, 4, "Of all three dogs, Rex is the ___.",
-      ["fastest", "faster", "fast", "tallest"], [FS, FS, PT]),
-    mt("suffix_er_est", 2, 2, 5, "'Taller' compares two. Which word picks the top one of all?",
-      ["tallest", "taller", "tall", "slowest"], [FS, FS, PT],
-      "the prompt's own taller outscores everything — scanner takes a distractor"),
-    mt("suffix_er_est", 2, 2, 6, "You know 'taller' and 'tallest'. Of every snail in the garden, Sid is the ___.",
-      ["slowest", "slower", "slow", "tallest"], [FS, FS, ML],
-      "tallest repeats from the prompt and outscores the key — scanner takes the taught word"),
-
-    // ================= L2 phase 2: suffix_ly =================
-    mb("suffix_ly", 2, 2, 1, "Add -ly to quick.",
-      ["quickly", "quicker", "quickest", "softly"], [FS, FS, PT]),
-    mb("suffix_ly", 2, 2, 2, "Add -ly to soft.",
-      ["softly", "softer", "soft", "quickly"], [FS, FS, PT]),
-    mmc("suffix_ly", 2, 2, 3, "Tip the eggs into the pan ___, with no bumps.",
-      ["gently", "gentle", "gentler", "quickly"], [FS, FS, PU],
-      "quickly is how you might tip them — but with no bumps pins gentle handling; into gifts nt to key, gentle and gentler together"),
-    mmc("suffix_ly", 2, 2, 4, "The mouse crept ___ past the cat.",
-      ["quietly", "quiet", "quieter", "loudly"], [FS, FS, OPP],
-      "mouse gifts ou to loudly alone — scanner picks the opposite, never the key"),
-    mt("suffix_ly", 2, 2, 5, "'Softly' tells how — in a soft way. What does 'bravely' tell?",
-      ["in a brave way", "in a soft way", "a brave person", "being brave"],
-      [ML, FS, FS]),
-    mt("suffix_ly", 2, 2, 6, "'Quickly' is in a quick way. What is 'proudly'?",
-      ["in a proud way", "in a quick way", "a proud person", "very proud"],
-      [ML, FS, FS],
-      "proud and quick tie every option at five letters"),
-
-    // ================= L2 phase 2: prefix_pre =================
-    mb("prefix_pre", 2, 2, 1, "Add pre- to heat.",
-      ["preheat", "heated", "heats", "preview"], [FS, FS, PT]),
-    mb("prefix_pre", 2, 2, 2, "Add pre- to view.",
-      ["preview", "views", "viewed", "preheat"], [FS, FS, PT]),
-    mmc("prefix_pre", 2, 2, 3, "___ the oven before you mix the batter.",
-      ["Preheat", "Heat", "Heated", "Preview"], [PU, FS, PT],
-      "heat alone would warm it — before you even start is the pre- meaning the recipe wants; before and batter spread chunks across all four"),
-    mmc("prefix_pre", 2, 2, 4, "We watched a ___ of the film before it opened.",
-      ["preview", "view", "viewed", "preheat"], [FS, FS, PT],
-      "before gifts re to key and preheat; watched gifts ed to viewed — tie"),
-    mt("prefix_pre", 2, 2, 5, "'Preview' is a look before. What is 'pretest'?",
-      ["a test before", "a test after", "the best test", "a look before"],
-      [OPP, SEM, ML],
-      "a look before mirrors the gloss and ties the key's before chunk"),
-    mt("prefix_pre", 2, 2, 6, "'Preheat' warms the oven first. What is 'preorder'?",
-      ["order before it is out", "order after it is out", "heat the order", "order more"],
-      [OPP, ML, SEM],
-      "first, not before, in the prompt — order ties all four options"),
-
-    // ================= Retention reserve (form R) =================
-    mb("suffix_s_es", 1, 1, 7, "Add -es to bus.",
-      ["buses", "bus", "foxes", "fox"], [FS, PT, SEM]),
-    mb("suffix_ing", 1, 1, 7, "Add -ing to cook.",
-      ["cooking", "cooks", "cooked", "reading"], [FS, FS, PT]),
-    mb("suffix_ed", 1, 1, 7, "Add -ed to play.",
-      ["played", "plays", "playing", "walked"], [FS, FS, PT]),
-    mmc("suffix_er_person", 1, 2, 7, "A person who paints is a ___.",
-      ["painter", "paints", "painting", "helper"], [FS, FS, PT]),
-    mb("suffix_ful", 1, 2, 7, "Add -ful to hope.",
-      ["hopeful", "hopes", "hoped", "joyful"], [FS, FS, PT]),
-    mmc("suffix_ing", 1, 1, 8, "Right now the twins are ___ in the pool.",
-      ["splashing", "splashed", "splash", "jumping"], [FS, FS, PT],
-      "in gifts its chunk to key and jumping together"),
-    mb("prefix_un", 2, 1, 7, "Add un- to pack.",
-      ["unpack", "packs", "packed", "untie"], [FS, FS, PT]),
-    mb("prefix_re", 2, 1, 7, "Add re- to tell.",
-      ["retell", "tells", "telling", "reread"], [FS, FS, PT]),
-    mt("suffix_less", 2, 1, 7, "'Spotless' is without a spot. What is 'endless'?",
-      ["without an end", "without a spot", "the very end", "end again"],
-      [ML, SEM, PT]),
-    mmc("suffix_er_est", 2, 2, 7, "Sam is quick, but Ali is even ___.",
-      ["quicker", "quickest", "quick", "softer"], [FS, FS, PT]),
-    mb("suffix_ly", 2, 2, 7, "Add -ly to brave.",
-      ["bravely", "braver", "bravest", "softly"], [FS, FS, PT]),
-    mb("prefix_pre", 2, 2, 7, "Add pre- to school.",
-      ["preschool", "schools", "schooling", "preheat"], [FS, FS, PT])
-  ].map(item => {
-    if (item.v >= 7) item.retention = true;
-    return item;
-  })
+  items: [...levelOneItems, ...levelTwoItems, ...retentionItems]
 };

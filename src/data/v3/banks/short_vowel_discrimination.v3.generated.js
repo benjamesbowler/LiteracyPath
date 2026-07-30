@@ -25,12 +25,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "bag. Which vowel do you hear in the middle of bag?",
   "choices": [
+   "o",
    "a",
    "e",
-   "u",
-   "o"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "a",
     "label": "a",
@@ -45,19 +50,14 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
+   "o": "D-VOWEL",
    "e": "D-VOWEL",
-   "u": "D-VOWEL",
-   "o": "D-VOWEL"
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,11 +81,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/cvc/bag.png",
-  "imageUrl": "/images/child-mode/cvc/bag.png",
-  "targetImage": "/images/child-mode/cvc/bag.png",
-  "targetImagePath": "/images/child-mode/cvc/bag.png",
-  "imageAlt": "bag"
+  "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+  "resolvedImageAssetKey": "bag",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v2",
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ram",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -165,11 +168,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/ram.png",
-  "imageUrl": "/images/child-mode/initial-sounds/ram.png",
-  "targetImage": "/images/child-mode/initial-sounds/ram.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/ram.png",
-  "imageAlt": "ram"
+  "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "resolvedImageAssetKey": "ram",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v3",
@@ -195,17 +199,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "tap. Which vowel do you hear in the middle of tap?",
   "choices": [
-   "a",
    "o",
    "i",
-   "e"
+   "e",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "o",
     "label": "o",
@@ -220,14 +219,19 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
+   "e": "D-VOWEL",
    "o": "D-VOWEL",
-   "i": "D-VOWEL",
-   "e": "D-VOWEL"
+   "i": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -239,6 +243,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tap",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -250,11 +255,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/tap.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tap.png",
-  "targetImage": "/images/child-mode/initial-sounds/tap.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tap.png",
-  "imageAlt": "tap"
+  "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "resolvedImageAssetKey": "tap",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_a.v4",
@@ -280,22 +286,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "tap",
-   "tip",
    "top",
-   "ten"
+   "ten",
+   "tap",
+   "tip"
   ],
   "answerOptions": [
-   {
-    "value": "tap",
-    "label": "tap",
-    "text": "tap"
-   },
-   {
-    "value": "tip",
-    "label": "tip",
-    "text": "tip"
-   },
    {
     "value": "top",
     "label": "top",
@@ -305,6 +301,16 @@ export const questions = [
     "value": "ten",
     "label": "ten",
     "text": "ten"
+   },
+   {
+    "value": "tap",
+    "label": "tap",
+    "text": "tap"
+   },
+   {
+    "value": "tip",
+    "label": "tip",
+    "text": "tip"
    }
   ],
   "answer": "tap",
@@ -324,6 +330,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tap",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -335,11 +342,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/tap.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tap.png",
-  "targetImage": "/images/child-mode/initial-sounds/tap.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tap.png",
-  "imageAlt": "tap"
+  "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+  "resolvedImageAssetKey": "tap",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v5",
@@ -365,12 +373,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "bid",
    "bad",
    "bed",
-   "bud",
-   "bid"
+   "bud"
   ],
   "answerOptions": [
+   {
+    "value": "bid",
+    "label": "bid",
+    "text": "bid"
+   },
    {
     "value": "bad",
     "label": "bad",
@@ -385,11 +398,6 @@ export const questions = [
     "value": "bud",
     "label": "bud",
     "text": "bud"
-   },
-   {
-    "value": "bid",
-    "label": "bid",
-    "text": "bid"
    }
   ],
   "answer": "bad",
@@ -409,6 +417,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bad",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -420,11 +429,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/bad.png",
-  "imageUrl": "/images/child-mode/cvc/bad.png",
-  "targetImage": "/images/child-mode/cvc/bad.png",
-  "targetImagePath": "/images/child-mode/cvc/bad.png",
-  "imageAlt": "bad"
+  "imagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ad/bad-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ad/bad-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
+  "resolvedImageAssetKey": "bad",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v6",
@@ -494,6 +504,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ram",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -505,11 +516,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/ram.png",
-  "imageUrl": "/images/child-mode/initial-sounds/ram.png",
-  "targetImage": "/images/child-mode/initial-sounds/ram.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/ram.png",
-  "imageAlt": "ram"
+  "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "resolvedImageAssetKey": "ram",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v1",
@@ -579,6 +591,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -594,7 +607,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
-  "imageAlt": "hand"
+  "resolvedImageAssetKey": "hand",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v2",
@@ -620,12 +634,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "flag. Which vowel do you hear in the middle of flag?",
   "choices": [
+   "e",
    "a",
    "u",
-   "o",
-   "e"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
    {
     "value": "a",
     "label": "a",
@@ -640,19 +659,14 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
-   "u": "D-VOWEL",
    "o": "D-VOWEL",
-   "e": "D-VOWEL"
+   "e": "D-VOWEL",
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -664,6 +678,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -679,7 +694,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_a.v3",
@@ -705,22 +721,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "hand",
-   "band",
    "bend",
-   "sand"
+   "sand",
+   "hand",
+   "band"
   ],
   "answerOptions": [
-   {
-    "value": "hand",
-    "label": "hand",
-    "text": "hand"
-   },
-   {
-    "value": "band",
-    "label": "band",
-    "text": "band"
-   },
    {
     "value": "bend",
     "label": "bend",
@@ -730,6 +736,16 @@ export const questions = [
     "value": "sand",
     "label": "sand",
     "text": "sand"
+   },
+   {
+    "value": "hand",
+    "label": "hand",
+    "text": "hand"
+   },
+   {
+    "value": "band",
+    "label": "band",
+    "text": "band"
    }
   ],
   "answer": "hand",
@@ -749,6 +765,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -764,7 +781,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
-  "imageAlt": "hand"
+  "resolvedImageAssetKey": "hand",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v4",
@@ -790,12 +808,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "flap",
    "flag",
    "flip",
-   "flop",
-   "flap"
+   "flop"
   ],
   "answerOptions": [
+   {
+    "value": "flap",
+    "label": "flap",
+    "text": "flap"
+   },
    {
     "value": "flag",
     "label": "flag",
@@ -810,19 +833,14 @@ export const questions = [
     "value": "flop",
     "label": "flop",
     "text": "flop"
-   },
-   {
-    "value": "flap",
-    "label": "flap",
-    "text": "flap"
    }
   ],
   "answer": "flag",
   "correctAnswer": "flag",
   "distractorRationales": {
+   "flap": "D-VISUAL-NEIGHBOR",
    "flip": "D-VOWEL",
-   "flop": "D-VOWEL",
-   "flap": "D-VISUAL-NEIGHBOR"
+   "flop": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -834,6 +852,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -849,7 +868,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5",
@@ -875,22 +895,12 @@ export const questions = [
   "question": "Which picture has the short a sound?",
   "spokenPrompt": "Which picture's word has the short a sound in the middle?",
   "choices": [
-   "bag",
-   "bed",
    "pig",
-   "dog"
+   "dog",
+   "bag",
+   "bed"
   ],
   "answerOptions": [
-   {
-    "value": "bag",
-    "label": "bag",
-    "text": "bag"
-   },
-   {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
-   },
    {
     "value": "pig",
     "label": "pig",
@@ -900,14 +910,24 @@ export const questions = [
     "value": "dog",
     "label": "dog",
     "text": "dog"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
    }
   ],
   "answer": "bag",
   "correctAnswer": "bag",
   "distractorRationales": {
+   "dog": "D-VOWEL",
    "bed": "D-VOWEL",
-   "pig": "D-VOWEL",
-   "dog": "D-VOWEL"
+   "pig": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -931,30 +951,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5_card_bag",
-    "word": "bag",
-    "value": "bag",
-    "label": "bag",
-    "image": "/images/child-mode/cvc/bag.png",
-    "imagePath": "/images/child-mode/cvc/bag.png",
-    "imageAlt": "bag"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5_card_bed",
-    "word": "bed",
-    "value": "bed",
-    "label": "bed",
-    "image": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
-    "imageAlt": "bed"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5_card_pig",
     "word": "pig",
     "value": "pig",
     "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "imageAlt": "pig"
    },
    {
@@ -962,9 +964,27 @@ export const questions = [
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
     "imageAlt": "dog"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5_card_bag",
+    "word": "bag",
+    "value": "bag",
+    "label": "bag",
+    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imageAlt": "bag"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5_card_bed",
+    "word": "bed",
+    "value": "bed",
+    "label": "bed",
+    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imageAlt": "bed"
    }
   ]
  },
@@ -992,17 +1012,12 @@ export const questions = [
   "question": "Which picture has the short a sound?",
   "spokenPrompt": "Which picture's word has the short a sound in the middle?",
   "choices": [
-   "ram",
    "net",
    "pin",
-   "mop"
+   "mop",
+   "ram"
   ],
   "answerOptions": [
-   {
-    "value": "ram",
-    "label": "ram",
-    "text": "ram"
-   },
    {
     "value": "net",
     "label": "net",
@@ -1017,14 +1032,19 @@ export const questions = [
     "value": "mop",
     "label": "mop",
     "text": "mop"
+   },
+   {
+    "value": "ram",
+    "label": "ram",
+    "text": "ram"
    }
   ],
   "answer": "ram",
   "correctAnswer": "ram",
   "distractorRationales": {
+   "mop": "D-VOWEL",
    "net": "D-VOWEL",
-   "pin": "D-VOWEL",
-   "mop": "D-VOWEL"
+   "pin": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1048,21 +1068,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_a.v6_card_ram",
-    "word": "ram",
-    "value": "ram",
-    "label": "ram",
-    "image": "/images/child-mode/initial-sounds/ram.png",
-    "imagePath": "/images/child-mode/initial-sounds/ram.png",
-    "imageAlt": "ram"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.C.short_a.v6_card_net",
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
     "imageAlt": "net"
    },
    {
@@ -1070,8 +1081,8 @@ export const questions = [
     "word": "pin",
     "value": "pin",
     "label": "pin",
-    "image": "/images/child-mode/initial-sounds/pin.png",
-    "imagePath": "/images/child-mode/initial-sounds/pin.png",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
     "imageAlt": "pin"
    },
    {
@@ -1079,9 +1090,18 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/child-mode/initial-sounds/mop.png",
-    "imagePath": "/images/child-mode/initial-sounds/mop.png",
+    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
     "imageAlt": "mop"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.C.short_a.v6_card_ram",
+    "word": "ram",
+    "value": "ram",
+    "label": "ram",
+    "image": "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "imageAlt": "ram"
    }
   ]
  },
@@ -1109,17 +1129,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "web. Which vowel do you hear in the middle of web?",
   "choices": [
-   "e",
    "a",
    "i",
-   "o"
+   "o",
+   "e"
   ],
   "answerOptions": [
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
    {
     "value": "a",
     "label": "a",
@@ -1134,14 +1149,19 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "o": "D-VOWEL",
    "a": "D-VOWEL",
-   "i": "D-VOWEL",
-   "o": "D-VOWEL"
+   "i": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1153,6 +1173,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "web",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1168,7 +1189,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/web.png",
   "targetImage": "/images/child-mode/initial-sounds/web.png",
   "targetImagePath": "/images/child-mode/initial-sounds/web.png",
-  "imageAlt": "web"
+  "resolvedImageAssetKey": "web",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v2",
@@ -1194,22 +1216,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "ten. Which vowel do you hear in the middle of ten?",
   "choices": [
-   "e",
-   "i",
    "a",
-   "u"
+   "u",
+   "e",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "a",
     "label": "a",
@@ -1219,6 +1231,16 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "e",
@@ -1238,6 +1260,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ten",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1249,11 +1272,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/ten.png",
-  "imageUrl": "/images/child-mode/initial-sounds/ten.png",
-  "targetImage": "/images/child-mode/initial-sounds/ten.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/ten.png",
-  "imageAlt": "ten"
+  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "resolvedImageAssetKey": "ten",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v3",
@@ -1279,12 +1303,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "leg. Which vowel do you hear in the middle of leg?",
   "choices": [
+   "i",
    "e",
    "a",
-   "u",
-   "i"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
    {
     "value": "e",
     "label": "e",
@@ -1299,19 +1328,14 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "i": "D-VOWEL",
    "a": "D-VOWEL",
-   "u": "D-VOWEL",
-   "i": "D-VOWEL"
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1323,6 +1347,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "leg",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1334,11 +1359,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageUrl": "/images/child-mode/initial-sounds/leg.png",
-  "targetImage": "/images/child-mode/initial-sounds/leg.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageAlt": "leg"
+  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "resolvedImageAssetKey": "leg",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_e.v4",
@@ -1408,6 +1434,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ten",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1419,11 +1446,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/ten.png",
-  "imageUrl": "/images/child-mode/initial-sounds/ten.png",
-  "targetImage": "/images/child-mode/initial-sounds/ten.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/ten.png",
-  "imageAlt": "ten"
+  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "resolvedImageAssetKey": "ten",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v5",
@@ -1449,17 +1477,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "bell",
    "ball",
    "bill",
-   "bull"
+   "bull",
+   "bell"
   ],
   "answerOptions": [
-   {
-    "value": "bell",
-    "label": "bell",
-    "text": "bell"
-   },
    {
     "value": "ball",
     "label": "ball",
@@ -1474,6 +1497,11 @@ export const questions = [
     "value": "bull",
     "label": "bull",
     "text": "bull"
+   },
+   {
+    "value": "bell",
+    "label": "bell",
+    "text": "bell"
    }
   ],
   "answer": "bell",
@@ -1493,6 +1521,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bell",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1504,11 +1533,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/bell.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bell.png",
-  "targetImage": "/images/child-mode/initial-sounds/bell.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bell.png",
-  "imageAlt": "bell"
+  "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "resolvedImageAssetKey": "bell",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v6",
@@ -1534,22 +1564,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "leg",
-   "lag",
    "log",
-   "lug"
+   "lug",
+   "leg",
+   "lag"
   ],
   "answerOptions": [
-   {
-    "value": "leg",
-    "label": "leg",
-    "text": "leg"
-   },
-   {
-    "value": "lag",
-    "label": "lag",
-    "text": "lag"
-   },
    {
     "value": "log",
     "label": "log",
@@ -1559,6 +1579,16 @@ export const questions = [
     "value": "lug",
     "label": "lug",
     "text": "lug"
+   },
+   {
+    "value": "leg",
+    "label": "leg",
+    "text": "leg"
+   },
+   {
+    "value": "lag",
+    "label": "lag",
+    "text": "lag"
    }
   ],
   "answer": "leg",
@@ -1578,6 +1608,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "leg",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1589,11 +1620,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageUrl": "/images/child-mode/initial-sounds/leg.png",
-  "targetImage": "/images/child-mode/initial-sounds/leg.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/leg.png",
-  "imageAlt": "leg"
+  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
+  "resolvedImageAssetKey": "leg",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v1",
@@ -1619,22 +1651,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "nest. Which vowel do you hear in the middle of nest?",
   "choices": [
-   "e",
-   "i",
    "a",
-   "o"
+   "o",
+   "e",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "a",
     "label": "a",
@@ -1644,6 +1666,16 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "e",
@@ -1663,6 +1695,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nest",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1678,7 +1711,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/nest.webp",
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
-  "imageAlt": "nest"
+  "resolvedImageAssetKey": "nest",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v2",
@@ -1704,17 +1738,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "shell. Which vowel do you hear in the middle of shell?",
   "choices": [
-   "e",
    "a",
    "o",
-   "u"
+   "u",
+   "e"
   ],
   "answerOptions": [
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
    {
     "value": "a",
     "label": "a",
@@ -1729,14 +1758,19 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "o": "D-VOWEL",
-   "u": "D-VOWEL"
+   "u": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1748,6 +1782,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "shell",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1763,7 +1798,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/shell.webp",
   "targetImage": "/images/assessment/digraphs/shell.webp",
   "targetImagePath": "/images/assessment/digraphs/shell.webp",
-  "imageAlt": "shell"
+  "resolvedImageAssetKey": "shell",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_e.v3",
@@ -1833,6 +1869,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nest",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1848,7 +1885,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/nest.webp",
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
-  "imageAlt": "nest"
+  "resolvedImageAssetKey": "nest",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v4",
@@ -1874,17 +1912,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "belt",
    "bolt",
    "built",
-   "bell"
+   "bell",
+   "belt"
   ],
   "answerOptions": [
-   {
-    "value": "belt",
-    "label": "belt",
-    "text": "belt"
-   },
    {
     "value": "bolt",
     "label": "bolt",
@@ -1899,14 +1932,19 @@ export const questions = [
     "value": "bell",
     "label": "bell",
     "text": "bell"
+   },
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
    }
   ],
   "answer": "belt",
   "correctAnswer": "belt",
   "distractorRationales": {
+   "bell": "D-DEVELOPMENTAL",
    "bolt": "D-VOWEL",
-   "built": "D-VOWEL",
-   "bell": "D-DEVELOPMENTAL"
+   "built": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1918,6 +1956,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "belt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1933,7 +1972,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/belt.webp",
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
-  "imageAlt": "belt"
+  "resolvedImageAssetKey": "belt",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v5",
@@ -1989,9 +2029,9 @@ export const questions = [
   "answer": "bed",
   "correctAnswer": "bed",
   "distractorRationales": {
+   "sun": "D-VOWEL",
    "bag": "D-VOWEL",
-   "pig": "D-VOWEL",
-   "sun": "D-VOWEL"
+   "pig": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2019,8 +2059,8 @@ export const questions = [
     "word": "bed",
     "value": "bed",
     "label": "bed",
-    "image": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
+    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
     "imageAlt": "bed"
    },
    {
@@ -2028,8 +2068,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/child-mode/cvc/bag.png",
-    "imagePath": "/images/child-mode/cvc/bag.png",
+    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
     "imageAlt": "bag"
    },
    {
@@ -2037,8 +2077,8 @@ export const questions = [
     "word": "pig",
     "value": "pig",
     "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "imageAlt": "pig"
    },
    {
@@ -2046,8 +2086,8 @@ export const questions = [
     "word": "sun",
     "value": "sun",
     "label": "sun",
-    "image": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
     "imageAlt": "sun"
    }
   ]
@@ -2076,12 +2116,17 @@ export const questions = [
   "question": "Which picture has the short e sound?",
   "spokenPrompt": "Which picture's word has the short e sound in the middle?",
   "choices": [
+   "dog",
    "ten",
    "tap",
-   "tub",
-   "dog"
+   "tub"
   ],
   "answerOptions": [
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
+   },
    {
     "value": "ten",
     "label": "ten",
@@ -2096,19 +2141,14 @@ export const questions = [
     "value": "tub",
     "label": "tub",
     "text": "tub"
-   },
-   {
-    "value": "dog",
-    "label": "dog",
-    "text": "dog"
    }
   ],
   "answer": "ten",
   "correctAnswer": "ten",
   "distractorRationales": {
+   "dog": "D-VOWEL",
    "tap": "D-VOWEL",
-   "tub": "D-VOWEL",
-   "dog": "D-VOWEL"
+   "tub": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2132,12 +2172,21 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imageAlt": "dog"
+   },
+   {
     "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_ten",
     "word": "ten",
     "value": "ten",
     "label": "ten",
-    "image": "/images/child-mode/initial-sounds/ten.png",
-    "imagePath": "/images/child-mode/initial-sounds/ten.png",
+    "image": "/images/assessment/rhyming/variants/en/ten-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
     "imageAlt": "ten"
    },
    {
@@ -2145,8 +2194,8 @@ export const questions = [
     "word": "tap",
     "value": "tap",
     "label": "tap",
-    "image": "/images/child-mode/initial-sounds/tap.png",
-    "imagePath": "/images/child-mode/initial-sounds/tap.png",
+    "image": "/images/assessment/rhyming/variants/ap/tap-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
     "imageAlt": "tap"
    },
    {
@@ -2157,15 +2206,6 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/tub.png",
     "imagePath": "/images/child-mode/initial-sounds/tub.png",
     "imageAlt": "tub"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_e.v6_card_dog",
-    "word": "dog",
-    "value": "dog",
-    "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
-    "imageAlt": "dog"
    }
   ]
  },
@@ -2193,12 +2233,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "bin. Which vowel do you hear in the middle of bin?",
   "choices": [
+   "u",
    "i",
    "e",
-   "a",
-   "u"
+   "a"
   ],
   "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
    {
     "value": "i",
     "label": "i",
@@ -2213,19 +2258,14 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
+   "u": "D-VOWEL",
    "e": "D-VOWEL",
-   "a": "D-VOWEL",
-   "u": "D-VOWEL"
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2237,6 +2277,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2248,11 +2289,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/bin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bin.png",
-  "targetImage": "/images/child-mode/initial-sounds/bin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bin.png",
-  "imageAlt": "bin"
+  "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "resolvedImageAssetKey": "bin",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v2",
@@ -2322,6 +2364,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zip",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2333,11 +2376,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageUrl": "/images/child-mode/initial-sounds/zip.png",
-  "targetImage": "/images/child-mode/initial-sounds/zip.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageAlt": "zip"
+  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "resolvedImageAssetKey": "zip",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v3",
@@ -2363,17 +2407,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "hit. Which vowel do you hear in the middle of hit?",
   "choices": [
-   "i",
    "e",
    "u",
-   "a"
+   "a",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "e",
     "label": "e",
@@ -2388,14 +2427,19 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
+   "a": "D-VOWEL",
    "e": "D-VOWEL",
-   "u": "D-VOWEL",
-   "a": "D-VOWEL"
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2407,6 +2451,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hit",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2418,11 +2463,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/hit.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hit.png",
-  "targetImage": "/images/child-mode/initial-sounds/hit.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hit.png",
-  "imageAlt": "hit"
+  "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "resolvedImageAssetKey": "hit",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_i.v4",
@@ -2448,22 +2494,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "bin",
-   "ban",
    "bun",
-   "band"
+   "band",
+   "bin",
+   "ban"
   ],
   "answerOptions": [
-   {
-    "value": "bin",
-    "label": "bin",
-    "text": "bin"
-   },
-   {
-    "value": "ban",
-    "label": "ban",
-    "text": "ban"
-   },
    {
     "value": "bun",
     "label": "bun",
@@ -2473,6 +2509,16 @@ export const questions = [
     "value": "band",
     "label": "band",
     "text": "band"
+   },
+   {
+    "value": "bin",
+    "label": "bin",
+    "text": "bin"
+   },
+   {
+    "value": "ban",
+    "label": "ban",
+    "text": "ban"
    }
   ],
   "answer": "bin",
@@ -2492,6 +2538,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2503,11 +2550,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/bin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bin.png",
-  "targetImage": "/images/child-mode/initial-sounds/bin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bin.png",
-  "imageAlt": "bin"
+  "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
+  "resolvedImageAssetKey": "bin",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v5",
@@ -2533,12 +2581,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "hid",
    "hit",
    "hat",
-   "hot",
-   "hid"
+   "hot"
   ],
   "answerOptions": [
+   {
+    "value": "hid",
+    "label": "hid",
+    "text": "hid"
+   },
    {
     "value": "hit",
     "label": "hit",
@@ -2553,11 +2606,6 @@ export const questions = [
     "value": "hot",
     "label": "hot",
     "text": "hot"
-   },
-   {
-    "value": "hid",
-    "label": "hid",
-    "text": "hid"
    }
   ],
   "answer": "hit",
@@ -2577,6 +2625,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hit",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2588,11 +2637,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "hid ties the hi/which overlap",
-  "imagePath": "/images/child-mode/initial-sounds/hit.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hit.png",
-  "targetImage": "/images/child-mode/initial-sounds/hit.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hit.png",
-  "imageAlt": "hit"
+  "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
+  "resolvedImageAssetKey": "hit",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v6",
@@ -2662,6 +2712,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "zip",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2673,11 +2724,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageUrl": "/images/child-mode/initial-sounds/zip.png",
-  "targetImage": "/images/child-mode/initial-sounds/zip.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/zip.png",
-  "imageAlt": "zip"
+  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
+  "resolvedImageAssetKey": "zip",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v1",
@@ -2747,6 +2799,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brick",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2762,7 +2815,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brick.webp",
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "imageAlt": "brick"
+  "resolvedImageAssetKey": "brick",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v2",
@@ -2788,12 +2842,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "gift. Which vowel do you hear in the middle of gift?",
   "choices": [
+   "a",
    "i",
    "e",
-   "u",
-   "a"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
    {
     "value": "i",
     "label": "i",
@@ -2808,19 +2867,14 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
-   "e": "D-VOWEL",
    "u": "D-VOWEL",
-   "a": "D-VOWEL"
+   "a": "D-VOWEL",
+   "e": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2832,6 +2886,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gift",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2847,7 +2902,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/gift.webp",
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
-  "imageAlt": "gift"
+  "resolvedImageAssetKey": "gift",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_i.v3",
@@ -2873,22 +2929,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "gift",
-   "lift",
    "left",
-   "loft"
+   "loft",
+   "gift",
+   "lift"
   ],
   "answerOptions": [
-   {
-    "value": "gift",
-    "label": "gift",
-    "text": "gift"
-   },
-   {
-    "value": "lift",
-    "label": "lift",
-    "text": "lift"
-   },
    {
     "value": "left",
     "label": "left",
@@ -2898,6 +2944,16 @@ export const questions = [
     "value": "loft",
     "label": "loft",
     "text": "loft"
+   },
+   {
+    "value": "gift",
+    "label": "gift",
+    "text": "gift"
+   },
+   {
+    "value": "lift",
+    "label": "lift",
+    "text": "lift"
    }
   ],
   "answer": "gift",
@@ -2917,6 +2973,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gift",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2932,7 +2989,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/gift.webp",
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
-  "imageAlt": "gift"
+  "resolvedImageAssetKey": "gift",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v4",
@@ -2958,12 +3016,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "click",
    "brick",
    "black",
-   "block",
-   "click"
+   "block"
   ],
   "answerOptions": [
+   {
+    "value": "click",
+    "label": "click",
+    "text": "click"
+   },
    {
     "value": "brick",
     "label": "brick",
@@ -2978,19 +3041,14 @@ export const questions = [
     "value": "block",
     "label": "block",
     "text": "block"
-   },
-   {
-    "value": "click",
-    "label": "click",
-    "text": "click"
    }
   ],
   "answer": "brick",
   "correctAnswer": "brick",
   "distractorRationales": {
+   "click": "D-VISUAL-NEIGHBOR",
    "black": "D-VOWEL",
-   "block": "D-VOWEL",
-   "click": "D-VISUAL-NEIGHBOR"
+   "block": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3002,6 +3060,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brick",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3017,7 +3076,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brick.webp",
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "imageAlt": "brick"
+  "resolvedImageAssetKey": "brick",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5",
@@ -3043,22 +3103,12 @@ export const questions = [
   "question": "Which picture has the short i sound?",
   "spokenPrompt": "Which picture's word has the short i sound in the middle?",
   "choices": [
-   "fin",
-   "fan",
    "log",
-   "cup"
+   "cup",
+   "fin",
+   "fan"
   ],
   "answerOptions": [
-   {
-    "value": "fin",
-    "label": "fin",
-    "text": "fin"
-   },
-   {
-    "value": "fan",
-    "label": "fan",
-    "text": "fan"
-   },
    {
     "value": "log",
     "label": "log",
@@ -3068,14 +3118,24 @@ export const questions = [
     "value": "cup",
     "label": "cup",
     "text": "cup"
+   },
+   {
+    "value": "fin",
+    "label": "fin",
+    "text": "fin"
+   },
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
    }
   ],
   "answer": "fin",
   "correctAnswer": "fin",
   "distractorRationales": {
+   "cup": "D-VOWEL",
    "fan": "D-VOWEL",
-   "log": "D-VOWEL",
-   "cup": "D-VOWEL"
+   "log": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3099,30 +3159,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fin",
-    "word": "fin",
-    "value": "fin",
-    "label": "fin",
-    "image": "/images/child-mode/initial-sounds/fin.png",
-    "imagePath": "/images/child-mode/initial-sounds/fin.png",
-    "imageAlt": "fin"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fan",
-    "word": "fan",
-    "value": "fan",
-    "label": "fan",
-    "image": "/images/child-mode/initial-sounds/fan.png",
-    "imagePath": "/images/child-mode/initial-sounds/fan.png",
-    "imageAlt": "fan"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_log",
     "word": "log",
     "value": "log",
     "label": "log",
-    "image": "/images/child-mode/cvc/log.png",
-    "imagePath": "/images/child-mode/cvc/log.png",
+    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
     "imageAlt": "log"
    },
    {
@@ -3130,9 +3172,27 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "imageAlt": "cup"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fin",
+    "word": "fin",
+    "value": "fin",
+    "label": "fin",
+    "image": "/images/assessment/rhyming/variants/in/fin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
+    "imageAlt": "fin"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5_card_fan",
+    "word": "fan",
+    "value": "fan",
+    "label": "fan",
+    "image": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
+    "imageAlt": "fan"
    }
   ]
  },
@@ -3160,17 +3220,12 @@ export const questions = [
   "question": "Which picture has the short i sound?",
   "spokenPrompt": "Which picture's word has the short i sound in the middle?",
   "choices": [
-   "dig",
    "dog",
    "bag",
-   "sun"
+   "sun",
+   "dig"
   ],
   "answerOptions": [
-   {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
-   },
    {
     "value": "dog",
     "label": "dog",
@@ -3185,14 +3240,19 @@ export const questions = [
     "value": "sun",
     "label": "sun",
     "text": "sun"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
    }
   ],
   "answer": "dig",
   "correctAnswer": "dig",
   "distractorRationales": {
+   "sun": "D-VOWEL",
    "dog": "D-VOWEL",
-   "bag": "D-VOWEL",
-   "sun": "D-VOWEL"
+   "bag": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3216,21 +3276,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_i.v6_card_dig",
-    "word": "dig",
-    "value": "dig",
-    "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
-    "imageAlt": "dig"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.C.short_i.v6_card_dog",
     "word": "dog",
     "value": "dog",
     "label": "dog",
-    "image": "/images/child-mode/cvc/dog.png",
-    "imagePath": "/images/child-mode/cvc/dog.png",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
     "imageAlt": "dog"
    },
    {
@@ -3238,8 +3289,8 @@ export const questions = [
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/child-mode/cvc/bag.png",
-    "imagePath": "/images/child-mode/cvc/bag.png",
+    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
     "imageAlt": "bag"
    },
    {
@@ -3247,9 +3298,18 @@ export const questions = [
     "word": "sun",
     "value": "sun",
     "label": "sun",
-    "image": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
     "imageAlt": "sun"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.C.short_i.v6_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imageAlt": "dig"
    }
   ]
  },
@@ -3277,17 +3337,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "fox. Which vowel do you hear in the middle of fox?",
   "choices": [
-   "o",
    "a",
    "u",
-   "e"
+   "e",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "a",
     "label": "a",
@@ -3302,6 +3357,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "o",
@@ -3321,6 +3381,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fox",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3336,7 +3397,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/fox.png",
   "targetImage": "/images/child-mode/initial-sounds/fox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageAlt": "fox"
+  "resolvedImageAssetKey": "fox",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v2",
@@ -3362,22 +3424,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "mop. Which vowel do you hear in the middle of mop?",
   "choices": [
-   "o",
-   "u",
    "a",
-   "i"
+   "i",
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "a",
     "label": "a",
@@ -3387,14 +3439,24 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
+   "i": "D-VOWEL",
    "u": "D-VOWEL",
-   "a": "D-VOWEL",
-   "i": "D-VOWEL"
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3406,6 +3468,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mop",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3417,11 +3480,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/mop.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mop.png",
-  "targetImage": "/images/child-mode/initial-sounds/mop.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mop.png",
-  "imageAlt": "mop"
+  "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "resolvedImageAssetKey": "mop",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v3",
@@ -3447,12 +3511,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "dot. Which vowel do you hear in the middle of dot?",
   "choices": [
+   "u",
    "o",
    "a",
-   "e",
-   "u"
+   "e"
   ],
   "answerOptions": [
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
    {
     "value": "o",
     "label": "o",
@@ -3467,11 +3536,6 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
    }
   ],
   "answer": "o",
@@ -3491,6 +3555,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dot",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3502,11 +3567,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/cvc/dot.png",
-  "imageUrl": "/images/child-mode/cvc/dot.png",
-  "targetImage": "/images/child-mode/cvc/dot.png",
-  "targetImagePath": "/images/child-mode/cvc/dot.png",
-  "imageAlt": "dot"
+  "imagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/dot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/dot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
+  "resolvedImageAssetKey": "dot",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_o.v4",
@@ -3562,9 +3628,9 @@ export const questions = [
   "answer": "dog",
   "correctAnswer": "dog",
   "distractorRationales": {
-   "dig": "D-VOWEL",
    "dug": "D-VOWEL",
-   "bag": "D-VISUAL-NEIGHBOR"
+   "bag": "D-VISUAL-NEIGHBOR",
+   "dig": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3576,6 +3642,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3587,11 +3654,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/dog.png",
-  "imageUrl": "/images/child-mode/cvc/dog.png",
-  "targetImage": "/images/child-mode/cvc/dog.png",
-  "targetImagePath": "/images/child-mode/cvc/dog.png",
-  "imageAlt": "dog"
+  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "resolvedImageAssetKey": "dog",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v5",
@@ -3617,17 +3685,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "top",
    "tap",
    "tip",
-   "tub"
+   "tub",
+   "top"
   ],
   "answerOptions": [
-   {
-    "value": "top",
-    "label": "top",
-    "text": "top"
-   },
    {
     "value": "tap",
     "label": "tap",
@@ -3642,14 +3705,19 @@ export const questions = [
     "value": "tub",
     "label": "tub",
     "text": "tub"
+   },
+   {
+    "value": "top",
+    "label": "top",
+    "text": "top"
    }
   ],
   "answer": "top",
   "correctAnswer": "top",
   "distractorRationales": {
-   "tap": "D-VOWEL",
    "tip": "D-VOWEL",
-   "tub": "D-VISUAL-NEIGHBOR"
+   "tub": "D-VISUAL-NEIGHBOR",
+   "tap": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3661,6 +3729,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "top",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3672,11 +3741,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/top.png",
-  "imageUrl": "/images/child-mode/initial-sounds/top.png",
-  "targetImage": "/images/child-mode/initial-sounds/top.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/top.png",
-  "imageAlt": "top"
+  "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/op/top-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/op/top-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
+  "resolvedImageAssetKey": "top",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v6",
@@ -3702,22 +3772,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "pot",
-   "pat",
    "pit",
-   "pet"
+   "pet",
+   "pot",
+   "pat"
   ],
   "answerOptions": [
-   {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
-   },
-   {
-    "value": "pat",
-    "label": "pat",
-    "text": "pat"
-   },
    {
     "value": "pit",
     "label": "pit",
@@ -3727,14 +3787,24 @@ export const questions = [
     "value": "pet",
     "label": "pet",
     "text": "pet"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
+   {
+    "value": "pat",
+    "label": "pat",
+    "text": "pat"
    }
   ],
   "answer": "pot",
   "correctAnswer": "pot",
   "distractorRationales": {
-   "pat": "D-VOWEL",
    "pit": "D-VOWEL",
-   "pet": "D-VOWEL"
+   "pet": "D-VOWEL",
+   "pat": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3746,6 +3816,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pot",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3757,11 +3828,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/pot.png",
-  "imageUrl": "/images/child-mode/cvc/pot.png",
-  "targetImage": "/images/child-mode/cvc/pot.png",
-  "targetImagePath": "/images/child-mode/cvc/pot.png",
-  "imageAlt": "pot"
+  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "resolvedImageAssetKey": "pot",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v1",
@@ -3787,22 +3859,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "sock. Which vowel do you hear in the middle of sock?",
   "choices": [
-   "o",
-   "a",
    "u",
-   "i"
+   "i",
+   "o",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "u",
     "label": "u",
@@ -3812,14 +3874,24 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "u": "D-VOWEL",
-   "i": "D-VOWEL"
+   "i": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3831,6 +3903,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3846,7 +3919,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/sock.webp",
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "imageAlt": "sock"
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v2",
@@ -3872,17 +3946,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "clock. Which vowel do you hear in the middle of clock?",
   "choices": [
-   "o",
    "u",
    "a",
-   "e"
+   "e",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "u",
     "label": "u",
@@ -3897,6 +3966,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "o",
@@ -3916,6 +3990,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3931,7 +4006,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/clock.webp",
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "imageAlt": "clock"
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_o.v3",
@@ -3987,9 +4063,9 @@ export const questions = [
   "answer": "clock",
   "correctAnswer": "clock",
   "distractorRationales": {
-   "click": "D-VOWEL",
    "cluck": "D-VOWEL",
-   "block": "D-VISUAL-NEIGHBOR"
+   "block": "D-VISUAL-NEIGHBOR",
+   "click": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4001,6 +4077,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4016,7 +4093,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/clock.webp",
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "imageAlt": "clock"
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v4",
@@ -4042,17 +4120,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "dock",
    "duck",
    "deck",
-   "desk"
+   "desk",
+   "dock"
   ],
   "answerOptions": [
-   {
-    "value": "dock",
-    "label": "dock",
-    "text": "dock"
-   },
    {
     "value": "duck",
     "label": "duck",
@@ -4067,6 +4140,11 @@ export const questions = [
     "value": "desk",
     "label": "desk",
     "text": "desk"
+   },
+   {
+    "value": "dock",
+    "label": "dock",
+    "text": "dock"
    }
   ],
   "answer": "dock",
@@ -4086,6 +4164,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4101,7 +4180,8 @@ export const questions = [
   "imageUrl": "/images/vocabulary/dock.png",
   "targetImage": "/images/vocabulary/dock.png",
   "targetImagePath": "/images/vocabulary/dock.png",
-  "imageAlt": "dock"
+  "resolvedImageAssetKey": "dock",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v5",
@@ -4187,8 +4267,8 @@ export const questions = [
     "word": "mop",
     "value": "mop",
     "label": "mop",
-    "image": "/images/child-mode/initial-sounds/mop.png",
-    "imagePath": "/images/child-mode/initial-sounds/mop.png",
+    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
     "imageAlt": "mop"
    },
    {
@@ -4196,8 +4276,8 @@ export const questions = [
     "word": "map",
     "value": "map",
     "label": "map",
-    "image": "/images/child-mode/cvc/map.png",
-    "imagePath": "/images/child-mode/cvc/map.png",
+    "image": "/images/assessment/rhyming/variants/ap/map-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
     "imageAlt": "map"
    },
    {
@@ -4205,8 +4285,8 @@ export const questions = [
     "word": "net",
     "value": "net",
     "label": "net",
-    "image": "/images/child-mode/initial-sounds/net.png",
-    "imagePath": "/images/child-mode/initial-sounds/net.png",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
     "imageAlt": "net"
    },
    {
@@ -4214,8 +4294,8 @@ export const questions = [
     "word": "bug",
     "value": "bug",
     "label": "bug",
-    "image": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "image": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "imageAlt": "bug"
    }
   ]
@@ -4244,12 +4324,17 @@ export const questions = [
   "question": "Which picture has the short o sound?",
   "spokenPrompt": "Which picture's word has the short o sound in the middle?",
   "choices": [
+   "bug",
    "pot",
    "bat",
-   "bed",
-   "bug"
+   "bed"
   ],
   "answerOptions": [
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
+   },
    {
     "value": "pot",
     "label": "pot",
@@ -4264,11 +4349,6 @@ export const questions = [
     "value": "bed",
     "label": "bed",
     "text": "bed"
-   },
-   {
-    "value": "bug",
-    "label": "bug",
-    "text": "bug"
    }
   ],
   "answer": "pot",
@@ -4300,12 +4380,21 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.short_vowel_discrimination.l2.C.short_o.v6_card_bug",
+    "word": "bug",
+    "value": "bug",
+    "label": "bug",
+    "image": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imageAlt": "bug"
+   },
+   {
     "id": "lp3.short_vowel_discrimination.l2.C.short_o.v6_card_pot",
     "word": "pot",
     "value": "pot",
     "label": "pot",
-    "image": "/images/child-mode/cvc/pot.png",
-    "imagePath": "/images/child-mode/cvc/pot.png",
+    "image": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
     "imageAlt": "pot"
    },
    {
@@ -4313,8 +4402,8 @@ export const questions = [
     "word": "bat",
     "value": "bat",
     "label": "bat",
-    "image": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "image": "/images/assessment/rhyming/variants/at/bat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
     "imageAlt": "bat"
    },
    {
@@ -4322,18 +4411,9 @@ export const questions = [
     "word": "bed",
     "value": "bed",
     "label": "bed",
-    "image": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
+    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
     "imageAlt": "bed"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_o.v6_card_bug",
-    "word": "bug",
-    "value": "bug",
-    "label": "bug",
-    "image": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
-    "imageAlt": "bug"
    }
   ]
  },
@@ -4361,12 +4441,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "jug. Which vowel do you hear in the middle of jug?",
   "choices": [
+   "i",
    "u",
    "a",
-   "o",
-   "i"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
    {
     "value": "u",
     "label": "u",
@@ -4381,19 +4466,14 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
+   "i": "D-VOWEL",
    "a": "D-VOWEL",
-   "o": "D-VOWEL",
-   "i": "D-VOWEL"
+   "o": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4405,6 +4485,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4416,11 +4497,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/jug.png",
-  "imageUrl": "/images/child-mode/initial-sounds/jug.png",
-  "targetImage": "/images/child-mode/initial-sounds/jug.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/jug.png",
-  "imageAlt": "jug"
+  "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "resolvedImageAssetKey": "jug",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v2",
@@ -4490,6 +4572,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4501,11 +4584,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/cup.png",
-  "imageUrl": "/images/child-mode/initial-sounds/cup.png",
-  "targetImage": "/images/child-mode/initial-sounds/cup.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/cup.png",
-  "imageAlt": "cup"
+  "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "resolvedImageAssetKey": "cup",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v3",
@@ -4531,17 +4615,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "mud. Which vowel do you hear in the middle of mud?",
   "choices": [
-   "u",
    "a",
    "e",
-   "o"
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "a",
     "label": "a",
@@ -4556,14 +4635,19 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
+   "o": "D-VOWEL",
    "a": "D-VOWEL",
-   "e": "D-VOWEL",
-   "o": "D-VOWEL"
+   "e": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4575,6 +4659,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mud",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4590,7 +4675,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/mud.png",
   "targetImage": "/images/child-mode/initial-sounds/mud.png",
   "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageAlt": "mud"
+  "resolvedImageAssetKey": "mud",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_u.v4",
@@ -4616,22 +4702,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "jug",
-   "jog",
    "jig",
-   "jet"
+   "jet",
+   "jug",
+   "jog"
   ],
   "answerOptions": [
-   {
-    "value": "jug",
-    "label": "jug",
-    "text": "jug"
-   },
-   {
-    "value": "jog",
-    "label": "jog",
-    "text": "jog"
-   },
    {
     "value": "jig",
     "label": "jig",
@@ -4641,6 +4717,16 @@ export const questions = [
     "value": "jet",
     "label": "jet",
     "text": "jet"
+   },
+   {
+    "value": "jug",
+    "label": "jug",
+    "text": "jug"
+   },
+   {
+    "value": "jog",
+    "label": "jog",
+    "text": "jog"
    }
   ],
   "answer": "jug",
@@ -4660,6 +4746,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4671,11 +4758,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/jug.png",
-  "imageUrl": "/images/child-mode/initial-sounds/jug.png",
-  "targetImage": "/images/child-mode/initial-sounds/jug.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/jug.png",
-  "imageAlt": "jug"
+  "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+  "resolvedImageAssetKey": "jug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v5",
@@ -4701,12 +4789,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "cub",
    "cup",
    "cap",
-   "cape",
-   "cub"
+   "cape"
   ],
   "answerOptions": [
+   {
+    "value": "cub",
+    "label": "cub",
+    "text": "cub"
+   },
    {
     "value": "cup",
     "label": "cup",
@@ -4721,11 +4814,6 @@ export const questions = [
     "value": "cape",
     "label": "cape",
     "text": "cape"
-   },
-   {
-    "value": "cub",
-    "label": "cub",
-    "text": "cub"
    }
   ],
   "answer": "cup",
@@ -4745,6 +4833,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4756,11 +4845,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "cape is the long-a silent-e decoy",
-  "imagePath": "/images/child-mode/initial-sounds/cup.png",
-  "imageUrl": "/images/child-mode/initial-sounds/cup.png",
-  "targetImage": "/images/child-mode/initial-sounds/cup.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/cup.png",
-  "imageAlt": "cup"
+  "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+  "resolvedImageAssetKey": "cup",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v6",
@@ -4830,6 +4920,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4841,11 +4932,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/rug.png",
-  "imageUrl": "/images/child-mode/initial-sounds/rug.png",
-  "targetImage": "/images/child-mode/initial-sounds/rug.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/rug.png",
-  "imageAlt": "rug"
+  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "resolvedImageAssetKey": "rug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v1",
@@ -4915,6 +5007,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "drum",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4930,7 +5023,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/drum.webp",
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
-  "imageAlt": "drum"
+  "resolvedImageAssetKey": "drum",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v2",
@@ -4956,12 +5050,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "brush. Which vowel do you hear in the middle of brush?",
   "choices": [
+   "e",
    "u",
    "a",
-   "o",
-   "e"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
    {
     "value": "u",
     "label": "u",
@@ -4976,19 +5075,14 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "o": "D-VOWEL",
-   "e": "D-VOWEL"
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5000,6 +5094,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brush",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5015,7 +5110,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brush.webp",
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "imageAlt": "brush"
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_u.v3",
@@ -5041,22 +5137,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "plug",
-   "plan",
    "plot",
-   "plum"
+   "plum",
+   "plug",
+   "plan"
   ],
   "answerOptions": [
-   {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
-   },
-   {
-    "value": "plan",
-    "label": "plan",
-    "text": "plan"
-   },
    {
     "value": "plot",
     "label": "plot",
@@ -5066,6 +5152,16 @@ export const questions = [
     "value": "plum",
     "label": "plum",
     "text": "plum"
+   },
+   {
+    "value": "plug",
+    "label": "plug",
+    "text": "plug"
+   },
+   {
+    "value": "plan",
+    "label": "plan",
+    "text": "plan"
    }
   ],
   "answer": "plug",
@@ -5085,6 +5181,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5100,7 +5197,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/plug.webp",
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
-  "imageAlt": "plug"
+  "resolvedImageAssetKey": "plug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v4",
@@ -5126,12 +5224,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "trunk",
    "truck",
    "track",
-   "trick",
-   "trunk"
+   "trick"
   ],
   "answerOptions": [
+   {
+    "value": "trunk",
+    "label": "trunk",
+    "text": "trunk"
+   },
    {
     "value": "truck",
     "label": "truck",
@@ -5146,19 +5249,14 @@ export const questions = [
     "value": "trick",
     "label": "trick",
     "text": "trick"
-   },
-   {
-    "value": "trunk",
-    "label": "trunk",
-    "text": "trunk"
    }
   ],
   "answer": "truck",
   "correctAnswer": "truck",
   "distractorRationales": {
+   "trunk": "D-VISUAL-NEIGHBOR",
    "track": "D-VOWEL",
-   "trick": "D-VOWEL",
-   "trunk": "D-VISUAL-NEIGHBOR"
+   "trick": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5170,6 +5268,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "truck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5185,7 +5284,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/truck.webp",
   "targetImage": "/images/assessment/digraphs/truck.webp",
   "targetImagePath": "/images/assessment/digraphs/truck.webp",
-  "imageAlt": "truck"
+  "resolvedImageAssetKey": "truck",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5",
@@ -5211,22 +5311,12 @@ export const questions = [
   "question": "Which picture has the short u sound?",
   "spokenPrompt": "Which picture's word has the short u sound in the middle?",
   "choices": [
-   "bug",
-   "bag",
    "dot",
-   "pen"
+   "pen",
+   "bug",
+   "bag"
   ],
   "answerOptions": [
-   {
-    "value": "bug",
-    "label": "bug",
-    "text": "bug"
-   },
-   {
-    "value": "bag",
-    "label": "bag",
-    "text": "bag"
-   },
    {
     "value": "dot",
     "label": "dot",
@@ -5236,14 +5326,24 @@ export const questions = [
     "value": "pen",
     "label": "pen",
     "text": "pen"
+   },
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
    }
   ],
   "answer": "bug",
   "correctAnswer": "bug",
   "distractorRationales": {
+   "pen": "D-VOWEL",
    "bag": "D-VOWEL",
-   "dot": "D-VOWEL",
-   "pen": "D-VOWEL"
+   "dot": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5267,30 +5367,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_bug",
-    "word": "bug",
-    "value": "bug",
-    "label": "bug",
-    "image": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
-    "imageAlt": "bug"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_bag",
-    "word": "bag",
-    "value": "bag",
-    "label": "bag",
-    "image": "/images/child-mode/cvc/bag.png",
-    "imagePath": "/images/child-mode/cvc/bag.png",
-    "imageAlt": "bag"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_dot",
     "word": "dot",
     "value": "dot",
     "label": "dot",
-    "image": "/images/child-mode/cvc/dot.png",
-    "imagePath": "/images/child-mode/cvc/dot.png",
+    "image": "/images/assessment/rhyming/variants/ot/dot-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
     "imageAlt": "dot"
    },
    {
@@ -5298,9 +5380,27 @@ export const questions = [
     "word": "pen",
     "value": "pen",
     "label": "pen",
-    "image": "/images/child-mode/initial-sounds/pen.png",
-    "imagePath": "/images/child-mode/initial-sounds/pen.png",
+    "image": "/images/assessment/rhyming/variants/en/pen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
     "imageAlt": "pen"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_bug",
+    "word": "bug",
+    "value": "bug",
+    "label": "bug",
+    "image": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imageAlt": "bug"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5_card_bag",
+    "word": "bag",
+    "value": "bag",
+    "label": "bag",
+    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imageAlt": "bag"
    }
   ]
  },
@@ -5328,17 +5428,12 @@ export const questions = [
   "question": "Which picture has the short u sound?",
   "spokenPrompt": "Which picture's word has the short u sound in the middle?",
   "choices": [
-   "mug",
    "mat",
    "pig",
-   "hen"
+   "hen",
+   "mug"
   ],
   "answerOptions": [
-   {
-    "value": "mug",
-    "label": "mug",
-    "text": "mug"
-   },
    {
     "value": "mat",
     "label": "mat",
@@ -5353,14 +5448,19 @@ export const questions = [
     "value": "hen",
     "label": "hen",
     "text": "hen"
+   },
+   {
+    "value": "mug",
+    "label": "mug",
+    "text": "mug"
    }
   ],
   "answer": "mug",
   "correctAnswer": "mug",
   "distractorRationales": {
+   "hen": "D-VOWEL",
    "mat": "D-VOWEL",
-   "pig": "D-VOWEL",
-   "hen": "D-VOWEL"
+   "pig": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5384,21 +5484,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.C.short_u.v6_card_mug",
-    "word": "mug",
-    "value": "mug",
-    "label": "mug",
-    "image": "/images/child-mode/cvc/mug.png",
-    "imagePath": "/images/child-mode/cvc/mug.png",
-    "imageAlt": "mug"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.C.short_u.v6_card_mat",
     "word": "mat",
     "value": "mat",
     "label": "mat",
-    "image": "/images/child-mode/initial-sounds/mat.png",
-    "imagePath": "/images/child-mode/initial-sounds/mat.png",
+    "image": "/images/assessment/rhyming/variants/at/mat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
     "imageAlt": "mat"
    },
    {
@@ -5406,8 +5497,8 @@ export const questions = [
     "word": "pig",
     "value": "pig",
     "label": "pig",
-    "image": "/images/child-mode/initial-sounds/pig.png",
-    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
     "imageAlt": "pig"
    },
    {
@@ -5415,9 +5506,18 @@ export const questions = [
     "word": "hen",
     "value": "hen",
     "label": "hen",
-    "image": "/images/child-mode/initial-sounds/hen.png",
-    "imagePath": "/images/child-mode/initial-sounds/hen.png",
+    "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
     "imageAlt": "hen"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.C.short_u.v6_card_mug",
+    "word": "mug",
+    "value": "mug",
+    "label": "mug",
+    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "imageAlt": "mug"
    }
   ]
  },
@@ -5489,6 +5589,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hen",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5500,11 +5601,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/hen.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hen.png",
-  "targetImage": "/images/child-mode/initial-sounds/hen.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hen.png",
-  "imageAlt": "hen"
+  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "resolvedImageAssetKey": "hen",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v7r",
@@ -5530,12 +5632,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "hut. Which vowel do you hear in the middle of hut?",
   "choices": [
+   "e",
    "u",
    "a",
-   "o",
-   "e"
+   "o"
   ],
   "answerOptions": [
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
+   },
    {
     "value": "u",
     "label": "u",
@@ -5550,11 +5657,6 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
-   },
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
    }
   ],
   "answer": "u",
@@ -5574,6 +5676,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hut",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5585,11 +5688,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/hut.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hut.png",
-  "targetImage": "/images/child-mode/initial-sounds/hut.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hut.png",
-  "imageAlt": "hut"
+  "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "resolvedImageAssetKey": "hut",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v7r",
@@ -5615,22 +5719,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "hop. Which vowel do you hear in the middle of hop?",
   "choices": [
-   "o",
-   "u",
    "e",
-   "i"
+   "i",
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "e",
     "label": "e",
@@ -5640,14 +5734,24 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
-   "u": "D-VOWEL",
    "e": "D-VOWEL",
-   "i": "D-VOWEL"
+   "i": "D-VOWEL",
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5659,6 +5763,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hop",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5670,11 +5775,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/hop.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hop.png",
-  "targetImage": "/images/child-mode/initial-sounds/hop.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hop.png",
-  "imageAlt": "hop"
+  "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "resolvedImageAssetKey": "hop",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_i.v7r",
@@ -5700,17 +5806,12 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "sit. Which vowel do you hear in the middle of sit?",
   "choices": [
-   "i",
    "u",
    "e",
-   "o"
+   "o",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "u",
     "label": "u",
@@ -5725,6 +5826,11 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "i",
@@ -5744,6 +5850,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sit",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5755,11 +5862,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/sit.png",
-  "imageUrl": "/images/child-mode/initial-sounds/sit.png",
-  "targetImage": "/images/child-mode/initial-sounds/sit.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/sit.png",
-  "imageAlt": "sit"
+  "imagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/it/sit-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/it/sit-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
+  "resolvedImageAssetKey": "sit",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_a.v7r",
@@ -5785,12 +5893,17 @@ export const questions = [
   "question": "Which vowel do you hear in the middle?",
   "spokenPrompt": "crab. Which vowel do you hear in the middle of crab?",
   "choices": [
+   "o",
    "a",
    "u",
-   "e",
-   "o"
+   "e"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "a",
     "label": "a",
@@ -5805,11 +5918,6 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "a",
@@ -5829,6 +5937,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crab",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5844,7 +5953,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crab.webp",
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
-  "imageAlt": "crab"
+  "resolvedImageAssetKey": "crab",
+  "imageAlt": "Which vowel do you hear in the middle?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_e.v8r",
@@ -5900,9 +6010,9 @@ export const questions = [
   "answer": "vet",
   "correctAnswer": "vet",
   "distractorRationales": {
+   "net": "D-VISUAL-NEIGHBOR",
    "vat": "D-VOWEL",
-   "vest": "D-PATTERN-TRAP",
-   "net": "D-VISUAL-NEIGHBOR"
+   "vest": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -5914,6 +6024,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vet",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5929,7 +6040,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/vet.png",
   "targetImage": "/images/child-mode/initial-sounds/vet.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
-  "imageAlt": "vet"
+  "resolvedImageAssetKey": "vet",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v8r",
@@ -5955,12 +6067,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "hut",
    "hop",
    "hip",
-   "hat",
-   "hut"
+   "hat"
   ],
   "answerOptions": [
+   {
+    "value": "hut",
+    "label": "hut",
+    "text": "hut"
+   },
    {
     "value": "hop",
     "label": "hop",
@@ -5975,11 +6092,6 @@ export const questions = [
     "value": "hat",
     "label": "hat",
     "text": "hat"
-   },
-   {
-    "value": "hut",
-    "label": "hut",
-    "text": "hut"
    }
   ],
   "answer": "hop",
@@ -5999,6 +6111,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hop",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6010,11 +6123,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/hop.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hop.png",
-  "targetImage": "/images/child-mode/initial-sounds/hop.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hop.png",
-  "imageAlt": "hop"
+  "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+  "resolvedImageAssetKey": "hop",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v8r",
@@ -6040,22 +6154,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "dug",
-   "dog",
    "dig",
-   "den"
+   "den",
+   "dug",
+   "dog"
   ],
   "answerOptions": [
-   {
-    "value": "dug",
-    "label": "dug",
-    "text": "dug"
-   },
-   {
-    "value": "dog",
-    "label": "dog",
-    "text": "dog"
-   },
    {
     "value": "dig",
     "label": "dig",
@@ -6065,14 +6169,24 @@ export const questions = [
     "value": "den",
     "label": "den",
     "text": "den"
+   },
+   {
+    "value": "dug",
+    "label": "dug",
+    "text": "dug"
+   },
+   {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    }
   ],
   "answer": "dug",
   "correctAnswer": "dug",
   "distractorRationales": {
+   "den": "D-VOWEL",
    "dog": "D-VOWEL",
-   "dig": "D-VOWEL",
-   "den": "D-VOWEL"
+   "dig": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6084,6 +6198,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6099,7 +6214,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/cvc/dug.png",
   "targetImage": "/images/child-mode/cvc/dug.png",
   "targetImagePath": "/images/child-mode/cvc/dug.png",
-  "imageAlt": "dug"
+  "resolvedImageAssetKey": "dug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r",
@@ -6125,22 +6241,12 @@ export const questions = [
   "question": "Which picture has the short e sound?",
   "spokenPrompt": "Which picture's word has the short e sound in the middle?",
   "choices": [
-   "hen",
-   "hat",
    "log",
-   "bug"
+   "bug",
+   "hen",
+   "hat"
   ],
   "answerOptions": [
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
-   },
-   {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
-   },
    {
     "value": "log",
     "label": "log",
@@ -6150,6 +6256,16 @@ export const questions = [
     "value": "bug",
     "label": "bug",
     "text": "bug"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "hen",
@@ -6181,30 +6297,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r_card_hen",
-    "word": "hen",
-    "value": "hen",
-    "label": "hen",
-    "image": "/images/child-mode/initial-sounds/hen.png",
-    "imagePath": "/images/child-mode/initial-sounds/hen.png",
-    "imageAlt": "hen"
-   },
-   {
-    "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r_card_hat",
-    "word": "hat",
-    "value": "hat",
-    "label": "hat",
-    "image": "/images/child-mode/cvc/hat.png",
-    "imagePath": "/images/child-mode/cvc/hat.png",
-    "imageAlt": "hat"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r_card_log",
     "word": "log",
     "value": "log",
     "label": "log",
-    "image": "/images/child-mode/cvc/log.png",
-    "imagePath": "/images/child-mode/cvc/log.png",
+    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
     "imageAlt": "log"
    },
    {
@@ -6212,9 +6310,27 @@ export const questions = [
     "word": "bug",
     "value": "bug",
     "label": "bug",
-    "image": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "image": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "imageAlt": "bug"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r_card_hen",
+    "word": "hen",
+    "value": "hen",
+    "label": "hen",
+    "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "imageAlt": "hen"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r_card_hat",
+    "word": "hat",
+    "value": "hat",
+    "label": "hat",
+    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imageAlt": "hat"
    }
   ]
  },
@@ -6242,17 +6358,12 @@ export const questions = [
   "question": "Which picture has the short o sound?",
   "spokenPrompt": "Which picture's word has the short o sound in the middle?",
   "choices": [
-   "log",
    "jam",
    "pin",
-   "cup"
+   "cup",
+   "log"
   ],
   "answerOptions": [
-   {
-    "value": "log",
-    "label": "log",
-    "text": "log"
-   },
    {
     "value": "jam",
     "label": "jam",
@@ -6267,14 +6378,19 @@ export const questions = [
     "value": "cup",
     "label": "cup",
     "text": "cup"
+   },
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
    }
   ],
   "answer": "log",
   "correctAnswer": "log",
   "distractorRationales": {
+   "cup": "D-VOWEL",
    "jam": "D-VOWEL",
-   "pin": "D-VOWEL",
-   "cup": "D-VOWEL"
+   "pin": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -6298,21 +6414,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.short_vowel_discrimination.l2.R.short_o.v7r_card_log",
-    "word": "log",
-    "value": "log",
-    "label": "log",
-    "image": "/images/child-mode/cvc/log.png",
-    "imagePath": "/images/child-mode/cvc/log.png",
-    "imageAlt": "log"
-   },
-   {
     "id": "lp3.short_vowel_discrimination.l2.R.short_o.v7r_card_jam",
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
     "imageAlt": "jam"
    },
    {
@@ -6320,8 +6427,8 @@ export const questions = [
     "word": "pin",
     "value": "pin",
     "label": "pin",
-    "image": "/images/child-mode/initial-sounds/pin.png",
-    "imagePath": "/images/child-mode/initial-sounds/pin.png",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
     "imageAlt": "pin"
    },
    {
@@ -6329,9 +6436,18 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "imageAlt": "cup"
+   },
+   {
+    "id": "lp3.short_vowel_discrimination.l2.R.short_o.v7r_card_log",
+    "word": "log",
+    "value": "log",
+    "label": "log",
+    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imageAlt": "log"
    }
   ]
  }

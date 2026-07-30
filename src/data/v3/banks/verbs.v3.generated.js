@@ -25,12 +25,17 @@ export const questions = [
   "question": "Which one shows a doing word — something you do?",
   "spokenPrompt": "Which one shows a doing word — something you do?",
   "choices": [
+   "lamp",
    "swim",
    "cup",
-   "hat",
-   "lamp"
+   "hat"
   ],
   "answerOptions": [
+   {
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
+   },
    {
     "value": "swim",
     "label": "swim",
@@ -45,11 +50,6 @@ export const questions = [
     "value": "hat",
     "label": "hat",
     "text": "hat"
-   },
-   {
-    "value": "lamp",
-    "label": "lamp",
-    "text": "lamp"
    }
   ],
   "answer": "swim",
@@ -81,6 +81,15 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_lamp",
+    "word": "lamp",
+    "value": "lamp",
+    "label": "lamp",
+    "image": "/images/assessment/blends/lamp.webp",
+    "imagePath": "/images/assessment/blends/lamp.webp",
+    "imageAlt": "lamp"
+   },
+   {
     "id": "lp3.verbs.l1.A.verb_action_body.v1_card_swim",
     "word": "swim",
     "value": "swim",
@@ -94,8 +103,8 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "imageAlt": "cup"
    },
    {
@@ -103,18 +112,9 @@ export const questions = [
     "word": "hat",
     "value": "hat",
     "label": "hat",
-    "image": "/images/child-mode/cvc/hat.png",
-    "imagePath": "/images/child-mode/cvc/hat.png",
+    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
     "imageAlt": "hat"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_lamp",
-    "word": "lamp",
-    "value": "lamp",
-    "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
-    "imageAlt": "lamp"
    }
   ]
  },
@@ -202,8 +202,8 @@ export const questions = [
     "word": "hop",
     "value": "hop",
     "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
     "imageAlt": "hop"
    },
    {
@@ -259,17 +259,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do?",
   "spokenPrompt": "Which one shows a doing word — something you do?",
   "choices": [
-   "clap",
    "drum",
    "tent",
-   "fork"
+   "fork",
+   "clap"
   ],
   "answerOptions": [
-   {
-    "value": "clap",
-    "label": "clap",
-    "text": "clap"
-   },
    {
     "value": "drum",
     "label": "drum",
@@ -284,6 +279,11 @@ export const questions = [
     "value": "fork",
     "label": "fork",
     "text": "fork"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
    }
   ],
   "answer": "clap",
@@ -315,15 +315,6 @@ export const questions = [
   "notes": "the drum is the trap — you PLAY it, but the card names a thing",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_clap",
-    "word": "clap",
-    "value": "clap",
-    "label": "clap",
-    "image": "/images/assessment/blends/clap.webp",
-    "imagePath": "/images/assessment/blends/clap.webp",
-    "imageAlt": "clap"
-   },
-   {
     "id": "lp3.verbs.l1.C.verb_action_body.v3_card_drum",
     "word": "drum",
     "value": "drum",
@@ -346,9 +337,18 @@ export const questions = [
     "word": "fork",
     "value": "fork",
     "label": "fork",
-    "image": "/images/child-mode/initial-sounds/fork.png",
-    "imagePath": "/images/child-mode/initial-sounds/fork.png",
+    "image": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
     "imageAlt": "fork"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
    }
   ]
  },
@@ -376,22 +376,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "jump",
-   "bed",
    "red",
-   "hat"
+   "hat",
+   "jump",
+   "bed"
   ],
   "answerOptions": [
-   {
-    "value": "jump",
-    "label": "jump",
-    "text": "jump"
-   },
-   {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
-   },
    {
     "value": "red",
     "label": "red",
@@ -401,24 +391,35 @@ export const questions = [
     "value": "hat",
     "label": "hat",
     "text": "hat"
+   },
+   {
+    "value": "jump",
+    "label": "jump",
+    "text": "jump"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
    }
   ],
   "answer": "jump",
   "correctAnswer": "jump",
   "distractorRationales": {
+   "hat": "D-FUNCTION-SWAP",
    "bed": "D-FUNCTION-SWAP",
-   "red": "D-FUNCTION-SWAP",
-   "hat": "D-FUNCTION-SWAP"
+   "red": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_body-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -429,7 +430,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/jump.webp",
+  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
+  "targetImage": "/images/assessment/generated/concepts/jump.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
+  "resolvedImageAssetKey": "jump",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v5",
@@ -455,12 +462,17 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
+   "bun",
    "run",
    "sun",
-   "fun",
-   "bun"
+   "fun"
   ],
   "answerOptions": [
+   {
+    "value": "bun",
+    "label": "bun",
+    "text": "bun"
+   },
    {
     "value": "run",
     "label": "run",
@@ -475,11 +487,6 @@ export const questions = [
     "value": "fun",
     "label": "fun",
     "text": "fun"
-   },
-   {
-    "value": "bun",
-    "label": "bun",
-    "text": "bun"
    }
   ],
   "answer": "run",
@@ -489,15 +496,16 @@ export const questions = [
    "fun": "D-FUNCTION-SWAP",
    "bun": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_body-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -508,7 +516,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "a rhyming panel — only the grammar separates them"
+  "notes": "a rhyming panel — only the grammar separates them",
+  "imagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/run/run-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/run/run-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
+  "resolvedImageAssetKey": "run",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v6",
@@ -564,19 +578,20 @@ export const questions = [
   "answer": "kick",
   "correctAnswer": "kick",
   "distractorRationales": {
+   "shin": "D-FUNCTION-SWAP",
    "sock": "D-FUNCTION-SWAP",
-   "leg": "D-FUNCTION-SWAP",
-   "shin": "D-FUNCTION-SWAP"
+   "leg": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_body-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -587,7 +602,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ick/kick-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ick/kick-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
+  "resolvedImageAssetKey": "kick",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v7",
@@ -613,17 +634,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do?",
   "spokenPrompt": "Which one shows a doing word — something you do?",
   "choices": [
-   "dig",
    "bag",
    "log",
-   "mug"
+   "mug",
+   "dig"
   ],
   "answerOptions": [
-   {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
-   },
    {
     "value": "bag",
     "label": "bag",
@@ -638,14 +654,19 @@ export const questions = [
     "value": "mug",
     "label": "mug",
     "text": "mug"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
    }
   ],
   "answer": "dig",
   "correctAnswer": "dig",
   "distractorRationales": {
-   "bag": "D-FUNCTION-SWAP",
    "log": "D-FUNCTION-SWAP",
-   "mug": "D-FUNCTION-SWAP"
+   "mug": "D-FUNCTION-SWAP",
+   "bag": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -669,21 +690,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_dig",
-    "word": "dig",
-    "value": "dig",
-    "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
-    "imageAlt": "dig"
-   },
-   {
     "id": "lp3.verbs.l1.A.verb_action_body.v7_card_bag",
     "word": "bag",
     "value": "bag",
     "label": "bag",
-    "image": "/images/child-mode/cvc/bag.png",
-    "imagePath": "/images/child-mode/cvc/bag.png",
+    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
     "imageAlt": "bag"
    },
    {
@@ -691,8 +703,8 @@ export const questions = [
     "word": "log",
     "value": "log",
     "label": "log",
-    "image": "/images/child-mode/cvc/log.png",
-    "imagePath": "/images/child-mode/cvc/log.png",
+    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
     "imageAlt": "log"
    },
    {
@@ -700,9 +712,18 @@ export const questions = [
     "word": "mug",
     "value": "mug",
     "label": "mug",
-    "image": "/images/child-mode/cvc/mug.png",
-    "imagePath": "/images/child-mode/cvc/mug.png",
+    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
     "imageAlt": "mug"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imageAlt": "dig"
    }
   ]
  },
@@ -730,22 +751,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "skip",
-   "rope",
    "shoe",
-   "path"
+   "path",
+   "skip",
+   "rope"
   ],
   "answerOptions": [
-   {
-    "value": "skip",
-    "label": "skip",
-    "text": "skip"
-   },
-   {
-    "value": "rope",
-    "label": "rope",
-    "text": "rope"
-   },
    {
     "value": "shoe",
     "label": "shoe",
@@ -755,24 +766,35 @@ export const questions = [
     "value": "path",
     "label": "path",
     "text": "path"
+   },
+   {
+    "value": "skip",
+    "label": "skip",
+    "text": "skip"
+   },
+   {
+    "value": "rope",
+    "label": "rope",
+    "text": "rope"
    }
   ],
   "answer": "skip",
   "correctAnswer": "skip",
   "distractorRationales": {
-   "rope": "D-FUNCTION-SWAP",
    "shoe": "D-FUNCTION-SWAP",
-   "path": "D-FUNCTION-SWAP"
+   "path": "D-FUNCTION-SWAP",
+   "rope": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_body-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -783,7 +805,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/skip.webp",
+  "imageUrl": "/images/assessment/generated/concepts/skip.webp",
+  "targetImage": "/images/assessment/generated/concepts/skip.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/skip.webp",
+  "resolvedImageAssetKey": "skip",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v1",
@@ -887,8 +915,8 @@ export const questions = [
     "word": "bell",
     "value": "bell",
     "label": "bell",
-    "image": "/images/child-mode/initial-sounds/bell.png",
-    "imagePath": "/images/child-mode/initial-sounds/bell.png",
+    "image": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
     "imageAlt": "bell"
    },
    {
@@ -926,17 +954,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do to things?",
   "spokenPrompt": "Which one shows a doing word — something you do to things?",
   "choices": [
-   "press",
    "brick",
    "shell",
-   "coat"
+   "coat",
+   "press"
   ],
   "answerOptions": [
-   {
-    "value": "press",
-    "label": "press",
-    "text": "press"
-   },
    {
     "value": "brick",
     "label": "brick",
@@ -951,6 +974,11 @@ export const questions = [
     "value": "coat",
     "label": "coat",
     "text": "coat"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
    }
   ],
   "answer": "press",
@@ -982,15 +1010,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_press",
-    "word": "press",
-    "value": "press",
-    "label": "press",
-    "image": "/images/assessment/blends/press.webp",
-    "imagePath": "/images/assessment/blends/press.webp",
-    "imageAlt": "press"
-   },
-   {
     "id": "lp3.verbs.l1.B.verb_action_object.v2_card_brick",
     "word": "brick",
     "value": "brick",
@@ -1013,9 +1032,18 @@ export const questions = [
     "word": "coat",
     "value": "coat",
     "label": "coat",
-    "image": "/images/child-mode/initial-sounds/coat.png",
-    "imagePath": "/images/child-mode/initial-sounds/coat.png",
+    "image": "/images/assessment/rhyming/variants/oat/coat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
     "imageAlt": "coat"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
    }
   ]
  },
@@ -1043,12 +1071,17 @@ export const questions = [
   "question": "Which one shows a doing word — something you do to things?",
   "spokenPrompt": "Which one shows a doing word — something you do to things?",
   "choices": [
+   "bread",
    "chew",
    "meat",
-   "dish",
-   "bread"
+   "dish"
   ],
   "answerOptions": [
+   {
+    "value": "bread",
+    "label": "bread",
+    "text": "bread"
+   },
    {
     "value": "chew",
     "label": "chew",
@@ -1063,11 +1096,6 @@ export const questions = [
     "value": "dish",
     "label": "dish",
     "text": "dish"
-   },
-   {
-    "value": "bread",
-    "label": "bread",
-    "text": "bread"
    }
   ],
   "answer": "chew",
@@ -1099,6 +1127,15 @@ export const questions = [
   "notes": "all three thing-cards are chewable — the action card still wins",
   "imageCards": [
    {
+    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_bread",
+    "word": "bread",
+    "value": "bread",
+    "label": "bread",
+    "image": "/images/assessment/blends/bread.webp",
+    "imagePath": "/images/assessment/blends/bread.webp",
+    "imageAlt": "bread"
+   },
+   {
     "id": "lp3.verbs.l1.C.verb_action_object.v3_card_chew",
     "word": "chew",
     "value": "chew",
@@ -1124,15 +1161,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/dish.webp",
     "imagePath": "/images/assessment/digraphs/dish.webp",
     "imageAlt": "dish"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_bread",
-    "word": "bread",
-    "value": "bread",
-    "label": "bread",
-    "image": "/images/assessment/blends/bread.webp",
-    "imagePath": "/images/assessment/blends/bread.webp",
-    "imageAlt": "bread"
    }
   ]
  },
@@ -1160,12 +1188,17 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
+   "cot",
    "cut",
    "cup",
-   "cap",
-   "cot"
+   "cap"
   ],
   "answerOptions": [
+   {
+    "value": "cot",
+    "label": "cot",
+    "text": "cot"
+   },
    {
     "value": "cut",
     "label": "cut",
@@ -1180,29 +1213,25 @@ export const questions = [
     "value": "cap",
     "label": "cap",
     "text": "cap"
-   },
-   {
-    "value": "cot",
-    "label": "cot",
-    "text": "cot"
    }
   ],
   "answer": "cut",
   "correctAnswer": "cut",
   "distractorRationales": {
-   "cup": "D-FUNCTION-SWAP",
    "cap": "D-FUNCTION-SWAP",
-   "cot": "D-FUNCTION-SWAP"
+   "cot": "D-FUNCTION-SWAP",
+   "cup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_object-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1213,7 +1242,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "resolvedImageAssetKey": "cut",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v5",
@@ -1273,15 +1308,16 @@ export const questions = [
    "milk": "D-FUNCTION-SWAP",
    "mug": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_object-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1292,7 +1328,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/pour.webp",
+  "imageUrl": "/images/assessment/generated/concepts/pour.webp",
+  "targetImage": "/images/assessment/generated/concepts/pour.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/pour.webp",
+  "resolvedImageAssetKey": "pour",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v6",
@@ -1318,22 +1360,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "fold",
-   "card",
    "sock",
-   "flag"
+   "flag",
+   "fold",
+   "card"
   ],
   "answerOptions": [
-   {
-    "value": "fold",
-    "label": "fold",
-    "text": "fold"
-   },
-   {
-    "value": "card",
-    "label": "card",
-    "text": "card"
-   },
    {
     "value": "sock",
     "label": "sock",
@@ -1343,24 +1375,35 @@ export const questions = [
     "value": "flag",
     "label": "flag",
     "text": "flag"
+   },
+   {
+    "value": "fold",
+    "label": "fold",
+    "text": "fold"
+   },
+   {
+    "value": "card",
+    "label": "card",
+    "text": "card"
    }
   ],
   "answer": "fold",
   "correctAnswer": "fold",
   "distractorRationales": {
-   "card": "D-FUNCTION-SWAP",
    "sock": "D-FUNCTION-SWAP",
-   "flag": "D-FUNCTION-SWAP"
+   "flag": "D-FUNCTION-SWAP",
+   "card": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_object-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1371,7 +1414,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/fold-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/fold-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/fold-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/fold-01.webp",
+  "resolvedImageAssetKey": "fold",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v7",
@@ -1397,22 +1446,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do to things?",
   "spokenPrompt": "Which one shows a doing word — something you do to things?",
   "choices": [
-   "stir",
-   "pot",
    "pan",
-   "jam"
+   "jam",
+   "stir",
+   "pot"
   ],
   "answerOptions": [
-   {
-    "value": "stir",
-    "label": "stir",
-    "text": "stir"
-   },
-   {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
-   },
    {
     "value": "pan",
     "label": "pan",
@@ -1422,14 +1461,24 @@ export const questions = [
     "value": "jam",
     "label": "jam",
     "text": "jam"
+   },
+   {
+    "value": "stir",
+    "label": "stir",
+    "text": "stir"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
    }
   ],
   "answer": "stir",
   "correctAnswer": "stir",
   "distractorRationales": {
+   "jam": "D-FUNCTION-SWAP",
    "pot": "D-FUNCTION-SWAP",
-   "pan": "D-FUNCTION-SWAP",
-   "jam": "D-FUNCTION-SWAP"
+   "pan": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1453,6 +1502,24 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pan",
+    "word": "pan",
+    "value": "pan",
+    "label": "pan",
+    "image": "/images/assessment/rhyming/variants/an/pan-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
+    "imageAlt": "pan"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_jam",
+    "word": "jam",
+    "value": "jam",
+    "label": "jam",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imageAlt": "jam"
+   },
+   {
     "id": "lp3.verbs.l1.A.verb_action_object.v7_card_stir",
     "word": "stir",
     "value": "stir",
@@ -1466,27 +1533,9 @@ export const questions = [
     "word": "pot",
     "value": "pot",
     "label": "pot",
-    "image": "/images/child-mode/cvc/pot.png",
-    "imagePath": "/images/child-mode/cvc/pot.png",
+    "image": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
     "imageAlt": "pot"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pan",
-    "word": "pan",
-    "value": "pan",
-    "label": "pan",
-    "image": "/images/child-mode/cvc/pan.png",
-    "imagePath": "/images/child-mode/cvc/pan.png",
-    "imageAlt": "pan"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
-    "imageAlt": "jam"
    }
   ]
  },
@@ -1514,12 +1563,17 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
+   "log",
    "lift",
    "box",
-   "belt",
-   "log"
+   "belt"
   ],
   "answerOptions": [
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   },
    {
     "value": "lift",
     "label": "lift",
@@ -1534,29 +1588,25 @@ export const questions = [
     "value": "belt",
     "label": "belt",
     "text": "belt"
-   },
-   {
-    "value": "log",
-    "label": "log",
-    "text": "log"
    }
   ],
   "answer": "lift",
   "correctAnswer": "lift",
   "distractorRationales": {
+   "log": "D-FUNCTION-SWAP",
    "box": "D-FUNCTION-SWAP",
-   "belt": "D-FUNCTION-SWAP",
-   "log": "D-FUNCTION-SWAP"
+   "belt": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_object-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1567,7 +1617,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
+  "resolvedImageAssetKey": "lift",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v1",
@@ -1593,17 +1649,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do every day?",
   "spokenPrompt": "Which one shows a doing word — something you do every day?",
   "choices": [
-   "eat",
    "plate",
    "cake",
-   "corn"
+   "corn",
+   "eat"
   ],
   "answerOptions": [
-   {
-    "value": "eat",
-    "label": "eat",
-    "text": "eat"
-   },
    {
     "value": "plate",
     "label": "plate",
@@ -1618,6 +1669,11 @@ export const questions = [
     "value": "corn",
     "label": "corn",
     "text": "corn"
+   },
+   {
+    "value": "eat",
+    "label": "eat",
+    "text": "eat"
    }
   ],
   "answer": "eat",
@@ -1649,21 +1705,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_eat",
-    "word": "eat",
-    "value": "eat",
-    "label": "eat",
-    "image": "/images/objects/eat.png",
-    "imagePath": "/images/objects/eat.png",
-    "imageAlt": "eat"
-   },
-   {
     "id": "lp3.verbs.l1.A.verb_everyday.v1_card_plate",
     "word": "plate",
     "value": "plate",
     "label": "plate",
-    "image": "/images/objects/plate.png",
-    "imagePath": "/images/objects/plate.png",
+    "image": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
     "imageAlt": "plate"
    },
    {
@@ -1680,9 +1727,18 @@ export const questions = [
     "word": "corn",
     "value": "corn",
     "label": "corn",
-    "image": "/images/child-mode/initial-sounds/corn.png",
-    "imagePath": "/images/child-mode/initial-sounds/corn.png",
+    "image": "/images/assessment/rhyming/variants/or/corn-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
     "imageAlt": "corn"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_eat",
+    "word": "eat",
+    "value": "eat",
+    "label": "eat",
+    "image": "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
+    "imageAlt": "eat"
    }
   ]
  },
@@ -1710,22 +1766,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do every day?",
   "spokenPrompt": "Which one shows a doing word — something you do every day?",
   "choices": [
-   "sleep",
-   "bed",
    "lamp",
-   "quilt"
+   "quilt",
+   "sleep",
+   "bed"
   ],
   "answerOptions": [
-   {
-    "value": "sleep",
-    "label": "sleep",
-    "text": "sleep"
-   },
-   {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
-   },
    {
     "value": "lamp",
     "label": "lamp",
@@ -1735,14 +1781,24 @@ export const questions = [
     "value": "quilt",
     "label": "quilt",
     "text": "quilt"
+   },
+   {
+    "value": "sleep",
+    "label": "sleep",
+    "text": "sleep"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
    }
   ],
   "answer": "sleep",
   "correctAnswer": "sleep",
   "distractorRationales": {
-   "bed": "D-FUNCTION-SWAP",
    "lamp": "D-FUNCTION-SWAP",
-   "quilt": "D-FUNCTION-SWAP"
+   "quilt": "D-FUNCTION-SWAP",
+   "bed": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1766,24 +1822,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_sleep",
-    "word": "sleep",
-    "value": "sleep",
-    "label": "sleep",
-    "image": "/images/objects/sleep.png",
-    "imagePath": "/images/objects/sleep.png",
-    "imageAlt": "sleep"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_bed",
-    "word": "bed",
-    "value": "bed",
-    "label": "bed",
-    "image": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
-    "imageAlt": "bed"
-   },
-   {
     "id": "lp3.verbs.l1.B.verb_everyday.v2_card_lamp",
     "word": "lamp",
     "value": "lamp",
@@ -1800,6 +1838,24 @@ export const questions = [
     "image": "/images/child-mode/initial-sounds/quilt.png",
     "imagePath": "/images/child-mode/initial-sounds/quilt.png",
     "imageAlt": "quilt"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_sleep",
+    "word": "sleep",
+    "value": "sleep",
+    "label": "sleep",
+    "image": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
+    "imageAlt": "sleep"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_bed",
+    "word": "bed",
+    "value": "bed",
+    "label": "bed",
+    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imageAlt": "bed"
    }
   ]
  },
@@ -1827,17 +1883,12 @@ export const questions = [
   "question": "Which one shows a doing word — something you do every day?",
   "spokenPrompt": "Which one shows a doing word — something you do every day?",
   "choices": [
-   "read",
    "book",
    "desk",
-   "shelf"
+   "shelf",
+   "read"
   ],
   "answerOptions": [
-   {
-    "value": "read",
-    "label": "read",
-    "text": "read"
-   },
    {
     "value": "book",
     "label": "book",
@@ -1852,6 +1903,11 @@ export const questions = [
     "value": "shelf",
     "label": "shelf",
     "text": "shelf"
+   },
+   {
+    "value": "read",
+    "label": "read",
+    "text": "read"
    }
   ],
   "answer": "read",
@@ -1883,21 +1939,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_read",
-    "word": "read",
-    "value": "read",
-    "label": "read",
-    "image": "/images/assessment/hfw/read.webp",
-    "imagePath": "/images/assessment/hfw/read.webp",
-    "imageAlt": "read"
-   },
-   {
     "id": "lp3.verbs.l1.C.verb_everyday.v3_card_book",
     "word": "book",
     "value": "book",
     "label": "book",
-    "image": "/images/child-mode/cvc/book.png",
-    "imagePath": "/images/child-mode/cvc/book.png",
+    "image": "/images/assessment/language/variants/plurals/book-books-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
     "imageAlt": "book"
    },
    {
@@ -1917,6 +1964,15 @@ export const questions = [
     "image": "/images/assessment/blends/shelf.webp",
     "imagePath": "/images/assessment/blends/shelf.webp",
     "imageAlt": "shelf"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_read",
+    "word": "read",
+    "value": "read",
+    "label": "read",
+    "image": "/images/assessment/hfw/read.webp",
+    "imagePath": "/images/assessment/hfw/read.webp",
+    "imageAlt": "read"
    }
   ]
  },
@@ -1974,19 +2030,20 @@ export const questions = [
   "answer": "sing",
   "correctAnswer": "sing",
   "distractorRationales": {
+   "drum": "D-FUNCTION-SWAP",
    "song": "D-FUNCTION-SWAP",
-   "ring": "D-FUNCTION-SWAP",
-   "drum": "D-FUNCTION-SWAP"
+   "ring": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_everyday-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1997,7 +2054,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "ring the thing ties the ing/doing overlap"
+  "notes": "ring the thing ties the ing/doing overlap",
+  "imagePath": "/images/assessment/generated/concepts/sing.webp",
+  "imageUrl": "/images/assessment/generated/concepts/sing.webp",
+  "targetImage": "/images/assessment/generated/concepts/sing.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/sing.webp",
+  "resolvedImageAssetKey": "sing",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v5",
@@ -2023,17 +2086,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "wash",
    "soap",
    "sink",
-   "tub"
+   "tub",
+   "wash"
   ],
   "answerOptions": [
-   {
-    "value": "wash",
-    "label": "wash",
-    "text": "wash"
-   },
    {
     "value": "soap",
     "label": "soap",
@@ -2048,24 +2106,30 @@ export const questions = [
     "value": "tub",
     "label": "tub",
     "text": "tub"
+   },
+   {
+    "value": "wash",
+    "label": "wash",
+    "text": "wash"
    }
   ],
   "answer": "wash",
   "correctAnswer": "wash",
   "distractorRationales": {
+   "tub": "D-FUNCTION-SWAP",
    "soap": "D-FUNCTION-SWAP",
-   "sink": "D-FUNCTION-SWAP",
-   "tub": "D-FUNCTION-SWAP"
+   "sink": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_everyday-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2076,7 +2140,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/wash.webp",
+  "imageUrl": "/images/assessment/generated/concepts/wash.webp",
+  "targetImage": "/images/assessment/generated/concepts/wash.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/wash.webp",
+  "resolvedImageAssetKey": "wash",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v6",
@@ -2132,19 +2202,20 @@ export const questions = [
   "answer": "nap",
   "correctAnswer": "nap",
   "distractorRationales": {
+   "pup": "D-FUNCTION-SWAP",
    "cot": "D-FUNCTION-SWAP",
-   "rug": "D-FUNCTION-SWAP",
-   "pup": "D-FUNCTION-SWAP"
+   "rug": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_everyday-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2155,7 +2226,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
+  "resolvedImageAssetKey": "nap",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v7",
@@ -2181,12 +2258,17 @@ export const questions = [
   "question": "Which one shows a doing word — something you do every day?",
   "spokenPrompt": "Which one shows a doing word — something you do every day?",
   "choices": [
+   "jug",
    "drink",
    "cup",
-   "pin",
-   "jug"
+   "pin"
   ],
   "answerOptions": [
+   {
+    "value": "jug",
+    "label": "jug",
+    "text": "jug"
+   },
    {
     "value": "drink",
     "label": "drink",
@@ -2201,19 +2283,14 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
-   },
-   {
-    "value": "jug",
-    "label": "jug",
-    "text": "jug"
    }
   ],
   "answer": "drink",
   "correctAnswer": "drink",
   "distractorRationales": {
-   "cup": "D-FUNCTION-SWAP",
    "pin": "D-FUNCTION-SWAP",
-   "jug": "D-FUNCTION-SWAP"
+   "jug": "D-FUNCTION-SWAP",
+   "cup": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2237,6 +2314,15 @@ export const questions = [
   "notes": "pin ties the in/doing overlap",
   "imageCards": [
    {
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_jug",
+    "word": "jug",
+    "value": "jug",
+    "label": "jug",
+    "image": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+    "imageAlt": "jug"
+   },
+   {
     "id": "lp3.verbs.l1.A.verb_everyday.v7_card_drink",
     "word": "drink",
     "value": "drink",
@@ -2250,8 +2336,8 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "imageAlt": "cup"
    },
    {
@@ -2259,18 +2345,9 @@ export const questions = [
     "word": "pin",
     "value": "pin",
     "label": "pin",
-    "image": "/images/child-mode/initial-sounds/pin.png",
-    "imagePath": "/images/child-mode/initial-sounds/pin.png",
+    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
     "imageAlt": "pin"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_jug",
-    "word": "jug",
-    "value": "jug",
-    "label": "jug",
-    "image": "/images/child-mode/initial-sounds/jug.png",
-    "imagePath": "/images/child-mode/initial-sounds/jug.png",
-    "imageAlt": "jug"
    }
   ]
  },
@@ -2332,15 +2409,16 @@ export const questions = [
    "comb": "D-FUNCTION-SWAP",
    "hair": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_everyday-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2351,7 +2429,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "brush zero-derives, but among three body/tool nouns the doing reading is the only fit for the frame"
+  "notes": "brush zero-derives, but among three body/tool nouns the doing reading is the only fit for the frame",
+  "imagePath": "/images/assessment/digraphs/brush.webp",
+  "imageUrl": "/images/assessment/digraphs/brush.webp",
+  "targetImage": "/images/assessment/digraphs/brush.webp",
+  "targetImagePath": "/images/assessment/digraphs/brush.webp",
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v1",
@@ -2375,7 +2459,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We ___ the raft to the dock.",
   "question": "We ___ the raft to the dock.",
-  "spokenPrompt": "Which doing word finishes the sentence? We hmm the raft to the dock.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … the raft to the dock.",
   "sentence": "We ___ the raft to the dock.",
   "choices": [
    "pull",
@@ -2408,20 +2492,21 @@ export const questions = [
   "answer": "pull",
   "correctAnswer": "pull",
   "distractorRationales": {
+   "dock": "D-FUNCTION-SWAP",
    "rope": "D-FUNCTION-SWAP",
-   "wet": "D-FUNCTION-SWAP",
-   "dock": "D-FUNCTION-SWAP"
+   "wet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We ___ the raft to the dock.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2432,7 +2517,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot"
+  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot",
+  "imagePath": "/images/assessment/generated/concepts/raft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
+  "targetImage": "/images/assessment/generated/concepts/raft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
+  "resolvedImageAssetKey": "raft",
+  "imageAlt": "We pull the raft to the dock."
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v2",
@@ -2456,15 +2547,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The twins ___ over the puddle.",
   "question": "The twins ___ over the puddle.",
-  "spokenPrompt": "Which doing word finishes the sentence? The twins hmm over the puddle.",
+  "spokenPrompt": "Which doing word finishes the sentence? The twins … over the puddle.",
   "sentence": "The twins ___ over the puddle.",
   "choices": [
+   "wide",
    "leap",
    "mud",
-   "deep",
-   "wide"
+   "deep"
   ],
   "answerOptions": [
+   {
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
+   },
    {
     "value": "leap",
     "label": "leap",
@@ -2479,30 +2575,26 @@ export const questions = [
     "value": "deep",
     "label": "deep",
     "text": "deep"
-   },
-   {
-    "value": "wide",
-    "label": "wide",
-    "text": "wide"
    }
   ],
   "answer": "leap",
   "correctAnswer": "leap",
   "distractorRationales": {
+   "wide": "D-FUNCTION-SWAP",
    "mud": "D-FUNCTION-SWAP",
-   "deep": "D-FUNCTION-SWAP",
-   "wide": "D-FUNCTION-SWAP"
+   "deep": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The twins ___ over the puddle.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2513,7 +2605,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/leap.webp",
+  "imageUrl": "/images/assessment/generated/concepts/leap.webp",
+  "targetImage": "/images/assessment/generated/concepts/leap.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/leap.webp",
+  "resolvedImageAssetKey": "leap",
+  "imageAlt": "The twins leap over the puddle."
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v3",
@@ -2537,25 +2635,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Please ___ the door quietly.",
   "question": "Please ___ the door quietly.",
-  "spokenPrompt": "Which doing word finishes the sentence? Please hmm the door quietly.",
+  "spokenPrompt": "Which doing word finishes the sentence? Please … the door quietly.",
   "sentence": "Please ___ the door quietly.",
   "choices": [
-   "shut",
-   "loud",
    "hinge",
-   "knob"
+   "knob",
+   "shut",
+   "loud"
   ],
   "answerOptions": [
-   {
-    "value": "shut",
-    "label": "shut",
-    "text": "shut"
-   },
-   {
-    "value": "loud",
-    "label": "loud",
-    "text": "loud"
-   },
    {
     "value": "hinge",
     "label": "hinge",
@@ -2565,25 +2653,36 @@ export const questions = [
     "value": "knob",
     "label": "knob",
     "text": "knob"
+   },
+   {
+    "value": "shut",
+    "label": "shut",
+    "text": "shut"
+   },
+   {
+    "value": "loud",
+    "label": "loud",
+    "text": "loud"
    }
   ],
   "answer": "shut",
   "correctAnswer": "shut",
   "distractorRationales": {
+   "knob": "D-FUNCTION-SWAP",
    "loud": "D-FUNCTION-SWAP",
-   "hinge": "D-FUNCTION-SWAP",
-   "knob": "D-FUNCTION-SWAP"
+   "hinge": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Please ___ the door quietly.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2594,7 +2693,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "resolvedImageAssetKey": "quietly",
+  "imageAlt": "Please shut the door quietly."
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v4",
@@ -2618,15 +2723,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Owls ___ after dark.",
   "question": "Owls ___ after dark.",
-  "spokenPrompt": "Which doing word finishes the sentence? Owls hmm after dark.",
+  "spokenPrompt": "Which doing word finishes the sentence? Owls … after dark.",
   "sentence": "Owls ___ after dark.",
   "choices": [
+   "wing",
    "hunt",
    "moon",
-   "sky",
-   "wing"
+   "sky"
   ],
   "answerOptions": [
+   {
+    "value": "wing",
+    "label": "wing",
+    "text": "wing"
+   },
    {
     "value": "hunt",
     "label": "hunt",
@@ -2641,11 +2751,6 @@ export const questions = [
     "value": "sky",
     "label": "sky",
     "text": "sky"
-   },
-   {
-    "value": "wing",
-    "label": "wing",
-    "text": "wing"
    }
   ],
   "answer": "hunt",
@@ -2655,16 +2760,17 @@ export const questions = [
    "sky": "D-FUNCTION-SWAP",
    "wing": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Owls ___ after dark.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2675,7 +2781,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk"
+  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk",
+  "imagePath": "/images/assessment/hfw/after.webp",
+  "imageUrl": "/images/assessment/hfw/after.webp",
+  "targetImage": "/images/assessment/hfw/after.webp",
+  "targetImagePath": "/images/assessment/hfw/after.webp",
+  "resolvedImageAssetKey": "after",
+  "imageAlt": "Owls hunt after dark."
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v5",
@@ -2701,22 +2813,12 @@ export const questions = [
   "question": "Which word in this sentence is the doing word? \"The pup chased its dinner.\"",
   "spokenPrompt": "Which word in this sentence is the doing word? \"The pup chased its dinner.\"",
   "choices": [
-   "chased",
-   "pup",
    "dinner",
-   "its"
+   "its",
+   "chased",
+   "pup"
   ],
   "answerOptions": [
-   {
-    "value": "chased",
-    "label": "chased",
-    "text": "chased"
-   },
-   {
-    "value": "pup",
-    "label": "pup",
-    "text": "pup"
-   },
    {
     "value": "dinner",
     "label": "dinner",
@@ -2726,24 +2828,35 @@ export const questions = [
     "value": "its",
     "label": "its",
     "text": "its"
+   },
+   {
+    "value": "chased",
+    "label": "chased",
+    "text": "chased"
+   },
+   {
+    "value": "pup",
+    "label": "pup",
+    "text": "pup"
    }
   ],
   "answer": "chased",
   "correctAnswer": "chased",
   "distractorRationales": {
-   "pup": "D-FUNCTION-SWAP",
    "dinner": "D-FUNCTION-SWAP",
-   "its": "D-FUNCTION-SWAP"
+   "its": "D-FUNCTION-SWAP",
+   "pup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2754,7 +2867,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties"
+  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties",
+  "imagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/pup/pup-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/pup/pup-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
+  "resolvedImageAssetKey": "pup",
+  "imageAlt": "Which word in this sentence is the doing word? \"The pup chased its dinner.\""
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v6",
@@ -2780,17 +2899,12 @@ export const questions = [
   "question": "Which word in this sentence is the doing word? \"Gran knits thick socks.\"",
   "spokenPrompt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\"",
   "choices": [
-   "knits",
    "Gran",
    "socks",
-   "thick"
+   "thick",
+   "knits"
   ],
   "answerOptions": [
-   {
-    "value": "knits",
-    "label": "knits",
-    "text": "knits"
-   },
    {
     "value": "Gran",
     "label": "Gran",
@@ -2805,6 +2919,11 @@ export const questions = [
     "value": "thick",
     "label": "thick",
     "text": "thick"
+   },
+   {
+    "value": "knits",
+    "label": "knits",
+    "text": "knits"
    }
   ],
   "answer": "knits",
@@ -2814,15 +2933,16 @@ export const questions = [
    "socks": "D-FUNCTION-SWAP",
    "thick": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2833,7 +2953,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "resolvedImageAssetKey": "socks",
+  "imageAlt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\""
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v7",
@@ -2857,25 +2983,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Crabs ___ across the sand.",
   "question": "Crabs ___ across the sand.",
-  "spokenPrompt": "Which doing word finishes the sentence? Crabs hmm across the sand.",
+  "spokenPrompt": "Which doing word finishes the sentence? Crabs … across the sand.",
   "sentence": "Crabs ___ across the sand.",
   "choices": [
-   "creep",
-   "claw",
    "shell",
-   "salt"
+   "salt",
+   "creep",
+   "claw"
   ],
   "answerOptions": [
-   {
-    "value": "creep",
-    "label": "creep",
-    "text": "creep"
-   },
-   {
-    "value": "claw",
-    "label": "claw",
-    "text": "claw"
-   },
    {
     "value": "shell",
     "label": "shell",
@@ -2885,6 +3001,16 @@ export const questions = [
     "value": "salt",
     "label": "salt",
     "text": "salt"
+   },
+   {
+    "value": "creep",
+    "label": "creep",
+    "text": "creep"
+   },
+   {
+    "value": "claw",
+    "label": "claw",
+    "text": "claw"
    }
   ],
   "answer": "creep",
@@ -2894,16 +3020,17 @@ export const questions = [
    "shell": "D-FUNCTION-SWAP",
    "salt": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Crabs ___ across the sand.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2914,7 +3041,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/creep.webp",
+  "imageUrl": "/images/assessment/generated/concepts/creep.webp",
+  "targetImage": "/images/assessment/generated/concepts/creep.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/creep.webp",
+  "resolvedImageAssetKey": "creep",
+  "imageAlt": "Crabs creep across the sand."
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v8",
@@ -2938,20 +3071,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We ___ the seeds each morning.",
   "question": "We ___ the seeds each morning.",
-  "spokenPrompt": "Which doing word finishes the sentence? We hmm the seeds each morning.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … the seeds each morning.",
   "sentence": "We ___ the seeds each morning.",
   "choices": [
-   "water",
    "soil",
    "green",
-   "pot"
+   "pot",
+   "water"
   ],
   "answerOptions": [
-   {
-    "value": "water",
-    "label": "water",
-    "text": "water"
-   },
    {
     "value": "soil",
     "label": "soil",
@@ -2966,6 +3094,11 @@ export const questions = [
     "value": "pot",
     "label": "pot",
     "text": "pot"
+   },
+   {
+    "value": "water",
+    "label": "water",
+    "text": "water"
    }
   ],
   "answer": "water",
@@ -2975,16 +3108,17 @@ export const questions = [
    "green": "D-FUNCTION-SWAP",
    "pot": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We ___ the seeds each morning.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2995,7 +3129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "water the verb — the noun reading has no slot here"
+  "notes": "water the verb — the noun reading has no slot here",
+  "imagePath": "/images/assessment/generated/concepts/water.webp",
+  "imageUrl": "/images/assessment/generated/concepts/water.webp",
+  "targetImage": "/images/assessment/generated/concepts/water.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/water.webp",
+  "resolvedImageAssetKey": "water",
+  "imageAlt": "We water the seeds each morning."
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v1",
@@ -3021,17 +3161,12 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
-   "sing",
    "song",
    "singer",
-   "band"
+   "band",
+   "sing"
   ],
   "answerOptions": [
-   {
-    "value": "sing",
-    "label": "sing",
-    "text": "sing"
-   },
    {
     "value": "song",
     "label": "song",
@@ -3046,6 +3181,11 @@ export const questions = [
     "value": "band",
     "label": "band",
     "text": "band"
+   },
+   {
+    "value": "sing",
+    "label": "sing",
+    "text": "sing"
    }
   ],
   "answer": "sing",
@@ -3055,15 +3195,16 @@ export const questions = [
    "singer": "D-FUNCTION-SWAP",
    "band": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3074,7 +3215,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the whole word family in one set — only sing does"
+  "notes": "the whole word family in one set — only sing does",
+  "imagePath": "/images/assessment/generated/concepts/sing.webp",
+  "imageUrl": "/images/assessment/generated/concepts/sing.webp",
+  "targetImage": "/images/assessment/generated/concepts/sing.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/sing.webp",
+  "resolvedImageAssetKey": "sing",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v2",
@@ -3134,15 +3281,16 @@ export const questions = [
    "bread": "D-FUNCTION-SWAP",
    "oven": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3153,7 +3301,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v3",
@@ -3213,15 +3367,16 @@ export const questions = [
    "class": "D-FUNCTION-SWAP",
    "desk": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3232,7 +3387,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v4",
@@ -3256,7 +3417,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ swims fifty laps a day.",
   "question": "The ___ swims fifty laps a day.",
-  "spokenPrompt": "Which doing word finishes the sentence? The hmm swims fifty laps a day.",
+  "spokenPrompt": "Which doing word finishes the sentence? The … swims fifty laps a day.",
   "sentence": "The ___ swims fifty laps a day.",
   "choices": [
    "swimmer",
@@ -3289,20 +3450,21 @@ export const questions = [
   "answer": "swimmer",
   "correctAnswer": "swimmer",
   "distractorRationales": {
+   "swam": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP",
-   "swims": "D-FUNCTION-SWAP",
-   "swam": "D-FUNCTION-SWAP"
+   "swims": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ swims fifty laps a day.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3313,7 +3475,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the verb family competes — only the naming word follows The"
+  "notes": "the verb family competes — only the naming word follows The",
+  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "resolvedImageAssetKey": "day",
+  "imageAlt": "The swimmer swims fifty laps a day."
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v5",
@@ -3339,12 +3507,17 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
+   "rope",
    "climb",
    "hill",
-   "boots",
-   "rope"
+   "boots"
   ],
   "answerOptions": [
+   {
+    "value": "rope",
+    "label": "rope",
+    "text": "rope"
+   },
    {
     "value": "climb",
     "label": "climb",
@@ -3359,11 +3532,6 @@ export const questions = [
     "value": "boots",
     "label": "boots",
     "text": "boots"
-   },
-   {
-    "value": "rope",
-    "label": "rope",
-    "text": "rope"
    }
   ],
   "answer": "climb",
@@ -3373,15 +3541,16 @@ export const questions = [
    "boots": "D-FUNCTION-SWAP",
    "rope": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3392,7 +3561,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v6",
@@ -3418,12 +3593,17 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
+   "floor",
    "sweep",
    "broom",
-   "dust",
-   "floor"
+   "dust"
   ],
   "answerOptions": [
+   {
+    "value": "floor",
+    "label": "floor",
+    "text": "floor"
+   },
    {
     "value": "sweep",
     "label": "sweep",
@@ -3438,29 +3618,25 @@ export const questions = [
     "value": "dust",
     "label": "dust",
     "text": "dust"
-   },
-   {
-    "value": "floor",
-    "label": "floor",
-    "text": "floor"
    }
   ],
   "answer": "sweep",
   "correctAnswer": "sweep",
   "distractorRationales": {
+   "floor": "D-FUNCTION-SWAP",
    "broom": "D-FUNCTION-SWAP",
-   "dust": "D-FUNCTION-SWAP",
-   "floor": "D-FUNCTION-SWAP"
+   "dust": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3471,7 +3647,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v7",
@@ -3495,15 +3677,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ twirled across the stage.",
   "question": "The ___ twirled across the stage.",
-  "spokenPrompt": "Which doing word finishes the sentence? The hmm twirled across the stage.",
+  "spokenPrompt": "Which doing word finishes the sentence? The … twirled across the stage.",
   "sentence": "The ___ twirled across the stage.",
   "choices": [
+   "dancing",
    "dancer",
    "dances",
-   "danced",
-   "dancing"
+   "danced"
   ],
   "answerOptions": [
+   {
+    "value": "dancing",
+    "label": "dancing",
+    "text": "dancing"
+   },
    {
     "value": "dancer",
     "label": "dancer",
@@ -3518,30 +3705,26 @@ export const questions = [
     "value": "danced",
     "label": "danced",
     "text": "danced"
-   },
-   {
-    "value": "dancing",
-    "label": "dancing",
-    "text": "dancing"
    }
   ],
   "answer": "dancer",
   "correctAnswer": "dancer",
   "distractorRationales": {
-   "dances": "D-FUNCTION-SWAP",
    "danced": "D-FUNCTION-SWAP",
-   "dancing": "D-FUNCTION-SWAP"
+   "dancing": "D-FUNCTION-SWAP",
+   "dances": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ twirled across the stage.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3552,7 +3735,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/dancer.webp",
+  "imageUrl": "/images/assessment/generated/concepts/dancer.webp",
+  "targetImage": "/images/assessment/generated/concepts/dancer.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/dancer.webp",
+  "resolvedImageAssetKey": "dancer",
+  "imageAlt": "The dancer twirled across the stage."
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v8",
@@ -3578,22 +3767,12 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
-   "paint",
-   "painter",
    "wall",
-   "colour"
+   "colour",
+   "paint",
+   "painter"
   ],
   "answerOptions": [
-   {
-    "value": "paint",
-    "label": "paint",
-    "text": "paint"
-   },
-   {
-    "value": "painter",
-    "label": "painter",
-    "text": "painter"
-   },
    {
     "value": "wall",
     "label": "wall",
@@ -3603,24 +3782,35 @@ export const questions = [
     "value": "colour",
     "label": "colour",
     "text": "colour"
+   },
+   {
+    "value": "paint",
+    "label": "paint",
+    "text": "paint"
+   },
+   {
+    "value": "painter",
+    "label": "painter",
+    "text": "painter"
    }
   ],
   "answer": "paint",
   "correctAnswer": "paint",
   "distractorRationales": {
-   "painter": "D-FUNCTION-SWAP",
    "wall": "D-FUNCTION-SWAP",
-   "colour": "D-FUNCTION-SWAP"
+   "colour": "D-FUNCTION-SWAP",
+   "painter": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3631,7 +3821,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "paint zero-derives, but painter/wall/colour name — the frame asks which one DOES"
+  "notes": "paint zero-derives, but painter/wall/colour name — the frame asks which one DOES",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v1",
@@ -3655,25 +3851,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The frog ___ over the log in one big spring.",
   "question": "The frog ___ over the log in one big spring.",
-  "spokenPrompt": "Which doing word finishes the sentence? The frog hmm over the log in one big spring.",
+  "spokenPrompt": "Which doing word finishes the sentence? The frog … over the log in one big spring.",
   "sentence": "The frog ___ over the log in one big spring.",
   "choices": [
-   "jumped",
-   "walked",
    "slept",
-   "sat"
+   "sat",
+   "jumped",
+   "walked"
   ],
   "answerOptions": [
-   {
-    "value": "jumped",
-    "label": "jumped",
-    "text": "jumped"
-   },
-   {
-    "value": "walked",
-    "label": "walked",
-    "text": "walked"
-   },
    {
     "value": "slept",
     "label": "slept",
@@ -3683,6 +3869,16 @@ export const questions = [
     "value": "sat",
     "label": "sat",
     "text": "sat"
+   },
+   {
+    "value": "jumped",
+    "label": "jumped",
+    "text": "jumped"
+   },
+   {
+    "value": "walked",
+    "label": "walked",
+    "text": "walked"
    }
   ],
   "answer": "jumped",
@@ -3692,16 +3888,17 @@ export const questions = [
    "slept": "D-PLAUSIBLE-UNSUPPORTED",
    "sat": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The frog ___ over the log in one big spring.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3712,7 +3909,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "all four are grammatical — one big spring pins jumped"
+  "notes": "all four are grammatical — one big spring pins jumped",
+  "imagePath": "/images/assessment/blends/spring.webp",
+  "imageUrl": "/images/assessment/blends/spring.webp",
+  "targetImage": "/images/assessment/blends/spring.webp",
+  "targetImagePath": "/images/assessment/blends/spring.webp",
+  "resolvedImageAssetKey": "spring",
+  "imageAlt": "The frog jumped over the log in one big spring."
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v2",
@@ -3736,20 +3939,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The soup ___ in the pot until bubbles rose.",
   "question": "The soup ___ in the pot until bubbles rose.",
-  "spokenPrompt": "Which doing word finishes the sentence? The soup hmm in the pot until bubbles rose.",
+  "spokenPrompt": "Which doing word finishes the sentence? The soup … in the pot until bubbles rose.",
   "sentence": "The soup ___ in the pot until bubbles rose.",
   "choices": [
-   "boiled",
    "froze",
    "sat",
-   "spilled"
+   "spilled",
+   "boiled"
   ],
   "answerOptions": [
-   {
-    "value": "boiled",
-    "label": "boiled",
-    "text": "boiled"
-   },
    {
     "value": "froze",
     "label": "froze",
@@ -3764,6 +3962,11 @@ export const questions = [
     "value": "spilled",
     "label": "spilled",
     "text": "spilled"
+   },
+   {
+    "value": "boiled",
+    "label": "boiled",
+    "text": "boiled"
    }
   ],
   "answer": "boiled",
@@ -3773,16 +3976,17 @@ export const questions = [
    "sat": "D-PLAUSIBLE-UNSUPPORTED",
    "spilled": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The soup ___ in the pot until bubbles rose.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3793,7 +3997,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bubbles pin boiled"
+  "notes": "bubbles pin boiled",
+  "imagePath": "/images/assessment/long-vowels/rose.webp",
+  "imageUrl": "/images/assessment/long-vowels/rose.webp",
+  "targetImage": "/images/assessment/long-vowels/rose.webp",
+  "targetImagePath": "/images/assessment/long-vowels/rose.webp",
+  "resolvedImageAssetKey": "rose",
+  "imageAlt": "The soup boiled in the pot until bubbles rose."
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v3",
@@ -3819,22 +4029,12 @@ export const questions = [
   "question": "Which doing word fits best for water falling drop by drop?",
   "spokenPrompt": "Which doing word fits best for water falling drop by drop?",
   "choices": [
-   "drip",
-   "drain",
    "pour",
-   "splash"
+   "splash",
+   "drip",
+   "drain"
   ],
   "answerOptions": [
-   {
-    "value": "drip",
-    "label": "drip",
-    "text": "drip"
-   },
-   {
-    "value": "drain",
-    "label": "drain",
-    "text": "drain"
-   },
    {
     "value": "pour",
     "label": "pour",
@@ -3844,6 +4044,16 @@ export const questions = [
     "value": "splash",
     "label": "splash",
     "text": "splash"
+   },
+   {
+    "value": "drip",
+    "label": "drip",
+    "text": "drip"
+   },
+   {
+    "value": "drain",
+    "label": "drain",
+    "text": "drain"
    }
   ],
   "answer": "drip",
@@ -3853,15 +4063,16 @@ export const questions = [
    "pour": "D-PLAUSIBLE-UNSUPPORTED",
    "splash": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3872,7 +4083,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap"
+  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap",
+  "imagePath": "/images/assessment/generated/concepts/water.webp",
+  "imageUrl": "/images/assessment/generated/concepts/water.webp",
+  "targetImage": "/images/assessment/generated/concepts/water.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/water.webp",
+  "resolvedImageAssetKey": "water",
+  "imageAlt": "Which doing word fits best for water falling drop by drop?"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v4",
@@ -3896,20 +4113,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "She ___ the note in half and half again.",
   "question": "She ___ the note in half and half again.",
-  "spokenPrompt": "Which doing word finishes the sentence? She hmm the note in half and half again.",
+  "spokenPrompt": "Which doing word finishes the sentence? She … the note in half and half again.",
   "sentence": "She ___ the note in half and half again.",
   "choices": [
-   "folded",
    "read",
    "wrote",
-   "lost"
+   "lost",
+   "folded"
   ],
   "answerOptions": [
-   {
-    "value": "folded",
-    "label": "folded",
-    "text": "folded"
-   },
    {
     "value": "read",
     "label": "read",
@@ -3924,25 +4136,31 @@ export const questions = [
     "value": "lost",
     "label": "lost",
     "text": "lost"
+   },
+   {
+    "value": "folded",
+    "label": "folded",
+    "text": "folded"
    }
   ],
   "answer": "folded",
   "correctAnswer": "folded",
   "distractorRationales": {
+   "lost": "D-PLAUSIBLE-UNSUPPORTED",
    "read": "D-PLAUSIBLE-UNSUPPORTED",
-   "wrote": "D-PLAUSIBLE-UNSUPPORTED",
-   "lost": "D-PLAUSIBLE-UNSUPPORTED"
+   "wrote": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "She ___ the note in half and half again.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3953,7 +4171,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "in half and half again pins folded"
+  "notes": "in half and half again pins folded",
+  "imagePath": "/images/assessment/hfw/again.webp",
+  "imageUrl": "/images/assessment/hfw/again.webp",
+  "targetImage": "/images/assessment/hfw/again.webp",
+  "targetImagePath": "/images/assessment/hfw/again.webp",
+  "resolvedImageAssetKey": "again",
+  "imageAlt": "She folded the note in half and half again."
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v5",
@@ -3977,7 +4201,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The snail ___ along, leaving a silver line.",
   "question": "The snail ___ along, leaving a silver line.",
-  "spokenPrompt": "Which doing word finishes the sentence? The snail hmm along, leaving a silver line.",
+  "spokenPrompt": "Which doing word finishes the sentence? The snail … along, leaving a silver line.",
   "sentence": "The snail ___ along, leaving a silver line.",
   "choices": [
    "crawled",
@@ -4014,16 +4238,17 @@ export const questions = [
    "hopped": "D-PLAUSIBLE-UNSUPPORTED",
    "flew": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The snail ___ along, leaving a silver line.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4034,7 +4259,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "resolvedImageAssetKey": "silver",
+  "imageAlt": "The snail crawled along, leaving a silver line."
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v6",
@@ -4058,20 +4289,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "He ___ the balloon until it nearly burst.",
   "question": "He ___ the balloon until it nearly burst.",
-  "spokenPrompt": "Which doing word finishes the sentence? He hmm the balloon until it nearly burst.",
+  "spokenPrompt": "Which doing word finishes the sentence? He … the balloon until it nearly burst.",
   "sentence": "He ___ the balloon until it nearly burst.",
   "choices": [
-   "blew",
    "tied",
    "popped",
-   "held"
+   "held",
+   "blew"
   ],
   "answerOptions": [
-   {
-    "value": "blew",
-    "label": "blew",
-    "text": "blew"
-   },
    {
     "value": "tied",
     "label": "tied",
@@ -4086,25 +4312,31 @@ export const questions = [
     "value": "held",
     "label": "held",
     "text": "held"
+   },
+   {
+    "value": "blew",
+    "label": "blew",
+    "text": "blew"
    }
   ],
   "answer": "blew",
   "correctAnswer": "blew",
   "distractorRationales": {
+   "held": "D-PLAUSIBLE-UNSUPPORTED",
    "tied": "D-PLAUSIBLE-UNSUPPORTED",
-   "popped": "D-PLAUSIBLE-UNSUPPORTED",
-   "held": "D-PLAUSIBLE-UNSUPPORTED"
+   "popped": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "He ___ the balloon until it nearly burst.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4115,7 +4347,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "nearly burst pins blew — popped would mean it DID burst"
+  "notes": "nearly burst pins blew — popped would mean it DID burst",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
+  "resolvedImageAssetKey": "blew",
+  "imageAlt": "He blew the balloon until it nearly burst."
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v7",
@@ -4171,19 +4409,20 @@ export const questions = [
   "answer": "sneak",
   "correctAnswer": "sneak",
   "distractorRationales": {
-   "stomp": "D-PLAUSIBLE-UNSUPPORTED",
    "march": "D-PLAUSIBLE-UNSUPPORTED",
-   "gallop": "D-PLAUSIBLE-UNSUPPORTED"
+   "gallop": "D-PLAUSIBLE-UNSUPPORTED",
+   "stomp": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4194,7 +4433,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/sneak.webp",
+  "imageUrl": "/images/assessment/generated/concepts/sneak.webp",
+  "targetImage": "/images/assessment/generated/concepts/sneak.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/sneak.webp",
+  "resolvedImageAssetKey": "sneak",
+  "imageAlt": "Which doing word fits best for moving on tiptoe without a sound?"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v8",
@@ -4218,15 +4463,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Dad ___ the squeaky wheel with oil.",
   "question": "Dad ___ the squeaky wheel with oil.",
-  "spokenPrompt": "Which doing word finishes the sentence? Dad hmm the squeaky wheel with oil.",
+  "spokenPrompt": "Which doing word finishes the sentence? Dad … the squeaky wheel with oil.",
   "sentence": "Dad ___ the squeaky wheel with oil.",
   "choices": [
+   "kicked",
    "fixed",
    "broke",
-   "washed",
-   "kicked"
+   "washed"
   ],
   "answerOptions": [
+   {
+    "value": "kicked",
+    "label": "kicked",
+    "text": "kicked"
+   },
    {
     "value": "fixed",
     "label": "fixed",
@@ -4241,30 +4491,26 @@ export const questions = [
     "value": "washed",
     "label": "washed",
     "text": "washed"
-   },
-   {
-    "value": "kicked",
-    "label": "kicked",
-    "text": "kicked"
    }
   ],
   "answer": "fixed",
   "correctAnswer": "fixed",
   "distractorRationales": {
-   "broke": "D-PLAUSIBLE-UNSUPPORTED",
    "washed": "D-PLAUSIBLE-UNSUPPORTED",
-   "kicked": "D-PLAUSIBLE-UNSUPPORTED"
+   "kicked": "D-PLAUSIBLE-UNSUPPORTED",
+   "broke": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Dad ___ the squeaky wheel with oil.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4275,7 +4521,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/wheel.webp",
+  "imageUrl": "/images/assessment/digraphs/wheel.webp",
+  "targetImage": "/images/assessment/digraphs/wheel.webp",
+  "targetImagePath": "/images/assessment/digraphs/wheel.webp",
+  "resolvedImageAssetKey": "wheel",
+  "imageAlt": "Dad fixed the squeaky wheel with oil."
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_body.v9r",
@@ -4335,15 +4587,16 @@ export const questions = [
    "mat": "D-FUNCTION-SWAP",
    "chin": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_body-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4354,7 +4607,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "chin ties the ch/which overlap"
+  "notes": "chin ties the ch/which overlap",
+  "imagePath": "/images/assessment/language/variants/verbs/stretch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/stretch-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/stretch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/stretch-01.webp",
+  "resolvedImageAssetKey": "stretch",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v9r",
@@ -4380,12 +4639,17 @@ export const questions = [
   "question": "Which one shows a doing word — something you do to things?",
   "spokenPrompt": "Which one shows a doing word — something you do to things?",
   "choices": [
+   "belt",
    "chop",
    "cloth",
-   "brick",
-   "belt"
+   "brick"
   ],
   "answerOptions": [
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
+   },
    {
     "value": "chop",
     "label": "chop",
@@ -4400,19 +4664,14 @@ export const questions = [
     "value": "brick",
     "label": "brick",
     "text": "brick"
-   },
-   {
-    "value": "belt",
-    "label": "belt",
-    "text": "belt"
    }
   ],
   "answer": "chop",
   "correctAnswer": "chop",
   "distractorRationales": {
-   "cloth": "D-FUNCTION-SWAP",
    "brick": "D-FUNCTION-SWAP",
-   "belt": "D-FUNCTION-SWAP"
+   "belt": "D-FUNCTION-SWAP",
+   "cloth": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4435,6 +4694,15 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
+   {
+    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_belt",
+    "word": "belt",
+    "value": "belt",
+    "label": "belt",
+    "image": "/images/assessment/blends/belt.webp",
+    "imagePath": "/images/assessment/blends/belt.webp",
+    "imageAlt": "belt"
+   },
    {
     "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_chop",
     "word": "chop",
@@ -4461,15 +4729,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/brick.webp",
     "imagePath": "/images/assessment/digraphs/brick.webp",
     "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_belt",
-    "word": "belt",
-    "value": "belt",
-    "label": "belt",
-    "image": "/images/assessment/blends/belt.webp",
-    "imagePath": "/images/assessment/blends/belt.webp",
-    "imageAlt": "belt"
    }
   ]
  },
@@ -4497,22 +4756,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "yawn",
-   "quilt",
    "clock",
-   "moon"
+   "moon",
+   "yawn",
+   "quilt"
   ],
   "answerOptions": [
-   {
-    "value": "yawn",
-    "label": "yawn",
-    "text": "yawn"
-   },
-   {
-    "value": "quilt",
-    "label": "quilt",
-    "text": "quilt"
-   },
    {
     "value": "clock",
     "label": "clock",
@@ -4522,24 +4771,35 @@ export const questions = [
     "value": "moon",
     "label": "moon",
     "text": "moon"
+   },
+   {
+    "value": "yawn",
+    "label": "yawn",
+    "text": "yawn"
+   },
+   {
+    "value": "quilt",
+    "label": "quilt",
+    "text": "quilt"
    }
   ],
   "answer": "yawn",
   "correctAnswer": "yawn",
   "distractorRationales": {
+   "moon": "D-FUNCTION-SWAP",
    "quilt": "D-FUNCTION-SWAP",
-   "clock": "D-FUNCTION-SWAP",
-   "moon": "D-FUNCTION-SWAP"
+   "clock": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_everyday-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4550,7 +4810,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v9r",
@@ -4574,15 +4840,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Bees ___ from rose to rose.",
   "question": "Bees ___ from rose to rose.",
-  "spokenPrompt": "Which doing word finishes the sentence? Bees hmm from rose to rose.",
+  "spokenPrompt": "Which doing word finishes the sentence? Bees … from rose to rose.",
   "sentence": "Bees ___ from rose to rose.",
   "choices": [
+   "hive",
    "drift",
    "wing",
-   "sweet",
-   "hive"
+   "sweet"
   ],
   "answerOptions": [
+   {
+    "value": "hive",
+    "label": "hive",
+    "text": "hive"
+   },
    {
     "value": "drift",
     "label": "drift",
@@ -4597,11 +4868,6 @@ export const questions = [
     "value": "sweet",
     "label": "sweet",
     "text": "sweet"
-   },
-   {
-    "value": "hive",
-    "label": "hive",
-    "text": "hive"
    }
   ],
   "answer": "drift",
@@ -4611,16 +4877,17 @@ export const questions = [
    "sweet": "D-FUNCTION-SWAP",
    "hive": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Bees ___ from rose to rose.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4631,7 +4898,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/rose.webp",
+  "imageUrl": "/images/assessment/long-vowels/rose.webp",
+  "targetImage": "/images/assessment/long-vowels/rose.webp",
+  "targetImagePath": "/images/assessment/long-vowels/rose.webp",
+  "resolvedImageAssetKey": "rose",
+  "imageAlt": "Bees drift from rose to rose."
  },
  {
   "id": "lp3.verbs.l2.R.verb_vs_noun.v9r",
@@ -4657,22 +4930,12 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
-   "dance",
-   "dancer",
    "stage",
-   "music"
+   "music",
+   "dance",
+   "dancer"
   ],
   "answerOptions": [
-   {
-    "value": "dance",
-    "label": "dance",
-    "text": "dance"
-   },
-   {
-    "value": "dancer",
-    "label": "dancer",
-    "text": "dancer"
-   },
    {
     "value": "stage",
     "label": "stage",
@@ -4682,6 +4945,16 @@ export const questions = [
     "value": "music",
     "label": "music",
     "text": "music"
+   },
+   {
+    "value": "dance",
+    "label": "dance",
+    "text": "dance"
+   },
+   {
+    "value": "dancer",
+    "label": "dancer",
+    "text": "dancer"
    }
   ],
   "answer": "dance",
@@ -4691,15 +4964,16 @@ export const questions = [
    "stage": "D-FUNCTION-SWAP",
    "music": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_vs_noun-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4710,7 +4984,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v9r",
@@ -4734,20 +5014,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ice ___ slowly in the warm sun.",
   "question": "The ice ___ slowly in the warm sun.",
-  "spokenPrompt": "Which doing word finishes the sentence? The ice hmm slowly in the warm sun.",
+  "spokenPrompt": "Which doing word finishes the sentence? The ice … slowly in the warm sun.",
   "sentence": "The ice ___ slowly in the warm sun.",
   "choices": [
-   "melted",
    "grew",
    "sang",
-   "slept"
+   "slept",
+   "melted"
   ],
   "answerOptions": [
-   {
-    "value": "melted",
-    "label": "melted",
-    "text": "melted"
-   },
    {
     "value": "grew",
     "label": "grew",
@@ -4762,6 +5037,11 @@ export const questions = [
     "value": "slept",
     "label": "slept",
     "text": "slept"
+   },
+   {
+    "value": "melted",
+    "label": "melted",
+    "text": "melted"
    }
   ],
   "answer": "melted",
@@ -4771,16 +5051,17 @@ export const questions = [
    "sang": "D-PLAUSIBLE-UNSUPPORTED",
    "slept": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ice ___ slowly in the warm sun.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4791,7 +5072,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "resolvedImageAssetKey": "slowly",
+  "imageAlt": "The ice melted slowly in the warm sun."
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v10r",
@@ -4817,17 +5104,12 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "wrap",
    "gift",
    "bow",
-   "card"
+   "card",
+   "wrap"
   ],
   "answerOptions": [
-   {
-    "value": "wrap",
-    "label": "wrap",
-    "text": "wrap"
-   },
    {
     "value": "gift",
     "label": "gift",
@@ -4842,24 +5124,30 @@ export const questions = [
     "value": "card",
     "label": "card",
     "text": "card"
+   },
+   {
+    "value": "wrap",
+    "label": "wrap",
+    "text": "wrap"
    }
   ],
   "answer": "wrap",
   "correctAnswer": "wrap",
   "distractorRationales": {
-   "gift": "D-FUNCTION-SWAP",
    "bow": "D-FUNCTION-SWAP",
-   "card": "D-FUNCTION-SWAP"
+   "card": "D-FUNCTION-SWAP",
+   "gift": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_action_object-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4870,7 +5158,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/wrap.webp",
+  "imageUrl": "/images/assessment/generated/concepts/wrap.webp",
+  "targetImage": "/images/assessment/generated/concepts/wrap.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/wrap.webp",
+  "resolvedImageAssetKey": "wrap",
+  "imageAlt": "Which word is a doing word?"
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v10r",
@@ -4956,8 +5250,8 @@ export const questions = [
     "word": "walk",
     "value": "walk",
     "label": "walk",
-    "image": "/images/objects/walk.png",
-    "imagePath": "/images/objects/walk.png",
+    "image": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
     "imageAlt": "walk"
    },
    {
@@ -5011,7 +5305,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The wind ___ the washing dry.",
   "question": "The wind ___ the washing dry.",
-  "spokenPrompt": "Which doing word finishes the sentence? The wind hmm the washing dry.",
+  "spokenPrompt": "Which doing word finishes the sentence? The wind … the washing dry.",
   "sentence": "The wind ___ the washing dry.",
   "choices": [
    "blows",
@@ -5048,16 +5342,17 @@ export const questions = [
    "line": "D-FUNCTION-SWAP",
    "damp": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The wind ___ the washing dry.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_in_sentence-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5068,7 +5363,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/wind.webp",
+  "imageUrl": "/images/assessment/generated/concepts/wind.webp",
+  "targetImage": "/images/assessment/generated/concepts/wind.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/wind.webp",
+  "resolvedImageAssetKey": "wind",
+  "imageAlt": "The wind blows the washing dry."
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v10r",
@@ -5092,15 +5393,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The baby ___ at every funny face.",
   "question": "The baby ___ at every funny face.",
-  "spokenPrompt": "Which doing word finishes the sentence? The baby hmm at every funny face.",
+  "spokenPrompt": "Which doing word finishes the sentence? The baby … at every funny face.",
   "sentence": "The baby ___ at every funny face.",
   "choices": [
+   "frowned",
    "giggled",
    "wept",
-   "slept",
-   "frowned"
+   "slept"
   ],
   "answerOptions": [
+   {
+    "value": "frowned",
+    "label": "frowned",
+    "text": "frowned"
+   },
    {
     "value": "giggled",
     "label": "giggled",
@@ -5115,30 +5421,26 @@ export const questions = [
     "value": "slept",
     "label": "slept",
     "text": "slept"
-   },
-   {
-    "value": "frowned",
-    "label": "frowned",
-    "text": "frowned"
    }
   ],
   "answer": "giggled",
   "correctAnswer": "giggled",
   "distractorRationales": {
+   "frowned": "D-PLAUSIBLE-UNSUPPORTED",
    "wept": "D-PLAUSIBLE-UNSUPPORTED",
-   "slept": "D-PLAUSIBLE-UNSUPPORTED",
-   "frowned": "D-PLAUSIBLE-UNSUPPORTED"
+   "slept": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The baby ___ at every funny face.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "verbs-verb_precision-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5149,6 +5451,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/every.webp",
+  "imageUrl": "/images/assessment/hfw/every.webp",
+  "targetImage": "/images/assessment/hfw/every.webp",
+  "targetImagePath": "/images/assessment/hfw/every.webp",
+  "resolvedImageAssetKey": "every",
+  "imageAlt": "The baby giggled at every funny face."
  }
 ];

@@ -16,7 +16,7 @@ import path from "node:path";
 import { execSync } from "node:child_process";
 import {
   ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR, V3_SOURCE,
-  expandBank, lintBank, simulate, scannerAnswer, writeGeneratedBank, loadLexicon,
+  expandBank, lintBank, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
   optionSetSignature, promptAnswerSignature, norm, guessProbability, makeImageResolver
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
@@ -26,6 +26,36 @@ import { buildMediaRequest } from "./mediaRequest.mjs";
 const args = process.argv.slice(2);
 const onlySkill = args.includes("--skill") ? args[args.indexOf("--skill") + 1] : null;
 const write = args.includes("--write");
+const fast = args.includes("--fast");
+
+function productionUsesOneStatusBrain() {
+  const files = [
+    path.join(ROOT, "src", "appState", "assessmentRoundController.js"),
+    path.join(ROOT, "src", "data", "reportingSystem.js"),
+    path.join(ROOT, "src", "data", "studentReportingWorkspaceModel.js")
+  ];
+  return files.every(file => {
+    const source = fs.readFileSync(file, "utf8");
+    return source.includes("computeSkillStatus");
+  });
+}
+
+function seededRandom(seedText) {
+  let seed = 2166136261;
+  for (const char of String(seedText)) {
+    seed ^= char.charCodeAt(0);
+    seed = Math.imul(seed, 16777619);
+  }
+  return () => {
+    seed |= 0;
+    seed = seed + 0x6D2B79F5 | 0;
+    let value = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    value = value + Math.imul(value ^ value >>> 7, 61 | value) ^ value;
+    return ((value ^ value >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+const oneStatusBrain = productionUsesOneStatusBrain();
 
 const lexicon = loadLexicon();
 const results = [];
@@ -62,28 +92,49 @@ for (const file of authoringFiles) {
     detail.lint = lintIssues;
     gates.G1_structure = !lintIssues.some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA"].includes(i.code));
     gates.G2_originality = !lintIssues.some(i => i.code.startsWith("L-UNIQ"));
-    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-GRAM", "L-READ", "L-KEY-BALANCE"].includes(i.code));
+    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE"].includes(i.code));
 
     // G4 — mastery logic sims
     const perfect = await simulate(items, blueprint, { policy, answerFn: () => true });
-    detail.sims.pass = { status: perfect.final.status, sittings: perfect.sittings, repeats: perfect.repeats.length };
+    detail.sims.pass = {
+      status: perfect.final.status,
+      sittings: perfect.sittings,
+      levelSittings: perfect.levelSittings,
+      repeats: perfect.repeats.length
+    };
     const passOk = perfect.final.status === "secure"
-      && perfect.sittings <= (blueprint.passBudgetSittings || 6) * 2;
+      && perfect.levelSittings[1] <= (blueprint.passBudgetSittings || 6)
+      && perfect.levelSittings[2] <= (blueprint.passBudgetSittings || 6);
 
     let guessPasses = 0;
-    const GUESS_TRIALS = 300;
+    const GUESS_TRIALS = fast ? 300 : 10_000;
+    const random = seededRandom(`${skillId}:${ASSESSMENT_REBUILD_STANDARD_VERSION}`);
     for (let t = 0; t < GUESS_TRIALS; t++) {
-      const guess = await simulate(items, blueprint, { policy, answerFn: item => Math.random() < guessProbability(item), maxSittings: 6 });
+      const guess = await simulate(items, blueprint, { policy, answerFn: item => random() < guessProbability(item), maxSittings: 6 });
       if (["level_1_passed", "level_2_passed", "secure"].includes(guess.final.status)) guessPasses++;
     }
-    detail.sims.guess = { trials: GUESS_TRIALS, passes: guessPasses };
+    const guessPassRate = guessPasses / GUESS_TRIALS;
+    // With the product's explicit 70% phase rule, a blind guesser has a tiny
+    // but non-zero mathematical chance of passing two phases across repeated
+    // attempts. Requiring exactly zero successes makes the gate depend on
+    // sample luck. The full run still caps blind-guess progression below 0.1%;
+    // the 300-trial smoke run allows one isolated success.
+    const guessSimulationPass = fast
+      ? guessPasses <= 1
+      : guessPassRate < 0.001;
+    detail.sims.guess = {
+      trials: GUESS_TRIALS,
+      passes: guessPasses,
+      passRate: guessPassRate,
+      threshold: fast ? "at most 1 smoke-trial pass" : "<0.001"
+    };
 
     const scanner = await simulate(items, blueprint, {
       policy,
       answerFn: item => {
         const leak = scannerAnswer(item);
         if (leak && norm(leak) === norm(item.answer)) return true;
-        return Math.random() < 1 / Math.max(2, item.choices.length || 4);
+        return random() < 1 / Math.max(2, item.choices.length || 4);
       },
       maxSittings: 6
     });
@@ -98,16 +149,35 @@ for (const file of authoringFiles) {
       leakShare: items.length ? scannerLeaks.length / items.length : 0
     };
 
-    const regressLedgerRun = await simulate(items, blueprint, { policy, answerFn: () => true });
-    gates.G4_mastery_logic = passOk && guessPasses === 0 && detail.sims.scanner.leakShare < 0.25;
-    void regressLedgerRun;
+    const regression = await simulateRegression(items, blueprint, { policy });
+    detail.sims.regression = {
+      afterFailure: regression.afterFailure?.status,
+      failureNeedsReview: regression.afterFailure?.needsReview,
+      afterClean: regression.afterClean?.status,
+      cleanNeedsReview: regression.afterClean?.needsReview,
+      afterRetentionFailure: regression.afterRetentionFailure?.status,
+      retentionNeedsReview: regression.afterRetentionFailure?.needsReview,
+      pass: regression.pass
+    };
+    gates.G4_mastery_logic = passOk
+      && guessSimulationPass
+      && detail.sims.scanner.leakShare < 0.05
+      && regression.pass;
 
-    // G5 — no repeats across the pass budget + retention
-    gates.G5_no_repeats = perfect.repeats.length === 0;
+    // G5 — no repeats and no undersized "completed" sittings across the pass
+    // budget + retention. A bank that runs out after 4 questions cannot claim
+    // to support a fixed 10-question administration.
+    gates.G5_no_repeats =
+      perfect.repeats.length === 0
+      && perfect.shortSittings.length === 0;
+
+    // G6 — runtime progression, class reports and student reports must all
+    // consume the same pure status reducer.
+    gates.G6_one_report = oneStatusBrain;
 
     // G7 — human sign-off (recorded per item; Ben flips this)
     const signedOff = items.every(i => i.provenance?.signedOffBy);
-    gates.G7_human_signoff = signedOff ? true : "pending-ben";
+    gates.G7_human_signoff = signedOff;
   } catch (error) {
     detail.error = String(error?.stack || error).slice(0, 600);
     gates.G1_structure = false;
@@ -129,14 +199,22 @@ function countBank(items) {
 // ---------------------------------------------------------------------------
 // Reporting + generated outputs
 // ---------------------------------------------------------------------------
-const hardGateKeys = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];
+const hardGateKeys = [
+  "G1_structure",
+  "G2_originality",
+  "G3_answer_integrity",
+  "G4_mastery_logic",
+  "G5_no_repeats",
+  "G6_one_report",
+  "G7_human_signoff"
+];
 let failed = 0;
 for (const row of results) {
   const reds = hardGateKeys.filter(k => row.gates[k] === false);
   row.ready = reds.length === 0 && !row.error;
   if (!row.ready) failed++;
   const gateText = hardGateKeys.map(k => `${k.split("_")[0]}:${row.gates[k] === true ? "PASS" : row.gates[k] === false ? "FAIL" : "not-run"}`).join(" ");
-  console.log(`${row.ready ? "READY" : "RED  "} ${row.skillId.padEnd(28)} ${gateText} items=${row.counts?.total ?? 0} sim=${JSON.stringify(row.detail?.sims?.pass || {})}`);
+  console.log(`${row.ready ? "READY" : "RED  "} ${row.skillId.padEnd(28)} ${gateText} items=${row.counts?.total ?? 0} sim=${JSON.stringify(row.detail?.sims?.pass || {})} guess=${row.detail?.sims?.guess?.passes ?? "?"}/${row.detail?.sims?.guess?.trials ?? "?"} scanner=${row.detail?.sims?.scanner?.leakyItems ?? "?"}/${row.counts?.total ?? 0}`);
   for (const issue of (row.detail?.lint || []).slice(0, 12)) {
     console.log(`    ${issue.code} ${issue.itemId}: ${issue.message}`);
   }
@@ -170,7 +248,9 @@ if (write) {
       previous = mod.assessmentRebuildStatusBySkillId || {};
     } catch { previous = {}; }
   }
-  const merged = { ...previous, ...Object.fromEntries(statusEntries) };
+  const merged = onlySkill
+    ? { ...previous, ...Object.fromEntries(statusEntries) }
+    : Object.fromEntries(statusEntries);
   fs.mkdirSync(path.dirname(STATUS_FILE), { recursive: true });
   fs.writeFileSync(STATUS_FILE,
     `// GENERATED by tools/assessmentRebuild/gate.mjs — do not hand-edit.\n` +
@@ -182,9 +262,9 @@ if (write) {
   fs.writeFileSync(reportPath + ".json", JSON.stringify({ generatedAt: new Date().toISOString(), commit, results }, null, 1));
   fs.writeFileSync(reportPath + ".md",
     `# Assessment rebuild gate — ${new Date().toISOString()} @ ${commit}\n\n` +
-    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|\n` +
+    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | G7 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|---|\n` +
     results.map(r => `| ${r.skillId} | ${r.ready ? "✅" : "❌"} | ${hardGateKeys.map(k => r.gates[k] === true ? "✅" : r.gates[k] === false ? "❌" : "—").join(" | ")} | ${r.counts?.total ?? 0} | ${r.detail?.sims?.pass?.sittings ?? "—"} |`).join("\n") +
-    `\n\nG7 human sign-off: pending Ben on every skill until recorded in item provenance.\n`);
+    `\n\nG7 human sign-off is a hard release gate and remains red until recorded in item provenance.\n`);
 
   buildMediaRequest(allBanks, results);
   console.log(`\nWrote status (${statusEntries.length} ready), gate report, media request.`);

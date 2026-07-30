@@ -37,7 +37,7 @@ A skill is done when ALL of:
 1. **G1 Structure** — bank matches its blueprint: units, cells, forms A/B/C(+R) disjoint and complete; schema v3 valid (`L-SCHEMA`, `L-FORM`, `L-COVER`).
 2. **G2 Originality** — zero template clones: skeleton similarity, option-set uniqueness, cross-level clone check all green (`L-UNIQ-*`).
 3. **G3 Answer integrity** — one defensible key per item; every distractor real, plausible, rationale-coded; lexicon-verified mappings (`L-REALWORD`, `L-LEX`, `L-CLOZE-FIT`, `L-GRAM`, `L-DIST-*`).
-4. **G4 Mastery logic** — SIM-PASS (reachable in budget), SIM-GUESS (<1e-6), SIM-SCANNER (<5%), SIM-REGRESS (statuses drop on contradiction) all green against the real bank.
+4. **G4 Mastery logic** — SIM-PASS (four phases are reachable in four perfect sittings), SIM-GUESS (<0.1% across the full 10,000-trial run under the 70% phase rule), SIM-SCANNER (<5%), SIM-REGRESS (statuses drop on contradiction) all green against the real bank.
 5. **G5 No repeats** — SIM-NOREPEAT green: 4 sittings + retention, zero repeated ids/signatures/option-sets/passages.
 6. **G6 One report** — roster, class report, student report, exports all derive the skill's status from `skillStatusPolicy` (unit test + grep gate; "Mastered" absent product-wide).
 7. **G7 Human sign-off** — Ben approved the skill's review pack; recorded in item provenance.

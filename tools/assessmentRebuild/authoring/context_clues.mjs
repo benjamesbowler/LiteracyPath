@@ -20,7 +20,12 @@ const P = (t, r) => ({ t, r });
 const it = (u, lvl, ph, v, passage, word, choices, extra = {}) => ({
   u, lvl, ph, v, fmt: "COMPREHENSION", cell: u, passage,
   prompt: `In this passage, what does "${word}" mean?`,
-  choices, media: "text", target: word, ...extra
+  choices, media: "text", target: word,
+  // Reusing a definition, synonym, example, or action from the passage is the
+  // construct being assessed here. The generic passage-overlap oracle cannot
+  // distinguish that legitimate clue use from a shortcut.
+  scannerExpected: true,
+  ...extra
 });
 
 export default {

@@ -25,12 +25,17 @@ export const questions = [
   "question": "Which one is very big?",
   "spokenPrompt": "Which one is very big?",
   "choices": [
+   "cup",
    "whale",
    "ant",
-   "wheel",
-   "cup"
+   "wheel"
   ],
   "answerOptions": [
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
    {
     "value": "whale",
     "label": "whale",
@@ -45,11 +50,6 @@ export const questions = [
     "value": "wheel",
     "label": "wheel",
     "text": "wheel"
-   },
-   {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
    }
   ],
   "answer": "whale",
@@ -81,6 +81,15 @@ export const questions = [
   "notes": "wheel ties the wh/which overlap",
   "imageCards": [
    {
+    "id": "lp3.adjectives.l1.A.adj_size.v1_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imageAlt": "cup"
+   },
+   {
     "id": "lp3.adjectives.l1.A.adj_size.v1_card_whale",
     "word": "whale",
     "value": "whale",
@@ -106,15 +115,6 @@ export const questions = [
     "image": "/images/assessment/digraphs/wheel.webp",
     "imagePath": "/images/assessment/digraphs/wheel.webp",
     "imageAlt": "wheel"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_size.v1_card_cup",
-    "word": "cup",
-    "value": "cup",
-    "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
-    "imageAlt": "cup"
    }
   ]
  },
@@ -220,8 +220,8 @@ export const questions = [
     "word": "house",
     "value": "house",
     "label": "house",
-    "image": "/images/child-mode/initial-sounds/house.png",
-    "imagePath": "/images/child-mode/initial-sounds/house.png",
+    "image": "/images/assessment/rhyming/variants/house/house-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
     "imageAlt": "house"
    },
    {
@@ -259,17 +259,12 @@ export const questions = [
   "question": "Which one is very tall?",
   "spokenPrompt": "Which one is very tall?",
   "choices": [
-   "tree",
    "mat",
    "sock",
-   "dish"
+   "dish",
+   "tree"
   ],
   "answerOptions": [
-   {
-    "value": "tree",
-    "label": "tree",
-    "text": "tree"
-   },
    {
     "value": "mat",
     "label": "mat",
@@ -284,6 +279,11 @@ export const questions = [
     "value": "dish",
     "label": "dish",
     "text": "dish"
+   },
+   {
+    "value": "tree",
+    "label": "tree",
+    "text": "tree"
    }
   ],
   "answer": "tree",
@@ -315,21 +315,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.adjectives.l1.C.adj_size.v3_card_tree",
-    "word": "tree",
-    "value": "tree",
-    "label": "tree",
-    "image": "/images/assessment/long-vowels/tree.webp",
-    "imagePath": "/images/assessment/long-vowels/tree.webp",
-    "imageAlt": "tree"
-   },
-   {
     "id": "lp3.adjectives.l1.C.adj_size.v3_card_mat",
     "word": "mat",
     "value": "mat",
     "label": "mat",
-    "image": "/images/child-mode/initial-sounds/mat.png",
-    "imagePath": "/images/child-mode/initial-sounds/mat.png",
+    "image": "/images/assessment/rhyming/variants/at/mat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
     "imageAlt": "mat"
    },
    {
@@ -349,6 +340,15 @@ export const questions = [
     "image": "/images/assessment/digraphs/dish.webp",
     "imagePath": "/images/assessment/digraphs/dish.webp",
     "imageAlt": "dish"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_size.v3_card_tree",
+    "word": "tree",
+    "value": "tree",
+    "label": "tree",
+    "image": "/images/assessment/long-vowels/tree.webp",
+    "imagePath": "/images/assessment/long-vowels/tree.webp",
+    "imageAlt": "tree"
    }
   ]
  },
@@ -376,22 +376,12 @@ export const questions = [
   "question": "Which word is a describing word for size?",
   "spokenPrompt": "Which word is a describing word for size?",
   "choices": [
-   "big",
-   "bag",
    "dig",
-   "bin"
+   "bin",
+   "big",
+   "bag"
   ],
   "answerOptions": [
-   {
-    "value": "big",
-    "label": "big",
-    "text": "big"
-   },
-   {
-    "value": "bag",
-    "label": "bag",
-    "text": "bag"
-   },
    {
     "value": "dig",
     "label": "dig",
@@ -401,24 +391,35 @@ export const questions = [
     "value": "bin",
     "label": "bin",
     "text": "bin"
+   },
+   {
+    "value": "big",
+    "label": "big",
+    "text": "big"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
    }
   ],
   "answer": "big",
   "correctAnswer": "big",
   "distractorRationales": {
+   "bin": "D-FUNCTION-SWAP",
    "bag": "D-FUNCTION-SWAP",
-   "dig": "D-FUNCTION-SWAP",
-   "bin": "D-FUNCTION-SWAP"
+   "dig": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_size-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -429,7 +430,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/big.webp",
+  "imageUrl": "/images/assessment/hfw/big.webp",
+  "targetImage": "/images/assessment/hfw/big.webp",
+  "targetImagePath": "/images/assessment/hfw/big.webp",
+  "resolvedImageAssetKey": "big",
+  "imageAlt": "Which word is a describing word for size?"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v5",
@@ -455,12 +462,17 @@ export const questions = [
   "question": "Which word is a describing word for size?",
   "spokenPrompt": "Which word is a describing word for size?",
   "choices": [
+   "shell",
    "small",
    "smell",
-   "spill",
-   "shell"
+   "spill"
   ],
   "answerOptions": [
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
    {
     "value": "small",
     "label": "small",
@@ -475,11 +487,6 @@ export const questions = [
     "value": "spill",
     "label": "spill",
     "text": "spill"
-   },
-   {
-    "value": "shell",
-    "label": "shell",
-    "text": "shell"
    }
   ],
   "answer": "small",
@@ -489,15 +496,16 @@ export const questions = [
    "spill": "D-FUNCTION-SWAP",
    "shell": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_size-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -508,7 +516,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
+  "resolvedImageAssetKey": "small",
+  "imageAlt": "Which word is a describing word for size?"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v6",
@@ -564,19 +578,20 @@ export const questions = [
   "answer": "long",
   "correctAnswer": "long",
   "distractorRationales": {
+   "lung": "D-FUNCTION-SWAP",
    "log": "D-FUNCTION-SWAP",
-   "song": "D-FUNCTION-SWAP",
-   "lung": "D-FUNCTION-SWAP"
+   "song": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_size-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -587,7 +602,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
+  "resolvedImageAssetKey": "long",
+  "imageAlt": "Which word is a describing word for size?"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v1",
@@ -613,17 +634,12 @@ export const questions = [
   "question": "Which one is green?",
   "spokenPrompt": "Which one is green?",
   "choices": [
-   "frog",
    "crab",
    "moth",
-   "wasp"
+   "wasp",
+   "frog"
   ],
   "answerOptions": [
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
-   },
    {
     "value": "crab",
     "label": "crab",
@@ -638,14 +654,19 @@ export const questions = [
     "value": "wasp",
     "label": "wasp",
     "text": "wasp"
+   },
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
    }
   ],
   "answer": "frog",
   "correctAnswer": "frog",
   "distractorRationales": {
-   "crab": "D-FUNCTION-SWAP",
    "moth": "D-FUNCTION-SWAP",
-   "wasp": "D-FUNCTION-SWAP"
+   "wasp": "D-FUNCTION-SWAP",
+   "crab": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -668,15 +689,6 @@ export const questions = [
   },
   "notes": "canonical colours the child knows even in line art",
   "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_color.v1_card_frog",
-    "word": "frog",
-    "value": "frog",
-    "label": "frog",
-    "image": "/images/assessment/blends/frog.webp",
-    "imagePath": "/images/assessment/blends/frog.webp",
-    "imageAlt": "frog"
-   },
    {
     "id": "lp3.adjectives.l1.A.adj_color.v1_card_crab",
     "word": "crab",
@@ -703,6 +715,15 @@ export const questions = [
     "image": "/images/assessment/blends/wasp.webp",
     "imagePath": "/images/assessment/blends/wasp.webp",
     "imageAlt": "wasp"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_color.v1_card_frog",
+    "word": "frog",
+    "value": "frog",
+    "label": "frog",
+    "image": "/images/assessment/blends/frog.webp",
+    "imagePath": "/images/assessment/blends/frog.webp",
+    "imageAlt": "frog"
    }
   ]
  },
@@ -730,22 +751,12 @@ export const questions = [
   "question": "Which one is yellow?",
   "spokenPrompt": "Which one is yellow?",
   "choices": [
-   "sun",
-   "moon",
    "cloud",
-   "log"
+   "log",
+   "sun",
+   "moon"
   ],
   "answerOptions": [
-   {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
-   },
-   {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
-   },
    {
     "value": "cloud",
     "label": "cloud",
@@ -755,6 +766,16 @@ export const questions = [
     "value": "log",
     "label": "log",
     "text": "log"
+   },
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    }
   ],
   "answer": "sun",
@@ -786,24 +807,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_sun",
-    "word": "sun",
-    "value": "sun",
-    "label": "sun",
-    "image": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
-    "imageAlt": "sun"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   },
-   {
     "id": "lp3.adjectives.l1.B.adj_color.v2_card_cloud",
     "word": "cloud",
     "value": "cloud",
@@ -817,9 +820,27 @@ export const questions = [
     "word": "log",
     "value": "log",
     "label": "log",
-    "image": "/images/child-mode/cvc/log.png",
-    "imagePath": "/images/child-mode/cvc/log.png",
+    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
     "imageAlt": "log"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
    }
   ]
  },
@@ -847,12 +868,17 @@ export const questions = [
   "question": "Which word is a colour word?",
   "spokenPrompt": "Which word is a colour word?",
   "choices": [
+   "run",
    "red",
    "bed",
-   "ten",
-   "run"
+   "ten"
   ],
   "answerOptions": [
+   {
+    "value": "run",
+    "label": "run",
+    "text": "run"
+   },
    {
     "value": "red",
     "label": "red",
@@ -867,29 +893,25 @@ export const questions = [
     "value": "ten",
     "label": "ten",
     "text": "ten"
-   },
-   {
-    "value": "run",
-    "label": "run",
-    "text": "run"
    }
   ],
   "answer": "red",
   "correctAnswer": "red",
   "distractorRationales": {
-   "bed": "D-FUNCTION-SWAP",
    "ten": "D-FUNCTION-SWAP",
-   "run": "D-FUNCTION-SWAP"
+   "run": "D-FUNCTION-SWAP",
+   "bed": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_color-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -900,7 +922,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "resolvedImageAssetKey": "red",
+  "imageAlt": "Which word is a colour word?"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v4",
@@ -960,15 +988,16 @@ export const questions = [
    "blow": "D-FUNCTION-SWAP",
    "club": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_color-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -979,7 +1008,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/blue.webp",
+  "imageUrl": "/images/assessment/long-vowels/blue.webp",
+  "targetImage": "/images/assessment/long-vowels/blue.webp",
+  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
+  "resolvedImageAssetKey": "blue",
+  "imageAlt": "Which word is a colour word?"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v5",
@@ -1005,17 +1040,12 @@ export const questions = [
   "question": "Which word is a colour word?",
   "spokenPrompt": "Which word is a colour word?",
   "choices": [
-   "green",
    "grin",
    "grow",
-   "queen"
+   "queen",
+   "green"
   ],
   "answerOptions": [
-   {
-    "value": "green",
-    "label": "green",
-    "text": "green"
-   },
    {
     "value": "grin",
     "label": "grin",
@@ -1030,6 +1060,11 @@ export const questions = [
     "value": "queen",
     "label": "queen",
     "text": "queen"
+   },
+   {
+    "value": "green",
+    "label": "green",
+    "text": "green"
    }
   ],
   "answer": "green",
@@ -1039,15 +1074,16 @@ export const questions = [
    "grow": "D-FUNCTION-SWAP",
    "queen": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_color-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1058,7 +1094,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/green.webp",
+  "imageUrl": "/images/assessment/blends/green.webp",
+  "targetImage": "/images/assessment/blends/green.webp",
+  "targetImagePath": "/images/assessment/blends/green.webp",
+  "resolvedImageAssetKey": "green",
+  "imageAlt": "Which word is a colour word?"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v6",
@@ -1084,22 +1126,12 @@ export const questions = [
   "question": "Which word is a colour word?",
   "spokenPrompt": "Which word is a colour word?",
   "choices": [
-   "brown",
-   "crown",
    "brow",
-   "barn"
+   "barn",
+   "brown",
+   "crown"
   ],
   "answerOptions": [
-   {
-    "value": "brown",
-    "label": "brown",
-    "text": "brown"
-   },
-   {
-    "value": "crown",
-    "label": "crown",
-    "text": "crown"
-   },
    {
     "value": "brow",
     "label": "brow",
@@ -1109,6 +1141,16 @@ export const questions = [
     "value": "barn",
     "label": "barn",
     "text": "barn"
+   },
+   {
+    "value": "brown",
+    "label": "brown",
+    "text": "brown"
+   },
+   {
+    "value": "crown",
+    "label": "crown",
+    "text": "crown"
    }
   ],
   "answer": "brown",
@@ -1118,15 +1160,16 @@ export const questions = [
    "brow": "D-FUNCTION-SWAP",
    "barn": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_color-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1137,7 +1180,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/brown.webp",
+  "imageUrl": "/images/assessment/blends/brown.webp",
+  "targetImage": "/images/assessment/blends/brown.webp",
+  "targetImagePath": "/images/assessment/blends/brown.webp",
+  "resolvedImageAssetKey": "brown",
+  "imageAlt": "Which word is a colour word?"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v1",
@@ -1163,12 +1212,17 @@ export const questions = [
   "question": "Which one feels soft?",
   "spokenPrompt": "Which one feels soft?",
   "choices": [
+   "shell",
    "sheep",
    "brick",
-   "fork",
-   "shell"
+   "fork"
   ],
   "answerOptions": [
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
    {
     "value": "sheep",
     "label": "sheep",
@@ -1183,11 +1237,6 @@ export const questions = [
     "value": "fork",
     "label": "fork",
     "text": "fork"
-   },
-   {
-    "value": "shell",
-    "label": "shell",
-    "text": "shell"
    }
   ],
   "answer": "sheep",
@@ -1219,6 +1268,15 @@ export const questions = [
   "notes": "wool is the canon of soft",
   "imageCards": [
    {
+    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_shell",
+    "word": "shell",
+    "value": "shell",
+    "label": "shell",
+    "image": "/images/assessment/digraphs/shell.webp",
+    "imagePath": "/images/assessment/digraphs/shell.webp",
+    "imageAlt": "shell"
+   },
+   {
     "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_sheep",
     "word": "sheep",
     "value": "sheep",
@@ -1241,18 +1299,9 @@ export const questions = [
     "word": "fork",
     "value": "fork",
     "label": "fork",
-    "image": "/images/child-mode/initial-sounds/fork.png",
-    "imagePath": "/images/child-mode/initial-sounds/fork.png",
+    "image": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
     "imageAlt": "fork"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_shell",
-    "word": "shell",
-    "value": "shell",
-    "label": "shell",
-    "image": "/images/assessment/digraphs/shell.webp",
-    "imagePath": "/images/assessment/digraphs/shell.webp",
-    "imageAlt": "shell"
    }
   ]
  },
@@ -1310,9 +1359,9 @@ export const questions = [
   "answer": "fish",
   "correctAnswer": "fish",
   "distractorRationales": {
-   "brick": "D-FUNCTION-SWAP",
    "quilt": "D-FUNCTION-SWAP",
-   "drum": "D-FUNCTION-SWAP"
+   "drum": "D-FUNCTION-SWAP",
+   "brick": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1397,17 +1446,12 @@ export const questions = [
   "question": "Which one feels hard?",
   "spokenPrompt": "Which one feels hard?",
   "choices": [
-   "rock",
    "sheep",
    "jam",
-   "cloud"
+   "cloud",
+   "rock"
   ],
   "answerOptions": [
-   {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
-   },
    {
     "value": "sheep",
     "label": "sheep",
@@ -1422,6 +1466,11 @@ export const questions = [
     "value": "cloud",
     "label": "cloud",
     "text": "cloud"
+   },
+   {
+    "value": "rock",
+    "label": "rock",
+    "text": "rock"
    }
   ],
   "answer": "rock",
@@ -1453,15 +1502,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_rock",
-    "word": "rock",
-    "value": "rock",
-    "label": "rock",
-    "image": "/images/assessment/digraphs/rock.webp",
-    "imagePath": "/images/assessment/digraphs/rock.webp",
-    "imageAlt": "rock"
-   },
-   {
     "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_sheep",
     "word": "sheep",
     "value": "sheep",
@@ -1475,8 +1515,8 @@ export const questions = [
     "word": "jam",
     "value": "jam",
     "label": "jam",
-    "image": "/images/child-mode/initial-sounds/jam.png",
-    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
     "imageAlt": "jam"
    },
    {
@@ -1487,6 +1527,15 @@ export const questions = [
     "image": "/images/child-mode/blends/cloud.png",
     "imagePath": "/images/child-mode/blends/cloud.png",
     "imageAlt": "cloud"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_rock",
+    "word": "rock",
+    "value": "rock",
+    "label": "rock",
+    "image": "/images/assessment/digraphs/rock.webp",
+    "imagePath": "/images/assessment/digraphs/rock.webp",
+    "imageAlt": "rock"
    }
   ]
  },
@@ -1514,22 +1563,12 @@ export const questions = [
   "question": "Which word is a describing word for how things feel?",
   "spokenPrompt": "Which word is a describing word for how things feel?",
   "choices": [
-   "soft",
-   "sofa",
    "sat",
-   "sock"
+   "sock",
+   "soft",
+   "sofa"
   ],
   "answerOptions": [
-   {
-    "value": "soft",
-    "label": "soft",
-    "text": "soft"
-   },
-   {
-    "value": "sofa",
-    "label": "sofa",
-    "text": "sofa"
-   },
    {
     "value": "sat",
     "label": "sat",
@@ -1539,24 +1578,35 @@ export const questions = [
     "value": "sock",
     "label": "sock",
     "text": "sock"
+   },
+   {
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
+   },
+   {
+    "value": "sofa",
+    "label": "sofa",
+    "text": "sofa"
    }
   ],
   "answer": "soft",
   "correctAnswer": "soft",
   "distractorRationales": {
+   "sock": "D-FUNCTION-SWAP",
    "sofa": "D-FUNCTION-SWAP",
-   "sat": "D-FUNCTION-SWAP",
-   "sock": "D-FUNCTION-SWAP"
+   "sat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_texture_state-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1567,7 +1617,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/soft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/soft.webp",
+  "targetImage": "/images/assessment/generated/concepts/soft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/soft.webp",
+  "resolvedImageAssetKey": "soft",
+  "imageAlt": "Which word is a describing word for how things feel?"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v5",
@@ -1593,12 +1649,17 @@ export const questions = [
   "question": "Which word is a describing word for how things feel?",
   "spokenPrompt": "Which word is a describing word for how things feel?",
   "choices": [
+   "win",
    "wet",
    "web",
-   "vet",
-   "win"
+   "vet"
   ],
   "answerOptions": [
+   {
+    "value": "win",
+    "label": "win",
+    "text": "win"
+   },
    {
     "value": "wet",
     "label": "wet",
@@ -1613,29 +1674,25 @@ export const questions = [
     "value": "vet",
     "label": "vet",
     "text": "vet"
-   },
-   {
-    "value": "win",
-    "label": "win",
-    "text": "win"
    }
   ],
   "answer": "wet",
   "correctAnswer": "wet",
   "distractorRationales": {
+   "win": "D-FUNCTION-SWAP",
    "web": "D-FUNCTION-SWAP",
-   "vet": "D-FUNCTION-SWAP",
-   "win": "D-FUNCTION-SWAP"
+   "vet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_texture_state-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1646,7 +1703,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "resolvedImageAssetKey": "wet",
+  "imageAlt": "Which word is a describing word for how things feel?"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v6",
@@ -1702,19 +1765,20 @@ export const questions = [
   "answer": "cold",
   "correctAnswer": "cold",
   "distractorRationales": {
+   "colt": "D-FUNCTION-SWAP",
    "coat": "D-FUNCTION-SWAP",
-   "gold": "D-FUNCTION-SWAP",
-   "colt": "D-FUNCTION-SWAP"
+   "gold": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_texture_state-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1725,7 +1789,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "resolvedImageAssetKey": "cold",
+  "imageAlt": "Which word is a describing word for how things feel?"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v1",
@@ -1751,17 +1821,12 @@ export const questions = [
   "question": "Which one shows a happy face?",
   "spokenPrompt": "Which one shows a happy face?",
   "choices": [
-   "smile",
    "moth",
    "brick",
-   "rope"
+   "rope",
+   "smile"
   ],
   "answerOptions": [
-   {
-    "value": "smile",
-    "label": "smile",
-    "text": "smile"
-   },
    {
     "value": "moth",
     "label": "moth",
@@ -1776,14 +1841,19 @@ export const questions = [
     "value": "rope",
     "label": "rope",
     "text": "rope"
+   },
+   {
+    "value": "smile",
+    "label": "smile",
+    "text": "smile"
    }
   ],
   "answer": "smile",
   "correctAnswer": "smile",
   "distractorRationales": {
+   "rope": "D-FUNCTION-SWAP",
    "moth": "D-FUNCTION-SWAP",
-   "brick": "D-FUNCTION-SWAP",
-   "rope": "D-FUNCTION-SWAP"
+   "brick": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1806,15 +1876,6 @@ export const questions = [
   },
   "notes": "",
   "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_smile",
-    "word": "smile",
-    "value": "smile",
-    "label": "smile",
-    "image": "/images/assessment/long-vowels/smile.webp",
-    "imagePath": "/images/assessment/long-vowels/smile.webp",
-    "imageAlt": "smile"
-   },
    {
     "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_moth",
     "word": "moth",
@@ -1841,6 +1902,15 @@ export const questions = [
     "image": "/images/assessment/long-vowels/rope.webp",
     "imagePath": "/images/assessment/long-vowels/rope.webp",
     "imageAlt": "rope"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_smile",
+    "word": "smile",
+    "value": "smile",
+    "label": "smile",
+    "image": "/images/assessment/long-vowels/smile.webp",
+    "imagePath": "/images/assessment/long-vowels/smile.webp",
+    "imageAlt": "smile"
    }
   ]
  },
@@ -1868,22 +1938,12 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "sad",
-   "sat",
    "sand",
-   "said"
+   "said",
+   "sad",
+   "sat"
   ],
   "answerOptions": [
-   {
-    "value": "sad",
-    "label": "sad",
-    "text": "sad"
-   },
-   {
-    "value": "sat",
-    "label": "sat",
-    "text": "sat"
-   },
    {
     "value": "sand",
     "label": "sand",
@@ -1893,6 +1953,16 @@ export const questions = [
     "value": "said",
     "label": "said",
     "text": "said"
+   },
+   {
+    "value": "sad",
+    "label": "sad",
+    "text": "sad"
+   },
+   {
+    "value": "sat",
+    "label": "sat",
+    "text": "sat"
    }
   ],
   "answer": "sad",
@@ -1902,15 +1972,16 @@ export const questions = [
    "sand": "D-FUNCTION-SWAP",
    "said": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1921,7 +1992,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "resolvedImageAssetKey": "sad",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v3",
@@ -1947,12 +2024,17 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
+   "puppy",
    "happy",
    "hoppy",
-   "hippo",
-   "puppy"
+   "hippo"
   ],
   "answerOptions": [
+   {
+    "value": "puppy",
+    "label": "puppy",
+    "text": "puppy"
+   },
    {
     "value": "happy",
     "label": "happy",
@@ -1967,29 +2049,25 @@ export const questions = [
     "value": "hippo",
     "label": "hippo",
     "text": "hippo"
-   },
-   {
-    "value": "puppy",
-    "label": "puppy",
-    "text": "puppy"
    }
   ],
   "answer": "happy",
   "correctAnswer": "happy",
   "distractorRationales": {
+   "puppy": "D-FUNCTION-SWAP",
    "hoppy": "D-FUNCTION-SWAP",
-   "hippo": "D-FUNCTION-SWAP",
-   "puppy": "D-FUNCTION-SWAP"
+   "hippo": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2000,7 +2078,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class"
+  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class",
+  "imagePath": "/images/assessment/generated/concepts/happy.webp",
+  "imageUrl": "/images/assessment/generated/concepts/happy.webp",
+  "targetImage": "/images/assessment/generated/concepts/happy.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/happy.webp",
+  "resolvedImageAssetKey": "happy",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v4",
@@ -2060,15 +2144,16 @@ export const questions = [
    "tries": "D-FUNCTION-SWAP",
    "tiger": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2079,7 +2164,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/tired-sleepy-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/tired-sleepy-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/tired-sleepy-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/tired-sleepy-01.webp",
+  "resolvedImageAssetKey": "tired",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v5",
@@ -2105,17 +2196,12 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "cross",
    "crust",
    "class",
-   "crisp"
+   "crisp",
+   "cross"
   ],
   "answerOptions": [
-   {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
-   },
    {
     "value": "crust",
     "label": "crust",
@@ -2130,6 +2216,11 @@ export const questions = [
     "value": "crisp",
     "label": "crisp",
     "text": "crisp"
+   },
+   {
+    "value": "cross",
+    "label": "cross",
+    "text": "cross"
    }
   ],
   "answer": "cross",
@@ -2139,15 +2230,16 @@ export const questions = [
    "class": "D-FUNCTION-SWAP",
    "crisp": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2158,7 +2250,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cross the feeling — the British everyday word for angry"
+  "notes": "cross the feeling — the British everyday word for angry",
+  "imagePath": "/images/assessment/generated/concepts/cross.webp",
+  "imageUrl": "/images/assessment/generated/concepts/cross.webp",
+  "targetImage": "/images/assessment/generated/concepts/cross.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/cross.webp",
+  "resolvedImageAssetKey": "cross",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v6",
@@ -2184,22 +2282,12 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "proud",
-   "cloud",
    "round",
-   "pound"
+   "pound",
+   "proud",
+   "cloud"
   ],
   "answerOptions": [
-   {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
-   },
-   {
-    "value": "cloud",
-    "label": "cloud",
-    "text": "cloud"
-   },
    {
     "value": "round",
     "label": "round",
@@ -2209,6 +2297,16 @@ export const questions = [
     "value": "pound",
     "label": "pound",
     "text": "pound"
+   },
+   {
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
+   },
+   {
+    "value": "cloud",
+    "label": "cloud",
+    "text": "cloud"
    }
   ],
   "answer": "proud",
@@ -2218,15 +2316,16 @@ export const questions = [
    "round": "D-FUNCTION-SWAP",
    "pound": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2237,7 +2336,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/proud.webp",
+  "imageUrl": "/images/assessment/generated/concepts/proud.webp",
+  "targetImage": "/images/assessment/generated/concepts/proud.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/proud.webp",
+  "resolvedImageAssetKey": "proud",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v1",
@@ -2261,7 +2366,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ soup burned my lip.",
   "question": "The ___ soup burned my lip.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm soup burned my lip.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … soup burned my lip.",
   "sentence": "The ___ soup burned my lip.",
   "choices": [
    "hot",
@@ -2294,20 +2399,21 @@ export const questions = [
   "answer": "hot",
   "correctAnswer": "hot",
   "distractorRationales": {
+   "torn": "D-FUNCTION-SWAP",
    "cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "lost": "D-FUNCTION-SWAP",
-   "torn": "D-FUNCTION-SWAP"
+   "lost": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ soup burned my lip.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2318,7 +2424,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "all four describe — burned pins hot"
+  "notes": "all four describe — burned pins hot",
+  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "resolvedImageAssetKey": "hot",
+  "imageAlt": "The hot soup burned my lip."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v2",
@@ -2342,15 +2454,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "My ___ boots let the rain in.",
   "question": "My ___ boots let the rain in.",
-  "spokenPrompt": "Which describing word finishes the sentence? My hmm boots let the rain in.",
+  "spokenPrompt": "Which describing word finishes the sentence? My … boots let the rain in.",
   "sentence": "My ___ boots let the rain in.",
   "choices": [
+   "warm",
    "leaky",
    "new",
-   "shiny",
-   "warm"
+   "shiny"
   ],
   "answerOptions": [
+   {
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
+   },
    {
     "value": "leaky",
     "label": "leaky",
@@ -2365,11 +2482,6 @@ export const questions = [
     "value": "shiny",
     "label": "shiny",
     "text": "shiny"
-   },
-   {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
    }
   ],
   "answer": "leaky",
@@ -2379,16 +2491,17 @@ export const questions = [
    "shiny": "D-PLAUSIBLE-UNSUPPORTED",
    "warm": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "My ___ boots let the rain in.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2399,7 +2512,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "let the rain in pins leaky"
+  "notes": "let the rain in pins leaky",
+  "imagePath": "/images/assessment/generated/concepts/boots.webp",
+  "imageUrl": "/images/assessment/generated/concepts/boots.webp",
+  "targetImage": "/images/assessment/generated/concepts/boots.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/boots.webp",
+  "resolvedImageAssetKey": "boots",
+  "imageAlt": "My leaky boots let the rain in."
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v3",
@@ -2423,25 +2542,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ box needed two of us to lift.",
   "question": "The ___ box needed two of us to lift.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm box needed two of us to lift.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … box needed two of us to lift.",
   "sentence": "The ___ box needed two of us to lift.",
   "choices": [
-   "heavy",
-   "empty",
    "tiny",
-   "light"
+   "light",
+   "heavy",
+   "empty"
   ],
   "answerOptions": [
-   {
-    "value": "heavy",
-    "label": "heavy",
-    "text": "heavy"
-   },
-   {
-    "value": "empty",
-    "label": "empty",
-    "text": "empty"
-   },
    {
     "value": "tiny",
     "label": "tiny",
@@ -2451,25 +2560,36 @@ export const questions = [
     "value": "light",
     "label": "light",
     "text": "light"
+   },
+   {
+    "value": "heavy",
+    "label": "heavy",
+    "text": "heavy"
+   },
+   {
+    "value": "empty",
+    "label": "empty",
+    "text": "empty"
    }
   ],
   "answer": "heavy",
   "correctAnswer": "heavy",
   "distractorRationales": {
+   "light": "D-PLAUSIBLE-UNSUPPORTED",
    "empty": "D-PLAUSIBLE-UNSUPPORTED",
-   "tiny": "D-PLAUSIBLE-UNSUPPORTED",
-   "light": "D-PLAUSIBLE-UNSUPPORTED"
+   "tiny": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ box needed two of us to lift.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2480,7 +2600,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/heavy.webp",
+  "imageUrl": "/images/assessment/generated/concepts/heavy.webp",
+  "targetImage": "/images/assessment/generated/concepts/heavy.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/heavy.webp",
+  "resolvedImageAssetKey": "heavy",
+  "imageAlt": "The heavy box needed two of us to lift."
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v4",
@@ -2504,15 +2630,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We squinted in the ___ sunshine.",
   "question": "We squinted in the ___ sunshine.",
-  "spokenPrompt": "Which describing word finishes the sentence? We squinted in the hmm sunshine.",
+  "spokenPrompt": "Which describing word finishes the sentence? We squinted in the … sunshine.",
   "sentence": "We squinted in the ___ sunshine.",
   "choices": [
+   "grey",
    "bright",
    "dim",
-   "soft",
-   "grey"
+   "soft"
   ],
   "answerOptions": [
+   {
+    "value": "grey",
+    "label": "grey",
+    "text": "grey"
+   },
    {
     "value": "bright",
     "label": "bright",
@@ -2527,11 +2658,6 @@ export const questions = [
     "value": "soft",
     "label": "soft",
     "text": "soft"
-   },
-   {
-    "value": "grey",
-    "label": "grey",
-    "text": "grey"
    }
   ],
   "answer": "bright",
@@ -2541,16 +2667,17 @@ export const questions = [
    "soft": "D-PLAUSIBLE-UNSUPPORTED",
    "grey": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We squinted in the ___ sunshine.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2561,7 +2688,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "squinted pins bright"
+  "notes": "squinted pins bright",
+  "imagePath": "/images/assessment/generated/concepts/bright.webp",
+  "imageUrl": "/images/assessment/generated/concepts/bright.webp",
+  "targetImage": "/images/assessment/generated/concepts/bright.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/bright.webp",
+  "resolvedImageAssetKey": "bright",
+  "imageAlt": "We squinted in the bright sunshine."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v5",
@@ -2587,22 +2720,12 @@ export const questions = [
   "question": "Which word in this sentence is the describing word? \"The muddy pup shook itself.\"",
   "spokenPrompt": "Which word in this sentence is the describing word? \"The muddy pup shook itself.\"",
   "choices": [
-   "muddy",
-   "pup",
    "shook",
-   "itself"
+   "itself",
+   "muddy",
+   "pup"
   ],
   "answerOptions": [
-   {
-    "value": "muddy",
-    "label": "muddy",
-    "text": "muddy"
-   },
-   {
-    "value": "pup",
-    "label": "pup",
-    "text": "pup"
-   },
    {
     "value": "shook",
     "label": "shook",
@@ -2612,6 +2735,16 @@ export const questions = [
     "value": "itself",
     "label": "itself",
     "text": "itself"
+   },
+   {
+    "value": "muddy",
+    "label": "muddy",
+    "text": "muddy"
+   },
+   {
+    "value": "pup",
+    "label": "pup",
+    "text": "pup"
    }
   ],
   "answer": "muddy",
@@ -2621,15 +2754,16 @@ export const questions = [
    "shook": "D-FUNCTION-SWAP",
    "itself": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2640,7 +2774,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/companions/full/muddy.webp",
+  "imageUrl": "/images/companions/full/muddy.webp",
+  "targetImage": "/images/companions/full/muddy.webp",
+  "targetImagePath": "/images/companions/full/muddy.webp",
+  "resolvedImageAssetKey": "muddy",
+  "imageAlt": "Which word in this sentence is the describing word? \"The muddy pup shook itself.\""
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v6",
@@ -2666,17 +2806,12 @@ export const questions = [
   "question": "Which word in this sentence is the describing word? \"A gentle breeze turned the pages.\"",
   "spokenPrompt": "Which word in this sentence is the describing word? \"A gentle breeze turned the pages.\"",
   "choices": [
-   "gentle",
    "breeze",
    "turned",
-   "pages"
+   "pages",
+   "gentle"
   ],
   "answerOptions": [
-   {
-    "value": "gentle",
-    "label": "gentle",
-    "text": "gentle"
-   },
    {
     "value": "breeze",
     "label": "breeze",
@@ -2691,6 +2826,11 @@ export const questions = [
     "value": "pages",
     "label": "pages",
     "text": "pages"
+   },
+   {
+    "value": "gentle",
+    "label": "gentle",
+    "text": "gentle"
    }
   ],
   "answer": "gentle",
@@ -2700,15 +2840,16 @@ export const questions = [
    "turned": "D-FUNCTION-SWAP",
    "pages": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2719,7 +2860,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/gentle.webp",
+  "imageUrl": "/images/assessment/generated/concepts/gentle.webp",
+  "targetImage": "/images/assessment/generated/concepts/gentle.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/gentle.webp",
+  "resolvedImageAssetKey": "gentle",
+  "imageAlt": "Which word in this sentence is the describing word? \"A gentle breeze turned the pages.\""
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v7",
@@ -2743,25 +2890,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ kitten slept through the storm.",
   "question": "The ___ kitten slept through the storm.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm kitten slept through the storm.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … kitten slept through the storm.",
   "sentence": "The ___ kitten slept through the storm.",
   "choices": [
-   "sleepy",
-   "sleep",
    "sleeps",
-   "slept"
+   "slept",
+   "sleepy",
+   "sleep"
   ],
   "answerOptions": [
-   {
-    "value": "sleepy",
-    "label": "sleepy",
-    "text": "sleepy"
-   },
-   {
-    "value": "sleep",
-    "label": "sleep",
-    "text": "sleep"
-   },
    {
     "value": "sleeps",
     "label": "sleeps",
@@ -2771,6 +2908,16 @@ export const questions = [
     "value": "slept",
     "label": "slept",
     "text": "slept"
+   },
+   {
+    "value": "sleepy",
+    "label": "sleepy",
+    "text": "sleepy"
+   },
+   {
+    "value": "sleep",
+    "label": "sleep",
+    "text": "sleep"
    }
   ],
   "answer": "sleepy",
@@ -2780,16 +2927,17 @@ export const questions = [
    "sleeps": "D-FUNCTION-SWAP",
    "slept": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ kitten slept through the storm.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2800,7 +2948,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the family fit — only the describing form sits before kitten"
+  "notes": "the family fit — only the describing form sits before kitten",
+  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "resolvedImageAssetKey": "sleepy",
+  "imageAlt": "The sleepy kitten slept through the storm."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v8",
@@ -2824,20 +2978,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Her ___ scarf trailed on the ground.",
   "question": "Her ___ scarf trailed on the ground.",
-  "spokenPrompt": "Which describing word finishes the sentence? Her hmm scarf trailed on the ground.",
+  "spokenPrompt": "Which describing word finishes the sentence? Her … scarf trailed on the ground.",
   "sentence": "Her ___ scarf trailed on the ground.",
   "choices": [
-   "longest",
    "length",
    "lengthen",
-   "longs"
+   "longs",
+   "longest"
   ],
   "answerOptions": [
-   {
-    "value": "longest",
-    "label": "longest",
-    "text": "longest"
-   },
    {
     "value": "length",
     "label": "length",
@@ -2852,25 +3001,31 @@ export const questions = [
     "value": "longs",
     "label": "longs",
     "text": "longs"
+   },
+   {
+    "value": "longest",
+    "label": "longest",
+    "text": "longest"
    }
   ],
   "answer": "longest",
   "correctAnswer": "longest",
   "distractorRationales": {
+   "longs": "D-FUNCTION-SWAP",
    "length": "D-FUNCTION-SWAP",
-   "lengthen": "D-FUNCTION-SWAP",
-   "longs": "D-FUNCTION-SWAP"
+   "lengthen": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Her ___ scarf trailed on the ground.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2881,7 +3036,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/quest/dino/ground.webp",
+  "imageUrl": "/images/quest/dino/ground.webp",
+  "targetImage": "/images/quest/dino/ground.webp",
+  "targetImagePath": "/images/quest/dino/ground.webp",
+  "resolvedImageAssetKey": "ground",
+  "imageAlt": "Her longest scarf trailed on the ground."
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v1",
@@ -2905,20 +3066,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The path was ___ after days of rain.",
   "question": "The path was ___ after days of rain.",
-  "spokenPrompt": "Which describing word finishes the sentence? The path was hmm after days of rain.",
+  "spokenPrompt": "Which describing word finishes the sentence? The path was … after days of rain.",
   "sentence": "The path was ___ after days of rain.",
   "choices": [
-   "muddy",
    "dusty",
    "sunny",
-   "tidy"
+   "tidy",
+   "muddy"
   ],
   "answerOptions": [
-   {
-    "value": "muddy",
-    "label": "muddy",
-    "text": "muddy"
-   },
    {
     "value": "dusty",
     "label": "dusty",
@@ -2933,6 +3089,11 @@ export const questions = [
     "value": "tidy",
     "label": "tidy",
     "text": "tidy"
+   },
+   {
+    "value": "muddy",
+    "label": "muddy",
+    "text": "muddy"
    }
   ],
   "answer": "muddy",
@@ -2942,16 +3103,17 @@ export const questions = [
    "sunny": "D-PLAUSIBLE-UNSUPPORTED",
    "tidy": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The path was ___ after days of rain.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2962,7 +3124,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "days of rain pins muddy — dusty is its dry opposite"
+  "notes": "days of rain pins muddy — dusty is its dry opposite",
+  "imagePath": "/images/companions/full/muddy.webp",
+  "imageUrl": "/images/companions/full/muddy.webp",
+  "targetImage": "/images/companions/full/muddy.webp",
+  "targetImagePath": "/images/companions/full/muddy.webp",
+  "resolvedImageAssetKey": "muddy",
+  "imageAlt": "The path was muddy after days of rain."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v2",
@@ -2986,7 +3154,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The lemonade was ___ enough to make us wince.",
   "question": "The lemonade was ___ enough to make us wince.",
-  "spokenPrompt": "Which describing word finishes the sentence? The lemonade was hmm enough to make us wince.",
+  "spokenPrompt": "Which describing word finishes the sentence? The lemonade was … enough to make us wince.",
   "sentence": "The lemonade was ___ enough to make us wince.",
   "choices": [
    "sour",
@@ -3019,20 +3187,21 @@ export const questions = [
   "answer": "sour",
   "correctAnswer": "sour",
   "distractorRationales": {
-   "sweet": "D-PLAUSIBLE-UNSUPPORTED",
    "warm": "D-PLAUSIBLE-UNSUPPORTED",
-   "pale": "D-PLAUSIBLE-UNSUPPORTED"
+   "pale": "D-PLAUSIBLE-UNSUPPORTED",
+   "sweet": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The lemonade was ___ enough to make us wince.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3043,7 +3212,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/make.webp",
+  "imageUrl": "/images/assessment/hfw/make.webp",
+  "targetImage": "/images/assessment/hfw/make.webp",
+  "targetImagePath": "/images/assessment/hfw/make.webp",
+  "resolvedImageAssetKey": "make",
+  "imageAlt": "The lemonade was sour enough to make us wince."
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v3",
@@ -3067,7 +3242,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The old stairs were ___ under our feet.",
   "question": "The old stairs were ___ under our feet.",
-  "spokenPrompt": "Which describing word finishes the sentence? The old stairs were hmm under our feet.",
+  "spokenPrompt": "Which describing word finishes the sentence? The old stairs were … under our feet.",
   "sentence": "The old stairs were ___ under our feet.",
   "choices": [
    "creaky",
@@ -3104,16 +3279,17 @@ export const questions = [
    "fresh": "D-PLAUSIBLE-UNSUPPORTED",
    "damp": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The old stairs were ___ under our feet.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3124,7 +3300,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/under.png",
+  "imageUrl": "/images/child-mode/initial-sounds/under.png",
+  "targetImage": "/images/child-mode/initial-sounds/under.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
+  "resolvedImageAssetKey": "under",
+  "imageAlt": "The old stairs were creaky under our feet."
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v4",
@@ -3148,7 +3330,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Wear the ___ coat — it is snowing hard.",
   "question": "Wear the ___ coat — it is snowing hard.",
-  "spokenPrompt": "Which describing word finishes the sentence? Wear the hmm coat — it is snowing hard.",
+  "spokenPrompt": "Which describing word finishes the sentence? Wear the … coat — it is snowing hard.",
   "sentence": "Wear the ___ coat — it is snowing hard.",
   "choices": [
    "thick",
@@ -3181,20 +3363,21 @@ export const questions = [
   "answer": "thick",
   "correctAnswer": "thick",
   "distractorRationales": {
+   "wet": "D-PLAUSIBLE-UNSUPPORTED",
    "thin": "D-PLAUSIBLE-UNSUPPORTED",
-   "torn": "D-PLAUSIBLE-UNSUPPORTED",
-   "wet": "D-PLAUSIBLE-UNSUPPORTED"
+   "torn": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Wear the ___ coat — it is snowing hard.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3205,7 +3388,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
+  "resolvedImageAssetKey": "wear",
+  "imageAlt": "Wear the thick coat — it is snowing hard."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v5",
@@ -3231,12 +3420,17 @@ export const questions = [
   "question": "Which describing word fits best for a street with no sound at all?",
   "spokenPrompt": "Which describing word fits best for a street with no sound at all?",
   "choices": [
+   "steep",
    "silent",
    "busy",
-   "narrow",
-   "steep"
+   "narrow"
   ],
   "answerOptions": [
+   {
+    "value": "steep",
+    "label": "steep",
+    "text": "steep"
+   },
    {
     "value": "silent",
     "label": "silent",
@@ -3251,29 +3445,25 @@ export const questions = [
     "value": "narrow",
     "label": "narrow",
     "text": "narrow"
-   },
-   {
-    "value": "steep",
-    "label": "steep",
-    "text": "steep"
    }
   ],
   "answer": "silent",
   "correctAnswer": "silent",
   "distractorRationales": {
+   "steep": "D-PLAUSIBLE-UNSUPPORTED",
    "busy": "D-PLAUSIBLE-UNSUPPORTED",
-   "narrow": "D-PLAUSIBLE-UNSUPPORTED",
-   "steep": "D-PLAUSIBLE-UNSUPPORTED"
+   "narrow": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3284,7 +3474,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/silent.webp",
+  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
+  "targetImage": "/images/assessment/generated/concepts/silent.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
+  "resolvedImageAssetKey": "silent",
+  "imageAlt": "Which describing word fits best for a street with no sound at all?"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v6",
@@ -3310,12 +3506,17 @@ export const questions = [
   "question": "Which describing word fits best for bread just out of the oven?",
   "spokenPrompt": "Which describing word fits best for bread just out of the oven?",
   "choices": [
+   "salty",
    "warm",
    "stale",
-   "frozen",
-   "salty"
+   "frozen"
   ],
   "answerOptions": [
+   {
+    "value": "salty",
+    "label": "salty",
+    "text": "salty"
+   },
    {
     "value": "warm",
     "label": "warm",
@@ -3330,29 +3531,25 @@ export const questions = [
     "value": "frozen",
     "label": "frozen",
     "text": "frozen"
-   },
-   {
-    "value": "salty",
-    "label": "salty",
-    "text": "salty"
    }
   ],
   "answer": "warm",
   "correctAnswer": "warm",
   "distractorRationales": {
+   "salty": "D-PLAUSIBLE-UNSUPPORTED",
    "stale": "D-PLAUSIBLE-UNSUPPORTED",
-   "frozen": "D-PLAUSIBLE-UNSUPPORTED",
-   "salty": "D-PLAUSIBLE-UNSUPPORTED"
+   "frozen": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3363,7 +3560,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/warm.webp",
+  "imageUrl": "/images/assessment/generated/concepts/warm.webp",
+  "targetImage": "/images/assessment/generated/concepts/warm.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/warm.webp",
+  "resolvedImageAssetKey": "warm",
+  "imageAlt": "Which describing word fits best for bread just out of the oven?"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v7",
@@ -3387,15 +3590,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ knife went through the pumpkin easily.",
   "question": "The ___ knife went through the pumpkin easily.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm knife went through the pumpkin easily.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … knife went through the pumpkin easily.",
   "sentence": "The ___ knife went through the pumpkin easily.",
   "choices": [
+   "bent",
    "sharp",
    "blunt",
-   "clean",
-   "bent"
+   "clean"
   ],
   "answerOptions": [
+   {
+    "value": "bent",
+    "label": "bent",
+    "text": "bent"
+   },
    {
     "value": "sharp",
     "label": "sharp",
@@ -3410,30 +3618,26 @@ export const questions = [
     "value": "clean",
     "label": "clean",
     "text": "clean"
-   },
-   {
-    "value": "bent",
-    "label": "bent",
-    "text": "bent"
    }
   ],
   "answer": "sharp",
   "correctAnswer": "sharp",
   "distractorRationales": {
-   "blunt": "D-PLAUSIBLE-UNSUPPORTED",
    "clean": "D-PLAUSIBLE-UNSUPPORTED",
-   "bent": "D-PLAUSIBLE-UNSUPPORTED"
+   "bent": "D-PLAUSIBLE-UNSUPPORTED",
+   "blunt": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ knife went through the pumpkin easily.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3444,7 +3648,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "resolvedImageAssetKey": "sharp",
+  "imageAlt": "The sharp knife went through the pumpkin easily."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v8",
@@ -3468,25 +3678,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Our tent felt ___ with five of us in it.",
   "question": "Our tent felt ___ with five of us in it.",
-  "spokenPrompt": "Which describing word finishes the sentence? Our tent felt hmm with five of us in it.",
+  "spokenPrompt": "Which describing word finishes the sentence? Our tent felt … with five of us in it.",
   "sentence": "Our tent felt ___ with five of us in it.",
   "choices": [
-   "crowded",
-   "roomy",
    "airy",
-   "bare"
+   "bare",
+   "crowded",
+   "roomy"
   ],
   "answerOptions": [
-   {
-    "value": "crowded",
-    "label": "crowded",
-    "text": "crowded"
-   },
-   {
-    "value": "roomy",
-    "label": "roomy",
-    "text": "roomy"
-   },
    {
     "value": "airy",
     "label": "airy",
@@ -3496,6 +3696,16 @@ export const questions = [
     "value": "bare",
     "label": "bare",
     "text": "bare"
+   },
+   {
+    "value": "crowded",
+    "label": "crowded",
+    "text": "crowded"
+   },
+   {
+    "value": "roomy",
+    "label": "roomy",
+    "text": "roomy"
    }
   ],
   "answer": "crowded",
@@ -3505,16 +3715,17 @@ export const questions = [
    "airy": "D-PLAUSIBLE-UNSUPPORTED",
    "bare": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our tent felt ___ with five of us in it.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3525,7 +3736,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/tent.webp",
+  "imageUrl": "/images/assessment/blends/tent.webp",
+  "targetImage": "/images/assessment/blends/tent.webp",
+  "targetImagePath": "/images/assessment/blends/tent.webp",
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Our tent felt crowded with five of us in it."
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v1",
@@ -3551,22 +3768,12 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
-   "soft",
-   "sofa",
    "sit",
-   "sand"
+   "sand",
+   "soft",
+   "sofa"
   ],
   "answerOptions": [
-   {
-    "value": "soft",
-    "label": "soft",
-    "text": "soft"
-   },
-   {
-    "value": "sofa",
-    "label": "sofa",
-    "text": "sofa"
-   },
    {
     "value": "sit",
     "label": "sit",
@@ -3576,24 +3783,35 @@ export const questions = [
     "value": "sand",
     "label": "sand",
     "text": "sand"
+   },
+   {
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
+   },
+   {
+    "value": "sofa",
+    "label": "sofa",
+    "text": "sofa"
    }
   ],
   "answer": "soft",
   "correctAnswer": "soft",
   "distractorRationales": {
-   "sofa": "D-FUNCTION-SWAP",
    "sit": "D-FUNCTION-SWAP",
-   "sand": "D-FUNCTION-SWAP"
+   "sand": "D-FUNCTION-SWAP",
+   "sofa": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3604,7 +3822,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/soft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/soft.webp",
+  "targetImage": "/images/assessment/generated/concepts/soft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/soft.webp",
+  "resolvedImageAssetKey": "soft",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v2",
@@ -3630,17 +3854,12 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
-   "brave",
    "bravery",
    "brag",
-   "branch"
+   "branch",
+   "brave"
   ],
   "answerOptions": [
-   {
-    "value": "brave",
-    "label": "brave",
-    "text": "brave"
-   },
    {
     "value": "bravery",
     "label": "bravery",
@@ -3655,24 +3874,30 @@ export const questions = [
     "value": "branch",
     "label": "branch",
     "text": "branch"
+   },
+   {
+    "value": "brave",
+    "label": "brave",
+    "text": "brave"
    }
   ],
   "answer": "brave",
   "correctAnswer": "brave",
   "distractorRationales": {
-   "bravery": "D-FUNCTION-SWAP",
    "brag": "D-FUNCTION-SWAP",
-   "branch": "D-FUNCTION-SWAP"
+   "branch": "D-FUNCTION-SWAP",
+   "bravery": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3683,7 +3908,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "resolvedImageAssetKey": "brave",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v3",
@@ -3709,22 +3940,12 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
-   "windy",
-   "wind",
    "window",
-   "winding"
+   "winding",
+   "windy",
+   "wind"
   ],
   "answerOptions": [
-   {
-    "value": "windy",
-    "label": "windy",
-    "text": "windy"
-   },
-   {
-    "value": "wind",
-    "label": "wind",
-    "text": "wind"
-   },
    {
     "value": "window",
     "label": "window",
@@ -3734,24 +3955,35 @@ export const questions = [
     "value": "winding",
     "label": "winding",
     "text": "winding"
+   },
+   {
+    "value": "windy",
+    "label": "windy",
+    "text": "windy"
+   },
+   {
+    "value": "wind",
+    "label": "wind",
+    "text": "wind"
    }
   ],
   "answer": "windy",
   "correctAnswer": "windy",
   "distractorRationales": {
-   "wind": "D-FUNCTION-SWAP",
    "window": "D-FUNCTION-SWAP",
-   "winding": "D-FUNCTION-SWAP"
+   "winding": "D-FUNCTION-SWAP",
+   "wind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3762,7 +3994,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the wind family in one set"
+  "notes": "the wind family in one set",
+  "imagePath": "/images/assessment/language/variants/adjectives/windy-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/windy-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/windy-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/windy-01.webp",
+  "resolvedImageAssetKey": "windy",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v4",
@@ -3786,20 +4024,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ sea tossed the little boat.",
   "question": "The ___ sea tossed the little boat.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm sea tossed the little boat.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … sea tossed the little boat.",
   "sentence": "The ___ sea tossed the little boat.",
   "choices": [
-   "stormy",
    "storm",
    "storms",
-   "stormed"
+   "stormed",
+   "stormy"
   ],
   "answerOptions": [
-   {
-    "value": "stormy",
-    "label": "stormy",
-    "text": "stormy"
-   },
    {
     "value": "storm",
     "label": "storm",
@@ -3814,6 +4047,11 @@ export const questions = [
     "value": "stormed",
     "label": "stormed",
     "text": "stormed"
+   },
+   {
+    "value": "stormy",
+    "label": "stormy",
+    "text": "stormy"
    }
   ],
   "answer": "stormy",
@@ -3823,16 +4061,17 @@ export const questions = [
    "storms": "D-FUNCTION-SWAP",
    "stormed": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ sea tossed the little boat.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3843,7 +4082,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "family fit — only the describing form sits before sea"
+  "notes": "family fit — only the describing form sits before sea",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "The stormy sea tossed the little boat."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v5",
@@ -3899,19 +4144,20 @@ export const questions = [
   "answer": "dusty",
   "correctAnswer": "dusty",
   "distractorRationales": {
+   "dusting": "D-FUNCTION-SWAP",
    "dust": "D-FUNCTION-SWAP",
-   "duster": "D-FUNCTION-SWAP",
-   "dusting": "D-FUNCTION-SWAP"
+   "duster": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3922,7 +4168,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v6",
@@ -3948,17 +4200,12 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
-   "salty",
    "salt",
    "sale",
-   "salute"
+   "salute",
+   "salty"
   ],
   "answerOptions": [
-   {
-    "value": "salty",
-    "label": "salty",
-    "text": "salty"
-   },
    {
     "value": "salt",
     "label": "salt",
@@ -3973,6 +4220,11 @@ export const questions = [
     "value": "salute",
     "label": "salute",
     "text": "salute"
+   },
+   {
+    "value": "salty",
+    "label": "salty",
+    "text": "salty"
    }
   ],
   "answer": "salty",
@@ -3982,15 +4234,16 @@ export const questions = [
    "sale": "D-FUNCTION-SWAP",
    "salute": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4001,7 +4254,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/salty-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/salty-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/salty-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/salty-01.webp",
+  "resolvedImageAssetKey": "salty",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v7",
@@ -4025,7 +4284,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A ___ morning is best for kites.",
   "question": "A ___ morning is best for kites.",
-  "spokenPrompt": "Which describing word finishes the sentence? A hmm morning is best for kites.",
+  "spokenPrompt": "Which describing word finishes the sentence? A … morning is best for kites.",
   "sentence": "A ___ morning is best for kites.",
   "choices": [
    "breezy",
@@ -4062,16 +4321,17 @@ export const questions = [
    "breezes": "D-FUNCTION-SWAP",
    "bread": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ morning is best for kites.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4082,7 +4342,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "A breezy morning is best for kites."
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v8",
@@ -4108,12 +4374,17 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
+   "curling",
    "curly",
    "curl",
-   "curler",
-   "curling"
+   "curler"
   ],
   "answerOptions": [
+   {
+    "value": "curling",
+    "label": "curling",
+    "text": "curling"
+   },
    {
     "value": "curly",
     "label": "curly",
@@ -4128,11 +4399,6 @@ export const questions = [
     "value": "curler",
     "label": "curler",
     "text": "curler"
-   },
-   {
-    "value": "curling",
-    "label": "curling",
-    "text": "curling"
    }
   ],
   "answer": "curly",
@@ -4142,15 +4408,16 @@ export const questions = [
    "curler": "D-FUNCTION-SWAP",
    "curling": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4161,7 +4428,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v7r",
@@ -4217,9 +4490,9 @@ export const questions = [
   "answer": "ink",
   "correctAnswer": "ink",
   "distractorRationales": {
+   "tree": "D-FUNCTION-SWAP",
    "house": "D-FUNCTION-SWAP",
-   "tent": "D-FUNCTION-SWAP",
-   "tree": "D-FUNCTION-SWAP"
+   "tent": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4256,8 +4529,8 @@ export const questions = [
     "word": "house",
     "value": "house",
     "label": "house",
-    "image": "/images/child-mode/initial-sounds/house.png",
-    "imagePath": "/images/child-mode/initial-sounds/house.png",
+    "image": "/images/assessment/rhyming/variants/house/house-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
     "imageAlt": "house"
    },
    {
@@ -4304,12 +4577,17 @@ export const questions = [
   "question": "Which word is a colour word?",
   "spokenPrompt": "Which word is a colour word?",
   "choices": [
+   "sink",
    "pink",
    "pin",
-   "wink",
-   "sink"
+   "wink"
   ],
   "answerOptions": [
+   {
+    "value": "sink",
+    "label": "sink",
+    "text": "sink"
+   },
    {
     "value": "pink",
     "label": "pink",
@@ -4324,29 +4602,25 @@ export const questions = [
     "value": "wink",
     "label": "wink",
     "text": "wink"
-   },
-   {
-    "value": "sink",
-    "label": "sink",
-    "text": "sink"
    }
   ],
   "answer": "pink",
   "correctAnswer": "pink",
   "distractorRationales": {
+   "sink": "D-FUNCTION-SWAP",
    "pin": "D-FUNCTION-SWAP",
-   "wink": "D-FUNCTION-SWAP",
-   "sink": "D-FUNCTION-SWAP"
+   "wink": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_color-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4357,7 +4631,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ink/pink-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ink/pink-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ink/pink-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ink/pink-02.webp",
+  "resolvedImageAssetKey": "pink",
+  "imageAlt": "Which word is a colour word?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v7r",
@@ -4383,22 +4663,12 @@ export const questions = [
   "question": "Which word is a describing word for how things feel?",
   "spokenPrompt": "Which word is a describing word for how things feel?",
   "choices": [
-   "dry",
-   "day",
    "dig",
-   "drum"
+   "drum",
+   "dry",
+   "day"
   ],
   "answerOptions": [
-   {
-    "value": "dry",
-    "label": "dry",
-    "text": "dry"
-   },
-   {
-    "value": "day",
-    "label": "day",
-    "text": "day"
-   },
    {
     "value": "dig",
     "label": "dig",
@@ -4408,6 +4678,16 @@ export const questions = [
     "value": "drum",
     "label": "drum",
     "text": "drum"
+   },
+   {
+    "value": "dry",
+    "label": "dry",
+    "text": "dry"
+   },
+   {
+    "value": "day",
+    "label": "day",
+    "text": "day"
    }
   ],
   "answer": "dry",
@@ -4417,15 +4697,16 @@ export const questions = [
    "dig": "D-FUNCTION-SWAP",
    "drum": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_texture_state-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4436,7 +4717,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/dry-arid-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/dry-arid-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/dry-arid-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/dry-arid-01.webp",
+  "resolvedImageAssetKey": "dry",
+  "imageAlt": "Which word is a describing word for how things feel?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v7r",
@@ -4462,17 +4749,12 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "glad",
    "glass",
    "grab",
-   "gold"
+   "gold",
+   "glad"
   ],
   "answerOptions": [
-   {
-    "value": "glad",
-    "label": "glad",
-    "text": "glad"
-   },
    {
     "value": "glass",
     "label": "glass",
@@ -4487,6 +4769,11 @@ export const questions = [
     "value": "gold",
     "label": "gold",
     "text": "gold"
+   },
+   {
+    "value": "glad",
+    "label": "glad",
+    "text": "glad"
    }
   ],
   "answer": "glad",
@@ -4496,15 +4783,16 @@ export const questions = [
    "grab": "D-FUNCTION-SWAP",
    "gold": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4515,7 +4803,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "resolvedImageAssetKey": "glad",
+  "imageAlt": "Which word is a feeling word?"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v9r",
@@ -4539,15 +4833,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ floor squeaked with every step.",
   "question": "The ___ floor squeaked with every step.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm floor squeaked with every step.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … floor squeaked with every step.",
   "sentence": "The ___ floor squeaked with every step.",
   "choices": [
+   "shines",
    "shiny",
    "shine",
-   "shone",
-   "shines"
+   "shone"
   ],
   "answerOptions": [
+   {
+    "value": "shines",
+    "label": "shines",
+    "text": "shines"
+   },
    {
     "value": "shiny",
     "label": "shiny",
@@ -4562,30 +4861,26 @@ export const questions = [
     "value": "shone",
     "label": "shone",
     "text": "shone"
-   },
-   {
-    "value": "shines",
-    "label": "shines",
-    "text": "shines"
    }
   ],
   "answer": "shiny",
   "correctAnswer": "shiny",
   "distractorRationales": {
-   "shine": "D-FUNCTION-SWAP",
    "shone": "D-FUNCTION-SWAP",
-   "shines": "D-FUNCTION-SWAP"
+   "shines": "D-FUNCTION-SWAP",
+   "shine": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ___ floor squeaked with every step.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4596,7 +4891,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/shiny.webp",
+  "imageUrl": "/images/assessment/generated/concepts/shiny.webp",
+  "targetImage": "/images/assessment/generated/concepts/shiny.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/shiny.webp",
+  "resolvedImageAssetKey": "shiny",
+  "imageAlt": "The shiny floor squeaked with every step."
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v9r",
@@ -4620,25 +4921,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The rope was too ___ to snap.",
   "question": "The rope was too ___ to snap.",
-  "spokenPrompt": "Which describing word finishes the sentence? The rope was too hmm to snap.",
+  "spokenPrompt": "Which describing word finishes the sentence? The rope was too … to snap.",
   "sentence": "The rope was too ___ to snap.",
   "choices": [
-   "strong",
-   "weak",
    "thin",
-   "old"
+   "old",
+   "strong",
+   "weak"
   ],
   "answerOptions": [
-   {
-    "value": "strong",
-    "label": "strong",
-    "text": "strong"
-   },
-   {
-    "value": "weak",
-    "label": "weak",
-    "text": "weak"
-   },
    {
     "value": "thin",
     "label": "thin",
@@ -4648,25 +4939,36 @@ export const questions = [
     "value": "old",
     "label": "old",
     "text": "old"
+   },
+   {
+    "value": "strong",
+    "label": "strong",
+    "text": "strong"
+   },
+   {
+    "value": "weak",
+    "label": "weak",
+    "text": "weak"
    }
   ],
   "answer": "strong",
   "correctAnswer": "strong",
   "distractorRationales": {
+   "old": "D-PLAUSIBLE-UNSUPPORTED",
    "weak": "D-PLAUSIBLE-UNSUPPORTED",
-   "thin": "D-PLAUSIBLE-UNSUPPORTED",
-   "old": "D-PLAUSIBLE-UNSUPPORTED"
+   "thin": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The rope was too ___ to snap.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4677,7 +4979,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "too ___ to snap — only strong survives the frame"
+  "notes": "too ___ to snap — only strong survives the frame",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "resolvedImageAssetKey": "strong",
+  "imageAlt": "The rope was too strong to snap."
  },
  {
   "id": "lp3.adjectives.l2.R.adj_vs_noun_verb.v9r",
@@ -4703,17 +5011,12 @@ export const questions = [
   "question": "Which word is a describing word, not a naming or doing word?",
   "spokenPrompt": "Which word is a describing word, not a naming or doing word?",
   "choices": [
-   "rusty",
    "rust",
    "rustle",
-   "russet"
+   "russet",
+   "rusty"
   ],
   "answerOptions": [
-   {
-    "value": "rusty",
-    "label": "rusty",
-    "text": "rusty"
-   },
    {
     "value": "rust",
     "label": "rust",
@@ -4728,24 +5031,30 @@ export const questions = [
     "value": "russet",
     "label": "russet",
     "text": "russet"
+   },
+   {
+    "value": "rusty",
+    "label": "rusty",
+    "text": "rusty"
    }
   ],
   "answer": "rusty",
   "correctAnswer": "rusty",
   "distractorRationales": {
+   "russet": "D-FUNCTION-SWAP",
    "rust": "D-FUNCTION-SWAP",
-   "rustle": "D-FUNCTION-SWAP",
-   "russet": "D-FUNCTION-SWAP"
+   "rustle": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_vs_noun_verb-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4756,7 +5065,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v8r",
@@ -4816,15 +5131,16 @@ export const questions = [
    "wind": "D-FUNCTION-SWAP",
    "web": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_size-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4835,7 +5151,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
+  "resolvedImageAssetKey": "wide",
+  "imageAlt": "Which word is a describing word for size?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v8r",
@@ -4861,12 +5183,17 @@ export const questions = [
   "question": "Which one feels bumpy?",
   "spokenPrompt": "Which one feels bumpy?",
   "choices": [
+   "moon",
    "crab",
    "quilt",
-   "leaf",
-   "moon"
+   "leaf"
   ],
   "answerOptions": [
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
+   },
    {
     "value": "crab",
     "label": "crab",
@@ -4881,19 +5208,14 @@ export const questions = [
     "value": "leaf",
     "label": "leaf",
     "text": "leaf"
-   },
-   {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
    }
   ],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
-   "quilt": "D-FUNCTION-SWAP",
    "leaf": "D-FUNCTION-SWAP",
-   "moon": "D-FUNCTION-SWAP"
+   "moon": "D-FUNCTION-SWAP",
+   "quilt": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4916,6 +5238,15 @@ export const questions = [
   },
   "notes": "a crab's shell is the canon of bumpy",
   "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
+   },
    {
     "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_crab",
     "word": "crab",
@@ -4942,15 +5273,6 @@ export const questions = [
     "image": "/images/assessment/long-vowels/leaf.webp",
     "imagePath": "/images/assessment/long-vowels/leaf.webp",
     "imageAlt": "leaf"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
    }
   ]
  },
@@ -4976,7 +5298,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ moth circled the lamp.",
   "question": "The ___ moth circled the lamp.",
-  "spokenPrompt": "Which describing word finishes the sentence? The hmm moth circled the lamp.",
+  "spokenPrompt": "Which describing word finishes the sentence? The … moth circled the lamp.",
   "sentence": "The ___ moth circled the lamp.",
   "choices": [
    "dusty",
@@ -5009,20 +5331,21 @@ export const questions = [
   "answer": "dusty",
   "correctAnswer": "dusty",
   "distractorRationales": {
-   "dust": "D-FUNCTION-SWAP",
    "dusts": "D-FUNCTION-SWAP",
-   "dusted": "D-FUNCTION-SWAP"
+   "dusted": "D-FUNCTION-SWAP",
+   "dust": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ___ moth circled the lamp.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_in_sentence-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5033,7 +5356,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/moth.webp",
+  "imageUrl": "/images/assessment/digraphs/moth.webp",
+  "targetImage": "/images/assessment/digraphs/moth.webp",
+  "targetImagePath": "/images/assessment/digraphs/moth.webp",
+  "resolvedImageAssetKey": "moth",
+  "imageAlt": "The dusty moth circled the lamp."
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v10r",
@@ -5059,12 +5388,17 @@ export const questions = [
   "question": "Which describing word fits best for socks left out in the snow?",
   "spokenPrompt": "Which describing word fits best for socks left out in the snow?",
   "choices": [
+   "striped",
    "frozen",
    "warm",
-   "clean",
-   "striped"
+   "clean"
   ],
   "answerOptions": [
+   {
+    "value": "striped",
+    "label": "striped",
+    "text": "striped"
+   },
    {
     "value": "frozen",
     "label": "frozen",
@@ -5079,11 +5413,6 @@ export const questions = [
     "value": "clean",
     "label": "clean",
     "text": "clean"
-   },
-   {
-    "value": "striped",
-    "label": "striped",
-    "text": "striped"
    }
   ],
   "answer": "frozen",
@@ -5093,15 +5422,16 @@ export const questions = [
    "clean": "D-PLAUSIBLE-UNSUPPORTED",
    "striped": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_precision-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5112,7 +5442,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
+  "resolvedImageAssetKey": "socks",
+  "imageAlt": "Which describing word fits best for socks left out in the snow?"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v8r",
@@ -5138,22 +5474,12 @@ export const questions = [
   "question": "Which word is a feeling word?",
   "spokenPrompt": "Which word is a feeling word?",
   "choices": [
-   "upset",
-   "under",
    "up",
-   "sunset"
+   "sunset",
+   "upset",
+   "under"
   ],
   "answerOptions": [
-   {
-    "value": "upset",
-    "label": "upset",
-    "text": "upset"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
-   },
    {
     "value": "up",
     "label": "up",
@@ -5163,24 +5489,35 @@ export const questions = [
     "value": "sunset",
     "label": "sunset",
     "text": "sunset"
+   },
+   {
+    "value": "upset",
+    "label": "upset",
+    "text": "upset"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "upset",
   "correctAnswer": "upset",
   "distractorRationales": {
+   "sunset": "D-FUNCTION-SWAP",
    "under": "D-FUNCTION-SWAP",
-   "up": "D-FUNCTION-SWAP",
-   "sunset": "D-FUNCTION-SWAP"
+   "up": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "adjectives-adj_feeling-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5191,6 +5528,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
+  "resolvedImageAssetKey": "upset",
+  "imageAlt": "Which word is a feeling word?"
  }
 ];

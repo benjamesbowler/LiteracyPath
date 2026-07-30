@@ -180,13 +180,13 @@ export const masteryRules = {
   }
 };
 
-const MIN_PHASE_ROUND_LENGTH = 15;
-const DEFAULT_PASS_RATE = 0.8;
+const MIN_PHASE_ROUND_LENGTH = 10;
+export const DEFAULT_PHASE_PASS_RATE = 0.7;
 
 export function getMasteryRule(skillLabel) {
   const rule = masteryRules[skillLabel] || {
     roundLength: MIN_PHASE_ROUND_LENGTH,
-    passScore: Math.ceil(MIN_PHASE_ROUND_LENGTH * DEFAULT_PASS_RATE),
+    passScore: Math.ceil(MIN_PHASE_ROUND_LENGTH * DEFAULT_PHASE_PASS_RATE),
     reviewAfter: 20
   };
 
@@ -198,9 +198,7 @@ export function getMasteryRule(skillLabel) {
   const roundLength = configured
     ? Math.max(5, rule.roundLength || MIN_PHASE_ROUND_LENGTH)
     : Math.max(MIN_PHASE_ROUND_LENGTH, rule.roundLength || MIN_PHASE_ROUND_LENGTH);
-  const passScore = configured
-    ? (rule.passScore || Math.ceil(roundLength * DEFAULT_PASS_RATE))
-    : Math.max(Math.ceil(roundLength * DEFAULT_PASS_RATE), rule.passScore || 0);
+  const passScore = Math.ceil(roundLength * DEFAULT_PHASE_PASS_RATE);
 
   return {
     ...rule,

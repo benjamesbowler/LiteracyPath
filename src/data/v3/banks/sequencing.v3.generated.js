@@ -20,55 +20,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Tunde do FIRST?",
-  "question": "What did Tunde do FIRST?",
-  "spokenPrompt": "What did Tunde do FIRST?",
-  "passage": "Before the snowy walk, Tunde got ready. He pulled on his thick socks. Then he zipped his coat right up to his chin. Last of all he pushed his hands into his mittens.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The cat jumped on the box, curled into a ball, and fell asleep. Put the three pictures in story order.",
+  "passage": "The cat jumped on the box, curled into a ball, and fell asleep.",
   "cell": "first_event",
   "choices": [
-   "pulled on his thick socks",
-   "zipped up his coat",
-   "put on his mittens",
-   "built a snowman"
+   "curled into a ball → jumped on the box → fell asleep",
+   "jumped on the box → fell asleep → curled into a ball",
+   "fell asleep → curled into a ball → jumped on the box",
+   "jumped on the box → curled into a ball → fell asleep"
   ],
   "answerOptions": [
    {
-    "value": "pulled on his thick socks",
-    "label": "pulled on his thick socks",
-    "text": "pulled on his thick socks"
+    "value": "curled into a ball → jumped on the box → fell asleep",
+    "label": "curled into a ball → jumped on the box → fell asleep",
+    "text": "curled into a ball → jumped on the box → fell asleep"
    },
    {
-    "value": "zipped up his coat",
-    "label": "zipped up his coat",
-    "text": "zipped up his coat"
+    "value": "jumped on the box → fell asleep → curled into a ball",
+    "label": "jumped on the box → fell asleep → curled into a ball",
+    "text": "jumped on the box → fell asleep → curled into a ball"
    },
    {
-    "value": "put on his mittens",
-    "label": "put on his mittens",
-    "text": "put on his mittens"
+    "value": "fell asleep → curled into a ball → jumped on the box",
+    "label": "fell asleep → curled into a ball → jumped on the box",
+    "text": "fell asleep → curled into a ball → jumped on the box"
    },
    {
-    "value": "built a snowman",
-    "label": "built a snowman",
-    "text": "built a snowman"
+    "value": "jumped on the box → curled into a ball → fell asleep",
+    "label": "jumped on the box → curled into a ball → fell asleep",
+    "text": "jumped on the box → curled into a ball → fell asleep"
    }
   ],
-  "answer": "pulled on his thick socks",
-  "correctAnswer": "pulled on his thick socks",
+  "answer": "jumped on the box → curled into a ball → fell asleep",
+  "correctAnswer": "jumped on the box → curled into a ball → fell asleep",
   "distractorRationales": {
-   "zipped up his coat": "D-SEQUENCE-SWAP",
-   "put on his mittens": "D-SEQUENCE-SWAP",
-   "built a snowman": "D-PLAUSIBLE-UNSUPPORTED"
+   "curled into a ball → jumped on the box → fell asleep": "D-SEQUENCE-START",
+   "jumped on the box → fell asleep → curled into a ball": "D-SEQUENCE-END",
+   "fell asleep → curled into a ball → jumped on the box": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -80,7 +80,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_1",
+    "value": "jumped on the box",
+    "label": "jumped on the box",
+    "image": "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
+    "imagePath": "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
+    "alt": "Story step: jumped on the box"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_2",
+    "value": "curled into a ball",
+    "label": "curled into a ball",
+    "image": "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
+    "imagePath": "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
+    "alt": "Story step: curled into a ball"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v1_sequence_3",
+    "value": "fell asleep",
+    "label": "fell asleep",
+    "image": "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp",
+    "imagePath": "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp",
+    "alt": "Story step: fell asleep"
+   }
+  ],
+  "correctSequence": [
+   "jumped on the box",
+   "curled into a ball",
+   "fell asleep"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v2",
@@ -101,55 +132,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Kaya do FIRST?",
-  "question": "What did Kaya do FIRST?",
-  "spokenPrompt": "What did Kaya do FIRST?",
-  "passage": "Kaya made a get-well card for Gran. First she folded the paper in half. After that she drew a fat bumblebee on the front. At the end she wrote her name inside with three kisses.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Mia put a seed in soil, watered it, and saw a green shoot. Put the three pictures in story order.",
+  "passage": "Mia put a seed in soil, watered it, and saw a green shoot.",
   "cell": "first_event",
   "choices": [
-   "folded the paper in half",
-   "drew a bumblebee",
-   "wrote her name inside",
-   "posted the card"
+   "put in the seed → saw a green shoot → watered the soil",
+   "saw a green shoot → watered the soil → put in the seed",
+   "put in the seed → watered the soil → saw a green shoot",
+   "watered the soil → put in the seed → saw a green shoot"
   ],
   "answerOptions": [
    {
-    "value": "folded the paper in half",
-    "label": "folded the paper in half",
-    "text": "folded the paper in half"
+    "value": "put in the seed → saw a green shoot → watered the soil",
+    "label": "put in the seed → saw a green shoot → watered the soil",
+    "text": "put in the seed → saw a green shoot → watered the soil"
    },
    {
-    "value": "drew a bumblebee",
-    "label": "drew a bumblebee",
-    "text": "drew a bumblebee"
+    "value": "saw a green shoot → watered the soil → put in the seed",
+    "label": "saw a green shoot → watered the soil → put in the seed",
+    "text": "saw a green shoot → watered the soil → put in the seed"
    },
    {
-    "value": "wrote her name inside",
-    "label": "wrote her name inside",
-    "text": "wrote her name inside"
+    "value": "put in the seed → watered the soil → saw a green shoot",
+    "label": "put in the seed → watered the soil → saw a green shoot",
+    "text": "put in the seed → watered the soil → saw a green shoot"
    },
    {
-    "value": "posted the card",
-    "label": "posted the card",
-    "text": "posted the card"
+    "value": "watered the soil → put in the seed → saw a green shoot",
+    "label": "watered the soil → put in the seed → saw a green shoot",
+    "text": "watered the soil → put in the seed → saw a green shoot"
    }
   ],
-  "answer": "folded the paper in half",
-  "correctAnswer": "folded the paper in half",
+  "answer": "put in the seed → watered the soil → saw a green shoot",
+  "correctAnswer": "put in the seed → watered the soil → saw a green shoot",
   "distractorRationales": {
-   "drew a bumblebee": "D-SEQUENCE-SWAP",
-   "wrote her name inside": "D-SEQUENCE-SWAP",
-   "posted the card": "D-PLAUSIBLE-UNSUPPORTED"
+   "put in the seed → saw a green shoot → watered the soil": "D-SEQUENCE-END",
+   "saw a green shoot → watered the soil → put in the seed": "D-SEQUENCE-REVERSE",
+   "watered the soil → put in the seed → saw a green shoot": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -161,7 +192,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_1",
+    "value": "put in the seed",
+    "label": "put in the seed",
+    "image": "/images/assessment/generated/sequencing/child-plants-seed.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-plants-seed.webp",
+    "alt": "Story step: put in the seed"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_2",
+    "value": "watered the soil",
+    "label": "watered the soil",
+    "image": "/images/assessment/generated/sequencing/child-waters-seed.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-waters-seed.webp",
+    "alt": "Story step: watered the soil"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v2_sequence_3",
+    "value": "saw a green shoot",
+    "label": "saw a green shoot",
+    "image": "/images/assessment/generated/sequencing/seed-grows-shoot.webp",
+    "imagePath": "/images/assessment/generated/sequencing/seed-grows-shoot.webp",
+    "alt": "Story step: saw a green shoot"
+   }
+  ],
+  "correctSequence": [
+   "put in the seed",
+   "watered the soil",
+   "saw a green shoot"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.first_event.v3",
@@ -182,55 +244,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened FIRST in the fire drill?",
-  "question": "What happened FIRST in the fire drill?",
-  "spokenPrompt": "What happened FIRST in the fire drill?",
-  "passage": "The fire drill had rules. First, everyone stopped what they were doing the moment the bell rang. Second, they lined up without talking. Last, they walked out to the yard and stood with their class.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away. Put the three pictures in story order.",
+  "passage": "Ben wet his hands, rubbed in soap, and rinsed the bubbles away.",
   "cell": "first_event",
   "choices": [
-   "everyone stopped when the bell rang",
-   "they lined up quietly",
-   "they walked to the yard",
-   "they rang the bell themselves"
+   "rinsed his hands → rubbed in soap → wet his hands",
+   "wet his hands → rubbed in soap → rinsed his hands",
+   "rubbed in soap → wet his hands → rinsed his hands",
+   "wet his hands → rinsed his hands → rubbed in soap"
   ],
   "answerOptions": [
    {
-    "value": "everyone stopped when the bell rang",
-    "label": "everyone stopped when the bell rang",
-    "text": "everyone stopped when the bell rang"
+    "value": "rinsed his hands → rubbed in soap → wet his hands",
+    "label": "rinsed his hands → rubbed in soap → wet his hands",
+    "text": "rinsed his hands → rubbed in soap → wet his hands"
    },
    {
-    "value": "they lined up quietly",
-    "label": "they lined up quietly",
-    "text": "they lined up quietly"
+    "value": "wet his hands → rubbed in soap → rinsed his hands",
+    "label": "wet his hands → rubbed in soap → rinsed his hands",
+    "text": "wet his hands → rubbed in soap → rinsed his hands"
    },
    {
-    "value": "they walked to the yard",
-    "label": "they walked to the yard",
-    "text": "they walked to the yard"
+    "value": "rubbed in soap → wet his hands → rinsed his hands",
+    "label": "rubbed in soap → wet his hands → rinsed his hands",
+    "text": "rubbed in soap → wet his hands → rinsed his hands"
    },
    {
-    "value": "they rang the bell themselves",
-    "label": "they rang the bell themselves",
-    "text": "they rang the bell themselves"
+    "value": "wet his hands → rinsed his hands → rubbed in soap",
+    "label": "wet his hands → rinsed his hands → rubbed in soap",
+    "text": "wet his hands → rinsed his hands → rubbed in soap"
    }
   ],
-  "answer": "everyone stopped when the bell rang",
-  "correctAnswer": "everyone stopped when the bell rang",
+  "answer": "wet his hands → rubbed in soap → rinsed his hands",
+  "correctAnswer": "wet his hands → rubbed in soap → rinsed his hands",
   "distractorRationales": {
-   "they lined up quietly": "D-SEQUENCE-SWAP",
-   "they walked to the yard": "D-SEQUENCE-SWAP",
-   "they rang the bell themselves": "D-PLAUSIBLE-UNSUPPORTED"
+   "rubbed in soap → wet his hands → rinsed his hands": "D-SEQUENCE-START",
+   "wet his hands → rinsed his hands → rubbed in soap": "D-SEQUENCE-END",
+   "rinsed his hands → rubbed in soap → wet his hands": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -242,7 +304,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_1",
+    "value": "wet his hands",
+    "label": "wet his hands",
+    "image": "/images/assessment/generated/sequencing/child-wets-hands.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-wets-hands.webp",
+    "alt": "Story step: wet his hands"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_2",
+    "value": "rubbed in soap",
+    "label": "rubbed in soap",
+    "image": "/images/assessment/generated/sequencing/child-soaps-hands.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-soaps-hands.webp",
+    "alt": "Story step: rubbed in soap"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v3_sequence_3",
+    "value": "rinsed his hands",
+    "label": "rinsed his hands",
+    "image": "/images/assessment/generated/sequencing/child-rinses-hands.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-rinses-hands.webp",
+    "alt": "Story step: rinsed his hands"
+   }
+  ],
+  "correctSequence": [
+   "wet his hands",
+   "rubbed in soap",
+   "rinsed his hands"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.first_event.v4",
@@ -263,55 +356,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did they do FIRST?",
-  "question": "What did they do FIRST?",
-  "spokenPrompt": "What did they do FIRST?",
-  "passage": "Dad and Effy washed the car on Sunday. First they hosed off the loose mud. Then they rubbed the car all over with soapy sponges. At the end they dried it with an old towel until it shone.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Zara put on her shirt, pulled on her trousers, and tied her shoes. Put the three pictures in story order.",
+  "passage": "Zara put on her shirt, pulled on her trousers, and tied her shoes.",
   "cell": "first_event",
   "choices": [
-   "hosed off the mud",
-   "rubbed it with sponges",
-   "dried it with a towel",
-   "drove to the sea"
+   "put on her shirt → put on her trousers → tied her shoes",
+   "put on her trousers → put on her shirt → tied her shoes",
+   "put on her shirt → tied her shoes → put on her trousers",
+   "tied her shoes → put on her trousers → put on her shirt"
   ],
   "answerOptions": [
    {
-    "value": "hosed off the mud",
-    "label": "hosed off the mud",
-    "text": "hosed off the mud"
+    "value": "put on her shirt → put on her trousers → tied her shoes",
+    "label": "put on her shirt → put on her trousers → tied her shoes",
+    "text": "put on her shirt → put on her trousers → tied her shoes"
    },
    {
-    "value": "rubbed it with sponges",
-    "label": "rubbed it with sponges",
-    "text": "rubbed it with sponges"
+    "value": "put on her trousers → put on her shirt → tied her shoes",
+    "label": "put on her trousers → put on her shirt → tied her shoes",
+    "text": "put on her trousers → put on her shirt → tied her shoes"
    },
    {
-    "value": "dried it with a towel",
-    "label": "dried it with a towel",
-    "text": "dried it with a towel"
+    "value": "put on her shirt → tied her shoes → put on her trousers",
+    "label": "put on her shirt → tied her shoes → put on her trousers",
+    "text": "put on her shirt → tied her shoes → put on her trousers"
    },
    {
-    "value": "drove to the sea",
-    "label": "drove to the sea",
-    "text": "drove to the sea"
+    "value": "tied her shoes → put on her trousers → put on her shirt",
+    "label": "tied her shoes → put on her trousers → put on her shirt",
+    "text": "tied her shoes → put on her trousers → put on her shirt"
    }
   ],
-  "answer": "hosed off the mud",
-  "correctAnswer": "hosed off the mud",
+  "answer": "put on her shirt → put on her trousers → tied her shoes",
+  "correctAnswer": "put on her shirt → put on her trousers → tied her shoes",
   "distractorRationales": {
-   "rubbed it with sponges": "D-SEQUENCE-SWAP",
-   "dried it with a towel": "D-SEQUENCE-SWAP",
-   "drove to the sea": "D-PLAUSIBLE-UNSUPPORTED"
+   "tied her shoes → put on her trousers → put on her shirt": "D-SEQUENCE-REVERSE",
+   "put on her trousers → put on her shirt → tied her shoes": "D-SEQUENCE-START",
+   "put on her shirt → tied her shoes → put on her trousers": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -323,7 +416,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_1",
+    "value": "put on her shirt",
+    "label": "put on her shirt",
+    "image": "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
+    "alt": "Story step: put on her shirt"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_2",
+    "value": "put on her trousers",
+    "label": "put on her trousers",
+    "image": "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
+    "alt": "Story step: put on her trousers"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v4_sequence_3",
+    "value": "tied her shoes",
+    "label": "tied her shoes",
+    "image": "/images/assessment/generated/sequencing/child-ties-shoes.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-ties-shoes.webp",
+    "alt": "Story step: tied her shoes"
+   }
+  ],
+  "correctSequence": [
+   "put on her shirt",
+   "put on her trousers",
+   "tied her shoes"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v5",
@@ -344,55 +468,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "Which step came FIRST?",
-  "question": "Which step came FIRST?",
-  "spokenPrompt": "Which step came FIRST?",
-  "passage": "To plant cress, Class 1 followed the steps. First they wet the cotton wool and laid it in the tray. Then they sprinkled the tiny seeds on top. Last they put the tray on the sunny windowsill.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Dad put bread in the toaster, waited for it to pop, and spread butter. Put the three pictures in story order.",
+  "passage": "Dad put bread in the toaster, waited for it to pop, and spread butter.",
   "cell": "first_event",
   "choices": [
-   "wetting the cotton wool",
-   "sprinkling the seeds",
-   "putting the tray in the sun",
-   "eating the cress sandwiches"
+   "toast popped up → put bread in → spread the butter",
+   "put bread in → spread the butter → toast popped up",
+   "spread the butter → toast popped up → put bread in",
+   "put bread in → toast popped up → spread the butter"
   ],
   "answerOptions": [
    {
-    "value": "wetting the cotton wool",
-    "label": "wetting the cotton wool",
-    "text": "wetting the cotton wool"
+    "value": "toast popped up → put bread in → spread the butter",
+    "label": "toast popped up → put bread in → spread the butter",
+    "text": "toast popped up → put bread in → spread the butter"
    },
    {
-    "value": "sprinkling the seeds",
-    "label": "sprinkling the seeds",
-    "text": "sprinkling the seeds"
+    "value": "put bread in → spread the butter → toast popped up",
+    "label": "put bread in → spread the butter → toast popped up",
+    "text": "put bread in → spread the butter → toast popped up"
    },
    {
-    "value": "putting the tray in the sun",
-    "label": "putting the tray in the sun",
-    "text": "putting the tray in the sun"
+    "value": "spread the butter → toast popped up → put bread in",
+    "label": "spread the butter → toast popped up → put bread in",
+    "text": "spread the butter → toast popped up → put bread in"
    },
    {
-    "value": "eating the cress sandwiches",
-    "label": "eating the cress sandwiches",
-    "text": "eating the cress sandwiches"
+    "value": "put bread in → toast popped up → spread the butter",
+    "label": "put bread in → toast popped up → spread the butter",
+    "text": "put bread in → toast popped up → spread the butter"
    }
   ],
-  "answer": "wetting the cotton wool",
-  "correctAnswer": "wetting the cotton wool",
+  "answer": "put bread in → toast popped up → spread the butter",
+  "correctAnswer": "put bread in → toast popped up → spread the butter",
   "distractorRationales": {
-   "sprinkling the seeds": "D-SEQUENCE-SWAP",
-   "putting the tray in the sun": "D-SEQUENCE-SWAP",
-   "eating the cress sandwiches": "D-PLAUSIBLE-UNSUPPORTED"
+   "spread the butter → toast popped up → put bread in": "D-SEQUENCE-REVERSE",
+   "toast popped up → put bread in → spread the butter": "D-SEQUENCE-START",
+   "put bread in → spread the butter → toast popped up": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -404,7 +528,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_1",
+    "value": "put bread in",
+    "label": "put bread in",
+    "image": "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
+    "imagePath": "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
+    "alt": "Story step: put bread in"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_2",
+    "value": "toast popped up",
+    "label": "toast popped up",
+    "image": "/images/assessment/generated/sequencing/toast-pops-up.webp",
+    "imagePath": "/images/assessment/generated/sequencing/toast-pops-up.webp",
+    "alt": "Story step: toast popped up"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v5_sequence_3",
+    "value": "spread the butter",
+    "label": "spread the butter",
+    "image": "/images/assessment/generated/sequencing/butter-spread-on-toast.webp",
+    "imagePath": "/images/assessment/generated/sequencing/butter-spread-on-toast.webp",
+    "alt": "Story step: spread the butter"
+   }
+  ],
+  "correctSequence": [
+   "put bread in",
+   "toast popped up",
+   "spread the butter"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.first_event.v6",
@@ -425,55 +580,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did they do FIRST?",
-  "question": "What did they do FIRST?",
-  "spokenPrompt": "What did they do FIRST?",
-  "passage": "Jaz mended her bike puncture with Uncle Dev. First they turned the bike upside down. After that they pulled out the sad flat tube. At the end they fitted the new tube and pumped the tyre fat again.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Noah threw the ball, the dog chased it, and the dog brought it back. Put the three pictures in story order.",
+  "passage": "Noah threw the ball, the dog chased it, and the dog brought it back.",
   "cell": "first_event",
   "choices": [
-   "turned the bike upside down",
-   "pulled out the flat tube",
-   "pumped up the new tube",
-   "rode to the park"
+   "threw the ball → dog brought it back → dog chased it",
+   "dog brought it back → dog chased it → threw the ball",
+   "threw the ball → dog chased it → dog brought it back",
+   "dog chased it → threw the ball → dog brought it back"
   ],
   "answerOptions": [
    {
-    "value": "turned the bike upside down",
-    "label": "turned the bike upside down",
-    "text": "turned the bike upside down"
+    "value": "threw the ball → dog brought it back → dog chased it",
+    "label": "threw the ball → dog brought it back → dog chased it",
+    "text": "threw the ball → dog brought it back → dog chased it"
    },
    {
-    "value": "pulled out the flat tube",
-    "label": "pulled out the flat tube",
-    "text": "pulled out the flat tube"
+    "value": "dog brought it back → dog chased it → threw the ball",
+    "label": "dog brought it back → dog chased it → threw the ball",
+    "text": "dog brought it back → dog chased it → threw the ball"
    },
    {
-    "value": "pumped up the new tube",
-    "label": "pumped up the new tube",
-    "text": "pumped up the new tube"
+    "value": "threw the ball → dog chased it → dog brought it back",
+    "label": "threw the ball → dog chased it → dog brought it back",
+    "text": "threw the ball → dog chased it → dog brought it back"
    },
    {
-    "value": "rode to the park",
-    "label": "rode to the park",
-    "text": "rode to the park"
+    "value": "dog chased it → threw the ball → dog brought it back",
+    "label": "dog chased it → threw the ball → dog brought it back",
+    "text": "dog chased it → threw the ball → dog brought it back"
    }
   ],
-  "answer": "turned the bike upside down",
-  "correctAnswer": "turned the bike upside down",
+  "answer": "threw the ball → dog chased it → dog brought it back",
+  "correctAnswer": "threw the ball → dog chased it → dog brought it back",
   "distractorRationales": {
-   "pulled out the flat tube": "D-SEQUENCE-SWAP",
-   "pumped up the new tube": "D-SEQUENCE-SWAP",
-   "rode to the park": "D-PLAUSIBLE-UNSUPPORTED"
+   "dog brought it back → dog chased it → threw the ball": "D-SEQUENCE-REVERSE",
+   "dog chased it → threw the ball → dog brought it back": "D-SEQUENCE-START",
+   "threw the ball → dog brought it back → dog chased it": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -485,7 +640,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_1",
+    "value": "threw the ball",
+    "label": "threw the ball",
+    "image": "/images/assessment/generated/sequencing/child-throws-ball.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-throws-ball.webp",
+    "alt": "Story step: threw the ball"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_2",
+    "value": "dog chased it",
+    "label": "dog chased it",
+    "image": "/images/assessment/generated/sequencing/dog-chases-ball.webp",
+    "imagePath": "/images/assessment/generated/sequencing/dog-chases-ball.webp",
+    "alt": "Story step: dog chased it"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.first_event.v6_sequence_3",
+    "value": "dog brought it back",
+    "label": "dog brought it back",
+    "image": "/images/assessment/generated/sequencing/dog-returns-ball.webp",
+    "imagePath": "/images/assessment/generated/sequencing/dog-returns-ball.webp",
+    "alt": "Story step: dog brought it back"
+   }
+  ],
+  "correctSequence": [
+   "threw the ball",
+   "dog chased it",
+   "dog brought it back"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.first_event.v7",
@@ -506,55 +692,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened FIRST on photo day?",
-  "question": "What happened FIRST on photo day?",
-  "spokenPrompt": "What happened FIRST on photo day?",
-  "passage": "Photo day had an order. First Miss Bell brushed everyone into neat rows on the benches. Then the photographer counted to three. Last, forty children said CHEESE at exactly the same time.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Lina drew a circle, added sun rays, and coloured the sun yellow. Put the three pictures in story order.",
+  "passage": "Lina drew a circle, added sun rays, and coloured the sun yellow.",
   "cell": "first_event",
   "choices": [
-   "Miss Bell arranged the rows",
-   "the photographer counted",
-   "everyone said CHEESE",
-   "the photos were posted home"
+   "coloured the sun → added the rays → drew a circle",
+   "drew a circle → added the rays → coloured the sun",
+   "added the rays → drew a circle → coloured the sun",
+   "drew a circle → coloured the sun → added the rays"
   ],
   "answerOptions": [
    {
-    "value": "Miss Bell arranged the rows",
-    "label": "Miss Bell arranged the rows",
-    "text": "Miss Bell arranged the rows"
+    "value": "coloured the sun → added the rays → drew a circle",
+    "label": "coloured the sun → added the rays → drew a circle",
+    "text": "coloured the sun → added the rays → drew a circle"
    },
    {
-    "value": "the photographer counted",
-    "label": "the photographer counted",
-    "text": "the photographer counted"
+    "value": "drew a circle → added the rays → coloured the sun",
+    "label": "drew a circle → added the rays → coloured the sun",
+    "text": "drew a circle → added the rays → coloured the sun"
    },
    {
-    "value": "everyone said CHEESE",
-    "label": "everyone said CHEESE",
-    "text": "everyone said CHEESE"
+    "value": "added the rays → drew a circle → coloured the sun",
+    "label": "added the rays → drew a circle → coloured the sun",
+    "text": "added the rays → drew a circle → coloured the sun"
    },
    {
-    "value": "the photos were posted home",
-    "label": "the photos were posted home",
-    "text": "the photos were posted home"
+    "value": "drew a circle → coloured the sun → added the rays",
+    "label": "drew a circle → coloured the sun → added the rays",
+    "text": "drew a circle → coloured the sun → added the rays"
    }
   ],
-  "answer": "Miss Bell arranged the rows",
-  "correctAnswer": "Miss Bell arranged the rows",
+  "answer": "drew a circle → added the rays → coloured the sun",
+  "correctAnswer": "drew a circle → added the rays → coloured the sun",
   "distractorRationales": {
-   "the photographer counted": "D-SEQUENCE-SWAP",
-   "everyone said CHEESE": "D-SEQUENCE-SWAP",
-   "the photos were posted home": "D-PLAUSIBLE-UNSUPPORTED"
+   "drew a circle → coloured the sun → added the rays": "D-SEQUENCE-END",
+   "coloured the sun → added the rays → drew a circle": "D-SEQUENCE-REVERSE",
+   "added the rays → drew a circle → coloured the sun": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -566,7 +752,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_1",
+    "value": "drew a circle",
+    "label": "drew a circle",
+    "image": "/images/assessment/generated/sequencing/child-draws-circle.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-draws-circle.webp",
+    "alt": "Story step: drew a circle"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_2",
+    "value": "added the rays",
+    "label": "added the rays",
+    "image": "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
+    "alt": "Story step: added the rays"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.first_event.v7_sequence_3",
+    "value": "coloured the sun",
+    "label": "coloured the sun",
+    "image": "/images/assessment/generated/sequencing/child-colours-sun.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-colours-sun.webp",
+    "alt": "Story step: coloured the sun"
+   }
+  ],
+  "correctSequence": [
+   "drew a circle",
+   "added the rays",
+   "coloured the sun"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.first_event.v8",
@@ -587,55 +804,55 @@ export const questions = [
   "itemKey": "first_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Nan do FIRST?",
-  "question": "What did Nan do FIRST?",
-  "spokenPrompt": "What did Nan do FIRST?",
-  "passage": "Nan made hot chocolate the proper way. First she warmed the milk slowly in the pan. Then she stirred in two spoons of chocolate until it melted. Last came the little cloud of cream on top.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Omar set down blocks, stacked a tower, and smiled at the top. Put the three pictures in story order.",
+  "passage": "Omar set down blocks, stacked a tower, and smiled at the top.",
   "cell": "first_event",
   "choices": [
-   "warmed the milk in the pan",
-   "stirred in the chocolate",
-   "added the cream on top",
-   "drank it by the fire"
+   "set down blocks → stacked the tower → smiled at the tower",
+   "stacked the tower → set down blocks → smiled at the tower",
+   "set down blocks → smiled at the tower → stacked the tower",
+   "smiled at the tower → stacked the tower → set down blocks"
   ],
   "answerOptions": [
    {
-    "value": "warmed the milk in the pan",
-    "label": "warmed the milk in the pan",
-    "text": "warmed the milk in the pan"
+    "value": "set down blocks → stacked the tower → smiled at the tower",
+    "label": "set down blocks → stacked the tower → smiled at the tower",
+    "text": "set down blocks → stacked the tower → smiled at the tower"
    },
    {
-    "value": "stirred in the chocolate",
-    "label": "stirred in the chocolate",
-    "text": "stirred in the chocolate"
+    "value": "stacked the tower → set down blocks → smiled at the tower",
+    "label": "stacked the tower → set down blocks → smiled at the tower",
+    "text": "stacked the tower → set down blocks → smiled at the tower"
    },
    {
-    "value": "added the cream on top",
-    "label": "added the cream on top",
-    "text": "added the cream on top"
+    "value": "set down blocks → smiled at the tower → stacked the tower",
+    "label": "set down blocks → smiled at the tower → stacked the tower",
+    "text": "set down blocks → smiled at the tower → stacked the tower"
    },
    {
-    "value": "drank it by the fire",
-    "label": "drank it by the fire",
-    "text": "drank it by the fire"
+    "value": "smiled at the tower → stacked the tower → set down blocks",
+    "label": "smiled at the tower → stacked the tower → set down blocks",
+    "text": "smiled at the tower → stacked the tower → set down blocks"
    }
   ],
-  "answer": "warmed the milk in the pan",
-  "correctAnswer": "warmed the milk in the pan",
+  "answer": "set down blocks → stacked the tower → smiled at the tower",
+  "correctAnswer": "set down blocks → stacked the tower → smiled at the tower",
   "distractorRationales": {
-   "stirred in the chocolate": "D-SEQUENCE-SWAP",
-   "added the cream on top": "D-SEQUENCE-SWAP",
-   "drank it by the fire": "D-PLAUSIBLE-UNSUPPORTED"
+   "stacked the tower → set down blocks → smiled at the tower": "D-SEQUENCE-START",
+   "set down blocks → smiled at the tower → stacked the tower": "D-SEQUENCE-END",
+   "smiled at the tower → stacked the tower → set down blocks": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -647,7 +864,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_1",
+    "value": "set down blocks",
+    "label": "set down blocks",
+    "image": "/images/assessment/generated/sequencing/child-sets-blocks.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-sets-blocks.webp",
+    "alt": "Story step: set down blocks"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_2",
+    "value": "stacked the tower",
+    "label": "stacked the tower",
+    "image": "/images/assessment/generated/sequencing/child-stacks-tower.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-stacks-tower.webp",
+    "alt": "Story step: stacked the tower"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.first_event.v8_sequence_3",
+    "value": "smiled at the tower",
+    "label": "smiled at the tower",
+    "image": "/images/assessment/generated/sequencing/child-smiles-at-tower.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-smiles-at-tower.webp",
+    "alt": "Story step: smiled at the tower"
+   }
+  ],
+  "correctSequence": [
+   "set down blocks",
+   "stacked the tower",
+   "smiled at the tower"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v1",
@@ -668,55 +916,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "Bath time for Biscuit the dog went like this. First Ade filled the tub with warm water. Second he scrubbed the mud out of Biscuit's fur. Last he rubbed him dry until he was a fluffy cloud.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Ava laid down bread, added cheese, and closed the sandwich. Put the three pictures in story order.",
+  "passage": "Ava laid down bread, added cheese, and closed the sandwich.",
   "cell": "middle_event",
   "choices": [
-   "Ade scrubbed the mud out",
-   "Ade filled the tub",
-   "Ade rubbed Biscuit dry",
-   "Biscuit dug a hole"
+   "laid down bread → closed the sandwich → added the cheese",
+   "closed the sandwich → added the cheese → laid down bread",
+   "laid down bread → added the cheese → closed the sandwich",
+   "added the cheese → laid down bread → closed the sandwich"
   ],
   "answerOptions": [
    {
-    "value": "Ade scrubbed the mud out",
-    "label": "Ade scrubbed the mud out",
-    "text": "Ade scrubbed the mud out"
+    "value": "laid down bread → closed the sandwich → added the cheese",
+    "label": "laid down bread → closed the sandwich → added the cheese",
+    "text": "laid down bread → closed the sandwich → added the cheese"
    },
    {
-    "value": "Ade filled the tub",
-    "label": "Ade filled the tub",
-    "text": "Ade filled the tub"
+    "value": "closed the sandwich → added the cheese → laid down bread",
+    "label": "closed the sandwich → added the cheese → laid down bread",
+    "text": "closed the sandwich → added the cheese → laid down bread"
    },
    {
-    "value": "Ade rubbed Biscuit dry",
-    "label": "Ade rubbed Biscuit dry",
-    "text": "Ade rubbed Biscuit dry"
+    "value": "laid down bread → added the cheese → closed the sandwich",
+    "label": "laid down bread → added the cheese → closed the sandwich",
+    "text": "laid down bread → added the cheese → closed the sandwich"
    },
    {
-    "value": "Biscuit dug a hole",
-    "label": "Biscuit dug a hole",
-    "text": "Biscuit dug a hole"
+    "value": "added the cheese → laid down bread → closed the sandwich",
+    "label": "added the cheese → laid down bread → closed the sandwich",
+    "text": "added the cheese → laid down bread → closed the sandwich"
    }
   ],
-  "answer": "Ade scrubbed the mud out",
-  "correctAnswer": "Ade scrubbed the mud out",
+  "answer": "laid down bread → added the cheese → closed the sandwich",
+  "correctAnswer": "laid down bread → added the cheese → closed the sandwich",
   "distractorRationales": {
-   "Ade filled the tub": "D-SEQUENCE-SWAP",
-   "Ade rubbed Biscuit dry": "D-SEQUENCE-SWAP",
-   "Biscuit dug a hole": "D-PLAUSIBLE-UNSUPPORTED"
+   "added the cheese → laid down bread → closed the sandwich": "D-SEQUENCE-START",
+   "laid down bread → closed the sandwich → added the cheese": "D-SEQUENCE-END",
+   "closed the sandwich → added the cheese → laid down bread": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -728,7 +976,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_1",
+    "value": "laid down bread",
+    "label": "laid down bread",
+    "image": "/images/assessment/generated/sequencing/bread-on-plate.webp",
+    "imagePath": "/images/assessment/generated/sequencing/bread-on-plate.webp",
+    "alt": "Story step: laid down bread"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_2",
+    "value": "added the cheese",
+    "label": "added the cheese",
+    "image": "/images/assessment/generated/sequencing/cheese-on-bread.webp",
+    "imagePath": "/images/assessment/generated/sequencing/cheese-on-bread.webp",
+    "alt": "Story step: added the cheese"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v1_sequence_3",
+    "value": "closed the sandwich",
+    "label": "closed the sandwich",
+    "image": "/images/assessment/generated/sequencing/closed-sandwich.webp",
+    "imagePath": "/images/assessment/generated/sequencing/closed-sandwich.webp",
+    "alt": "Story step: closed the sandwich"
+   }
+  ],
+  "correctSequence": [
+   "laid down bread",
+   "added the cheese",
+   "closed the sandwich"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v2",
@@ -749,55 +1028,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "The class made pancakes. First they whisked the eggs, flour and milk into a smooth batter. Second they poured a little circle into the hot pan. Last they lifted the golden pancake onto a plate.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Rain began. Eli put on boots, opened an umbrella, and walked outside. Put the three pictures in story order.",
+  "passage": "Rain began. Eli put on boots, opened an umbrella, and walked outside.",
   "cell": "middle_event",
   "choices": [
-   "they poured batter into the pan",
-   "they whisked the batter",
-   "they lifted the pancake out",
-   "they washed the plates"
+   "walked outside → opened an umbrella → put on boots",
+   "put on boots → opened an umbrella → walked outside",
+   "opened an umbrella → put on boots → walked outside",
+   "put on boots → walked outside → opened an umbrella"
   ],
   "answerOptions": [
    {
-    "value": "they poured batter into the pan",
-    "label": "they poured batter into the pan",
-    "text": "they poured batter into the pan"
+    "value": "walked outside → opened an umbrella → put on boots",
+    "label": "walked outside → opened an umbrella → put on boots",
+    "text": "walked outside → opened an umbrella → put on boots"
    },
    {
-    "value": "they whisked the batter",
-    "label": "they whisked the batter",
-    "text": "they whisked the batter"
+    "value": "put on boots → opened an umbrella → walked outside",
+    "label": "put on boots → opened an umbrella → walked outside",
+    "text": "put on boots → opened an umbrella → walked outside"
    },
    {
-    "value": "they lifted the pancake out",
-    "label": "they lifted the pancake out",
-    "text": "they lifted the pancake out"
+    "value": "opened an umbrella → put on boots → walked outside",
+    "label": "opened an umbrella → put on boots → walked outside",
+    "text": "opened an umbrella → put on boots → walked outside"
    },
    {
-    "value": "they washed the plates",
-    "label": "they washed the plates",
-    "text": "they washed the plates"
+    "value": "put on boots → walked outside → opened an umbrella",
+    "label": "put on boots → walked outside → opened an umbrella",
+    "text": "put on boots → walked outside → opened an umbrella"
    }
   ],
-  "answer": "they poured batter into the pan",
-  "correctAnswer": "they poured batter into the pan",
+  "answer": "put on boots → opened an umbrella → walked outside",
+  "correctAnswer": "put on boots → opened an umbrella → walked outside",
   "distractorRationales": {
-   "they whisked the batter": "D-SEQUENCE-SWAP",
-   "they lifted the pancake out": "D-SEQUENCE-SWAP",
-   "they washed the plates": "D-PLAUSIBLE-UNSUPPORTED"
+   "opened an umbrella → put on boots → walked outside": "D-SEQUENCE-START",
+   "put on boots → walked outside → opened an umbrella": "D-SEQUENCE-END",
+   "walked outside → opened an umbrella → put on boots": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -809,7 +1088,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_1",
+    "value": "put on boots",
+    "label": "put on boots",
+    "image": "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
+    "alt": "Story step: put on boots"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_2",
+    "value": "opened an umbrella",
+    "label": "opened an umbrella",
+    "image": "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
+    "alt": "Story step: opened an umbrella"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v2_sequence_3",
+    "value": "walked outside",
+    "label": "walked outside",
+    "image": "/images/assessment/generated/sequencing/child-walks-in-rain.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-walks-in-rain.webp",
+    "alt": "Story step: walked outside"
+   }
+  ],
+  "correctSequence": [
+   "put on boots",
+   "opened an umbrella",
+   "walked outside"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.middle_event.v3",
@@ -830,55 +1140,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "Ivo wrote to his gran in three steps. First he wrote the letter about his new tooth. Second he sealed it in the envelope and stuck on a stamp. Last he reached high and dropped it into the red post box.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The girl opened her book, read one page, and put in a bookmark. Put the three pictures in story order.",
+  "passage": "The girl opened her book, read one page, and put in a bookmark.",
   "cell": "middle_event",
   "choices": [
-   "he sealed and stamped the envelope",
-   "he wrote about his tooth",
-   "he posted it in the box",
-   "gran wrote back"
+   "read the page → opened the book → put in a bookmark",
+   "opened the book → put in a bookmark → read the page",
+   "put in a bookmark → read the page → opened the book",
+   "opened the book → read the page → put in a bookmark"
   ],
   "answerOptions": [
    {
-    "value": "he sealed and stamped the envelope",
-    "label": "he sealed and stamped the envelope",
-    "text": "he sealed and stamped the envelope"
+    "value": "read the page → opened the book → put in a bookmark",
+    "label": "read the page → opened the book → put in a bookmark",
+    "text": "read the page → opened the book → put in a bookmark"
    },
    {
-    "value": "he wrote about his tooth",
-    "label": "he wrote about his tooth",
-    "text": "he wrote about his tooth"
+    "value": "opened the book → put in a bookmark → read the page",
+    "label": "opened the book → put in a bookmark → read the page",
+    "text": "opened the book → put in a bookmark → read the page"
    },
    {
-    "value": "he posted it in the box",
-    "label": "he posted it in the box",
-    "text": "he posted it in the box"
+    "value": "put in a bookmark → read the page → opened the book",
+    "label": "put in a bookmark → read the page → opened the book",
+    "text": "put in a bookmark → read the page → opened the book"
    },
    {
-    "value": "gran wrote back",
-    "label": "gran wrote back",
-    "text": "gran wrote back"
+    "value": "opened the book → read the page → put in a bookmark",
+    "label": "opened the book → read the page → put in a bookmark",
+    "text": "opened the book → read the page → put in a bookmark"
    }
   ],
-  "answer": "he sealed and stamped the envelope",
-  "correctAnswer": "he sealed and stamped the envelope",
+  "answer": "opened the book → read the page → put in a bookmark",
+  "correctAnswer": "opened the book → read the page → put in a bookmark",
   "distractorRationales": {
-   "he wrote about his tooth": "D-SEQUENCE-SWAP",
-   "he posted it in the box": "D-SEQUENCE-SWAP",
-   "gran wrote back": "D-PLAUSIBLE-UNSUPPORTED"
+   "read the page → opened the book → put in a bookmark": "D-SEQUENCE-START",
+   "opened the book → put in a bookmark → read the page": "D-SEQUENCE-END",
+   "put in a bookmark → read the page → opened the book": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -890,7 +1200,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_1",
+    "value": "opened the book",
+    "label": "opened the book",
+    "image": "/images/assessment/generated/sequencing/child-opens-book.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-opens-book.webp",
+    "alt": "Story step: opened the book"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_2",
+    "value": "read the page",
+    "label": "read the page",
+    "image": "/images/assessment/generated/sequencing/child-reads-page.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-reads-page.webp",
+    "alt": "Story step: read the page"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v3_sequence_3",
+    "value": "put in a bookmark",
+    "label": "put in a bookmark",
+    "image": "/images/assessment/generated/sequencing/child-adds-bookmark.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-adds-bookmark.webp",
+    "alt": "Story step: put in a bookmark"
+   }
+  ],
+  "correctSequence": [
+   "opened the book",
+   "read the page",
+   "put in a bookmark"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v4",
@@ -911,55 +1252,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Suki do SECOND?",
-  "question": "What did Suki do SECOND?",
-  "spokenPrompt": "What did Suki do SECOND?",
-  "passage": "At the library, Suki did three things. First she slid last week's books into the return slot. Second she hunted the shelves for a dinosaur story. Last she took her pile to the desk to be stamped.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Kai filled a cup, drank the water, and put the cup in the sink. Put the three pictures in story order.",
+  "passage": "Kai filled a cup, drank the water, and put the cup in the sink.",
   "cell": "middle_event",
   "choices": [
-   "hunted for a dinosaur story",
-   "returned last week's books",
-   "had her pile stamped",
-   "read under the table"
+   "drank the water → filled the cup → put cup in sink",
+   "filled the cup → put cup in sink → drank the water",
+   "put cup in sink → drank the water → filled the cup",
+   "filled the cup → drank the water → put cup in sink"
   ],
   "answerOptions": [
    {
-    "value": "hunted for a dinosaur story",
-    "label": "hunted for a dinosaur story",
-    "text": "hunted for a dinosaur story"
+    "value": "drank the water → filled the cup → put cup in sink",
+    "label": "drank the water → filled the cup → put cup in sink",
+    "text": "drank the water → filled the cup → put cup in sink"
    },
    {
-    "value": "returned last week's books",
-    "label": "returned last week's books",
-    "text": "returned last week's books"
+    "value": "filled the cup → put cup in sink → drank the water",
+    "label": "filled the cup → put cup in sink → drank the water",
+    "text": "filled the cup → put cup in sink → drank the water"
    },
    {
-    "value": "had her pile stamped",
-    "label": "had her pile stamped",
-    "text": "had her pile stamped"
+    "value": "put cup in sink → drank the water → filled the cup",
+    "label": "put cup in sink → drank the water → filled the cup",
+    "text": "put cup in sink → drank the water → filled the cup"
    },
    {
-    "value": "read under the table",
-    "label": "read under the table",
-    "text": "read under the table"
+    "value": "filled the cup → drank the water → put cup in sink",
+    "label": "filled the cup → drank the water → put cup in sink",
+    "text": "filled the cup → drank the water → put cup in sink"
    }
   ],
-  "answer": "hunted for a dinosaur story",
-  "correctAnswer": "hunted for a dinosaur story",
+  "answer": "filled the cup → drank the water → put cup in sink",
+  "correctAnswer": "filled the cup → drank the water → put cup in sink",
   "distractorRationales": {
-   "returned last week's books": "D-SEQUENCE-SWAP",
-   "had her pile stamped": "D-SEQUENCE-SWAP",
-   "read under the table": "D-PLAUSIBLE-UNSUPPORTED"
+   "filled the cup → put cup in sink → drank the water": "D-SEQUENCE-END",
+   "put cup in sink → drank the water → filled the cup": "D-SEQUENCE-REVERSE",
+   "drank the water → filled the cup → put cup in sink": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -971,7 +1312,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_1",
+    "value": "filled the cup",
+    "label": "filled the cup",
+    "image": "/images/assessment/generated/sequencing/child-fills-cup.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-fills-cup.webp",
+    "alt": "Story step: filled the cup"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_2",
+    "value": "drank the water",
+    "label": "drank the water",
+    "image": "/images/assessment/generated/sequencing/child-drinks-water.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-drinks-water.webp",
+    "alt": "Story step: drank the water"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v4_sequence_3",
+    "value": "put cup in sink",
+    "label": "put cup in sink",
+    "image": "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp",
+    "alt": "Story step: put cup in sink"
+   }
+  ],
+  "correctSequence": [
+   "filled the cup",
+   "drank the water",
+   "put cup in sink"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v5",
@@ -992,55 +1364,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "The tent went up in three steps. First Dad spread the groundsheet flat on the grass. Second the twins clicked the long poles together and threaded them through. Last everyone pulled the tent up and pegged the corners tight.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Mum cracked an egg, whisked it, and cooked it in the pan. Put the three pictures in story order.",
+  "passage": "Mum cracked an egg, whisked it, and cooked it in the pan.",
   "cell": "middle_event",
   "choices": [
-   "the poles were clicked and threaded",
-   "the groundsheet was spread out",
-   "the corners were pegged",
-   "it rained on the tent"
+   "cracked the egg → cooked the egg → whisked the egg",
+   "cooked the egg → whisked the egg → cracked the egg",
+   "cracked the egg → whisked the egg → cooked the egg",
+   "whisked the egg → cracked the egg → cooked the egg"
   ],
   "answerOptions": [
    {
-    "value": "the poles were clicked and threaded",
-    "label": "the poles were clicked and threaded",
-    "text": "the poles were clicked and threaded"
+    "value": "cracked the egg → cooked the egg → whisked the egg",
+    "label": "cracked the egg → cooked the egg → whisked the egg",
+    "text": "cracked the egg → cooked the egg → whisked the egg"
    },
    {
-    "value": "the groundsheet was spread out",
-    "label": "the groundsheet was spread out",
-    "text": "the groundsheet was spread out"
+    "value": "cooked the egg → whisked the egg → cracked the egg",
+    "label": "cooked the egg → whisked the egg → cracked the egg",
+    "text": "cooked the egg → whisked the egg → cracked the egg"
    },
    {
-    "value": "the corners were pegged",
-    "label": "the corners were pegged",
-    "text": "the corners were pegged"
+    "value": "cracked the egg → whisked the egg → cooked the egg",
+    "label": "cracked the egg → whisked the egg → cooked the egg",
+    "text": "cracked the egg → whisked the egg → cooked the egg"
    },
    {
-    "value": "it rained on the tent",
-    "label": "it rained on the tent",
-    "text": "it rained on the tent"
+    "value": "whisked the egg → cracked the egg → cooked the egg",
+    "label": "whisked the egg → cracked the egg → cooked the egg",
+    "text": "whisked the egg → cracked the egg → cooked the egg"
    }
   ],
-  "answer": "the poles were clicked and threaded",
-  "correctAnswer": "the poles were clicked and threaded",
+  "answer": "cracked the egg → whisked the egg → cooked the egg",
+  "correctAnswer": "cracked the egg → whisked the egg → cooked the egg",
   "distractorRationales": {
-   "the groundsheet was spread out": "D-SEQUENCE-SWAP",
-   "the corners were pegged": "D-SEQUENCE-SWAP",
-   "it rained on the tent": "D-PLAUSIBLE-UNSUPPORTED"
+   "whisked the egg → cracked the egg → cooked the egg": "D-SEQUENCE-START",
+   "cracked the egg → cooked the egg → whisked the egg": "D-SEQUENCE-END",
+   "cooked the egg → whisked the egg → cracked the egg": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1052,7 +1424,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_1",
+    "value": "cracked the egg",
+    "label": "cracked the egg",
+    "image": "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
+    "imagePath": "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
+    "alt": "Story step: cracked the egg"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_2",
+    "value": "whisked the egg",
+    "label": "whisked the egg",
+    "image": "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
+    "imagePath": "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
+    "alt": "Story step: whisked the egg"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v5_sequence_3",
+    "value": "cooked the egg",
+    "label": "cooked the egg",
+    "image": "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp",
+    "imagePath": "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp",
+    "alt": "Story step: cooked the egg"
+   }
+  ],
+  "correctSequence": [
+   "cracked the egg",
+   "whisked the egg",
+   "cooked the egg"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.middle_event.v6",
@@ -1073,55 +1476,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Bo do on the SECOND day?",
-  "question": "What did Bo do on the SECOND day?",
-  "spokenPrompt": "What did Bo do on the SECOND day?",
-  "passage": "Bo's papier-mache mask took three days. On the first day he blew up a balloon and pasted it with newspaper strips. On the second day, once it was dry, he popped the balloon and cut out eye holes. On the last day he painted the mask gold like a lion.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The boy kicked the ball, it hit the goal, and his team cheered. Put the three pictures in story order.",
+  "passage": "The boy kicked the ball, it hit the goal, and his team cheered.",
   "cell": "middle_event",
   "choices": [
-   "popped the balloon and cut eye holes",
-   "pasted newspaper on the balloon",
-   "painted the mask gold",
-   "wore the mask to school"
+   "kicked the ball → ball went in goal → team cheered",
+   "ball went in goal → kicked the ball → team cheered",
+   "kicked the ball → team cheered → ball went in goal",
+   "team cheered → ball went in goal → kicked the ball"
   ],
   "answerOptions": [
    {
-    "value": "popped the balloon and cut eye holes",
-    "label": "popped the balloon and cut eye holes",
-    "text": "popped the balloon and cut eye holes"
+    "value": "kicked the ball → ball went in goal → team cheered",
+    "label": "kicked the ball → ball went in goal → team cheered",
+    "text": "kicked the ball → ball went in goal → team cheered"
    },
    {
-    "value": "pasted newspaper on the balloon",
-    "label": "pasted newspaper on the balloon",
-    "text": "pasted newspaper on the balloon"
+    "value": "ball went in goal → kicked the ball → team cheered",
+    "label": "ball went in goal → kicked the ball → team cheered",
+    "text": "ball went in goal → kicked the ball → team cheered"
    },
    {
-    "value": "painted the mask gold",
-    "label": "painted the mask gold",
-    "text": "painted the mask gold"
+    "value": "kicked the ball → team cheered → ball went in goal",
+    "label": "kicked the ball → team cheered → ball went in goal",
+    "text": "kicked the ball → team cheered → ball went in goal"
    },
    {
-    "value": "wore the mask to school",
-    "label": "wore the mask to school",
-    "text": "wore the mask to school"
+    "value": "team cheered → ball went in goal → kicked the ball",
+    "label": "team cheered → ball went in goal → kicked the ball",
+    "text": "team cheered → ball went in goal → kicked the ball"
    }
   ],
-  "answer": "popped the balloon and cut eye holes",
-  "correctAnswer": "popped the balloon and cut eye holes",
+  "answer": "kicked the ball → ball went in goal → team cheered",
+  "correctAnswer": "kicked the ball → ball went in goal → team cheered",
   "distractorRationales": {
-   "pasted newspaper on the balloon": "D-SEQUENCE-SWAP",
-   "painted the mask gold": "D-SEQUENCE-SWAP",
-   "wore the mask to school": "D-PLAUSIBLE-UNSUPPORTED"
+   "kicked the ball → team cheered → ball went in goal": "D-SEQUENCE-END",
+   "team cheered → ball went in goal → kicked the ball": "D-SEQUENCE-REVERSE",
+   "ball went in goal → kicked the ball → team cheered": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1133,7 +1536,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_1",
+    "value": "kicked the ball",
+    "label": "kicked the ball",
+    "image": "/images/assessment/generated/sequencing/child-kicks-football.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-kicks-football.webp",
+    "alt": "Story step: kicked the ball"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_2",
+    "value": "ball went in goal",
+    "label": "ball went in goal",
+    "image": "/images/assessment/generated/sequencing/football-enters-goal.webp",
+    "imagePath": "/images/assessment/generated/sequencing/football-enters-goal.webp",
+    "alt": "Story step: ball went in goal"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.middle_event.v6_sequence_3",
+    "value": "team cheered",
+    "label": "team cheered",
+    "image": "/images/assessment/generated/sequencing/children-cheer-goal.webp",
+    "imagePath": "/images/assessment/generated/sequencing/children-cheer-goal.webp",
+    "alt": "Story step: team cheered"
+   }
+  ],
+  "correctSequence": [
+   "kicked the ball",
+   "ball went in goal",
+   "team cheered"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.middle_event.v7",
@@ -1154,55 +1588,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Ren do SECOND?",
-  "question": "What did Ren do SECOND?",
-  "spokenPrompt": "What did Ren do SECOND?",
-  "passage": "The recycling job had an order. First Ren emptied every bin into one big pile. Second he sorted the pile — paper here, tins there, glass in the crate. Last he wheeled everything out to the kerb for the morning truck.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Nia brushed the dog, clipped on its lead, and took it for a walk. Put the three pictures in story order.",
+  "passage": "Nia brushed the dog, clipped on its lead, and took it for a walk.",
   "cell": "middle_event",
   "choices": [
-   "sorted the pile into groups",
-   "emptied the bins into a pile",
-   "wheeled it all to the kerb",
-   "drove the morning truck"
+   "brushed the dog → clipped on the lead → walked the dog",
+   "clipped on the lead → brushed the dog → walked the dog",
+   "brushed the dog → walked the dog → clipped on the lead",
+   "walked the dog → clipped on the lead → brushed the dog"
   ],
   "answerOptions": [
    {
-    "value": "sorted the pile into groups",
-    "label": "sorted the pile into groups",
-    "text": "sorted the pile into groups"
+    "value": "brushed the dog → clipped on the lead → walked the dog",
+    "label": "brushed the dog → clipped on the lead → walked the dog",
+    "text": "brushed the dog → clipped on the lead → walked the dog"
    },
    {
-    "value": "emptied the bins into a pile",
-    "label": "emptied the bins into a pile",
-    "text": "emptied the bins into a pile"
+    "value": "clipped on the lead → brushed the dog → walked the dog",
+    "label": "clipped on the lead → brushed the dog → walked the dog",
+    "text": "clipped on the lead → brushed the dog → walked the dog"
    },
    {
-    "value": "wheeled it all to the kerb",
-    "label": "wheeled it all to the kerb",
-    "text": "wheeled it all to the kerb"
+    "value": "brushed the dog → walked the dog → clipped on the lead",
+    "label": "brushed the dog → walked the dog → clipped on the lead",
+    "text": "brushed the dog → walked the dog → clipped on the lead"
    },
    {
-    "value": "drove the morning truck",
-    "label": "drove the morning truck",
-    "text": "drove the morning truck"
+    "value": "walked the dog → clipped on the lead → brushed the dog",
+    "label": "walked the dog → clipped on the lead → brushed the dog",
+    "text": "walked the dog → clipped on the lead → brushed the dog"
    }
   ],
-  "answer": "sorted the pile into groups",
-  "correctAnswer": "sorted the pile into groups",
+  "answer": "brushed the dog → clipped on the lead → walked the dog",
+  "correctAnswer": "brushed the dog → clipped on the lead → walked the dog",
   "distractorRationales": {
-   "emptied the bins into a pile": "D-SEQUENCE-SWAP",
-   "wheeled it all to the kerb": "D-SEQUENCE-SWAP",
-   "drove the morning truck": "D-PLAUSIBLE-UNSUPPORTED"
+   "walked the dog → clipped on the lead → brushed the dog": "D-SEQUENCE-REVERSE",
+   "clipped on the lead → brushed the dog → walked the dog": "D-SEQUENCE-START",
+   "brushed the dog → walked the dog → clipped on the lead": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1214,7 +1648,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_1",
+    "value": "brushed the dog",
+    "label": "brushed the dog",
+    "image": "/images/assessment/generated/sequencing/child-brushes-dog.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-brushes-dog.webp",
+    "alt": "Story step: brushed the dog"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_2",
+    "value": "clipped on the lead",
+    "label": "clipped on the lead",
+    "image": "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
+    "alt": "Story step: clipped on the lead"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.middle_event.v7_sequence_3",
+    "value": "walked the dog",
+    "label": "walked the dog",
+    "image": "/images/assessment/generated/sequencing/child-walks-dog.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-walks-dog.webp",
+    "alt": "Story step: walked the dog"
+   }
+  ],
+  "correctSequence": [
+   "brushed the dog",
+   "clipped on the lead",
+   "walked the dog"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.middle_event.v8",
@@ -1235,55 +1700,55 @@ export const questions = [
   "itemKey": "middle_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Granddad do SECOND?",
-  "question": "What did Granddad do SECOND?",
-  "spokenPrompt": "What did Granddad do SECOND?",
-  "passage": "Granddad prepared his conker like a champion. First he chose the roundest, hardest conker from the bag. Second he made a hole through it with a skewer, very carefully. Last he threaded the string through and tied a fat knot.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The baker mixed dough, shaped a loaf, and put it in the oven. Put the three pictures in story order.",
+  "passage": "The baker mixed dough, shaped a loaf, and put it in the oven.",
   "cell": "middle_event",
   "choices": [
-   "made a hole with a skewer",
-   "chose the roundest conker",
-   "threaded and knotted the string",
-   "won the tournament"
+   "shaped the loaf → mixed the dough → put loaf in oven",
+   "mixed the dough → put loaf in oven → shaped the loaf",
+   "put loaf in oven → shaped the loaf → mixed the dough",
+   "mixed the dough → shaped the loaf → put loaf in oven"
   ],
   "answerOptions": [
    {
-    "value": "made a hole with a skewer",
-    "label": "made a hole with a skewer",
-    "text": "made a hole with a skewer"
+    "value": "shaped the loaf → mixed the dough → put loaf in oven",
+    "label": "shaped the loaf → mixed the dough → put loaf in oven",
+    "text": "shaped the loaf → mixed the dough → put loaf in oven"
    },
    {
-    "value": "chose the roundest conker",
-    "label": "chose the roundest conker",
-    "text": "chose the roundest conker"
+    "value": "mixed the dough → put loaf in oven → shaped the loaf",
+    "label": "mixed the dough → put loaf in oven → shaped the loaf",
+    "text": "mixed the dough → put loaf in oven → shaped the loaf"
    },
    {
-    "value": "threaded and knotted the string",
-    "label": "threaded and knotted the string",
-    "text": "threaded and knotted the string"
+    "value": "put loaf in oven → shaped the loaf → mixed the dough",
+    "label": "put loaf in oven → shaped the loaf → mixed the dough",
+    "text": "put loaf in oven → shaped the loaf → mixed the dough"
    },
    {
-    "value": "won the tournament",
-    "label": "won the tournament",
-    "text": "won the tournament"
+    "value": "mixed the dough → shaped the loaf → put loaf in oven",
+    "label": "mixed the dough → shaped the loaf → put loaf in oven",
+    "text": "mixed the dough → shaped the loaf → put loaf in oven"
    }
   ],
-  "answer": "made a hole with a skewer",
-  "correctAnswer": "made a hole with a skewer",
+  "answer": "mixed the dough → shaped the loaf → put loaf in oven",
+  "correctAnswer": "mixed the dough → shaped the loaf → put loaf in oven",
   "distractorRationales": {
-   "chose the roundest conker": "D-SEQUENCE-SWAP",
-   "threaded and knotted the string": "D-SEQUENCE-SWAP",
-   "won the tournament": "D-PLAUSIBLE-UNSUPPORTED"
+   "put loaf in oven → shaped the loaf → mixed the dough": "D-SEQUENCE-REVERSE",
+   "shaped the loaf → mixed the dough → put loaf in oven": "D-SEQUENCE-START",
+   "mixed the dough → put loaf in oven → shaped the loaf": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1295,7 +1760,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_1",
+    "value": "mixed the dough",
+    "label": "mixed the dough",
+    "image": "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
+    "imagePath": "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
+    "alt": "Story step: mixed the dough"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_2",
+    "value": "shaped the loaf",
+    "label": "shaped the loaf",
+    "image": "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
+    "imagePath": "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
+    "alt": "Story step: shaped the loaf"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.middle_event.v8_sequence_3",
+    "value": "put loaf in oven",
+    "label": "put loaf in oven",
+    "image": "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp",
+    "imagePath": "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp",
+    "alt": "Story step: put loaf in oven"
+   }
+  ],
+  "correctSequence": [
+   "mixed the dough",
+   "shaped the loaf",
+   "put loaf in oven"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v1",
@@ -1316,55 +1812,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What came LAST?",
-  "question": "What came LAST?",
-  "spokenPrompt": "What came LAST?",
-  "passage": "Milly's bedtime routine never changed. First came the bath with the boats. Then came teeth, top row and bottom row. Last of all came the story — always one chapter, sometimes one and a half.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Sam brushed his teeth, put on pyjamas, and climbed into bed. Put the three pictures in story order.",
+  "passage": "Sam brushed his teeth, put on pyjamas, and climbed into bed.",
   "cell": "last_event",
   "choices": [
-   "the story",
-   "the bath with the boats",
-   "brushing teeth",
-   "breakfast"
+   "climbed into bed → put on pyjamas → brushed his teeth",
+   "brushed his teeth → put on pyjamas → climbed into bed",
+   "put on pyjamas → brushed his teeth → climbed into bed",
+   "brushed his teeth → climbed into bed → put on pyjamas"
   ],
   "answerOptions": [
    {
-    "value": "the story",
-    "label": "the story",
-    "text": "the story"
+    "value": "climbed into bed → put on pyjamas → brushed his teeth",
+    "label": "climbed into bed → put on pyjamas → brushed his teeth",
+    "text": "climbed into bed → put on pyjamas → brushed his teeth"
    },
    {
-    "value": "the bath with the boats",
-    "label": "the bath with the boats",
-    "text": "the bath with the boats"
+    "value": "brushed his teeth → put on pyjamas → climbed into bed",
+    "label": "brushed his teeth → put on pyjamas → climbed into bed",
+    "text": "brushed his teeth → put on pyjamas → climbed into bed"
    },
    {
-    "value": "brushing teeth",
-    "label": "brushing teeth",
-    "text": "brushing teeth"
+    "value": "put on pyjamas → brushed his teeth → climbed into bed",
+    "label": "put on pyjamas → brushed his teeth → climbed into bed",
+    "text": "put on pyjamas → brushed his teeth → climbed into bed"
    },
    {
-    "value": "breakfast",
-    "label": "breakfast",
-    "text": "breakfast"
+    "value": "brushed his teeth → climbed into bed → put on pyjamas",
+    "label": "brushed his teeth → climbed into bed → put on pyjamas",
+    "text": "brushed his teeth → climbed into bed → put on pyjamas"
    }
   ],
-  "answer": "the story",
-  "correctAnswer": "the story",
+  "answer": "brushed his teeth → put on pyjamas → climbed into bed",
+  "correctAnswer": "brushed his teeth → put on pyjamas → climbed into bed",
   "distractorRationales": {
-   "the bath with the boats": "D-SEQUENCE-SWAP",
-   "brushing teeth": "D-SEQUENCE-SWAP",
-   "breakfast": "D-PLAUSIBLE-UNSUPPORTED"
+   "brushed his teeth → climbed into bed → put on pyjamas": "D-SEQUENCE-END",
+   "climbed into bed → put on pyjamas → brushed his teeth": "D-SEQUENCE-REVERSE",
+   "put on pyjamas → brushed his teeth → climbed into bed": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1376,7 +1872,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_1",
+    "value": "brushed his teeth",
+    "label": "brushed his teeth",
+    "image": "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
+    "alt": "Story step: brushed his teeth"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_2",
+    "value": "put on pyjamas",
+    "label": "put on pyjamas",
+    "image": "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
+    "alt": "Story step: put on pyjamas"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v1_sequence_3",
+    "value": "climbed into bed",
+    "label": "climbed into bed",
+    "image": "/images/assessment/generated/sequencing/child-climbs-into-bed.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-climbs-into-bed.webp",
+    "alt": "Story step: climbed into bed"
+   }
+  ],
+  "correctSequence": [
+   "brushed his teeth",
+   "put on pyjamas",
+   "climbed into bed"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v2",
@@ -1397,55 +1924,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "Where did the hunt END?",
-  "question": "Where did the hunt END?",
-  "spokenPrompt": "Where did the hunt END?",
-  "passage": "The treasure hunt had three clues. The first clue was under the doormat. The second clue hid inside a welly by the door. The last clue led to the biscuit tin, where the chocolate coins were waiting.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The child found paper, folded a plane, and flew it across the room. Put the three pictures in story order.",
+  "passage": "The child found paper, folded a plane, and flew it across the room.",
   "cell": "last_event",
   "choices": [
-   "at the biscuit tin",
-   "under the doormat",
-   "inside the welly",
-   "at the sweet shop"
+   "found the paper → folded a plane → flew the plane",
+   "folded a plane → found the paper → flew the plane",
+   "found the paper → flew the plane → folded a plane",
+   "flew the plane → folded a plane → found the paper"
   ],
   "answerOptions": [
    {
-    "value": "at the biscuit tin",
-    "label": "at the biscuit tin",
-    "text": "at the biscuit tin"
+    "value": "found the paper → folded a plane → flew the plane",
+    "label": "found the paper → folded a plane → flew the plane",
+    "text": "found the paper → folded a plane → flew the plane"
    },
    {
-    "value": "under the doormat",
-    "label": "under the doormat",
-    "text": "under the doormat"
+    "value": "folded a plane → found the paper → flew the plane",
+    "label": "folded a plane → found the paper → flew the plane",
+    "text": "folded a plane → found the paper → flew the plane"
    },
    {
-    "value": "inside the welly",
-    "label": "inside the welly",
-    "text": "inside the welly"
+    "value": "found the paper → flew the plane → folded a plane",
+    "label": "found the paper → flew the plane → folded a plane",
+    "text": "found the paper → flew the plane → folded a plane"
    },
    {
-    "value": "at the sweet shop",
-    "label": "at the sweet shop",
-    "text": "at the sweet shop"
+    "value": "flew the plane → folded a plane → found the paper",
+    "label": "flew the plane → folded a plane → found the paper",
+    "text": "flew the plane → folded a plane → found the paper"
    }
   ],
-  "answer": "at the biscuit tin",
-  "correctAnswer": "at the biscuit tin",
+  "answer": "found the paper → folded a plane → flew the plane",
+  "correctAnswer": "found the paper → folded a plane → flew the plane",
   "distractorRationales": {
-   "under the doormat": "D-SEQUENCE-SWAP",
-   "inside the welly": "D-SEQUENCE-SWAP",
-   "at the sweet shop": "D-PLAUSIBLE-UNSUPPORTED"
+   "found the paper → flew the plane → folded a plane": "D-SEQUENCE-END",
+   "flew the plane → folded a plane → found the paper": "D-SEQUENCE-REVERSE",
+   "folded a plane → found the paper → flew the plane": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1457,7 +1984,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_1",
+    "value": "found the paper",
+    "label": "found the paper",
+    "image": "/images/assessment/generated/sequencing/child-finds-paper.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-finds-paper.webp",
+    "alt": "Story step: found the paper"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_2",
+    "value": "folded a plane",
+    "label": "folded a plane",
+    "image": "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
+    "alt": "Story step: folded a plane"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v2_sequence_3",
+    "value": "flew the plane",
+    "label": "flew the plane",
+    "image": "/images/assessment/generated/sequencing/child-flies-paper-plane.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-flies-paper-plane.webp",
+    "alt": "Story step: flew the plane"
+   }
+  ],
+  "correctSequence": [
+   "found the paper",
+   "folded a plane",
+   "flew the plane"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.last_event.v3",
@@ -1478,55 +2036,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened LAST?",
-  "question": "What happened LAST?",
-  "spokenPrompt": "What happened LAST?",
-  "passage": "Making apple crumble went in order. First Mum peeled and chopped the apples. Then Leo rubbed the butter, flour and sugar into crumbs and spread them on top. Last the dish went into the hot oven until the kitchen smelled wonderful.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Ivy picked an apple, washed it, and took a bite. Put the three pictures in story order.",
+  "passage": "Ivy picked an apple, washed it, and took a bite.",
   "cell": "last_event",
   "choices": [
-   "the dish went into the oven",
-   "the apples were chopped",
-   "the crumbs were spread on top",
-   "the apples were picked"
+   "bit the apple → washed the apple → picked the apple",
+   "picked the apple → washed the apple → bit the apple",
+   "washed the apple → picked the apple → bit the apple",
+   "picked the apple → bit the apple → washed the apple"
   ],
   "answerOptions": [
    {
-    "value": "the dish went into the oven",
-    "label": "the dish went into the oven",
-    "text": "the dish went into the oven"
+    "value": "bit the apple → washed the apple → picked the apple",
+    "label": "bit the apple → washed the apple → picked the apple",
+    "text": "bit the apple → washed the apple → picked the apple"
    },
    {
-    "value": "the apples were chopped",
-    "label": "the apples were chopped",
-    "text": "the apples were chopped"
+    "value": "picked the apple → washed the apple → bit the apple",
+    "label": "picked the apple → washed the apple → bit the apple",
+    "text": "picked the apple → washed the apple → bit the apple"
    },
    {
-    "value": "the crumbs were spread on top",
-    "label": "the crumbs were spread on top",
-    "text": "the crumbs were spread on top"
+    "value": "washed the apple → picked the apple → bit the apple",
+    "label": "washed the apple → picked the apple → bit the apple",
+    "text": "washed the apple → picked the apple → bit the apple"
    },
    {
-    "value": "the apples were picked",
-    "label": "the apples were picked",
-    "text": "the apples were picked"
+    "value": "picked the apple → bit the apple → washed the apple",
+    "label": "picked the apple → bit the apple → washed the apple",
+    "text": "picked the apple → bit the apple → washed the apple"
    }
   ],
-  "answer": "the dish went into the oven",
-  "correctAnswer": "the dish went into the oven",
+  "answer": "picked the apple → washed the apple → bit the apple",
+  "correctAnswer": "picked the apple → washed the apple → bit the apple",
   "distractorRationales": {
-   "the apples were chopped": "D-SEQUENCE-SWAP",
-   "the crumbs were spread on top": "D-SEQUENCE-SWAP",
-   "the apples were picked": "D-PLAUSIBLE-UNSUPPORTED"
+   "picked the apple → bit the apple → washed the apple": "D-SEQUENCE-END",
+   "bit the apple → washed the apple → picked the apple": "D-SEQUENCE-REVERSE",
+   "washed the apple → picked the apple → bit the apple": "D-SEQUENCE-START"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1538,7 +2096,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_1",
+    "value": "picked the apple",
+    "label": "picked the apple",
+    "image": "/images/assessment/generated/sequencing/child-picks-apple.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-picks-apple.webp",
+    "alt": "Story step: picked the apple"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_2",
+    "value": "washed the apple",
+    "label": "washed the apple",
+    "image": "/images/assessment/generated/sequencing/child-washes-apple.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-washes-apple.webp",
+    "alt": "Story step: washed the apple"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v3_sequence_3",
+    "value": "bit the apple",
+    "label": "bit the apple",
+    "image": "/images/assessment/generated/sequencing/child-bites-apple.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-bites-apple.webp",
+    "alt": "Story step: bit the apple"
+   }
+  ],
+  "correctSequence": [
+   "picked the apple",
+   "washed the apple",
+   "bit the apple"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v4",
@@ -1559,55 +2148,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened at the END of the visit?",
-  "question": "What happened at the END of the visit?",
-  "spokenPrompt": "What happened at the END of the visit?",
-  "passage": "At the dentist, Pia's visit had three parts. First she sat in the big chair and it hummed up high. Then the dentist counted her teeth with a tiny mirror. At the very end Pia chose a sticker from the golden box.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The boy built a snowball, added a head, and gave the snowman a hat. Put the three pictures in story order.",
+  "passage": "The boy built a snowball, added a head, and gave the snowman a hat.",
   "cell": "last_event",
   "choices": [
-   "Pia chose a sticker",
-   "the chair hummed up high",
-   "her teeth were counted",
-   "Pia lost a tooth"
+   "made a snowball → added the hat → added the head",
+   "added the hat → added the head → made a snowball",
+   "made a snowball → added the head → added the hat",
+   "added the head → made a snowball → added the hat"
   ],
   "answerOptions": [
    {
-    "value": "Pia chose a sticker",
-    "label": "Pia chose a sticker",
-    "text": "Pia chose a sticker"
+    "value": "made a snowball → added the hat → added the head",
+    "label": "made a snowball → added the hat → added the head",
+    "text": "made a snowball → added the hat → added the head"
    },
    {
-    "value": "the chair hummed up high",
-    "label": "the chair hummed up high",
-    "text": "the chair hummed up high"
+    "value": "added the hat → added the head → made a snowball",
+    "label": "added the hat → added the head → made a snowball",
+    "text": "added the hat → added the head → made a snowball"
    },
    {
-    "value": "her teeth were counted",
-    "label": "her teeth were counted",
-    "text": "her teeth were counted"
+    "value": "made a snowball → added the head → added the hat",
+    "label": "made a snowball → added the head → added the hat",
+    "text": "made a snowball → added the head → added the hat"
    },
    {
-    "value": "Pia lost a tooth",
-    "label": "Pia lost a tooth",
-    "text": "Pia lost a tooth"
+    "value": "added the head → made a snowball → added the hat",
+    "label": "added the head → made a snowball → added the hat",
+    "text": "added the head → made a snowball → added the hat"
    }
   ],
-  "answer": "Pia chose a sticker",
-  "correctAnswer": "Pia chose a sticker",
+  "answer": "made a snowball → added the head → added the hat",
+  "correctAnswer": "made a snowball → added the head → added the hat",
   "distractorRationales": {
-   "the chair hummed up high": "D-SEQUENCE-SWAP",
-   "her teeth were counted": "D-SEQUENCE-SWAP",
-   "Pia lost a tooth": "D-PLAUSIBLE-UNSUPPORTED"
+   "added the head → made a snowball → added the hat": "D-SEQUENCE-START",
+   "made a snowball → added the hat → added the head": "D-SEQUENCE-END",
+   "added the hat → added the head → made a snowball": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1619,7 +2208,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_1",
+    "value": "made a snowball",
+    "label": "made a snowball",
+    "image": "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
+    "alt": "Story step: made a snowball"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_2",
+    "value": "added the head",
+    "label": "added the head",
+    "image": "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
+    "alt": "Story step: added the head"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v4_sequence_3",
+    "value": "added the hat",
+    "label": "added the hat",
+    "image": "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp",
+    "alt": "Story step: added the hat"
+   }
+  ],
+  "correctSequence": [
+   "made a snowball",
+   "added the head",
+   "added the hat"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v5",
@@ -1640,55 +2260,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Ana do LAST?",
-  "question": "What did Ana do LAST?",
-  "spokenPrompt": "What did Ana do LAST?",
-  "passage": "Wrapping Dad's present was a mission. First Ana cut the paper to size. Then she folded and taped the ends as neatly as she could. Last she stuck the bow on top and hid the present under her bed until morning.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Ana wrapped the gift, tied a bow, and gave it to her friend. Put the three pictures in story order.",
+  "passage": "Ana wrapped the gift, tied a bow, and gave it to her friend.",
   "cell": "last_event",
   "choices": [
-   "added the bow and hid the present",
-   "cut the paper to size",
-   "taped the folded ends",
-   "opened the present herself"
+   "gave the gift → tied the bow → wrapped the gift",
+   "wrapped the gift → tied the bow → gave the gift",
+   "tied the bow → wrapped the gift → gave the gift",
+   "wrapped the gift → gave the gift → tied the bow"
   ],
   "answerOptions": [
    {
-    "value": "added the bow and hid the present",
-    "label": "added the bow and hid the present",
-    "text": "added the bow and hid the present"
+    "value": "gave the gift → tied the bow → wrapped the gift",
+    "label": "gave the gift → tied the bow → wrapped the gift",
+    "text": "gave the gift → tied the bow → wrapped the gift"
    },
    {
-    "value": "cut the paper to size",
-    "label": "cut the paper to size",
-    "text": "cut the paper to size"
+    "value": "wrapped the gift → tied the bow → gave the gift",
+    "label": "wrapped the gift → tied the bow → gave the gift",
+    "text": "wrapped the gift → tied the bow → gave the gift"
    },
    {
-    "value": "taped the folded ends",
-    "label": "taped the folded ends",
-    "text": "taped the folded ends"
+    "value": "tied the bow → wrapped the gift → gave the gift",
+    "label": "tied the bow → wrapped the gift → gave the gift",
+    "text": "tied the bow → wrapped the gift → gave the gift"
    },
    {
-    "value": "opened the present herself",
-    "label": "opened the present herself",
-    "text": "opened the present herself"
+    "value": "wrapped the gift → gave the gift → tied the bow",
+    "label": "wrapped the gift → gave the gift → tied the bow",
+    "text": "wrapped the gift → gave the gift → tied the bow"
    }
   ],
-  "answer": "added the bow and hid the present",
-  "correctAnswer": "added the bow and hid the present",
+  "answer": "wrapped the gift → tied the bow → gave the gift",
+  "correctAnswer": "wrapped the gift → tied the bow → gave the gift",
   "distractorRationales": {
-   "cut the paper to size": "D-SEQUENCE-SWAP",
-   "taped the folded ends": "D-SEQUENCE-SWAP",
-   "opened the present herself": "D-PLAUSIBLE-UNSUPPORTED"
+   "gave the gift → tied the bow → wrapped the gift": "D-SEQUENCE-REVERSE",
+   "tied the bow → wrapped the gift → gave the gift": "D-SEQUENCE-START",
+   "wrapped the gift → gave the gift → tied the bow": "D-SEQUENCE-END"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1700,7 +2320,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_1",
+    "value": "wrapped the gift",
+    "label": "wrapped the gift",
+    "image": "/images/assessment/generated/sequencing/child-wraps-gift.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-wraps-gift.webp",
+    "alt": "Story step: wrapped the gift"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_2",
+    "value": "tied the bow",
+    "label": "tied the bow",
+    "image": "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
+    "alt": "Story step: tied the bow"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v5_sequence_3",
+    "value": "gave the gift",
+    "label": "gave the gift",
+    "image": "/images/assessment/generated/sequencing/child-gives-gift.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-gives-gift.webp",
+    "alt": "Story step: gave the gift"
+   }
+  ],
+  "correctSequence": [
+   "wrapped the gift",
+   "tied the bow",
+   "gave the gift"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.C.last_event.v6",
@@ -1721,55 +2372,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened LAST at lunch?",
-  "question": "What happened LAST at lunch?",
-  "spokenPrompt": "What happened LAST at lunch?",
-  "passage": "The school trip lunch had rules. First everyone found a dry spot on the grass. Then sandwiches came out — swapsies allowed. At the very end, every scrap of rubbish went back into the bags, and the field was left exactly as they found it.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The class dug a hole, planted the tree, and watered its roots. Put the three pictures in story order.",
+  "passage": "The class dug a hole, planted the tree, and watered its roots.",
   "cell": "last_event",
   "choices": [
-   "all the rubbish was packed away",
-   "everyone found a dry spot",
-   "sandwiches were swapped",
-   "the bus drove home"
+   "dug the hole → watered the roots → planted the tree",
+   "watered the roots → planted the tree → dug the hole",
+   "dug the hole → planted the tree → watered the roots",
+   "planted the tree → dug the hole → watered the roots"
   ],
   "answerOptions": [
    {
-    "value": "all the rubbish was packed away",
-    "label": "all the rubbish was packed away",
-    "text": "all the rubbish was packed away"
+    "value": "dug the hole → watered the roots → planted the tree",
+    "label": "dug the hole → watered the roots → planted the tree",
+    "text": "dug the hole → watered the roots → planted the tree"
    },
    {
-    "value": "everyone found a dry spot",
-    "label": "everyone found a dry spot",
-    "text": "everyone found a dry spot"
+    "value": "watered the roots → planted the tree → dug the hole",
+    "label": "watered the roots → planted the tree → dug the hole",
+    "text": "watered the roots → planted the tree → dug the hole"
    },
    {
-    "value": "sandwiches were swapped",
-    "label": "sandwiches were swapped",
-    "text": "sandwiches were swapped"
+    "value": "dug the hole → planted the tree → watered the roots",
+    "label": "dug the hole → planted the tree → watered the roots",
+    "text": "dug the hole → planted the tree → watered the roots"
    },
    {
-    "value": "the bus drove home",
-    "label": "the bus drove home",
-    "text": "the bus drove home"
+    "value": "planted the tree → dug the hole → watered the roots",
+    "label": "planted the tree → dug the hole → watered the roots",
+    "text": "planted the tree → dug the hole → watered the roots"
    }
   ],
-  "answer": "all the rubbish was packed away",
-  "correctAnswer": "all the rubbish was packed away",
+  "answer": "dug the hole → planted the tree → watered the roots",
+  "correctAnswer": "dug the hole → planted the tree → watered the roots",
   "distractorRationales": {
-   "everyone found a dry spot": "D-SEQUENCE-SWAP",
-   "sandwiches were swapped": "D-SEQUENCE-SWAP",
-   "the bus drove home": "D-PLAUSIBLE-UNSUPPORTED"
+   "planted the tree → dug the hole → watered the roots": "D-SEQUENCE-START",
+   "dug the hole → watered the roots → planted the tree": "D-SEQUENCE-END",
+   "watered the roots → planted the tree → dug the hole": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1781,7 +2432,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_1",
+    "value": "dug the hole",
+    "label": "dug the hole",
+    "image": "/images/assessment/generated/sequencing/children-dig-hole.webp",
+    "imagePath": "/images/assessment/generated/sequencing/children-dig-hole.webp",
+    "alt": "Story step: dug the hole"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_2",
+    "value": "planted the tree",
+    "label": "planted the tree",
+    "image": "/images/assessment/generated/sequencing/children-plant-tree.webp",
+    "imagePath": "/images/assessment/generated/sequencing/children-plant-tree.webp",
+    "alt": "Story step: planted the tree"
+   },
+   {
+    "id": "lp3.sequencing.l1.C.last_event.v6_sequence_3",
+    "value": "watered the roots",
+    "label": "watered the roots",
+    "image": "/images/assessment/generated/sequencing/children-water-tree.webp",
+    "imagePath": "/images/assessment/generated/sequencing/children-water-tree.webp",
+    "alt": "Story step: watered the roots"
+   }
+  ],
+  "correctSequence": [
+   "dug the hole",
+   "planted the tree",
+   "watered the roots"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.A.last_event.v7",
@@ -1802,55 +2484,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Kip do LAST?",
-  "question": "What did Kip do LAST?",
-  "spokenPrompt": "What did Kip do LAST?",
-  "passage": "Kip built a kite from a kit. First he slotted the two sticks into a cross. Then he stretched the red sail over the frame and clipped it. Last he tied on the string and the long rattling tail.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Leo put rubbish in a bag, tied it shut, and placed it in the bin. Put the three pictures in story order.",
+  "passage": "Leo put rubbish in a bag, tied it shut, and placed it in the bin.",
   "cell": "last_event",
   "choices": [
-   "tied on the string and tail",
-   "slotted the sticks into a cross",
-   "stretched the sail on the frame",
-   "flew the kite at the beach"
+   "tied the bag → filled the bag → put bag in bin",
+   "filled the bag → put bag in bin → tied the bag",
+   "put bag in bin → tied the bag → filled the bag",
+   "filled the bag → tied the bag → put bag in bin"
   ],
   "answerOptions": [
    {
-    "value": "tied on the string and tail",
-    "label": "tied on the string and tail",
-    "text": "tied on the string and tail"
+    "value": "tied the bag → filled the bag → put bag in bin",
+    "label": "tied the bag → filled the bag → put bag in bin",
+    "text": "tied the bag → filled the bag → put bag in bin"
    },
    {
-    "value": "slotted the sticks into a cross",
-    "label": "slotted the sticks into a cross",
-    "text": "slotted the sticks into a cross"
+    "value": "filled the bag → put bag in bin → tied the bag",
+    "label": "filled the bag → put bag in bin → tied the bag",
+    "text": "filled the bag → put bag in bin → tied the bag"
    },
    {
-    "value": "stretched the sail on the frame",
-    "label": "stretched the sail on the frame",
-    "text": "stretched the sail on the frame"
+    "value": "put bag in bin → tied the bag → filled the bag",
+    "label": "put bag in bin → tied the bag → filled the bag",
+    "text": "put bag in bin → tied the bag → filled the bag"
    },
    {
-    "value": "flew the kite at the beach",
-    "label": "flew the kite at the beach",
-    "text": "flew the kite at the beach"
+    "value": "filled the bag → tied the bag → put bag in bin",
+    "label": "filled the bag → tied the bag → put bag in bin",
+    "text": "filled the bag → tied the bag → put bag in bin"
    }
   ],
-  "answer": "tied on the string and tail",
-  "correctAnswer": "tied on the string and tail",
+  "answer": "filled the bag → tied the bag → put bag in bin",
+  "correctAnswer": "filled the bag → tied the bag → put bag in bin",
   "distractorRationales": {
-   "slotted the sticks into a cross": "D-SEQUENCE-SWAP",
-   "stretched the sail on the frame": "D-SEQUENCE-SWAP",
-   "flew the kite at the beach": "D-PLAUSIBLE-UNSUPPORTED"
+   "tied the bag → filled the bag → put bag in bin": "D-SEQUENCE-START",
+   "filled the bag → put bag in bin → tied the bag": "D-SEQUENCE-END",
+   "put bag in bin → tied the bag → filled the bag": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1862,7 +2544,38 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_1",
+    "value": "filled the bag",
+    "label": "filled the bag",
+    "image": "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
+    "alt": "Story step: filled the bag"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_2",
+    "value": "tied the bag",
+    "label": "tied the bag",
+    "image": "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
+    "alt": "Story step: tied the bag"
+   },
+   {
+    "id": "lp3.sequencing.l1.A.last_event.v7_sequence_3",
+    "value": "put bag in bin",
+    "label": "put bag in bin",
+    "image": "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp",
+    "alt": "Story step: put bag in bin"
+   }
+  ],
+  "correctSequence": [
+   "filled the bag",
+   "tied the bag",
+   "put bag in bin"
+  ]
  },
  {
   "id": "lp3.sequencing.l1.B.last_event.v8",
@@ -1883,55 +2596,55 @@ export const questions = [
   "itemKey": "last_event",
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened LAST?",
-  "question": "What happened LAST?",
-  "spokenPrompt": "What happened LAST?",
-  "passage": "Muddy boot patrol worked in order. First the boots were banged together outside to knock the big lumps off. Then an old brush scrubbed the tricky bits around the laces. Last the clean boots stood in a row by the radiator, steaming gently.",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The bus stopped, the doors opened, and the children stepped off. Put the three pictures in story order.",
+  "passage": "The bus stopped, the doors opened, and the children stepped off.",
   "cell": "last_event",
   "choices": [
-   "the boots stood drying by the radiator",
-   "the boots were banged together",
-   "the laces were scrubbed",
-   "new boots were bought"
+   "bus stopped → children stepped off → doors opened",
+   "children stepped off → doors opened → bus stopped",
+   "bus stopped → doors opened → children stepped off",
+   "doors opened → bus stopped → children stepped off"
   ],
   "answerOptions": [
    {
-    "value": "the boots stood drying by the radiator",
-    "label": "the boots stood drying by the radiator",
-    "text": "the boots stood drying by the radiator"
+    "value": "bus stopped → children stepped off → doors opened",
+    "label": "bus stopped → children stepped off → doors opened",
+    "text": "bus stopped → children stepped off → doors opened"
    },
    {
-    "value": "the boots were banged together",
-    "label": "the boots were banged together",
-    "text": "the boots were banged together"
+    "value": "children stepped off → doors opened → bus stopped",
+    "label": "children stepped off → doors opened → bus stopped",
+    "text": "children stepped off → doors opened → bus stopped"
    },
    {
-    "value": "the laces were scrubbed",
-    "label": "the laces were scrubbed",
-    "text": "the laces were scrubbed"
+    "value": "bus stopped → doors opened → children stepped off",
+    "label": "bus stopped → doors opened → children stepped off",
+    "text": "bus stopped → doors opened → children stepped off"
    },
    {
-    "value": "new boots were bought",
-    "label": "new boots were bought",
-    "text": "new boots were bought"
+    "value": "doors opened → bus stopped → children stepped off",
+    "label": "doors opened → bus stopped → children stepped off",
+    "text": "doors opened → bus stopped → children stepped off"
    }
   ],
-  "answer": "the boots stood drying by the radiator",
-  "correctAnswer": "the boots stood drying by the radiator",
+  "answer": "bus stopped → doors opened → children stepped off",
+  "correctAnswer": "bus stopped → doors opened → children stepped off",
   "distractorRationales": {
-   "the boots were banged together": "D-SEQUENCE-SWAP",
-   "the laces were scrubbed": "D-SEQUENCE-SWAP",
-   "new boots were bought": "D-PLAUSIBLE-UNSUPPORTED"
+   "doors opened → bus stopped → children stepped off": "D-SEQUENCE-START",
+   "bus stopped → children stepped off → doors opened": "D-SEQUENCE-END",
+   "children stepped off → doors opened → bus stopped": "D-SEQUENCE-REVERSE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
-   "cards": false
+   "cards": true
   },
   "active": true,
   "qaStatus": "approved",
@@ -1943,7 +2656,710 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_1",
+    "value": "bus stopped",
+    "label": "bus stopped",
+    "image": "/images/assessment/generated/sequencing/school-bus-stops.webp",
+    "imagePath": "/images/assessment/generated/sequencing/school-bus-stops.webp",
+    "alt": "Story step: bus stopped"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_2",
+    "value": "doors opened",
+    "label": "doors opened",
+    "image": "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
+    "imagePath": "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
+    "alt": "Story step: doors opened"
+   },
+   {
+    "id": "lp3.sequencing.l1.B.last_event.v8_sequence_3",
+    "value": "children stepped off",
+    "label": "children stepped off",
+    "image": "/images/assessment/generated/sequencing/children-leave-school-bus.webp",
+    "imagePath": "/images/assessment/generated/sequencing/children-leave-school-bus.webp",
+    "alt": "Story step: children stepped off"
+   }
+  ],
+  "correctSequence": [
+   "bus stopped",
+   "doors opened",
+   "children stepped off"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.first_event.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Rae picked up a pencil, drew a star, and coloured it red. Put the three pictures in story order.",
+  "passage": "Rae picked up a pencil, drew a star, and coloured it red.",
+  "cell": "first_event",
+  "choices": [
+   "picked up pencil → coloured it red → drew the star",
+   "coloured it red → drew the star → picked up pencil",
+   "picked up pencil → drew the star → coloured it red",
+   "drew the star → picked up pencil → coloured it red"
+  ],
+  "answerOptions": [
+   {
+    "value": "picked up pencil → coloured it red → drew the star",
+    "label": "picked up pencil → coloured it red → drew the star",
+    "text": "picked up pencil → coloured it red → drew the star"
+   },
+   {
+    "value": "coloured it red → drew the star → picked up pencil",
+    "label": "coloured it red → drew the star → picked up pencil",
+    "text": "coloured it red → drew the star → picked up pencil"
+   },
+   {
+    "value": "picked up pencil → drew the star → coloured it red",
+    "label": "picked up pencil → drew the star → coloured it red",
+    "text": "picked up pencil → drew the star → coloured it red"
+   },
+   {
+    "value": "drew the star → picked up pencil → coloured it red",
+    "label": "drew the star → picked up pencil → coloured it red",
+    "text": "drew the star → picked up pencil → coloured it red"
+   }
+  ],
+  "answer": "picked up pencil → drew the star → coloured it red",
+  "correctAnswer": "picked up pencil → drew the star → coloured it red",
+  "distractorRationales": {
+   "coloured it red → drew the star → picked up pencil": "D-SEQUENCE-REVERSE",
+   "drew the star → picked up pencil → coloured it red": "D-SEQUENCE-START",
+   "picked up pencil → coloured it red → drew the star": "D-SEQUENCE-END"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_1",
+    "value": "picked up pencil",
+    "label": "picked up pencil",
+    "image": "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
+    "alt": "Story step: picked up pencil"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_2",
+    "value": "drew the star",
+    "label": "drew the star",
+    "image": "/images/assessment/generated/sequencing/child-draws-star.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-draws-star.webp",
+    "alt": "Story step: drew the star"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v9r_sequence_3",
+    "value": "coloured it red",
+    "label": "coloured it red",
+    "image": "/images/assessment/generated/sequencing/child-colours-red-star.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-colours-red-star.webp",
+    "alt": "Story step: coloured it red"
+   }
+  ],
+  "correctSequence": [
+   "picked up pencil",
+   "drew the star",
+   "coloured it red"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.middle_event.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Max opened the gate, led the pony through, and shut the gate. Put the three pictures in story order.",
+  "passage": "Max opened the gate, led the pony through, and shut the gate.",
+  "cell": "middle_event",
+  "choices": [
+   "led pony through → opened the gate → shut the gate",
+   "opened the gate → shut the gate → led pony through",
+   "shut the gate → led pony through → opened the gate",
+   "opened the gate → led pony through → shut the gate"
+  ],
+  "answerOptions": [
+   {
+    "value": "led pony through → opened the gate → shut the gate",
+    "label": "led pony through → opened the gate → shut the gate",
+    "text": "led pony through → opened the gate → shut the gate"
+   },
+   {
+    "value": "opened the gate → shut the gate → led pony through",
+    "label": "opened the gate → shut the gate → led pony through",
+    "text": "opened the gate → shut the gate → led pony through"
+   },
+   {
+    "value": "shut the gate → led pony through → opened the gate",
+    "label": "shut the gate → led pony through → opened the gate",
+    "text": "shut the gate → led pony through → opened the gate"
+   },
+   {
+    "value": "opened the gate → led pony through → shut the gate",
+    "label": "opened the gate → led pony through → shut the gate",
+    "text": "opened the gate → led pony through → shut the gate"
+   }
+  ],
+  "answer": "opened the gate → led pony through → shut the gate",
+  "correctAnswer": "opened the gate → led pony through → shut the gate",
+  "distractorRationales": {
+   "opened the gate → shut the gate → led pony through": "D-SEQUENCE-END",
+   "shut the gate → led pony through → opened the gate": "D-SEQUENCE-REVERSE",
+   "led pony through → opened the gate → shut the gate": "D-SEQUENCE-START"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_1",
+    "value": "opened the gate",
+    "label": "opened the gate",
+    "image": "/images/assessment/generated/sequencing/child-opens-gate.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-opens-gate.webp",
+    "alt": "Story step: opened the gate"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_2",
+    "value": "led pony through",
+    "label": "led pony through",
+    "image": "/images/assessment/generated/sequencing/child-leads-pony.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-leads-pony.webp",
+    "alt": "Story step: led pony through"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v9r_sequence_3",
+    "value": "shut the gate",
+    "label": "shut the gate",
+    "image": "/images/assessment/generated/sequencing/child-shuts-gate.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-shuts-gate.webp",
+    "alt": "Story step: shut the gate"
+   }
+  ],
+  "correctSequence": [
+   "opened the gate",
+   "led pony through",
+   "shut the gate"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.last_event.v9r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The frog sat, jumped into the pond, and swam away. Put the three pictures in story order.",
+  "passage": "The frog sat, jumped into the pond, and swam away.",
+  "cell": "last_event",
+  "choices": [
+   "frog sat → frog jumped → frog swam away",
+   "frog jumped → frog sat → frog swam away",
+   "frog sat → frog swam away → frog jumped",
+   "frog swam away → frog jumped → frog sat"
+  ],
+  "answerOptions": [
+   {
+    "value": "frog sat → frog jumped → frog swam away",
+    "label": "frog sat → frog jumped → frog swam away",
+    "text": "frog sat → frog jumped → frog swam away"
+   },
+   {
+    "value": "frog jumped → frog sat → frog swam away",
+    "label": "frog jumped → frog sat → frog swam away",
+    "text": "frog jumped → frog sat → frog swam away"
+   },
+   {
+    "value": "frog sat → frog swam away → frog jumped",
+    "label": "frog sat → frog swam away → frog jumped",
+    "text": "frog sat → frog swam away → frog jumped"
+   },
+   {
+    "value": "frog swam away → frog jumped → frog sat",
+    "label": "frog swam away → frog jumped → frog sat",
+    "text": "frog swam away → frog jumped → frog sat"
+   }
+  ],
+  "answer": "frog sat → frog jumped → frog swam away",
+  "correctAnswer": "frog sat → frog jumped → frog swam away",
+  "distractorRationales": {
+   "frog swam away → frog jumped → frog sat": "D-SEQUENCE-REVERSE",
+   "frog jumped → frog sat → frog swam away": "D-SEQUENCE-START",
+   "frog sat → frog swam away → frog jumped": "D-SEQUENCE-END"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_1",
+    "value": "frog sat",
+    "label": "frog sat",
+    "image": "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
+    "imagePath": "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
+    "alt": "Story step: frog sat"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_2",
+    "value": "frog jumped",
+    "label": "frog jumped",
+    "image": "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
+    "imagePath": "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
+    "alt": "Story step: frog jumped"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v9r_sequence_3",
+    "value": "frog swam away",
+    "label": "frog swam away",
+    "image": "/images/assessment/generated/sequencing/frog-swims-away.webp",
+    "imagePath": "/images/assessment/generated/sequencing/frog-swims-away.webp",
+    "alt": "Story step: frog swam away"
+   }
+  ],
+  "correctSequence": [
+   "frog sat",
+   "frog jumped",
+   "frog swam away"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.first_event.v10r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "first_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Jo poured cereal, added milk, and ate breakfast. Put the three pictures in story order.",
+  "passage": "Jo poured cereal, added milk, and ate breakfast.",
+  "cell": "first_event",
+  "choices": [
+   "ate breakfast → added milk → poured cereal",
+   "poured cereal → added milk → ate breakfast",
+   "added milk → poured cereal → ate breakfast",
+   "poured cereal → ate breakfast → added milk"
+  ],
+  "answerOptions": [
+   {
+    "value": "ate breakfast → added milk → poured cereal",
+    "label": "ate breakfast → added milk → poured cereal",
+    "text": "ate breakfast → added milk → poured cereal"
+   },
+   {
+    "value": "poured cereal → added milk → ate breakfast",
+    "label": "poured cereal → added milk → ate breakfast",
+    "text": "poured cereal → added milk → ate breakfast"
+   },
+   {
+    "value": "added milk → poured cereal → ate breakfast",
+    "label": "added milk → poured cereal → ate breakfast",
+    "text": "added milk → poured cereal → ate breakfast"
+   },
+   {
+    "value": "poured cereal → ate breakfast → added milk",
+    "label": "poured cereal → ate breakfast → added milk",
+    "text": "poured cereal → ate breakfast → added milk"
+   }
+  ],
+  "answer": "poured cereal → added milk → ate breakfast",
+  "correctAnswer": "poured cereal → added milk → ate breakfast",
+  "distractorRationales": {
+   "added milk → poured cereal → ate breakfast": "D-SEQUENCE-START",
+   "poured cereal → ate breakfast → added milk": "D-SEQUENCE-END",
+   "ate breakfast → added milk → poured cereal": "D-SEQUENCE-REVERSE"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_1",
+    "value": "poured cereal",
+    "label": "poured cereal",
+    "image": "/images/assessment/generated/sequencing/child-pours-cereal.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-pours-cereal.webp",
+    "alt": "Story step: poured cereal"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_2",
+    "value": "added milk",
+    "label": "added milk",
+    "image": "/images/assessment/generated/sequencing/child-adds-milk.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-adds-milk.webp",
+    "alt": "Story step: added milk"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.first_event.v10r_sequence_3",
+    "value": "ate breakfast",
+    "label": "ate breakfast",
+    "image": "/images/assessment/generated/sequencing/child-eats-cereal.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-eats-cereal.webp",
+    "alt": "Story step: ate breakfast"
+   }
+  ],
+  "correctSequence": [
+   "poured cereal",
+   "added milk",
+   "ate breakfast"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.middle_event.v10r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "middle_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "The child zipped a coat, put on a hat, and went into the snow. Put the three pictures in story order.",
+  "passage": "The child zipped a coat, put on a hat, and went into the snow.",
+  "cell": "middle_event",
+  "choices": [
+   "zipped the coat → went into snow → put on the hat",
+   "went into snow → put on the hat → zipped the coat",
+   "zipped the coat → put on the hat → went into snow",
+   "put on the hat → zipped the coat → went into snow"
+  ],
+  "answerOptions": [
+   {
+    "value": "zipped the coat → went into snow → put on the hat",
+    "label": "zipped the coat → went into snow → put on the hat",
+    "text": "zipped the coat → went into snow → put on the hat"
+   },
+   {
+    "value": "went into snow → put on the hat → zipped the coat",
+    "label": "went into snow → put on the hat → zipped the coat",
+    "text": "went into snow → put on the hat → zipped the coat"
+   },
+   {
+    "value": "zipped the coat → put on the hat → went into snow",
+    "label": "zipped the coat → put on the hat → went into snow",
+    "text": "zipped the coat → put on the hat → went into snow"
+   },
+   {
+    "value": "put on the hat → zipped the coat → went into snow",
+    "label": "put on the hat → zipped the coat → went into snow",
+    "text": "put on the hat → zipped the coat → went into snow"
+   }
+  ],
+  "answer": "zipped the coat → put on the hat → went into snow",
+  "correctAnswer": "zipped the coat → put on the hat → went into snow",
+  "distractorRationales": {
+   "zipped the coat → went into snow → put on the hat": "D-SEQUENCE-END",
+   "went into snow → put on the hat → zipped the coat": "D-SEQUENCE-REVERSE",
+   "put on the hat → zipped the coat → went into snow": "D-SEQUENCE-START"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_1",
+    "value": "zipped the coat",
+    "label": "zipped the coat",
+    "image": "/images/assessment/generated/sequencing/child-zips-coat.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-zips-coat.webp",
+    "alt": "Story step: zipped the coat"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_2",
+    "value": "put on the hat",
+    "label": "put on the hat",
+    "image": "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
+    "alt": "Story step: put on the hat"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.middle_event.v10r_sequence_3",
+    "value": "went into snow",
+    "label": "went into snow",
+    "image": "/images/assessment/generated/sequencing/child-walks-into-snow.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-walks-into-snow.webp",
+    "alt": "Story step: went into snow"
+   }
+  ],
+  "correctSequence": [
+   "zipped the coat",
+   "put on the hat",
+   "went into snow"
+  ]
+ },
+ {
+  "id": "lp3.sequencing.l1.R.last_event.v10r",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "sequencing",
+  "assessmentSkillId": "sequencing",
+  "skillName": "Sequencing",
+  "skill": "Sequencing",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 2,
+  "assessmentPhase": 2,
+  "phaseTarget": "level_1_phase_2",
+  "form": "R",
+  "itemType": "sequencing_cell",
+  "itemKey": "last_event",
+  "formatType": "COMPREHENSION",
+  "templateType": "COMPREHENSION",
+  "questionType": "picture_sequence_order",
+  "prompt": "Put the three pictures in story order.",
+  "question": "Put the three pictures in story order.",
+  "spokenPrompt": "Mia washed a plate, dried it, and put it on the shelf. Put the three pictures in story order.",
+  "passage": "Mia washed a plate, dried it, and put it on the shelf.",
+  "cell": "last_event",
+  "choices": [
+   "dried the plate → washed the plate → put plate on shelf",
+   "washed the plate → put plate on shelf → dried the plate",
+   "put plate on shelf → dried the plate → washed the plate",
+   "washed the plate → dried the plate → put plate on shelf"
+  ],
+  "answerOptions": [
+   {
+    "value": "dried the plate → washed the plate → put plate on shelf",
+    "label": "dried the plate → washed the plate → put plate on shelf",
+    "text": "dried the plate → washed the plate → put plate on shelf"
+   },
+   {
+    "value": "washed the plate → put plate on shelf → dried the plate",
+    "label": "washed the plate → put plate on shelf → dried the plate",
+    "text": "washed the plate → put plate on shelf → dried the plate"
+   },
+   {
+    "value": "put plate on shelf → dried the plate → washed the plate",
+    "label": "put plate on shelf → dried the plate → washed the plate",
+    "text": "put plate on shelf → dried the plate → washed the plate"
+   },
+   {
+    "value": "washed the plate → dried the plate → put plate on shelf",
+    "label": "washed the plate → dried the plate → put plate on shelf",
+    "text": "washed the plate → dried the plate → put plate on shelf"
+   }
+  ],
+  "answer": "washed the plate → dried the plate → put plate on shelf",
+  "correctAnswer": "washed the plate → dried the plate → put plate on shelf",
+  "distractorRationales": {
+   "dried the plate → washed the plate → put plate on shelf": "D-SEQUENCE-START",
+   "washed the plate → put plate on shelf → dried the plate": "D-SEQUENCE-END",
+   "put plate on shelf → dried the plate → washed the plate": "D-SEQUENCE-REVERSE"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": true,
+  "scannerExpected": false,
+  "v3AuthoredMedia": {
+   "target": false,
+   "cards": true
+  },
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "sequenceCards": [
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_1",
+    "value": "washed the plate",
+    "label": "washed the plate",
+    "image": "/images/assessment/generated/sequencing/child-washes-plate.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-washes-plate.webp",
+    "alt": "Story step: washed the plate"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_2",
+    "value": "dried the plate",
+    "label": "dried the plate",
+    "image": "/images/assessment/generated/sequencing/child-dries-plate.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-dries-plate.webp",
+    "alt": "Story step: dried the plate"
+   },
+   {
+    "id": "lp3.sequencing.l1.R.last_event.v10r_sequence_3",
+    "value": "put plate on shelf",
+    "label": "put plate on shelf",
+    "image": "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp",
+    "imagePath": "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp",
+    "alt": "Story step: put plate on shelf"
+   }
+  ],
+  "correctSequence": [
+   "washed the plate",
+   "dried the plate",
+   "put plate on shelf"
+  ]
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v1",
@@ -1971,22 +3387,12 @@ export const questions = [
   "passage": "Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled.",
   "cell": "before_after_relation",
   "choices": [
-   "a drop wrinkled on the cold saucer",
-   "the berries were picked",
    "the labels went on",
-   "the jars were bought"
+   "the jars were bought",
+   "the jam passed the cold-saucer test",
+   "the berries were picked"
   ],
   "answerOptions": [
-   {
-    "value": "a drop wrinkled on the cold saucer",
-    "label": "a drop wrinkled on the cold saucer",
-    "text": "a drop wrinkled on the cold saucer"
-   },
-   {
-    "value": "the berries were picked",
-    "label": "the berries were picked",
-    "text": "the berries were picked"
-   },
    {
     "value": "the labels went on",
     "label": "the labels went on",
@@ -1996,24 +3402,35 @@ export const questions = [
     "value": "the jars were bought",
     "label": "the jars were bought",
     "text": "the jars were bought"
+   },
+   {
+    "value": "the jam passed the cold-saucer test",
+    "label": "the jam passed the cold-saucer test",
+    "text": "the jam passed the cold-saucer test"
+   },
+   {
+    "value": "the berries were picked",
+    "label": "the berries were picked",
+    "text": "the berries were picked"
    }
   ],
-  "answer": "a drop wrinkled on the cold saucer",
-  "correctAnswer": "a drop wrinkled on the cold saucer",
+  "answer": "the jam passed the cold-saucer test",
+  "correctAnswer": "the jam passed the cold-saucer test",
   "distractorRationales": {
    "the berries were picked": "D-SEQUENCE-SWAP",
    "the labels went on": "D-SEQUENCE-SWAP",
    "the jars were bought": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2024,7 +3441,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled."
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v2",
@@ -2052,17 +3475,12 @@ export const questions = [
   "passage": "The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists.",
   "cell": "before_after_relation",
   "choices": [
-   "cheeping came from inside the shells",
    "the eggs went under the lamp",
    "the chicks turned fluffy",
-   "a seventh egg arrived"
+   "a seventh egg arrived",
+   "cheeping came from inside the shells"
   ],
   "answerOptions": [
-   {
-    "value": "cheeping came from inside the shells",
-    "label": "cheeping came from inside the shells",
-    "text": "cheeping came from inside the shells"
-   },
    {
     "value": "the eggs went under the lamp",
     "label": "the eggs went under the lamp",
@@ -2077,24 +3495,30 @@ export const questions = [
     "value": "a seventh egg arrived",
     "label": "a seventh egg arrived",
     "text": "a seventh egg arrived"
+   },
+   {
+    "value": "cheeping came from inside the shells",
+    "label": "cheeping came from inside the shells",
+    "text": "cheeping came from inside the shells"
    }
   ],
   "answer": "cheeping came from inside the shells",
   "correctAnswer": "cheeping came from inside the shells",
   "distractorRationales": {
+   "a seventh egg arrived": "D-PLAUSIBLE-UNSUPPORTED",
    "the eggs went under the lamp": "D-SEQUENCE-SWAP",
-   "the chicks turned fluffy": "D-SEQUENCE-SWAP",
-   "a seventh egg arrived": "D-PLAUSIBLE-UNSUPPORTED"
+   "the chicks turned fluffy": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +3529,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "resolvedImageAssetKey": "right",
+  "imageAlt": "Illustration for The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists."
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v3",
@@ -2133,16 +3563,16 @@ export const questions = [
   "passage": "Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf.",
   "cell": "before_after_relation",
   "choices": [
-   "after the mirror showed the back of his head",
+   "once Otto had seen the finished haircut",
    "before the gown went on",
    "while the spray bottle worked",
    "it stayed on the shelf"
   ],
   "answerOptions": [
    {
-    "value": "after the mirror showed the back of his head",
-    "label": "after the mirror showed the back of his head",
-    "text": "after the mirror showed the back of his head"
+    "value": "once Otto had seen the finished haircut",
+    "label": "once Otto had seen the finished haircut",
+    "text": "once Otto had seen the finished haircut"
    },
    {
     "value": "before the gown went on",
@@ -2160,22 +3590,23 @@ export const questions = [
     "text": "it stayed on the shelf"
    }
   ],
-  "answer": "after the mirror showed the back of his head",
-  "correctAnswer": "after the mirror showed the back of his head",
+  "answer": "once Otto had seen the finished haircut",
+  "correctAnswer": "once Otto had seen the finished haircut",
   "distractorRationales": {
    "before the gown went on": "D-SEQUENCE-SWAP",
    "while the spray bottle worked": "D-SEQUENCE-SWAP",
    "it stayed on the shelf": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2186,7 +3617,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf."
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v4",
@@ -2214,17 +3651,12 @@ export const questions = [
   "passage": "The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five pounds, one bag, no swaps.",
   "cell": "before_after_relation",
   "choices": [
-   "visited the dinosaur hall",
    "put bags in the lockers",
    "visited the gift shop",
-   "rode the bus home"
+   "rode the bus home",
+   "visited the dinosaur hall"
   ],
   "answerOptions": [
-   {
-    "value": "visited the dinosaur hall",
-    "label": "visited the dinosaur hall",
-    "text": "visited the dinosaur hall"
-   },
    {
     "value": "put bags in the lockers",
     "label": "put bags in the lockers",
@@ -2239,24 +3671,30 @@ export const questions = [
     "value": "rode the bus home",
     "label": "rode the bus home",
     "text": "rode the bus home"
+   },
+   {
+    "value": "visited the dinosaur hall",
+    "label": "visited the dinosaur hall",
+    "text": "visited the dinosaur hall"
    }
   ],
   "answer": "visited the dinosaur hall",
   "correctAnswer": "visited the dinosaur hall",
   "distractorRationales": {
-   "put bags in the lockers": "D-SEQUENCE-SWAP",
    "visited the gift shop": "D-SEQUENCE-SWAP",
-   "rode the bus home": "D-PLAUSIBLE-UNSUPPORTED"
+   "rode the bus home": "D-PLAUSIBLE-UNSUPPORTED",
+   "put bags in the lockers": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2267,7 +3705,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "resolvedImageAssetKey": "dinosaur",
+  "imageAlt": "Illustration for The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five pounds, one bag, no swaps."
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v5",
@@ -2295,16 +3739,16 @@ export const questions = [
   "passage": "The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring.",
   "cell": "before_after_relation",
   "choices": [
-   "after the last frost, in April",
+   "once the winter frosts had ended",
    "before the seeds were potted",
    "after the lettuce was cut",
    "during the slug battle"
   ],
   "answerOptions": [
    {
-    "value": "after the last frost, in April",
-    "label": "after the last frost, in April",
-    "text": "after the last frost, in April"
+    "value": "once the winter frosts had ended",
+    "label": "once the winter frosts had ended",
+    "text": "once the winter frosts had ended"
    },
    {
     "value": "before the seeds were potted",
@@ -2322,22 +3766,23 @@ export const questions = [
     "text": "during the slug battle"
    }
   ],
-  "answer": "after the last frost, in April",
-  "correctAnswer": "after the last frost, in April",
+  "answer": "once the winter frosts had ended",
+  "correctAnswer": "once the winter frosts had ended",
   "distractorRationales": {
-   "before the seeds were potted": "D-SEQUENCE-SWAP",
    "after the lettuce was cut": "D-SEQUENCE-SWAP",
-   "during the slug battle": "D-SEQUENCE-SWAP"
+   "during the slug battle": "D-SEQUENCE-SWAP",
+   "before the seeds were potted": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2348,7 +3793,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/spring.webp",
+  "imageUrl": "/images/assessment/blends/spring.webp",
+  "targetImage": "/images/assessment/blends/spring.webp",
+  "targetImagePath": "/images/assessment/blends/spring.webp",
+  "resolvedImageAssetKey": "spring",
+  "imageAlt": "Illustration for The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring."
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v6",
@@ -2376,16 +3827,21 @@ export const questions = [
   "passage": "Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time.",
   "cell": "before_after_relation",
   "choices": [
-   "the night before the match",
+   "during the warm-up laps",
+   "on the evening ahead of match day",
    "at noon with the team sheet",
-   "after the whistle blew",
-   "during the warm-up laps"
+   "after the whistle blew"
   ],
   "answerOptions": [
    {
-    "value": "the night before the match",
-    "label": "the night before the match",
-    "text": "the night before the match"
+    "value": "during the warm-up laps",
+    "label": "during the warm-up laps",
+    "text": "during the warm-up laps"
+   },
+   {
+    "value": "on the evening ahead of match day",
+    "label": "on the evening ahead of match day",
+    "text": "on the evening ahead of match day"
    },
    {
     "value": "at noon with the team sheet",
@@ -2396,29 +3852,25 @@ export const questions = [
     "value": "after the whistle blew",
     "label": "after the whistle blew",
     "text": "after the whistle blew"
-   },
-   {
-    "value": "during the warm-up laps",
-    "label": "during the warm-up laps",
-    "text": "during the warm-up laps"
    }
   ],
-  "answer": "the night before the match",
-  "correctAnswer": "the night before the match",
+  "answer": "on the evening ahead of match day",
+  "correctAnswer": "on the evening ahead of match day",
   "distractorRationales": {
-   "at noon with the team sheet": "D-SEQUENCE-SWAP",
    "after the whistle blew": "D-SEQUENCE-SWAP",
-   "during the warm-up laps": "D-SEQUENCE-SWAP"
+   "during the warm-up laps": "D-SEQUENCE-SWAP",
+   "at noon with the team sheet": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2429,7 +3881,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
+  "resolvedImageAssetKey": "butterfly",
+  "imageAlt": "Illustration for Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time."
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v7",
@@ -2487,19 +3945,20 @@ export const questions = [
   "answer": "short and close to his feet",
   "correctAnswer": "short and close to his feet",
   "distractorRationales": {
+   "gone completely": "D-PLAUSIBLE-UNSUPPORTED",
    "stretching long to the fence": "D-SEQUENCE-SWAP",
-   "touching the hedge": "D-SEQUENCE-SWAP",
-   "gone completely": "D-PLAUSIBLE-UNSUPPORTED"
+   "touching the hedge": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2510,7 +3969,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/after.webp",
+  "imageUrl": "/images/assessment/hfw/after.webp",
+  "targetImage": "/images/assessment/hfw/after.webp",
+  "targetImagePath": "/images/assessment/hfw/after.webp",
+  "resolvedImageAssetKey": "after",
+  "imageAlt": "Illustration for The shadow experiment lasted from breakfast to tea. At nine, Asha chalked round her friend's shadow — long and thin, stretching to the fence. Just after twelve she drew it again: a squat puddle right at his feet. At three the shadow had crept out the other side, and by five it touched the hedge, longer than ever."
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v8",
@@ -2538,12 +4003,17 @@ export const questions = [
   "passage": "Moving the bookcase needed planning. Every book came off the shelves before anything else — Dad had learned that lesson the hard way. The empty case walked across the room on little waddles. Then the carpet fluff where it had stood got its first hoover in years. Only after that did the books go back, in Robi's brand-new rainbow order.",
   "cell": "before_after_relation",
   "choices": [
+   "new shelves were built",
    "the old spot was hoovered",
    "the books came off the shelves",
-   "the case waddled across the room",
-   "new shelves were built"
+   "the case waddled across the room"
   ],
   "answerOptions": [
+   {
+    "value": "new shelves were built",
+    "label": "new shelves were built",
+    "text": "new shelves were built"
+   },
    {
     "value": "the old spot was hoovered",
     "label": "the old spot was hoovered",
@@ -2558,11 +4028,6 @@ export const questions = [
     "value": "the case waddled across the room",
     "label": "the case waddled across the room",
     "text": "the case waddled across the room"
-   },
-   {
-    "value": "new shelves were built",
-    "label": "new shelves were built",
-    "text": "new shelves were built"
    }
   ],
   "answer": "the old spot was hoovered",
@@ -2572,15 +4037,16 @@ export const questions = [
    "the case waddled across the room": "D-SEQUENCE-SWAP",
    "new shelves were built": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,7 +4057,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "resolvedImageAssetKey": "shelves",
+  "imageAlt": "Illustration for Moving the bookcase needed planning. Every book came off the shelves before anything else — Dad had learned that lesson the hard way. The empty case walked across the room on little waddles. Then the carpet fluff where it had stood got its first hoover in years. Only after that did the books go back, in Robi's brand-new rainbow order."
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v1",
@@ -2619,12 +4091,17 @@ export const questions = [
   "passage": "Noor licked the last of the icing from her fingers. The kitchen still smelled of warm sponge, and two greasy tins soaked in the sink. On the table sat the finished cake, iced and cherried, next to the recipe book still open at page nine.",
   "cell": "implied_order",
   "choices": [
+   "the tins went into the sink",
    "the sponge was baked in the tins",
    "the icing was licked off fingers",
-   "the cherry went on top",
-   "the tins went into the sink"
+   "the cherry went on top"
   ],
   "answerOptions": [
+   {
+    "value": "the tins went into the sink",
+    "label": "the tins went into the sink",
+    "text": "the tins went into the sink"
+   },
    {
     "value": "the sponge was baked in the tins",
     "label": "the sponge was baked in the tins",
@@ -2639,11 +4116,6 @@ export const questions = [
     "value": "the cherry went on top",
     "label": "the cherry went on top",
     "text": "the cherry went on top"
-   },
-   {
-    "value": "the tins went into the sink",
-    "label": "the tins went into the sink",
-    "text": "the tins went into the sink"
    }
   ],
   "answer": "the sponge was baked in the tins",
@@ -2653,15 +4125,16 @@ export const questions = [
    "the cherry went on top": "D-SEQUENCE-SWAP",
    "the tins went into the sink": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2672,7 +4145,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick"
+  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Noor licked the last of the icing from her fingers. The kitchen still smelled of warm sponge, and two greasy tins soaked in the sink. On the table sat the finished cake, iced and cherried, next to the recipe book still open at page nine."
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v2",
@@ -2700,22 +4179,12 @@ export const questions = [
   "passage": "The sledge stood dripping in the hall. Three pairs of soaked gloves lay on the radiator, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided white figure wore Dad's second-best scarf.",
   "cell": "implied_order",
   "choices": [
-   "the wet things were brought in to dry",
-   "the lopsided snowman was built in the garden",
    "the sledging on the hill happened",
-   "snow began to fall"
+   "snow began to fall",
+   "the wet things were brought in to dry",
+   "the lopsided snowman was built in the garden"
   ],
   "answerOptions": [
-   {
-    "value": "the wet things were brought in to dry",
-    "label": "the wet things were brought in to dry",
-    "text": "the wet things were brought in to dry"
-   },
-   {
-    "value": "the lopsided snowman was built in the garden",
-    "label": "the lopsided snowman was built in the garden",
-    "text": "the lopsided snowman was built in the garden"
-   },
    {
     "value": "the sledging on the hill happened",
     "label": "the sledging on the hill happened",
@@ -2725,24 +4194,35 @@ export const questions = [
     "value": "snow began to fall",
     "label": "snow began to fall",
     "text": "snow began to fall"
+   },
+   {
+    "value": "the wet things were brought in to dry",
+    "label": "the wet things were brought in to dry",
+    "text": "the wet things were brought in to dry"
+   },
+   {
+    "value": "the lopsided snowman was built in the garden",
+    "label": "the lopsided snowman was built in the garden",
+    "text": "the lopsided snowman was built in the garden"
    }
   ],
   "answer": "the wet things were brought in to dry",
   "correctAnswer": "the wet things were brought in to dry",
   "distractorRationales": {
+   "snow began to fall": "D-SEQUENCE-SWAP",
    "the lopsided snowman was built in the garden": "D-SEQUENCE-SWAP",
-   "the sledging on the hill happened": "D-SEQUENCE-SWAP",
-   "snow began to fall": "D-SEQUENCE-SWAP"
+   "the sledging on the hill happened": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2753,7 +4233,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "resolvedImageAssetKey": "carrot",
+  "imageAlt": "Illustration for The sledge stood dripping in the hall. Three pairs of soaked gloves lay on the radiator, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided white figure wore Dad's second-best scarf."
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v3",
@@ -2781,22 +4267,12 @@ export const questions = [
   "passage": "By the gate stood a wheelbarrow of weeds, still green. The flower bed's soil lay dark and freshly turned, and a tray of empty little pots had been stacked by the shed. In the bed itself, twelve small marigolds stood in a crisp new row, looking slightly surprised.",
   "cell": "implied_order",
   "choices": [
-   "the weeds were pulled out",
-   "the marigolds were planted",
    "the empty pots were stacked",
-   "the barrow was emptied"
+   "the barrow was emptied",
+   "the weeds were pulled out",
+   "the marigolds were planted"
   ],
   "answerOptions": [
-   {
-    "value": "the weeds were pulled out",
-    "label": "the weeds were pulled out",
-    "text": "the weeds were pulled out"
-   },
-   {
-    "value": "the marigolds were planted",
-    "label": "the marigolds were planted",
-    "text": "the marigolds were planted"
-   },
    {
     "value": "the empty pots were stacked",
     "label": "the empty pots were stacked",
@@ -2806,6 +4282,16 @@ export const questions = [
     "value": "the barrow was emptied",
     "label": "the barrow was emptied",
     "text": "the barrow was emptied"
+   },
+   {
+    "value": "the weeds were pulled out",
+    "label": "the weeds were pulled out",
+    "text": "the weeds were pulled out"
+   },
+   {
+    "value": "the marigolds were planted",
+    "label": "the marigolds were planted",
+    "text": "the marigolds were planted"
    }
   ],
   "answer": "the weeds were pulled out",
@@ -2815,15 +4301,16 @@ export const questions = [
    "the empty pots were stacked": "D-SEQUENCE-SWAP",
    "the barrow was emptied": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2834,7 +4321,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/wheelbarrow.webp",
+  "imageUrl": "/images/assessment/digraphs/wheelbarrow.webp",
+  "targetImage": "/images/assessment/digraphs/wheelbarrow.webp",
+  "targetImagePath": "/images/assessment/digraphs/wheelbarrow.webp",
+  "resolvedImageAssetKey": "wheelbarrow",
+  "imageAlt": "Illustration for By the gate stood a wheelbarrow of weeds, still green. The flower bed's soil lay dark and freshly turned, and a tray of empty little pots had been stacked by the shed. In the bed itself, twelve small marigolds stood in a crisp new row, looking slightly surprised."
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v4",
@@ -2862,22 +4355,12 @@ export const questions = [
   "passage": "Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself.",
   "cell": "implied_order",
   "choices": [
-   "the flip-flop went into the water",
-   "Rio hopped to the bench",
    "the flip-flop was fished out",
-   "the pool was closed"
+   "the pool was closed",
+   "the flip-flop went into the water",
+   "Rio hopped to the bench"
   ],
   "answerOptions": [
-   {
-    "value": "the flip-flop went into the water",
-    "label": "the flip-flop went into the water",
-    "text": "the flip-flop went into the water"
-   },
-   {
-    "value": "Rio hopped to the bench",
-    "label": "Rio hopped to the bench",
-    "text": "Rio hopped to the bench"
-   },
    {
     "value": "the flip-flop was fished out",
     "label": "the flip-flop was fished out",
@@ -2887,24 +4370,35 @@ export const questions = [
     "value": "the pool was closed",
     "label": "the pool was closed",
     "text": "the pool was closed"
+   },
+   {
+    "value": "the flip-flop went into the water",
+    "label": "the flip-flop went into the water",
+    "text": "the flip-flop went into the water"
+   },
+   {
+    "value": "Rio hopped to the bench",
+    "label": "Rio hopped to the bench",
+    "text": "Rio hopped to the bench"
    }
   ],
   "answer": "the flip-flop went into the water",
   "correctAnswer": "the flip-flop went into the water",
   "distractorRationales": {
-   "Rio hopped to the bench": "D-PLAUSIBLE-UNSUPPORTED",
    "the flip-flop was fished out": "D-SEQUENCE-SWAP",
-   "the pool was closed": "D-PLAUSIBLE-UNSUPPORTED"
+   "the pool was closed": "D-PLAUSIBLE-UNSUPPORTED",
+   "Rio hopped to the bench": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2915,7 +4409,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/shallow-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/shallow-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/shallow-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/shallow-01.webp",
+  "resolvedImageAssetKey": "shallow",
+  "imageAlt": "Illustration for Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself."
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v5",
@@ -2943,17 +4443,12 @@ export const questions = [
   "passage": "The parcel for Aunt Zainab was ready at last: taped, addressed, and heavy with marmalade jars wrapped in yesterday's crossword pages. Bubble wrap scraps littered the floor, the sellotape had surrendered its final inch, and the address label — third attempt — finally spelled 'Fentiman Road' right.",
   "cell": "implied_order",
   "choices": [
-   "the jars were wrapped in newspaper",
    "the box was taped shut",
    "the third label was written",
-   "the parcel was posted"
+   "the parcel was posted",
+   "the jars were wrapped in newspaper"
   ],
   "answerOptions": [
-   {
-    "value": "the jars were wrapped in newspaper",
-    "label": "the jars were wrapped in newspaper",
-    "text": "the jars were wrapped in newspaper"
-   },
    {
     "value": "the box was taped shut",
     "label": "the box was taped shut",
@@ -2968,24 +4463,30 @@ export const questions = [
     "value": "the parcel was posted",
     "label": "the parcel was posted",
     "text": "the parcel was posted"
+   },
+   {
+    "value": "the jars were wrapped in newspaper",
+    "label": "the jars were wrapped in newspaper",
+    "text": "the jars were wrapped in newspaper"
    }
   ],
   "answer": "the jars were wrapped in newspaper",
   "correctAnswer": "the jars were wrapped in newspaper",
   "distractorRationales": {
-   "the box was taped shut": "D-SEQUENCE-SWAP",
    "the third label was written": "D-SEQUENCE-SWAP",
-   "the parcel was posted": "D-PLAUSIBLE-UNSUPPORTED"
+   "the parcel was posted": "D-PLAUSIBLE-UNSUPPORTED",
+   "the box was taped shut": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2996,7 +4497,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for The parcel for Aunt Zainab was ready at last: taped, addressed, and heavy with marmalade jars wrapped in yesterday's crossword pages. Bubble wrap scraps littered the floor, the sellotape had surrendered its final inch, and the address label — third attempt — finally spelled 'Fentiman Road' right."
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v6",
@@ -3024,17 +4531,12 @@ export const questions = [
   "passage": "Curtain call. Flowers rained onto the stage as the cast bowed in their painted cardboard armour. In the wings, the prompt book sat closed on its stool at last, and backstage a whole term's worth of rehearsal notes filled the bin — three drafts of the script, the audition list, the first clumsy set sketches.",
   "cell": "implied_order",
   "choices": [
-   "the auditions were held",
    "the cast took their bows",
    "flowers landed on the stage",
-   "the prompt book closed"
+   "the prompt book closed",
+   "the auditions were held"
   ],
   "answerOptions": [
-   {
-    "value": "the auditions were held",
-    "label": "the auditions were held",
-    "text": "the auditions were held"
-   },
    {
     "value": "the cast took their bows",
     "label": "the cast took their bows",
@@ -3049,24 +4551,30 @@ export const questions = [
     "value": "the prompt book closed",
     "label": "the prompt book closed",
     "text": "the prompt book closed"
+   },
+   {
+    "value": "the auditions were held",
+    "label": "the auditions were held",
+    "text": "the auditions were held"
    }
   ],
   "answer": "the auditions were held",
   "correctAnswer": "the auditions were held",
   "distractorRationales": {
-   "the cast took their bows": "D-SEQUENCE-SWAP",
    "flowers landed on the stage": "D-SEQUENCE-SWAP",
-   "the prompt book closed": "D-SEQUENCE-SWAP"
+   "the prompt book closed": "D-SEQUENCE-SWAP",
+   "the cast took their bows": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3077,7 +4585,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Curtain call. Flowers rained onto the stage as the cast bowed in their painted cardboard armour. In the wings, the prompt book sat closed on its stool at last, and backstage a whole term's worth of rehearsal notes filled the bin — three drafts of the script, the audition list, the first clumsy set sketches."
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v7",
@@ -3105,17 +4619,12 @@ export const questions = [
   "passage": "The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar.",
   "cell": "implied_order",
   "choices": [
-   "the sand and soil were layered",
    "the worms drew wavy tunnel lines past the glass",
    "the trowel went into the jar",
-   "the wormery was emptied out"
+   "the wormery was emptied out",
+   "the sand and soil were layered"
   ],
   "answerOptions": [
-   {
-    "value": "the sand and soil were layered",
-    "label": "the sand and soil were layered",
-    "text": "the sand and soil were layered"
-   },
    {
     "value": "the worms drew wavy tunnel lines past the glass",
     "label": "the worms drew wavy tunnel lines past the glass",
@@ -3130,24 +4639,30 @@ export const questions = [
     "value": "the wormery was emptied out",
     "label": "the wormery was emptied out",
     "text": "the wormery was emptied out"
+   },
+   {
+    "value": "the sand and soil were layered",
+    "label": "the sand and soil were layered",
+    "text": "the sand and soil were layered"
    }
   ],
   "answer": "the sand and soil were layered",
   "correctAnswer": "the sand and soil were layered",
   "distractorRationales": {
+   "the wormery was emptied out": "D-OPPOSITE",
    "the worms drew wavy tunnel lines past the glass": "D-SEQUENCE-SWAP",
-   "the trowel went into the jar": "D-PLAUSIBLE-UNSUPPORTED",
-   "the wormery was emptied out": "D-OPPOSITE"
+   "the trowel went into the jar": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3158,7 +4673,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar."
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v8",
@@ -3220,15 +4741,16 @@ export const questions = [
    "the half-time oranges": "D-SEQUENCE-SWAP",
    "the winning penalty": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3239,7 +4761,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
+  "resolvedImageAssetKey": "passed",
+  "imageAlt": "Illustration for Half-time. The score sat at two-one, and Coach passed the orange quarters down the line of muddy knees. Nobody mentioned the first goal any more — the lucky bounce off the post — and everybody mentioned the second, Ffion's header, over and over, louder each telling."
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v1",
@@ -3297,19 +4825,20 @@ export const questions = [
   "answer": "the letter is sorted by postcode",
   "correctAnswer": "the letter is sorted by postcode",
   "distractorRationales": {
-   "the letter is posted in the box": "D-SEQUENCE-SWAP",
    "the postie brings it to the door": "D-SEQUENCE-SWAP",
-   "the letter is written": "D-SEQUENCE-SWAP"
+   "the letter is written": "D-SEQUENCE-SWAP",
+   "the letter is posted in the box": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3320,7 +4849,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/letter.webp",
+  "imageUrl": "/images/assessment/generated/concepts/letter.webp",
+  "targetImage": "/images/assessment/generated/concepts/letter.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
+  "resolvedImageAssetKey": "letter",
+  "imageAlt": "Illustration for A letter's journey has stages. It is posted into the box on the corner. A postal worker empties the box into a big sack. At the sorting office, machines read the postcode and fling it into the right tray. A van carries the tray across the country, and a walking postie brings the letter the last few steps to the right door."
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v2",
@@ -3348,12 +4883,17 @@ export const questions = [
   "passage": "From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting wakes up their flavour. Then grinding turns them into a thick brown paste, and only after sugar and milk join in does the paste set into the bars on the shop shelf.",
   "cell": "process_order",
   "choices": [
+   "the bars reach the shops",
    "they dry in the sun",
    "they are ground to paste",
-   "sugar and milk join in",
-   "the bars reach the shops"
+   "sugar and milk join in"
   ],
   "answerOptions": [
+   {
+    "value": "the bars reach the shops",
+    "label": "the bars reach the shops",
+    "text": "the bars reach the shops"
+   },
    {
     "value": "they dry in the sun",
     "label": "they dry in the sun",
@@ -3368,11 +4908,6 @@ export const questions = [
     "value": "sugar and milk join in",
     "label": "sugar and milk join in",
     "text": "sugar and milk join in"
-   },
-   {
-    "value": "the bars reach the shops",
-    "label": "the bars reach the shops",
-    "text": "the bars reach the shops"
    }
   ],
   "answer": "they dry in the sun",
@@ -3382,15 +4917,16 @@ export const questions = [
    "sugar and milk join in": "D-SEQUENCE-SWAP",
    "the bars reach the shops": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3401,7 +4937,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting wakes up their flavour. Then grinding turns them into a thick brown paste, and only after sugar and milk join in does the paste set into the bars on the shop shelf."
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v3",
@@ -3459,19 +5001,20 @@ export const questions = [
   "answer": "the furnace melts the crumbs",
   "correctAnswer": "the furnace melts the crumbs",
   "distractorRationales": {
-   "bottles are collected from kerbsides": "D-SEQUENCE-SWAP",
    "new bottles are blown": "D-SEQUENCE-SWAP",
-   "the bottles are sorted by colour": "D-SEQUENCE-SWAP"
+   "the bottles are sorted by colour": "D-SEQUENCE-SWAP",
+   "bottles are collected from kerbsides": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3482,7 +5025,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/travel-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/travel-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/travel-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/travel-01.webp",
+  "resolvedImageAssetKey": "travel",
+  "imageAlt": "Illustration for Recycled glass goes round in a loop. Bottles from the kerbside boxes travel to the plant. There they are sorted by colour and smashed into sparkling crumbs. A furnace melts the crumbs into glowing liquid. The liquid is blown or pressed into brand-new bottles — which, with luck, come back in the kerbside boxes to start again."
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v4",
@@ -3510,12 +5059,17 @@ export const questions = [
   "passage": "A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere.",
   "cell": "process_order",
   "choices": [
+   "the dentist is telephoned",
    "a coin appears by morning",
    "the tooth starts to wobble",
-   "the tooth comes out",
-   "the dentist is telephoned"
+   "the tooth comes out"
   ],
   "answerOptions": [
+   {
+    "value": "the dentist is telephoned",
+    "label": "the dentist is telephoned",
+    "text": "the dentist is telephoned"
+   },
    {
     "value": "a coin appears by morning",
     "label": "a coin appears by morning",
@@ -3530,11 +5084,6 @@ export const questions = [
     "value": "the tooth comes out",
     "label": "the tooth comes out",
     "text": "the tooth comes out"
-   },
-   {
-    "value": "the dentist is telephoned",
-    "label": "the dentist is telephoned",
-    "text": "the dentist is telephoned"
    }
   ],
   "answer": "a coin appears by morning",
@@ -3544,15 +5093,16 @@ export const questions = [
    "the tooth comes out": "D-SEQUENCE-SWAP",
    "the dentist is telephoned": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +5113,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere."
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v5",
@@ -3591,22 +5147,12 @@ export const questions = [
   "passage": "Honey is a relay race. Bees drink nectar from flowers and carry it home. House bees pass it mouth to mouth, thickening it as it goes. The thickened nectar is packed into wax cells. Bees fan it with their wings until enough water has gone. Only then is the cell capped with wax, honey sealed inside like a tiny jar.",
   "cell": "process_order",
   "choices": [
-   "fan the nectar with their wings",
-   "drink nectar from flowers",
    "pass it mouth to mouth",
-   "break the wax open"
+   "break the wax open",
+   "fan the nectar with their wings",
+   "drink nectar from flowers"
   ],
   "answerOptions": [
-   {
-    "value": "fan the nectar with their wings",
-    "label": "fan the nectar with their wings",
-    "text": "fan the nectar with their wings"
-   },
-   {
-    "value": "drink nectar from flowers",
-    "label": "drink nectar from flowers",
-    "text": "drink nectar from flowers"
-   },
    {
     "value": "pass it mouth to mouth",
     "label": "pass it mouth to mouth",
@@ -3616,6 +5162,16 @@ export const questions = [
     "value": "break the wax open",
     "label": "break the wax open",
     "text": "break the wax open"
+   },
+   {
+    "value": "fan the nectar with their wings",
+    "label": "fan the nectar with their wings",
+    "text": "fan the nectar with their wings"
+   },
+   {
+    "value": "drink nectar from flowers",
+    "label": "drink nectar from flowers",
+    "text": "drink nectar from flowers"
    }
   ],
   "answer": "fan the nectar with their wings",
@@ -3625,15 +5181,16 @@ export const questions = [
    "pass it mouth to mouth": "D-SEQUENCE-SWAP",
    "break the wax open": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3644,7 +5201,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Honey is a relay race. Bees drink nectar from flowers and carry it home. House bees pass it mouth to mouth, thickening it as it goes. The thickened nectar is packed into wax cells. Bees fan it with their wings until enough water has gone. Only then is the cell capped with wax, honey sealed inside like a tiny jar."
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v6",
@@ -3672,12 +5235,17 @@ export const questions = [
   "passage": "The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going.",
   "cell": "process_order",
   "choices": [
+   "they ask where they are going",
    "they put on their kit",
    "the pagers beep",
-   "the boat goes down the slipway",
-   "they ask where they are going"
+   "the boat goes down the slipway"
   ],
   "answerOptions": [
+   {
+    "value": "they ask where they are going",
+    "label": "they ask where they are going",
+    "text": "they ask where they are going"
+   },
    {
     "value": "they put on their kit",
     "label": "they put on their kit",
@@ -3692,11 +5260,6 @@ export const questions = [
     "value": "the boat goes down the slipway",
     "label": "the boat goes down the slipway",
     "text": "the boat goes down the slipway"
-   },
-   {
-    "value": "they ask where they are going",
-    "label": "they ask where they are going",
-    "text": "they ask where they are going"
    }
   ],
   "answer": "they put on their kit",
@@ -3706,15 +5269,16 @@ export const questions = [
    "the boat goes down the slipway": "D-SEQUENCE-SWAP",
    "they ask where they are going": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3725,7 +5289,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "resolvedImageAssetKey": "right",
+  "imageAlt": "Illustration for The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going."
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v7",
@@ -3753,22 +5323,12 @@ export const questions = [
   "passage": "A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again.",
   "cell": "process_order",
   "choices": [
-   "it is checked and mended if needed",
-   "it is borrowed at the desk",
    "it lives beside someone's bed",
-   "it is reshelved immediately unchecked"
+   "it is reshelved immediately unchecked",
+   "it is checked and mended if needed",
+   "it is borrowed at the desk"
   ],
   "answerOptions": [
-   {
-    "value": "it is checked and mended if needed",
-    "label": "it is checked and mended if needed",
-    "text": "it is checked and mended if needed"
-   },
-   {
-    "value": "it is borrowed at the desk",
-    "label": "it is borrowed at the desk",
-    "text": "it is borrowed at the desk"
-   },
    {
     "value": "it lives beside someone's bed",
     "label": "it lives beside someone's bed",
@@ -3778,6 +5338,16 @@ export const questions = [
     "value": "it is reshelved immediately unchecked",
     "label": "it is reshelved immediately unchecked",
     "text": "it is reshelved immediately unchecked"
+   },
+   {
+    "value": "it is checked and mended if needed",
+    "label": "it is checked and mended if needed",
+    "text": "it is checked and mended if needed"
+   },
+   {
+    "value": "it is borrowed at the desk",
+    "label": "it is borrowed at the desk",
+    "text": "it is borrowed at the desk"
    }
   ],
   "answer": "it is checked and mended if needed",
@@ -3787,15 +5357,16 @@ export const questions = [
    "it lives beside someone's bed": "D-SEQUENCE-SWAP",
    "it is reshelved immediately unchecked": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3806,7 +5377,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "resolvedImageAssetKey": "careful",
+  "imageAlt": "Illustration for A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again."
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v8",
@@ -3834,17 +5411,12 @@ export const questions = [
   "passage": "School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make.",
   "cell": "process_order",
   "choices": [
-   "the watering rota keeps them growing all term",
    "the seeds are sown in trays",
    "the soup is eaten",
-   "the trays are washed"
+   "the trays are washed",
+   "a whole term of watering"
   ],
   "answerOptions": [
-   {
-    "value": "the watering rota keeps them growing all term",
-    "label": "the watering rota keeps them growing all term",
-    "text": "the watering rota keeps them growing all term"
-   },
    {
     "value": "the seeds are sown in trays",
     "label": "the seeds are sown in trays",
@@ -3859,24 +5431,30 @@ export const questions = [
     "value": "the trays are washed",
     "label": "the trays are washed",
     "text": "the trays are washed"
+   },
+   {
+    "value": "a whole term of watering",
+    "label": "a whole term of watering",
+    "text": "a whole term of watering"
    }
   ],
-  "answer": "the watering rota keeps them growing all term",
-  "correctAnswer": "the watering rota keeps them growing all term",
+  "answer": "a whole term of watering",
+  "correctAnswer": "a whole term of watering",
   "distractorRationales": {
-   "the seeds are sown in trays": "D-SEQUENCE-SWAP",
    "the soup is eaten": "D-SEQUENCE-SWAP",
-   "the trays are washed": "D-PLAUSIBLE-UNSUPPORTED"
+   "the trays are washed": "D-PLAUSIBLE-UNSUPPORTED",
+   "the seeds are sown in trays": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3887,655 +5465,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.first_event.v9r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "first_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Milo do FIRST?",
-  "question": "What did Milo do FIRST?",
-  "spokenPrompt": "What did Milo do FIRST?",
-  "passage": "Milo set the breakfast table his way. First he laid out three bowls in a row. Then he stood the cereal boxes up like castle towers. Last he put a spoon beside each bowl, handles all pointing the same way.",
-  "cell": "first_event",
-  "choices": [
-   "laid out the three bowls",
-   "stood up the cereal boxes",
-   "placed the spoons",
-   "poured the milk"
-  ],
-  "answerOptions": [
-   {
-    "value": "laid out the three bowls",
-    "label": "laid out the three bowls",
-    "text": "laid out the three bowls"
-   },
-   {
-    "value": "stood up the cereal boxes",
-    "label": "stood up the cereal boxes",
-    "text": "stood up the cereal boxes"
-   },
-   {
-    "value": "placed the spoons",
-    "label": "placed the spoons",
-    "text": "placed the spoons"
-   },
-   {
-    "value": "poured the milk",
-    "label": "poured the milk",
-    "text": "poured the milk"
-   }
-  ],
-  "answer": "laid out the three bowls",
-  "correctAnswer": "laid out the three bowls",
-  "distractorRationales": {
-   "stood up the cereal boxes": "D-SEQUENCE-SWAP",
-   "placed the spoons": "D-SEQUENCE-SWAP",
-   "poured the milk": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.middle_event.v10r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "middle_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "Wash day for teddy had three steps. First teddy took a gentle bath in the sink. Second he was squeezed softly in a towel. Last he rode the washing line by his ears until the sun had dried him.",
-  "cell": "middle_event",
-  "choices": [
-   "teddy was squeezed in a towel",
-   "teddy had his bath",
-   "teddy rode the washing line",
-   "teddy was lost at the park"
-  ],
-  "answerOptions": [
-   {
-    "value": "teddy was squeezed in a towel",
-    "label": "teddy was squeezed in a towel",
-    "text": "teddy was squeezed in a towel"
-   },
-   {
-    "value": "teddy had his bath",
-    "label": "teddy had his bath",
-    "text": "teddy had his bath"
-   },
-   {
-    "value": "teddy rode the washing line",
-    "label": "teddy rode the washing line",
-    "text": "teddy rode the washing line"
-   },
-   {
-    "value": "teddy was lost at the park",
-    "label": "teddy was lost at the park",
-    "text": "teddy was lost at the park"
-   }
-  ],
-  "answer": "teddy was squeezed in a towel",
-  "correctAnswer": "teddy was squeezed in a towel",
-  "distractorRationales": {
-   "teddy had his bath": "D-SEQUENCE-SWAP",
-   "teddy rode the washing line": "D-SEQUENCE-SWAP",
-   "teddy was lost at the park": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.last_event.v11r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "last_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did Amy do LAST?",
-  "question": "What did Amy do LAST?",
-  "spokenPrompt": "What did Amy do LAST?",
-  "passage": "The lost tooth chart worked in order. First Amy wiggled the tooth and marked a W on the chart. Then, when it came out, she drew a star on that day's square. Last of all she coloured the whole row gold, because the chart was finally finished.",
-  "cell": "last_event",
-  "choices": [
-   "coloured the row gold",
-   "marked a W on the chart",
-   "drew a star on the square",
-   "started a new chart"
-  ],
-  "answerOptions": [
-   {
-    "value": "coloured the row gold",
-    "label": "coloured the row gold",
-    "text": "coloured the row gold"
-   },
-   {
-    "value": "marked a W on the chart",
-    "label": "marked a W on the chart",
-    "text": "marked a W on the chart"
-   },
-   {
-    "value": "drew a star on the square",
-    "label": "drew a star on the square",
-    "text": "drew a star on the square"
-   },
-   {
-    "value": "started a new chart",
-    "label": "started a new chart",
-    "text": "started a new chart"
-   }
-  ],
-  "answer": "coloured the row gold",
-  "correctAnswer": "coloured the row gold",
-  "distractorRationales": {
-   "marked a W on the chart": "D-SEQUENCE-SWAP",
-   "drew a star on the square": "D-SEQUENCE-SWAP",
-   "started a new chart": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.first_event.v10r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "first_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What came FIRST in the rules?",
-  "question": "What came FIRST in the rules?",
-  "spokenPrompt": "What came FIRST in the rules?",
-  "passage": "Puddle-jumping had rules of its own. First, boots on — no exceptions, not even for socks with frogs on. Then the garden inspection, walking the path to find the deepest, brownest puddle. Only then came the jumping, biggest splash wins, judged by the dog.",
-  "cell": "first_event",
-  "choices": [
-   "putting boots on",
-   "inspecting the puddles",
-   "the jumping contest",
-   "drying the dog"
-  ],
-  "answerOptions": [
-   {
-    "value": "putting boots on",
-    "label": "putting boots on",
-    "text": "putting boots on"
-   },
-   {
-    "value": "inspecting the puddles",
-    "label": "inspecting the puddles",
-    "text": "inspecting the puddles"
-   },
-   {
-    "value": "the jumping contest",
-    "label": "the jumping contest",
-    "text": "the jumping contest"
-   },
-   {
-    "value": "drying the dog",
-    "label": "drying the dog",
-    "text": "drying the dog"
-   }
-  ],
-  "answer": "putting boots on",
-  "correctAnswer": "putting boots on",
-  "distractorRationales": {
-   "inspecting the puddles": "D-SEQUENCE-SWAP",
-   "the jumping contest": "D-SEQUENCE-SWAP",
-   "drying the dog": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.middle_event.v11r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "middle_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened in the SECOND rehearsal?",
-  "question": "What happened in the SECOND rehearsal?",
-  "spokenPrompt": "What happened in the SECOND rehearsal?",
-  "passage": "The class assembly took shape in three rehearsals. In the first, everyone just learned where to stand. In the second, the speaking parts joined in, script pages rustling. In the third and last, costumes came out, and suddenly the hall felt like a real show.",
-  "cell": "middle_event",
-  "choices": [
-   "the speaking parts were practised",
-   "everyone learned where to stand",
-   "the costumes came out",
-   "the audience arrived"
-  ],
-  "answerOptions": [
-   {
-    "value": "the speaking parts were practised",
-    "label": "the speaking parts were practised",
-    "text": "the speaking parts were practised"
-   },
-   {
-    "value": "everyone learned where to stand",
-    "label": "everyone learned where to stand",
-    "text": "everyone learned where to stand"
-   },
-   {
-    "value": "the costumes came out",
-    "label": "the costumes came out",
-    "text": "the costumes came out"
-   },
-   {
-    "value": "the audience arrived",
-    "label": "the audience arrived",
-    "text": "the audience arrived"
-   }
-  ],
-  "answer": "the speaking parts were practised",
-  "correctAnswer": "the speaking parts were practised",
-  "distractorRationales": {
-   "everyone learned where to stand": "D-SEQUENCE-SWAP",
-   "the costumes came out": "D-SEQUENCE-SWAP",
-   "the audience arrived": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.last_event.v12r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 2,
-  "assessmentPhase": 2,
-  "phaseTarget": "level_1_phase_2",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "last_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened LAST?",
-  "question": "What happened LAST?",
-  "spokenPrompt": "What happened LAST?",
-  "passage": "Feeding the ducks properly went like this. First the oats were shared into four little cups, one each. Then the slow walk to the pond, cups held like treasure. At the end, the oats were scattered wide across the water, so even the shy duck at the back got breakfast.",
-  "cell": "last_event",
-  "choices": [
-   "the oats were scattered on the water",
-   "the oats were shared into cups",
-   "the walk to the pond",
-   "bread was thrown instead"
-  ],
-  "answerOptions": [
-   {
-    "value": "the oats were scattered on the water",
-    "label": "the oats were scattered on the water",
-    "text": "the oats were scattered on the water"
-   },
-   {
-    "value": "the oats were shared into cups",
-    "label": "the oats were shared into cups",
-    "text": "the oats were shared into cups"
-   },
-   {
-    "value": "the walk to the pond",
-    "label": "the walk to the pond",
-    "text": "the walk to the pond"
-   },
-   {
-    "value": "bread was thrown instead",
-    "label": "bread was thrown instead",
-    "text": "bread was thrown instead"
-   }
-  ],
-  "answer": "the oats were scattered on the water",
-  "correctAnswer": "the oats were scattered on the water",
-  "distractorRationales": {
-   "the oats were shared into cups": "D-SEQUENCE-SWAP",
-   "the walk to the pond": "D-SEQUENCE-SWAP",
-   "bread was thrown instead": "D-OPPOSITE"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.first_event.v12r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "first_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What did they do FIRST?",
-  "question": "What did they do FIRST?",
-  "spokenPrompt": "What did they do FIRST?",
-  "passage": "Painting the fence took all Saturday. First Dad and Nia brushed off the old flaky bits. Then they stirred the big tin until the paint was smooth. Last they painted plank by plank, racing the afternoon rain.",
-  "cell": "first_event",
-  "choices": [
-   "brushed off the flaky bits",
-   "stirred the paint smooth",
-   "painted plank by plank",
-   "built a new fence"
-  ],
-  "answerOptions": [
-   {
-    "value": "brushed off the flaky bits",
-    "label": "brushed off the flaky bits",
-    "text": "brushed off the flaky bits"
-   },
-   {
-    "value": "stirred the paint smooth",
-    "label": "stirred the paint smooth",
-    "text": "stirred the paint smooth"
-   },
-   {
-    "value": "painted plank by plank",
-    "label": "painted plank by plank",
-    "text": "painted plank by plank"
-   },
-   {
-    "value": "built a new fence",
-    "label": "built a new fence",
-    "text": "built a new fence"
-   }
-  ],
-  "answer": "brushed off the flaky bits",
-  "correctAnswer": "brushed off the flaky bits",
-  "distractorRationales": {
-   "stirred the paint smooth": "D-SEQUENCE-SWAP",
-   "painted plank by plank": "D-SEQUENCE-SWAP",
-   "built a new fence": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.sequencing.l1.R.middle_event.v12r",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "sequencing",
-  "assessmentSkillId": "sequencing",
-  "skillName": "Sequencing",
-  "skill": "Sequencing",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "R",
-  "itemType": "sequencing_cell",
-  "itemKey": "middle_event",
-  "formatType": "COMPREHENSION",
-  "templateType": "COMPREHENSION",
-  "questionType": "multiple_choice",
-  "prompt": "What happened SECOND?",
-  "question": "What happened SECOND?",
-  "spokenPrompt": "What happened SECOND?",
-  "passage": "Story time at the den had an order. First the cushions were piled into a nest. Second the torch was clipped to the tent pole, wobbling its circle of light. Last Uncle Remy read in his creaky pirate voice until somebody (usually Uncle Remy) fell asleep.",
-  "cell": "middle_event",
-  "choices": [
-   "the torch was clipped to the pole",
-   "the cushions were piled up",
-   "the pirate voice reading",
-   "breakfast was cooked"
-  ],
-  "answerOptions": [
-   {
-    "value": "the torch was clipped to the pole",
-    "label": "the torch was clipped to the pole",
-    "text": "the torch was clipped to the pole"
-   },
-   {
-    "value": "the cushions were piled up",
-    "label": "the cushions were piled up",
-    "text": "the cushions were piled up"
-   },
-   {
-    "value": "the pirate voice reading",
-    "label": "the pirate voice reading",
-    "text": "the pirate voice reading"
-   },
-   {
-    "value": "breakfast was cooked",
-    "label": "breakfast was cooked",
-    "text": "breakfast was cooked"
-   }
-  ],
-  "answer": "the torch was clipped to the pole",
-  "correctAnswer": "the torch was clipped to the pole",
-  "distractorRationales": {
-   "the cushions were piled up": "D-SEQUENCE-SWAP",
-   "the pirate voice reading": "D-SEQUENCE-SWAP",
-   "breakfast was cooked": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make."
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v9r",
@@ -4563,17 +5499,12 @@ export const questions = [
   "passage": "The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves.",
   "cell": "before_after_relation",
   "choices": [
-   "the atlas plank bridged the gap",
    "the two towers were started",
    "the books went back on shelves",
-   "a second marble was found"
+   "a second marble was found",
+   "the atlas plank bridged the gap"
   ],
   "answerOptions": [
-   {
-    "value": "the atlas plank bridged the gap",
-    "label": "the atlas plank bridged the gap",
-    "text": "the atlas plank bridged the gap"
-   },
    {
     "value": "the two towers were started",
     "label": "the two towers were started",
@@ -4588,6 +5519,11 @@ export const questions = [
     "value": "a second marble was found",
     "label": "a second marble was found",
     "text": "a second marble was found"
+   },
+   {
+    "value": "the atlas plank bridged the gap",
+    "label": "the atlas plank bridged the gap",
+    "text": "the atlas plank bridged the gap"
    }
   ],
   "answer": "the atlas plank bridged the gap",
@@ -4597,15 +5533,16 @@ export const questions = [
    "the books went back on shelves": "D-SEQUENCE-SWAP",
    "a second marble was found": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4616,7 +5553,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "resolvedImageAssetKey": "careful",
+  "imageAlt": "Illustration for The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves."
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v10r",
@@ -4644,16 +5587,16 @@ export const questions = [
   "passage": "Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky.",
   "cell": "before_after_relation",
   "choices": [
-   "first, while it was still light",
+   "at the start, before sunset",
    "after the bonfire was lit",
    "during the rockets",
    "at six with the sparklers"
   ],
   "answerOptions": [
    {
-    "value": "first, while it was still light",
-    "label": "first, while it was still light",
-    "text": "first, while it was still light"
+    "value": "at the start, before sunset",
+    "label": "at the start, before sunset",
+    "text": "at the start, before sunset"
    },
    {
     "value": "after the bonfire was lit",
@@ -4671,22 +5614,23 @@ export const questions = [
     "text": "at six with the sparklers"
    }
   ],
-  "answer": "first, while it was still light",
-  "correctAnswer": "first, while it was still light",
+  "answer": "at the start, before sunset",
+  "correctAnswer": "at the start, before sunset",
   "distractorRationales": {
    "after the bonfire was lit": "D-SEQUENCE-SWAP",
    "during the rockets": "D-SEQUENCE-SWAP",
    "at six with the sparklers": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4697,7 +5641,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky."
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v10r",
@@ -4725,49 +5675,50 @@ export const questions = [
   "passage": "The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees.",
   "cell": "implied_order",
   "choices": [
-   "wet sand was packed into the buckets",
-   "the feather flag went up",
-   "the shells were arranged",
-   "the tide washed it away"
+   "the tide later washed the castle away",
+   "the buckets were filled and turned over",
+   "the feather flag was placed on the top tower",
+   "the shells were arranged around the castle"
   ],
   "answerOptions": [
    {
-    "value": "wet sand was packed into the buckets",
-    "label": "wet sand was packed into the buckets",
-    "text": "wet sand was packed into the buckets"
+    "value": "the tide later washed the castle away",
+    "label": "the tide later washed the castle away",
+    "text": "the tide later washed the castle away"
    },
    {
-    "value": "the feather flag went up",
-    "label": "the feather flag went up",
-    "text": "the feather flag went up"
+    "value": "the buckets were filled and turned over",
+    "label": "the buckets were filled and turned over",
+    "text": "the buckets were filled and turned over"
    },
    {
-    "value": "the shells were arranged",
-    "label": "the shells were arranged",
-    "text": "the shells were arranged"
+    "value": "the feather flag was placed on the top tower",
+    "label": "the feather flag was placed on the top tower",
+    "text": "the feather flag was placed on the top tower"
    },
    {
-    "value": "the tide washed it away",
-    "label": "the tide washed it away",
-    "text": "the tide washed it away"
+    "value": "the shells were arranged around the castle",
+    "label": "the shells were arranged around the castle",
+    "text": "the shells were arranged around the castle"
    }
   ],
-  "answer": "wet sand was packed into the buckets",
-  "correctAnswer": "wet sand was packed into the buckets",
+  "answer": "the buckets were filled and turned over",
+  "correctAnswer": "the buckets were filled and turned over",
   "distractorRationales": {
-   "the feather flag went up": "D-SEQUENCE-SWAP",
-   "the shells were arranged": "D-SEQUENCE-SWAP",
-   "the tide washed it away": "D-PLAUSIBLE-UNSUPPORTED"
+   "the feather flag was placed on the top tower": "D-SEQUENCE-SWAP",
+   "the shells were arranged around the castle": "D-SEQUENCE-SWAP",
+   "the tide later washed the castle away": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,7 +5729,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
+  "resolvedImageAssetKey": "sandcastle",
+  "imageAlt": "Illustration for The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees."
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v11r",
@@ -4806,22 +5763,12 @@ export const questions = [
   "passage": "The concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and in the kitchen, the tea urn — hero of the interval — steamed gently through its final cups.",
   "cell": "implied_order",
   "choices": [
-   "the chairs were borrowed from next door",
-   "the thank-you card was signed",
    "the chairs went back two at a time",
-   "the flowers wilted"
+   "the flowers wilted",
+   "the neighbours lent their chairs",
+   "the thank-you card was signed"
   ],
   "answerOptions": [
-   {
-    "value": "the chairs were borrowed from next door",
-    "label": "the chairs were borrowed from next door",
-    "text": "the chairs were borrowed from next door"
-   },
-   {
-    "value": "the thank-you card was signed",
-    "label": "the thank-you card was signed",
-    "text": "the thank-you card was signed"
-   },
    {
     "value": "the chairs went back two at a time",
     "label": "the chairs went back two at a time",
@@ -4831,24 +5778,35 @@ export const questions = [
     "value": "the flowers wilted",
     "label": "the flowers wilted",
     "text": "the flowers wilted"
+   },
+   {
+    "value": "the neighbours lent their chairs",
+    "label": "the neighbours lent their chairs",
+    "text": "the neighbours lent their chairs"
+   },
+   {
+    "value": "the thank-you card was signed",
+    "label": "the thank-you card was signed",
+    "text": "the thank-you card was signed"
    }
   ],
-  "answer": "the chairs were borrowed from next door",
-  "correctAnswer": "the chairs were borrowed from next door",
+  "answer": "the neighbours lent their chairs",
+  "correctAnswer": "the neighbours lent their chairs",
   "distractorRationales": {
    "the thank-you card was signed": "D-SEQUENCE-SWAP",
    "the chairs went back two at a time": "D-SEQUENCE-SWAP",
    "the flowers wilted": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-implied_order-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4859,7 +5817,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and in the kitchen, the tea urn — hero of the interval — steamed gently through its final cups."
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v9r",
@@ -4887,17 +5851,12 @@ export const questions = [
   "passage": "Wool has a long journey to a jumper. The sheep is sheared in early summer — a quick, tickly haircut. The fleece is washed until the water runs clear. Carding combs untangle every fibre the same way. The spinning wheel twists the fibres into one long thread, and the knitting needles do the rest, loop by loop.",
   "cell": "process_order",
   "choices": [
-   "carding combs untangle the fibres",
    "the sheep is sheared in early summer",
    "the thread is knitted",
-   "the jumper is worn"
+   "the jumper is worn",
+   "carding combs untangle the fibres"
   ],
   "answerOptions": [
-   {
-    "value": "carding combs untangle the fibres",
-    "label": "carding combs untangle the fibres",
-    "text": "carding combs untangle the fibres"
-   },
    {
     "value": "the sheep is sheared in early summer",
     "label": "the sheep is sheared in early summer",
@@ -4912,6 +5871,11 @@ export const questions = [
     "value": "the jumper is worn",
     "label": "the jumper is worn",
     "text": "the jumper is worn"
+   },
+   {
+    "value": "carding combs untangle the fibres",
+    "label": "carding combs untangle the fibres",
+    "text": "carding combs untangle the fibres"
    }
   ],
   "answer": "carding combs untangle the fibres",
@@ -4921,15 +5885,16 @@ export const questions = [
    "the thread is knitted": "D-SEQUENCE-SWAP",
    "the jumper is worn": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4940,7 +5905,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/thread.webp",
+  "imageUrl": "/images/assessment/digraphs/thread.webp",
+  "targetImage": "/images/assessment/digraphs/thread.webp",
+  "targetImagePath": "/images/assessment/digraphs/thread.webp",
+  "resolvedImageAssetKey": "thread",
+  "imageAlt": "Illustration for Wool has a long journey to a jumper. The sheep is sheared in early summer — a quick, tickly haircut. The fleece is washed until the water runs clear. Carding combs untangle every fibre the same way. The spinning wheel twists the fibres into one long thread, and the knitting needles do the rest, loop by loop."
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v10r",
@@ -4998,19 +5969,20 @@ export const questions = [
   "answer": "feeding by themselves in the quiet room",
   "correctAnswer": "feeding by themselves in the quiet room",
   "distractorRationales": {
+   "hibernating all winter": "D-PLAUSIBLE-UNSUPPORTED",
    "being weighed on arrival": "D-SEQUENCE-SWAP",
-   "release at the hedge": "D-SEQUENCE-SWAP",
-   "hibernating all winter": "D-PLAUSIBLE-UNSUPPORTED"
+   "release at the hedge": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +5993,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
+  "resolvedImageAssetKey": "hedgehog",
+  "imageAlt": "Illustration for A rescued hedgehog moves through the wildlife centre in stages. New arrivals are weighed and checked the moment they come in. Poorly ones stay warm in the quiet room until they feed by themselves. Then comes the outdoor pen, to practise being wild again. Release night is last — back to the exact hedge where each one was found."
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v11r",
@@ -5049,12 +6027,17 @@ export const questions = [
   "passage": "The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognised it from the bus window. And on Friday, glove and girl went home together at last.",
   "cell": "before_after_relation",
   "choices": [
+   "it was posted to the school",
    "it got a dusting of frost",
    "it fell at the bus stop",
-   "Priya took it home",
-   "it was posted to the school"
+   "Priya took it home"
   ],
   "answerOptions": [
+   {
+    "value": "it was posted to the school",
+    "label": "it was posted to the school",
+    "text": "it was posted to the school"
+   },
    {
     "value": "it got a dusting of frost",
     "label": "it got a dusting of frost",
@@ -5069,11 +6052,6 @@ export const questions = [
     "value": "Priya took it home",
     "label": "Priya took it home",
     "text": "Priya took it home"
-   },
-   {
-    "value": "it was posted to the school",
-    "label": "it was posted to the school",
-    "text": "it was posted to the school"
    }
   ],
   "answer": "it got a dusting of frost",
@@ -5083,15 +6061,16 @@ export const questions = [
    "Priya took it home": "D-SEQUENCE-SWAP",
    "it was posted to the school": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5102,7 +6081,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognised it from the bus window. And on Friday, glove and girl went home together at last."
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v11r",
@@ -5130,22 +6115,12 @@ export const questions = [
   "passage": "The pedestrian crossing does its dance in strict order. The button is pressed, and the little light says WAIT. Traffic gets its amber warning, then red. Only then does the green walking man appear, with his beeps. When he starts to blink, finish crossing — and then the cars get their turn again.",
   "cell": "process_order",
   "choices": [
-   "the green man and the beeps arrive",
-   "the button is pressed",
    "the amber warning shows",
-   "the WAIT light switches on"
+   "the WAIT light switches on",
+   "the green man and the beeps arrive",
+   "the button is pressed"
   ],
   "answerOptions": [
-   {
-    "value": "the green man and the beeps arrive",
-    "label": "the green man and the beeps arrive",
-    "text": "the green man and the beeps arrive"
-   },
-   {
-    "value": "the button is pressed",
-    "label": "the button is pressed",
-    "text": "the button is pressed"
-   },
    {
     "value": "the amber warning shows",
     "label": "the amber warning shows",
@@ -5155,24 +6130,35 @@ export const questions = [
     "value": "the WAIT light switches on",
     "label": "the WAIT light switches on",
     "text": "the WAIT light switches on"
+   },
+   {
+    "value": "the green man and the beeps arrive",
+    "label": "the green man and the beeps arrive",
+    "text": "the green man and the beeps arrive"
+   },
+   {
+    "value": "the button is pressed",
+    "label": "the button is pressed",
+    "text": "the button is pressed"
    }
   ],
   "answer": "the green man and the beeps arrive",
   "correctAnswer": "the green man and the beeps arrive",
   "distractorRationales": {
-   "the button is pressed": "D-SEQUENCE-SWAP",
    "the amber warning shows": "D-SEQUENCE-SWAP",
-   "the WAIT light switches on": "D-SEQUENCE-SWAP"
+   "the WAIT light switches on": "D-SEQUENCE-SWAP",
+   "the button is pressed": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sequencing-l2-process_order-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5183,6 +6169,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for The pedestrian crossing does its dance in strict order. The button is pressed, and the little light says WAIT. Traffic gets its amber warning, then red. Only then does the green walking man appear, with his beeps. When he starts to blink, finish crossing — and then the cars get their turn again."
  }
 ];

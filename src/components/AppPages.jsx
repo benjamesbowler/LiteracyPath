@@ -7,8 +7,7 @@ import {
   SHORT_VOWEL_LISTEN_PROMPT
 } from "../utils/assessmentAudioRoles";
 import {
-  getApprovedCardAudioPath,
-  shouldShowUniformCardAudio
+  getApprovedCardAudioPath
 } from "../assessmentContentValidation";
 import {
   getAnswerOptionLabel,
@@ -103,7 +102,12 @@ function getShortVowelLetter(value = "") {
 function getPhonemeAudioPath(value = "", fallbackPath = "") {
   const shortVowel = getShortVowelLetter(value);
   const normalized = shortVowel || String(value || "").trim().toLowerCase();
-  return getPreferredPhonemeAudioPath(normalized) || fallbackPath || "";
+  const preferred = getPreferredPhonemeAudioPath(normalized);
+  if (preferred) return preferred;
+  const safeFallback = String(fallbackPath || "");
+  return /^\/audio\/(?:phonemes\/|production\/en-US\/pattern\/)/.test(safeFallback)
+    ? safeFallback
+    : "";
 }
 
 function normalizeSoundTile(tile) {
@@ -153,7 +157,7 @@ function countPassageSentences(text = "") {
   return (String(text || "").match(/[.!?]+/g) || []).length;
 }
 
-function ComprehensionPassageCard({ text, currentQuestion }) {
+function ComprehensionPassageCard({ text, currentQuestion, speakText }) {
   const [passageExpanded, setPassageExpanded] = useState(true);
   const sentenceCount = countPassageSentences(text);
   const questionDepth = Number(currentQuestion.level || currentQuestion.difficulty || 1);
@@ -165,6 +169,17 @@ function ComprehensionPassageCard({ text, currentQuestion }) {
       <div className="comprehension-passage-header">
         <strong>Passage</strong>
         <div className="comprehension-passage-actions">
+          <AssessmentAudioButton
+            text={text}
+            audioPath={getApprovedAudioPath(
+              text,
+              currentQuestion.passageAudioPath || currentQuestion.audioPath || ""
+            )}
+            speakText={speakText}
+            label="Listen to passage"
+            className="mini-audio-button"
+            showDisabled
+          />
           {isLongPassage && (
             <span className="comprehension-passage-length">
               {sentenceCount} sentences
@@ -192,7 +207,7 @@ function ComprehensionPassageCard({ text, currentQuestion }) {
   );
 }
 
-function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
+function FixSentenceQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
 
   // TODO(fix-sentence-drag): Upgrade this tap-to-order tile builder to true drag-and-drop when touch/mouse reordering is prioritized.
@@ -223,6 +238,17 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
       <div className="broken-sentence">
         <span>Fix:</span>
         <strong>{currentQuestion.brokenSentence}</strong>
+        <AssessmentAudioButton
+          text={currentQuestion.brokenSentence}
+          audioPath={getApprovedAudioPath(
+            currentQuestion.brokenSentence,
+            currentQuestion.sentenceAudioPath || ""
+          )}
+          speakText={speakText}
+          label="Listen to sentence"
+          className="mini-audio-button"
+          showDisabled
+        />
       </div>
 
       <div className="sentence-builder" aria-label="Built sentence">
@@ -244,14 +270,23 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
 
       <div className="sentence-tiles" aria-label="Word tiles">
         {availableTiles.map(item => (
-          <button
-            className="sentence-tile"
-            key={`${item.tile}-${item.index}`}
-            onClick={() => addTile(item)}
-            type="button"
-          >
-            {item.tile}
-          </button>
+          <span className="sentence-tile-with-audio" key={`${item.tile}-${item.index}`}>
+            <AssessmentAudioButton
+              text={item.tile}
+              audioPath={getApprovedAudioPath(item.tile)}
+              speakText={speakText}
+              label={`Hear ${item.tile}`}
+              className="choice-audio"
+              showDisabled
+            />
+            <button
+              className="sentence-tile"
+              onClick={() => addTile(item)}
+              type="button"
+            >
+              {item.tile}
+            </button>
+          </span>
         ))}
       </div>
 
@@ -313,7 +348,7 @@ function PairSelectionQuestion({
   onEvidenceImageError
 }) {
   const [selectedWords, setSelectedWords] = useState([]);
-  const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const showCardAudio = true;
   const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
 
   useEffect(() => {
@@ -377,6 +412,7 @@ function PairSelectionQuestion({
                   speakText={speakText}
                   label={`Hear ${label}`}
                   className="initial-sound-card-audio"
+                  showDisabled
                 />
               )}
             </article>
@@ -404,7 +440,7 @@ function VisualCardChoiceQuestion({
 }) {
   const [selectedValues, setSelectedValues] = useState([]);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
-  const showCardAudio = !isRhymingPictureItem && shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const showCardAudio = true;
   const requiredSelections = Math.max(1, Number(currentQuestion.requiredSelections || currentQuestion.correctAnswers?.length || 1));
   const isMultiSelect = isRhymingPictureItem && requiredSelections > 1;
   const panelClassName = isRhymingPictureItem
@@ -470,6 +506,7 @@ function VisualCardChoiceQuestion({
                   speakText={speakText}
                   label={`Hear ${label}`}
                   className="initial-sound-card-audio"
+                  showDisabled
                 />
               )}
             </article>
@@ -487,6 +524,101 @@ function VisualCardChoiceQuestion({
           Submit {selectedValues.length}/{requiredSelections}
         </button>
       )}
+    </div>
+  );
+}
+
+function PictureSequenceOrderQuestion({
+  currentQuestion,
+  answerQuestion,
+  speakText,
+  onEvidenceImageError
+}) {
+  const sourceCards = currentQuestion.sequenceCards || [];
+  const displayCards = useMemo(() => {
+    if (sourceCards.length < 2) return sourceCards;
+    const offset = Array.from(String(currentQuestion.id || "sequence"))
+      .reduce((sum, char) => sum + char.charCodeAt(0), 0) % sourceCards.length;
+    const rotated = [...sourceCards.slice(offset), ...sourceCards.slice(0, offset)];
+    return offset === 0 ? [...rotated].reverse() : rotated;
+  }, [currentQuestion.id, sourceCards]);
+  const [orderedValues, setOrderedValues] = useState([]);
+
+  useEffect(() => {
+    setOrderedValues([]);
+  }, [currentQuestion.id]);
+
+  function choose(card) {
+    setOrderedValues(previous => (
+      previous.includes(card.value)
+        ? previous.filter(value => value !== card.value)
+        : [...previous, card.value]
+    ));
+  }
+
+  return (
+    <div className="picture-sequence-panel">
+      <ol className="picture-sequence-order" aria-label="Your picture order">
+        {sourceCards.map((_, index) => {
+          const value = orderedValues[index];
+          const card = sourceCards.find(candidate => candidate.value === value);
+          return (
+            <li key={`sequence-slot-${index}`}>
+              <span>{index + 1}</span>
+              <strong>{card?.label || "Choose a picture"}</strong>
+            </li>
+          );
+        })}
+      </ol>
+
+      <div className="visual-card-grid picture-sequence-grid">
+        {displayCards.map(card => {
+          const selectedIndex = orderedValues.indexOf(card.value);
+          return (
+            <article className={selectedIndex >= 0 ? "visual-assessment-card selected" : "visual-assessment-card"} key={card.id || card.value}>
+              <button
+                className="visual-assessment-card-button"
+                onClick={() => choose(card)}
+                aria-label={selectedIndex >= 0 ? `Remove step ${selectedIndex + 1}: ${card.label}` : `Add ${card.label} next`}
+                aria-pressed={selectedIndex >= 0}
+                type="button"
+              >
+                <AssessmentEvidenceImage
+                  src={card.image || card.imagePath}
+                  alt={card.alt}
+                  label={card.label}
+                  role="choice"
+                  currentQuestion={currentQuestion}
+                  onEvidenceImageError={onEvidenceImageError}
+                />
+                <strong>{selectedIndex >= 0 ? `${selectedIndex + 1}. ${card.label}` : card.label}</strong>
+              </button>
+              <AssessmentAudioButton
+                text={card.label}
+                audioPath={getApprovedAudioPath(card.label, card.audioPath || "")}
+                speakText={speakText}
+                label={`Hear ${card.label}`}
+                className="initial-sound-card-audio"
+                showDisabled
+              />
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="button-row">
+        <button className="reset-button" onClick={() => setOrderedValues([])} type="button">
+          Start again
+        </button>
+        <button
+          className="main-button"
+          disabled={orderedValues.length !== sourceCards.length}
+          onClick={() => answerQuestion(orderedValues.join(" → "))}
+          type="button"
+        >
+          Check order
+        </button>
+      </div>
     </div>
   );
 }
@@ -556,15 +688,14 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
                 <strong>{option.label}</strong>
               </button>
 
-              {audioPath && (
-                <AssessmentAudioButton
-                  text={option.label}
-                  audioPath={audioPath}
-                  speakText={speakText}
-                  label={`Hear ${option.label}`}
-                  className="initial-sound-card-audio"
-                />
-              )}
+              <AssessmentAudioButton
+                text={option.label}
+                audioPath={audioPath}
+                speakText={speakText}
+                label={`Hear ${option.label}`}
+                className="initial-sound-card-audio"
+                showDisabled
+              />
             </article>
           );
         })}
@@ -606,9 +737,7 @@ function IxlStyleTemplateQuestion({
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
     ...normalizeAnswerOption(option),
-    media: isGraphemeChoiceItem
-      ? { image: "", audio: "", alt: "" }
-      : getAnswerOptionMedia(option)
+    media: getAnswerOptionMedia(option)
   }));
   const hasImageOptions = !isGraphemeChoiceItem && normalizedAnswerOptions.some(option => Boolean(option.media.image));
   const isCompactLetterOptions =
@@ -623,10 +752,7 @@ function IxlStyleTemplateQuestion({
     isCompactLetterOptions ? "letter-options" : "",
     isShortVowelWordChoiceItem ? "short-vowel-ixl-word-choice-grid" : ""
   ].filter(Boolean).join(" ");
-  const showOptionAudio =
-    !isGraphemeChoiceItem &&
-    normalizedAnswerOptions.length > 0 &&
-    normalizedAnswerOptions.every(option => Boolean(getApprovedAudioPath(option.label, option.media.audio || "")));
+  const showOptionAudio = normalizedAnswerOptions.length > 0;
 
   useEffect(() => {
     setSelectedTiles([]);
@@ -752,7 +878,9 @@ function IxlStyleTemplateQuestion({
           const label = option.label;
           const value = option.value;
           const image = option.media.image;
-          const audioPath = getApprovedAudioPath(label, option.media.audio || "");
+          const audioPath = isGraphemeChoiceItem
+            ? getPhonemeAudioPath(label, option.media.audio || "")
+            : getApprovedAudioPath(label, option.media.audio || "");
           const rawOption = option.raw && typeof option.raw === "object" ? option.raw : {};
 
           return (
@@ -784,13 +912,14 @@ function IxlStyleTemplateQuestion({
                 <strong>{label}</strong>
               </button>
 
-              {showOptionAudio && audioPath && (
+              {showOptionAudio && (
                 <AssessmentAudioButton
                   text={label}
                   audioPath={audioPath}
                   speakText={speakText}
                   label={`Hear ${label}`}
                   className="initial-sound-card-audio"
+                  showDisabled
                 />
               )}
             </article>
@@ -1042,23 +1171,11 @@ function AssessmentStimulus({
   }
   if (!isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.passage);
   if (!isGrammarSentenceFit && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.sentence || currentQuestion.context);
-  const hasMainImage = isListenChooseVowel || isShortVowelWordChoice
-    ? false
-    : isComprehensionPassageItem
-    ? false
-    : isRhymingPictureItem
+  const hasMainImage = isRhymingPictureItem
     ? Boolean(stimulusImage)
     : isFinalSoundsEndingItem
     ? Boolean(targetObjectImage)
-    : shouldShowImage(currentQuestion) || (
-    stimulusImage &&
-    (
-      isIxlStyleTemplate ||
-      currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" ||
-      currentQuestion.formatType === "PLURAL_IMAGE_SPELLING" ||
-      currentQuestion.question?.toLowerCase().includes("matches the picture")
-    )
-  );
+    : Boolean(stimulusImage) || shouldShowImage(currentQuestion);
   if (isFinalSoundsEndingItem && !targetObjectImage && import.meta.env.DEV) {
     console.warn("Blocked Final Sounds stimulus from rendering without a target object image", {
       id: currentQuestion.id,
@@ -1112,7 +1229,7 @@ function AssessmentStimulus({
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
-          {!isRhymingPictureItem && (approvedStimulusAudioPath || rawStimulusAudioPath) && (
+          {!isRhymingPictureItem && (
             <AssessmentAudioButton
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
@@ -1129,7 +1246,7 @@ function AssessmentStimulus({
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
           <ListeningVisual />
-          {(approvedStimulusAudioPath || rawStimulusAudioPath) && (
+          {(
             <AssessmentAudioButton
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
@@ -1154,6 +1271,7 @@ function AssessmentStimulus({
               key={`${currentQuestion.id || "question"}-${text}`}
               text={text}
               currentQuestion={currentQuestion}
+              speakText={speakText}
             />
           );
         }
@@ -1668,21 +1786,39 @@ export function CheckpointDecisionPage({
 
   const completedText =
     `${progressPhrase(checkpoint.correct, checkpoint.total)} ${checkpoint.skillLabel}`;
-  const canMoveNext =
-    checkpoint.passed && checkpoint.nextSkillLabel;
+  const pathStatus = checkpoint.pathStatus || {
+    level: checkpoint.initialSoundDebug?.level || 1,
+    phase: 1,
+    label: `Level ${checkpoint.initialSoundDebug?.level || 1} Phase 1`,
+    nextActionLabel: "Continue next phase",
+    finalStepComplete: false,
+    nextSkillUnlocked: false,
+    level2Optional: true
+  };
+  const canMoveNext = Boolean(
+    checkpoint.passed &&
+    pathStatus.nextSkillUnlocked &&
+    checkpoint.nextSkillLabel
+  );
+  const completedLevelOne = Boolean(
+    checkpoint.passed &&
+    pathStatus.level === 1 &&
+    pathStatus.phase === 2 &&
+    pathStatus.nextSkillUnlocked
+  );
+  const completedLevelTwo = Boolean(
+    checkpoint.passed &&
+    pathStatus.level === 2 &&
+    pathStatus.phase === 2
+  );
   const isInitialSoundsCheckpoint = checkpoint?.skillId === "initial_sounds";
   const initialLevel = checkpoint.initialSoundDebug?.level || 1;
-  const currentLevelMastered = Boolean(checkpoint.initialSoundDebug?.currentLevelMastered);
-  const levelOneMastered = Boolean(checkpoint.initialSoundDebug?.levelOneMastered);
+  const currentLevelMastered = pathStatus.level === 1
+    ? Boolean(pathStatus.levelOnePassed)
+    : Boolean(pathStatus.levelTwoPassed);
+  const levelOneMastered = Boolean(pathStatus.levelOnePassed);
   const finalSoundsLevelOneMastered = Boolean(checkpoint.masteryDepth?.levelOneMastered);
-  const pathStatus = checkpoint.pathStatus || {
-    level: initialLevel || 1,
-    phase: 1,
-    label: `Level ${initialLevel || 1} Phase 1`,
-    nextActionLabel: "Continue next phase",
-    finalStepComplete: false
-  };
-  const primaryPassedLabel = pathStatus.finalStepComplete
+  const primaryPassedLabel = completedLevelOne || completedLevelTwo || pathStatus.finalStepComplete
     ? `Move to next skill${checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}`
     : pathStatus.nextActionLabel;
   const retryLabel = checkpoint.accuracyPassed
@@ -1698,9 +1834,11 @@ export function CheckpointDecisionPage({
           <strong>{pathStatus.label}</strong>
           <p>
             {checkpoint.passed
-              ? pathStatus.finalStepComplete
-                ? "This skill path is complete. The next formal step is the next skill."
-                : `Next formal step: ${pathStatus.nextActionLabel}.`
+              ? completedLevelOne
+                ? "Both Level 1 phases are passed. Move to the next skill, or choose the optional harder Level 2 extension."
+                : completedLevelTwo || pathStatus.finalStepComplete
+                  ? "Both optional Level 2 phases are complete. The next formal step is the next skill."
+                  : `Next formal step: ${pathStatus.nextActionLabel}.`
               : `Stay on ${pathStatus.label} until this phase is passed.`}
           </p>
         </div>
@@ -1709,15 +1847,15 @@ export function CheckpointDecisionPage({
           <div className="level-mastery-callout">
             <strong>
               {currentLevelMastered
-                ? `Level ${initialLevel} mastered`
+                ? `Level ${initialLevel} passed`
                 : `Level ${initialLevel} in progress`}
             </strong>
             <p>
               {currentLevelMastered && initialLevel === 1
-                ? "Ready for Level 2. Level 1 stays available for review."
+                ? "The next skill is unlocked. Level 2 is available as an optional harder challenge."
                 : levelOneMastered && initialLevel === 2
                   ? "Level 2 is using harder words after Level 1 mastery."
-                  : "Keep Level 1 practice focused on the remaining unmastered sounds before moving up."}
+                  : "Pass both Level 1 phases at 70% to unlock the next skill."}
             </p>
           </div>
         )}
@@ -1857,8 +1995,8 @@ export function CheckpointDecisionPage({
             <>
               <button
                 className="main-button"
-                disabled={pathStatus.finalStepComplete && !canMoveNext}
-                onClick={pathStatus.finalStepComplete ? moveToNextSkill : continueSkill}
+                disabled={(completedLevelOne || completedLevelTwo || pathStatus.finalStepComplete) && !canMoveNext}
+                onClick={completedLevelOne || completedLevelTwo || pathStatus.finalStepComplete ? moveToNextSkill : continueSkill}
                 type="button"
               >
                 {primaryPassedLabel}
@@ -1870,14 +2008,23 @@ export function CheckpointDecisionPage({
                 </button>
               )}
 
-              {!pathStatus.finalStepComplete && (
+              {completedLevelOne && (
                 <button
                   className="report-button"
-                  disabled={!canMoveNext}
+                  onClick={continueSkill}
+                  type="button"
+                >
+                  Try optional Level 2 Phase 1
+                </button>
+              )}
+
+              {!completedLevelOne && !completedLevelTwo && pathStatus.level === 2 && canMoveNext && (
+                <button
+                  className="report-button"
                   onClick={moveToNextSkill}
                   type="button"
                 >
-                  Skip to next skill{checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}
+                  Move to next skill{checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}
                 </button>
               )}
             </>
@@ -2009,6 +2156,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
   patternItems,
   endAssessment,
   recordPatternResult,
+  onPrevious,
   patternAssessment,
   resetPatternAssessment,
   returnToTeacherDashboard
@@ -2019,11 +2167,12 @@ export function AdvancedPhonicsPatternAssessmentPage({
   const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
-    setSoundOutcome("");
-    setWordOutcome("");
+    const saved = patternAssessment[patternIndex];
+    setSoundOutcome(saved?.soundOutcome || "");
+    setWordOutcome(saved?.wordOutcome || "");
     setSaving(false);
     setSaveError("");
-  }, [patternIndex]);
+  }, [patternAssessment, patternIndex]);
 
   const currentPattern = patternItems[patternIndex];
 
@@ -2112,10 +2261,19 @@ export function AdvancedPhonicsPatternAssessmentPage({
               value={wordOutcome}
             />
 
-            <button
-              className="main-button letter-next-button"
-              disabled={!soundOutcome || !wordOutcome || saving}
-              onClick={async () => {
+            <div className="assessment-step-navigation">
+              <button
+                className="reset-button letter-previous-button"
+                disabled={patternIndex === 0 || saving}
+                onClick={onPrevious}
+                type="button"
+              >
+                ← Previous pattern
+              </button>
+              <button
+                className="main-button letter-next-button"
+                disabled={!soundOutcome || !wordOutcome || saving}
+                onClick={async () => {
                 setSaving(true);
                 setSaveError("");
                 try {
@@ -2130,14 +2288,15 @@ export function AdvancedPhonicsPatternAssessmentPage({
                   setSaving(false);
                 }
               }}
-              type="button"
-            >
-              {saving
-                ? "Saving…"
-                : patternIndex === patternItems.length - 1
-                  ? "Finish and save"
-                  : "Next pattern"}
-            </button>
+                type="button"
+              >
+                {saving
+                  ? "Saving…"
+                  : patternIndex === patternItems.length - 1
+                    ? "Finish and save"
+                    : "Next pattern"}
+              </button>
+            </div>
             {saveError && (
               <p className="teacher-inline-error" role="alert">{saveError}</p>
             )}
@@ -2202,6 +2361,7 @@ export function LetterAssessmentPage({
   letterItems,
   endAssessment,
   recordLetterResult,
+  onPrevious,
   letterAssessment,
   resetLetterAssessment,
   returnToTeacherDashboard
@@ -2212,11 +2372,12 @@ export function LetterAssessmentPage({
   const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
-    setNameOutcome("");
-    setSoundOutcome("");
+    const saved = letterAssessment[letterIndex];
+    setNameOutcome(saved?.nameOutcome || "");
+    setSoundOutcome(saved?.soundOutcome || "");
     setSaving(false);
     setSaveError("");
-  }, [letterIndex]);
+  }, [letterAssessment, letterIndex]);
 
   const currentLetter = letterItems[letterIndex];
 
@@ -2303,10 +2464,19 @@ export function LetterAssessmentPage({
               value={soundOutcome}
             />
 
-            <button
-              className="main-button letter-next-button"
-              disabled={!nameOutcome || !soundOutcome || saving}
-              onClick={async () => {
+            <div className="assessment-step-navigation">
+              <button
+                className="reset-button letter-previous-button"
+                disabled={letterIndex === 0 || saving}
+                onClick={onPrevious}
+                type="button"
+              >
+                ← Previous letter
+              </button>
+              <button
+                className="main-button letter-next-button"
+                disabled={!nameOutcome || !soundOutcome || saving}
+                onClick={async () => {
                 setSaving(true);
                 setSaveError("");
                 try {
@@ -2321,14 +2491,15 @@ export function LetterAssessmentPage({
                   setSaving(false);
                 }
               }}
-              type="button"
-            >
-              {saving
-                ? "Saving…"
-                : letterIndex === letterItems.length - 1
-                  ? "Finish and save"
-                  : "Next letter"}
-            </button>
+                type="button"
+              >
+                {saving
+                  ? "Saving…"
+                  : letterIndex === letterItems.length - 1
+                    ? "Finish and save"
+                    : "Next letter"}
+              </button>
+            </div>
             {saveError && (
               <p className="teacher-inline-error" role="alert">{saveError}</p>
             )}
@@ -2400,6 +2571,7 @@ export function AssessmentPage({
   roundProgress,
   shouldShowImage,
   answerQuestion,
+  reviseLastAnswer,
   speakText,
   message,
   endAssessment,
@@ -2438,6 +2610,8 @@ export function AssessmentPage({
     hasCurrentQuestion &&
     (currentQuestion?.questionType === "visual_card_choice" || isRhymingPictureQuestion(currentQuestion)) &&
     !isGraphemeChoiceQuestion(currentQuestion);
+  const isPictureSequenceItem =
+    hasCurrentQuestion && currentQuestion?.questionType === "picture_sequence_order";
   const isIxlStyleTemplate =
     hasCurrentQuestion && (
       currentQuestion?.questionType === "ixl_template" ||
@@ -2464,6 +2638,11 @@ export function AssessmentPage({
             ? "Targeted Review"
             : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
         </strong>
+        {currentQuestion && (
+          <span className="assessment-question-level">
+            Question level {Number(currentQuestion.level || currentQuestion.difficulty || 1) >= 2 ? 2 : 1}
+          </span>
+        )}
       </div>
 
       <div className="assessment-progress">
@@ -2508,11 +2687,11 @@ export function AssessmentPage({
             restarts the round at that level. */}
         {onChangeSkillLevel && skillTree.length > 0 && assessmentMode !== "targetedReview" && (
           <label className="assessment-skill-level">
-            <span>Level</span>
+            <span>Skill</span>
             <select
               value={currentSkillIndex}
               onChange={event => onChangeSkillLevel(Number(event.target.value))}
-              aria-label="Change the skill level for this assessment"
+              aria-label="Change the skill for this assessment"
             >
               {skillTree.map((stage, index) => (
                 <option key={stage.id} value={index}>
@@ -2656,9 +2835,14 @@ export function AssessmentPage({
         </div>
       )}
 
-      {feedback.isCorrect && feedback.autoAdvance ? (
-        <p className="muted-text feedback-auto-advance">Next question coming up...</p>
-      ) : (
+      <div className="button-row assessment-feedback-actions">
+        <button
+          className="reset-button"
+          onClick={() => reviseLastAnswer?.(feedback.question, feedback.answerEventId)}
+          type="button"
+        >
+          ← Change my answer
+        </button>
         <button
           className="main-button"
           onClick={() => {
@@ -2669,7 +2853,7 @@ export function AssessmentPage({
         >
           Continue
         </button>
-      )}
+      </div>
     </motion.div>
   ) : null;
 
@@ -2753,17 +2937,15 @@ export function AssessmentPage({
       currentQuestion?.audioText ||
       ""
     );
-  const promptAudioPath = isHfwSkillItem || isRhymingPictureItem
-    ? ""
-    : getApprovedAudioPath(
-      isHfwAudioFindWordQuestion(currentQuestion)
-        ? currentQuestion?.audioText || currentQuestion?.targetWord || currentQuestion?.answer
-        : promptAudioText,
-      (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion)) ? currentQuestion?.audioPath || currentQuestion?.audioUrl || "" : ""
-    );
-  const rawPromptAudioPath = !isHfwSkillItem && (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion))
-    ? currentQuestion?.audioPath || currentQuestion?.audioUrl || ""
-    : "";
+  const promptAudioPath = getApprovedAudioPath(
+    promptAudioText,
+    currentQuestion?.promptAudioPath
+      || currentQuestion?.instructionAudioPath
+      || ""
+  );
+  const rawPromptAudioPath = currentQuestion?.promptAudioPath
+    || currentQuestion?.instructionAudioPath
+    || "";
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
     ...normalizeAnswerOption(choice),
     media: getAnswerOptionMedia(choice)
@@ -2775,20 +2957,16 @@ export function AssessmentPage({
   const textChoiceAudioPaths = Object.fromEntries(
     normalizedChoices.map(choice => [
       choice.value,
-      isListenChooseVowelItem
+      isListenChooseVowelItem || isGraphemeChoiceItem
         ? getPhonemeAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
         : getApprovedAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
     ])
   );
   const showTextChoiceAudio =
-    (!isListenAndFindWord || isShortVowelWordChoiceItem) &&
-    !String(safeSkillId || "").toLowerCase().startsWith("hfw_") &&
-    !isComprehensionPassageItem &&
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
-    normalizedChoices.length > 0 &&
-    normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]));
+    normalizedChoices.length > 0;
 
   return (
     <main className={assessmentShellClassName}>
@@ -2823,16 +3001,14 @@ export function AssessmentPage({
             exit={{ scale: 0.96 }}
           >
             <div className="question-line assessment-prompt">
-              {(promptAudioPath || rawPromptAudioPath) && (
-                <AssessmentAudioButton
-                  text={promptAudioText}
-                  audioPath={promptAudioPath || rawPromptAudioPath}
-                  speakText={speakText}
-                  label="Listen to question"
-                  className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
-                  showDisabled
-                />
-              )}
+              <AssessmentAudioButton
+                text={promptAudioText}
+                audioPath={promptAudioPath || rawPromptAudioPath}
+                speakText={speakText}
+                label="Listen to question"
+                className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
+                showDisabled
+              />
               <h2>{visiblePrompt}</h2>
             </div>
 
@@ -2850,7 +3026,14 @@ export function AssessmentPage({
               onEvidenceImageError={onEvidenceImageError}
             />
 
-            {isPairSelection ? (
+            {isPictureSequenceItem ? (
+              <PictureSequenceOrderQuestion
+                currentQuestion={currentQuestion}
+                answerQuestion={answerQuestion}
+                speakText={speakText}
+                onEvidenceImageError={onEvidenceImageError}
+              />
+            ) : isPairSelection ? (
               <PairSelectionQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
@@ -2875,6 +3058,7 @@ export function AssessmentPage({
               <FixSentenceQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
+                speakText={speakText}
               />
             ) : (
               <div className={[
@@ -2909,6 +3093,7 @@ export function AssessmentPage({
                         speakText={speakText}
                         label={`Listen to ${choice.label}`}
                         className="choice-audio"
+                        showDisabled
                       />
                     )}
                     <button

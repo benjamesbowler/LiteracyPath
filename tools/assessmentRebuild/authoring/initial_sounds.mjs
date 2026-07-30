@@ -305,7 +305,7 @@ export default {
     ps("u", 1, 2, 3, "umbrella", ["uncle", "ox", "ant", "egg"], "uncle",
       { ox: "D-VOWEL", ant: "D-VOWEL", egg: "D-VOWEL" }),
     fs("u", 2, 2, 1, "umpire", ["u", "o", "n", "r"], VOW),
-    fs("u", 2, 2, 2, "understand", ["u", "o", "v", "d"], VOW),
+    fs("u", 2, 2, 2, "uniform", ["u", "o", "v", "d"], VOW),
     ps("u", 2, 2, 3, "uncle", ["under", "igloo", "apple", "octopus"], "under",
       { igloo: "D-VOWEL", apple: "D-VOWEL", octopus: "D-VOWEL" }),
 

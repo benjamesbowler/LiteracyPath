@@ -28,6 +28,11 @@ const texts = Object.freeze([
   "stove", "tame", "tickle", "use", "vegetable", "wind",
   // Active arcade/quest words caught by recorded-audio playthrough tests.
   "ax", "string", "tonight", "track", "twist",
+  // Human-ear replacements requested during the assessment QA pass. Keeping
+  // these in the highest-priority supplement map guarantees every surface
+  // stops resolving the earlier production take.
+  "hat", "sun",
+  "listen to the word. what sound does it start with?",
   "what digraph makes the sh sound as in ship",
   "what digraph makes the ch sound as in chip",
   "what digraph makes the th sound as in think",

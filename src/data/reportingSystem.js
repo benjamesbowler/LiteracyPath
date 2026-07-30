@@ -15,6 +15,11 @@ import {
 } from "./hfwAssessmentFormatConfig.js";
 import { isHfwSpellingQuestionCandidate } from "./isHfwSpellingQuestion.js";
 import { buildSkillsCheckReportModel } from "./studentReportingWorkspaceModel.js";
+import {
+  assessmentAttemptsToSkillLedger,
+  computeSkillStatus,
+  SKILL_STATUS_IDS
+} from "../policy/skillStatusPolicy.js";
 
 const STATUS_LABELS = {
   on_track: "Secure",
@@ -920,10 +925,18 @@ export function buildStudentReportModel({
       observedAt: skillRecords.at(-1)?.completedAt || "",
       now
     });
+    const skillStatus = computeSkillStatus(
+      assessmentAttemptsToSkillLedger(skillRecords, stage.id),
+      stage.id,
+      { now }
+    );
     return [stage.id, {
       ...(mastery?.[stage.id] || {}),
-      mastered: conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.SECURE,
-      policyConclusion: conclusion
+      mastered: skillStatus
+        ? skillStatus.status === SKILL_STATUS_IDS.SECURE && !skillStatus.needsReview
+        : conclusion.ready && conclusion.status.id === LEARNING_STATUS_IDS.SECURE,
+      policyConclusion: conclusion,
+      skillStatus
     }];
   }));
   const skillMapRows = skillTree.map((stage, index) => {
@@ -956,6 +969,7 @@ export function buildStudentReportModel({
             ? "attempted"
             : "not_started",
       checkpointScore: data?.lastTotal ? `${data.lastScore}/${data.lastTotal}` : "Not attempted",
+      skillStatus: data?.skillStatus || null,
       coverage,
       coverageLevel1,
       coverageLevel2,

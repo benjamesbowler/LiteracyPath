@@ -17,6 +17,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { ROOT } from "./lib.mjs";
+import {
+  getLedaInstructionAudioPath,
+  getLedaProductionAudioPath,
+  getLedaWordAudioPath
+} from "../../src/data/ledaProductionAudio.js";
 
 const BANKS_DIR = path.join(ROOT, "src", "data", "v3", "banks");
 
@@ -40,11 +45,30 @@ const sentenceAudioPath = text => `${AUDIO_ROOT}/sentences/${slugify(text)}.mp3`
 const passageAudioPath = text => `${AUDIO_ROOT}/passages/${slugify(text)}.mp3`;
 const wordAudioPath = word => `/audio/child-mode/words/${String(word).toLowerCase().replace(/[^a-z0-9']/g, "")}.mp3`;
 const phraseAudioPath = text => `/audio/child-mode/phrases/${slugify(text)}.mp3`;
+const resolvedPromptAudioPath = text =>
+  getLedaInstructionAudioPath(text) || promptAudioPath(text);
+const resolvedSentenceAudioPath = text =>
+  getLedaProductionAudioPath(text) || sentenceAudioPath(text);
+const resolvedPassageAudioPath = text =>
+  getLedaProductionAudioPath(text) || passageAudioPath(text);
+const resolvedWordAudioPath = word =>
+  getLedaWordAudioPath(word) || wordAudioPath(word);
+const resolvedPhraseAudioPath = text =>
+  getLedaProductionAudioPath(text) || phraseAudioPath(text);
 
 const existsInPublic = webPath =>
   Boolean(webPath) && fs.existsSync(path.join(ROOT, "public", String(webPath).replace(/^\//, "")));
 
-const spokenCloze = text => String(text || "").replace(/_{2,}/g, "…");
+const spokenCloze = text => String(text || "")
+  .replace(/\s*(?:_{2,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
+  .replace(/\s+/g, " ")
+  .replace(/\s+([?.!,;:])/g, "$1")
+  .trim();
+
+const sceneBrief = item => {
+  const source = item.imageAlt || item.supportImageAlt || item.passage || item.sentence || item.prompt || item.id;
+  return `Friendly child-readable scene illustrating: ${source}. Show one clear moment with familiar objects and actions, no embedded text, no decorative clutter, and do not reveal the correct answer.`;
+};
 
 export function buildMediaRequest(allBanks, results) {
   const skills = [];
@@ -81,19 +105,19 @@ export function buildMediaRequest(allBanks, results) {
 
       // 1. Instruction/prompt audio — EVERY item, verbatim spokenPrompt.
       const promptText = spokenCloze(item.spokenPrompt || item.prompt);
-      mapping.audio.prompt = { text: promptText, file: addLine(prompts, promptText, promptAudioPath, item.id, skillId) };
+      mapping.audio.prompt = { text: promptText, file: addLine(prompts, promptText, resolvedPromptAudioPath, item.id, skillId) };
       summary.promptLines++;
 
       // 2. Sentence read-aloud (cloze frames voiced with a pause at the blank).
       if (item.sentence) {
         const sentenceText = spokenCloze(item.sentence);
-        mapping.audio.sentence = { text: sentenceText, file: addLine(sentences, sentenceText, sentenceAudioPath, item.id, skillId) };
+        mapping.audio.sentence = { text: sentenceText, file: addLine(sentences, sentenceText, resolvedSentenceAudioPath, item.id, skillId) };
         summary.sentenceLines++;
       }
 
       // 3. Passage read-aloud.
       if (item.passage) {
-        mapping.audio.passage = { text: item.passage, file: addLine(passages, item.passage, passageAudioPath, item.id, skillId) };
+        mapping.audio.passage = { text: item.passage, file: addLine(passages, item.passage, resolvedPassageAudioPath, item.id, skillId) };
         summary.passageLines++;
       }
 
@@ -107,14 +131,14 @@ export function buildMediaRequest(allBanks, results) {
       mapping.audio.choices = [];
       for (const text of new Set(choiceTexts)) {
         if (/^[a-z']+$/i.test(text)) {
-          const file = wordAudioPath(text);
+          const file = resolvedWordAudioPath(text);
           const w = words.get(text.toLowerCase()) || { file, has: existsInPublic(file), ids: [] };
           w.ids.push(item.id);
           words.set(text.toLowerCase(), w);
           mapping.audio.choices.push({ text, file, kind: "word" });
           summary.wordRecordings++;
         } else {
-          const file = addLine(phrases, text, phraseAudioPath, item.id, skillId);
+          const file = addLine(phrases, text, resolvedPhraseAudioPath, item.id, skillId);
           mapping.audio.choices.push({ text, file, kind: "phrase" });
           summary.phraseRecordings++;
         }
@@ -134,18 +158,43 @@ export function buildMediaRequest(allBanks, results) {
         summary.imageSlots++;
         if (!has) summary.missingImages++;
       }
+      for (const card of (item.sequenceCards || [])) {
+        const has = existsInPublic(card.imagePath || card.image);
+        const key = `sequence:${card.imagePath || card.image || `${item.id}:${card.value}`}`;
+        const img = images.get(key) || {
+          alt: card.alt || card.label || card.value,
+          ids: [],
+          path: card.imagePath || card.image || `/images/assessment/sequencing/${slugify(card.value, 30)}.webp`,
+          has,
+          brief: `One story-sequencing frame showing only this action: ${card.alt || card.label || card.value}. Keep the same characters, clothes, setting, crop, and art style as the other two frames in this item's sequence. No text or sequence numbers.`
+        };
+        img.ids.push(item.id); img.has = img.has || has;
+        images.set(key, img);
+        mapping.images.push({ word: card.value || "", path: img.path, exists: img.has });
+        summary.imageSlots++;
+        if (!has) summary.missingImages++;
+      }
       // Target-image slot ONLY when the item actually renders a target image:
       // card-based items carry a targetWord too, but their art lives on the
       // cards — requesting a second target image for them is a phantom slot.
       const mediaTier = item.mediaTier || item.media;
-      if (mediaTier === "image-required" && item.imagePath && !(item.imageCards || []).length) {
-        const has = existsInPublic(item.imagePath);
-        const key = `target:${item.targetWord || item.imagePath}`;
+      if (
+        mediaTier === "image-required"
+        && !(item.imageCards || []).length
+        && !(item.sequenceCards || []).length
+      ) {
+        const requestedPath = item.imagePath
+          || `/images/assessment/scenes/${slugify(item.requiredImageAssetKey || item.id, 48)}.webp`;
+        const has = existsInPublic(requestedPath);
+        const key = `target:${item.requiredImageAssetKey || item.targetWord || requestedPath}`;
         const img = images.get(key) || {
-          alt: item.imageAlt || item.targetWord || "", ids: [], path: item.imagePath || `/images/objects/${slugify(item.targetWord || item.id, 30)}.png`, has,
+          alt: item.imageAlt || item.targetWord || item.prompt || "",
+          ids: [],
+          path: requestedPath,
+          has,
           brief: item.imageAlt && item.imageAlt !== item.targetWord
             ? `Scene: ${item.imageAlt} — one unambiguous spatial/semantic reading, no text.`
-            : `Single clear "${item.targetWord}" — instantly nameable, no text, no competing objects.`
+            : sceneBrief(item)
         };
         img.ids.push(item.id); img.has = img.has || has;
         images.set(key, img);
@@ -169,7 +218,7 @@ export function buildMediaRequest(allBanks, results) {
   const json = {
     generatedAt: new Date().toISOString(),
     audioSpec: {
-      voice: "One consistent child-friendly voice for the whole set (warm, natural, clear UK-neutral accent, ~150 wpm, no character voices).",
+      voice: "Google Cloud Text-to-Speech en-US-Chirp3-HD-Leda: one consistent warm, natural, neutral General American voice for the whole set, ~145–155 wpm, no character acting.",
       format: "mp3, 44.1 kHz, mono, normalized to -16 LUFS integrated, < 1 dB true peak, no leading/trailing silence beyond 150 ms.",
       style: "Natural full sentences exactly as scripted. Cloze blanks are voiced as a short beat of silence (the … marks), never the word 'blank'. No isolated robotic phonemes — letter-sound lines say the sound naturally.",
       wiring: "Wire prompts/sentences/passages via audioPreferenceManifest keyed by the exact script text; words land in the existing /audio/child-mode/words pool; phrases in /audio/child-mode/phrases."

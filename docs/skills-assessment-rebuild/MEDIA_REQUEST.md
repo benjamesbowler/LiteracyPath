@@ -1,10 +1,10 @@
 # FINAL media production request — Skills assessments v3 (all 30 skills)
 
-Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `node tools/assessmentRebuild/mediaRequest.mjs` after any bank change — never edit by hand. Machine-readable copy with the FULL per-item mapping: `MEDIA_REQUEST.json` (`items[]` maps every question id to its exact audio files and image paths).
+Generated 2026-07-30T10:34:58.136Z from the shipped v3 banks. Regenerate with `node tools/assessmentRebuild/mediaRequest.mjs` after any bank change — never edit by hand. Machine-readable copy with the FULL per-item mapping: `MEDIA_REQUEST.json` (`items[]` maps every question id to its exact audio files and image paths).
 
 ## Audio spec (applies to every recording)
 
-- **Voice:** One consistent child-friendly voice for the whole set (warm, natural, clear UK-neutral accent, ~150 wpm, no character voices).
+- **Voice:** Google Cloud Text-to-Speech en-US-Chirp3-HD-Leda: one consistent warm, natural, neutral General American voice for the whole set, ~145–155 wpm, no character acting.
 - **Format:** mp3, 44.1 kHz, mono, normalized to -16 LUFS integrated, < 1 dB true peak, no leading/trailing silence beyond 150 ms.
 - **Style:** Natural full sentences exactly as scripted. Cloze blanks are voiced as a short beat of silence (the … marks), never the word 'blank'. No isolated robotic phonemes — letter-sound lines say the sound naturally.
 - **Wiring:** Wire prompts/sentences/passages via audioPreferenceManifest keyed by the exact script text; words land in the existing /audio/child-mode/words pool; phrases in /audio/child-mode/phrases.
@@ -18,47 +18,47 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 
 | Asset class | Unique assets | Still missing |
 |---|---|---|
-| Instruction/prompt lines | 2068 | 2068 |
-| Sentence read-alouds | 629 | 629 |
-| Passage read-alouds | 527 | 527 |
-| Single-word recordings | 1599 | 1266 |
-| Phrase recordings | 2124 | 2124 |
-| Image slots | 411 | 0 |
+| Instruction/prompt lines | 2081 | 2033 |
+| Sentence read-alouds | 615 | 615 |
+| Passage read-alouds | 525 | 482 |
+| Single-word recordings | 1595 | 419 |
+| Phrase recordings | 2153 | 1999 |
+| Image slots | 2111 | 0 |
 
 ## Per-skill volume
 
 | Skill | Items | Prompts | Sentences | Passages | Words | Phrases | Image slots | Missing images |
 |---|---|---|---|---|---|---|---|---|
-| adjectives | 60 | 60 | 17 | 0 | 240 | 0 | 44 | 0 |
-| antonyms_synonyms | 60 | 60 | 14 | 0 | 255 | 0 | 15 | 0 |
-| blends | 106 | 106 | 0 | 0 | 503 | 0 | 124 | 0 |
-| cause_effect | 64 | 64 | 0 | 64 | 0 | 256 | 0 | 0 |
-| context_clues | 64 | 64 | 0 | 64 | 64 | 256 | 0 | 0 |
-| cvc_short_vowels | 70 | 70 | 0 | 0 | 271 | 0 | 58 | 0 |
+| adjectives | 60 | 60 | 17 | 0 | 240 | 0 | 93 | 0 |
+| antonyms_synonyms | 60 | 60 | 14 | 0 | 270 | 0 | 114 | 0 |
+| blends | 106 | 106 | 0 | 0 | 503 | 0 | 148 | 0 |
+| cause_effect | 64 | 64 | 0 | 64 | 0 | 256 | 64 | 0 |
+| context_clues | 64 | 64 | 0 | 64 | 64 | 256 | 64 | 0 |
+| cvc_short_vowels | 70 | 70 | 0 | 0 | 271 | 0 | 70 | 0 |
 | digraphs | 60 | 60 | 0 | 0 | 276 | 0 | 132 | 0 |
-| final_sounds | 82 | 82 | 0 | 0 | 410 | 0 | 52 | 0 |
-| hfw_1_25 | 135 | 135 | 108 | 0 | 381 | 0 | 0 | 0 |
-| hfw_26_50 | 135 | 135 | 108 | 0 | 378 | 0 | 0 | 0 |
-| hfw_51_75 | 135 | 135 | 108 | 0 | 378 | 0 | 0 | 0 |
-| hfw_76_100 | 135 | 135 | 108 | 0 | 378 | 0 | 0 | 0 |
-| homophones_homonyms | 80 | 80 | 41 | 0 | 304 | 16 | 0 | 0 |
-| inference | 64 | 64 | 0 | 64 | 34 | 222 | 0 | 0 |
-| initial_sounds | 160 | 160 | 0 | 0 | 800 | 0 | 220 | 0 |
-| key_details | 71 | 71 | 0 | 71 | 48 | 236 | 0 | 0 |
-| long_vowels_silent_e | 68 | 68 | 0 | 0 | 188 | 112 | 28 | 0 |
-| main_idea | 64 | 64 | 0 | 64 | 0 | 256 | 0 | 0 |
-| nouns | 60 | 60 | 12 | 0 | 208 | 32 | 56 | 0 |
-| plurals | 60 | 60 | 31 | 0 | 240 | 0 | 14 | 0 |
-| prefixes_suffixes | 78 | 78 | 30 | 0 | 268 | 44 | 0 | 0 |
-| prepositions_of_place | 76 | 76 | 34 | 0 | 240 | 64 | 12 | 0 |
-| r_controlled_vowels | 70 | 70 | 0 | 0 | 333 | 0 | 32 | 0 |
-| rhyming | 145 | 145 | 0 | 0 | 697 | 0 | 272 | 0 |
-| sentence_comprehension | 72 | 72 | 0 | 72 | 15 | 273 | 0 | 0 |
-| sequencing | 64 | 64 | 0 | 64 | 1 | 255 | 0 | 0 |
+| final_sounds | 82 | 82 | 0 | 0 | 410 | 0 | 121 | 0 |
+| hfw_1_25 | 135 | 135 | 108 | 0 | 381 | 0 | 135 | 0 |
+| hfw_26_50 | 135 | 135 | 108 | 0 | 378 | 0 | 135 | 0 |
+| hfw_51_75 | 135 | 135 | 108 | 0 | 378 | 0 | 135 | 0 |
+| hfw_76_100 | 135 | 135 | 108 | 0 | 378 | 0 | 135 | 0 |
+| homophones_homonyms | 80 | 80 | 41 | 0 | 304 | 16 | 80 | 0 |
+| inference | 64 | 64 | 0 | 64 | 34 | 222 | 64 | 0 |
+| initial_sounds | 160 | 160 | 0 | 0 | 800 | 0 | 325 | 0 |
+| key_details | 71 | 71 | 0 | 71 | 48 | 236 | 71 | 0 |
+| long_vowels_silent_e | 68 | 68 | 0 | 0 | 188 | 112 | 68 | 0 |
+| main_idea | 64 | 64 | 0 | 64 | 0 | 256 | 64 | 0 |
+| nouns | 60 | 60 | 12 | 0 | 208 | 32 | 102 | 0 |
+| plurals | 60 | 60 | 31 | 0 | 240 | 0 | 60 | 0 |
+| prefixes_suffixes | 78 | 78 | 16 | 0 | 296 | 52 | 78 | 0 |
+| prepositions_of_place | 76 | 76 | 34 | 0 | 207 | 97 | 76 | 0 |
+| r_controlled_vowels | 70 | 70 | 0 | 0 | 333 | 0 | 70 | 0 |
+| rhyming | 145 | 145 | 0 | 0 | 697 | 0 | 349 | 0 |
+| sentence_comprehension | 72 | 72 | 0 | 72 | 15 | 273 | 72 | 0 |
+| sequencing | 62 | 62 | 0 | 62 | 0 | 248 | 122 | 0 |
 | short_vowel_discrimination | 70 | 70 | 0 | 0 | 310 | 0 | 106 | 0 |
-| theme_higher_comprehension | 64 | 64 | 0 | 64 | 0 | 256 | 0 | 0 |
-| verbs | 58 | 58 | 18 | 0 | 232 | 0 | 56 | 0 |
-| vowel_teams | 90 | 90 | 0 | 0 | 408 | 0 | 22 | 0 |
+| theme_higher_comprehension | 64 | 64 | 0 | 64 | 0 | 256 | 64 | 0 |
+| verbs | 58 | 58 | 18 | 0 | 232 | 0 | 100 | 0 |
+| vowel_teams | 90 | 90 | 0 | 0 | 408 | 0 | 90 | 0 |
 
 ## 1. Instruction/prompt recordings — record each line verbatim
 
@@ -77,91 +77,91 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/which-word-is-a-describing-word-for-how-thin-ff7361.mp3 | Which word is a describing word for how things feel? | 4 |
 | /audio/assessment/v3/prompts/which-one-shows-a-happy-face-2de786.mp3 | Which one shows a happy face? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-a-feeling-word-6674bb.mp3 | Which word is a feeling word? | 7 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-5ac474.mp3 | Which describing word finishes the sentence? The hmm soup burned my lip. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-18972d.mp3 | Which describing word finishes the sentence? My hmm boots let the rain in. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-7abca8.mp3 | Which describing word finishes the sentence? The hmm box needed two of us to lift. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-4ae10c.mp3 | Which describing word finishes the sentence? We squinted in the hmm sunshine. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-191c22.mp3 | Which describing word finishes the sentence? The … soup burned my lip. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-898a7f.mp3 | Which describing word finishes the sentence? My … boots let the rain in. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-1a764b.mp3 | Which describing word finishes the sentence? The … box needed two of us to lift. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-56959e.mp3 | Which describing word finishes the sentence? We squinted in the … sunshine. | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-the-describin-66031e.mp3 | Which word in this sentence is the describing word? "The muddy pup shook itself." | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-the-describin-5bb2b4.mp3 | Which word in this sentence is the describing word? "A gentle breeze turned the pages." | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-e18d2e.mp3 | Which describing word finishes the sentence? The hmm kitten slept through the storm. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-d494ca.mp3 | Which describing word finishes the sentence? Her hmm scarf trailed on the ground. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-197194.mp3 | Which describing word finishes the sentence? The path was hmm after days of rain. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-66f2aa.mp3 | Which describing word finishes the sentence? The lemonade was hmm enough to make us wince. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-678b76.mp3 | Which describing word finishes the sentence? The old stairs were hmm under our feet. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-5f6510.mp3 | Which describing word finishes the sentence? Wear the hmm coat — it is snowing hard. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-563ba2.mp3 | Which describing word finishes the sentence? The … kitten slept through the storm. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-2a566d.mp3 | Which describing word finishes the sentence? Her … scarf trailed on the ground. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-d49244.mp3 | Which describing word finishes the sentence? The path was … after days of rain. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-f90f0f.mp3 | Which describing word finishes the sentence? The lemonade was … enough to make us wince. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-88fdb0.mp3 | Which describing word finishes the sentence? The old stairs were … under our feet. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-8d369d.mp3 | Which describing word finishes the sentence? Wear the … coat — it is snowing hard. | 1 |
 | /audio/assessment/v3/prompts/which-describing-word-fits-best-for-a-street-443818.mp3 | Which describing word fits best for a street with no sound at all? | 1 |
 | /audio/assessment/v3/prompts/which-describing-word-fits-best-for-bread-ju-ef20bd.mp3 | Which describing word fits best for bread just out of the oven? | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-46f51e.mp3 | Which describing word finishes the sentence? The hmm knife went through the pumpkin easily. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-d4e4f6.mp3 | Which describing word finishes the sentence? Our tent felt hmm with five of us in it. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-2eda99.mp3 | Which describing word finishes the sentence? The … knife went through the pumpkin easily. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-7d2472.mp3 | Which describing word finishes the sentence? Our tent felt … with five of us in it. | 1 |
 | /audio/assessment/v3/prompts/which-word-is-a-describing-word-not-a-naming-1a1a01.mp3 | Which word is a describing word, not a naming or doing word? | 7 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-681d93.mp3 | Which describing word finishes the sentence? The hmm sea tossed the little boat. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-eae3f8.mp3 | Which describing word finishes the sentence? A hmm morning is best for kites. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-484aa5.mp3 | Which describing word finishes the sentence? The … sea tossed the little boat. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-879fd1.mp3 | Which describing word finishes the sentence? A … morning is best for kites. | 1 |
 | /audio/assessment/v3/prompts/which-one-is-very-small-5fc4eb.mp3 | Which one is very small? | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-b0d1e6.mp3 | Which describing word finishes the sentence? The hmm floor squeaked with every step. | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-d452b3.mp3 | Which describing word finishes the sentence? The rope was too hmm to snap. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-25805a.mp3 | Which describing word finishes the sentence? The … floor squeaked with every step. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-a2e662.mp3 | Which describing word finishes the sentence? The rope was too … to snap. | 1 |
 | /audio/assessment/v3/prompts/which-one-feels-bumpy-b2c791.mp3 | Which one feels bumpy? | 1 |
-| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-3e5072.mp3 | Which describing word finishes the sentence? The hmm moth circled the lamp. | 1 |
+| /audio/assessment/v3/prompts/which-describing-word-finishes-the-sentence-b8c531.mp3 | Which describing word finishes the sentence? The … moth circled the lamp. | 1 |
 | /audio/assessment/v3/prompts/which-describing-word-fits-best-for-socks-le-edafd5.mp3 | Which describing word fits best for socks left out in the snow? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-hot-347fc8.mp3 | Which word is the opposite of 'hot'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-big-340fb4.mp3 | Which word is the opposite of 'big'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-up-667795.mp3 | Which word is the opposite of 'up'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-wet-3589bc.mp3 | Which word is the opposite of 'wet'? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-hot-44de87.mp3 | What is the opposite of hot? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-big-44db22.mp3 | What is the opposite of big? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-up-47e7ed.mp3 | What is the opposite of up? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-wet-44e697.mp3 | What is the opposite of wet? | 1 |
 | /audio/assessment/v3/prompts/the-picture-shows-something-hot-pick-the-opp-d74d5f.mp3 | The picture shows something hot. Pick the opposite of hot. | 1 |
 | /audio/assessment/v3/prompts/the-whale-in-the-picture-is-big-pick-the-opp-e8bfd9.mp3 | The whale in the picture is big. Pick the opposite of big. | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-happy-c23eba.mp3 | Which word is closest to 'happy'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-shout-214403.mp3 | Which word is closest to 'shout'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-small-2beb65.mp3 | Which word is closest to 'small'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-begin-fd0f0e.mp3 | Which word is closest to 'begin'? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-happy-62d9e4.mp3 | Which word means about the same as happy? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-shout-7d00d7.mp3 | Which word means about the same as shout? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-small-7d537d.mp3 | Which word means about the same as small? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-begin-551e44.mp3 | Which word means about the same as begin? | 1 |
 | /audio/assessment/v3/prompts/the-picture-shows-the-sea-which-word-is-clos-608c8f.mp3 | The picture shows the sea. Which word is closest to 'sea'? | 1 |
 | /audio/assessment/v3/prompts/the-rain-makes-things-wet-which-word-is-clos-c6d33d.mp3 | The rain makes things wet. Which word is closest to 'wet'? | 1 |
 | /audio/assessment/v3/prompts/the-arrow-points-up-pick-the-opposite-of-up-802cbb.mp3 | The arrow points up. Pick the opposite of up. | 1 |
 | /audio/assessment/v3/prompts/it-is-night-in-the-picture-pick-the-opposite-7a10ee.mp3 | It is night in the picture. Pick the opposite of night. | 1 |
 | /audio/assessment/v3/prompts/the-shoes-in-the-picture-are-new-pick-the-op-1a33ed.mp3 | The shoes in the picture are new. Pick the opposite of new. | 1 |
 | /audio/assessment/v3/prompts/the-door-in-the-picture-is-open-pick-the-opp-e89628.mp3 | The door in the picture is open. Pick the opposite of open. | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-day-342fce.mp3 | Which word is the opposite of 'day'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-tall-df7637.mp3 | Which word is the opposite of 'tall'? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-day-44dc1b.mp3 | What is the opposite of day? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-tall-e180e1.mp3 | What is the opposite of tall? | 1 |
 | /audio/assessment/v3/prompts/the-sun-is-bright-which-word-is-closest-to-b-25696c.mp3 | The sun is bright. Which word is closest to 'bright'? | 1 |
 | /audio/assessment/v3/prompts/the-rock-is-hard-which-word-is-closest-to-ha-b3dab8.mp3 | The rock is hard. Which word is closest to 'hard'? | 1 |
 | /audio/assessment/v3/prompts/snow-is-cold-which-word-is-closest-to-cold-fcc7f8.mp3 | Snow is cold. Which word is closest to 'cold'? | 1 |
 | /audio/assessment/v3/prompts/the-ant-is-tiny-which-word-is-closest-to-tin-6bd229.mp3 | The ant is tiny. Which word is closest to 'tiny'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-quick-a52c01.mp3 | Which word is closest to 'quick'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-sleepy-65376a.mp3 | Which word is closest to 'sleepy'? | 1 |
+| /audio/assessment/v3/prompts/pick-a-synonym-for-quick-438f78.mp3 | Pick a synonym for quick. | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-sleepy-25b29b.mp3 | Which word means about the same as sleepy? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-whisper-12cba5.mp3 | Which is the exact opposite of 'whisper'? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-freezing-e54d3a.mp3 | Which is the exact opposite of 'freezing'? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-giant-447858.mp3 | Which is the exact opposite of 'giant'? | 1 |
-| /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-noisy-6de28c.mp3 | Which is the exact opposite of 'noisy'? | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-kitten-is-tame-64b3db.mp3 | Which word fits the swap? The kitten is tame. Swap 'tame' for its opposite: The tiger is hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-this-puzzle-is-simp-53cba4.mp3 | Which word fits the swap? This puzzle is simple. Swap 'simple' for its opposite: That puzzle is hmm. | 1 |
+| /audio/assessment/v3/prompts/pick-the-antonym-of-noisy-6e716d.mp3 | Pick the antonym of 'noisy'. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-kitten-is-tame-eaee55.mp3 | Which word fits the swap? The kitten is tame. The tiger is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-this-puzzle-is-simp-3a11ee.mp3 | Which word fits the swap? This puzzle is simple. Its opposite is …. | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-giggle-6ffeb5.mp3 | Which word is closest to 'giggle'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-huge-3d9533.mp3 | Which word is closest to 'huge'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-sprint-b7baa1.mp3 | Which word is closest to 'sprint'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-grin-3b0b00.mp3 | Which word is closest to 'grin'? | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-pick-the-word-that-764d3c.mp3 | Which word fits the swap? Pick the word that fits the small clue: The mouse is not just small, it is hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-not-just-cold-the-p-7da253.mp3 | Which word fits the swap? Not just cold — the pond was hmm this morning. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-morning-was-noi-d97d2b.mp3 | Which word fits the swap? The morning was noisy. Swap 'noisy' for its opposite: The night was hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-this-bag-is-heavy-s-f475df.mp3 | Which word fits the swap? This bag is heavy. Swap 'heavy' for its opposite: That bag is hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-turtle-is-slow-dbe0b5.mp3 | Which word fits the swap? The turtle is slow. Swap 'slow' for its opposite: The hare is hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-my-hands-were-dirty-9e3cf9.mp3 | Which word fits the swap? My hands were dirty. Swap 'dirty' for its opposite: Now they are hmm. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-mouse-is-not-ju-81171d.mp3 | Which word fits the swap? The mouse is not just small. It is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-not-just-cold-the-p-25fdbb.mp3 | Which word fits the swap? Not just cold — the pond was … this morning. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-morning-was-noi-3032ed.mp3 | Which word fits the swap? The morning was noisy. The night was …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-this-bag-is-heavy-t-d149a3.mp3 | Which word fits the swap? This bag is heavy. That bag is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-turtle-is-slow-deedca.mp3 | Which word fits the swap? The turtle is slow. The hare is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-my-hands-were-dirty-494194.mp3 | Which word fits the swap? My hands were dirty. Now they are …. | 1 |
 | /audio/assessment/v3/prompts/which-word-is-the-opposite-of-above-1a3c8e.mp3 | Which word is the opposite of 'above'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-the-opposite-of-early-4c017b.mp3 | Which word is the opposite of 'early'? | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-dad-fixed-the-gate-4bbeb6.mp3 | Which word fits the swap? Dad fixed the gate. Swap 'fixed' for its twin: Dad hmm the gate. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-soup-was-tasty-aba216.mp3 | Which word fits the swap? The soup was tasty. Swap 'tasty' for its twin: The soup was hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-we-shouted-with-joy-498aa8.mp3 | Which word fits the swap? We shouted with joy. Swap 'joy' for its twin: We shouted with hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-path-was-narrow-b2629b.mp3 | Which word fits the swap? The path was narrow. Swap 'narrow' for its twin: The path was hmm. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-dad-fixed-the-gate-be2e07.mp3 | Which word fits the swap? Dad fixed the gate. Dad also … the fence. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-soup-was-tasty-e3ef41.mp3 | Which word fits the swap? The soup was tasty. Its twin word is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-we-shouted-with-joy-57b4c5.mp3 | Which word fits the swap? We shouted with joy. Joy's twin word is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-path-was-narrow-b03d67.mp3 | Which word fits the swap? The path was narrow. Its twin word is …. | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-angry-c5185d.mp3 | Which word is closest to 'angry'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-friend-3d1037.mp3 | Which word is closest to 'friend'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-the-opposite-of-full-c037e8.mp3 | Which word is the opposite of 'full'? | 1 |
+| /audio/assessment/v3/prompts/what-is-the-opposite-of-full-e08e82.mp3 | What is the opposite of full? | 1 |
 | /audio/assessment/v3/prompts/the-boots-are-old-pick-the-opposite-of-old-24048e.mp3 | The boots are old. Pick the opposite of old. | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-jump-4242fd.mp3 | Which word is closest to 'jump'? | 1 |
-| /audio/assessment/v3/prompts/which-word-is-closest-to-yell-641e39.mp3 | Which word is closest to 'yell'? | 1 |
+| /audio/assessment/v3/prompts/pick-a-synonym-for-jump-37db15.mp3 | Pick a synonym for jump. | 1 |
+| /audio/assessment/v3/prompts/which-word-means-about-the-same-as-yell-42441c.mp3 | Which word means about the same as yell? | 1 |
 | /audio/assessment/v3/prompts/the-arrow-points-down-pick-the-opposite-of-d-4268c0.mp3 | The arrow points down. Pick the opposite of down. | 1 |
 | /audio/assessment/v3/prompts/the-moon-glows-which-is-closest-to-glow-ac8523.mp3 | The moon glows. Which is closest to 'glow'? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-arrive-2613e2.mp3 | Which is the exact opposite of 'arrive'? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-exact-opposite-of-sunrise-be4882.mp3 | Which is the exact opposite of 'sunrise'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-soaked-4337af.mp3 | Which word is closest to 'soaked'? | 1 |
 | /audio/assessment/v3/prompts/which-word-is-closest-to-spotless-155568.mp3 | Which word is closest to 'spotless'? | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-oven-is-hot-swa-374cc7.mp3 | Which word fits the swap? The oven is hot. Swap 'hot' for its opposite: The fridge is hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-old-map-was-tor-3abdf8.mp3 | Which word fits the swap? The old map was torn. Swap 'torn' for its twin: The map was hmm. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-oven-is-hot-the-804a31.mp3 | Which word fits the swap? The oven is hot. The fridge is …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-swap-the-old-map-was-tor-683e93.mp3 | Which word fits the swap? The old map was torn. It was …. | 1 |
 | /audio/assessment/v3/prompts/block-which-letters-finish-the-word-block-c44cbc.mp3 | block. Which letters finish the word block? | 1 |
 | /audio/assessment/v3/prompts/blue-which-one-starts-with-the-same-sounds-a-ca45aa.mp3 | blue. Which one starts with the same sounds as blue? | 1 |
 | /audio/assessment/v3/prompts/which-word-goes-with-the-picture-6d1d2e.mp3 | Which word goes with the picture? | 78 |
@@ -536,618 +536,618 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/twist-twist-ends-with-a-sound-which-ending-f-b35722.mp3 | twist. twist ends with a sound. Which ending finishes the word twist? | 1 |
 | /audio/assessment/v3/prompts/melt-which-word-ends-like-melt-7b1e49.mp3 | melt. Which word ends like melt? | 1 |
 | /audio/assessment/v3/prompts/think-think-ends-with-a-sound-which-ending-f-3695b8.mp3 | think. think ends with a sound. Which ending finishes the word think? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-see-hmm-r-a27bce.mp3 | Which word finishes the sentence? I see hmm red hen. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-had-hmm-4f313a.mp3 | Which word finishes the sentence? We had hmm nap at two. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-see-red-h-fcfcd0.mp3 | Which word finishes the sentence? I see … red hen. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-had-nap-75d548.mp3 | Which word finishes the sentence? We had … nap at two. | 1 |
 | /audio/assessment/v3/prompts/a-find-the-word-a-a0a6fb.mp3 | a. Find the word a. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-have-jam-cc5cd7.mp3 | Which word finishes the sentence? We have jam hmm bread. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-has-a-c-3132cb.mp3 | Which word finishes the sentence? She has a cat hmm a dog. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-have-jam-6a638c.mp3 | Which word finishes the sentence? We have jam … bread. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-has-a-c-e98754.mp3 | Which word finishes the sentence? She has a cat … a dog. | 1 |
 | /audio/assessment/v3/prompts/and-find-the-word-and-4da621.mp3 | and. Find the word and. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pigs-hm-63408f.mp3 | Which word finishes the sentence? The pigs hmm in the mud. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-hmm-my-4a1394.mp3 | Which word finishes the sentence? You hmm my best pal. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pigs-in-279c97.mp3 | Which word finishes the sentence? The pigs … in the mud. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-my-best-bf5983.mp3 | Which word finishes the sentence? You … my best pal. | 1 |
 | /audio/assessment/v3/prompts/are-find-the-word-are-696457.mp3 | are. Find the word are. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-is-big-h-eb545a.mp3 | Which word finishes the sentence? It is big hmm a bus. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sam-is-fast-492027.mp3 | Which word finishes the sentence? Sam is fast hmm a fox. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-is-big-a-a4952e.mp3 | Which word finishes the sentence? It is big … a bus. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sam-is-fast-b55e1a.mp3 | Which word finishes the sentence? Sam is fast … a fox. | 1 |
 | /audio/assessment/v3/prompts/as-find-the-word-as-7fe1c2.mp3 | as. Find the word as. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-nap-hmm-6a409a.mp3 | Which word finishes the sentence? We nap hmm two. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-bus-sto-29a76b.mp3 | Which word finishes the sentence? The bus stops hmm my home. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-nap-two-fac18e.mp3 | Which word finishes the sentence? We nap … two. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-bus-sto-228825.mp3 | Which word finishes the sentence? The bus stops … my home. | 1 |
 | /audio/assessment/v3/prompts/at-find-the-word-at-4c08f1.mp3 | at. Find the word at. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-can-hmm-8f231a.mp3 | Which word finishes the sentence? You can hmm my helper. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-will-hmm-bc2297.mp3 | Which word finishes the sentence? It will hmm hot at two. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-can-my-6aaf8e.mp3 | Which word finishes the sentence? You can … my helper. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-will-hot-6aa55b.mp3 | Which word finishes the sentence? It will … hot at two. | 1 |
 | /audio/assessment/v3/prompts/be-find-the-word-be-a6ca36.mp3 | be. Find the word be. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-gift-i-df3ebe.mp3 | Which word finishes the sentence? This gift is hmm you. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-ran-hmm-93d6db.mp3 | Which word finishes the sentence? We ran hmm the bus. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-gift-i-898f70.mp3 | Which word finishes the sentence? This gift is … you. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-ran-the-b8ec03.mp3 | Which word finishes the sentence? We ran … the bus. | 1 |
 | /audio/assessment/v3/prompts/for-find-the-word-for-1816fd.mp3 | for. Find the word for. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-card-is-d743aa.mp3 | Which word finishes the sentence? The card is hmm Gran. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-ran-back-f7e465.mp3 | Which word finishes the sentence? He ran back hmm the park. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-card-is-c6ca0a.mp3 | Which word finishes the sentence? The card is … Gran. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-ran-back-98d15d.mp3 | Which word finishes the sentence? He ran back … the park. | 1 |
 | /audio/assessment/v3/prompts/from-find-the-word-from-8b53ef.mp3 | from. Find the word from. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hmm-ten-f149d0.mp3 | Which word finishes the sentence? We hmm ten hens. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-they-hmm-a-735073.mp3 | Which word finishes the sentence? They hmm a big red van. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-ten-hens-f0ab9d.mp3 | Which word finishes the sentence? We … ten hens. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-they-a-big-a4c84a.mp3 | Which word finishes the sentence? They … a big red van. | 1 |
 | /audio/assessment/v3/prompts/have-find-the-word-have-a33ae6.mp3 | have. Find the word have. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-is-tall-aebf5c.mp3 | Which word finishes the sentence? Dad is tall. hmm has big boots. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ben-naps-hm-9ab968.mp3 | Which word finishes the sentence? Ben naps. hmm is in bed. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-is-tall-efe04a.mp3 | Which word finishes the sentence? Dad is tall. … has big boots. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ben-naps-is-e321cb.mp3 | Which word finishes the sentence? Ben naps. … is in bed. | 1 |
 | /audio/assessment/v3/prompts/he-find-the-word-he-8d182e.mp3 | he. Find the word he. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sam-hurt-hm-21c18c.mp3 | Which word finishes the sentence? Sam hurt hmm leg. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-dog-wag-cd0193.mp3 | Which word finishes the sentence? The dog wags hmm tail. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sam-hurt-le-da6e41.mp3 | Which word finishes the sentence? Sam hurt … leg. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-dog-wag-fb49cd.mp3 | Which word finishes the sentence? The dog wags … tail. | 1 |
 | /audio/assessment/v3/prompts/his-find-the-word-his-498674.mp3 | his. Find the word his. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-mom-and-hmm-833cb1.mp3 | Which word finishes the sentence? Mom and hmm bake buns. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-hmm-hav-ea9709.mp3 | Which word finishes the sentence? May hmm have a go? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-mom-and-bak-e07226.mp3 | Which word finishes the sentence? Mom and … bake buns. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-have-a-64a77f.mp3 | Which word finishes the sentence? May … have a go? | 1 |
 | /audio/assessment/v3/prompts/i-find-the-word-i-277a2e.mp3 | i. Find the word i. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-jam-is-394548.mp3 | Which word finishes the sentence? The jam is hmm the jar. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-fish-sw-9d6463.mp3 | Which word finishes the sentence? The fish swim hmm the sea. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-jam-is-76cc32.mp3 | Which word finishes the sentence? The jam is … the jar. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-fish-sw-3b6f2f.mp3 | Which word finishes the sentence? The fish swim … the sea. | 1 |
 | /audio/assessment/v3/prompts/in-find-the-word-in-b85d00.mp3 | in. Find the word in. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sun-hmm-d565c2.mp3 | Which word finishes the sentence? The sun hmm hot. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-cup-hmm-62c46e.mp3 | Which word finishes the sentence? My cup hmm full. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sun-hot-f3c529.mp3 | Which word finishes the sentence? The sun … hot. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-cup-full-7cf2cc.mp3 | Which word finishes the sentence? My cup … full. | 1 |
 | /audio/assessment/v3/prompts/is-find-the-word-is-849b89.mp3 | is. Find the word is. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-egg-fel-c50132.mp3 | Which word finishes the sentence? The egg fell. hmm has a crack. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-like-the-134983.mp3 | Which word finishes the sentence? I like the hat. hmm is red. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-egg-fel-cca7fa.mp3 | Which word finishes the sentence? The egg fell. … has a crack. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-like-the-d8f458.mp3 | Which word finishes the sentence? I like the hat. … is red. | 1 |
 | /audio/assessment/v3/prompts/it-find-the-word-it-d470e7.mp3 | it. Find the word it. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-want-a-cu-2c567c.mp3 | Which word finishes the sentence? I want a cup hmm milk. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-is-a-m-ef3da0.mp3 | Which word finishes the sentence? That is a map hmm the zoo. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-want-a-cu-2481f3.mp3 | Which word finishes the sentence? I want a cup … milk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-is-a-m-d9bb90.mp3 | Which word finishes the sentence? That is a map … the zoo. | 1 |
 | /audio/assessment/v3/prompts/of-find-the-word-of-909a54.mp3 | of. Find the word of. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-nap-aa2f5b.mp3 | Which word finishes the sentence? The cat naps hmm the rug. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-put-the-lid-3570ca.mp3 | Which word finishes the sentence? Put the lid hmm the pot. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-nap-6ba2cf.mp3 | Which word finishes the sentence? The cat naps … the rug. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-put-the-lid-31ee15.mp3 | Which word finishes the sentence? Put the lid … the pot. | 1 |
 | /audio/assessment/v3/prompts/on-find-the-word-on-f1d3c8.mp3 | on. Find the word on. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-see-hmm-shi-f20de5.mp3 | Which word finishes the sentence? See hmm ship far, far out? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-sang-hmm-675847.mp3 | Which word finishes the sentence? I sang hmm song long ago. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-see-ship-fa-4c43da.mp3 | Which word finishes the sentence? See … ship far, far out? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-sang-song-450699.mp3 | Which word finishes the sentence? I sang … song long ago. | 1 |
 | /audio/assessment/v3/prompts/that-find-the-word-that-1048d1.mp3 | that. Find the word that. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-at-hmm-46d011.mp3 | Which word finishes the sentence? Look at hmm big red sun! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-fed-hmm-172b5b.mp3 | Which word finishes the sentence? We fed hmm hens at six. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-at-big-b1e47b.mp3 | Which word finishes the sentence? Look at … big red sun! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-fed-hens-567141.mp3 | Which word finishes the sentence? We fed … hens at six. | 1 |
 | /audio/assessment/v3/prompts/the-find-the-word-the-caae76.mp3 | the. Find the word the. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pigs-sa-c43f4e.mp3 | Which word finishes the sentence? The pigs sat. hmm are muddy! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-socks-hm-46c5f5.mp3 | Which word finishes the sentence? My socks? hmm are wet. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pigs-sa-ec2d58.mp3 | Which word finishes the sentence? The pigs sat. … are muddy! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-socks-ar-3cf4ee.mp3 | Which word finishes the sentence? My socks? … are wet. | 1 |
 | /audio/assessment/v3/prompts/they-find-the-word-they-6e7cd3.mp3 | they. Find the word they. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-at-hmm-1f8656.mp3 | Which word finishes the sentence? Look at hmm bug on my hand! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-hat-her-948a27.mp3 | Which word finishes the sentence? hmm hat here is mine. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-at-bug-dca5fa.mp3 | Which word finishes the sentence? Look at … bug on my hand! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hat-here-is-301f07.mp3 | Which word finishes the sentence? … hat here is mine. | 1 |
 | /audio/assessment/v3/prompts/this-find-the-word-this-df499e.mp3 | this. Find the word this. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-go-hmm-t-a1b602.mp3 | Which word finishes the sentence? We go hmm the park. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-gave-the-af61d4.mp3 | Which word finishes the sentence? I gave the pen hmm Ben. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-go-the-p-8a29f1.mp3 | Which word finishes the sentence? We go … the park. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-gave-the-f11142.mp3 | Which word finishes the sentence? I gave the pen … Ben. | 1 |
 | /audio/assessment/v3/prompts/to-find-the-word-to-533bf0.mp3 | to. Find the word to. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-hmm-8a5c23.mp3 | Which word finishes the sentence? The cat hmm on the bed. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-milk-hm-6f3a2d.mp3 | Which word finishes the sentence? The milk hmm cold. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-on-1ea0ae.mp3 | Which word finishes the sentence? The cat … on the bed. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-milk-co-54896c.mp3 | Which word finishes the sentence? The milk … cold. | 1 |
 | /audio/assessment/v3/prompts/was-find-the-word-was-6f5084.mp3 | was. Find the word was. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-hop-hmm-m-dfac56.mp3 | Which word finishes the sentence? I hop hmm my dog. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-sang-hm-7a0b51.mp3 | Which word finishes the sentence? She sang hmm me at camp. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-hop-my-do-875444.mp3 | Which word finishes the sentence? I hop … my dog. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-sang-me-fe2c0f.mp3 | Which word finishes the sentence? She sang … me at camp. | 1 |
 | /audio/assessment/v3/prompts/with-find-the-word-with-5f99af.mp3 | with. Find the word with. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-are-my-297661.mp3 | Which word finishes the sentence? hmm are my best pal. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-can-hmm-see-fb5b1e.mp3 | Which word finishes the sentence? Can hmm see the big top? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-are-my-best-aa4c59.mp3 | Which word finishes the sentence? … are my best pal. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-can-see-the-8c8f59.mp3 | Which word finishes the sentence? Can … see the big top? | 1 |
 | /audio/assessment/v3/prompts/you-find-the-word-you-e74320.mp3 | you. Find the word you. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-he-has-hmm-pet-rat-b8c813.mp3 | Build the missing word. He has hmm pet rat. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-met-hmm-vet-today-9cb0ac.mp3 | Build the missing word. I met hmm vet today. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-six-hmm-ten-make-sixt-b6086b.mp3 | Build the missing word. Six hmm ten make sixteen. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-mum-hmm-gran-sat-down-cf6520.mp3 | Build the missing word. Mum hmm Gran sat down. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-cubs-hmm-so-soft-c0ef91.mp3 | Build the missing word. The cubs hmm so soft. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-my-hands-hmm-cold-555759.mp3 | Build the missing word. My hands hmm cold. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-he-is-fast-hmm-a-jet-726ca3.mp3 | Build the missing word. He is fast hmm a jet. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-it-is-cold-hmm-ice-168c1c.mp3 | Build the missing word. It is cold hmm ice. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-met-hmm-the-pond-8e64bf.mp3 | Build the missing word. We met hmm the pond. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-look-hmm-my-sandcastl-b56914.mp3 | Build the missing word. Look hmm my sandcastle! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-dad-will-hmm-back-soo-e59c2e.mp3 | Build the missing word. Dad will hmm back soon. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-it-can-hmm-windy-up-h-3b45f7.mp3 | Build the missing word. It can hmm windy up here. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-this-bun-is-hmm-gran-af1eb0.mp3 | Build the missing word. This bun is hmm Gran. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-sang-hmm-the-class-cc8dbe.mp3 | Build the missing word. We sang hmm the class. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-gift-came-hmm-gra-8da89c.mp3 | Build the missing word. The gift came hmm Gramps. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-milk-comes-hmm-cows-bbac60.mp3 | Build the missing word. Milk comes hmm cows. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-twins-hmm-red-hat-73c397.mp3 | Build the missing word. The twins hmm red hats. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-six-eggs-left-c056ff.mp3 | Build the missing word. We hmm six eggs left. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-gramps-naps-when-hmm-490914.mp3 | Build the missing word. Gramps naps when hmm can. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-tom-grins-when-hmm-wi-109784.mp3 | Build the missing word. Tom grins when hmm wins. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-dan-lost-hmm-left-soc-e4cb99.mp3 | Build the missing word. Dan lost hmm left sock. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-king-sat-on-hmm-t-6abe9a.mp3 | Build the missing word. The king sat on hmm throne. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-mum-and-hmm-swim-on-s-3fc83f.mp3 | Build the missing word. Mum and hmm swim on Sundays. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-may-hmm-pet-the-pup-b0c6f5.mp3 | Build the missing word. May hmm pet the pup? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-frogs-hop-hmm-the-3ca0ae.mp3 | Build the missing word. The frogs hop hmm the pond. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-pop-the-coins-hmm-the-caec84.mp3 | Build the missing word. Pop the coins hmm the tin. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-soup-hmm-hot-69b2a5.mp3 | Build the missing word. The soup hmm hot. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-my-bike-hmm-new-ee3767.mp3 | Build the missing word. My bike hmm new. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-nest-hmm-sits-up-e0ee6a.mp3 | Build the missing word. The nest? hmm sits up high. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-grab-the-rope-and-pul-56fd32.mp3 | Build the missing word. Grab the rope and pull hmm! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-had-a-mug-hmm-milk-b04c11.mp3 | Build the missing word. I had a mug hmm milk. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-here-is-a-box-hmm-pin-251b5e.mp3 | Build the missing word. Here is a box hmm pins. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-clock-hangs-hmm-t-c37fba.mp3 | Build the missing word. The clock hangs hmm the wall. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hop-hmm-the-bus-quick-136bc2.mp3 | Build the missing word. Hop hmm the bus, quick! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-who-left-hmm-mess-the-4b52db.mp3 | Build the missing word. Who left hmm mess there? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-drew-hmm-map-myself-742977.mp3 | Build the missing word. I drew hmm map myself. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-shut-hmm-gate-please-c00669.mp3 | Build the missing word. Shut hmm gate, please. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-feed-hmm-fish-at-nine-3f2911.mp3 | Build the missing word. Feed hmm fish at nine. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-elves-hmm-hid-wel-710318.mp3 | Build the missing word. The elves? hmm hid well. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-my-boots-hmm-got-wet-f78580.mp3 | Build the missing word. My boots? hmm got wet. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-smell-hmm-rose-right-33fe7f.mp3 | Build the missing word. Smell hmm rose right here. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hold-hmm-end-of-the-r-cc4928.mp3 | Build the missing word. Hold hmm end of the rope. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-row-hmm-the-dock-cfb69a.mp3 | Build the missing word. We row hmm the dock. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-pass-the-jam-hmm-gran-b2cf46.mp3 | Build the missing word. Pass the jam hmm Gran. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-soup-hmm-too-hot-b08303.mp3 | Build the missing word. The soup hmm too hot. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-trip-hmm-so-much-c13b4a.mp3 | Build the missing word. The trip hmm so much fun. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-come-camp-hmm-us-b698f8.mp3 | Build the missing word. Come camp hmm us! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-mix-the-eggs-hmm-a-fo-752d2f.mp3 | Build the missing word. Mix the eggs hmm a fork. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-did-hmm-see-the-comet-74383c.mp3 | Build the missing word. Did hmm see the comet? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-made-this-card-for-897c0b.mp3 | Build the missing word. I made this card for hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-fed-hmm-3ab649.mp3 | Which word finishes the sentence? She fed hmm small lamb. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-baked-thi-b2eeb7.mp3 | Which word finishes the sentence? I baked this hmm Dad. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pond-hm-6d02fe.mp3 | Which word finishes the sentence? The pond hmm full of frogs. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-ducks-h-507c0e.mp3 | Which word finishes the sentence? The ducks? hmm swam off. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-sweep-hmm-steps-pleas-e34469.mp3 | Build the missing word. Sweep hmm steps, please. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-can-hmm-lift-this-log-ff006c.mp3 | Build the missing word. Can hmm lift this log? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hid-hmm-the-rain-ac9d81.mp3 | Build the missing word. We hid hmm the rain. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-bob-packs-hmm-own-lun-3ab83b.mp3 | Build the missing word. Bob packs hmm own lunch. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-fed-hmm-229eaf.mp3 | Which word finishes the sentence? She fed hmm of the cats. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-drank-hm-29f74f.mp3 | Which word finishes the sentence? He drank hmm of the milk — the jug is empty! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-he-has-pet-rat-23af22.mp3 | Build the missing word. He has … pet rat. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-met-vet-today-ed45ba.mp3 | Build the missing word. I met … vet today. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-six-ten-make-sixteen-8c55a8.mp3 | Build the missing word. Six … ten make sixteen. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-mum-gran-sat-down-15d531.mp3 | Build the missing word. Mum … Gran sat down. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-cubs-so-soft-5fdd93.mp3 | Build the missing word. The cubs … so soft. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-my-hands-cold-600828.mp3 | Build the missing word. My hands … cold. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-he-is-fast-a-jet-a7c765.mp3 | Build the missing word. He is fast … a jet. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-it-is-cold-ice-cc5694.mp3 | Build the missing word. It is cold … ice. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-met-the-pond-d959d2.mp3 | Build the missing word. We met … the pond. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-look-my-sandcastle-d13d63.mp3 | Build the missing word. Look … my sandcastle! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-dad-will-back-soon-31edb8.mp3 | Build the missing word. Dad will … back soon. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-it-can-windy-up-here-205bb7.mp3 | Build the missing word. It can … windy up here. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-this-bun-is-gran-a719e4.mp3 | Build the missing word. This bun is … Gran. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-sang-the-class-c7c304.mp3 | Build the missing word. We sang … the class. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-gift-came-gramps-913585.mp3 | Build the missing word. The gift came … Gramps. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-milk-comes-cows-2dd1e2.mp3 | Build the missing word. Milk comes … cows. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-twins-red-hats-575a37.mp3 | Build the missing word. The twins … red hats. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-six-eggs-left-adb210.mp3 | Build the missing word. We … six eggs left. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-gramps-naps-when-can-3c80fc.mp3 | Build the missing word. Gramps naps when … can. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-tom-grins-when-wins-a9fead.mp3 | Build the missing word. Tom grins when … wins. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-dan-lost-left-sock-d93a8e.mp3 | Build the missing word. Dan lost … left sock. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-king-sat-on-thron-f49957.mp3 | Build the missing word. The king sat on … throne. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-mum-and-swim-on-sunda-c76f78.mp3 | Build the missing word. Mum and … swim on Sundays. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-may-pet-the-pup-35af96.mp3 | Build the missing word. May … pet the pup? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-frogs-hop-the-pon-326aa6.mp3 | Build the missing word. The frogs hop … the pond. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-pop-the-coins-the-tin-ac50e7.mp3 | Build the missing word. Pop the coins … the tin. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-soup-hot-41030f.mp3 | Build the missing word. The soup … hot. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-my-bike-new-2694fe.mp3 | Build the missing word. My bike … new. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-nest-sits-up-high-42cea7.mp3 | Build the missing word. The nest? … sits up high. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-grab-the-rope-and-pul-7621e8.mp3 | Build the missing word. Grab the rope and pull …! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-had-a-mug-milk-7df55c.mp3 | Build the missing word. I had a mug … milk. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-here-is-a-box-pins-cc8f07.mp3 | Build the missing word. Here is a box … pins. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-clock-hangs-the-w-442a59.mp3 | Build the missing word. The clock hangs … the wall. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-hop-the-bus-quick-823005.mp3 | Build the missing word. Hop … the bus, quick! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-who-left-mess-there-b0e688.mp3 | Build the missing word. Who left … mess there? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-drew-map-myself-6aaf03.mp3 | Build the missing word. I drew … map myself. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-shut-gate-please-50983d.mp3 | Build the missing word. Shut … gate, please. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-feed-fish-at-nine-9a341b.mp3 | Build the missing word. Feed … fish at nine. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-elves-hid-well-1e853a.mp3 | Build the missing word. The elves? … hid well. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-my-boots-got-wet-572a7a.mp3 | Build the missing word. My boots? … got wet. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-smell-rose-right-here-c73695.mp3 | Build the missing word. Smell … rose right here. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-hold-end-of-the-rope-b115cb.mp3 | Build the missing word. Hold … end of the rope. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-row-the-dock-7bc0ca.mp3 | Build the missing word. We row … the dock. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-pass-the-jam-gran-b86a7e.mp3 | Build the missing word. Pass the jam … Gran. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-soup-too-hot-20ae6e.mp3 | Build the missing word. The soup … too hot. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-trip-so-much-fun-119331.mp3 | Build the missing word. The trip … so much fun. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-come-camp-us-700250.mp3 | Build the missing word. Come camp … us! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-mix-the-eggs-a-fork-cc1922.mp3 | Build the missing word. Mix the eggs … a fork. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-did-see-the-comet-e64eac.mp3 | Build the missing word. Did … see the comet? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-made-this-card-for-3c8eaa.mp3 | Build the missing word. I made this card for …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-fed-sma-5dc53e.mp3 | Which word finishes the sentence? She fed … small lamb. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-baked-thi-ad231a.mp3 | Which word finishes the sentence? I baked this … Dad. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pond-fu-e2a020.mp3 | Which word finishes the sentence? The pond … full of frogs. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-ducks-s-9fc11b.mp3 | Which word finishes the sentence? The ducks? … swam off. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-sweep-steps-please-103ea0.mp3 | Build the missing word. Sweep … steps, please. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-can-lift-this-log-6c8620.mp3 | Build the missing word. Can … lift this log? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-hid-the-rain-d45d36.mp3 | Build the missing word. We hid … the rain. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-bob-packs-own-lunch-e52fac.mp3 | Build the missing word. Bob packs … own lunch. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-fed-of-a78c45.mp3 | Which word finishes the sentence? She fed … of the cats. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-drank-th-54675b.mp3 | Which word finishes the sentence? He drank … the milk. The jug is empty! | 1 |
 | /audio/assessment/v3/prompts/all-find-the-word-all-f0b558.mp3 | all. Find the word all. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-ate-hmm-e-cc4236.mp3 | Which word finishes the sentence? I ate hmm egg. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-saw-hmm-4b46cc.mp3 | Which word finishes the sentence? She saw hmm owl at dusk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-ate-egg-44db53.mp3 | Which word finishes the sentence? I ate … egg. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-she-saw-owl-3da61b.mp3 | Which word finishes the sentence? She saw … owl at dusk. | 1 |
 | /audio/assessment/v3/prompts/an-find-the-word-an-831dd9.mp3 | an. Find the word an. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-ran-fast-e6dfc4.mp3 | Which word finishes the sentence? I ran fast, hmm I missed the bus. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sun-is-8050f8.mp3 | Which word finishes the sentence? The sun is out, hmm it is cold. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-ran-fast-152792.mp3 | Which word finishes the sentence? I ran fast, … I missed the bus. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sun-is-9433db.mp3 | Which word finishes the sentence? The sun is out, … it is cold. | 1 |
 | /audio/assessment/v3/prompts/but-find-the-word-but-49621f.mp3 | but. Find the word but. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-nest-is-cf334e.mp3 | Which word finishes the sentence? The nest is hmm the gate. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-sat-hmm-7632b9.mp3 | Which word finishes the sentence? We sat hmm the pond. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-nest-is-44b138.mp3 | Which word finishes the sentence? The nest is … the gate. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-sat-the-56e814.mp3 | Which word finishes the sentence? We sat … the pond. | 1 |
 | /audio/assessment/v3/prompts/by-find-the-word-by-99d9d8.mp3 | by. Find the word by. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-hop-2448bb.mp3 | Which word finishes the sentence? hmm you hop like a frog? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-twins-h-38e6d6.mp3 | Which word finishes the sentence? The twins hmm swim fast. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-hop-lik-8210b4.mp3 | Which word finishes the sentence? … you hop like a frog? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-twins-s-3ac405.mp3 | Which word finishes the sentence? The twins … swim fast. | 1 |
 | /audio/assessment/v3/prompts/can-find-the-word-can-35d440.mp3 | can. Find the word can. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-lik-515dd7.mp3 | Which word finishes the sentence? hmm you like plums? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-hmm-co-6ca574.mp3 | Which word finishes the sentence? What hmm cows eat? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-like-pl-ffeff6.mp3 | Which word finishes the sentence? … you like plums? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-cows-e-6f41f6.mp3 | Which word finishes the sentence? What … cows eat? | 1 |
 | /audio/assessment/v3/prompts/do-find-the-word-do-426c04.mp3 | do. Find the word do. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-kid-got-cf41da.mp3 | Which word finishes the sentence? hmm kid got a badge. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-put-a-cup-a-994ee9.mp3 | Which word finishes the sentence? Put a cup at hmm desk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-kid-got-a-b-5017d1.mp3 | Which word finishes the sentence? … kid got a badge. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-put-a-cup-a-c6df81.mp3 | Which word finishes the sentence? Put a cup at … desk. | 1 |
 | /audio/assessment/v3/prompts/each-find-the-word-each-81be33.mp3 | each. Find the word each. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-last-week-w-a17c4e.mp3 | Which word finishes the sentence? Last week we hmm a picnic. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-hmm-si-ea3b0e.mp3 | Which word finishes the sentence? Gran hmm six cats long ago. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-last-week-w-c0dc0b.mp3 | Which word finishes the sentence? Last week we … a picnic. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-six-ca-437a7c.mp3 | Which word finishes the sentence? Gran … six cats long ago. | 1 |
 | /audio/assessment/v3/prompts/had-find-the-word-had-f4614e.mp3 | had. Find the word had. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-do-you-15ed2b.mp3 | Which word finishes the sentence? hmm do you make jam? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-hmm-22eb33.mp3 | Which word finishes the sentence? Tell me hmm the trick works. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-do-you-make-96c322.mp3 | Which word finishes the sentence? … do you make jam? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-the-5aaa9e.mp3 | Which word finishes the sentence? Tell me … the trick works. | 1 |
 | /audio/assessment/v3/prompts/how-find-the-word-how-3dc438.mp3 | how. Find the word how. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ask-me-hmm-cb7d43.mp3 | Which word finishes the sentence? Ask me hmm you get stuck. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-it-rain-c8e224.mp3 | Which word finishes the sentence? hmm it rains, we stay in. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ask-me-you-3dd1d9.mp3 | Which word finishes the sentence? Ask me … you get stuck. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-rains-we-235544.mp3 | Which word finishes the sentence? … it rains, we stay in. | 1 |
 | /audio/assessment/v3/prompts/if-find-the-word-if-aa4c5b.mp3 | if. Find the word if. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sums-ar-6a608f.mp3 | Which word finishes the sentence? The sums are hmm hard — they are easy! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-is-hmm-9fd27b.mp3 | Which word finishes the sentence? That is hmm my hat! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-sums-ar-6b0995.mp3 | Which word finishes the sentence? The sums are … hard — they are easy! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-is-my-3a685e.mp3 | Which word finishes the sentence? That is … my hat! | 1 |
 | /audio/assessment/v3/prompts/not-find-the-word-not-fbe24b.mp3 | not. Find the word not. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-have-just-714abf.mp3 | Which word finishes the sentence? I have just hmm wish. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-duck-sw-67b26a.mp3 | Which word finishes the sentence? hmm duck swam off; two stayed. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-have-just-b5d9c0.mp3 | Which word finishes the sentence? I have just … wish. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-duck-swam-o-964947.mp3 | Which word finishes the sentence? … duck swam off; two stayed. | 1 |
 | /audio/assessment/v3/prompts/one-find-the-word-one-91a978.mp3 | one. Find the word one. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-do-you-want-18c033.mp3 | Which word finishes the sentence? Do you want jam hmm ham? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-the-cup-194e43.mp3 | Which word finishes the sentence? Is the cup full hmm empty? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-do-you-want-c6b234.mp3 | Which word finishes the sentence? Do you want jam … ham? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-the-cup-ff584f.mp3 | Which word finishes the sentence? Is the cup full … empty? | 1 |
 | /audio/assessment/v3/prompts/or-find-the-word-or-227082.mp3 | or. Find the word or. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-mum-hmm-we-28d0da.mp3 | Which word finishes the sentence? Mum hmm we can camp! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-hmm-yes-cedba1.mp3 | Which word finishes the sentence? Dad hmm yes at last. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-mum-we-can-a75a7f.mp3 | Which word finishes the sentence? Mum … we can camp! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-yes-at-64f1e8.mp3 | Which word finishes the sentence? Dad … yes at last. | 1 |
 | /audio/assessment/v3/prompts/said-find-the-word-said-d2a0bb.mp3 | said. Find the word said. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-aunt-nap-f12328.mp3 | Which word finishes the sentence? My aunt naps when hmm can. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-hums-a-45984d.mp3 | Which word finishes the sentence? Gran hums as hmm bakes. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-aunt-nap-e78f59.mp3 | Which word finishes the sentence? My aunt naps when … can. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-hums-a-7b2dbd.mp3 | Which word finishes the sentence? Gran hums as … bakes. | 1 |
 | /audio/assessment/v3/prompts/she-find-the-word-she-2784b5.mp3 | she. Find the word she. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-twins-l-3b7400.mp3 | Which word finishes the sentence? The twins lost hmm kite. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cubs-dr-77f92c.mp3 | Which word finishes the sentence? The cubs drank hmm milk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-twins-l-8b947c.mp3 | Which word finishes the sentence? The twins lost … kite. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cubs-dr-fef6ee.mp3 | Which word finishes the sentence? The cubs drank … milk. | 1 |
 | /audio/assessment/v3/prompts/their-find-the-word-their-a1f3da.mp3 | their. Find the word their. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-the-bu-848a9e.mp3 | Which word finishes the sentence? Look — the bus is over hmm! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-got-hmm-35e31b.mp3 | Which word finishes the sentence? We got hmm just in time. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-look-the-bu-53d352.mp3 | Which word finishes the sentence? Look — the bus is over …! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-got-just-310080.mp3 | Which word finishes the sentence? We got … just in time. | 1 |
 | /audio/assessment/v3/prompts/there-find-the-word-there-bd701d.mp3 | there. Find the word there. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-the-key-dd383c.mp3 | Which word finishes the sentence? hmm the key to open the box. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hmm-mud-4162ef.mp3 | Which word finishes the sentence? We hmm mud to make bricks. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-key-to-652338.mp3 | Which word finishes the sentence? … the key to open the box. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-mud-to-m-6c21c0.mp3 | Which word finishes the sentence? We … mud to make bricks. | 1 |
 | /audio/assessment/v3/prompts/use-find-the-word-use-804c05.mp3 | use. Find the word use. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sis-and-i-h-2c815d.mp3 | Which word finishes the sentence? Sis and I hid. hmm both grinned. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-and-i-f-17641d.mp3 | Which word finishes the sentence? Dad and I fish. hmm catch cod! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-sis-and-i-h-27e8fb.mp3 | Which word finishes the sentence? Sis and I hid. … both grinned. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-and-i-f-b9ad5e.mp3 | Which word finishes the sentence? Dad and I fish. … catch cod! | 1 |
 | /audio/assessment/v3/prompts/we-find-the-word-we-4cdb1c.mp3 | we. Find the word we. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-shops-h-3b3277.mp3 | Which word finishes the sentence? The shops hmm shut at ten. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-hmm-so-8029a2.mp3 | Which word finishes the sentence? You hmm so brave at the vet! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-shops-s-c22ae1.mp3 | Which word finishes the sentence? The shops … shut at ten. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-so-brav-3d7db0.mp3 | Which word finishes the sentence? You … so brave at the vet! | 1 |
 | /audio/assessment/v3/prompts/were-find-the-word-were-3b817c.mp3 | were. Find the word were. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-is-in-t-f5305f.mp3 | Which word finishes the sentence? hmm is in the big box? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-guess-hmm-i-6dd20c.mp3 | Which word finishes the sentence? Guess hmm I made for you! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-in-the-b-361377.mp3 | Which word finishes the sentence? … is in the big box? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-guess-i-mad-bf11f5.mp3 | Which word finishes the sentence? Guess … I made for you! | 1 |
 | /audio/assessment/v3/prompts/what-find-the-word-what-14c814.mp3 | what. Find the word what. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-does-th-3bc51e.mp3 | Which word finishes the sentence? hmm does the show start — at two or three? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-clap-hmm-ebfa7d.mp3 | Which word finishes the sentence? I clap hmm you sing. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-does-the-sh-79ac88.mp3 | Which word finishes the sentence? … does the show start? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-clap-you-c682e2.mp3 | Which word finishes the sentence? I clap … you sing. | 1 |
 | /audio/assessment/v3/prompts/when-find-the-word-when-8594df.mp3 | when. Find the word when. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-hat-is-ca0e76.mp3 | Which word finishes the sentence? hmm hat is yours — red or blue? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-hmm-d28ae7.mp3 | Which word finishes the sentence? Tell me hmm pup you like best. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hat-is-your-cb80db.mp3 | Which word finishes the sentence? … hat is yours — red or blue? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-pup-f7cf03.mp3 | Which word finishes the sentence? Tell me … pup you like best. | 1 |
 | /audio/assessment/v3/prompts/which-find-the-word-which-e830ff.mp3 | which. Find the word which. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-read-six-284b77.mp3 | Which word finishes the sentence? We read six new hmm today. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-big-hmm-can-fbab1c.mp3 | Which word finishes the sentence? Big hmm can be fun to spell. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-read-six-d02744.mp3 | Which word finishes the sentence? We read six new … today. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-big-can-be-e84ae9.mp3 | Which word finishes the sentence? Big … can be fun to spell. | 1 |
 | /audio/assessment/v3/prompts/words-find-the-word-words-a8b9ba.mp3 | words. Find the word words. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-this-hmm-ecb4e6.mp3 | Which word finishes the sentence? Is this hmm scarf? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pack-hmm-ba-356185.mp3 | Which word finishes the sentence? Pack hmm bags for camp. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-this-sca-5c8c4b.mp3 | Which word finishes the sentence? Is this … scarf? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pack-bags-f-367388.mp3 | Which word finishes the sentence? Pack … bags for camp. | 1 |
 | /audio/assessment/v3/prompts/your-find-the-word-your-d45b28.mp3 | your. Find the word your. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-ate-hmm-the-grapes-1a2ecc.mp3 | Build the missing word. We ate hmm the grapes. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-my-pens-ran-out-ed45e9.mp3 | Build the missing word. hmm my pens ran out. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-he-fed-hmm-ox-at-the-9b2bd9.mp3 | Build the missing word. He fed hmm ox at the farm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-need-hmm-extra-bed-f6d144.mp3 | Build the missing word. I need hmm extra bed. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-tried-hmm-i-slipped-e06c8a.mp3 | Build the missing word. I tried, hmm I slipped. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-small-hmm-strong-80393b.mp3 | Build the missing word. Small hmm strong! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-stand-hmm-the-door-pl-a74d4e.mp3 | Build the missing word. Stand hmm the door, please. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-mill-sits-hmm-a-s-2dbd15.mp3 | Build the missing word. The mill sits hmm a stream. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-foxes-hmm-jump-high-e5a042.mp3 | Build the missing word. Foxes hmm jump high. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-we-camp-out-back-422cb4.mp3 | Build the missing word. hmm we camp out back? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-frogs-sleep-in-mu-6623c8.mp3 | Build the missing word. hmm frogs sleep in mud? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-sums-after-lun-6b4db3.mp3 | Build the missing word. We hmm sums after lunch. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-give-hmm-hen-some-cor-e8e8ed.mp3 | Build the missing word. Give hmm hen some corn. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-box-has-a-lid-58a952.mp3 | Build the missing word. hmm box has a lid. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-fun-at-the-fai-f85ee7.mp3 | Build the missing word. We hmm fun at the fair. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-pup-hmm-my-sock-4277c7.mp3 | Build the missing word. The pup hmm my sock! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-do-bees-make-hone-b4550d.mp3 | Build the missing word. hmm do bees make honey? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-show-me-hmm-to-knit-a8153b.mp3 | Build the missing word. Show me hmm to knit. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-yell-hmm-you-spot-lan-cc73ef.mp3 | Build the missing word. Yell hmm you spot land! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ask-dad-hmm-we-may-go-ab7725.mp3 | Build the missing word. Ask Dad hmm we may go. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-that-is-hmm-my-cup-e84fd9.mp3 | Build the missing word. That is hmm my cup. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-do-hmm-wake-the-baby-26e5d9.mp3 | Build the missing word. Do hmm wake the baby! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-just-hmm-more-lap-to-45b28b.mp3 | Build the missing word. Just hmm more lap to run! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-star-shone-first-d7d439.mp3 | Build the missing word. hmm star shone first. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-milk-hmm-water-with-l-720cac.mp3 | Build the missing word. Milk hmm water with lunch? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-walk-hmm-ride-you-pic-d62648.mp3 | Build the missing word. Walk hmm ride — you pick. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-vet-hmm-to-rest-t-e0aabc.mp3 | Build the missing word. The vet hmm to rest the pup. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-gran-hmm-bedtime-is-n-15e563.mp3 | Build the missing word. Gran hmm bedtime is nine. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-may-hmm-join-our-team-c9d77d.mp3 | Build the missing word. May hmm join our team? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-dug-up-a-gem-f6de1d.mp3 | Build the missing word. hmm dug up a gem! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-bees-kept-hmm-hon-91687d.mp3 | Build the missing word. The bees kept hmm honey safe. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-kids-lost-hmm-bal-988012.mp3 | Build the missing word. The kids lost hmm ball again. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-park-the-bikes-over-h-c6e3fd.mp3 | Build the missing word. Park the bikes over hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-is-anybody-hmm-5cfd06.mp3 | Build the missing word. Is anybody hmm? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-both-hands-to-lif-b6084f.mp3 | Build the missing word. hmm both hands to lift it. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-twigs-for-the-9215ff.mp3 | Build the missing word. We hmm twigs for the nest. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-can-hmm-bake-a-plum-p-eac97e.mp3 | Build the missing word. Can hmm bake a plum pie? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-swam-till-six-b59275.mp3 | Build the missing word. hmm swam till six. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-socks-hmm-still-d-987350.mp3 | Build the missing word. The socks hmm still damp. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-you-hmm-fast-today-2b958c.mp3 | Build the missing word. You hmm fast today! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-fell-off-the-shel-707efd.mp3 | Build the missing word. hmm fell off the shelf? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-guess-hmm-i-found-1acd8d.mp3 | Build the missing word. Guess hmm I found! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-does-the-pool-ope-b633ce.mp3 | Build the missing word. hmm does the pool open? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-clap-hmm-the-song-end-c2a104.mp3 | Build the missing word. Clap hmm the song ends. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-sock-is-mine-d137d3.mp3 | Build the missing word. hmm sock is mine? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-pick-hmm-game-we-play-a25edd.mp3 | Build the missing word. Pick hmm game we play. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-rhyming-hmm-end-the-s-ab0eda.mp3 | Build the missing word. Rhyming hmm end the same. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-long-hmm-need-long-ti-6f7cd8.mp3 | Build the missing word. Long hmm need long tiles. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-tie-hmm-laces-up-tigh-58745f.mp3 | Build the missing word. Tie hmm laces up tight. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-bring-hmm-kit-on-mond-1b07a2.mp3 | Build the missing word. Bring hmm kit on Monday. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-coach-h-2b4d27.mp3 | Which word finishes the sentence? The coach hmm to rest up. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-ants-bu-abeeb3.mp3 | Which word finishes the sentence? The ants built hmm nest fast. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-buns-hm-c25481.mp3 | Which word finishes the sentence? The buns hmm still warm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-just-hmm-bu-ecf5b1.mp3 | Which word finishes the sentence? Just hmm bun is left. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-sit-hmm-by-the-window-befff5.mp3 | Build the missing word. Sit hmm by the window. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-who-hmm-that-22dc13.mp3 | Build the missing word. Who hmm that? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-crabs-hmm-nip-take-ca-b4400b.mp3 | Build the missing word. Crabs hmm nip — take care! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-is-this-hmm-pen-or-mi-b8dd1e.mp3 | Build the missing word. Is this hmm pen or mine? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-book-i-d8a213.mp3 | Which word finishes the sentence? This book is hmm ants. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-hmm-7d655c.mp3 | Which word finishes the sentence? Tell me hmm the trip! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-ate-the-grapes-5e7845.mp3 | Build the missing word. We ate … the grapes. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-my-pens-ran-out-b2fc5b.mp3 | Build the missing word. … my pens ran out. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-he-fed-ox-at-the-farm-1fe6e3.mp3 | Build the missing word. He fed … ox at the farm. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-need-extra-bed-f3a88d.mp3 | Build the missing word. I need … extra bed. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-tried-i-slipped-e179b9.mp3 | Build the missing word. I tried, … I slipped. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-small-strong-feeaee.mp3 | Build the missing word. Small … strong! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-stand-the-door-please-904d19.mp3 | Build the missing word. Stand … the door, please. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-mill-sits-a-strea-c47fe6.mp3 | Build the missing word. The mill sits … a stream. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-foxes-jump-high-aa89bb.mp3 | Build the missing word. Foxes … jump high. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-camp-out-back-beb14e.mp3 | Build the missing word. … we camp out back? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-frogs-sleep-in-mud-1635e2.mp3 | Build the missing word. … frogs sleep in mud? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-sums-after-lunch-e98f7e.mp3 | Build the missing word. We … sums after lunch. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-give-hen-some-corn-12ab57.mp3 | Build the missing word. Give … hen some corn. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-box-has-a-lid-90caa2.mp3 | Build the missing word. … box has a lid. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-fun-at-the-fair-f4706a.mp3 | Build the missing word. We … fun at the fair. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-pup-my-sock-6cacd7.mp3 | Build the missing word. The pup … my sock! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-do-bees-make-honey-646728.mp3 | Build the missing word. … do bees make honey? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-show-me-to-knit-cfe667.mp3 | Build the missing word. Show me … to knit. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-yell-you-spot-land-5ef1b2.mp3 | Build the missing word. Yell … you spot land! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ask-dad-we-may-go-d2152a.mp3 | Build the missing word. Ask Dad … we may go. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-that-is-my-cup-109ef7.mp3 | Build the missing word. That is … my cup. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-do-wake-the-baby-a88081.mp3 | Build the missing word. Do … wake the baby! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-just-more-lap-to-run-8edc7b.mp3 | Build the missing word. Just … more lap to run! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-star-shone-first-5458d3.mp3 | Build the missing word. … star shone first. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-milk-water-with-lunch-24834f.mp3 | Build the missing word. Milk … water with lunch? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-walk-ride-you-pick-de5f01.mp3 | Build the missing word. Walk … ride — you pick. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-vet-to-rest-the-p-98cc19.mp3 | Build the missing word. The vet … to rest the pup. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-gran-bedtime-is-nine-67692a.mp3 | Build the missing word. Gran … bedtime is nine. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-may-join-our-team-2b6e8f.mp3 | Build the missing word. May … join our team? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-dug-up-a-gem-843475.mp3 | Build the missing word. … dug up a gem! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-bees-kept-honey-s-d4cbc6.mp3 | Build the missing word. The bees kept … honey safe. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-kids-lost-ball-ag-2f65cd.mp3 | Build the missing word. The kids lost … ball again. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-park-the-bikes-over-ced50c.mp3 | Build the missing word. Park the bikes over …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-is-anybody-daf583.mp3 | Build the missing word. Is anybody …? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-both-hands-to-lift-it-5387a3.mp3 | Build the missing word. … both hands to lift it. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-twigs-for-the-nest-a7f58b.mp3 | Build the missing word. We … twigs for the nest. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-can-bake-a-plum-pie-d08b33.mp3 | Build the missing word. Can … bake a plum pie? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-swam-till-six-edb3c5.mp3 | Build the missing word. … swam till six. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-socks-still-damp-a69416.mp3 | Build the missing word. The socks … still damp. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-you-fast-today-7163e0.mp3 | Build the missing word. You … fast today! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-fell-off-the-shelf-209118.mp3 | Build the missing word. … fell off the shelf? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-guess-i-found-b2654c.mp3 | Build the missing word. Guess … I found! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-does-the-pool-open-6645e9.mp3 | Build the missing word. … does the pool open? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-clap-the-song-ends-6ee14c.mp3 | Build the missing word. Clap … the song ends. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-sock-is-mine-5e8e2a.mp3 | Build the missing word. … sock is mine? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-pick-game-we-play-e58af7.mp3 | Build the missing word. Pick … game we play. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-rhyming-end-the-same-296582.mp3 | Build the missing word. Rhyming … end the same. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-long-need-long-tiles-7a5902.mp3 | Build the missing word. Long … need long tiles. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-tie-laces-up-tight-fa9bf7.mp3 | Build the missing word. Tie … laces up tight. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-bring-kit-on-monday-4e9ac6.mp3 | Build the missing word. Bring … kit on Monday. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-coach-t-ecae60.mp3 | Which word finishes the sentence? The coach … to rest up. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-ants-bu-6abd63.mp3 | Which word finishes the sentence? The ants built … nest fast. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-buns-st-16721b.mp3 | Which word finishes the sentence? The buns … still warm. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-just-bun-is-acc6a4.mp3 | Which word finishes the sentence? Just … bun is left. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-sit-by-the-window-8e38f9.mp3 | Build the missing word. Sit … by the window. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-who-that-815899.mp3 | Build the missing word. Who … that? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-crabs-nip-take-care-6285b5.mp3 | Build the missing word. Crabs … nip — take care! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-is-this-pen-or-mine-eef1e1.mp3 | Build the missing word. Is this … pen or mine? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-book-i-feaff1.mp3 | Which word finishes the sentence? This book is … ants. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tell-me-the-c71953.mp3 | Which word finishes the sentence? Tell me … the trip! | 1 |
 | /audio/assessment/v3/prompts/about-find-the-word-about-e4be13.mp3 | about. Find the word about. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-we-hmm-d44fb7.mp3 | Which word finishes the sentence? May we hmm to the fair? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-vans-hm-7c209d.mp3 | Which word finishes the sentence? The vans hmm up the hill. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-we-to-t-5e69ff.mp3 | Which word finishes the sentence? May we … to the fair? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-vans-up-2952e8.mp3 | Which word finishes the sentence? The vans … up the hill. | 1 |
 | /audio/assessment/v3/prompts/go-find-the-word-go-359301.mp3 | go. Find the word go. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-bike-hmm-bc4202.mp3 | Which word finishes the sentence? My bike hmm a bell. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ren-hmm-two-8e0f29.mp3 | Which word finishes the sentence? Ren hmm two pet mice. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-my-bike-a-b-b89531.mp3 | Which word finishes the sentence? My bike … a bell. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ren-two-pet-7fe0da.mp3 | Which word finishes the sentence? Ren … two pet mice. | 1 |
 | /audio/assessment/v3/prompts/has-find-the-word-has-b423fd.mp3 | has. Find the word has. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-meg-lost-hm-7ffa3e.mp3 | Which word finishes the sentence? Meg lost hmm mitten. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-naps-i-ebcc68.mp3 | Which word finishes the sentence? Gran naps in hmm chair. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-meg-lost-mi-161c9f.mp3 | Which word finishes the sentence? Meg lost … mitten. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-naps-i-ce17f8.mp3 | Which word finishes the sentence? Gran naps in … chair. | 1 |
 | /audio/assessment/v3/prompts/her-find-the-word-her-2dc83e.mp3 | her. Find the word her. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-waved-s-e86312.mp3 | Which word finishes the sentence? Dad waved, so I waved at hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tom-fell-he-2b8b84.mp3 | Which word finishes the sentence? Tom fell — help hmm up! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-waved-s-e8405c.mp3 | Which word finishes the sentence? Dad waved, so I waved at …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tom-fell-he-d16ea9.mp3 | Which word finishes the sentence? Tom fell — help … up! | 1 |
 | /audio/assessment/v3/prompts/him-find-the-word-him-633894.mp3 | him. Find the word him. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-frog-ho-e9e208.mp3 | Which word finishes the sentence? The frog hopped hmm the pond. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pour-the-mi-44ca1b.mp3 | Which word finishes the sentence? Pour the milk hmm the jug. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-frog-ho-4a8dbc.mp3 | Which word finishes the sentence? The frog hopped … the pond. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pour-the-mi-e85a29.mp3 | Which word finishes the sentence? Pour the milk … the jug. | 1 |
 | /audio/assessment/v3/prompts/into-find-the-word-into-228fe9.mp3 | into. Find the word into. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-hmm-plums-a0fcf4.mp3 | Which word finishes the sentence? I hmm plums best of all. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-clouds-can-1e47a0.mp3 | Which word finishes the sentence? Clouds can look hmm sheep. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-plums-bes-8cc986.mp3 | Which word finishes the sentence? I … plums best of all. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-clouds-can-4184af.mp3 | Which word finishes the sentence? Clouds can look … sheep. | 1 |
 | /audio/assessment/v3/prompts/like-find-the-word-like-97df75.mp3 | like. Find the word like. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-at-the-3090cf.mp3 | Which word finishes the sentence? hmm at the double rainbow! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hmm-for-665af4.mp3 | Which word finishes the sentence? We hmm for shells at the beach. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-at-the-doub-203c29.mp3 | Which word finishes the sentence? … at the double rainbow! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-for-shel-927c40.mp3 | Which word finishes the sentence? We … for shells at the beach. | 1 |
 | /audio/assessment/v3/prompts/look-find-the-word-look-423bd5.mp3 | look. Find the word look. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-let-s-hmm-a-6d2bb0.mp3 | Which word finishes the sentence? Let's hmm a mud pie! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-bees-hmm-wa-7440ec.mp3 | Which word finishes the sentence? Bees hmm wax and honey. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-let-s-a-mud-71cfa8.mp3 | Which word finishes the sentence? Let's … a mud pie! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-bees-wax-an-2e89ef.mp3 | Which word finishes the sentence? Bees … wax and honey. | 1 |
 | /audio/assessment/v3/prompts/make-find-the-word-make-ccb9c6.mp3 | make. Find the word make. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-hands-m-8d5956.mp3 | Which word finishes the sentence? hmm hands make light work. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-how-hmm-egg-922590.mp3 | Which word finishes the sentence? How hmm eggs are left? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hands-make-7d04b0.mp3 | Which word finishes the sentence? … hands make light work. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-how-eggs-ar-2ecd33.mp3 | Which word finishes the sentence? How … eggs are left? | 1 |
 | /audio/assessment/v3/prompts/many-find-the-word-many-1ad087.mp3 | many. Find the word many. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-i-have-90ebdd.mp3 | Which word finishes the sentence? May I have hmm peas, please? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-box-ho-a8f166.mp3 | Which word finishes the sentence? This box holds hmm than that one. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-may-i-have-c04756.mp3 | Which word finishes the sentence? May I have … peas, please? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-this-box-ho-a401a9.mp3 | Which word finishes the sentence? This box holds … than that one. | 1 |
 | /audio/assessment/v3/prompts/more-find-the-word-more-96fd69.mp3 | more. Find the word more. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-mitten-b4282f.mp3 | Which word finishes the sentence? One mitten is dry. My hmm mitten is lost. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-try-your-hm-218af6.mp3 | Which word finishes the sentence? Try your hmm hand. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-mitten-aa4f31.mp3 | Which word finishes the sentence? One mitten is dry. My … mitten is lost. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-try-your-ha-1605dd.mp3 | Which word finishes the sentence? Try your … hand. | 1 |
 | /audio/assessment/v3/prompts/other-find-the-word-other-340ad8.mp3 | other. Find the word other. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-ran-1e49f6.mp3 | Which word finishes the sentence? The cat ran hmm of the shed. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-turn-the-la-cac05d.mp3 | Which word finishes the sentence? Turn the lamp hmm at nine. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cat-ran-7443f5.mp3 | Which word finishes the sentence? The cat ran … of the shed. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-turn-the-la-77467b.mp3 | Which word finishes the sentence? Turn the lamp … at nine. | 1 |
 | /audio/assessment/v3/prompts/out-find-the-word-out-74224f.mp3 | out. Find the word out. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-owls-can-hm-1c3490.mp3 | Which word finishes the sentence? Owls can hmm well at night. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-come-and-hm-82188a.mp3 | Which word finishes the sentence? Come and hmm my fort! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-owls-can-we-512a6c.mp3 | Which word finishes the sentence? Owls can … well at night. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-come-and-my-b1664c.mp3 | Which word finishes the sentence? Come and … my fort! | 1 |
 | /audio/assessment/v3/prompts/see-find-the-word-see-aa735e.mp3 | see. Find the word see. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-tea-was-e2a81a.mp3 | Which word finishes the sentence? The tea was hot, hmm I let it cool. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-joke-i-a8f8da.mp3 | Which word finishes the sentence? That joke is hmm funny! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-tea-was-ff3c7d.mp3 | Which word finishes the sentence? The tea was hot, … I let it cool. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-joke-i-e08437.mp3 | Which word finishes the sentence? That joke is … funny! | 1 |
 | /audio/assessment/v3/prompts/so-find-the-word-so-22ef22.mp3 | so. Find the word so. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-save-hmm-ca-7b181a.mp3 | Which word finishes the sentence? Save hmm cake for Gran. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-birds-s-a4feb5.mp3 | Which word finishes the sentence? hmm birds sing at dawn. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-save-cake-f-675578.mp3 | Which word finishes the sentence? Save … cake for Gran. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-birds-sing-794a96.mp3 | Which word finishes the sentence? … birds sing at dawn. | 1 |
 | /audio/assessment/v3/prompts/some-find-the-word-some-b6efbf.mp3 | some. Find the word some. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cups-i-23f2ed.mp3 | Which word finishes the sentence? The cups? I washed hmm all. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-find-the-tw-e9db74.mp3 | Which word finishes the sentence? Find the twins and tell hmm to come. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-cups-i-a18cbe.mp3 | Which word finishes the sentence? The cups? I washed … all. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-find-the-tw-a98cdd.mp3 | Which word finishes the sentence? Find the twins and tell … to come. | 1 |
 | /audio/assessment/v3/prompts/them-find-the-word-them-e69523.mp3 | them. Find the word them. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-swam-hmm-8a0bc4.mp3 | Which word finishes the sentence? We swam, hmm we had lunch. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-first-mix-h-307707.mp3 | Which word finishes the sentence? First mix, hmm bake. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-swam-we-2c8422.mp3 | Which word finishes the sentence? We swam, … we had lunch. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-first-mix-b-a35d60.mp3 | Which word finishes the sentence? First mix, … bake. | 1 |
 | /audio/assessment/v3/prompts/then-find-the-word-then-81159c.mp3 | then. Find the word then. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-boots-h-cfe5d1.mp3 | Which word finishes the sentence? hmm boots here are muddy. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-are-hmm-you-7e6f8c.mp3 | Which word finishes the sentence? Are hmm your keys right here? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-boots-here-e6acf3.mp3 | Which word finishes the sentence? … boots here are muddy. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-are-your-ke-a129a0.mp3 | Which word finishes the sentence? Are … your keys right here? | 1 |
 | /audio/assessment/v3/prompts/these-find-the-word-these-8c5998.mp3 | these. Find the word these. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-hmm-do-aa9c9c.mp3 | Which word finishes the sentence? What hmm does the pool open? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-is-hmm-f-5705dc.mp3 | Which word finishes the sentence? It is hmm for bed, sleepyhead. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-does-t-a6ac80.mp3 | Which word finishes the sentence? What … does the pool open? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-is-for-b-f1155b.mp3 | Which word finishes the sentence? It is … for bed, sleepyhead. | 1 |
 | /audio/assessment/v3/prompts/time-find-the-word-time-899e17.mp3 | time. Find the word time. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-have-hmm-8b7e7e.mp3 | Which word finishes the sentence? I have hmm thumbs and eight fingers. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-recipe-f2ca36.mp3 | Which word finishes the sentence? The recipe needs hmm eggs. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-have-thum-d9726a.mp3 | Which word finishes the sentence? I have … thumbs and eight fingers. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-recipe-2c9545.mp3 | Which word finishes the sentence? The recipe needs … eggs. | 1 |
 | /audio/assessment/v3/prompts/two-find-the-word-two-ad48e0.mp3 | two. Find the word two. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-kite-we-ceb14a.mp3 | Which word finishes the sentence? The kite went hmm and away. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-roll-hmm-yo-c7947e.mp3 | Which word finishes the sentence? Roll hmm your sleeping bag. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-kite-we-c4efe3.mp3 | Which word finishes the sentence? The kite went … and away. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-roll-your-s-be13cc.mp3 | Which word finishes the sentence? Roll … your sleeping bag. | 1 |
 | /audio/assessment/v3/prompts/up-find-the-word-up-70701e.mp3 | up. Find the word up. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-hmm-rain-f7d4d3.mp3 | Which word finishes the sentence? It hmm rain later, I think. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-hol-c361cf.mp3 | Which word finishes the sentence? hmm you hold my kite a bit? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-rain-lat-6542d1.mp3 | Which word finishes the sentence? It … rain later, I think. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-hold-my-a87872.mp3 | Which word finishes the sentence? … you hold my kite a bit? | 1 |
 | /audio/assessment/v3/prompts/will-find-the-word-will-e89dc2.mp3 | will. Find the word will. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-lik-d8bf43.mp3 | Which word finishes the sentence? hmm you like a hot roll? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-said-he-14fa99.mp3 | Which word finishes the sentence? He said he hmm help us pack. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-like-a-36873d.mp3 | Which word finishes the sentence? … you like a hot roll? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-he-said-he-a51ec4.mp3 | Which word finishes the sentence? He said he … help us pack. | 1 |
 | /audio/assessment/v3/prompts/would-find-the-word-would-692be2.mp3 | would. Find the word would. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-please-hmm-e7a8c8.mp3 | Which word finishes the sentence? Please hmm your name at the top. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-hmm-to-my-c4158f.mp3 | Which word finishes the sentence? I hmm to my pen pal weekly. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-please-your-2f0d53.mp3 | Which word finishes the sentence? Please … your name at the top. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-to-my-pen-fc7313.mp3 | Which word finishes the sentence? I … to my pen pal weekly. | 1 |
 | /audio/assessment/v3/prompts/write-find-the-word-write-252144.mp3 | write. Find the word write. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-this-song-is-hmm-the-44ddb7.mp3 | Build the missing word. This song is hmm the sea. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ask-me-hmm-my-hobby-7dc4d0.mp3 | Build the missing word. Ask me hmm my hobby. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-time-to-hmm-home-now-fcdb2b.mp3 | Build the missing word. Time to hmm home now. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ready-steady-hmm-157058.mp3 | Build the missing word. Ready, steady, hmm! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-hive-hmm-ten-bees-94f945.mp3 | Build the missing word. The hive hmm ten bees. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-who-hmm-my-pencil-f135c4.mp3 | Build the missing word. Who hmm my pencil? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-val-fed-hmm-rabbit-74dc80.mp3 | Build the missing word. Val fed hmm rabbit. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-is-this-hmm-scarf-or-cd4c62.mp3 | Build the missing word. Is this hmm scarf or yours? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-pass-the-map-to-hmm-881cd8.mp3 | Build the missing word. Pass the map to hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-picked-hmm-for-our-94ddd7.mp3 | Build the missing word. We picked hmm for our team. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hop-hmm-the-boat-quic-8a69e0.mp3 | Build the missing word. Hop hmm the boat, quick! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-seeds-went-hmm-th-3dfe8f.mp3 | Build the missing word. The seeds went hmm the soil. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ducks-hmm-wet-weather-634100.mp3 | Build the missing word. Ducks hmm wet weather. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-hmm-my-toast-crunch-aee4ef.mp3 | Build the missing word. I hmm my toast crunchy. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-both-ways-first-4b6a1c.mp3 | Build the missing word. hmm both ways first. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-come-hmm-at-the-tadpo-b74281.mp3 | Build the missing word. Come hmm at the tadpoles! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-let-s-hmm-lemonade-b771c8.mp3 | Build the missing word. Let's hmm lemonade. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-spiders-hmm-silk-webs-6525b0.mp3 | Build the missing word. Spiders hmm silk webs. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-moths-came-to-the-25071e.mp3 | Build the missing word. hmm moths came to the lamp. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-how-hmm-steps-to-the-13bfe6.mp3 | Build the missing word. How hmm steps to the top? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-one-hmm-lap-then-rest-849b84.mp3 | Build the missing word. One hmm lap, then rest. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-plant-needs-hmm-s-9268b8.mp3 | Build the missing word. The plant needs hmm sun. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hold-it-with-your-hmm-1b6dfe.mp3 | Build the missing word. Hold it with your hmm hand. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-hmm-team-wore-red-1010a7.mp3 | Build the missing word. The hmm team wore red. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-school-lets-hmm-at-th-25f9f0.mp3 | Build the missing word. School lets hmm at three. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-tide-went-hmm-fas-c7525a.mp3 | Build the missing word. The tide went hmm fast. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-can-you-hmm-the-light-ec5996.mp3 | Build the missing word. Can you hmm the lighthouse? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-hmm-three-sails-40edd4.mp3 | Build the missing word. I hmm three sails! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-bag-was-hmm-heavy-39dd46.mp3 | Build the missing word. The bag was hmm heavy! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-trained-hard-hmm-i-8a9e75.mp3 | Build the missing word. I trained hard, hmm I won. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-take-hmm-grapes-for-t-3265c9.mp3 | Build the missing word. Take hmm grapes for the trip. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-crabs-hide-under-8632be.mp3 | Build the missing word. hmm crabs hide under rocks. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-chicks-feed-hmm-a-c7ef94.mp3 | Build the missing word. The chicks? Feed hmm at five. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-stack-the-chairs-and-acdbaa.mp3 | Build the missing word. Stack the chairs and count hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-wash-up-hmm-dry-your-5f0ea4.mp3 | Build the missing word. Wash up, hmm dry your hands. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-first-stretch-hmm-spr-50d041.mp3 | Build the missing word. First stretch, hmm sprint. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-shells-here-are-t-4ea4ab.mp3 | Build the missing word. hmm shells here are tiny. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-are-hmm-seats-taken-578cfc.mp3 | Build the missing word. Are hmm seats taken? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-it-is-snack-hmm-ca2d2b.mp3 | Build the missing word. It is snack hmm! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-what-hmm-is-kickoff-62977b.mp3 | Build the missing word. What hmm is kickoff? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-a-bike-has-hmm-wheels-7690e3.mp3 | Build the missing word. A bike has hmm wheels. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-crows-sat-on-the-e580de.mp3 | Build the missing word. hmm crows sat on the fence. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-balloon-drifted-h-7e3e25.mp3 | Build the missing word. The balloon drifted hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-climb-hmm-the-ladder-a5b08b.mp3 | Build the missing word. Climb hmm the ladder slowly. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-gran-hmm-knit-you-a-h-917f3d.mp3 | Build the missing word. Gran hmm knit you a hat. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-bread-hmm-rise-by-97478a.mp3 | Build the missing word. The bread hmm rise by noon. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-you-feed-my-fish-20aa08.mp3 | Build the missing word. hmm you feed my fish? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-she-said-she-hmm-come-6d3cc6.mp3 | Build the missing word. She said she hmm come. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-a-list-before-we-4da29b.mp3 | Build the missing word. hmm a list before we shop. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-i-hmm-with-my-left-ha-de348d.mp3 | Build the missing word. I hmm with my left hand. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-it-be-o-fa7d35.mp3 | Which word finishes the sentence? hmm it be OK to sit here? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-scribes-hmm-19683b.mp3 | Which word finishes the sentence? Scribes hmm all day long. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ben-hmm-trade-his-app-695080.mp3 | Build the missing word. Ben hmm trade his apple. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-neatly-on-the-lin-5f6a62.mp3 | Build the missing word. hmm neatly on the line. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-socks-come-80e152.mp3 | Which word finishes the sentence? Socks come in sets of hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-so-hmm-star-ba195a.mp3 | Which word finishes the sentence? So hmm stars are out tonight! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-before-you-leap-13b75d.mp3 | Build the missing word. hmm before you leap! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-bath-hmm-for-the-pup-885910.mp3 | Build the missing word. Bath hmm for the pup! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-where-have-78cecd.mp3 | Which word finishes the sentence? Where have you hmm all day? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pups-ha-9c9506.mp3 | Which word finishes the sentence? The pups have hmm fed. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-this-song-is-the-sea-ccebd9.mp3 | Build the missing word. This song is … the sea. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ask-me-my-hobby-b37f0e.mp3 | Build the missing word. Ask me … my hobby. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-time-to-home-now-c09aad.mp3 | Build the missing word. Time to … home now. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ready-steady-e9b408.mp3 | Build the missing word. Ready, steady, …! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-hive-ten-bees-26b30b.mp3 | Build the missing word. The hive … ten bees. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-who-my-pencil-f38666.mp3 | Build the missing word. Who … my pencil? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-val-fed-rabbit-e12ef8.mp3 | Build the missing word. Val fed … rabbit. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-is-this-scarf-or-your-a5672d.mp3 | Build the missing word. Is this … scarf or yours? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-pass-the-map-to-b99e17.mp3 | Build the missing word. Pass the map to …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-picked-for-our-tea-9c7a6c.mp3 | Build the missing word. We picked … for our team. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-hop-the-boat-quick-d1b684.mp3 | Build the missing word. Hop … the boat, quick! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-seeds-went-the-so-25770c.mp3 | Build the missing word. The seeds went … the soil. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ducks-wet-weather-17aa71.mp3 | Build the missing word. Ducks … wet weather. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-my-toast-crunchy-fe6b8a.mp3 | Build the missing word. I … my toast crunchy. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-both-ways-first-ca6d13.mp3 | Build the missing word. … both ways first. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-come-at-the-tadpoles-f1ceea.mp3 | Build the missing word. Come … at the tadpoles! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-let-s-lemonade-c92ffa.mp3 | Build the missing word. Let's … lemonade. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-spiders-silk-webs-d71702.mp3 | Build the missing word. Spiders … silk webs. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-moths-came-to-the-lam-7270fb.mp3 | Build the missing word. … moths came to the lamp. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-how-steps-to-the-top-f00094.mp3 | Build the missing word. How … steps to the top? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-one-lap-then-rest-39f4c4.mp3 | Build the missing word. One … lap, then rest. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-plant-needs-sun-94a28f.mp3 | Build the missing word. The plant needs … sun. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-hold-it-with-your-han-965eb2.mp3 | Build the missing word. Hold it with your … hand. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-team-wore-red-dbf6db.mp3 | Build the missing word. The … team wore red. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-school-lets-at-three-f3c4de.mp3 | Build the missing word. School lets … at three. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-tide-went-fast-a22409.mp3 | Build the missing word. The tide went … fast. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-can-you-the-lighthous-daf41a.mp3 | Build the missing word. Can you … the lighthouse? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-three-sails-38c02d.mp3 | Build the missing word. I … three sails! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-bag-was-heavy-f2c2db.mp3 | Build the missing word. The bag was … heavy! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-trained-hard-i-won-386b3e.mp3 | Build the missing word. I trained hard, … I won. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-take-grapes-for-the-t-a4484f.mp3 | Build the missing word. Take … grapes for the trip. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-crabs-hide-under-rock-d39c9b.mp3 | Build the missing word. … crabs hide under rocks. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-chicks-feed-at-fi-5c24fb.mp3 | Build the missing word. The chicks? Feed … at five. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-stack-the-chairs-and-781084.mp3 | Build the missing word. Stack the chairs and count …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-wash-up-dry-your-hand-3f9024.mp3 | Build the missing word. Wash up, … dry your hands. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-first-stretch-sprint-efe5be.mp3 | Build the missing word. First stretch, … sprint. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-shells-here-are-tiny-4ba887.mp3 | Build the missing word. … shells here are tiny. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-are-seats-taken-eccd1d.mp3 | Build the missing word. Are … seats taken? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-it-is-snack-a35886.mp3 | Build the missing word. It is snack …! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-what-is-kickoff-c5254c.mp3 | Build the missing word. What … is kickoff? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-a-bike-has-wheels-a9bac1.mp3 | Build the missing word. A bike has … wheels. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-crows-sat-on-the-fenc-32eabb.mp3 | Build the missing word. … crows sat on the fence. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-balloon-drifted-2636ec.mp3 | Build the missing word. The balloon drifted …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-climb-the-ladder-slow-bbd7d0.mp3 | Build the missing word. Climb … the ladder slowly. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-gran-knit-you-a-hat-ca452c.mp3 | Build the missing word. Gran … knit you a hat. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-bread-rise-by-noo-d52176.mp3 | Build the missing word. The bread … rise by noon. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-you-feed-my-fish-9d2ea2.mp3 | Build the missing word. … you feed my fish? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-she-said-she-come-3e700d.mp3 | Build the missing word. She said she … come. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-a-list-before-we-shop-eb21ef.mp3 | Build the missing word. … a list before we shop. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-with-my-left-hand-1e8e99.mp3 | Build the missing word. I … with my left hand. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-be-ok-to-114457.mp3 | Which word finishes the sentence? … it be OK to sit here? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-scribes-all-3ef78a.mp3 | Which word finishes the sentence? Scribes … all day long. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ben-trade-his-apple-ceacd0.mp3 | Build the missing word. Ben … trade his apple. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-neatly-on-the-line-f7c7d4.mp3 | Build the missing word. … neatly on the line. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-socks-come-9be14f.mp3 | Which word finishes the sentence? Socks come in sets of …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-so-stars-ar-42011b.mp3 | Which word finishes the sentence? So … stars are out tonight! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-before-you-leap-d96dce.mp3 | Build the missing word. … before you leap! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-bath-for-the-pup-fc8ea3.mp3 | Build the missing word. Bath … for the pup! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-where-have-505949.mp3 | Which word finishes the sentence? Where have you … all day? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-pups-ha-bffef0.mp3 | Which word finishes the sentence? The pups have … fed. | 1 |
 | /audio/assessment/v3/prompts/been-find-the-word-been-f95c04.mp3 | been. Find the word been. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-hmm-us-a32774.mp3 | Which word finishes the sentence? Gran hmm us in for tea. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-our-cat-is-1b3de3.mp3 | Which word finishes the sentence? Our cat is hmm Pickle. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gran-us-in-6c0260.mp3 | Which word finishes the sentence? Gran … us in for tea. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-our-cat-is-346c74.mp3 | Which word finishes the sentence? Our cat is … Pickle. | 1 |
 | /audio/assessment/v3/prompts/called-find-the-word-called-818c86.mp3 | called. Find the word called. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-and-war-355889.mp3 | Which word finishes the sentence? hmm and warm up by the fire. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-foxes-hmm-o-127c65.mp3 | Which word finishes the sentence? Foxes hmm out after dark. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-and-warm-up-bd4384.mp3 | Which word finishes the sentence? … and warm up by the fire. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-foxes-out-a-b45167.mp3 | Which word finishes the sentence? Foxes … out after dark. | 1 |
 | /audio/assessment/v3/prompts/come-find-the-word-come-f44907.mp3 | come. Find the word come. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-pas-8be399.mp3 | Which word finishes the sentence? hmm you pass the jam? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-long-ago-gr-d42a41.mp3 | Which word finishes the sentence? Long ago, Gran hmm skate fast. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-pass-th-277878.mp3 | Which word finishes the sentence? … you pass the jam? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-long-ago-gr-87a3f3.mp3 | Which word finishes the sentence? Long ago, Gran … skate fast. | 1 |
 | /audio/assessment/v3/prompts/could-find-the-word-could-b50ee4.mp3 | could. Find the word could. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-hmm-is-d9b535.mp3 | Which word finishes the sentence? What hmm is the fair on? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-a-wind-b40833.mp3 | Which word finishes the sentence? What a windy hmm for kites! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-is-the-e081d6.mp3 | Which word finishes the sentence? What … is the fair on? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-a-wind-70a6ff.mp3 | Which word finishes the sentence? What a windy … for kites! | 1 |
 | /audio/assessment/v3/prompts/day-find-the-word-day-799930.mp3 | day. Find the word day. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-you-loc-3836b7.mp3 | Which word finishes the sentence? hmm you lock the gate? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hmm-our-582360.mp3 | Which word finishes the sentence? We hmm our best at the quiz. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-you-lock-th-46678f.mp3 | Which word finishes the sentence? … you lock the gate? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-our-best-f15a73.mp3 | Which word finishes the sentence? We … our best at the quiz. | 1 |
 | /audio/assessment/v3/prompts/did-find-the-word-did-68eb18.mp3 | did. Find the word did. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-otter-s-eee62d.mp3 | Which word finishes the sentence? The otter slid hmm the bank. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-write-it-hm-460479.mp3 | Which word finishes the sentence? Write it hmm so you remember. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-otter-s-a31ab6.mp3 | Which word finishes the sentence? The otter slid … the bank. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-write-it-so-998a70.mp3 | Which word finishes the sentence? Write it … so you remember. | 1 |
 | /audio/assessment/v3/prompts/down-find-the-word-down-7a9a71.mp3 | down. Find the word down. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-can-you-hmm-33565e.mp3 | Which word finishes the sentence? Can you hmm the hidden key? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-bats-hmm-mo-9bb090.mp3 | Which word finishes the sentence? Bats hmm moths at night. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-can-you-the-9731a5.mp3 | Which word finishes the sentence? Can you … the hidden key? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-bats-moths-b9efcc.mp3 | Which word finishes the sentence? Bats … moths at night. | 1 |
 | /audio/assessment/v3/prompts/find-find-the-word-find-74d58e.mp3 | find. Find the word find. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tie-the-kno-fae91e.mp3 | Which word finishes the sentence? Tie the knot hmm, then pull. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ana-came-hm-5f7c87.mp3 | Which word finishes the sentence? Ana came hmm in the race. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-tie-the-kno-6a1adf.mp3 | Which word finishes the sentence? Tie the knot …, then pull. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ana-came-in-5c50b0.mp3 | Which word finishes the sentence? Ana came … in the race. | 1 |
 | /audio/assessment/v3/prompts/first-find-the-word-first-2ae8ca.mp3 | first. Find the word first. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-please-hmm-93630f.mp3 | Which word finishes the sentence? Please hmm my coat from the peg. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ducks-hmm-m-87d5db.mp3 | Which word finishes the sentence? Ducks hmm muddy and stay happy. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-please-my-c-dac79a.mp3 | Which word finishes the sentence? Please … my coat from the peg. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ducks-muddy-86942e.mp3 | Which word finishes the sentence? Ducks … muddy and stay happy. | 1 |
 | /audio/assessment/v3/prompts/get-find-the-word-get-7ac089.mp3 | get. Find the word get. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-a-snake-is-9169a3.mp3 | Which word finishes the sentence? A snake is hmm and thin. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-how-hmm-is-df7b2e.mp3 | Which word finishes the sentence? How hmm is the train ride? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-a-snake-is-a2b1b7.mp3 | Which word finishes the sentence? A snake is … and thin. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-how-is-the-f8fe92.mp3 | Which word finishes the sentence? How … is the train ride? | 1 |
 | /audio/assessment/v3/prompts/long-find-the-word-long-af5507.mp3 | long. Find the word long. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gramps-hmm-70323d.mp3 | Which word finishes the sentence? Gramps hmm this stool himself. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-chef-hm-6c8528.mp3 | Which word finishes the sentence? The chef hmm soup from scraps. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-gramps-this-326c43.mp3 | Which word finishes the sentence? Gramps … this stool himself. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-chef-so-597666.mp3 | Which word finishes the sentence? The chef … soup from scraps. | 1 |
 | /audio/assessment/v3/prompts/made-find-the-word-made-534251.mp3 | made. Find the word made. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-i-leave-e3b9dc.mp3 | Which word finishes the sentence? hmm I leave the table? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-hmm-snow-bb93fa.mp3 | Which word finishes the sentence? It hmm snow before dawn. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-leave-the-f1eab4.mp3 | Which word finishes the sentence? … I leave the table? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-snow-bef-f53f16.mp3 | Which word finishes the sentence? It … snow before dawn. | 1 |
 | /audio/assessment/v3/prompts/may-find-the-word-may-8380b5.mp3 | may. Find the word may. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-bike-i-dfb26f.mp3 | Which word finishes the sentence? That bike is hmm, not yours. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-lost-hmm-e7bb07.mp3 | Which word finishes the sentence? I lost hmm left glove. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-that-bike-i-b896e9.mp3 | Which word finishes the sentence? That bike is …, not yours. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-lost-left-bd3c55.mp3 | Which word finishes the sentence? I lost … left glove. | 1 |
 | /audio/assessment/v3/prompts/my-find-the-word-my-1568ca.mp3 | my. Find the word my. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-there-are-h-255bdb.mp3 | Which word finishes the sentence? There are hmm plums left. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-dogs-on-77152a.mp3 | Which word finishes the sentence? hmm dogs on the sand, says the sign. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-there-are-p-69803c.mp3 | Which word finishes the sentence? There are … plums left. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dogs-on-the-3cd929.mp3 | Which word finishes the sentence? … dogs on the sand, says the sign. | 1 |
 | /audio/assessment/v3/prompts/no-find-the-word-no-6cedf8.mp3 | no. Find the word no. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-glue-is-ea6837.mp3 | Which word finishes the sentence? The glue is dry hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-it-is-m-5b59f4.mp3 | Which word finishes the sentence? hmm it is my turn! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-glue-is-8b1ac8.mp3 | Which word finishes the sentence? The glue is dry …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-it-is-my-tu-d5014a.mp3 | Which word finishes the sentence? … it is my turn! | 1 |
 | /audio/assessment/v3/prompts/now-find-the-word-now-ef093b.mp3 | now. Find the word now. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pick-a-hmm-e8c1ba.mp3 | Which word finishes the sentence? Pick a hmm from one to ten. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-hmm-is-f4f640.mp3 | Which word finishes the sentence? What hmm is your house? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-pick-a-from-809c40.mp3 | Which word finishes the sentence? Pick a … from one to ten. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-what-is-you-9813b9.mp3 | Which word finishes the sentence? What … is your house? | 1 |
 | /audio/assessment/v3/prompts/number-find-the-word-number-f34698.mp3 | number. Find the word number. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-put-hmm-188e33.mp3 | Which word finishes the sentence? Dad put hmm on the squeaky hinge. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-and-wat-8a2c52.mp3 | Which word finishes the sentence? hmm and water will not mix. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-dad-put-on-f7d415.mp3 | Which word finishes the sentence? Dad put … on the squeaky hinge. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-and-water-w-6f42f5.mp3 | Which word finishes the sentence? … and water will not mix. | 1 |
 | /audio/assessment/v3/prompts/oil-find-the-word-oil-8ba6c8.mp3 | oil. Find the word oil. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-best-hm-af8dd4.mp3 | Which word finishes the sentence? The best hmm of camp was the raft. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-each-hmm-of-56d477.mp3 | Which word finishes the sentence? Each hmm of the model snaps in. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-best-of-362f66.mp3 | Which word finishes the sentence? The best … of camp was the raft. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-each-of-the-e6a071.mp3 | Which word finishes the sentence? Each … of the model snaps in. | 1 |
 | /audio/assessment/v3/prompts/part-find-the-word-part-2c8dfc.mp3 | part. Find the word part. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hall-wa-15a16b.mp3 | Which word finishes the sentence? The hall was full of hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-waved-f-6e8689.mp3 | Which word finishes the sentence? hmm waved from the bridge. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hall-wa-2e58a1.mp3 | Which word finishes the sentence? The hall was full of …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-waved-from-5e31e3.mp3 | Which word finishes the sentence? … waved from the bridge. | 1 |
 | /audio/assessment/v3/prompts/people-find-the-word-people-d83398.mp3 | people. Find the word people. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-come-hmm-by-b33fe0.mp3 | Which word finishes the sentence? Come hmm by me at lunch. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hens-hmm-on-bc3aee.mp3 | Which word finishes the sentence? Hens hmm on their eggs. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-come-by-me-4170d6.mp3 | Which word finishes the sentence? Come … by me at lunch. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hens-on-the-9c8e0e.mp3 | Which word finishes the sentence? Hens … on their eggs. | 1 |
 | /audio/assessment/v3/prompts/sit-find-the-word-sit-34e749.mp3 | sit. Find the word sit. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-a-whale-is-3a068a.mp3 | Which word finishes the sentence? A whale is bigger hmm a bus. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-would-rat-5935bd.mp3 | Which word finishes the sentence? I would rather walk hmm wait. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-a-whale-is-581d55.mp3 | Which word finishes the sentence? A whale is bigger … a bus. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-would-rat-670f41.mp3 | Which word finishes the sentence? I would rather walk … wait. | 1 |
 | /audio/assessment/v3/prompts/than-find-the-word-than-603f10.mp3 | than. Find the word than. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-plants-need-2ffb96.mp3 | Which word finishes the sentence? Plants need sun and hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-in-87a72b.mp3 | Which word finishes the sentence? The hmm in the pool is cold. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-plants-need-5b4534.mp3 | Which word finishes the sentence? Plants need sun and …. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-in-the-bd92d8.mp3 | Which word finishes the sentence? The … in the pool is cold. | 1 |
 | /audio/assessment/v3/prompts/water-find-the-word-water-72bc32.mp3 | water. Find the word water. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-this-the-b160d6.mp3 | Which word finishes the sentence? Is this the hmm to the beach? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-show-me-the-13e324.mp3 | Which word finishes the sentence? Show me the hmm you fold it. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-is-this-the-b4aa8b.mp3 | Which word finishes the sentence? Is this the … to the beach? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-show-me-the-3bb985.mp3 | Which word finishes the sentence? Show me the … you fold it. | 1 |
 | /audio/assessment/v3/prompts/way-find-the-word-way-559e64.mp3 | way. Find the word way. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-left-th-f9637a.mp3 | Which word finishes the sentence? hmm left the tap running? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-guess-hmm-w-e0b265.mp3 | Which word finishes the sentence? Guess hmm won the raffle! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-left-the-ta-102a9c.mp3 | Which word finishes the sentence? … left the tap running? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-guess-won-t-31f24e.mp3 | Which word finishes the sentence? Guess … won the raffle! | 1 |
 | /audio/assessment/v3/prompts/who-find-the-word-who-4dd2c2.mp3 | who. Find the word who. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-have-you-hmm-to-the-f-5c0565.mp3 | Build the missing word. Have you hmm to the fair? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-barn-has-hmm-pain-7094c3.mp3 | Build the missing word. The barn has hmm painted. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-pup-is-hmm-biscui-89ff48.mp3 | Build the missing word. The pup is hmm Biscuit. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-mum-hmm-the-vet-at-on-def454.mp3 | Build the missing word. Mum hmm the vet at once. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-and-see-the-chick-a4c6c2.mp3 | Build the missing word. hmm and see the chicks! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-storms-hmm-fast-at-se-5a8562.mp3 | Build the missing word. Storms hmm fast at sea. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-we-camp-by-the-la-256c5d.mp3 | Build the missing word. hmm we camp by the lake? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-owls-hmm-hear-a-pin-d-ea5b9b.mp3 | Build the missing word. Owls hmm hear a pin drop. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-sports-hmm-is-on-frid-98318b.mp3 | Build the missing word. Sports hmm is on Friday. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-what-a-fine-hmm-for-a-3ac2e7.mp3 | Build the missing word. What a fine hmm for a hike! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-the-alarm-ring-57332f.mp3 | Build the missing word. hmm the alarm ring? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-you-hmm-a-fine-job-c4a05a.mp3 | Build the missing word. You hmm a fine job. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-roll-the-barrel-hmm-t-a172bb.mp3 | Build the missing word. Roll the barrel hmm the ramp. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-sun-went-hmm-at-e-81e4c2.mp3 | Build the missing word. The sun went hmm at eight. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-help-me-hmm-my-keys-8d9457.mp3 | Build the missing word. Help me hmm my keys. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-crows-hmm-shiny-thing-b518d3.mp3 | Build the missing word. Crows hmm shiny things. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ladders-hmm-then-pain-f97bc6.mp3 | Build the missing word. Ladders hmm, then paint. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-who-came-hmm-in-the-q-e88fa3.mp3 | Build the missing word. Who came hmm in the quiz? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-your-boots-it-sno-a7cb6a.mp3 | Build the missing word. hmm your boots — it snowed! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-eggs-from-the-20fc53.mp3 | Build the missing word. We hmm eggs from the coop. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-giraffes-have-hmm-nec-49beb9.mp3 | Build the missing word. Giraffes have hmm necks. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-queue-was-so-hmm-dfcbad.mp3 | Build the missing word. The queue was so hmm! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-jam-tarts-toda-5fe724.mp3 | Build the missing word. We hmm jam tarts today. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ants-hmm-a-nest-by-th-6beeed.mp3 | Build the missing word. Ants hmm a nest by the step. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-i-ring-the-bell-8566ea.mp3 | Build the missing word. hmm I ring the bell? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-it-hmm-thunder-later-386b8d.mp3 | Build the missing word. It hmm thunder later. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-where-is-hmm-other-mi-e03aee.mp3 | Build the missing word. Where is hmm other mitten? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-turn-on-the-swing-850057.mp3 | Build the missing word. hmm turn on the swing! | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-there-is-hmm-milk-lef-a8a564.mp3 | Build the missing word. There is hmm milk left. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-two-snowflakes-ma-6709e9.mp3 | Build the missing word. hmm two snowflakes match. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-paint-is-dry-hmm-b2e214.mp3 | Build the missing word. The paint is dry hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-add-the-flour-slo-210697.mp3 | Build the missing word. hmm add the flour slowly. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ring-this-hmm-if-lost-ac9946.mp3 | Build the missing word. Ring this hmm if lost. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-seven-is-my-lucky-hmm-dab6e5.mp3 | Build the missing word. Seven is my lucky hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-bike-chains-need-hmm-63bc78.mp3 | Build the missing word. Bike chains need hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-the-wheels-please-3761c4.mp3 | Build the missing word. hmm the wheels, please. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-this-hmm-clips-on-las-485990.mp3 | Build the missing word. This hmm clips on last. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-play-your-hmm-in-the-66e156.mp3 | Build the missing word. Play your hmm in the show. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-six-hmm-fit-in-the-li-ef9cef.mp3 | Build the missing word. Six hmm fit in the lift. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-kind-hmm-share-the-be-ab0829.mp3 | Build the missing word. Kind hmm share the bench. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-still-for-the-pho-bcf407.mp3 | Build the missing word. hmm still for the photo. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-cats-hmm-where-they-p-6acaa0.mp3 | Build the missing word. Cats hmm where they please. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-silk-is-softer-hmm-wo-d62e11.mp3 | Build the missing word. Silk is softer hmm wool. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ice-is-colder-hmm-sno-4e6ba7.mp3 | Build the missing word. Ice is colder hmm snow. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-fill-the-trough-with-f911a3.mp3 | Build the missing word. Fill the trough with hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-the-hmm-froze-overnig-8c0bea.mp3 | Build the missing word. The hmm froze overnight. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-this-hmm-to-the-exit-7693de.mp3 | Build the missing word. This hmm to the exit. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-a-compass-shows-the-h-12abce.mp3 | Build the missing word. A compass shows the hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-hmm-ate-the-last-plum-90d7cd.mp3 | Build the missing word. hmm ate the last plum? | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-ask-hmm-owns-the-scoo-93bf1f.mp3 | Build the missing word. Ask hmm owns the scooter. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-wish-i-hm-4f7579.mp3 | Which word finishes the sentence? I wish I hmm fly like a hawk. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-post-ha-75d800.mp3 | Which word finishes the sentence? The post has already hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-we-hmm-hear-the-sea-f-79e06e.mp3 | Build the missing word. We hmm hear the sea from camp. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-it-has-hmm-ages-a6e99f.mp3 | Build the missing word. It has hmm ages! | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-hmm-knows-t-80227e.mp3 | Which word finishes the sentence? hmm knows the answer? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-feathers-we-d076ce.mp3 | Which word finishes the sentence? Feathers weigh less hmm stones. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-pick-an-odd-hmm-cfdfe5.mp3 | Build the missing word. Pick an odd hmm. | 1 |
-| /audio/assessment/v3/prompts/build-the-missing-word-save-hmm-take-short-s-280f8e.mp3 | Build the missing word. Save hmm — take short showers. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-have-you-to-the-fair-75cfb8.mp3 | Build the missing word. Have you … to the fair? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-barn-has-painted-547689.mp3 | Build the missing word. The barn has … painted. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-pup-is-biscuit-7afe40.mp3 | Build the missing word. The pup is … Biscuit. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-mum-the-vet-at-once-b0a586.mp3 | Build the missing word. Mum … the vet at once. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-and-see-the-chicks-54d8dd.mp3 | Build the missing word. … and see the chicks! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-storms-fast-at-sea-8bcc2f.mp3 | Build the missing word. Storms … fast at sea. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-camp-by-the-lake-d7c1d0.mp3 | Build the missing word. … we camp by the lake? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-owls-hear-a-pin-drop-f03f47.mp3 | Build the missing word. Owls … hear a pin drop. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-sports-is-on-friday-bc7d3c.mp3 | Build the missing word. Sports … is on Friday. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-what-a-fine-for-a-hik-a54f8c.mp3 | Build the missing word. What a fine … for a hike! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-alarm-ring-41be8b.mp3 | Build the missing word. … the alarm ring? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-you-a-fine-job-a6eae2.mp3 | Build the missing word. You … a fine job. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-roll-the-barrel-the-r-6166a4.mp3 | Build the missing word. Roll the barrel … the ramp. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-sun-went-at-eight-68a776.mp3 | Build the missing word. The sun went … at eight. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-help-me-my-keys-ccc6ba.mp3 | Build the missing word. Help me … my keys. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-crows-shiny-things-763ccf.mp3 | Build the missing word. Crows … shiny things. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ladders-then-paint-cfb0d1.mp3 | Build the missing word. Ladders …, then paint. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-who-came-in-the-quiz-84cf71.mp3 | Build the missing word. Who came … in the quiz? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-your-boots-it-snowed-f53546.mp3 | Build the missing word. … your boots — it snowed! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-eggs-from-the-coop-36dbdf.mp3 | Build the missing word. We … eggs from the coop. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-giraffes-have-necks-7d8e46.mp3 | Build the missing word. Giraffes have … necks. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-queue-was-so-52f80d.mp3 | Build the missing word. The queue was so …! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-jam-tarts-today-5bf8a6.mp3 | Build the missing word. We … jam tarts today. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ants-a-nest-by-the-st-5a847a.mp3 | Build the missing word. Ants … a nest by the step. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-i-ring-the-bell-4b1d5b.mp3 | Build the missing word. … I ring the bell? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-it-thunder-later-42b412.mp3 | Build the missing word. It … thunder later. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-where-is-other-mitten-d5a6c4.mp3 | Build the missing word. Where is … other mitten? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-turn-on-the-swing-921829.mp3 | Build the missing word. … turn on the swing! | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-there-is-milk-left-d05686.mp3 | Build the missing word. There is … milk left. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-two-snowflakes-match-640dc5.mp3 | Build the missing word. … two snowflakes match. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-paint-is-dry-ad329b.mp3 | Build the missing word. The paint is dry …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-add-the-flour-slowly-1e0a73.mp3 | Build the missing word. … add the flour slowly. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ring-this-if-lost-911d79.mp3 | Build the missing word. Ring this … if lost. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-seven-is-my-lucky-7d836f.mp3 | Build the missing word. Seven is my lucky …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-bike-chains-need-752d2a.mp3 | Build the missing word. Bike chains need …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-wheels-please-e773df.mp3 | Build the missing word. … the wheels, please. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-this-clips-on-last-c55fa3.mp3 | Build the missing word. This … clips on last. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-play-your-in-the-show-368628.mp3 | Build the missing word. Play your … in the show. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-six-fit-in-the-lift-d713a3.mp3 | Build the missing word. Six … fit in the lift. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-kind-share-the-bench-1f4a71.mp3 | Build the missing word. Kind … share the bench. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-still-for-the-photo-6f497a.mp3 | Build the missing word. … still for the photo. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-cats-where-they-pleas-76a81b.mp3 | Build the missing word. Cats … where they please. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-silk-is-softer-wool-8e7674.mp3 | Build the missing word. Silk is softer … wool. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ice-is-colder-snow-512b11.mp3 | Build the missing word. Ice is colder … snow. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-fill-the-trough-with-6154f9.mp3 | Build the missing word. Fill the trough with …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-the-froze-overnight-ea4f2f.mp3 | Build the missing word. The … froze overnight. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-this-to-the-exit-2a1e87.mp3 | Build the missing word. This … to the exit. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-a-compass-shows-the-2000f5.mp3 | Build the missing word. A compass shows the …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ate-the-last-plum-9def9f.mp3 | Build the missing word. … ate the last plum? | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-ask-owns-the-scooter-582677.mp3 | Build the missing word. Ask … owns the scooter. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-wish-i-fl-30d0af.mp3 | Which word finishes the sentence? I wish I … fly like a hawk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-post-ha-803de2.mp3 | Which word finishes the sentence? The post has already …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-we-hear-the-sea-from-48683c.mp3 | Build the missing word. We … hear the sea from camp. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-it-has-ages-9aca0f.mp3 | Build the missing word. It has … ages! | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-knows-the-a-1bb75e.mp3 | Which word finishes the sentence? … knows the answer? | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-feathers-we-1249cd.mp3 | Which word finishes the sentence? Feathers weigh less … stones. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-pick-an-odd-6c9ff3.mp3 | Build the missing word. Pick an odd …. | 1 |
+| /audio/assessment/v3/prompts/build-the-missing-word-save-take-short-showe-5709ea.mp3 | Build the missing word. Save … — take short showers. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-names-the-big-salty-water-3b21e3.mp3 | Which spelling names the big salty water? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-means-you-look-with-your-eyes-27ffdc.mp3 | Which spelling means you look with your eyes? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-sail-1e6a80.mp3 | Which spelling finishes the sentence? We sailed far out on the deep blue hmm. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-close-y-c8642e.mp3 | Which spelling finishes the sentence? Close your eyes — now open and hmm! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-sail-6bf1da.mp3 | Which spelling finishes the sentence? We sailed far out on the deep blue …. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-close-y-4b6cca.mp3 | Which spelling finishes the sentence? Close your eyes — now open and …! | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-hot-star-in-the-sky-bdea11.mp3 | Which spelling is the hot star in the sky? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-a-boy-in-a-family-5199e8.mp3 | Which spelling is a boy in a family? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-hmm-32a03e.mp3 | Which spelling finishes the sentence? The hmm rose over the hill at dawn. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-grandpa-82204c.mp3 | Which spelling finishes the sentence? Grandpa hugged his hmm at the gate. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-ros-80b3b6.mp3 | Which spelling finishes the sentence? The … rose over the hill at dawn. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-grandpa-dd2182.mp3 | Which spelling finishes the sentence? Grandpa hugged his … at the gate. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-buzzing-insect-7c615f.mp3 | Which spelling is the buzzing insect? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-is-the-doing-word-in-let-it-48fe2c.mp3 | Which spelling is the doing word in 'Let it …'? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-a-hmm-l-d83637.mp3 | Which spelling finishes the sentence? A hmm landed on the flower. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-will-74ad57.mp3 | Which spelling finishes the sentence? I will hmm seven on my next birthday. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-is-the-doing-word-in-let-it-68c391.mp3 | Which spelling is the doing word in 'Let it … '? | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-a-lande-d25f74.mp3 | Which spelling finishes the sentence? A … landed on the flower. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-will-3fe43e.mp3 | Which spelling finishes the sentence? I will … seven on my next birthday. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-word-for-not-yes-b4e837.mp3 | Which spelling is the word for 'not yes'? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-fits-to-the-answer-7220c2.mp3 | Which spelling fits 'to … the answer'? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-dad-sai-2773cc.mp3 | Which spelling finishes the sentence? Dad said hmm when I asked for sweets. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-do-you-a28a0d.mp3 | Which spelling finishes the sentence? Do you hmm the way to school? | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-dad-sai-f8ce8d.mp3 | Which spelling finishes the sentence? Dad said … when I asked for sweets. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-do-you-bf8224.mp3 | Which spelling finishes the sentence? Do you … the way to school? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-number-after-zero-464784.mp3 | Which spelling is the number after zero? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-tells-that-your-team-came-fir-404aec.mp3 | Which spelling tells that your team came first? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-pick-ju-5e7fc5.mp3 | Which spelling finishes the sentence? Pick just hmm card from the pack. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-our-tea-8068f2.mp3 | Which spelling finishes the sentence? Our team hmm the cup last year! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-pick-ju-98cb9e.mp3 | Which spelling finishes the sentence? Pick just … card from the pack. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-our-tea-338e8e.mp3 | Which spelling finishes the sentence? Our team … the cup last year! | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-number-after-seven-fee60b.mp3 | Which spelling is the number after seven? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-tells-that-lunch-is-all-gone-9a919d.mp3 | Which spelling tells that lunch is all gone? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-ben-hmm-9146f1.mp3 | Which spelling finishes the sentence? Ben hmm all his peas at dinner. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-there-a-e49f4b.mp3 | Which spelling finishes the sentence? There are hmm legs on a spider. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-ben-all-be15b2.mp3 | Which spelling finishes the sentence? Ben … all his peas at dinner. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-there-a-ba922f.mp3 | Which spelling finishes the sentence? There are … legs on a spider. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-uses-your-ears-d961a3.mp3 | Which spelling uses your ears? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-points-to-this-place-7141a6.mp3 | Which spelling points to this place? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-shh-i-c-efc44a.mp3 | Which spelling finishes the sentence? Shh! I can hmm the owl outside. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-bus-e7504a.mp3 | Which spelling finishes the sentence? The bus stops right hmm, at this very corner. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-shh-i-c-9ef61d.mp3 | Which spelling finishes the sentence? Shh! I can … the owl outside. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-bus-63269b.mp3 | Which spelling finishes the sentence? The bus stops right …, at this very corner. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-color-of-the-sky-eb2ef5.mp3 | Which spelling is the color of the sky? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-tells-what-the-wind-did-d94888.mp3 | Which spelling tells what the wind did? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-win-4fedeb.mp3 | Which spelling finishes the sentence? The wind hmm my hat into the pond! | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-milo-wo-b3d0d6.mp3 | Which spelling finishes the sentence? Milo wore his hmm scarf, the color of the sea. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-may-i-c-a7058d.mp3 | Which spelling finishes the sentence? May I come hmm the park with you? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-nan-bak-4d2818.mp3 | Which spelling finishes the sentence? Nan baked hmm pies, one for each hand. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-that-so-761f40.mp3 | Which spelling finishes the sentence? That soup is hmm hot to eat! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-win-8d4684.mp3 | Which spelling finishes the sentence? The wind … my hat into the pond! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-milo-wo-4947a3.mp3 | Which spelling finishes the sentence? Milo wore his … scarf, blue like the sea. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-may-i-c-fdb338.mp3 | Which spelling finishes the sentence? May I come … the park with you? | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-nan-bak-f8c84d.mp3 | Which spelling finishes the sentence? Nan baked … pies, one for each hand. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-that-so-73ef5b.mp3 | Which spelling finishes the sentence? That soup is … hot to eat! | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-number-1a3c2e.mp3 | Which spelling is the number? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-twi-d23f9b.mp3 | Which spelling finishes the sentence? The twins packed hmm bags for camp. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-look-ov-3102cb.mp3 | Which spelling finishes the sentence? Look over hmm — the parade is coming! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-twi-f6e3a2.mp3 | Which spelling finishes the sentence? The twins packed … bags for camp. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-look-ov-9fef0d.mp3 | Which spelling finishes the sentence? Look over … — the parade is coming! | 1 |
 | /audio/assessment/v3/prompts/which-spelling-shows-something-belongs-to-th-a79cf1.mp3 | Which spelling shows something belongs to them? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-points-to-a-place-78ca95.mp3 | Which spelling points to a place? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-tea-27cab4.mp3 | Which spelling finishes the sentence? The teacher ticked it — my sum was hmm. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-will-7d95a1.mp3 | Which spelling finishes the sentence? I will hmm a letter to Gran tonight. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-tea-37c419.mp3 | Which spelling finishes the sentence? The teacher ticked it — my sum was …. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-will-ba0ba8.mp3 | Which spelling finishes the sentence? I will … a letter to Gran tonight. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-opposite-of-left-92ebf5.mp3 | Which spelling is the opposite of left? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-done-with-a-pencil-e26294.mp3 | Which spelling is done with a pencil? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-my-shoe-20ec1e.mp3 | Which spelling finishes the sentence? My shoes are hmm — I got them today. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-hmm-t-3d122f.mp3 | Which spelling finishes the sentence? I hmm the answer before anyone else. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-my-shoe-187cb7.mp3 | Which spelling finishes the sentence? My shoes are … — I got them today. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-i-the-a-e10dee.mp3 | Which spelling finishes the sentence? I … the answer before anyone else. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-tells-you-understood-it-all-a-3abbaf.mp3 | Which spelling tells you understood it all along? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-the-opposite-of-old-7110aa.mp3 | Which spelling is the opposite of old? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-cak-4717c8.mp3 | Which spelling finishes the sentence? The cake bakes for one hmm. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-that-sw-135a0e.mp3 | Which spelling finishes the sentence? That swing is hmm special spot. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-cak-b6bca6.mp3 | Which spelling finishes the sentence? The cake bakes for one …. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-that-sw-a8ead2.mp3 | Which spelling finishes the sentence? That swing is … special spot. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-sixty-minutes-2672cd.mp3 | Which spelling is sixty minutes? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-means-it-belongs-to-us-dd5636.mp3 | Which spelling means it belongs to us? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-sift-th-8a904b.mp3 | Which spelling finishes the sentence? Sift the hmm into the bowl for the cake. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-a-bee-l-ca2b2f.mp3 | Which spelling finishes the sentence? A bee landed on the pink hmm. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-sift-th-2318a7.mp3 | Which spelling finishes the sentence? Sift the … into the bowl for the cake. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-a-bee-l-115cc1.mp3 | Which spelling finishes the sentence? A bee landed on the pink …. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-grows-in-the-garden-5a9bad.mp3 | Which spelling grows in the garden? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-powder-for-baking-50776f.mp3 | Which spelling is powder for baking? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-hmm-you-ac2a00.mp3 | Which spelling finishes the sentence? hmm you like some juice? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-ben-5db2d6.mp3 | Which spelling finishes the sentence? The bench is made of hmm from the old oak. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-you-lik-9f52c1.mp3 | Which spelling finishes the sentence? … you like some juice? | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-ben-2437ff.mp3 | Which spelling finishes the sentence? The bench is made of … from the old oak. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-comes-from-trees-2aee86.mp3 | Which spelling comes from trees? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-asks-politely-as-in-you-help-3b226b.mp3 | Which spelling asks politely, as in '… you help me?' | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-gran-hm-8fe0be.mp3 | Which spelling finishes the sentence? Gran hmm pancakes for breakfast. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-hmm-860f81.mp3 | Which spelling finishes the sentence? The hmm swept the castle floor. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-asks-politely-as-in-you-help-5b46ee.mp3 | Which spelling asks politely, as in ' … you help me?' | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-gran-pa-ae03fe.mp3 | Which spelling finishes the sentence? Gran … pancakes for breakfast. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-swe-edbf97.mp3 | Which spelling finishes the sentence? The … swept the castle floor. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-tells-that-you-built-somethin-c1ea3d.mp3 | Which spelling tells that you built something? | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-a-castle-helper-ccefb1.mp3 | Which spelling is a castle helper? | 1 |
-| /audio/assessment/v3/prompts/a-bat-can-be-an-animal-or-a-thing-for-hittin-7b6c52.mp3 | A bat can be an animal or a thing for hitting. Which sentence uses bat as the ANIMAL? | 1 |
+| /audio/assessment/v3/prompts/which-sentence-uses-bat-to-mean-the-animal-193177.mp3 | Which sentence uses bat to mean the animal? | 1 |
 | /audio/assessment/v3/prompts/which-sentence-uses-bat-as-the-thing-you-hit-3a44d0.mp3 | Which sentence uses bat as the thing you HIT with? | 1 |
 | /audio/assessment/v3/prompts/a-ring-can-be-jewelry-or-a-sound-which-sente-6512e6.mp3 | A ring can be jewelry or a sound. Which sentence uses ring as the SOUND? | 1 |
 | /audio/assessment/v3/prompts/which-sentence-uses-ring-as-the-thing-you-we-e5af16.mp3 | Which sentence uses ring as the thing you WEAR? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-shells-71abbb.mp3 | Which spelling finishes the sentence? Shells wash up from the hmm. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-shells-ae8c5b.mp3 | Which spelling finishes the sentence? Shells wash up from the …. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-warms-the-earth-753afb.mp3 | Which spelling warms the earth? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-hmm-c548e3.mp3 | Which spelling finishes the sentence? The hmm buzzed from rose to rose. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-buz-d9568a.mp3 | Which spelling finishes the sentence? The … buzzed from rose to rose. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-fits-i-my-phone-number-by-hea-77c37d.mp3 | Which spelling fits: I … my phone number by heart? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-hmm-e80eec.mp3 | Which spelling finishes the sentence? We hmm the quiz by a single point! | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-the-63022a.mp3 | Which spelling finishes the sentence? We … the quiz by a single point! | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-how-many-legs-an-octopus-h-419196.mp3 | Which spelling is how many legs an octopus has? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-stand-s-983d94.mp3 | Which spelling finishes the sentence? Stand still and you can hmm the waves. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-stand-s-2b24f8.mp3 | Which spelling finishes the sentence? Stand still and you can … the waves. | 1 |
 | /audio/assessment/v3/prompts/which-spelling-is-a-color-1662e5.mp3 | Which spelling is a color? | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-it-is-h-5dfbeb.mp3 | Which spelling finishes the sentence? It is hmm dark to read outside now. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-bir-ddf4dc.mp3 | Which spelling finishes the sentence? The birds built hmm nest in the oak. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-use-the-36f33e.mp3 | Which spelling finishes the sentence? Use the pencil to hmm your name. | 1 |
-| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-hmm-ca76c6.mp3 | Which spelling finishes the sentence? We hmm a fort out of pillows. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-it-is-d-28c842.mp3 | Which spelling finishes the sentence? It is … dark to read outside now. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-the-bir-cbcf82.mp3 | Which spelling finishes the sentence? The birds built … nest in the oak. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-use-the-7db79f.mp3 | Which spelling finishes the sentence? Use the pencil to … your name. | 1 |
+| /audio/assessment/v3/prompts/which-spelling-finishes-the-sentence-we-a-fo-d919a8.mp3 | Which spelling finishes the sentence? We … a fort out of pillows. | 1 |
 | /audio/assessment/v3/prompts/how-does-sami-most-likely-feel-231e73.mp3 | How does Sami most likely feel? | 1 |
 | /audio/assessment/v3/prompts/how-does-lena-feel-at-the-end-dfa38f.mp3 | How does Lena feel at the end? | 1 |
 | /audio/assessment/v3/prompts/how-does-dara-feel-about-finishing-7f38db.mp3 | How does Dara feel about finishing? | 1 |
@@ -1324,7 +1324,7 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/uncle-which-letter-makes-the-first-sound-in-e107c0.mp3 | uncle. Which letter makes the first sound in uncle? | 1 |
 | /audio/assessment/v3/prompts/umbrella-which-one-starts-with-the-same-soun-3c573a.mp3 | umbrella. Which one starts with the same sound as umbrella? | 1 |
 | /audio/assessment/v3/prompts/umpire-which-letter-makes-the-first-sound-in-eabe45.mp3 | umpire. Which letter makes the first sound in umpire? | 1 |
-| /audio/assessment/v3/prompts/understand-which-letter-makes-the-first-soun-5145c4.mp3 | understand. Which letter makes the first sound in understand? | 1 |
+| /audio/assessment/v3/prompts/uniform-which-letter-makes-the-first-sound-i-bb95a6.mp3 | uniform. Which letter makes the first sound in uniform? | 1 |
 | /audio/assessment/v3/prompts/uncle-which-one-starts-with-the-same-sound-a-4ae12c.mp3 | uncle. Which one starts with the same sound as uncle? | 1 |
 | /audio/assessment/v3/prompts/van-which-letter-makes-the-first-sound-in-va-74f669.mp3 | van. Which letter makes the first sound in van? | 1 |
 | /audio/assessment/v3/prompts/vet-which-letter-makes-the-first-sound-in-ve-72fd43.mp3 | vet. Which letter makes the first sound in vet? | 1 |
@@ -1359,49 +1359,49 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/nose-which-one-starts-with-the-same-sound-as-69881d.mp3 | nose. Which one starts with the same sound as nose? | 1 |
 | /audio/assessment/v3/prompts/rose-which-one-starts-with-the-same-sound-as-2a3d28.mp3 | rose. Which one starts with the same sound as rose? | 1 |
 | /audio/assessment/v3/prompts/wheel-which-one-starts-with-the-same-sound-a-affc8b.mp3 | wheel. Which one starts with the same sound as wheel? | 1 |
-| /audio/assessment/v3/prompts/what-kind-of-book-did-owen-choose-75f450.mp3 | What kind of book did Owen choose? | 1 |
-| /audio/assessment/v3/prompts/what-did-leo-paint-with-the-thinner-brush-73ad45.mp3 | What did Leo paint with the thinner brush? | 1 |
-| /audio/assessment/v3/prompts/why-did-jonah-leave-one-shell-on-the-sand-1320da.mp3 | Why did Jonah leave one shell on the sand? | 1 |
-| /audio/assessment/v3/prompts/what-happened-to-arlo-s-first-bag-ee149c.mp3 | What happened to Arlo's first bag? | 1 |
-| /audio/assessment/v3/prompts/why-did-nina-stop-riding-b9ec8a.mp3 | Why did Nina stop riding? | 1 |
-| /audio/assessment/v3/prompts/what-did-the-squirrel-hold-2a93ef.mp3 | What did the squirrel hold? | 1 |
-| /audio/assessment/v3/prompts/which-day-did-nora-circle-ac3f38.mp3 | Which day did Nora circle? | 1 |
-| /audio/assessment/v3/prompts/why-did-lucas-lift-out-the-eggs-first-ab416e.mp3 | Why did Lucas lift out the eggs first? | 1 |
-| /audio/assessment/v3/prompts/where-did-maya-place-the-pot-ca9d1d.mp3 | Where did Maya place the pot? | 1 |
-| /audio/assessment/v3/prompts/where-did-miss-green-move-the-class-1729e8.mp3 | Where did Miss Green move the class? | 1 |
-| /audio/assessment/v3/prompts/where-did-finn-put-the-large-books-ec4ed3.mp3 | Where did Finn put the large books? | 1 |
-| /audio/assessment/v3/prompts/where-was-the-dinosaur-room-on-the-map-dac3fe.mp3 | Where was the dinosaur room on the map? | 1 |
-| /audio/assessment/v3/prompts/where-did-hana-put-the-card-games-97af56.mp3 | Where did Hana put the card games? | 1 |
-| /audio/assessment/v3/prompts/where-did-toby-pack-the-towel-93f8a9.mp3 | Where did Toby pack the towel? | 1 |
-| /audio/assessment/v3/prompts/where-did-ms-lopez-put-the-coin-6c16d8.mp3 | Where did Ms. Lopez put the coin? | 1 |
-| /audio/assessment/v3/prompts/where-was-the-glove-first-found-a7bb68.mp3 | Where was the glove first found? | 1 |
-| /audio/assessment/v3/prompts/who-did-ava-give-the-ball-to-9cc09a.mp3 | Who did Ava give the ball to? | 1 |
-| /audio/assessment/v3/prompts/who-held-the-bag-open-355126.mp3 | Who held the bag open? | 1 |
-| /audio/assessment/v3/prompts/who-lent-grace-a-red-pencil-9e2830.mp3 | Who lent Grace a red pencil? | 1 |
-| /audio/assessment/v3/prompts/who-caught-the-beach-ball-86a76d.mp3 | Who caught the beach ball? | 1 |
-| /audio/assessment/v3/prompts/who-was-standing-beside-zoe-in-the-photo-b669be.mp3 | Who was standing beside Zoe in the photo? | 1 |
-| /audio/assessment/v3/prompts/how-many-more-cups-did-mara-add-397005.mp3 | How many more cups did Mara add? | 1 |
-| /audio/assessment/v3/prompts/how-many-high-notes-did-mr-hill-play-7af5a9.mp3 | How many high notes did Mr. Hill play? | 1 |
-| /audio/assessment/v3/prompts/how-many-cushions-did-max-carry-e7e329.mp3 | How many cushions did Max carry? | 1 |
-| /audio/assessment/v3/prompts/when-did-mr-reed-change-the-battery-9991da.mp3 | When did Mr. Reed change the battery? | 1 |
-| /audio/assessment/v3/prompts/which-rolls-did-talia-put-near-the-front-cou-7a8ec3.mp3 | Which rolls did Talia put near the front counter? | 1 |
-| /audio/assessment/v3/prompts/which-plants-did-the-students-water-first-9bec5f.mp3 | Which plants did the students water first? | 1 |
-| /audio/assessment/v3/prompts/whose-name-was-on-the-bookmark-4200ac.mp3 | Whose name was on the bookmark? | 1 |
-| /audio/assessment/v3/prompts/which-part-of-the-song-was-difficult-for-sof-f3cbd8.mp3 | Which part of the song was difficult for Sofia? | 1 |
-| /audio/assessment/v3/prompts/which-picture-did-the-teacher-choose-be3f1d.mp3 | Which picture did the teacher choose? | 1 |
-| /audio/assessment/v3/prompts/which-soil-felt-softer-871ac6.mp3 | Which soil felt softer? | 1 |
-| /audio/assessment/v3/prompts/which-snacks-went-in-the-fridge-a7e641.mp3 | Which snacks went in the fridge? | 1 |
-| /audio/assessment/v3/prompts/what-did-priya-draw-on-the-poster-901238.mp3 | What did Priya draw on the poster? | 1 |
-| /audio/assessment/v3/prompts/what-surprised-sienna-about-the-jacket-1c7f85.mp3 | What surprised Sienna about the jacket? | 1 |
-| /audio/assessment/v3/prompts/what-did-jalen-use-to-wipe-the-table-7e0350.mp3 | What did Jalen use to wipe the table? | 1 |
-| /audio/assessment/v3/prompts/where-did-nora-put-her-sticker-b74c02.mp3 | Where did Nora put her sticker? | 1 |
-| /audio/assessment/v3/prompts/where-was-amara-s-flute-case-211043.mp3 | Where was Amara's flute case? | 1 |
-| /audio/assessment/v3/prompts/where-did-marcus-fill-his-jar-e7a867.mp3 | Where did Marcus fill his jar? | 1 |
-| /audio/assessment/v3/prompts/what-did-noah-and-his-uncle-notice-on-the-br-147151.mp3 | What did Noah and his uncle notice on the bridge? | 1 |
-| /audio/assessment/v3/prompts/what-did-the-firefighter-clip-to-her-jacket-e46e95.mp3 | What did the firefighter clip to her jacket? | 1 |
-| /audio/assessment/v3/prompts/how-many-butterflies-did-chloe-s-partner-cou-100a2b.mp3 | How many butterflies did Chloe's partner count? | 1 |
-| /audio/assessment/v3/prompts/what-time-did-the-screen-say-the-train-would-b53114.mp3 | What time did the screen say the train would arrive? | 1 |
-| /audio/assessment/v3/prompts/what-did-mateo-put-in-the-recycling-bag-abf866.mp3 | What did Mateo put in the recycling bag? | 1 |
+| /audio/production/en-US/assessment_prompt/what-kind-of-book-did-owen-choose-9d814f1125.mp3 | What kind of book did Owen choose? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-leo-paint-with-the-thinner-brush-574aed6fc3.mp3 | What did Leo paint with the thinner brush? | 1 |
+| /audio/production/en-US/assessment_prompt/why-did-jonah-leave-one-shell-on-the-sand-cbb6baac8c.mp3 | Why did Jonah leave one shell on the sand? | 1 |
+| /audio/production/en-US/assessment_prompt/what-happened-to-arlo-s-first-bag-ae07318d54.mp3 | What happened to Arlo's first bag? | 1 |
+| /audio/production/en-US/assessment_prompt/why-did-nina-stop-riding-68f55a5cc1.mp3 | Why did Nina stop riding? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-the-squirrel-hold-38caad5b81.mp3 | What did the squirrel hold? | 1 |
+| /audio/production/en-US/assessment_prompt/which-day-did-nora-circle-a2b1df449d.mp3 | Which day did Nora circle? | 1 |
+| /audio/production/en-US/assessment_prompt/why-did-lucas-lift-out-the-eggs-first-153e3c1fe8.mp3 | Why did Lucas lift out the eggs first? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-maya-place-the-pot-e90d668b2c.mp3 | Where did Maya place the pot? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-miss-green-move-the-class-ca0d1b5043.mp3 | Where did Miss Green move the class? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-finn-put-the-large-books-cb34475711.mp3 | Where did Finn put the large books? | 1 |
+| /audio/production/en-US/assessment_prompt/where-was-the-dinosaur-room-on-the-map-e2feb3884e.mp3 | Where was the dinosaur room on the map? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-hana-put-the-card-games-4f46b06588.mp3 | Where did Hana put the card games? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-toby-pack-the-towel-7d09d7ce3f.mp3 | Where did Toby pack the towel? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-ms-lopez-put-the-coin-55c6f8a36a.mp3 | Where did Ms. Lopez put the coin? | 1 |
+| /audio/production/en-US/assessment_prompt/where-was-the-glove-first-found-4428d5884a.mp3 | Where was the glove first found? | 1 |
+| /audio/production/en-US/assessment_prompt/who-did-ava-give-the-ball-to-066c85a124.mp3 | Who did Ava give the ball to? | 1 |
+| /audio/production/en-US/assessment_prompt/who-held-the-bag-open-0b3cbe78a8.mp3 | Who held the bag open? | 1 |
+| /audio/production/en-US/assessment_prompt/who-lent-grace-a-red-pencil-0927427dda.mp3 | Who lent Grace a red pencil? | 1 |
+| /audio/production/en-US/assessment_prompt/who-caught-the-beach-ball-b04242ad0e.mp3 | Who caught the beach ball? | 1 |
+| /audio/production/en-US/assessment_prompt/who-was-standing-beside-zoe-in-the-photo-5948b6a304.mp3 | Who was standing beside Zoe in the photo? | 1 |
+| /audio/production/en-US/assessment_prompt/how-many-more-cups-did-mara-add-569f941985.mp3 | How many more cups did Mara add? | 1 |
+| /audio/production/en-US/assessment_prompt/how-many-high-notes-did-mr-hill-play-7d6374f292.mp3 | How many high notes did Mr. Hill play? | 1 |
+| /audio/production/en-US/assessment_prompt/how-many-cushions-did-max-carry-2a30926e9d.mp3 | How many cushions did Max carry? | 1 |
+| /audio/production/en-US/assessment_prompt/when-did-mr-reed-change-the-battery-8f5caa5296.mp3 | When did Mr. Reed change the battery? | 1 |
+| /audio/production/en-US/assessment_prompt/which-rolls-did-talia-put-near-the-front-counter-d90d6f9ab8.mp3 | Which rolls did Talia put near the front counter? | 1 |
+| /audio/production/en-US/assessment_prompt/which-plants-did-the-students-water-first-eae366c290.mp3 | Which plants did the students water first? | 1 |
+| /audio/production/en-US/assessment_prompt/whose-name-was-on-the-bookmark-314c0c5ff2.mp3 | Whose name was on the bookmark? | 1 |
+| /audio/production/en-US/assessment_prompt/which-part-of-the-song-was-difficult-for-sofia-abf1599dbb.mp3 | Which part of the song was difficult for Sofia? | 1 |
+| /audio/production/en-US/assessment_prompt/which-picture-did-the-teacher-choose-e307088acd.mp3 | Which picture did the teacher choose? | 1 |
+| /audio/production/en-US/assessment_prompt/which-soil-felt-softer-8cf4c29146.mp3 | Which soil felt softer? | 1 |
+| /audio/production/en-US/assessment_prompt/which-snacks-went-in-the-fridge-4f886777de.mp3 | Which snacks went in the fridge? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-priya-draw-on-the-poster-24c3d54a2f.mp3 | What did Priya draw on the poster? | 1 |
+| /audio/production/en-US/assessment_prompt/what-surprised-sienna-about-the-jacket-dd0047aad1.mp3 | What surprised Sienna about the jacket? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-jalen-use-to-wipe-the-table-71d3d28974.mp3 | What did Jalen use to wipe the table? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-nora-put-her-sticker-78c8f2b568.mp3 | Where did Nora put her sticker? | 1 |
+| /audio/production/en-US/assessment_prompt/where-was-amara-s-flute-case-851baf6386.mp3 | Where was Amara's flute case? | 1 |
+| /audio/production/en-US/assessment_prompt/where-did-marcus-fill-his-jar-ccc4559696.mp3 | Where did Marcus fill his jar? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-noah-and-his-uncle-notice-on-the-bridge-a1f6eb1e7c.mp3 | What did Noah and his uncle notice on the bridge? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-the-firefighter-clip-to-her-jacket-f21c02bb7d.mp3 | What did the firefighter clip to her jacket? | 1 |
+| /audio/production/en-US/assessment_prompt/how-many-butterflies-did-chloe-s-partner-count-fb3865e82e.mp3 | How many butterflies did Chloe's partner count? | 1 |
+| /audio/production/en-US/assessment_prompt/what-time-did-the-screen-say-the-train-would-arrive-8398297dda.mp3 | What time did the screen say the train would arrive? | 1 |
+| /audio/production/en-US/assessment_prompt/what-did-mateo-put-in-the-recycling-bag-a59d7b9e80.mp3 | What did Mateo put in the recycling bag? | 1 |
 | /audio/assessment/v3/prompts/who-took-the-guinea-pig-home-65d5c3.mp3 | Who took the guinea pig home? | 1 |
 | /audio/assessment/v3/prompts/who-lent-the-whistle-981316.mp3 | Who lent the whistle? | 1 |
 | /audio/assessment/v3/prompts/who-mopped-the-puddle-7cc7df.mp3 | Who mopped the puddle? | 1 |
@@ -1497,230 +1497,236 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/which-one-shows-a-person-f855dd.mp3 | Which one shows a person? | 4 |
 | /audio/assessment/v3/prompts/which-word-names-a-person-2dd1a2.mp3 | Which word names a person? | 4 |
 | /audio/assessment/v3/prompts/which-one-shows-an-animal-6e75a9.mp3 | Which one shows an animal? | 4 |
-| /audio/assessment/v3/prompts/which-word-names-an-animal-536a01.mp3 | Which word names an animal? | 4 |
+| /audio/production/en-US/assessment_prompt/which-word-names-an-animal-c868b5ef31.mp3 | Which word names an animal? | 4 |
 | /audio/assessment/v3/prompts/which-one-shows-a-place-a32258.mp3 | Which one shows a place? | 3 |
 | /audio/assessment/v3/prompts/which-word-names-a-place-cb8af1.mp3 | Which word names a place? | 4 |
 | /audio/assessment/v3/prompts/which-one-shows-a-thing-you-can-hold-deebd5.mp3 | Which one shows a thing you can hold? | 3 |
 | /audio/assessment/v3/prompts/which-word-names-a-thing-d49bc4.mp3 | Which word names a thing? | 4 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-615640.mp3 | Which naming word finishes the sentence? The hmm sailed into the bay. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-hm-b08692.mp3 | Which naming word finishes the sentence? A hmm buzzed by my ear. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-c35aa7.mp3 | Which naming word finishes the sentence? The hmm dripped on the rug. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-our-a14b42.mp3 | Which naming word finishes the sentence? Our hmm creaks in the wind. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-2b2fe7.mp3 | Which naming word finishes the sentence? The … sailed into the bay. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-bu-c4f81f.mp3 | Which naming word finishes the sentence? A … buzzed by my ear. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-45978d.mp3 | Which naming word finishes the sentence? The … dripped on the rug. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-our-b300c6.mp3 | Which naming word finishes the sentence? Our … creaks in the wind. | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-a-naming-word-d18b17.mp3 | Which word in this sentence is a naming word? "The kite dipped and spun." | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-a-naming-word-56ab45.mp3 | Which word in this sentence is a naming word? "My boots got soaked." | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-29263e.mp3 | Which naming word finishes the sentence? The hmm hooted all night long. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-hm-bb04f7.mp3 | Which naming word finishes the sentence? A hmm rolled off the shelf. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-d00396.mp3 | Which naming word finishes the sentence? The … hooted all night long. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-ro-e868be.mp3 | Which naming word finishes the sentence? A … rolled off the shelf. | 1 |
 | /audio/assessment/v3/prompts/which-word-names-a-thing-not-a-doing-word-991ad3.mp3 | Which word names a thing, not a doing word? | 6 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-69c2ed.mp3 | Which naming word finishes the sentence? The hmm sang to the crowd. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-7d3922.mp3 | Which naming word finishes the sentence? The … sang to the crowd. | 1 |
 | /audio/assessment/v3/prompts/which-word-is-a-doing-word-not-a-naming-word-21f661.mp3 | Which word is a doing word, not a naming word? | 9 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-our-c8deba.mp3 | Which naming word finishes the sentence? Our hmm reads to us after lunch. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-our-e5d9d9.mp3 | Which naming word finishes the sentence? Our … reads to us after lunch. | 1 |
 | /audio/assessment/v3/prompts/which-sentence-names-two-things-f5e3bb.mp3 | Which sentence names TWO things? | 8 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-4f2832.mp3 | Which naming word finishes the sentence? The cat and the hmm hid in the barn. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-fo-922087.mp3 | Which naming word finishes the sentence? A fork and a hmm sat by the plate. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-c488d9.mp3 | Which naming word finishes the sentence? The hmm chimed at noon. | 1 |
-| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-hm-e77c45.mp3 | Which naming word finishes the sentence? A hmm nested in our chimney. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-e03eeb.mp3 | Which naming word finishes the sentence? The cat and the … hid in the barn. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-fo-2d613a.mp3 | Which naming word finishes the sentence? A fork and a … sat by the plate. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-the-18db5d.mp3 | Which naming word finishes the sentence? The … chimed at noon. | 1 |
+| /audio/assessment/v3/prompts/which-naming-word-finishes-the-sentence-a-ne-5b4294.mp3 | Which naming word finishes the sentence? A … nested in our chimney. | 1 |
 | /audio/assessment/v3/prompts/which-word-tells-what-you-see-137a7f.mp3 | Which word tells what you see? | 3 |
 | /audio/assessment/v3/prompts/pick-the-word-that-fits-the-picture-35acc5.mp3 | Pick the word that fits the picture. | 1 |
 | /audio/assessment/v3/prompts/what-does-the-picture-show-77b318.mp3 | What does the picture show? | 1 |
 | /audio/assessment/v3/prompts/which-word-fits-the-picture-5eb2fd.mp3 | Which word fits the picture? | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-hmm-sat-4f50a0.mp3 | Which word finishes the sentence? Two hmm sat on the wall. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-three-h-4e1645.mp3 | Which word finishes the sentence? The three hmm wag their tails. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-hmm-la-7ba13d.mp3 | Which word finishes the sentence? Both hmm lay open on the desk. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-six-hmm-shi-681d09.mp3 | Which word finishes the sentence? Six hmm shine over the barn. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-sat-on-dc71b0.mp3 | Which word finishes the sentence? Two … sat on the wall. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-three-w-d00bca.mp3 | Which word finishes the sentence? The three … wag their tails. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-lay-op-f21670.mp3 | Which word finishes the sentence? Both … lay open on the desk. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-six-shine-o-65e1c5.mp3 | Which word finishes the sentence? Six … shine over the barn. | 1 |
 | /audio/assessment/v3/prompts/just-one-which-word-fits-4c7f77.mp3 | Just one! Which word fits? | 1 |
 | /audio/assessment/v3/prompts/more-than-one-which-word-fits-fe10e2.mp3 | More than one! Which word fits? | 1 |
 | /audio/assessment/v3/prompts/more-than-one-pick-the-word-e3dfaa.mp3 | More than one! Pick the word. | 1 |
 | /audio/assessment/v3/prompts/just-one-pick-the-word-9cb144.mp3 | Just one! Pick the word. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-see-one-h-c7dc96.mp3 | Which word finishes the sentence? I see one hmm by the door. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-many-hmm-tw-f6d4a7.mp3 | Which word finishes the sentence? Many hmm twinkle at night. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-hmm-flo-2ef0ba.mp3 | Which word finishes the sentence? One hmm floats on the pond. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-lots-of-hmm-d18e65.mp3 | Which word finishes the sentence? Lots of hmm hop in the grass. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-i-see-one-b-1f90a9.mp3 | Which word finishes the sentence? I see one … by the door. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-many-twinkl-ddd99d.mp3 | Which word finishes the sentence? Many … twinkle at night. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-floats-b65429.mp3 | Which word finishes the sentence? One … floats on the pond. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-lots-of-hop-c75b03.mp3 | Which word finishes the sentence? Lots of … hop in the grass. | 1 |
 | /audio/assessment/v3/prompts/pick-the-word-for-the-picture-865f5c.mp3 | Pick the word for the picture. | 2 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-packed-s-7aeff8.mp3 | Which word finishes the sentence? We packed six hmm for the trip. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-dri-25841e.mp3 | Which word finishes the sentence? The hmm dried by the sink. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-three-hmm-c-a19dfe.mp3 | Which word finishes the sentence? Three hmm chugged up the hill. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-scr-397716.mp3 | Which word finishes the sentence? The hmm scrubbed the mud off our boots. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-red-hmm-647b0d.mp3 | Which word finishes the sentence? Two red hmm hid in the den. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-gig-747052.mp3 | Which word finishes the sentence? The hmm giggled in their cots. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-three-hmm-p-fcce59.mp3 | Which word finishes the sentence? Three hmm planned the fair. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hung-lig-7d2248.mp3 | Which word finishes the sentence? We hung lights for both hmm. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-packed-s-47a590.mp3 | Which word finishes the sentence? We packed six … for the trip. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-dried-b-73d8ba.mp3 | Which word finishes the sentence? The … dried by the sink. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-three-chugg-823669.mp3 | Which word finishes the sentence? Three … chugged up the hill. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-scrubbe-406a18.mp3 | Which word finishes the sentence? The … scrubbed the mud off our boots. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-red-hid-28c6da.mp3 | Which word finishes the sentence? Two red … hid in the den. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-giggled-d3fb50.mp3 | Which word finishes the sentence? The … giggled in their cots. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-three-plann-3db8eb.mp3 | Which word finishes the sentence? Three … planned the fair. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-we-hung-lig-4c8800.mp3 | Which word finishes the sentence? We hung lights for both …. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-the-babys-483cfc.mp3 | One word is written wrong. Spot it: The babys slept in their cots. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-two-citys-47ebea.mp3 | One word is written wrong. Spot it: Two citys glow at night. | 1 |
 | /audio/assessment/v3/prompts/which-is-the-plural-of-pony-c28f83.mp3 | Which is the plural of pony? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-mar-67be2a.mp3 | Which word finishes the sentence? The hmm marched in the band. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-hmm-lo-891955.mp3 | Which word finishes the sentence? Both hmm lost a tooth today. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-marched-9da9d7.mp3 | Which word finishes the sentence? The … marched in the band. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-six-ye-b92032.mp3 | Which word finishes the sentence? Both six-year-old … lost a milk tooth today. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-the-mouses-12a59d.mp3 | One word is written wrong. Spot it: The mouses hid in the kitchen. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-both-foots-3775fc.mp3 | One word is written wrong. Spot it: Both foots splashed in the puddle. | 1 |
 | /audio/assessment/v3/prompts/which-is-the-plural-of-child-f5ab53.mp3 | Which is the plural of child? | 1 |
 | /audio/assessment/v3/prompts/which-is-the-plural-of-foot-c1da92.mp3 | Which is the plural of foot? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-autumn-hmm-e934c8.mp3 | Which word finishes the sentence? Autumn hmm blew across the path. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-hmm-how-b405fa.mp3 | Which word finishes the sentence? The hmm howled on the hill. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-chef-la-ac7cd3.mp3 | Which word finishes the sentence? The chef laid five hmm by the plates. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-autumn-blew-3a1a8c.mp3 | Which word finishes the sentence? Autumn … blew across the path. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-howled-ccee17.mp3 | Which word finishes the sentence? The … howled on the hill. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-chef-la-d9e077.mp3 | Which word finishes the sentence? The chef laid five … by the plates. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-the-leafs-4d43c6.mp3 | One word is written wrong. Spot it: The leafs drifted onto the doorstep. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-wolfs-howl-a7060f.mp3 | One word is written wrong. Spot it: Wolfs howled outside the window. | 1 |
 | /audio/assessment/v3/prompts/which-is-the-plural-of-leaf-c2416c.mp3 | Which is the plural of leaf? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-all-the-hmm-b76f75.mp3 | Which word finishes the sentence? All the hmm were fast asleep. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-hmm-was-ce5ace.mp3 | Which word finishes the sentence? One hmm was left on the plate. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-hmm-of-817d57.mp3 | Which word finishes the sentence? Two hmm of bread sat in the basket. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-all-the-wer-a8ad76.mp3 | Which word finishes the sentence? All the … were fast asleep. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-one-was-lef-1107a0.mp3 | Which word finishes the sentence? One … was left on the plate. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-of-brea-a827e6.mp3 | Which word finishes the sentence? Two … of bread sat in the basket. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-three-shee-bff1c9.mp3 | One word is written wrong. Spot it: Three sheeps grazed in the meadow. | 1 |
 | /audio/assessment/v3/prompts/which-fits-the-are-ripe-4f4afa.mp3 | Which fits: The … are ripe? | 1 |
 | /audio/assessment/v3/prompts/which-fits-one-is-barking-635882.mp3 | Which fits: One … is barking? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ten-hmm-bar-dd55ec.mp3 | Which word finishes the sentence? Ten hmm bark at the gate. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-four-hmm-pl-ddd277.mp3 | Which word finishes the sentence? Four hmm played near the barn. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-just-one-hm-65b840.mp3 | Which word finishes the sentence? Just one hmm purred by the fire. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-ten-bark-at-20ed65.mp3 | Which word finishes the sentence? Ten … bark at the gate. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-four-played-9b1142.mp3 | Which word finishes the sentence? Four … played near the barn. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-just-one-pu-2ac42f.mp3 | Which word finishes the sentence? Just one … purred by the fire. | 1 |
 | /audio/assessment/v3/prompts/more-than-one-which-word-ca36fa.mp3 | More than one! Which word? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-hmm-to-8c8893.mp3 | Which word finishes the sentence? Both hmm told long stories. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-both-told-l-4af334.mp3 | Which word finishes the sentence? Both … told long stories. | 1 |
 | /audio/assessment/v3/prompts/one-word-is-written-wrong-spot-it-the-ponys-b4149a.mp3 | One word is written wrong. Spot it: The ponys trotted around the field. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-white-h-3fedf0.mp3 | Which word finishes the sentence? Two white hmm nibbled the cheese. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-two-white-n-e6ad26.mp3 | Which word finishes the sentence? Two white … nibbled the cheese. | 1 |
 | /audio/assessment/v3/prompts/which-is-the-plural-of-tooth-1dd51e.mp3 | Which is the plural of tooth? | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-baker-s-ce81a2.mp3 | Which word finishes the sentence? The baker sliced two hmm for lunch. | 1 |
-| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-all-four-hm-7c1214.mp3 | Which word finishes the sentence? All four hmm chirped at dawn. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-the-baker-s-e68f49.mp3 | Which word finishes the sentence? The baker sliced two … for lunch. | 1 |
+| /audio/assessment/v3/prompts/which-word-finishes-the-sentence-all-four-ch-a780ea.mp3 | Which word finishes the sentence? All four … chirped at dawn. | 1 |
+| /audio/assessment/v3/prompts/which-word-means-not-happy-6c2fa0.mp3 | Which word means not happy? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-not-fair-dc5941.mp3 | Which word means not fair? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-not-kind-dcb832.mp3 | Which word means not kind? | 1 |
+| /audio/assessment/v3/prompts/mia-feels-sad-which-word-also-means-not-happ-c31fe4.mp3 | Mia feels sad. Which word also means not happy? | 1 |
+| /audio/assessment/v3/prompts/the-game-is-not-fair-which-word-means-not-fa-c2d5a8.mp3 | The game is not fair. Which word means not fair? | 1 |
+| /audio/assessment/v3/prompts/the-words-were-not-kind-which-word-means-not-9829cf.mp3 | The words were not kind. Which word means not kind? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-play-again-c7578f.mp3 | Which word means play again? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-make-again-2284fb.mp3 | Which word means make again? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-read-again-54608b.mp3 | Which word means read again? | 1 |
+| /audio/assessment/v3/prompts/the-picture-went-wrong-i-will-make-it-again-8c51e5.mp3 | The picture went wrong. I will make it again. Which word fits? | 1 |
+| /audio/assessment/v3/prompts/i-missed-the-page-i-will-read-it-again-which-3f7026.mp3 | I missed the page. I will read it again. Which word fits? | 1 |
+| /audio/assessment/v3/prompts/we-loved-the-song-we-will-play-it-again-whic-f398b7.mp3 | We loved the song. We will play it again. Which word fits? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-ready-to-help-235ced.mp3 | Which word means ready to help? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-full-of-joy-e9ef3d.mp3 | Which word means full of joy? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-using-care-bcffbf.mp3 | Which word means using care? | 1 |
+| /audio/assessment/v3/prompts/ava-helps-her-friend-which-word-describes-av-419c52.mp3 | Ava helps her friend. Which word describes Ava? | 1 |
+| /audio/assessment/v3/prompts/noah-smiles-with-joy-which-word-describes-no-8a1434.mp3 | Noah smiles with joy. Which word describes Noah? | 1 |
+| /audio/assessment/v3/prompts/kim-carries-the-glass-slowly-which-word-desc-b98e05.mp3 | Kim carries the glass slowly. Which word describes Kim? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-without-hope-edf66d.mp3 | Which word means without hope? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-without-fear-edcc82.mp3 | Which word means without fear? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-without-harm-edeec9.mp3 | Which word means without harm? | 1 |
+| /audio/assessment/v3/prompts/the-tiny-butterfly-cannot-hurt-you-which-wor-eaa52d.mp3 | The tiny butterfly cannot hurt you. Which word describes it? | 1 |
+| /audio/assessment/v3/prompts/leo-is-not-afraid-to-try-which-word-describe-e9afdc.mp3 | Leo is not afraid to try. Which word describes Leo? | 1 |
+| /audio/assessment/v3/prompts/the-team-thinks-it-cannot-win-which-word-des-1d8d4d.mp3 | The team thinks it cannot win. Which word describes the team? | 1 |
+| /audio/assessment/v3/prompts/a-person-who-sings-is-a-5cc502.mp3 | A person who sings is a… | 1 |
+| /audio/assessment/v3/prompts/a-person-who-teaches-is-a-48fda2.mp3 | A person who teaches is a… | 1 |
+| /audio/assessment/v3/prompts/a-person-who-helps-is-a-f6f68e.mp3 | A person who helps is a… | 1 |
+| /audio/assessment/v3/prompts/who-reads-books-to-the-class-d60ef0.mp3 | Who reads books to the class? | 1 |
+| /audio/assessment/v3/prompts/who-paints-a-picture-2fff3f.mp3 | Who paints a picture? | 1 |
+| /audio/assessment/v3/prompts/who-works-on-a-farm-fac15b.mp3 | Who works on a farm? | 1 |
 | /audio/assessment/v3/prompts/add-s-to-hen-5c464f.mp3 | Add -s to hen. | 1 |
 | /audio/assessment/v3/prompts/add-es-to-fox-1f4f7f.mp3 | Add -es to fox. | 1 |
 | /audio/assessment/v3/prompts/add-s-to-cup-5c43d5.mp3 | Add -s to cup. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-every-day-dad-hmm-the-car-df0d08.mp3 | Which word fits? Every day, Dad hmm the car. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-my-cat-hmm-on-the-mat-all-da-d59d2d.mp3 | Which word fits? My cat hmm on the mat all day. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-gran-hmm-brown-bread-every-s-372461.mp3 | Which word fits? Gran hmm brown bread every Sunday. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-every-day-dad-the-car-de5e86.mp3 | Which word fits? Every day, Dad … the car. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-my-cat-on-the-mat-each-day-15222b.mp3 | Which word fits? My cat … on the mat each day. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-gran-bread-every-sunday-39d3bb.mp3 | Which word fits? Gran … bread every Sunday. | 1 |
 | /audio/assessment/v3/prompts/add-ing-to-jump-fb230d.mp3 | Add -ing to jump. | 1 |
 | /audio/assessment/v3/prompts/add-ing-to-read-fbaad7.mp3 | Add -ing to read. | 1 |
 | /audio/assessment/v3/prompts/add-ing-to-play-fb8a7f.mp3 | Add -ing to play. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-right-now-the-pot-is-hmm-on-69b179.mp3 | Which word fits? Right now, the pot is hmm on the stove. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-we-are-hmm-a-sandcastle-toda-75b38d.mp3 | Which word fits? We are hmm a sandcastle today. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-keep-hmm-the-finish-line-is-d0230c.mp3 | Which word fits? Keep hmm! The finish line is close. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-right-now-the-pot-is-on-the-3b2e5d.mp3 | Which word fits? Right now, the pot is … on the stove. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-we-are-a-sandcastle-today-3bc6c3.mp3 | Which word fits? We are … a sandcastle today. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-keep-the-finish-line-is-clos-4786b6.mp3 | Which word fits? Keep …! The finish line is close. | 1 |
 | /audio/assessment/v3/prompts/add-ed-to-walk-cdccbd.mp3 | Add -ed to walk. | 1 |
 | /audio/assessment/v3/prompts/add-ed-to-help-ccbf7f.mp3 | Add -ed to help. | 1 |
 | /audio/assessment/v3/prompts/add-ed-to-jump-ccec7b.mp3 | Add -ed to jump. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-yesterday-we-hmm-to-the-park-3787c9.mp3 | Which word fits? Yesterday we hmm to the park. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-last-night-the-baby-hmm-for-98a18a.mp3 | Which word fits? Last night, the baby hmm for hours. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-we-hmm-the-door-before-bed-l-e31086.mp3 | Which word fits? We hmm the door before bed last night. | 1 |
-| /audio/assessment/v3/prompts/add-er-to-sing-61cb5f.mp3 | Add -er to sing. | 1 |
-| /audio/assessment/v3/prompts/add-er-to-paint-c2209f.mp3 | Add -er to paint. | 1 |
-| /audio/assessment/v3/prompts/add-er-to-help-5536f8.mp3 | Add -er to help. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-a-person-who-sings-is-a-hmm-64b479.mp3 | Which word fits? A person who sings is a hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-a-person-who-teaches-is-a-hm-fb291e.mp3 | Which word fits? A person who teaches is a hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-a-person-who-helps-is-a-hmm-8d7211.mp3 | Which word fits? A person who helps is a hmm. | 1 |
-| /audio/assessment/v3/prompts/add-ful-to-care-217d30.mp3 | Add -ful to care. | 1 |
-| /audio/assessment/v3/prompts/add-ful-to-help-21d9c4.mp3 | Add -ful to help. | 1 |
-| /audio/assessment/v3/prompts/add-ful-to-joy-da3e2b.mp3 | Add -ful to joy. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-a-face-full-of-joy-is-a-hmm-712519.mp3 | Which word fits? A face full of joy is a hmm face. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-sam-is-always-hmm-with-the-b-4ec994.mp3 | Which word fits? Sam is always hmm with the baby bird. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-thank-you-that-was-very-hmm-b3e1aa.mp3 | Which word fits? Thank you! That was very hmm of you. | 1 |
-| /audio/assessment/v3/prompts/add-un-to-lock-637cab.mp3 | Add un- to lock. | 1 |
-| /audio/assessment/v3/prompts/add-un-to-tie-ebc23f.mp3 | Add un- to tie. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-door-was-hmm-so-we-walke-acd2d0.mp3 | Which word fits? The door was hmm, so we walked right in. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-my-shoelace-came-hmm-on-the-7bd64c.mp3 | Which word fits? My shoelace came hmm on the run. | 1 |
-| /audio/assessment/v3/prompts/untie-undoes-a-knot-what-does-unzip-do-e50bdd.mp3 | 'Untie' undoes a knot. What does 'unzip' do? | 1 |
-| /audio/assessment/v3/prompts/unhappy-is-the-opposite-of-happy-which-one-i-a84bc0.mp3 | 'Unhappy' is the opposite of happy. Which one is 'unkind'? | 1 |
-| /audio/assessment/v3/prompts/add-re-to-read-20c741.mp3 | Add re- to read. | 1 |
-| /audio/assessment/v3/prompts/add-re-to-fill-1ff07c.mp3 | Add re- to fill. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-tower-fell-so-we-will-hm-babc97.mp3 | Which word fits? The tower fell, so we will hmm it. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-this-maze-was-fun-i-want-to-282c16.mp3 | Which word fits? This maze was fun! I want to hmm it tomorrow. | 1 |
-| /audio/assessment/v3/prompts/reread-is-read-again-what-is-retell-6e83bd.mp3 | 'Reread' is read again. What is 'retell'? | 1 |
-| /audio/assessment/v3/prompts/redo-is-do-it-over-what-is-rebuild-8538cf.mp3 | 'Redo' is do it over. What is 'rebuild'? | 1 |
-| /audio/assessment/v3/prompts/add-less-to-fear-9cd437.mp3 | Add -less to fear. | 1 |
-| /audio/assessment/v3/prompts/add-less-to-care-9c9c02.mp3 | Add -less to care. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-scratch-was-tiny-and-hmm-58c8cb.mp3 | Which word fits? The scratch was tiny and hmm — it did not hurt at all. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-old-torch-is-hmm-without-f146a3.mp3 | Which word fits? The old torch is hmm without batteries. | 1 |
-| /audio/assessment/v3/prompts/fearless-is-without-fear-what-is-careless-d4d949.mp3 | 'Fearless' is without fear. What is 'careless'? | 1 |
-| /audio/assessment/v3/prompts/useless-is-no-use-at-all-what-is-hopeless-7542d8.mp3 | 'Useless' is no use at all. What is 'hopeless'? | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-yesterday-we-to-the-park-ae32bb.mp3 | Which word fits? Yesterday we … to the park. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-last-night-the-baby-for-hour-49db4e.mp3 | Which word fits? Last night, the baby … for hours. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-we-the-door-before-bed-93a7f1.mp3 | Which word fits? We … the door before bed. | 1 |
 | /audio/assessment/v3/prompts/add-est-to-tall-7587a0.mp3 | Add -est to tall. | 1 |
 | /audio/assessment/v3/prompts/add-er-to-fast-52d2b5.mp3 | Add -er to fast. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-ben-is-tall-but-ana-is-even-75305e.mp3 | Which word fits? Ben is tall, but Ana is even hmm. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-of-all-three-dogs-rex-is-the-9026e4.mp3 | Which word fits? Of all three dogs, Rex is the hmm. | 1 |
-| /audio/assessment/v3/prompts/taller-compares-two-which-word-picks-the-top-c80a66.mp3 | 'Taller' compares two. Which word picks the top one of all? | 1 |
-| /audio/assessment/v3/prompts/you-know-taller-and-tallest-of-every-snail-i-d14dcd.mp3 | You know 'taller' and 'tallest'. Of every snail in the garden, Sid is the …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-ben-is-tall-but-ana-is-even-6b1587.mp3 | Which word fits? Ben is tall, but Ana is even …. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-of-all-three-dogs-rex-is-the-e33bd7.mp3 | Which word fits? Of all three dogs, Rex is the …. | 1 |
+| /audio/assessment/v3/prompts/which-word-compares-two-tall-things-bf764a.mp3 | Which word compares two tall things? | 1 |
+| /audio/assessment/v3/prompts/which-word-picks-the-slow-one-from-every-sna-4ede80.mp3 | Which word picks the slow one from every snail? | 1 |
 | /audio/assessment/v3/prompts/add-ly-to-quick-c21004.mp3 | Add -ly to quick. | 1 |
 | /audio/assessment/v3/prompts/add-ly-to-soft-c7f2cc.mp3 | Add -ly to soft. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-tip-the-eggs-into-the-pan-hm-91e63f.mp3 | Which word fits? Tip the eggs into the pan hmm, with no bumps. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-the-mouse-crept-hmm-past-the-ea7418.mp3 | Which word fits? The mouse crept hmm past the cat. | 1 |
-| /audio/assessment/v3/prompts/softly-tells-how-in-a-soft-way-what-does-bra-d601a5.mp3 | 'Softly' tells how — in a soft way. What does 'bravely' tell? | 1 |
-| /audio/assessment/v3/prompts/quickly-is-in-a-quick-way-what-is-proudly-623a10.mp3 | 'Quickly' is in a quick way. What is 'proudly'? | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-set-the-eggs-down-with-no-bu-de1499.mp3 | Which word fits? Set the eggs down …, with no bumps. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-mouse-crept-past-the-cat-c9f8d6.mp3 | Which word fits? The mouse crept … past the cat. | 1 |
+| /audio/assessment/v3/prompts/what-does-bravely-mean-4d2c01.mp3 | What does bravely mean? | 1 |
+| /audio/assessment/v3/prompts/what-does-proudly-mean-76e96e.mp3 | What does proudly mean? | 1 |
 | /audio/assessment/v3/prompts/add-pre-to-heat-debc68.mp3 | Add pre- to heat. | 1 |
 | /audio/assessment/v3/prompts/add-pre-to-view-dfbc02.mp3 | Add pre- to view. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-hmm-the-oven-before-you-mix-2b4a3d.mp3 | Which word fits? hmm the oven before you mix the batter. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-we-watched-a-hmm-of-the-film-80da6f.mp3 | Which word fits? We watched a hmm of the film before it opened. | 1 |
-| /audio/assessment/v3/prompts/preview-is-a-look-before-what-is-pretest-3b27c2.mp3 | 'Preview' is a look before. What is 'pretest'? | 1 |
-| /audio/assessment/v3/prompts/preheat-warms-the-oven-first-what-is-preorde-b07f34.mp3 | 'Preheat' warms the oven first. What is 'preorder'? | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-the-oven-before-you-mix-the-57ede8.mp3 | Which word fits? … the oven before you mix the batter. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-we-watched-a-before-the-film-b3b8e1.mp3 | Which word fits? We watched a … before the film opened. | 1 |
+| /audio/assessment/v3/prompts/what-is-a-pretest-dbee52.mp3 | What is a pretest? | 1 |
+| /audio/assessment/v3/prompts/what-does-preorder-mean-5f1213.mp3 | What does preorder mean? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-not-safe-dd4471.mp3 | Which word means not safe? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-paint-again-2c2f94.mp3 | Which word means paint again? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-full-of-hope-27b297.mp3 | Which word means full of hope? | 1 |
+| /audio/assessment/v3/prompts/which-word-means-without-care-ed944d.mp3 | Which word means without care? | 1 |
+| /audio/assessment/v3/prompts/a-person-who-bakes-is-a-2b4f73.mp3 | A person who bakes is a… | 1 |
+| /audio/assessment/v3/prompts/the-block-tower-fell-which-word-means-build-8443b7.mp3 | The block tower fell. Which word means build again? | 1 |
 | /audio/assessment/v3/prompts/add-es-to-bus-1f4d67.mp3 | Add -es to bus. | 1 |
 | /audio/assessment/v3/prompts/add-ing-to-cook-faa11f.mp3 | Add -ing to cook. | 1 |
 | /audio/assessment/v3/prompts/add-ed-to-play-cd53ec.mp3 | Add -ed to play. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-a-person-who-paints-is-a-hmm-1a379c.mp3 | Which word fits? A person who paints is a hmm. | 1 |
-| /audio/assessment/v3/prompts/add-ful-to-hope-21df50.mp3 | Add -ful to hope. | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-right-now-the-twins-are-hmm-dc8fda.mp3 | Which word fits? Right now the twins are hmm in the pool. | 1 |
-| /audio/assessment/v3/prompts/add-un-to-pack-63bd5f.mp3 | Add un- to pack. | 1 |
-| /audio/assessment/v3/prompts/add-re-to-tell-20eba2.mp3 | Add re- to tell. | 1 |
-| /audio/assessment/v3/prompts/spotless-is-without-a-spot-what-is-endless-b43fc9.mp3 | 'Spotless' is without a spot. What is 'endless'? | 1 |
-| /audio/assessment/v3/prompts/which-word-fits-sam-is-quick-but-ali-is-even-1fd873.mp3 | Which word fits? Sam is quick, but Ali is even hmm. | 1 |
+| /audio/assessment/v3/prompts/which-word-fits-sam-is-quick-but-ali-is-even-2ed364.mp3 | Which word fits? Sam is quick, but Ali is even …. | 1 |
 | /audio/assessment/v3/prompts/add-ly-to-brave-9ed846.mp3 | Add -ly to brave. | 1 |
 | /audio/assessment/v3/prompts/add-pre-to-school-ca0cc5.mp3 | Add pre- to school. | 1 |
-| /audio/assessment/v3/prompts/where-is-the-cat-e675cf.mp3 | Where is the cat? | 1 |
+| /audio/production/en-US/assessment_prompt/where-is-the-cat-a06cf94083.mp3 | Where is the cat? | 1 |
 | /audio/assessment/v3/prompts/where-is-the-goat-b57f7b.mp3 | Where is the goat? | 1 |
-| /audio/assessment/v3/prompts/which-word-says-where-c1f434.mp3 | Which word says where? | 7 |
-| /audio/assessment/v3/prompts/the-jam-lives-the-jar-with-the-lid-on-8b1275.mp3 | The jam lives … the jar with the lid on. | 1 |
-| /audio/assessment/v3/prompts/where-is-the-ball-b51d81.mp3 | Where is the ball? | 1 |
-| /audio/assessment/v3/prompts/snow-settled-the-roof-90de09.mp3 | Snow settled … the roof. | 1 |
-| /audio/assessment/v3/prompts/the-stamp-goes-the-envelope-top-right-7673ad.mp3 | The stamp goes … the envelope, top right. | 1 |
-| /audio/assessment/v3/prompts/where-is-the-dog-e67695.mp3 | Where is the dog? | 1 |
-| /audio/assessment/v3/prompts/roots-grow-the-soil-d24440.mp3 | Roots grow … the soil. | 1 |
-| /audio/assessment/v3/prompts/the-slippers-sit-the-bed-out-of-sight-ca5619.mp3 | The slippers sit … the bed, out of sight. | 1 |
+| /audio/assessment/v3/prompts/the-cat-is-the-box-331c2c.mp3 | The cat is … the box. | 1 |
+| /audio/assessment/v3/prompts/the-goat-is-the-barn-5bcb47.mp3 | The goat is … the barn. | 1 |
+| /audio/production/en-US/assessment_prompt/where-is-the-ball-ac2635de39.mp3 | Where is the ball? | 1 |
+| /audio/assessment/v3/prompts/where-is-the-snow-b65850.mp3 | Where is the snow? | 1 |
+| /audio/assessment/v3/prompts/the-ball-is-the-chair-d36d95.mp3 | The ball is … the chair. | 1 |
+| /audio/assessment/v3/prompts/the-snow-is-the-roof-e5a4e5.mp3 | The snow is … the roof. | 1 |
+| /audio/production/en-US/assessment_prompt/where-is-the-dog-9624e77b0a.mp3 | Where is the dog? | 1 |
+| /audio/assessment/v3/prompts/where-are-the-slippers-bdff5d.mp3 | Where are the slippers? | 1 |
+| /audio/assessment/v3/prompts/the-dog-is-the-table-d4cd7d.mp3 | The dog is … the table. | 1 |
+| /audio/assessment/v3/prompts/the-slippers-are-the-bed-a20b6d.mp3 | The slippers are … the bed. | 1 |
 | /audio/assessment/v3/prompts/where-is-the-bear-b51f84.mp3 | Where is the bear? | 1 |
-| /audio/assessment/v3/prompts/the-sun-dropped-the-barn-bc5215.mp3 | The sun dropped … the barn. | 1 |
-| /audio/assessment/v3/prompts/hide-the-curtain-so-no-one-sees-you-bbeb49.mp3 | Hide … the curtain so no one sees you. | 1 |
+| /audio/assessment/v3/prompts/where-is-the-child-5b9fdc.mp3 | Where is the child? | 1 |
+| /audio/assessment/v3/prompts/the-bear-is-the-tree-838e7a.mp3 | The bear is … the tree. | 1 |
+| /audio/assessment/v3/prompts/the-child-is-the-curtain-dfe017.mp3 | The child is … the curtain. | 1 |
 | /audio/assessment/v3/prompts/where-is-the-rabbit-416cc8.mp3 | Where is the rabbit? | 1 |
-| /audio/assessment/v3/prompts/park-your-bike-mine-side-by-side-f1ffb1.mp3 | Park your bike … mine, side by side. | 1 |
-| /audio/assessment/v3/prompts/my-desk-is-the-window-so-i-see-the-yard-918c90.mp3 | My desk is … the window, so I see the yard. | 1 |
-| /audio/assessment/v3/prompts/which-words-say-where-4a6b50.mp3 | Which words say where? | 2 |
-| /audio/assessment/v3/prompts/where-is-the-cup-e67623.mp3 | Where is the cup? | 1 |
-| /audio/assessment/v3/prompts/the-net-hangs-the-posts-one-on-each-side-ca90c8.mp3 | The net hangs … the posts, one on each side. | 1 |
-| /audio/assessment/v3/prompts/i-sat-mum-and-dad-one-on-each-side-34c67e.mp3 | I sat … Mum and Dad, one on each side. | 1 |
+| /audio/assessment/v3/prompts/where-is-the-cup-e67623.mp3 | Where is the cup? | 2 |
+| /audio/assessment/v3/prompts/the-rabbit-is-the-basket-b241d6.mp3 | The rabbit is … the basket. | 1 |
+| /audio/assessment/v3/prompts/the-cup-is-the-plate-d992d6.mp3 | The cup is … the plate. | 1 |
+| /audio/assessment/v3/prompts/where-is-the-teddy-830e68.mp3 | Where is the teddy? | 1 |
+| /audio/assessment/v3/prompts/the-cup-is-the-books-b92870.mp3 | The cup is … the books. | 1 |
+| /audio/assessment/v3/prompts/the-teddy-is-the-pillows-b3eff6.mp3 | The teddy is … the pillows. | 1 |
 | /audio/assessment/v3/prompts/where-is-the-tree-b66c6e.mp3 | Where is the tree? | 2 |
-| /audio/assessment/v3/prompts/the-queue-formed-the-gate-before-opening-tim-36ea25.mp3 | The queue formed … the gate before opening time. | 1 |
-| /audio/assessment/v3/prompts/stand-the-mirror-to-see-your-costume-3eef80.mp3 | Stand … the mirror to see your costume. | 1 |
-| /audio/assessment/v3/prompts/where-is-the-bird-b521fc.mp3 | Where is the bird? | 1 |
-| /audio/assessment/v3/prompts/the-clock-hangs-the-door-too-high-to-touch-ad1a27.mp3 | The clock hangs … the door, too high to touch. | 1 |
-| /audio/assessment/v3/prompts/stars-shine-far-the-clouds-1fcbd1.mp3 | Stars shine far … the clouds. | 1 |
-| /audio/assessment/v3/prompts/fish-swim-the-surface-of-the-pond-cda22a.mp3 | Fish swim … the surface of the pond. | 1 |
-| /audio/assessment/v3/prompts/write-your-name-the-line-at-the-bottom-ea5de0.mp3 | Write your name … the line at the bottom. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-p-b7d19d.mp3 | Which where-word finishes the sentence? The plane flew hmm the town. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-a-rai-ca3aea.mp3 | Which where-word finishes the sentence? A rainbow arched hmm the valley. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-horse-jump-41a5ed.mp3 | Which where-word fits exactly? The horse jumped hmm the locked gate. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-she-leaned-hmm-22d5e8.mp3 | Which where-word fits exactly? She leaned hmm the fence to reach the ball. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-t-b9c7e0.mp3 | Which where-word finishes the sentence? The train roared hmm the tunnel. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-rain-be709a.mp3 | Which where-word finishes the sentence? Rain dripped hmm the crack in the tent. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-wool-goes-hmm-6315e5.mp3 | Which where-word fits exactly? Wool goes hmm a needle's eye. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-we-cut-hmm-the-711006.mp3 | Which where-word fits exactly? We cut hmm the park to save time. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-we-li-fcb239.mp3 | Which where-word finishes the sentence? We live hmm the school, so we walk there. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-keep-69753c.mp3 | Which where-word finishes the sentence? Keep the bucket hmm the door for spills. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-put-the-trolle-96692d.mp3 | Which where-word fits exactly? Put the trolley hmm the till, not miles away. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-nests-sit-a4d6b2.mp3 | Which where-word fits exactly? The nests sit hmm the pond, a short hop for the ducks. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-b-70c599.mp3 | Which where-word finishes the sentence? The bakery is hmm the bank, just across the road. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-our-t-1b42e7.mp3 | Which where-word finishes the sentence? Our team sat hmm theirs before the quiz. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-she-sat-hmm-me-6eac53.mp3 | Which where-word fits exactly? She sat hmm me so we could talk face to face. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-two-goals-e7216e.mp3 | Which where-word fits exactly? The two goals stand hmm each other on the pitch. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-a-red-3c98b6.mp3 | Which where-word finishes the sentence? A red tulip grew hmm the yellow tulips. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-h-9e3b0d.mp3 | Which where-word finishes the sentence? The hen hid hmm the tall reeds. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-coin-was-l-62f73f.mp3 | Which where-word fits exactly? The coin was lost hmm the pebbles. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-a-deer-stood-h-ee02aa.mp3 | Which where-word fits exactly? A deer stood hmm the trees, hard to spot. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-f-9b3ac6.mp3 | Which where-word finishes the sentence? The fence runs hmm the whole garden. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-we-jo-4559e6.mp3 | Which where-word finishes the sentence? We joined hands and danced hmm the maypole. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-we-walked-hmm-726646.mp3 | Which where-word fits exactly? We walked hmm the puddle to keep our shoes dry. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-ribbon-wra-4693e1.mp3 | Which where-word fits exactly? The ribbon wraps twice hmm the box. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-it-po-967fe0.mp3 | Which where-word finishes the sentence? It poured with rain, so we played hmm the house. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-c-75b3a7.mp3 | Which where-word finishes the sentence? The chicks stay hmm the coop at night, safe from foxes. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-leave-your-mud-8cd74c.mp3 | Which where-word fits exactly? Leave your muddy boots hmm the door, then come in. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-pips-are-h-f0aca9.mp3 | Which where-word fits exactly? The pips are hmm the apple, so you cannot see them. | 1 |
+| /audio/assessment/v3/prompts/where-is-the-bike-b521df.mp3 | Where is the bike? | 1 |
+| /audio/assessment/v3/prompts/the-tree-is-the-bear-b57118.mp3 | The tree is … the bear. | 1 |
+| /audio/assessment/v3/prompts/the-bike-is-the-garage-93a84f.mp3 | The bike is … the garage. | 1 |
+| /audio/production/en-US/assessment_prompt/where-is-the-bird-3bd4085cc0.mp3 | Where is the bird? | 1 |
+| /audio/assessment/v3/prompts/where-is-the-clock-5beb63.mp3 | Where is the clock? | 1 |
+| /audio/assessment/v3/prompts/the-bird-is-the-tree-5176f2.mp3 | The bird is … the tree. | 1 |
+| /audio/assessment/v3/prompts/the-clock-is-the-door-78919c.mp3 | The clock is … the door. | 1 |
+| /audio/assessment/v3/prompts/where-is-the-fish-b56a63.mp3 | Where is the fish? | 1 |
+| /audio/assessment/v3/prompts/the-tree-is-the-bird-b57390.mp3 | The tree is … the bird. | 1 |
+| /audio/assessment/v3/prompts/the-fish-is-the-bridge-cf151d.mp3 | The fish is … the bridge. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-p-4e5123.mp3 | Which where-word finishes the sentence? The plane flew … the town. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-h-8fe0a9.mp3 | Which where-word finishes the sentence? The horse leapt … the gate. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-high-in-the-sk-6d7583.mp3 | Which where-word fits exactly? High in the sky, the plane passed … the town. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-horse-jump-74b5e8.mp3 | Which where-word fits exactly? The horse jumped … the locked gate. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-t-baae5c.mp3 | Which where-word finishes the sentence? The train roared … the tunnel. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-rain-e166f6.mp3 | Which where-word finishes the sentence? Rain dripped … the crack in the tent. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-train-ente-b53411.mp3 | Which where-word fits exactly? The train entered one end and left the other: … the tunnel. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-tent-leake-bcb12c.mp3 | Which where-word fits exactly? The tent leaked because rain came … a small crack. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-our-h-d7f407.mp3 | Which where-word finishes the sentence? Our house is … the school on the same short street. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-keep-8b80d2.mp3 | Which where-word finishes the sentence? Keep the bucket … the door for spills. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-home-is-a-shor-94bab3.mp3 | Which where-word fits exactly? Home is a short walk away. Our house is … the school. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-keep-the-bucke-ca05bf.mp3 | Which where-word fits exactly? Keep the bucket … the door so it is quick to reach. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-b-2fef83.mp3 | Which where-word finishes the sentence? The bakery is … the bank, just across the road. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-t-6a3cc5.mp3 | Which where-word finishes the sentence? The two goals stand … each other. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-bakery-fac-cce2f7.mp3 | Which where-word fits exactly? The bakery faces the bank across the road: … the bank. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-goals-at-t-d6f561.mp3 | Which where-word fits exactly? The goals at the two ends stand … each other. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-a-red-376541.mp3 | Which where-word finishes the sentence? A red tulip grew … the yellow tulips. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-d-b61853.mp3 | Which where-word finishes the sentence? The deer stood … the trees. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-one-red-flower-b1aaab.mp3 | Which where-word fits exactly? One red flower grows … many yellow flowers. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-a-deer-stood-t-6559dd.mp3 | Which where-word fits exactly? A deer stood … the trees, hard to spot. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-f-351cd1.mp3 | Which where-word finishes the sentence? The fence runs … the whole garden. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-p-32184f.mp3 | Which where-word finishes the sentence? The path bends … the puddle. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-we-walked-the-cadf3a.mp3 | Which where-word fits exactly? We walked … the puddle to keep our shoes dry. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-fence-make-5b8631.mp3 | Which where-word fits exactly? The fence makes a complete ring … the garden. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-it-po-5dc947.mp3 | Which where-word finishes the sentence? It poured with rain, so we played … the house. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-leave-173688.mp3 | Which where-word finishes the sentence? Leave the muddy boots … the door. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-leave-your-mud-4f96ff.mp3 | Which where-word fits exactly? Leave your muddy boots … the door, then come in. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-rain-is-fallin-8f41de.mp3 | Which where-word fits exactly? Rain is falling outdoors, but the children are dry … the house. | 1 |
 | /audio/assessment/v3/prompts/where-is-the-chair-5b9b6e.mp3 | Where is the chair? | 1 |
 | /audio/assessment/v3/prompts/where-are-the-books-1e0b3f.mp3 | Where are the books? | 1 |
-| /audio/assessment/v3/prompts/the-letters-wait-the-postbox-595f76.mp3 | The letters wait … the postbox. | 1 |
-| /audio/assessment/v3/prompts/the-cat-cooled-off-the-shady-bush-13a784.mp3 | The cat cooled off … the shady bush. | 1 |
-| /audio/assessment/v3/prompts/the-kite-flew-high-our-heads-289973.mp3 | The kite flew high … our heads. | 1 |
-| /audio/assessment/v3/prompts/the-salt-sits-the-pepper-on-the-shelf-a0e58b.mp3 | The salt sits … the pepper on the shelf. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-c-e178df.mp3 | Which where-word finishes the sentence? The cat leapt hmm the sleeping dog. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-wind-5bf9f6.mp3 | Which where-word finishes the sentence? Wind whistled hmm the gap in the wall. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-plant-the-herb-dc26d7.mp3 | Which where-word fits exactly? Plant the herbs hmm the kitchen, handy for cooking. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-fits-exactly-mushrooms-popp-a26139.mp3 | Which where-word fits exactly? Mushrooms popped up hmm the fallen leaves. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-m-4cb304.mp3 | Which where-word finishes the sentence? The moat runs hmm the castle. | 1 |
-| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-keep-5c534a.mp3 | Which where-word finishes the sentence? Keep the guinea pig hmm when it snows. | 1 |
+| /audio/assessment/v3/prompts/choose-the-word-the-goat-waits-the-barn-f9d206.mp3 | Choose the word: the goat waits … the barn. | 1 |
+| /audio/assessment/v3/prompts/choose-the-word-the-dog-rests-the-table-3367df.mp3 | Choose the word: the dog rests … the table. | 1 |
+| /audio/assessment/v3/prompts/choose-the-word-the-clock-hangs-the-door-77800b.mp3 | Choose the word: the clock hangs … the door. | 1 |
+| /audio/assessment/v3/prompts/choose-the-words-the-rabbit-sits-the-basket-61c1ed.mp3 | Choose the words: the rabbit sits … the basket. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-h-7f353b.mp3 | Which where-word finishes the sentence? The horse is jumping … the gate. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-t-9ab8fc.mp3 | Which where-word finishes the sentence? The train is passing … the tunnel. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-a-short-path-j-400457.mp3 | Which where-word fits exactly? A short path joins home and school. They are … each other. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-fits-exactly-the-single-red-9e19f8.mp3 | Which where-word fits exactly? The single red tulip stands … the yellow tulips. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-f-f5df97.mp3 | Which where-word finishes the sentence? The fence curves … the garden. | 1 |
+| /audio/assessment/v3/prompts/which-where-word-finishes-the-sentence-the-c-5bbc23.mp3 | Which where-word finishes the sentence? The children stay dry … the house. | 1 |
 | /audio/assessment/v3/prompts/car-which-letters-finish-the-word-car-242636.mp3 | car. Which letters finish the word car? | 1 |
 | /audio/assessment/v3/prompts/farm-which-letters-finish-the-word-farm-9ac1ef.mp3 | farm. Which letters finish the word farm? | 1 |
 | /audio/assessment/v3/prompts/shark-which-letters-make-the-r-sound-in-shar-5af21e.mp3 | shark. Which letters make the r sound in shark? | 1 |
@@ -1942,25 +1948,36 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/who-packed-away-the-cones-c541e8.mp3 | Who packed away the cones? | 1 |
 | /audio/assessment/v3/prompts/what-did-the-window-cleaner-do-4bcfac.mp3 | What did the window cleaner do? | 1 |
 | /audio/assessment/v3/prompts/who-spotted-the-heron-3ab126.mp3 | Who spotted the heron? | 1 |
-| /audio/assessment/v3/prompts/what-did-tunde-do-first-8e433a.mp3 | What did Tunde do FIRST? | 1 |
-| /audio/assessment/v3/prompts/what-did-kaya-do-first-629045.mp3 | What did Kaya do FIRST? | 1 |
-| /audio/assessment/v3/prompts/what-happened-first-in-the-fire-drill-89063b.mp3 | What happened FIRST in the fire drill? | 1 |
-| /audio/assessment/v3/prompts/what-did-they-do-first-b92075.mp3 | What did they do FIRST? | 3 |
-| /audio/assessment/v3/prompts/which-step-came-first-4bf352.mp3 | Which step came FIRST? | 1 |
-| /audio/assessment/v3/prompts/what-happened-first-on-photo-day-411ce2.mp3 | What happened FIRST on photo day? | 1 |
-| /audio/assessment/v3/prompts/what-did-nan-do-first-c7b1f4.mp3 | What did Nan do FIRST? | 1 |
-| /audio/assessment/v3/prompts/what-happened-second-6e04e3.mp3 | What happened SECOND? | 6 |
-| /audio/assessment/v3/prompts/what-did-suki-do-second-7e9000.mp3 | What did Suki do SECOND? | 1 |
-| /audio/assessment/v3/prompts/what-did-bo-do-on-the-second-day-e671f6.mp3 | What did Bo do on the SECOND day? | 1 |
-| /audio/assessment/v3/prompts/what-did-ren-do-second-c6bc4e.mp3 | What did Ren do SECOND? | 1 |
-| /audio/assessment/v3/prompts/what-did-granddad-do-second-dec9a1.mp3 | What did Granddad do SECOND? | 1 |
-| /audio/assessment/v3/prompts/what-came-last-f8a72a.mp3 | What came LAST? | 1 |
-| /audio/assessment/v3/prompts/where-did-the-hunt-end-36dce0.mp3 | Where did the hunt END? | 1 |
-| /audio/assessment/v3/prompts/what-happened-last-c2021c.mp3 | What happened LAST? | 3 |
-| /audio/assessment/v3/prompts/what-happened-at-the-end-of-the-visit-f65d06.mp3 | What happened at the END of the visit? | 1 |
-| /audio/assessment/v3/prompts/what-did-ana-do-last-b66c3c.mp3 | What did Ana do LAST? | 1 |
-| /audio/assessment/v3/prompts/what-happened-last-at-lunch-f02dbf.mp3 | What happened LAST at lunch? | 1 |
-| /audio/assessment/v3/prompts/what-did-kip-do-last-41bcd8.mp3 | What did Kip do LAST? | 1 |
+| /audio/assessment/v3/prompts/the-cat-jumped-on-the-box-curled-into-a-ball-2df43c.mp3 | The cat jumped on the box, curled into a ball, and fell asleep. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/mia-put-a-seed-in-soil-watered-it-and-saw-a-817cdd.mp3 | Mia put a seed in soil, watered it, and saw a green shoot. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/ben-wet-his-hands-rubbed-in-soap-and-rinsed-e39cfd.mp3 | Ben wet his hands, rubbed in soap, and rinsed the bubbles away. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/zara-put-on-her-shirt-pulled-on-her-trousers-dabd3e.mp3 | Zara put on her shirt, pulled on her trousers, and tied her shoes. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/dad-put-bread-in-the-toaster-waited-for-it-t-7b3ddd.mp3 | Dad put bread in the toaster, waited for it to pop, and spread butter. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/noah-threw-the-ball-the-dog-chased-it-and-th-6f1ca4.mp3 | Noah threw the ball, the dog chased it, and the dog brought it back. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/lina-drew-a-circle-added-sun-rays-and-colour-e25f48.mp3 | Lina drew a circle, added sun rays, and coloured the sun yellow. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/omar-set-down-blocks-stacked-a-tower-and-smi-a5b59f.mp3 | Omar set down blocks, stacked a tower, and smiled at the top. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/ava-laid-down-bread-added-cheese-and-closed-ee61cc.mp3 | Ava laid down bread, added cheese, and closed the sandwich. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/rain-began-eli-put-on-boots-opened-an-umbrel-81e8d4.mp3 | Rain began. Eli put on boots, opened an umbrella, and walked outside. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-girl-opened-her-book-read-one-page-and-p-f0de6b.mp3 | The girl opened her book, read one page, and put in a bookmark. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/kai-filled-a-cup-drank-the-water-and-put-the-b1f764.mp3 | Kai filled a cup, drank the water, and put the cup in the sink. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/mum-cracked-an-egg-whisked-it-and-cooked-it-837460.mp3 | Mum cracked an egg, whisked it, and cooked it in the pan. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-boy-kicked-the-ball-it-hit-the-goal-and-f3ea4b.mp3 | The boy kicked the ball, it hit the goal, and his team cheered. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/nia-brushed-the-dog-clipped-on-its-lead-and-50f7e5.mp3 | Nia brushed the dog, clipped on its lead, and took it for a walk. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-baker-mixed-dough-shaped-a-loaf-and-put-d40924.mp3 | The baker mixed dough, shaped a loaf, and put it in the oven. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/sam-brushed-his-teeth-put-on-pyjamas-and-cli-4b8622.mp3 | Sam brushed his teeth, put on pyjamas, and climbed into bed. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-child-found-paper-folded-a-plane-and-fle-c51424.mp3 | The child found paper, folded a plane, and flew it across the room. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/ivy-picked-an-apple-washed-it-and-took-a-bit-b04987.mp3 | Ivy picked an apple, washed it, and took a bite. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-boy-built-a-snowball-added-a-head-and-ga-fd397a.mp3 | The boy built a snowball, added a head, and gave the snowman a hat. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/ana-wrapped-the-gift-tied-a-bow-and-gave-it-bc7a7d.mp3 | Ana wrapped the gift, tied a bow, and gave it to her friend. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-class-dug-a-hole-planted-the-tree-and-wa-8b4183.mp3 | The class dug a hole, planted the tree, and watered its roots. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/leo-put-rubbish-in-a-bag-tied-it-shut-and-pl-114c15.mp3 | Leo put rubbish in a bag, tied it shut, and placed it in the bin. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-bus-stopped-the-doors-opened-and-the-chi-c014c8.mp3 | The bus stopped, the doors opened, and the children stepped off. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/rae-picked-up-a-pencil-drew-a-star-and-colou-5fe24a.mp3 | Rae picked up a pencil, drew a star, and coloured it red. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/max-opened-the-gate-led-the-pony-through-and-263f9a.mp3 | Max opened the gate, led the pony through, and shut the gate. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-frog-sat-jumped-into-the-pond-and-swam-a-d8676e.mp3 | The frog sat, jumped into the pond, and swam away. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/jo-poured-cereal-added-milk-and-ate-breakfas-f8d604.mp3 | Jo poured cereal, added milk, and ate breakfast. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/the-child-zipped-a-coat-put-on-a-hat-and-wen-a903a6.mp3 | The child zipped a coat, put on a hat, and went into the snow. Put the three pictures in story order. | 1 |
+| /audio/assessment/v3/prompts/mia-washed-a-plate-dried-it-and-put-it-on-th-845285.mp3 | Mia washed a plate, dried it, and put it on the shelf. Put the three pictures in story order. | 1 |
 | /audio/assessment/v3/prompts/what-happened-right-before-the-jars-were-fil-17dd0c.mp3 | What happened right BEFORE the jars were filled? | 1 |
 | /audio/assessment/v3/prompts/what-happened-right-after-the-first-crack-ap-784737.mp3 | What happened right AFTER the first crack appeared? | 1 |
 | /audio/assessment/v3/prompts/when-did-the-lollipop-jar-come-down-f80b6e.mp3 | When did the lollipop jar come down? | 1 |
@@ -1985,10 +2002,6 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/what-happens-right-after-the-crew-reach-the-61c541.mp3 | What happens right AFTER the crew reach the station? | 1 |
 | /audio/assessment/v3/prompts/what-happens-right-after-the-book-comes-back-f211e3.mp3 | What happens right AFTER the book comes back through the slot? | 1 |
 | /audio/assessment/v3/prompts/what-happens-right-before-the-vegetables-are-4da5b8.mp3 | What happens right BEFORE the vegetables are pulled? | 1 |
-| /audio/assessment/v3/prompts/what-did-milo-do-first-22bf30.mp3 | What did Milo do FIRST? | 1 |
-| /audio/assessment/v3/prompts/what-did-amy-do-last-920d21.mp3 | What did Amy do LAST? | 1 |
-| /audio/assessment/v3/prompts/what-came-first-in-the-rules-65ae6c.mp3 | What came FIRST in the rules? | 1 |
-| /audio/assessment/v3/prompts/what-happened-in-the-second-rehearsal-c6b75f.mp3 | What happened in the SECOND rehearsal? | 1 |
 | /audio/assessment/v3/prompts/what-happened-right-before-the-marble-crosse-eac220.mp3 | What happened right BEFORE the marble crossed? | 1 |
 | /audio/assessment/v3/prompts/when-was-the-garden-checked-for-hedgehogs-2eb2c3.mp3 | When was the garden checked for hedgehogs? | 1 |
 | /audio/assessment/v3/prompts/which-of-these-happened-first-before-the-res-b9bae7.mp3 | Which of these happened FIRST, before the rest? | 1 |
@@ -2040,28 +2053,28 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/prompts/which-word-is-a-doing-word-166fb9.mp3 | Which word is a doing word? | 15 |
 | /audio/assessment/v3/prompts/which-one-shows-a-doing-word-something-you-d-1a4fc8.mp3 | Which one shows a doing word — something you do to things? | 5 |
 | /audio/assessment/v3/prompts/which-one-shows-a-doing-word-something-you-d-435b67.mp3 | Which one shows a doing word — something you do every day? | 5 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-we-hm-d80e6b.mp3 | Which doing word finishes the sentence? We hmm the raft to the dock. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-t-a0484e.mp3 | Which doing word finishes the sentence? The twins hmm over the puddle. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-pleas-7ebbb2.mp3 | Which doing word finishes the sentence? Please hmm the door quietly. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-owls-d54e65.mp3 | Which doing word finishes the sentence? Owls hmm after dark. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-we-th-558f8d.mp3 | Which doing word finishes the sentence? We … the raft to the dock. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-t-d9737f.mp3 | Which doing word finishes the sentence? The twins … over the puddle. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-pleas-21ff4b.mp3 | Which doing word finishes the sentence? Please … the door quietly. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-owls-45add5.mp3 | Which doing word finishes the sentence? Owls … after dark. | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-the-doing-wor-cdea5b.mp3 | Which word in this sentence is the doing word? "The pup chased its dinner." | 1 |
 | /audio/assessment/v3/prompts/which-word-in-this-sentence-is-the-doing-wor-5e63e9.mp3 | Which word in this sentence is the doing word? "Gran knits thick socks." | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-crabs-d8e5b6.mp3 | Which doing word finishes the sentence? Crabs hmm across the sand. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-we-hm-2127db.mp3 | Which doing word finishes the sentence? We hmm the seeds each morning. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-h-6be648.mp3 | Which doing word finishes the sentence? The hmm swims fifty laps a day. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-h-216b98.mp3 | Which doing word finishes the sentence? The hmm twirled across the stage. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-f-b94497.mp3 | Which doing word finishes the sentence? The frog hmm over the log in one big spring. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-s-e08c86.mp3 | Which doing word finishes the sentence? The soup hmm in the pot until bubbles rose. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-crabs-f05a86.mp3 | Which doing word finishes the sentence? Crabs … across the sand. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-we-th-37baee.mp3 | Which doing word finishes the sentence? We … the seeds each morning. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-s-bd7dfe.mp3 | Which doing word finishes the sentence? The … swims fifty laps a day. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-t-37c9f0.mp3 | Which doing word finishes the sentence? The … twirled across the stage. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-f-9469fe.mp3 | Which doing word finishes the sentence? The frog … over the log in one big spring. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-s-2327ba.mp3 | Which doing word finishes the sentence? The soup … in the pot until bubbles rose. | 1 |
 | /audio/assessment/v3/prompts/which-doing-word-fits-best-for-water-falling-1640b6.mp3 | Which doing word fits best for water falling drop by drop? | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-she-h-a358ad.mp3 | Which doing word finishes the sentence? She hmm the note in half and half again. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-s-a3e54b.mp3 | Which doing word finishes the sentence? The snail hmm along, leaving a silver line. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-he-hm-ddac45.mp3 | Which doing word finishes the sentence? He hmm the balloon until it nearly burst. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-she-t-a4595c.mp3 | Which doing word finishes the sentence? She … the note in half and half again. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-s-5628f3.mp3 | Which doing word finishes the sentence? The snail … along, leaving a silver line. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-he-th-5c826e.mp3 | Which doing word finishes the sentence? He … the balloon until it nearly burst. | 1 |
 | /audio/assessment/v3/prompts/which-doing-word-fits-best-for-moving-on-tip-602514.mp3 | Which doing word fits best for moving on tiptoe without a sound? | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-dad-h-d20250.mp3 | Which doing word finishes the sentence? Dad hmm the squeaky wheel with oil. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-bees-9ca1cb.mp3 | Which doing word finishes the sentence? Bees hmm from rose to rose. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-i-4dd271.mp3 | Which doing word finishes the sentence? The ice hmm slowly in the warm sun. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-w-8254fa.mp3 | Which doing word finishes the sentence? The wind hmm the washing dry. | 1 |
-| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-b-c020b2.mp3 | Which doing word finishes the sentence? The baby hmm at every funny face. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-dad-t-d19126.mp3 | Which doing word finishes the sentence? Dad … the squeaky wheel with oil. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-bees-785787.mp3 | Which doing word finishes the sentence? Bees … from rose to rose. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-i-fbb417.mp3 | Which doing word finishes the sentence? The ice … slowly in the warm sun. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-w-2f89c0.mp3 | Which doing word finishes the sentence? The wind … the washing dry. | 1 |
+| /audio/assessment/v3/prompts/which-doing-word-finishes-the-sentence-the-b-721408.mp3 | Which doing word finishes the sentence? The baby … at every funny face. | 1 |
 | /audio/assessment/v3/prompts/rain-which-letters-finish-the-word-rain-51a7d1.mp3 | rain. Which letters finish the word rain? | 1 |
 | /audio/assessment/v3/prompts/which-word-has-the-long-a-sound-4a06fe.mp3 | Which word has the long a sound? | 4 |
 | /audio/assessment/v3/prompts/snail-which-is-the-real-way-to-write-snail-a6ee10.mp3 | snail. Which is the real way to write snail? | 1 |
@@ -2154,20 +2167,20 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/the-floor-squeaked-with-every-step-787746.mp3 | The … floor squeaked with every step. | 1 |
 | /audio/assessment/v3/sentences/the-rope-was-too-to-snap-3d4df7.mp3 | The rope was too … to snap. | 1 |
 | /audio/assessment/v3/sentences/the-moth-circled-the-lamp-a01f53.mp3 | The … moth circled the lamp. | 1 |
-| /audio/assessment/v3/sentences/the-kitten-is-tame-swap-tame-for-its-opposit-831927.mp3 | The kitten is tame. Swap 'tame' for its opposite: The tiger is …. | 1 |
-| /audio/assessment/v3/sentences/this-puzzle-is-simple-swap-simple-for-its-op-952ba3.mp3 | This puzzle is simple. Swap 'simple' for its opposite: That puzzle is …. | 1 |
-| /audio/assessment/v3/sentences/pick-the-word-that-fits-the-small-clue-the-m-c053db.mp3 | Pick the word that fits the small clue: The mouse is not just small, it is …. | 1 |
+| /audio/assessment/v3/sentences/the-kitten-is-tame-the-tiger-is-f838ce.mp3 | The kitten is tame. The tiger is …. | 1 |
+| /audio/assessment/v3/sentences/this-puzzle-is-simple-its-opposite-is-4302e3.mp3 | This puzzle is simple. Its opposite is …. | 1 |
+| /audio/assessment/v3/sentences/the-mouse-is-not-just-small-it-is-ae45e7.mp3 | The mouse is not just small. It is …. | 1 |
 | /audio/assessment/v3/sentences/not-just-cold-the-pond-was-this-morning-467278.mp3 | Not just cold — the pond was … this morning. | 1 |
-| /audio/assessment/v3/sentences/the-morning-was-noisy-swap-noisy-for-its-opp-58e3f4.mp3 | The morning was noisy. Swap 'noisy' for its opposite: The night was …. | 1 |
-| /audio/assessment/v3/sentences/this-bag-is-heavy-swap-heavy-for-its-opposit-5c1444.mp3 | This bag is heavy. Swap 'heavy' for its opposite: That bag is …. | 1 |
-| /audio/assessment/v3/sentences/the-turtle-is-slow-swap-slow-for-its-opposit-cbf429.mp3 | The turtle is slow. Swap 'slow' for its opposite: The hare is …. | 1 |
-| /audio/assessment/v3/sentences/my-hands-were-dirty-swap-dirty-for-its-oppos-1f615d.mp3 | My hands were dirty. Swap 'dirty' for its opposite: Now they are …. | 1 |
-| /audio/assessment/v3/sentences/dad-fixed-the-gate-swap-fixed-for-its-twin-d-76050a.mp3 | Dad fixed the gate. Swap 'fixed' for its twin: Dad … the gate. | 1 |
-| /audio/assessment/v3/sentences/the-soup-was-tasty-swap-tasty-for-its-twin-t-399d47.mp3 | The soup was tasty. Swap 'tasty' for its twin: The soup was …. | 1 |
-| /audio/assessment/v3/sentences/we-shouted-with-joy-swap-joy-for-its-twin-we-8d49e2.mp3 | We shouted with joy. Swap 'joy' for its twin: We shouted with …. | 1 |
-| /audio/assessment/v3/sentences/the-path-was-narrow-swap-narrow-for-its-twin-5a9ba8.mp3 | The path was narrow. Swap 'narrow' for its twin: The path was …. | 1 |
-| /audio/assessment/v3/sentences/the-oven-is-hot-swap-hot-for-its-opposite-th-2c57da.mp3 | The oven is hot. Swap 'hot' for its opposite: The fridge is …. | 1 |
-| /audio/assessment/v3/sentences/the-old-map-was-torn-swap-torn-for-its-twin-969a03.mp3 | The old map was torn. Swap 'torn' for its twin: The map was …. | 1 |
+| /audio/assessment/v3/sentences/the-morning-was-noisy-the-night-was-6254f6.mp3 | The morning was noisy. The night was …. | 1 |
+| /audio/assessment/v3/sentences/this-bag-is-heavy-that-bag-is-716354.mp3 | This bag is heavy. That bag is …. | 1 |
+| /audio/assessment/v3/sentences/the-turtle-is-slow-the-hare-is-823d9f.mp3 | The turtle is slow. The hare is …. | 1 |
+| /audio/assessment/v3/sentences/my-hands-were-dirty-now-they-are-ffdb31.mp3 | My hands were dirty. Now they are …. | 1 |
+| /audio/assessment/v3/sentences/dad-fixed-the-gate-dad-also-the-fence-f6d8bc.mp3 | Dad fixed the gate. Dad also … the fence. | 1 |
+| /audio/assessment/v3/sentences/the-soup-was-tasty-its-twin-word-is-16114a.mp3 | The soup was tasty. Its twin word is …. | 1 |
+| /audio/assessment/v3/sentences/we-shouted-with-joy-joy-s-twin-word-is-f397ba.mp3 | We shouted with joy. Joy's twin word is …. | 1 |
+| /audio/assessment/v3/sentences/the-path-was-narrow-its-twin-word-is-26a094.mp3 | The path was narrow. Its twin word is …. | 1 |
+| /audio/assessment/v3/sentences/the-oven-is-hot-the-fridge-is-a81e54.mp3 | The oven is hot. The fridge is …. | 1 |
+| /audio/assessment/v3/sentences/the-old-map-was-torn-it-was-adf97c.mp3 | The old map was torn. It was …. | 1 |
 | /audio/assessment/v3/sentences/i-see-red-hen-86e468.mp3 | I see … red hen. | 1 |
 | /audio/assessment/v3/sentences/we-had-nap-at-two-60c85a.mp3 | We had … nap at two. | 1 |
 | /audio/assessment/v3/sentences/we-have-jam-bread-55569e.mp3 | We have jam … bread. | 1 |
@@ -2277,7 +2290,7 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/we-hid-the-rain-d9333f.mp3 | We hid … the rain. | 1 |
 | /audio/assessment/v3/sentences/bob-packs-own-lunch-ff9d02.mp3 | Bob packs … own lunch. | 1 |
 | /audio/assessment/v3/sentences/she-fed-of-the-cats-1b8b5b.mp3 | She fed … of the cats. | 1 |
-| /audio/assessment/v3/sentences/he-drank-of-the-milk-the-jug-is-empty-723498.mp3 | He drank … of the milk — the jug is empty! | 1 |
+| /audio/assessment/v3/sentences/he-drank-the-milk-the-jug-is-empty-d16c72.mp3 | He drank … the milk. The jug is empty! | 1 |
 | /audio/assessment/v3/sentences/i-ate-egg-1f7832.mp3 | I ate … egg. | 1 |
 | /audio/assessment/v3/sentences/she-saw-owl-at-dusk-b1a531.mp3 | She saw … owl at dusk. | 1 |
 | /audio/assessment/v3/sentences/i-ran-fast-i-missed-the-bus-f339d0.mp3 | I ran fast, … I missed the bus. | 1 |
@@ -2318,7 +2331,7 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/you-so-brave-at-the-vet-329d61.mp3 | You … so brave at the vet! | 1 |
 | /audio/assessment/v3/sentences/is-in-the-big-box-ee5449.mp3 | … is in the big box? | 1 |
 | /audio/assessment/v3/sentences/guess-i-made-for-you-b2f3e0.mp3 | Guess … I made for you! | 1 |
-| /audio/assessment/v3/sentences/does-the-show-start-at-two-or-three-2a5c31.mp3 | … does the show start — at two or three? | 1 |
+| /audio/assessment/v3/sentences/does-the-show-start-edab9e.mp3 | … does the show start? | 1 |
 | /audio/assessment/v3/sentences/i-clap-you-sing-68b220.mp3 | I clap … you sing. | 1 |
 | /audio/assessment/v3/sentences/hat-is-yours-red-or-blue-d5bcbd.mp3 | … hat is yours — red or blue? | 1 |
 | /audio/assessment/v3/sentences/tell-me-pup-you-like-best-b39b48.mp3 | Tell me … pup you like best. | 1 |
@@ -2615,7 +2628,7 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/shh-i-can-the-owl-outside-4a323b.mp3 | Shh! I can … the owl outside. | 1 |
 | /audio/assessment/v3/sentences/the-bus-stops-right-at-this-very-corner-7f18f7.mp3 | The bus stops right …, at this very corner. | 1 |
 | /audio/assessment/v3/sentences/the-wind-my-hat-into-the-pond-4fdfb7.mp3 | The wind … my hat into the pond! | 1 |
-| /audio/assessment/v3/sentences/milo-wore-his-scarf-the-color-of-the-sea-7097d3.mp3 | Milo wore his … scarf, the color of the sea. | 1 |
+| /audio/assessment/v3/sentences/milo-wore-his-scarf-blue-like-the-sea-a846eb.mp3 | Milo wore his … scarf, blue like the sea. | 1 |
 | /audio/assessment/v3/sentences/may-i-come-the-park-with-you-68720b.mp3 | May I come … the park with you? | 1 |
 | /audio/assessment/v3/sentences/nan-baked-pies-one-for-each-hand-fd1829.mp3 | Nan baked … pies, one for each hand. | 1 |
 | /audio/assessment/v3/sentences/that-soup-is-hot-to-eat-1cad09.mp3 | That soup is … hot to eat! | 1 |
@@ -2670,7 +2683,7 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/three-planned-the-fair-b1c1a3.mp3 | Three … planned the fair. | 1 |
 | /audio/assessment/v3/sentences/we-hung-lights-for-both-41a7b0.mp3 | We hung lights for both …. | 1 |
 | /audio/assessment/v3/sentences/the-marched-in-the-band-92c988.mp3 | The … marched in the band. | 1 |
-| /audio/assessment/v3/sentences/both-lost-a-tooth-today-9f7c6f.mp3 | Both … lost a tooth today. | 1 |
+| /audio/assessment/v3/sentences/both-six-year-old-lost-a-milk-tooth-today-a427dd.mp3 | Both six-year-old … lost a milk tooth today. | 1 |
 | /audio/assessment/v3/sentences/autumn-blew-across-the-path-1a0b95.mp3 | Autumn … blew across the path. | 1 |
 | /audio/assessment/v3/sentences/the-howled-on-the-hill-40f6cf.mp3 | The … howled on the hill. | 1 |
 | /audio/assessment/v3/sentences/the-chef-laid-five-by-the-plates-d317fe.mp3 | The chef laid five … by the plates. | 1 |
@@ -2685,69 +2698,55 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/sentences/the-baker-sliced-two-for-lunch-922914.mp3 | The baker sliced two … for lunch. | 1 |
 | /audio/assessment/v3/sentences/all-four-chirped-at-dawn-40969f.mp3 | All four … chirped at dawn. | 1 |
 | /audio/assessment/v3/sentences/every-day-dad-the-car-f6c064.mp3 | Every day, Dad … the car. | 1 |
-| /audio/assessment/v3/sentences/my-cat-on-the-mat-all-day-49f825.mp3 | My cat … on the mat all day. | 1 |
-| /audio/assessment/v3/sentences/gran-brown-bread-every-sunday-8c8c87.mp3 | Gran … brown bread every Sunday. | 1 |
+| /audio/assessment/v3/sentences/my-cat-on-the-mat-each-day-227486.mp3 | My cat … on the mat each day. | 1 |
+| /audio/assessment/v3/sentences/gran-bread-every-sunday-5e7150.mp3 | Gran … bread every Sunday. | 1 |
 | /audio/assessment/v3/sentences/right-now-the-pot-is-on-the-stove-420eb5.mp3 | Right now, the pot is … on the stove. | 1 |
 | /audio/assessment/v3/sentences/we-are-a-sandcastle-today-fe1e97.mp3 | We are … a sandcastle today. | 1 |
 | /audio/assessment/v3/sentences/keep-the-finish-line-is-close-29d88f.mp3 | Keep …! The finish line is close. | 1 |
 | /audio/assessment/v3/sentences/yesterday-we-to-the-park-6682f8.mp3 | Yesterday we … to the park. | 1 |
 | /audio/assessment/v3/sentences/last-night-the-baby-for-hours-2c2d28.mp3 | Last night, the baby … for hours. | 1 |
-| /audio/assessment/v3/sentences/we-the-door-before-bed-last-night-83aea8.mp3 | We … the door before bed last night. | 1 |
-| /audio/assessment/v3/sentences/a-person-who-sings-is-a-a18cea.mp3 | A person who sings is a …. | 1 |
-| /audio/assessment/v3/sentences/a-person-who-teaches-is-a-7e6ac4.mp3 | A person who teaches is a …. | 1 |
-| /audio/assessment/v3/sentences/a-person-who-helps-is-a-8e4fbc.mp3 | A person who helps is a …. | 1 |
-| /audio/assessment/v3/sentences/a-face-full-of-joy-is-a-face-48b422.mp3 | A face full of joy is a … face. | 1 |
-| /audio/assessment/v3/sentences/sam-is-always-with-the-baby-bird-c66055.mp3 | Sam is always … with the baby bird. | 1 |
-| /audio/assessment/v3/sentences/thank-you-that-was-very-of-you-e71e9a.mp3 | Thank you! That was very … of you. | 1 |
-| /audio/assessment/v3/sentences/the-door-was-so-we-walked-right-in-8692d4.mp3 | The door was …, so we walked right in. | 1 |
-| /audio/assessment/v3/sentences/my-shoelace-came-on-the-run-d31a7f.mp3 | My shoelace came … on the run. | 1 |
-| /audio/assessment/v3/sentences/the-tower-fell-so-we-will-it-efb1a2.mp3 | The tower fell, so we will … it. | 1 |
-| /audio/assessment/v3/sentences/this-maze-was-fun-i-want-to-it-tomorrow-402ef2.mp3 | This maze was fun! I want to … it tomorrow. | 1 |
-| /audio/assessment/v3/sentences/the-scratch-was-tiny-and-it-did-not-hurt-at-2e31cb.mp3 | The scratch was tiny and … — it did not hurt at all. | 1 |
-| /audio/assessment/v3/sentences/the-old-torch-is-without-batteries-fa9672.mp3 | The old torch is … without batteries. | 1 |
+| /audio/assessment/v3/sentences/we-the-door-before-bed-ac09cf.mp3 | We … the door before bed. | 1 |
 | /audio/assessment/v3/sentences/ben-is-tall-but-ana-is-even-166dc2.mp3 | Ben is tall, but Ana is even …. | 1 |
 | /audio/assessment/v3/sentences/of-all-three-dogs-rex-is-the-f99b69.mp3 | Of all three dogs, Rex is the …. | 1 |
-| /audio/assessment/v3/sentences/tip-the-eggs-into-the-pan-with-no-bumps-ce29f1.mp3 | Tip the eggs into the pan …, with no bumps. | 1 |
+| /audio/assessment/v3/sentences/set-the-eggs-down-with-no-bumps-9c43d2.mp3 | Set the eggs down …, with no bumps. | 1 |
 | /audio/assessment/v3/sentences/the-mouse-crept-past-the-cat-755111.mp3 | The mouse crept … past the cat. | 1 |
 | /audio/assessment/v3/sentences/the-oven-before-you-mix-the-batter-5ece40.mp3 | … the oven before you mix the batter. | 1 |
-| /audio/assessment/v3/sentences/we-watched-a-of-the-film-before-it-opened-fe2de0.mp3 | We watched a … of the film before it opened. | 1 |
-| /audio/assessment/v3/sentences/a-person-who-paints-is-a-7bb40e.mp3 | A person who paints is a …. | 1 |
-| /audio/assessment/v3/sentences/right-now-the-twins-are-in-the-pool-a04a09.mp3 | Right now the twins are … in the pool. | 1 |
+| /audio/assessment/v3/sentences/we-watched-a-before-the-film-opened-96a430.mp3 | We watched a … before the film opened. | 1 |
 | /audio/assessment/v3/sentences/sam-is-quick-but-ali-is-even-4532f6.mp3 | Sam is quick, but Ali is even …. | 1 |
 | /audio/assessment/v3/sentences/the-plane-flew-the-town-d5cbb7.mp3 | The plane flew … the town. | 1 |
-| /audio/assessment/v3/sentences/a-rainbow-arched-the-valley-c394f0.mp3 | A rainbow arched … the valley. | 1 |
+| /audio/assessment/v3/sentences/the-horse-leapt-the-gate-6adcdb.mp3 | The horse leapt … the gate. | 1 |
+| /audio/assessment/v3/sentences/high-in-the-sky-the-plane-passed-the-town-9b83ed.mp3 | High in the sky, the plane passed … the town. | 1 |
 | /audio/assessment/v3/sentences/the-horse-jumped-the-locked-gate-ec7df9.mp3 | The horse jumped … the locked gate. | 1 |
-| /audio/assessment/v3/sentences/she-leaned-the-fence-to-reach-the-ball-779aa6.mp3 | She leaned … the fence to reach the ball. | 1 |
 | /audio/assessment/v3/sentences/the-train-roared-the-tunnel-ee04b6.mp3 | The train roared … the tunnel. | 1 |
 | /audio/assessment/v3/sentences/rain-dripped-the-crack-in-the-tent-bf8ae8.mp3 | Rain dripped … the crack in the tent. | 1 |
-| /audio/assessment/v3/sentences/wool-goes-a-needle-s-eye-f46fa5.mp3 | Wool goes … a needle's eye. | 1 |
-| /audio/assessment/v3/sentences/we-cut-the-park-to-save-time-bfe373.mp3 | We cut … the park to save time. | 1 |
-| /audio/assessment/v3/sentences/we-live-the-school-so-we-walk-there-305b06.mp3 | We live … the school, so we walk there. | 1 |
+| /audio/assessment/v3/sentences/the-train-entered-one-end-and-left-the-other-16e2cf.mp3 | The train entered one end and left the other: … the tunnel. | 1 |
+| /audio/assessment/v3/sentences/the-tent-leaked-because-rain-came-a-small-cr-a3197e.mp3 | The tent leaked because rain came … a small crack. | 1 |
+| /audio/assessment/v3/sentences/our-house-is-the-school-on-the-same-short-st-51e92c.mp3 | Our house is … the school on the same short street. | 1 |
 | /audio/assessment/v3/sentences/keep-the-bucket-the-door-for-spills-2e22f7.mp3 | Keep the bucket … the door for spills. | 1 |
-| /audio/assessment/v3/sentences/put-the-trolley-the-till-not-miles-away-be4505.mp3 | Put the trolley … the till, not miles away. | 1 |
-| /audio/assessment/v3/sentences/the-nests-sit-the-pond-a-short-hop-for-the-d-dd53a6.mp3 | The nests sit … the pond, a short hop for the ducks. | 1 |
+| /audio/assessment/v3/sentences/home-is-a-short-walk-away-our-house-is-the-s-eee1d7.mp3 | Home is a short walk away. Our house is … the school. | 1 |
+| /audio/assessment/v3/sentences/keep-the-bucket-the-door-so-it-is-quick-to-r-7d7844.mp3 | Keep the bucket … the door so it is quick to reach. | 1 |
 | /audio/assessment/v3/sentences/the-bakery-is-the-bank-just-across-the-road-5b9673.mp3 | The bakery is … the bank, just across the road. | 1 |
-| /audio/assessment/v3/sentences/our-team-sat-theirs-before-the-quiz-69a077.mp3 | Our team sat … theirs before the quiz. | 1 |
-| /audio/assessment/v3/sentences/she-sat-me-so-we-could-talk-face-to-face-86c805.mp3 | She sat … me so we could talk face to face. | 1 |
-| /audio/assessment/v3/sentences/the-two-goals-stand-each-other-on-the-pitch-e02a49.mp3 | The two goals stand … each other on the pitch. | 1 |
+| /audio/assessment/v3/sentences/the-two-goals-stand-each-other-172a21.mp3 | The two goals stand … each other. | 1 |
+| /audio/assessment/v3/sentences/the-bakery-faces-the-bank-across-the-road-th-6bee86.mp3 | The bakery faces the bank across the road: … the bank. | 1 |
+| /audio/assessment/v3/sentences/the-goals-at-the-two-ends-stand-each-other-503caf.mp3 | The goals at the two ends stand … each other. | 1 |
 | /audio/assessment/v3/sentences/a-red-tulip-grew-the-yellow-tulips-158932.mp3 | A red tulip grew … the yellow tulips. | 1 |
-| /audio/assessment/v3/sentences/the-hen-hid-the-tall-reeds-659ac8.mp3 | The hen hid … the tall reeds. | 1 |
-| /audio/assessment/v3/sentences/the-coin-was-lost-the-pebbles-ee0b43.mp3 | The coin was lost … the pebbles. | 1 |
+| /audio/assessment/v3/sentences/the-deer-stood-the-trees-2ce576.mp3 | The deer stood … the trees. | 1 |
+| /audio/assessment/v3/sentences/one-red-flower-grows-many-yellow-flowers-6a7af5.mp3 | One red flower grows … many yellow flowers. | 1 |
 | /audio/assessment/v3/sentences/a-deer-stood-the-trees-hard-to-spot-b212cb.mp3 | A deer stood … the trees, hard to spot. | 1 |
 | /audio/assessment/v3/sentences/the-fence-runs-the-whole-garden-7fb5b0.mp3 | The fence runs … the whole garden. | 1 |
-| /audio/assessment/v3/sentences/we-joined-hands-and-danced-the-maypole-dfdbd7.mp3 | We joined hands and danced … the maypole. | 1 |
+| /audio/assessment/v3/sentences/the-path-bends-the-puddle-8289ee.mp3 | The path bends … the puddle. | 1 |
 | /audio/assessment/v3/sentences/we-walked-the-puddle-to-keep-our-shoes-dry-f8eda4.mp3 | We walked … the puddle to keep our shoes dry. | 1 |
-| /audio/assessment/v3/sentences/the-ribbon-wraps-twice-the-box-6d07c7.mp3 | The ribbon wraps twice … the box. | 1 |
+| /audio/assessment/v3/sentences/the-fence-makes-a-complete-ring-the-garden-89949a.mp3 | The fence makes a complete ring … the garden. | 1 |
 | /audio/assessment/v3/sentences/it-poured-with-rain-so-we-played-the-house-385237.mp3 | It poured with rain, so we played … the house. | 1 |
-| /audio/assessment/v3/sentences/the-chicks-stay-the-coop-at-night-safe-from-42c364.mp3 | The chicks stay … the coop at night, safe from foxes. | 1 |
+| /audio/assessment/v3/sentences/leave-the-muddy-boots-the-door-c423e4.mp3 | Leave the muddy boots … the door. | 1 |
 | /audio/assessment/v3/sentences/leave-your-muddy-boots-the-door-then-come-in-a4aa22.mp3 | Leave your muddy boots … the door, then come in. | 1 |
-| /audio/assessment/v3/sentences/the-pips-are-the-apple-so-you-cannot-see-the-433f50.mp3 | The pips are … the apple, so you cannot see them. | 1 |
-| /audio/assessment/v3/sentences/the-cat-leapt-the-sleeping-dog-6f6d11.mp3 | The cat leapt … the sleeping dog. | 1 |
-| /audio/assessment/v3/sentences/wind-whistled-the-gap-in-the-wall-9a1b6a.mp3 | Wind whistled … the gap in the wall. | 1 |
-| /audio/assessment/v3/sentences/plant-the-herbs-the-kitchen-handy-for-cookin-b58ea1.mp3 | Plant the herbs … the kitchen, handy for cooking. | 1 |
-| /audio/assessment/v3/sentences/mushrooms-popped-up-the-fallen-leaves-17843e.mp3 | Mushrooms popped up … the fallen leaves. | 1 |
-| /audio/assessment/v3/sentences/the-moat-runs-the-castle-1a43bc.mp3 | The moat runs … the castle. | 1 |
-| /audio/assessment/v3/sentences/keep-the-guinea-pig-when-it-snows-1de19c.mp3 | Keep the guinea pig … when it snows. | 1 |
+| /audio/assessment/v3/sentences/rain-is-falling-outdoors-but-the-children-ar-95887a.mp3 | Rain is falling outdoors, but the children are dry … the house. | 1 |
+| /audio/assessment/v3/sentences/the-horse-is-jumping-the-gate-e18a00.mp3 | The horse is jumping … the gate. | 1 |
+| /audio/assessment/v3/sentences/the-train-is-passing-the-tunnel-54446f.mp3 | The train is passing … the tunnel. | 1 |
+| /audio/assessment/v3/sentences/a-short-path-joins-home-and-school-they-are-450591.mp3 | A short path joins home and school. They are … each other. | 1 |
+| /audio/assessment/v3/sentences/the-single-red-tulip-stands-the-yellow-tulip-f32d1b.mp3 | The single red tulip stands … the yellow tulips. | 1 |
+| /audio/assessment/v3/sentences/the-fence-curves-the-garden-2935f1.mp3 | The fence curves … the garden. | 1 |
+| /audio/assessment/v3/sentences/the-children-stay-dry-the-house-a65502.mp3 | The children stay dry … the house. | 1 |
 | /audio/assessment/v3/sentences/we-the-raft-to-the-dock-db2131.mp3 | We … the raft to the dock. | 1 |
 | /audio/assessment/v3/sentences/the-twins-over-the-puddle-9fbc7a.mp3 | The twins … over the puddle. | 1 |
 | /audio/assessment/v3/sentences/please-the-door-quietly-a790ef.mp3 | Please … the door quietly. | 1 |
@@ -2963,49 +2962,49 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/passages/the-head-teacher-announced-that-the-school-d-6f50b5.mp3 | The head teacher announced that the school definitely, absolutely did not have a mouse. Meanwhile, the caretaker was seen carrying a tiny humane trap and a jar of peanut butter toward the store room, and the cook had moved every open sack of flour onto the highest shelf. | 1 |
 | /audio/assessment/v3/passages/nina-wrapped-her-library-book-in-a-plastic-b-b2d252.mp3 | Nina wrapped her library book in a plastic bag before putting it in her rucksack, even though the sky was blue. Her water bottle had leaked once before, all over her spelling homework, and the librarian's eyebrows were famous across three year groups. | 1 |
 | /audio/assessment/v3/passages/every-plant-on-the-windowsill-leaned-the-sam-af796a.mp3 | Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again. | 1 |
-| /audio/assessment/v3/passages/owen-wanted-a-book-about-storms-for-his-weat-832896.mp3 | Owen wanted a book about storms for his weather project. He looked on the science shelf but could not find one. The librarian showed him a basket of weather books near the window. Owen chose a book with photographs of lightning. | 1 |
-| /audio/assessment/v3/passages/leo-painted-a-red-fire-truck-during-art-clas-2adffe.mp3 | Leo painted a red fire truck during art class. His wide brush made the ladder look messy. Ms. Chen gave him a thinner brush from the art box. Leo used the new brush to paint neat silver ladder lines. | 1 |
-| /audio/assessment/v3/passages/jonah-walked-on-the-beach-with-his-aunt-they-193784.mp3 | Jonah walked on the beach with his aunt. They collected empty shells for a science tray. One shell had a tiny crab tucked inside it. Jonah left that shell on the sand and chose three empty shells instead. | 1 |
-| /audio/assessment/v3/passages/arlo-carried-warm-rolls-from-the-bakery-coun-da824c.mp3 | Arlo carried warm rolls from the bakery counter. The paper bag tore before he reached the door. Two rolls slipped onto a clean tray near the counter. Baker Tom gave Arlo a stronger bag. | 1 |
-| /audio/assessment/v3/passages/nina-rode-her-bike-along-the-park-path-a-loo-36e906.mp3 | Nina rode her bike along the park path. A loose chain made the pedals stop turning. She walked the bike to a repair bench near the gate. Her dad fixed the chain with a small tool. | 1 |
-| /audio/assessment/v3/passages/eli-saw-a-small-squirrel-near-the-park-bench-1f23f0.mp3 | Eli saw a small squirrel near the park bench. It held an acorn and stayed very still. Park Ranger Kim asked the children to step back quietly. After a minute, the squirrel ran up the tree. | 1 |
-| /audio/assessment/v3/passages/nora-was-in-charge-of-the-class-calendar-she-5ab028.mp3 | Nora was in charge of the class calendar. She crossed off Monday after morning meeting. Then she circled Friday because the class trip was on Friday. Several students asked how many days were left. | 1 |
-| /audio/assessment/v3/passages/lucas-helped-unpack-groceries-after-school-t-a9a2f1.mp3 | Lucas helped unpack groceries after school. The eggs were in a carton at the top of the bag. Lucas lifted them out first so they would not crack. Then he put the heavier cans on the shelf. | 1 |
-| /audio/assessment/v3/passages/maya-planted-sunflower-seeds-in-a-small-pot-6ce8c0.mp3 | Maya planted sunflower seeds in a small pot. She wrote her name on a paper label and pushed it into the soil. After watering the pot, she placed it on the sunny classroom window ledge. On Friday, a tiny green shoot appeared. | 1 |
-| /audio/assessment/v3/passages/ruby-watched-dark-clouds-gather-over-the-fie-f88219.mp3 | Ruby watched dark clouds gather over the field. Her class had planned to eat lunch outside. Miss Green heard thunder in the distance. She moved everyone into the hall before the rain began. | 1 |
-| /audio/assessment/v3/passages/finn-helped-his-neighbor-carry-books-to-a-li-5a9646.mp3 | Finn helped his neighbor carry books to a little free library. The shelf was almost full. Finn placed the small books upright and stacked the large books on the bottom. Then there was room for the whole pile. | 1 |
-| /audio/assessment/v3/passages/dylan-studied-a-map-before-the-museum-trip-h-6a7eed.mp3 | Dylan studied a map before the museum trip. He found the dinosaur room beside the stairs. He showed the map to his partner on the bus. When they arrived, they walked straight to the dinosaur room. | 1 |
-| /audio/assessment/v3/passages/hana-sorted-classroom-games-after-indoor-rec-cc43a2.mp3 | Hana sorted classroom games after indoor recess. She put puzzles on the top shelf and card games in the red bin. One puzzle box was open, so she checked that every piece was inside. Then she closed the lid. | 1 |
-| /audio/assessment/v3/passages/toby-brought-a-striped-towel-to-swimming-cla-eb1470.mp3 | Toby brought a striped towel to swimming class. He folded it on the bench before getting into the pool. After the lesson, he dried his hair with the towel. Then he packed it in the side pocket of his bag. | 1 |
-| /audio/assessment/v3/passages/ivy-found-a-coin-near-the-classroom-door-she-a0e830.mp3 | Ivy found a coin near the classroom door. She did not put it in her pocket. She gave it to Ms. Lopez, who placed it in the lost property box. At the end of the day, Omar came back to look for it. | 1 |
-| /audio/assessment/v3/passages/a-red-glove-was-lying-beside-the-playground-61fafb.mp3 | A red glove was lying beside the playground gate. Hassan picked it up before the wind blew it away. He took it to the office after recess. The secretary pinned it to the lost items board. | 1 |
-| /audio/assessment/v3/passages/the-playground-ball-rolled-under-the-bench-d-7d3d7f.mp3 | The playground ball rolled under the bench during recess. Ava saw it before anyone stepped on it. She picked it up and gave it to Coach Lee. Coach Lee put the ball back in the equipment basket. | 1 |
-| /audio/assessment/v3/passages/miles-helped-his-grandad-rake-leaves-the-win-4da38f.mp3 | Miles helped his grandad rake leaves. The wind blew leaves back across the path. Grandad held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again. | 1 |
-| /audio/assessment/v3/passages/grace-opened-her-pencil-box-during-writing-t-5d3226.mp3 | Grace opened her pencil box during writing time. Her red pencil was missing, but a blue pencil was still inside. She borrowed a red pencil from Noah. At the end of class, she returned it to him. | 1 |
-| /audio/assessment/v3/passages/at-the-family-picnic-rosa-brought-a-beach-ba-38d4e8.mp3 | At the family picnic, Rosa brought a beach ball. A gust of wind pushed it toward the pond. Her cousin caught it before it reached the water. Rosa thanked him and put the ball under the picnic blanket. | 1 |
-| /audio/assessment/v3/passages/dad-printed-a-photo-from-the-school-concert-f1b033.mp3 | Dad printed a photo from the school concert. It showed Zoe standing beside the choir teacher. Zoe placed the photo in a yellow frame. She put the frame on the shelf above her desk. | 1 |
-| /audio/assessment/v3/passages/mara-helped-set-out-cups-for-the-school-picn-5921cb.mp3 | Mara helped set out cups for the school picnic. She counted twenty students but placed only eighteen cups. Her friend noticed the mistake before lunch began. Mara added two more cups to the table. | 1 |
-| /audio/assessment/v3/passages/lena-listened-carefully-during-music-class-m-3d0f54.mp3 | Lena listened carefully during music class. Mr. Hill played three high notes on the piano. Then Lena copied the notes on a small keyboard. Mr. Hill smiled because she played them in the correct order. | 1 |
-| /audio/assessment/v3/passages/the-reading-corner-felt-cold-after-the-windo-dead42.mp3 | The reading corner felt cold after the window was opened. Max carried two cushions from the shelf. He put one cushion on the blue chair and one on the rug. His group sat there during story time. | 1 |
-| /audio/assessment/v3/passages/the-classroom-clock-stopped-during-maths-ell-5801d2.mp3 | The classroom clock stopped during maths. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time. | 1 |
-| /audio/assessment/v3/passages/before-the-bakery-opened-talia-helped-stack-6c5c1a.mp3 | Before the bakery opened, Talia helped stack trays of rolls. One tray held plain rolls, and another held rolls with seeds on top. Baker Tom asked her to put the seeded rolls near the front counter. Customers usually bought those first. | 1 |
-| /audio/assessment/v3/passages/the-school-garden-club-checked-the-vegetable-ab3504.mp3 | The school garden club checked the vegetable beds after a hot weekend. The lettuce leaves looked limp, but the tomato plants were still strong. Mr. Hayes asked the students to water the lettuce first. Then they wrote the change in the garden notebook. | 1 |
-| /audio/assessment/v3/passages/during-reading-time-amira-found-a-bookmark-o-bc6e4e.mp3 | During reading time, Amira found a bookmark on the floor near the mystery shelf. The bookmark had Daniel's name written in blue ink. Amira gave it to the librarian instead of keeping it. The librarian placed it in Daniel's book box. | 1 |
-| /audio/assessment/v3/passages/sofia-practiced-piano-before-the-school-conc-315057.mp3 | Sofia practiced piano before the school concert. She kept missing the last note of the song. Her teacher asked her to play the final line slowly three times. After that, Sofia played the ending without stopping. | 1 |
-| /audio/assessment/v3/passages/nadia-took-photographs-for-the-class-newslet-a50f64.mp3 | Nadia took photographs for the class newsletter. She photographed the chess club, the art display, and the garden team. Her clearest picture showed the garden team holding fresh carrots. The teacher chose that picture for the front page. | 1 |
-| /audio/assessment/v3/passages/in-the-science-corner-two-cups-held-the-same-a8cd0f.mp3 | In the science corner, two cups held the same kind of soil. One cup was dry, and the other had been watered. Priya pressed a finger gently into each cup. The watered soil felt softer than the dry soil. | 1 |
-| /audio/assessment/v3/passages/the-class-made-a-snack-chart-for-the-field-t-c6ce10.mp3 | The class made a snack chart for the field trip. Apples and cheese went in the fridge until morning. Crackers stayed in a sealed box on the counter. Ms. Reed checked both places before loading the cooler. | 1 |
-| /audio/assessment/v3/passages/priya-made-a-poster-about-sea-turtles-she-wr-6dedc6.mp3 | Priya made a poster about sea turtles. She wrote the title at the top in large letters. Then she drew a turtle crawling toward the water. Her teacher asked her to label the beach and the ocean. | 1 |
-| /audio/assessment/v3/passages/sienna-visited-the-fire-station-with-her-cla-f32f04.mp3 | Sienna visited the fire station with her class. A firefighter showed them a heavy jacket and helmet. Sienna tried to lift the jacket with both hands. She was surprised because it weighed more than her school bag. | 1 |
-| /audio/assessment/v3/passages/jalen-helped-clean-the-lunch-tables-he-spray-733d3b.mp3 | Jalen helped clean the lunch tables. He sprayed the first table and wiped it with a blue cloth. A sticky spot was still there, so he wiped it again. When the spot was gone, he moved to the next table. | 1 |
-| /audio/assessment/v3/passages/after-reading-time-nora-chose-a-silver-stick-ac902a.mp3 | After reading time, Nora chose a silver sticker from the reward box. She placed it on the front of her notebook. Her friend chose a star-shaped sticker. Nora showed her notebook to her mother after school. | 1 |
-| /audio/assessment/v3/passages/during-music-practice-amara-forgot-her-flute-331b0a.mp3 | During music practice, Amara forgot her flute case under the chair. Jacob saw it after the lesson ended. He carried it to Amara before she reached the hallway. Amara thanked him and zipped the case closed. | 1 |
-| /audio/assessment/v3/passages/marcus-joined-his-class-for-a-river-study-th-1be209.mp3 | Marcus joined his class for a river study. The teacher gave each group a clear jar and a label. Marcus filled his jar where the water moved slowly near the reeds. Back at school, his group compared the river water with tap water. | 1 |
-| /audio/assessment/v3/passages/noah-crossed-the-old-stone-bridge-with-his-u-78d782.mp3 | Noah crossed the old stone bridge with his uncle. Halfway across, they saw a loose board beside the railing. His uncle called the park office from his phone. A worker arrived and closed that side of the bridge. | 1 |
-| /audio/assessment/v3/passages/the-firefighters-showed-the-class-how-they-p-92d636.mp3 | The firefighters showed the class how they prepare for a call. First, they checked the oxygen tanks on the truck. Then one firefighter clipped a radio to her jacket. She explained that the radio helped the team hear directions. | 1 |
-| /audio/assessment/v3/passages/on-the-meadow-walk-chloe-carried-a-small-fie-420f2f.mp3 | On the meadow walk, Chloe carried a small field guide. She saw yellow butterflies landing on purple flowers. Her partner counted five butterflies before they flew away. Chloe wrote the number beside a quick drawing in her guide. | 1 |
-| /audio/assessment/v3/passages/ethan-waited-at-the-station-with-his-grandmo-ab14a2.mp3 | Ethan waited at the station with his grandmother. Their train was late because workers were checking the track. A message on the screen said the train would arrive at ten thirty. Ethan read the time aloud so his grandmother could hear it. | 1 |
-| /audio/assessment/v3/passages/the-class-cleaned-the-playground-after-the-s-e8197d.mp3 | The class cleaned the playground after the spring fair. Mateo found paper cups near the fence and plastic spoons under a table. He put the cups in the recycling bag. The spoons went into the trash bag because they were dirty. | 1 |
+| /audio/production/en-US/assessment_passage/owen-wanted-a-book-about-storms-for-his-weather-project-he-looked-on-the-a57ab398de.mp3 | Owen wanted a book about storms for his weather project. He looked on the science shelf but could not find one. The librarian showed him a basket of weather books near the window. Owen chose a book with photographs of lightning. | 1 |
+| /audio/production/en-US/assessment_passage/leo-painted-a-red-fire-truck-during-art-class-his-wide-brush-made-the-la-43212ba020.mp3 | Leo painted a red fire truck during art class. His wide brush made the ladder look messy. Ms. Chen gave him a thinner brush from the art box. Leo used the new brush to paint neat silver ladder lines. | 1 |
+| /audio/production/en-US/assessment_passage/jonah-walked-on-the-beach-with-his-aunt-they-collected-empty-shells-for--085725b3ad.mp3 | Jonah walked on the beach with his aunt. They collected empty shells for a science tray. One shell had a tiny crab tucked inside it. Jonah left that shell on the sand and chose three empty shells instead. | 1 |
+| /audio/production/en-US/assessment_passage/arlo-carried-warm-rolls-from-the-bakery-counter-the-paper-bag-tore-befor-0dfa67b143.mp3 | Arlo carried warm rolls from the bakery counter. The paper bag tore before he reached the door. Two rolls slipped onto a clean tray near the counter. Baker Tom gave Arlo a stronger bag. | 1 |
+| /audio/production/en-US/assessment_passage/nina-rode-her-bike-along-the-park-path-a-loose-chain-made-the-pedals-sto-5c623edbcf.mp3 | Nina rode her bike along the park path. A loose chain made the pedals stop turning. She walked the bike to a repair bench near the gate. Her dad fixed the chain with a small tool. | 1 |
+| /audio/production/en-US/assessment_passage/eli-saw-a-small-squirrel-near-the-park-bench-it-held-an-acorn-and-stayed-503e25bc60.mp3 | Eli saw a small squirrel near the park bench. It held an acorn and stayed very still. Park Ranger Kim asked the children to step back quietly. After a minute, the squirrel ran up the tree. | 1 |
+| /audio/production/en-US/assessment_passage/nora-was-in-charge-of-the-class-calendar-she-crossed-off-monday-after-mo-deddd177da.mp3 | Nora was in charge of the class calendar. She crossed off Monday after morning meeting. Then she circled Friday because the class trip was on Friday. Several students asked how many days were left. | 1 |
+| /audio/production/en-US/assessment_passage/lucas-helped-unpack-groceries-after-school-the-eggs-were-in-a-carton-at--870f7520ac.mp3 | Lucas helped unpack groceries after school. The eggs were in a carton at the top of the bag. Lucas lifted them out first so they would not crack. Then he put the heavier cans on the shelf. | 1 |
+| /audio/production/en-US/assessment_passage/maya-planted-sunflower-seeds-in-a-small-pot-she-wrote-her-name-on-a-pape-1ccf227dc6.mp3 | Maya planted sunflower seeds in a small pot. She wrote her name on a paper label and pushed it into the soil. After watering the pot, she placed it on the sunny classroom window ledge. On Friday, a tiny green shoot appeared. | 1 |
+| /audio/production/en-US/assessment_passage/ruby-watched-dark-clouds-gather-over-the-field-her-class-had-planned-to--b8633fc82b.mp3 | Ruby watched dark clouds gather over the field. Her class had planned to eat lunch outside. Miss Green heard thunder in the distance. She moved everyone into the hall before the rain began. | 1 |
+| /audio/production/en-US/assessment_passage/finn-helped-his-neighbor-carry-books-to-a-little-free-library-the-shelf--de87e9bad7.mp3 | Finn helped his neighbor carry books to a little free library. The shelf was almost full. Finn placed the small books upright and stacked the large books on the bottom. Then there was room for the whole pile. | 1 |
+| /audio/production/en-US/assessment_passage/dylan-studied-a-map-before-the-museum-trip-he-found-the-dinosaur-room-be-124f44dd94.mp3 | Dylan studied a map before the museum trip. He found the dinosaur room beside the stairs. He showed the map to his partner on the bus. When they arrived, they walked straight to the dinosaur room. | 1 |
+| /audio/production/en-US/assessment_passage/hana-sorted-classroom-games-after-indoor-recess-she-put-puzzles-on-the-t-6624e7dfd0.mp3 | Hana sorted classroom games after indoor recess. She put puzzles on the top shelf and card games in the red bin. One puzzle box was open, so she checked that every piece was inside. Then she closed the lid. | 1 |
+| /audio/production/en-US/assessment_passage/toby-brought-a-striped-towel-to-swimming-class-he-folded-it-on-the-bench-a5c5aa3b87.mp3 | Toby brought a striped towel to swimming class. He folded it on the bench before getting into the pool. After the lesson, he dried his hair with the towel. Then he packed it in the side pocket of his bag. | 1 |
+| /audio/production/en-US/assessment_passage/ivy-found-a-coin-near-the-classroom-door-she-did-not-put-it-in-her-pocke-495696f321.mp3 | Ivy found a coin near the classroom door. She did not put it in her pocket. She gave it to Ms. Lopez, who placed it in the lost property box. At the end of the day, Omar came back to look for it. | 1 |
+| /audio/production/en-US/assessment_passage/a-red-glove-was-lying-beside-the-playground-gate-hassan-picked-it-up-bef-e1e4a07fd5.mp3 | A red glove was lying beside the playground gate. Hassan picked it up before the wind blew it away. He took it to the office after recess. The secretary pinned it to the lost items board. | 1 |
+| /audio/production/en-US/assessment_passage/the-playground-ball-rolled-under-the-bench-during-recess-ava-saw-it-befo-ba66b8b22b.mp3 | The playground ball rolled under the bench during recess. Ava saw it before anyone stepped on it. She picked it up and gave it to Coach Lee. Coach Lee put the ball back in the equipment basket. | 1 |
+| /audio/production/en-US/assessment_passage/miles-helped-his-grandad-rake-leaves-the-wind-blew-leaves-back-across-th-e373c6452e.mp3 | Miles helped his grandad rake leaves. The wind blew leaves back across the path. Grandad held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again. | 1 |
+| /audio/production/en-US/assessment_passage/grace-opened-her-pencil-box-during-writing-time-her-red-pencil-was-missi-bdc6d39e2b.mp3 | Grace opened her pencil box during writing time. Her red pencil was missing, but a blue pencil was still inside. She borrowed a red pencil from Noah. At the end of class, she returned it to him. | 1 |
+| /audio/production/en-US/assessment_passage/at-the-family-picnic-rosa-brought-a-beach-ball-a-gust-of-wind-pushed-it--a622dd67d6.mp3 | At the family picnic, Rosa brought a beach ball. A gust of wind pushed it toward the pond. Her cousin caught it before it reached the water. Rosa thanked him and put the ball under the picnic blanket. | 1 |
+| /audio/production/en-US/assessment_passage/dad-printed-a-photo-from-the-school-concert-it-showed-zoe-standing-besid-f476f5d4af.mp3 | Dad printed a photo from the school concert. It showed Zoe standing beside the choir teacher. Zoe placed the photo in a yellow frame. She put the frame on the shelf above her desk. | 1 |
+| /audio/production/en-US/assessment_passage/mara-helped-set-out-cups-for-the-school-picnic-she-counted-twenty-studen-1097c0e1e4.mp3 | Mara helped set out cups for the school picnic. She counted twenty students but placed only eighteen cups. Her friend noticed the mistake before lunch began. Mara added two more cups to the table. | 1 |
+| /audio/production/en-US/assessment_passage/lena-listened-carefully-during-music-class-mr-hill-played-three-high-not-fb4507b952.mp3 | Lena listened carefully during music class. Mr. Hill played three high notes on the piano. Then Lena copied the notes on a small keyboard. Mr. Hill smiled because she played them in the correct order. | 1 |
+| /audio/production/en-US/assessment_passage/the-reading-corner-felt-cold-after-the-window-was-opened-max-carried-two-ae53407ff5.mp3 | The reading corner felt cold after the window was opened. Max carried two cushions from the shelf. He put one cushion on the blue chair and one on the rug. His group sat there during story time. | 1 |
+| /audio/production/en-US/assessment_passage/the-classroom-clock-stopped-during-maths-ella-noticed-that-both-hands-st-74fd86a481.mp3 | The classroom clock stopped during maths. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time. | 1 |
+| /audio/production/en-US/assessment_passage/before-the-bakery-opened-talia-helped-stack-trays-of-rolls-one-tray-held-8d3b0d0aac.mp3 | Before the bakery opened, Talia helped stack trays of rolls. One tray held plain rolls, and another held rolls with seeds on top. Baker Tom asked her to put the seeded rolls near the front counter. Customers usually bought those first. | 1 |
+| /audio/production/en-US/assessment_passage/the-school-garden-club-checked-the-vegetable-beds-after-a-hot-weekend-th-f0c8c565b7.mp3 | The school garden club checked the vegetable beds after a hot weekend. The lettuce leaves looked limp, but the tomato plants were still strong. Mr. Hayes asked the students to water the lettuce first. Then they wrote the change in the garden notebook. | 1 |
+| /audio/production/en-US/assessment_passage/during-reading-time-amira-found-a-bookmark-on-the-floor-near-the-mystery-ab204bd7d5.mp3 | During reading time, Amira found a bookmark on the floor near the mystery shelf. The bookmark had Daniel's name written in blue ink. Amira gave it to the librarian instead of keeping it. The librarian placed it in Daniel's book box. | 1 |
+| /audio/production/en-US/assessment_passage/sofia-practiced-piano-before-the-school-concert-she-kept-missing-the-las-66f458046f.mp3 | Sofia practiced piano before the school concert. She kept missing the last note of the song. Her teacher asked her to play the final line slowly three times. After that, Sofia played the ending without stopping. | 1 |
+| /audio/production/en-US/assessment_passage/nadia-took-photographs-for-the-class-newsletter-she-photographed-the-che-86fb38a0a3.mp3 | Nadia took photographs for the class newsletter. She photographed the chess club, the art display, and the garden team. Her clearest picture showed the garden team holding fresh carrots. The teacher chose that picture for the front page. | 1 |
+| /audio/production/en-US/assessment_passage/in-the-science-corner-two-cups-held-the-same-kind-of-soil-one-cup-was-dr-afeda23a48.mp3 | In the science corner, two cups held the same kind of soil. One cup was dry, and the other had been watered. Priya pressed a finger gently into each cup. The watered soil felt softer than the dry soil. | 1 |
+| /audio/production/en-US/assessment_passage/the-class-made-a-snack-chart-for-the-field-trip-apples-and-cheese-went-i-198cbf74e5.mp3 | The class made a snack chart for the field trip. Apples and cheese went in the fridge until morning. Crackers stayed in a sealed box on the counter. Ms. Reed checked both places before loading the cooler. | 1 |
+| /audio/production/en-US/assessment_passage/priya-made-a-poster-about-sea-turtles-she-wrote-the-title-at-the-top-in--1873cc9d23.mp3 | Priya made a poster about sea turtles. She wrote the title at the top in large letters. Then she drew a turtle crawling toward the water. Her teacher asked her to label the beach and the ocean. | 1 |
+| /audio/production/en-US/assessment_passage/sienna-visited-the-fire-station-with-her-class-a-firefighter-showed-them-6c99327af9.mp3 | Sienna visited the fire station with her class. A firefighter showed them a heavy jacket and helmet. Sienna tried to lift the jacket with both hands. She was surprised because it weighed more than her school bag. | 1 |
+| /audio/production/en-US/assessment_passage/jalen-helped-clean-the-lunch-tables-he-sprayed-the-first-table-and-wiped-02061a8a90.mp3 | Jalen helped clean the lunch tables. He sprayed the first table and wiped it with a blue cloth. A sticky spot was still there, so he wiped it again. When the spot was gone, he moved to the next table. | 1 |
+| /audio/production/en-US/assessment_passage/after-reading-time-nora-chose-a-silver-sticker-from-the-reward-box-she-p-4a3a499aef.mp3 | After reading time, Nora chose a silver sticker from the reward box. She placed it on the front of her notebook. Her friend chose a star-shaped sticker. Nora showed her notebook to her mother after school. | 1 |
+| /audio/production/en-US/assessment_passage/during-music-practice-amara-forgot-her-flute-case-under-the-chair-jacob--d87e858248.mp3 | During music practice, Amara forgot her flute case under the chair. Jacob saw it after the lesson ended. He carried it to Amara before she reached the hallway. Amara thanked him and zipped the case closed. | 1 |
+| /audio/production/en-US/assessment_passage/marcus-joined-his-class-for-a-river-study-the-teacher-gave-each-group-a--0690d9ff9e.mp3 | Marcus joined his class for a river study. The teacher gave each group a clear jar and a label. Marcus filled his jar where the water moved slowly near the reeds. Back at school, his group compared the river water with tap water. | 1 |
+| /audio/production/en-US/assessment_passage/noah-crossed-the-old-stone-bridge-with-his-uncle-halfway-across-they-saw-42ae22f7f6.mp3 | Noah crossed the old stone bridge with his uncle. Halfway across, they saw a loose board beside the railing. His uncle called the park office from his phone. A worker arrived and closed that side of the bridge. | 1 |
+| /audio/production/en-US/assessment_passage/the-firefighters-showed-the-class-how-they-prepare-for-a-call-first-they-981cd38555.mp3 | The firefighters showed the class how they prepare for a call. First, they checked the oxygen tanks on the truck. Then one firefighter clipped a radio to her jacket. She explained that the radio helped the team hear directions. | 1 |
+| /audio/production/en-US/assessment_passage/on-the-meadow-walk-chloe-carried-a-small-field-guide-she-saw-yellow-butt-9a1e6459c1.mp3 | On the meadow walk, Chloe carried a small field guide. She saw yellow butterflies landing on purple flowers. Her partner counted five butterflies before they flew away. Chloe wrote the number beside a quick drawing in her guide. | 1 |
+| /audio/production/en-US/assessment_passage/ethan-waited-at-the-station-with-his-grandmother-their-train-was-late-be-23fe248556.mp3 | Ethan waited at the station with his grandmother. Their train was late because workers were checking the track. A message on the screen said the train would arrive at ten thirty. Ethan read the time aloud so his grandmother could hear it. | 1 |
+| /audio/production/en-US/assessment_passage/the-class-cleaned-the-playground-after-the-spring-fair-mateo-found-paper-e1ae57bbec.mp3 | The class cleaned the playground after the spring fair. Mateo found paper cups near the fence and plastic spoons under a table. He put the cups in the recycling bag. The spoons went into the trash bag because they were dirty. | 1 |
 | /audio/assessment/v3/passages/the-class-guinea-pig-needed-a-holiday-home-f-f17d8b.mp3 | The class guinea pig needed a holiday home for half term. Four children offered. Miss Adu picked names from a cup, and the folded paper said 'Femi'. Femi carried the travel cage to the taxi very, very slowly. | 1 |
 | /audio/assessment/v3/passages/the-whistle-for-the-sack-race-was-lost-mr-po-3fc0e0.mp3 | The whistle for the sack race was lost. Mr Pole checked his pockets twice. In the end, little Sana lent him the silver whistle from her charm bracelet, and the race began only one minute late. | 1 |
 | /audio/assessment/v3/passages/on-wet-wednesdays-someone-always-mopped-the-482f69.mp3 | On wet Wednesdays, someone always mopped the puddle by the school door before the bell. Nobody knew who. One early morning, Priya spotted the mystery mopper through the window: it was Bill, the bus driver, mop in one hand, tea in the other. | 1 |
@@ -3170,30 +3169,36 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/passages/one-sniff-of-the-cheese-sent-the-whole-kitch-3fd386.mp3 | One sniff of the cheese sent the whole kitchen running for the windows. | 1 |
 | /audio/assessment/v3/passages/the-window-cleaner-waved-his-squeegee-at-eve-41619e.mp3 | The window cleaner waved his squeegee at every child on the top deck of the bus. | 1 |
 | /audio/assessment/v3/passages/gran-passed-jonah-the-binoculars-just-as-he-2b7790.mp3 | Gran passed Jonah the binoculars just as he spotted the heron landing. | 1 |
-| /audio/assessment/v3/passages/before-the-snowy-walk-tunde-got-ready-he-pul-9adb45.mp3 | Before the snowy walk, Tunde got ready. He pulled on his thick socks. Then he zipped his coat right up to his chin. Last of all he pushed his hands into his mittens. | 1 |
-| /audio/assessment/v3/passages/kaya-made-a-get-well-card-for-gran-first-she-3a9842.mp3 | Kaya made a get-well card for Gran. First she folded the paper in half. After that she drew a fat bumblebee on the front. At the end she wrote her name inside with three kisses. | 1 |
-| /audio/assessment/v3/passages/the-fire-drill-had-rules-first-everyone-stop-8bfbaa.mp3 | The fire drill had rules. First, everyone stopped what they were doing the moment the bell rang. Second, they lined up without talking. Last, they walked out to the yard and stood with their class. | 1 |
-| /audio/assessment/v3/passages/dad-and-effy-washed-the-car-on-sunday-first-dd3025.mp3 | Dad and Effy washed the car on Sunday. First they hosed off the loose mud. Then they rubbed the car all over with soapy sponges. At the end they dried it with an old towel until it shone. | 1 |
-| /audio/assessment/v3/passages/to-plant-cress-class-1-followed-the-steps-fi-1fe032.mp3 | To plant cress, Class 1 followed the steps. First they wet the cotton wool and laid it in the tray. Then they sprinkled the tiny seeds on top. Last they put the tray on the sunny windowsill. | 1 |
-| /audio/assessment/v3/passages/jaz-mended-her-bike-puncture-with-uncle-dev-ee2dbf.mp3 | Jaz mended her bike puncture with Uncle Dev. First they turned the bike upside down. After that they pulled out the sad flat tube. At the end they fitted the new tube and pumped the tyre fat again. | 1 |
-| /audio/assessment/v3/passages/photo-day-had-an-order-first-miss-bell-brush-78ea81.mp3 | Photo day had an order. First Miss Bell brushed everyone into neat rows on the benches. Then the photographer counted to three. Last, forty children said CHEESE at exactly the same time. | 1 |
-| /audio/assessment/v3/passages/nan-made-hot-chocolate-the-proper-way-first-3f6265.mp3 | Nan made hot chocolate the proper way. First she warmed the milk slowly in the pan. Then she stirred in two spoons of chocolate until it melted. Last came the little cloud of cream on top. | 1 |
-| /audio/assessment/v3/passages/bath-time-for-biscuit-the-dog-went-like-this-aa5502.mp3 | Bath time for Biscuit the dog went like this. First Ade filled the tub with warm water. Second he scrubbed the mud out of Biscuit's fur. Last he rubbed him dry until he was a fluffy cloud. | 1 |
-| /audio/assessment/v3/passages/the-class-made-pancakes-first-they-whisked-t-685dc7.mp3 | The class made pancakes. First they whisked the eggs, flour and milk into a smooth batter. Second they poured a little circle into the hot pan. Last they lifted the golden pancake onto a plate. | 1 |
-| /audio/assessment/v3/passages/ivo-wrote-to-his-gran-in-three-steps-first-h-da3abe.mp3 | Ivo wrote to his gran in three steps. First he wrote the letter about his new tooth. Second he sealed it in the envelope and stuck on a stamp. Last he reached high and dropped it into the red post box. | 1 |
-| /audio/assessment/v3/passages/at-the-library-suki-did-three-things-first-s-35354c.mp3 | At the library, Suki did three things. First she slid last week's books into the return slot. Second she hunted the shelves for a dinosaur story. Last she took her pile to the desk to be stamped. | 1 |
-| /audio/assessment/v3/passages/the-tent-went-up-in-three-steps-first-dad-sp-eafe28.mp3 | The tent went up in three steps. First Dad spread the groundsheet flat on the grass. Second the twins clicked the long poles together and threaded them through. Last everyone pulled the tent up and pegged the corners tight. | 1 |
-| /audio/assessment/v3/passages/bo-s-papier-mache-mask-took-three-days-on-th-a1a180.mp3 | Bo's papier-mache mask took three days. On the first day he blew up a balloon and pasted it with newspaper strips. On the second day, once it was dry, he popped the balloon and cut out eye holes. On the last day he painted the mask gold like a lion. | 1 |
-| /audio/assessment/v3/passages/the-recycling-job-had-an-order-first-ren-emp-f9e990.mp3 | The recycling job had an order. First Ren emptied every bin into one big pile. Second he sorted the pile — paper here, tins there, glass in the crate. Last he wheeled everything out to the kerb for the morning truck. | 1 |
-| /audio/assessment/v3/passages/granddad-prepared-his-conker-like-a-champion-6aef68.mp3 | Granddad prepared his conker like a champion. First he chose the roundest, hardest conker from the bag. Second he made a hole through it with a skewer, very carefully. Last he threaded the string through and tied a fat knot. | 1 |
-| /audio/assessment/v3/passages/milly-s-bedtime-routine-never-changed-first-7445a5.mp3 | Milly's bedtime routine never changed. First came the bath with the boats. Then came teeth, top row and bottom row. Last of all came the story — always one chapter, sometimes one and a half. | 1 |
-| /audio/assessment/v3/passages/the-treasure-hunt-had-three-clues-the-first-1715c4.mp3 | The treasure hunt had three clues. The first clue was under the doormat. The second clue hid inside a welly by the door. The last clue led to the biscuit tin, where the chocolate coins were waiting. | 1 |
-| /audio/assessment/v3/passages/making-apple-crumble-went-in-order-first-mum-1a3e2a.mp3 | Making apple crumble went in order. First Mum peeled and chopped the apples. Then Leo rubbed the butter, flour and sugar into crumbs and spread them on top. Last the dish went into the hot oven until the kitchen smelled wonderful. | 1 |
-| /audio/assessment/v3/passages/at-the-dentist-pia-s-visit-had-three-parts-f-a44575.mp3 | At the dentist, Pia's visit had three parts. First she sat in the big chair and it hummed up high. Then the dentist counted her teeth with a tiny mirror. At the very end Pia chose a sticker from the golden box. | 1 |
-| /audio/assessment/v3/passages/wrapping-dad-s-present-was-a-mission-first-a-404936.mp3 | Wrapping Dad's present was a mission. First Ana cut the paper to size. Then she folded and taped the ends as neatly as she could. Last she stuck the bow on top and hid the present under her bed until morning. | 1 |
-| /audio/assessment/v3/passages/the-school-trip-lunch-had-rules-first-everyo-9ed8de.mp3 | The school trip lunch had rules. First everyone found a dry spot on the grass. Then sandwiches came out — swapsies allowed. At the very end, every scrap of rubbish went back into the bags, and the field was left exactly as they found it. | 1 |
-| /audio/assessment/v3/passages/kip-built-a-kite-from-a-kit-first-he-slotted-101bf6.mp3 | Kip built a kite from a kit. First he slotted the two sticks into a cross. Then he stretched the red sail over the frame and clipped it. Last he tied on the string and the long rattling tail. | 1 |
-| /audio/assessment/v3/passages/muddy-boot-patrol-worked-in-order-first-the-afa389.mp3 | Muddy boot patrol worked in order. First the boots were banged together outside to knock the big lumps off. Then an old brush scrubbed the tricky bits around the laces. Last the clean boots stood in a row by the radiator, steaming gently. | 1 |
+| /audio/assessment/v3/passages/the-cat-jumped-on-the-box-curled-into-a-ball-ca441f.mp3 | The cat jumped on the box, curled into a ball, and fell asleep. | 1 |
+| /audio/assessment/v3/passages/mia-put-a-seed-in-soil-watered-it-and-saw-a-90cc24.mp3 | Mia put a seed in soil, watered it, and saw a green shoot. | 1 |
+| /audio/assessment/v3/passages/ben-wet-his-hands-rubbed-in-soap-and-rinsed-546fcd.mp3 | Ben wet his hands, rubbed in soap, and rinsed the bubbles away. | 1 |
+| /audio/assessment/v3/passages/zara-put-on-her-shirt-pulled-on-her-trousers-7467ce.mp3 | Zara put on her shirt, pulled on her trousers, and tied her shoes. | 1 |
+| /audio/assessment/v3/passages/dad-put-bread-in-the-toaster-waited-for-it-t-3fc182.mp3 | Dad put bread in the toaster, waited for it to pop, and spread butter. | 1 |
+| /audio/assessment/v3/passages/noah-threw-the-ball-the-dog-chased-it-and-th-d42a2d.mp3 | Noah threw the ball, the dog chased it, and the dog brought it back. | 1 |
+| /audio/assessment/v3/passages/lina-drew-a-circle-added-sun-rays-and-colour-32702f.mp3 | Lina drew a circle, added sun rays, and coloured the sun yellow. | 1 |
+| /audio/assessment/v3/passages/omar-set-down-blocks-stacked-a-tower-and-smi-f38992.mp3 | Omar set down blocks, stacked a tower, and smiled at the top. | 1 |
+| /audio/assessment/v3/passages/ava-laid-down-bread-added-cheese-and-closed-c25ad6.mp3 | Ava laid down bread, added cheese, and closed the sandwich. | 1 |
+| /audio/assessment/v3/passages/rain-began-eli-put-on-boots-opened-an-umbrel-9584b8.mp3 | Rain began. Eli put on boots, opened an umbrella, and walked outside. | 1 |
+| /audio/assessment/v3/passages/the-girl-opened-her-book-read-one-page-and-p-8b240f.mp3 | The girl opened her book, read one page, and put in a bookmark. | 1 |
+| /audio/assessment/v3/passages/kai-filled-a-cup-drank-the-water-and-put-the-4831b4.mp3 | Kai filled a cup, drank the water, and put the cup in the sink. | 1 |
+| /audio/assessment/v3/passages/mum-cracked-an-egg-whisked-it-and-cooked-it-c55686.mp3 | Mum cracked an egg, whisked it, and cooked it in the pan. | 1 |
+| /audio/assessment/v3/passages/the-boy-kicked-the-ball-it-hit-the-goal-and-7a7809.mp3 | The boy kicked the ball, it hit the goal, and his team cheered. | 1 |
+| /audio/assessment/v3/passages/nia-brushed-the-dog-clipped-on-its-lead-and-ef6b92.mp3 | Nia brushed the dog, clipped on its lead, and took it for a walk. | 1 |
+| /audio/assessment/v3/passages/the-baker-mixed-dough-shaped-a-loaf-and-put-1a959f.mp3 | The baker mixed dough, shaped a loaf, and put it in the oven. | 1 |
+| /audio/assessment/v3/passages/sam-brushed-his-teeth-put-on-pyjamas-and-cli-8854eb.mp3 | Sam brushed his teeth, put on pyjamas, and climbed into bed. | 1 |
+| /audio/assessment/v3/passages/the-child-found-paper-folded-a-plane-and-fle-9e58d4.mp3 | The child found paper, folded a plane, and flew it across the room. | 1 |
+| /audio/assessment/v3/passages/ivy-picked-an-apple-washed-it-and-took-a-bit-676533.mp3 | Ivy picked an apple, washed it, and took a bite. | 1 |
+| /audio/assessment/v3/passages/the-boy-built-a-snowball-added-a-head-and-ga-1a1a54.mp3 | The boy built a snowball, added a head, and gave the snowman a hat. | 1 |
+| /audio/assessment/v3/passages/ana-wrapped-the-gift-tied-a-bow-and-gave-it-37dead.mp3 | Ana wrapped the gift, tied a bow, and gave it to her friend. | 1 |
+| /audio/assessment/v3/passages/the-class-dug-a-hole-planted-the-tree-and-wa-778208.mp3 | The class dug a hole, planted the tree, and watered its roots. | 1 |
+| /audio/assessment/v3/passages/leo-put-rubbish-in-a-bag-tied-it-shut-and-pl-b2b6c9.mp3 | Leo put rubbish in a bag, tied it shut, and placed it in the bin. | 1 |
+| /audio/assessment/v3/passages/the-bus-stopped-the-doors-opened-and-the-chi-feb721.mp3 | The bus stopped, the doors opened, and the children stepped off. | 1 |
+| /audio/assessment/v3/passages/rae-picked-up-a-pencil-drew-a-star-and-colou-9c738f.mp3 | Rae picked up a pencil, drew a star, and coloured it red. | 1 |
+| /audio/assessment/v3/passages/max-opened-the-gate-led-the-pony-through-and-bb8dc4.mp3 | Max opened the gate, led the pony through, and shut the gate. | 1 |
+| /audio/assessment/v3/passages/the-frog-sat-jumped-into-the-pond-and-swam-a-96fb56.mp3 | The frog sat, jumped into the pond, and swam away. | 1 |
+| /audio/assessment/v3/passages/jo-poured-cereal-added-milk-and-ate-breakfas-b7a26b.mp3 | Jo poured cereal, added milk, and ate breakfast. | 1 |
+| /audio/assessment/v3/passages/the-child-zipped-a-coat-put-on-a-hat-and-wen-2bb402.mp3 | The child zipped a coat, put on a hat, and went into the snow. | 1 |
+| /audio/assessment/v3/passages/mia-washed-a-plate-dried-it-and-put-it-on-th-3e9f3d.mp3 | Mia washed a plate, dried it, and put it on the shelf. | 1 |
 | /audio/assessment/v3/passages/jam-morning-ran-to-gran-s-strict-order-berri-e0d90d.mp3 | Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled. | 1 |
 | /audio/assessment/v3/passages/the-egg-diary-told-the-whole-story-day-one-s-a08b58.mp3 | The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists. | 1 |
 | /audio/assessment/v3/passages/hair-cut-saturday-followed-its-ritual-the-go-f6c306.mp3 | Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf. | 1 |
@@ -3218,14 +3223,6 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/assessment/v3/passages/the-lifeboat-launch-runs-on-drilled-order-pa-864368.mp3 | The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going. | 1 |
 | /audio/assessment/v3/passages/a-library-book-s-life-is-a-circle-it-is-chos-dfd67c.mp3 | A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again. | 1 |
 | /audio/assessment/v3/passages/school-soup-follows-the-garden-calendar-seed-b3d551.mp3 | School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make. | 1 |
-| /audio/assessment/v3/passages/milo-set-the-breakfast-table-his-way-first-h-ec6d63.mp3 | Milo set the breakfast table his way. First he laid out three bowls in a row. Then he stood the cereal boxes up like castle towers. Last he put a spoon beside each bowl, handles all pointing the same way. | 1 |
-| /audio/assessment/v3/passages/wash-day-for-teddy-had-three-steps-first-ted-9dce31.mp3 | Wash day for teddy had three steps. First teddy took a gentle bath in the sink. Second he was squeezed softly in a towel. Last he rode the washing line by his ears until the sun had dried him. | 1 |
-| /audio/assessment/v3/passages/the-lost-tooth-chart-worked-in-order-first-a-3cc74b.mp3 | The lost tooth chart worked in order. First Amy wiggled the tooth and marked a W on the chart. Then, when it came out, she drew a star on that day's square. Last of all she coloured the whole row gold, because the chart was finally finished. | 1 |
-| /audio/assessment/v3/passages/puddle-jumping-had-rules-of-its-own-first-bo-9de87f.mp3 | Puddle-jumping had rules of its own. First, boots on — no exceptions, not even for socks with frogs on. Then the garden inspection, walking the path to find the deepest, brownest puddle. Only then came the jumping, biggest splash wins, judged by the dog. | 1 |
-| /audio/assessment/v3/passages/the-class-assembly-took-shape-in-three-rehea-78e956.mp3 | The class assembly took shape in three rehearsals. In the first, everyone just learned where to stand. In the second, the speaking parts joined in, script pages rustling. In the third and last, costumes came out, and suddenly the hall felt like a real show. | 1 |
-| /audio/assessment/v3/passages/feeding-the-ducks-properly-went-like-this-fi-e5eae0.mp3 | Feeding the ducks properly went like this. First the oats were shared into four little cups, one each. Then the slow walk to the pond, cups held like treasure. At the end, the oats were scattered wide across the water, so even the shy duck at the back got breakfast. | 1 |
-| /audio/assessment/v3/passages/painting-the-fence-took-all-saturday-first-d-f8d684.mp3 | Painting the fence took all Saturday. First Dad and Nia brushed off the old flaky bits. Then they stirred the big tin until the paint was smooth. Last they painted plank by plank, racing the afternoon rain. | 1 |
-| /audio/assessment/v3/passages/story-time-at-the-den-had-an-order-first-the-5a3bd3.mp3 | Story time at the den had an order. First the cushions were piled into a nest. Second the torch was clipped to the tent pole, wobbling its circle of light. Last Uncle Remy read in his creaky pirate voice until somebody (usually Uncle Remy) fell asleep. | 1 |
 | /audio/assessment/v3/passages/the-bridge-of-books-rose-across-the-classroo-1671e4.mp3 | The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves. | 1 |
 | /audio/assessment/v3/passages/bonfire-night-ran-on-a-strict-timetable-the-9e743c.mp3 | Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky. | 1 |
 | /audio/assessment/v3/passages/the-sandcastle-stood-finished-at-last-moat-a-5b1b70.mp3 | The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees. | 1 |
@@ -3301,361 +3298,107 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 
 ## 4. Single-word recordings (shared pool /audio/child-mode/words)
 
-1266 of 1599 are missing — record the missing set below; the rest already exist in the pool.
+419 of 1595 are missing — record the missing set below; the rest already exist in the pool.
 
 | File | Word | Used by |
 |---|---|---|
-| /audio/child-mode/words/small.mp3 | small | 7 |
-| /audio/child-mode/words/smell.mp3 | smell | 3 |
-| /audio/child-mode/words/spill.mp3 | spill | 1 |
 | /audio/child-mode/words/lung.mp3 | lung | 3 |
-| /audio/child-mode/words/wasp.mp3 | wasp | 10 |
-| /audio/child-mode/words/cloud.mp3 | cloud | 6 |
-| /audio/child-mode/words/glue.mp3 | glue | 6 |
-| /audio/child-mode/words/blow.mp3 | blow | 4 |
-| /audio/child-mode/words/club.mp3 | club | 1 |
-| /audio/child-mode/words/green.mp3 | green | 12 |
-| /audio/child-mode/words/grow.mp3 | grow | 5 |
-| /audio/child-mode/words/brown.mp3 | brown | 7 |
-| /audio/child-mode/words/crown.mp3 | crown | 7 |
 | /audio/child-mode/words/brow.mp3 | brow | 1 |
-| /audio/child-mode/words/barn.mp3 | barn | 4 |
-| /audio/child-mode/words/brick.mp3 | brick | 14 |
-| /audio/child-mode/words/soft.mp3 | soft | 10 |
-| /audio/child-mode/words/sofa.mp3 | sofa | 4 |
-| /audio/child-mode/words/sat.mp3 | sat | 9 |
-| /audio/child-mode/words/wet.mp3 | wet | 16 |
-| /audio/child-mode/words/win.mp3 | win | 14 |
-| /audio/child-mode/words/cold.mp3 | cold | 9 |
-| /audio/child-mode/words/gold.mp3 | gold | 2 |
 | /audio/child-mode/words/colt.mp3 | colt | 1 |
-| /audio/child-mode/words/smile.mp3 | smile | 5 |
-| /audio/child-mode/words/sad.mp3 | sad | 9 |
-| /audio/child-mode/words/sand.mp3 | sand | 10 |
-| /audio/child-mode/words/happy.mp3 | happy | 1 |
 | /audio/child-mode/words/hoppy.mp3 | hoppy | 1 |
 | /audio/child-mode/words/hippo.mp3 | hippo | 1 |
-| /audio/child-mode/words/puppy.mp3 | puppy | 2 |
-| /audio/child-mode/words/tired.mp3 | tired | 3 |
-| /audio/child-mode/words/tied.mp3 | tied | 3 |
 | /audio/child-mode/words/tries.mp3 | tries | 1 |
-| /audio/child-mode/words/cross.mp3 | cross | 3 |
 | /audio/child-mode/words/crust.mp3 | crust | 1 |
-| /audio/child-mode/words/class.mp3 | class | 2 |
-| /audio/child-mode/words/proud.mp3 | proud | 4 |
-| /audio/child-mode/words/round.mp3 | round | 3 |
 | /audio/child-mode/words/pound.mp3 | pound | 1 |
-| /audio/child-mode/words/lost.mp3 | lost | 3 |
 | /audio/child-mode/words/torn.mp3 | torn | 3 |
 | /audio/child-mode/words/leaky.mp3 | leaky | 1 |
-| /audio/child-mode/words/new.mp3 | new | 14 |
-| /audio/child-mode/words/shiny.mp3 | shiny | 4 |
-| /audio/child-mode/words/warm.mp3 | warm | 11 |
-| /audio/child-mode/words/heavy.mp3 | heavy | 3 |
-| /audio/child-mode/words/empty.mp3 | empty | 2 |
-| /audio/child-mode/words/tiny.mp3 | tiny | 4 |
-| /audio/child-mode/words/light.mp3 | light | 8 |
-| /audio/child-mode/words/bright.mp3 | bright | 2 |
-| /audio/child-mode/words/grey.mp3 | grey | 1 |
-| /audio/child-mode/words/muddy.mp3 | muddy | 3 |
-| /audio/child-mode/words/shook.mp3 | shook | 1 |
-| /audio/child-mode/words/gentle.mp3 | gentle | 2 |
-| /audio/child-mode/words/breeze.mp3 | breeze | 2 |
-| /audio/child-mode/words/turned.mp3 | turned | 1 |
-| /audio/child-mode/words/pages.mp3 | pages | 1 |
-| /audio/child-mode/words/sleepy.mp3 | sleepy | 4 |
-| /audio/child-mode/words/sleep.mp3 | sleep | 4 |
-| /audio/child-mode/words/sleeps.mp3 | sleeps | 1 |
-| /audio/child-mode/words/slept.mp3 | slept | 6 |
-| /audio/child-mode/words/longest.mp3 | longest | 1 |
-| /audio/child-mode/words/length.mp3 | length | 1 |
 | /audio/child-mode/words/lengthen.mp3 | lengthen | 1 |
 | /audio/child-mode/words/longs.mp3 | longs | 1 |
-| /audio/child-mode/words/dusty.mp3 | dusty | 3 |
-| /audio/child-mode/words/sunny.mp3 | sunny | 1 |
-| /audio/child-mode/words/tidy.mp3 | tidy | 2 |
-| /audio/child-mode/words/sour.mp3 | sour | 1 |
-| /audio/child-mode/words/sweet.mp3 | sweet | 3 |
-| /audio/child-mode/words/pale.mp3 | pale | 1 |
 | /audio/child-mode/words/creaky.mp3 | creaky | 1 |
-| /audio/child-mode/words/quiet.mp3 | quiet | 3 |
-| /audio/child-mode/words/fresh.mp3 | fresh | 5 |
-| /audio/child-mode/words/thick.mp3 | thick | 2 |
-| /audio/child-mode/words/silent.mp3 | silent | 2 |
-| /audio/child-mode/words/busy.mp3 | busy | 1 |
-| /audio/child-mode/words/narrow.mp3 | narrow | 1 |
-| /audio/child-mode/words/steep.mp3 | steep | 1 |
-| /audio/child-mode/words/stale.mp3 | stale | 1 |
 | /audio/child-mode/words/frozen.mp3 | frozen | 3 |
-| /audio/child-mode/words/salty.mp3 | salty | 2 |
-| /audio/child-mode/words/sharp.mp3 | sharp | 4 |
 | /audio/child-mode/words/blunt.mp3 | blunt | 1 |
-| /audio/child-mode/words/clean.mp3 | clean | 7 |
-| /audio/child-mode/words/bent.mp3 | bent | 2 |
+| /audio/child-mode/words/airy.mp3 | airy | 1 |
 | /audio/child-mode/words/crowded.mp3 | crowded | 1 |
 | /audio/child-mode/words/roomy.mp3 | roomy | 1 |
-| /audio/child-mode/words/airy.mp3 | airy | 1 |
-| /audio/child-mode/words/bare.mp3 | bare | 2 |
-| /audio/child-mode/words/brave.mp3 | brave | 5 |
-| /audio/child-mode/words/bravery.mp3 | bravery | 1 |
-| /audio/child-mode/words/brag.mp3 | brag | 1 |
-| /audio/child-mode/words/branch.mp3 | branch | 1 |
-| /audio/child-mode/words/windy.mp3 | windy | 1 |
-| /audio/child-mode/words/wind.mp3 | wind | 5 |
-| /audio/child-mode/words/window.mp3 | window | 3 |
 | /audio/child-mode/words/winding.mp3 | winding | 1 |
-| /audio/child-mode/words/stormy.mp3 | stormy | 1 |
-| /audio/child-mode/words/storm.mp3 | storm | 4 |
 | /audio/child-mode/words/storms.mp3 | storms | 1 |
 | /audio/child-mode/words/stormed.mp3 | stormed | 1 |
+| /audio/child-mode/words/stormy.mp3 | stormy | 1 |
 | /audio/child-mode/words/duster.mp3 | duster | 1 |
 | /audio/child-mode/words/dusting.mp3 | dusting | 1 |
-| /audio/child-mode/words/salt.mp3 | salt | 5 |
-| /audio/child-mode/words/sale.mp3 | sale | 1 |
 | /audio/child-mode/words/salute.mp3 | salute | 1 |
 | /audio/child-mode/words/breezy.mp3 | breezy | 1 |
 | /audio/child-mode/words/breezes.mp3 | breezes | 1 |
-| /audio/child-mode/words/bread.mp3 | bread | 12 |
-| /audio/child-mode/words/curly.mp3 | curly | 1 |
-| /audio/child-mode/words/curl.mp3 | curl | 3 |
-| /audio/child-mode/words/curler.mp3 | curler | 1 |
 | /audio/child-mode/words/curling.mp3 | curling | 1 |
-| /audio/child-mode/words/dry.mp3 | dry | 5 |
-| /audio/child-mode/words/glad.mp3 | glad | 3 |
-| /audio/child-mode/words/glass.mp3 | glass | 4 |
+| /audio/child-mode/words/curly.mp3 | curly | 1 |
+| /audio/child-mode/words/curler.mp3 | curler | 1 |
 | /audio/child-mode/words/grab.mp3 | grab | 2 |
-| /audio/child-mode/words/shine.mp3 | shine | 3 |
-| /audio/child-mode/words/shone.mp3 | shone | 1 |
-| /audio/child-mode/words/shines.mp3 | shines | 1 |
-| /audio/child-mode/words/strong.mp3 | strong | 1 |
-| /audio/child-mode/words/weak.mp3 | weak | 1 |
-| /audio/child-mode/words/old.mp3 | old | 4 |
-| /audio/child-mode/words/rusty.mp3 | rusty | 1 |
 | /audio/child-mode/words/rust.mp3 | rust | 1 |
 | /audio/child-mode/words/rustle.mp3 | rustle | 1 |
 | /audio/child-mode/words/russet.mp3 | russet | 1 |
-| /audio/child-mode/words/wide.mp3 | wide | 7 |
+| /audio/child-mode/words/rusty.mp3 | rusty | 1 |
 | /audio/child-mode/words/wade.mp3 | wade | 2 |
 | /audio/child-mode/words/dusts.mp3 | dusts | 1 |
 | /audio/child-mode/words/dusted.mp3 | dusted | 1 |
-| /audio/child-mode/words/striped.mp3 | striped | 1 |
-| /audio/child-mode/words/upset.mp3 | upset | 1 |
-| /audio/child-mode/words/sunset.mp3 | sunset | 2 |
 | /audio/child-mode/words/boiling.mp3 | boiling | 4 |
-| /audio/child-mode/words/huge.mp3 | huge | 6 |
-| /audio/child-mode/words/tall.mp3 | tall | 15 |
-| /audio/child-mode/words/down.mp3 | down | 9 |
-| /audio/child-mode/words/high.mp3 | high | 2 |
-| /audio/child-mode/words/soaked.mp3 | soaked | 2 |
-| /audio/child-mode/words/cool.mp3 | cool | 3 |
-| /audio/child-mode/words/loud.mp3 | loud | 14 |
-| /audio/child-mode/words/silly.mp3 | silly | 2 |
-| /audio/child-mode/words/yell.mp3 | yell | 2 |
-| /audio/child-mode/words/whisper.mp3 | whisper | 3 |
-| /audio/child-mode/words/talk.mp3 | talk | 2 |
-| /audio/child-mode/words/finish.mp3 | finish | 1 |
-| /audio/child-mode/words/ocean.mp3 | ocean | 1 |
-| /audio/child-mode/words/beach.mp3 | beach | 6 |
-| /audio/child-mode/words/land.mp3 | land | 1 |
-| /audio/child-mode/words/sky.mp3 | sky | 2 |
-| /audio/child-mode/words/dark.mp3 | dark | 3 |
-| /audio/child-mode/words/night.mp3 | night | 9 |
-| /audio/child-mode/words/locked.mp3 | locked | 4 |
-| /audio/child-mode/words/open.mp3 | open | 1 |
-| /audio/child-mode/words/morning.mp3 | morning | 2 |
-| /audio/child-mode/words/short.mp3 | short | 3 |
+| /audio/child-mode/words/locked.mp3 | locked | 2 |
 | /audio/child-mode/words/giant.mp3 | giant | 2 |
-| /audio/child-mode/words/solid.mp3 | solid | 1 |
-| /audio/child-mode/words/chilly.mp3 | chilly | 2 |
-| /audio/child-mode/words/snow.mp3 | snow | 6 |
-| /audio/child-mode/words/fast.mp3 | fast | 5 |
-| /audio/child-mode/words/slow.mp3 | slow | 6 |
-| /audio/child-mode/words/steady.mp3 | steady | 1 |
-| /audio/child-mode/words/awake.mp3 | awake | 1 |
-| /audio/child-mode/words/cozy.mp3 | cozy | 1 |
-| /audio/child-mode/words/shout.mp3 | shout | 6 |
 | /audio/child-mode/words/mumble.mp3 | mumble | 1 |
 | /audio/child-mode/words/melting.mp3 | melting | 1 |
 | /audio/child-mode/words/icy.mp3 | icy | 1 |
-| /audio/child-mode/words/kind.mp3 | kind | 4 |
-| /audio/child-mode/words/wild.mp3 | wild | 1 |
-| /audio/child-mode/words/tricky.mp3 | tricky | 1 |
-| /audio/child-mode/words/easy.mp3 | easy | 1 |
-| /audio/child-mode/words/chuckle.mp3 | chuckle | 1 |
-| /audio/child-mode/words/laugh.mp3 | laugh | 2 |
 | /audio/child-mode/words/sob.mp3 | sob | 1 |
-| /audio/child-mode/words/enormous.mp3 | enormous | 2 |
-| /audio/child-mode/words/dash.mp3 | dash | 4 |
-| /audio/child-mode/words/jog.mp3 | jog | 4 |
-| /audio/child-mode/words/stroll.mp3 | stroll | 1 |
-| /audio/child-mode/words/paint.mp3 | paint | 5 |
+| /audio/child-mode/words/chuckle.mp3 | chuckle | 1 |
 | /audio/child-mode/words/frown.mp3 | frown | 3 |
-| /audio/child-mode/words/late.mp3 | late | 6 |
-| /audio/child-mode/words/below.mp3 | below | 5 |
-| /audio/child-mode/words/beside.mp3 | beside | 9 |
-| /audio/child-mode/words/over.mp3 | over | 19 |
-| /audio/child-mode/words/soon.mp3 | soon | 2 |
+| /audio/child-mode/words/built.mp3 | built | 2 |
 | /audio/child-mode/words/mended.mp3 | mended | 2 |
-| /audio/child-mode/words/broke.mp3 | broke | 3 |
-| /audio/child-mode/words/painted.mp3 | painted | 2 |
-| /audio/child-mode/words/built.mp3 | built | 3 |
 | /audio/child-mode/words/delicious.mp3 | delicious | 1 |
-| /audio/child-mode/words/awful.mp3 | awful | 1 |
 | /audio/child-mode/words/glee.mp3 | glee | 1 |
 | /audio/child-mode/words/fear.mp3 | fear | 1 |
 | /audio/child-mode/words/luck.mp3 | luck | 2 |
-| /audio/child-mode/words/fun.mp3 | fun | 7 |
-| /audio/child-mode/words/smooth.mp3 | smooth | 1 |
-| /audio/child-mode/words/pal.mp3 | pal | 1 |
 | /audio/child-mode/words/enemy.mp3 | enemy | 1 |
-| /audio/child-mode/words/teacher.mp3 | teacher | 5 |
-| /audio/child-mode/words/team.mp3 | team | 4 |
-| /audio/child-mode/words/packed.mp3 | packed | 2 |
-| /audio/child-mode/words/worn.mp3 | worn | 1 |
-| /audio/child-mode/words/cry.mp3 | cry | 2 |
-| /audio/child-mode/words/low.mp3 | low | 1 |
 | /audio/child-mode/words/fade.mp3 | fade | 1 |
 | /audio/child-mode/words/rise.mp3 | rise | 1 |
-| /audio/child-mode/words/bark.mp3 | bark | 1 |
-| /audio/child-mode/words/leave.mp3 | leave | 1 |
-| /audio/child-mode/words/come.mp3 | come | 10 |
-| /audio/child-mode/words/stay.mp3 | stay | 2 |
-| /audio/child-mode/words/rainbow.mp3 | rainbow | 2 |
 | /audio/child-mode/words/drenched.mp3 | drenched | 2 |
-| /audio/child-mode/words/dirty.mp3 | dirty | 1 |
-| /audio/child-mode/words/cloudy.mp3 | cloudy | 1 |
-| /audio/child-mode/words/full.mp3 | full | 2 |
 | /audio/child-mode/words/ripped.mp3 | ripped | 1 |
-| /audio/child-mode/words/folded.mp3 | folded | 2 |
-| /audio/child-mode/words/bl.mp3 | bl | 5 |
-| /audio/child-mode/words/cl.mp3 | cl | 10 |
-| /audio/child-mode/words/fl.mp3 | fl | 8 |
-| /audio/child-mode/words/st.mp3 | st | 20 |
-| /audio/child-mode/words/block.mp3 | block | 6 |
-| /audio/child-mode/words/clock.mp3 | clock | 12 |
-| /audio/child-mode/words/gl.mp3 | gl | 7 |
-| /audio/child-mode/words/sl.mp3 | sl | 7 |
-| /audio/child-mode/words/tr.mp3 | tr | 10 |
-| /audio/child-mode/words/click.mp3 | click | 3 |
-| /audio/child-mode/words/br.mp3 | br | 14 |
-| /audio/child-mode/words/cloth.mp3 | cloth | 3 |
-| /audio/child-mode/words/cr.mp3 | cr | 11 |
-| /audio/child-mode/words/flower.mp3 | flower | 6 |
 | /audio/child-mode/words/lag.mp3 | lag | 3 |
-| /audio/child-mode/words/flap.mp3 | flap | 2 |
-| /audio/child-mode/words/gr.mp3 | gr | 10 |
-| /audio/child-mode/words/flute.mp3 | flute | 2 |
-| /audio/child-mode/words/pl.mp3 | pl | 4 |
-| /audio/child-mode/words/dr.mp3 | dr | 14 |
-| /audio/child-mode/words/plug.mp3 | plug | 6 |
-| /audio/child-mode/words/play.mp3 | play | 3 |
 | /audio/child-mode/words/lug.mp3 | lug | 3 |
-| /audio/child-mode/words/plum.mp3 | plum | 2 |
-| /audio/child-mode/words/fr.mp3 | fr | 4 |
-| /audio/child-mode/words/plant.mp3 | plant | 2 |
-| /audio/child-mode/words/spoon.mp3 | spoon | 13 |
-| /audio/child-mode/words/led.mp3 | led | 1 |
-| /audio/child-mode/words/slid.mp3 | slid | 2 |
-| /audio/child-mode/words/cab.mp3 | cab | 3 |
-| /audio/child-mode/words/crib.mp3 | crib | 2 |
-| /audio/child-mode/words/dress.mp3 | dress | 1 |
-| /audio/child-mode/words/draw.mp3 | draw | 15 |
 | /audio/child-mode/words/raw.mp3 | raw | 1 |
-| /audio/child-mode/words/paw.mp3 | paw | 2 |
-| /audio/child-mode/words/fruit.mp3 | fruit | 2 |
-| /audio/child-mode/words/fog.mp3 | fog | 6 |
-| /audio/child-mode/words/grapes.mp3 | grapes | 2 |
-| /audio/child-mode/words/ground.mp3 | ground | 1 |
 | /audio/child-mode/words/grand.mp3 | grand | 1 |
-| /audio/child-mode/words/sound.mp3 | sound | 1 |
 | /audio/child-mode/words/sc.mp3 | sc | 19 |
-| /audio/child-mode/words/sp.mp3 | sp | 7 |
 | /audio/child-mode/words/tar.mp3 | tar | 1 |
 | /audio/child-mode/words/scar.mp3 | scar | 2 |
-| /audio/child-mode/words/sh.mp3 | sh | 42 |
-| /audio/child-mode/words/sw.mp3 | sw | 5 |
-| /audio/child-mode/words/swim.mp3 | swim | 17 |
-| /audio/child-mode/words/swam.mp3 | swam | 3 |
-| /audio/child-mode/words/sn.mp3 | sn | 13 |
-| /audio/child-mode/words/swing.mp3 | swing | 2 |
-| /audio/child-mode/words/sk.mp3 | sk | 21 |
-| /audio/child-mode/words/sm.mp3 | sm | 15 |
-| /audio/child-mode/words/scarf.mp3 | scarf | 3 |
-| /audio/child-mode/words/card.mp3 | card | 3 |
 | /audio/child-mode/words/scooter.mp3 | scooter | 1 |
 | /audio/child-mode/words/score.mp3 | score | 1 |
-| /audio/child-mode/words/skateboard.mp3 | skateboard | 2 |
-| /audio/child-mode/words/snowboard.mp3 | snowboard | 1 |
 | /audio/child-mode/words/surfboard.mp3 | surfboard | 1 |
 | /audio/child-mode/words/scoreboard.mp3 | scoreboard | 1 |
-| /audio/child-mode/words/skin.mp3 | skin | 1 |
+| /audio/child-mode/words/snowboard.mp3 | snowboard | 1 |
 | /audio/child-mode/words/mile.mp3 | mile | 1 |
-| /audio/child-mode/words/tile.mp3 | tile | 1 |
-| /audio/child-mode/words/snack.mp3 | snack | 5 |
 | /audio/child-mode/words/rake.mp3 | rake | 1 |
-| /audio/child-mode/words/sack.mp3 | sack | 5 |
-| /audio/child-mode/words/snail.mp3 | snail | 2 |
 | /audio/child-mode/words/sport.mp3 | sport | 3 |
-| /audio/child-mode/words/spot.mp3 | spot | 1 |
-| /audio/child-mode/words/truck.mp3 | truck | 7 |
 | /audio/child-mode/words/tuck.mp3 | tuck | 1 |
-| /audio/child-mode/words/track.mp3 | track | 2 |
-| /audio/child-mode/words/tray.mp3 | tray | 3 |
-| /audio/child-mode/words/nd.mp3 | nd | 24 |
-| /audio/child-mode/words/nt.mp3 | nt | 21 |
-| /audio/child-mode/words/mp.mp3 | mp | 12 |
-| /audio/child-mode/words/nk.mp3 | nk | 18 |
-| /audio/child-mode/words/had.mp3 | had | 19 |
-| /audio/child-mode/words/band.mp3 | band | 5 |
-| /audio/child-mode/words/lt.mp3 | lt | 14 |
-| /audio/child-mode/words/pond.mp3 | pond | 4 |
-| /audio/child-mode/words/tin.mp3 | tin | 5 |
-| /audio/child-mode/words/ft.mp3 | ft | 19 |
 | /audio/child-mode/words/print.mp3 | print | 1 |
-| /audio/child-mode/words/lab.mp3 | lab | 1 |
-| /audio/child-mode/words/camp.mp3 | camp | 3 |
-| /audio/child-mode/words/in.mp3 | in | 35 |
-| /audio/child-mode/words/inch.mp3 | inch | 1 |
-| /audio/child-mode/words/belt.mp3 | belt | 9 |
 | /audio/child-mode/words/bet.mp3 | bet | 3 |
-| /audio/child-mode/words/melt.mp3 | melt | 5 |
 | /audio/child-mode/words/tilt.mp3 | tilt | 1 |
-| /audio/child-mode/words/lift.mp3 | lift | 5 |
-| /audio/child-mode/words/left.mp3 | left | 4 |
-| /audio/child-mode/words/give.mp3 | give | 1 |
-| /audio/child-mode/words/broom.mp3 | broom | 5 |
-| /audio/child-mode/words/clip.mp3 | clip | 1 |
-| /audio/child-mode/words/spring.mp3 | spring | 1 |
-| /audio/child-mode/words/plate.mp3 | plate | 2 |
-| /audio/child-mode/words/raft.mp3 | raft | 3 |
-| /audio/child-mode/words/stand.mp3 | stand | 2 |
-| /audio/child-mode/words/step.mp3 | step | 1 |
-| /audio/child-mode/words/clown.mp3 | clown | 1 |
 | /audio/child-mode/words/drowsy.mp3 | drowsy | 1 |
-| /audio/child-mode/words/fragile.mp3 | fragile | 1 |
-| /audio/child-mode/words/sturdy.mp3 | sturdy | 1 |
 | /audio/child-mode/words/murmur.mp3 | murmur | 1 |
 | /audio/child-mode/words/jagged.mp3 | jagged | 1 |
-| /audio/child-mode/words/hollow.mp3 | hollow | 1 |
 | /audio/child-mode/words/mend.mp3 | mend | 2 |
 | /audio/child-mode/words/feast.mp3 | feast | 1 |
 | /audio/child-mode/words/clutter.mp3 | clutter | 1 |
 | /audio/child-mode/words/gleaming.mp3 | gleaming | 1 |
 | /audio/child-mode/words/timid.mp3 | timid | 1 |
+| /audio/child-mode/words/swift.mp3 | swift | 1 |
 | /audio/child-mode/words/soggy.mp3 | soggy | 1 |
 | /audio/child-mode/words/gobbled.mp3 | gobbled | 1 |
-| /audio/child-mode/words/glided.mp3 | glided | 1 |
 | /audio/child-mode/words/scampered.mp3 | scampered | 1 |
 | /audio/child-mode/words/pleaded.mp3 | pleaded | 1 |
 | /audio/child-mode/words/trembled.mp3 | trembled | 1 |
 | /audio/child-mode/words/grumbled.mp3 | grumbled | 1 |
-| /audio/child-mode/words/drifted.mp3 | drifted | 2 |
 | /audio/child-mode/words/gazed.mp3 | gazed | 1 |
 | /audio/child-mode/words/dazzling.mp3 | dazzling | 1 |
 | /audio/child-mode/words/weary.mp3 | weary | 1 |
 | /audio/child-mode/words/commotion.mp3 | commotion | 1 |
 | /audio/child-mode/words/nibbled.mp3 | nibbled | 1 |
-| /audio/child-mode/words/spotless.mp3 | spotless | 1 |
 | /audio/child-mode/words/soared.mp3 | soared | 1 |
 | /audio/child-mode/words/bitter.mp3 | bitter | 1 |
 | /audio/child-mode/words/bashful.mp3 | bashful | 1 |
@@ -3676,8 +3419,6 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/words/faint.mp3 | faint | 1 |
 | /audio/child-mode/words/gigantic.mp3 | gigantic | 1 |
 | /audio/child-mode/words/delicate.mp3 | delicate | 1 |
-| /audio/child-mode/words/grumpy.mp3 | grumpy | 1 |
-| /audio/child-mode/words/darted.mp3 | darted | 1 |
 | /audio/child-mode/words/elderly.mp3 | elderly | 1 |
 | /audio/child-mode/words/jumble.mp3 | jumble | 1 |
 | /audio/child-mode/words/famished.mp3 | famished | 1 |
@@ -3687,890 +3428,299 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/words/cumbersome.mp3 | cumbersome | 1 |
 | /audio/child-mode/words/rancid.mp3 | rancid | 1 |
 | /audio/child-mode/words/loyal.mp3 | loyal | 1 |
-| /audio/child-mode/words/beamed.mp3 | beamed | 1 |
-| /audio/child-mode/words/o.mp3 | o | 68 |
-| /audio/child-mode/words/u.mp3 | u | 60 |
-| /audio/child-mode/words/e.mp3 | e | 61 |
-| /audio/child-mode/words/bit.mp3 | bit | 5 |
-| /audio/child-mode/words/but.mp3 | but | 11 |
-| /audio/child-mode/words/cub.mp3 | cub | 5 |
-| /audio/child-mode/words/gem.mp3 | gem | 1 |
-| /audio/child-mode/words/jab.mp3 | jab | 1 |
-| /audio/child-mode/words/yam.mp3 | yam | 1 |
-| /audio/child-mode/words/pat.mp3 | pat | 6 |
 | /audio/child-mode/words/tint.mp3 | tint | 1 |
-| /audio/child-mode/words/hunt.mp3 | hunt | 3 |
-| /audio/child-mode/words/shall.mp3 | shall | 1 |
-| /audio/child-mode/words/hill.mp3 | hill | 6 |
-| /audio/child-mode/words/sell.mp3 | sell | 1 |
-| /audio/child-mode/words/peg.mp3 | peg | 4 |
+| /audio/child-mode/words/hunt.mp3 | hunt | 2 |
 | /audio/child-mode/words/pug.mp3 | pug | 1 |
-| /audio/child-mode/words/pit.mp3 | pit | 4 |
-| /audio/child-mode/words/pine.mp3 | pine | 3 |
-| /audio/child-mode/words/bike.mp3 | bike | 11 |
 | /audio/child-mode/words/swum.mp3 | swum | 1 |
-| /audio/child-mode/words/flash.mp3 | flash | 1 |
-| /audio/child-mode/words/wish.mp3 | wish | 8 |
-| /audio/child-mode/words/pet.mp3 | pet | 4 |
-| /audio/child-mode/words/bone.mp3 | bone | 3 |
-| /audio/child-mode/words/sick.mp3 | sick | 1 |
 | /audio/child-mode/words/bog.mp3 | bog | 1 |
-| /audio/child-mode/words/cube.mp3 | cube | 5 |
-| /audio/child-mode/words/mad.mp3 | mad | 6 |
 | /audio/child-mode/words/mid.mp3 | mid | 1 |
-| /audio/child-mode/words/deck.mp3 | deck | 3 |
-| /audio/child-mode/words/dock.mp3 | dock | 3 |
-| /audio/child-mode/words/bush.mp3 | bush | 1 |
 | /audio/child-mode/words/crush.mp3 | crush | 2 |
-| /audio/child-mode/words/game.mp3 | game | 3 |
-| /audio/child-mode/words/thorn.mp3 | thorn | 7 |
-| /audio/child-mode/words/ch.mp3 | ch | 35 |
-| /audio/child-mode/words/th.mp3 | th | 42 |
-| /audio/child-mode/words/wh.mp3 | wh | 16 |
-| /audio/child-mode/words/chain.mp3 | chain | 4 |
-| /audio/child-mode/words/ph.mp3 | ph | 10 |
-| /audio/child-mode/words/cherry.mp3 | cherry | 4 |
-| /audio/child-mode/words/ck.mp3 | ck | 20 |
-| /audio/child-mode/words/tooth.mp3 | tooth | 7 |
-| /audio/child-mode/words/thread.mp3 | thread | 3 |
-| /audio/child-mode/words/bath.mp3 | bath | 4 |
-| /audio/child-mode/words/whistle.mp3 | whistle | 7 |
-| /audio/child-mode/words/wheelbarrow.mp3 | wheelbarrow | 1 |
-| /audio/child-mode/words/whisker.mp3 | whisker | 1 |
-| /audio/child-mode/words/whirlpool.mp3 | whirlpool | 2 |
-| /audio/child-mode/words/wheat.mp3 | wheat | 2 |
-| /audio/child-mode/words/photo.mp3 | photo | 2 |
-| /audio/child-mode/words/pheasant.mp3 | pheasant | 1 |
-| /audio/child-mode/words/dolphin.mp3 | dolphin | 2 |
-| /audio/child-mode/words/graph.mp3 | graph | 1 |
-| /audio/child-mode/words/neck.mp3 | neck | 1 |
-| /audio/child-mode/words/stick.mp3 | stick | 4 |
-| /audio/child-mode/words/lunch.mp3 | lunch | 1 |
-| /audio/child-mode/words/headphones.mp3 | headphones | 1 |
-| /audio/child-mode/words/microphone.mp3 | microphone | 2 |
-| /audio/child-mode/words/b.mp3 | b | 27 |
-| /audio/child-mode/words/p.mp3 | p | 19 |
-| /audio/child-mode/words/w.mp3 | w | 26 |
-| /audio/child-mode/words/v.mp3 | v | 20 |
-| /audio/child-mode/words/road.mp3 | road | 8 |
-| /audio/child-mode/words/t.mp3 | t | 42 |
-| /audio/child-mode/words/m.mp3 | m | 26 |
-| /audio/child-mode/words/d.mp3 | d | 30 |
-| /audio/child-mode/words/g.mp3 | g | 31 |
-| /audio/child-mode/words/f.mp3 | f | 29 |
-| /audio/child-mode/words/c.mp3 | c | 17 |
-| /audio/child-mode/words/q.mp3 | q | 12 |
-| /audio/child-mode/words/k.mp3 | k | 14 |
-| /audio/child-mode/words/j.mp3 | j | 8 |
-| /audio/child-mode/words/l.mp3 | l | 24 |
-| /audio/child-mode/words/r.mp3 | r | 25 |
-| /audio/child-mode/words/pool.mp3 | pool | 1 |
-| /audio/child-mode/words/door.mp3 | door | 1 |
-| /audio/child-mode/words/n.mp3 | n | 48 |
-| /audio/child-mode/words/jar.mp3 | jar | 5 |
-| /audio/child-mode/words/toe.mp3 | toe | 8 |
-| /audio/child-mode/words/s.mp3 | s | 20 |
-| /audio/child-mode/words/splash.mp3 | splash | 6 |
-| /audio/child-mode/words/ll.mp3 | ll | 3 |
 | /audio/child-mode/words/le.mp3 | le | 3 |
 | /audio/child-mode/words/shed.mp3 | shed | 1 |
-| /audio/child-mode/words/h.mp3 | h | 13 |
-| /audio/child-mode/words/ng.mp3 | ng | 8 |
-| /audio/child-mode/words/drink.mp3 | drink | 5 |
-| /audio/child-mode/words/tank.mp3 | tank | 1 |
-| /audio/child-mode/words/trunk.mp3 | trunk | 2 |
-| /audio/child-mode/words/ss.mp3 | ss | 4 |
-| /audio/child-mode/words/list.mp3 | list | 2 |
-| /audio/child-mode/words/mask.mp3 | mask | 4 |
+| /audio/child-mode/words/blink.mp3 | blink | 1 |
 | /audio/child-mode/words/tusk.mp3 | tusk | 1 |
-| /audio/child-mode/words/felt.mp3 | felt | 1 |
-| /audio/child-mode/words/sting.mp3 | sting | 1 |
-| /audio/child-mode/words/at.mp3 | at | 22 |
-| /audio/child-mode/words/ear.mp3 | ear | 2 |
-| /audio/child-mode/words/arm.mp3 | arm | 2 |
 | /audio/child-mode/words/art.mp3 | art | 2 |
-| /audio/child-mode/words/it.mp3 | it | 19 |
-| /audio/child-mode/words/has.mp3 | has | 15 |
-| /audio/child-mode/words/form.mp3 | form | 1 |
 | /audio/child-mode/words/fort.mp3 | fort | 5 |
-| /audio/child-mode/words/gave.mp3 | gave | 1 |
-| /audio/child-mode/words/him.mp3 | him | 8 |
-| /audio/child-mode/words/than.mp3 | than | 10 |
-| /audio/child-mode/words/then.mp3 | then | 25 |
-| /audio/child-mode/words/them.mp3 | them | 18 |
-| /audio/child-mode/words/too.mp3 | too | 11 |
-| /audio/child-mode/words/saw.mp3 | saw | 11 |
-| /audio/child-mode/words/wag.mp3 | wag | 2 |
 | /audio/child-mode/words/wit.mp3 | wit | 2 |
-| /audio/child-mode/words/one.mp3 | one | 22 |
-| /audio/child-mode/words/both.mp3 | both | 2 |
-| /audio/child-mode/words/some.mp3 | some | 10 |
-| /audio/child-mode/words/most.mp3 | most | 4 |
-| /audio/child-mode/words/doll.mp3 | doll | 1 |
-| /audio/child-mode/words/if.mp3 | if | 10 |
-| /audio/child-mode/words/buy.mp3 | buy | 1 |
-| /audio/child-mode/words/were.mp3 | were | 7 |
-| /audio/child-mode/words/ran.mp3 | ran | 5 |
-| /audio/child-mode/words/eat.mp3 | eat | 6 |
-| /audio/child-mode/words/teach.mp3 | teach | 3 |
-| /audio/child-mode/words/how.mp3 | how | 13 |
-| /audio/child-mode/words/now.mp3 | now | 16 |
-| /audio/child-mode/words/cow.mp3 | cow | 4 |
-| /audio/child-mode/words/own.mp3 | own | 4 |
-| /audio/child-mode/words/once.mp3 | once | 2 |
-| /audio/child-mode/words/we.mp3 | we | 7 |
-| /audio/child-mode/words/their.mp3 | their | 16 |
-| /audio/child-mode/words/there.mp3 | there | 17 |
-| /audio/child-mode/words/use.mp3 | use | 5 |
-| /audio/child-mode/words/us.mp3 | us | 2 |
+| /audio/child-mode/words/says.mp3 | says | 4 |
 | /audio/child-mode/words/fuse.mp3 | fuse | 1 |
-| /audio/child-mode/words/where.mp3 | where | 1 |
 | /audio/child-mode/words/witch.mp3 | witch | 11 |
-| /audio/child-mode/words/words.mp3 | words | 5 |
-| /audio/child-mode/words/word.mp3 | word | 6 |
-| /audio/child-mode/words/works.mp3 | works | 3 |
 | /audio/child-mode/words/wands.mp3 | wands | 1 |
-| /audio/child-mode/words/worms.mp3 | worms | 1 |
-| /audio/child-mode/words/birds.mp3 | birds | 1 |
-| /audio/child-mode/words/our.mp3 | our | 6 |
-| /audio/child-mode/words/ill.mp3 | ill | 1 |
-| /audio/child-mode/words/above.mp3 | above | 20 |
-| /audio/child-mode/words/got.mp3 | got | 10 |
-| /audio/child-mode/words/gone.mp3 | gone | 1 |
-| /audio/child-mode/words/here.mp3 | here | 10 |
-| /audio/child-mode/words/hers.mp3 | hers | 1 |
 | /audio/child-mode/words/hum.mp3 | hum | 1 |
-| /audio/child-mode/words/onto.mp3 | onto | 9 |
-| /audio/child-mode/words/make.mp3 | make | 16 |
-| /audio/child-mode/words/lake.mp3 | lake | 4 |
-| /audio/child-mode/words/took.mp3 | took | 1 |
-| /audio/child-mode/words/made.mp3 | made | 17 |
-| /audio/child-mode/words/mane.mp3 | mane | 3 |
-| /audio/child-mode/words/many.mp3 | many | 8 |
-| /audio/child-mode/words/much.mp3 | much | 6 |
-| /audio/child-mode/words/lots.mp3 | lots | 1 |
-| /audio/child-mode/words/any.mp3 | any | 5 |
 | /audio/child-mode/words/core.mp3 | core | 1 |
-| /audio/child-mode/words/second.mp3 | second | 2 |
 | /audio/child-mode/words/spare.mp3 | spare | 1 |
-| /audio/child-mode/words/order.mp3 | order | 1 |
-| /audio/child-mode/words/same.mp3 | same | 3 |
-| /audio/child-mode/words/sum.mp3 | sum | 1 |
-| /audio/child-mode/words/these.mp3 | these | 8 |
-| /audio/child-mode/words/those.mp3 | those | 4 |
-| /audio/child-mode/words/time.mp3 | time | 11 |
-| /audio/child-mode/words/way.mp3 | way | 12 |
-| /audio/child-mode/words/tame.mp3 | tame | 1 |
 | /audio/child-mode/words/lime.mp3 | lime | 1 |
-| /audio/child-mode/words/two.mp3 | two | 17 |
 | /audio/child-mode/words/tow.mp3 | tow | 2 |
-| /audio/child-mode/words/would.mp3 | would | 15 |
-| /audio/child-mode/words/well.mp3 | well | 4 |
-| /audio/child-mode/words/wall.mp3 | wall | 4 |
-| /audio/child-mode/words/could.mp3 | could | 10 |
-| /audio/child-mode/words/wood.mp3 | wood | 5 |
-| /audio/child-mode/words/world.mp3 | world | 1 |
-| /audio/child-mode/words/write.mp3 | write | 12 |
-| /audio/child-mode/words/right.mp3 | right | 10 |
-| /audio/child-mode/words/wrote.mp3 | wrote | 8 |
-| /audio/child-mode/words/read.mp3 | read | 3 |
-| /audio/child-mode/words/spell.mp3 | spell | 3 |
-| /audio/child-mode/words/been.mp3 | been | 7 |
-| /audio/child-mode/words/being.mp3 | being | 4 |
-| /audio/child-mode/words/bean.mp3 | bean | 1 |
-| /audio/child-mode/words/seen.mp3 | seen | 1 |
-| /audio/child-mode/words/called.mp3 | called | 6 |
 | /audio/child-mode/words/named.mp3 | named | 1 |
 | /audio/child-mode/words/calmed.mp3 | calmed | 1 |
-| /audio/child-mode/words/came.mp3 | came | 3 |
 | /audio/child-mode/words/comb.mp3 | comb | 2 |
-| /audio/child-mode/words/did.mp3 | did | 12 |
-| /audio/child-mode/words/date.mp3 | date | 1 |
-| /audio/child-mode/words/week.mp3 | week | 2 |
-| /audio/child-mode/words/dab.mp3 | dab | 1 |
-| /audio/child-mode/words/dad.mp3 | dad | 4 |
-| /audio/child-mode/words/done.mp3 | done | 2 |
-| /audio/child-mode/words/hid.mp3 | hid | 6 |
-| /audio/child-mode/words/dawn.mp3 | dawn | 1 |
-| /audio/child-mode/words/town.mp3 | town | 3 |
+| /audio/child-mode/words/does.mp3 | does | 1 |
 | /audio/child-mode/words/gown.mp3 | gown | 1 |
-| /audio/child-mode/words/find.mp3 | find | 5 |
-| /audio/child-mode/words/found.mp3 | found | 3 |
-| /audio/child-mode/words/fine.mp3 | fine | 2 |
-| /audio/child-mode/words/last.mp3 | last | 2 |
-| /audio/child-mode/words/next.mp3 | next | 1 |
-| /audio/child-mode/words/fist.mp3 | fist | 2 |
-| /audio/child-mode/words/yet.mp3 | yet | 1 |
-| /audio/child-mode/words/far.mp3 | far | 2 |
 | /audio/child-mode/words/maze.mp3 | maze | 1 |
-| /audio/child-mode/words/may.mp3 | may | 6 |
-| /audio/child-mode/words/mine.mp3 | mine | 3 |
-| /audio/child-mode/words/none.mp3 | none | 2 |
-| /audio/child-mode/words/never.mp3 | never | 3 |
-| /audio/child-mode/words/number.mp3 | number | 6 |
-| /audio/child-mode/words/letter.mp3 | letter | 4 |
-| /audio/child-mode/words/name.mp3 | name | 6 |
-| /audio/child-mode/words/sign.mp3 | sign | 1 |
-| /audio/child-mode/words/lumber.mp3 | lumber | 1 |
 | /audio/child-mode/words/nimble.mp3 | nimble | 1 |
 | /audio/child-mode/words/numbers.mp3 | numbers | 1 |
-| /audio/child-mode/words/oil.mp3 | oil | 8 |
-| /audio/child-mode/words/water.mp3 | water | 10 |
-| /audio/child-mode/words/milk.mp3 | milk | 3 |
+| /audio/child-mode/words/lumber.mp3 | lumber | 1 |
 | /audio/child-mode/words/boil.mp3 | boil | 4 |
-| /audio/child-mode/words/soil.mp3 | soil | 2 |
-| /audio/child-mode/words/owl.mp3 | owl | 2 |
-| /audio/child-mode/words/part.mp3 | part | 5 |
-| /audio/child-mode/words/piece.mp3 | piece | 1 |
-| /audio/child-mode/words/side.mp3 | side | 2 |
-| /audio/child-mode/words/past.mp3 | past | 4 |
-| /audio/child-mode/words/people.mp3 | people | 6 |
-| /audio/child-mode/words/person.mp3 | person | 4 |
 | /audio/child-mode/words/peoples.mp3 | peoples | 2 |
-| /audio/child-mode/words/kids.mp3 | kids | 1 |
 | /audio/child-mode/words/crowds.mp3 | crowds | 1 |
-| /audio/child-mode/words/purple.mp3 | purple | 2 |
-| /audio/child-mode/words/puddle.mp3 | puddle | 3 |
-| /audio/child-mode/words/set.mp3 | set | 4 |
-| /audio/child-mode/words/lay.mp3 | lay | 1 |
 | /audio/child-mode/words/silt.mp3 | silt | 1 |
-| /audio/child-mode/words/air.mp3 | air | 1 |
 | /audio/child-mode/words/waiter.mp3 | waiter | 2 |
-| /audio/child-mode/words/winter.mp3 | winter | 3 |
-| /audio/child-mode/words/wonder.mp3 | wonder | 2 |
-| /audio/child-mode/words/path.mp3 | path | 4 |
 | /audio/child-mode/words/wax.mp3 | wax | 1 |
-| /audio/child-mode/words/pebble.mp3 | pebble | 1 |
 | /audio/child-mode/words/wander.mp3 | wander | 1 |
-| /audio/child-mode/words/seat.mp3 | seat | 2 |
-| /audio/child-mode/words/know.mp3 | know | 6 |
 | /audio/child-mode/words/nod.mp3 | nod | 2 |
 | /audio/child-mode/words/oops.mp3 | oops | 1 |
-| /audio/child-mode/words/won.mp3 | won | 5 |
-| /audio/child-mode/words/wins.mp3 | wins | 2 |
-| /audio/child-mode/words/eight.mp3 | eight | 7 |
-| /audio/child-mode/words/ate.mp3 | ate | 5 |
 | /audio/child-mode/words/eighty.mp3 | eighty | 1 |
-| /audio/child-mode/words/eats.mp3 | eats | 1 |
 | /audio/child-mode/words/sixty.mp3 | sixty | 1 |
-| /audio/child-mode/words/hear.mp3 | hear | 5 |
 | /audio/child-mode/words/heart.mp3 | heart | 1 |
-| /audio/child-mode/words/head.mp3 | head | 2 |
-| /audio/child-mode/words/nearby.mp3 | nearby | 1 |
-| /audio/child-mode/words/blew.mp3 | blew | 7 |
-| /audio/child-mode/words/grew.mp3 | grew | 4 |
-| /audio/child-mode/words/blows.mp3 | blows | 2 |
-| /audio/child-mode/words/wrong.mp3 | wrong | 1 |
-| /audio/child-mode/words/knew.mp3 | knew | 4 |
-| /audio/child-mode/words/knows.mp3 | knows | 1 |
-| /audio/child-mode/words/near.mp3 | near | 11 |
-| /audio/child-mode/words/hour.mp3 | hour | 4 |
-| /audio/child-mode/words/hours.mp3 | hours | 1 |
 | /audio/child-mode/words/oar.mp3 | oar | 1 |
 | /audio/child-mode/words/ours.mp3 | ours | 1 |
-| /audio/child-mode/words/flour.mp3 | flour | 4 |
-| /audio/child-mode/words/floor.mp3 | floor | 5 |
 | /audio/child-mode/words/flow.mp3 | flow | 1 |
 | /audio/child-mode/words/crow.mp3 | crow | 1 |
-| /audio/child-mode/words/wool.mp3 | wool | 2 |
 | /audio/child-mode/words/wound.mp3 | wound | 1 |
-| /audio/child-mode/words/maid.mp3 | maid | 5 |
-| /audio/child-mode/words/makes.mp3 | makes | 1 |
-| /audio/child-mode/words/hold.mp3 | hold | 1 |
-| /audio/child-mode/words/ride.mp3 | ride | 6 |
-| /audio/child-mode/words/nervous.mp3 | nervous | 3 |
-| /audio/child-mode/words/bored.mp3 | bored | 3 |
-| /audio/child-mode/words/angry.mp3 | angry | 1 |
-| /audio/child-mode/words/relieved.mp3 | relieved | 1 |
-| /audio/child-mode/words/worried.mp3 | worried | 1 |
 | /audio/child-mode/words/jealous.mp3 | jealous | 3 |
 | /audio/child-mode/words/ashamed.mp3 | ashamed | 1 |
-| /audio/child-mode/words/confused.mp3 | confused | 1 |
-| /audio/child-mode/words/scared.mp3 | scared | 2 |
 | /audio/child-mode/words/furious.mp3 | furious | 1 |
 | /audio/child-mode/words/thrilled.mp3 | thrilled | 1 |
-| /audio/child-mode/words/hungry.mp3 | hungry | 1 |
-| /audio/child-mode/words/disappointed.mp3 | disappointed | 1 |
 | /audio/child-mode/words/delighted.mp3 | delighted | 1 |
-| /audio/child-mode/words/excited.mp3 | excited | 1 |
 | /audio/child-mode/words/astronaut.mp3 | astronaut | 1 |
-| /audio/child-mode/words/banana.mp3 | banana | 1 |
-| /audio/child-mode/words/y.mp3 | y | 11 |
-| /audio/child-mode/words/butterfly.mp3 | butterfly | 1 |
-| /audio/child-mode/words/caterpillar.mp3 | caterpillar | 1 |
 | /audio/child-mode/words/camera.mp3 | camera | 1 |
-| /audio/child-mode/words/cone.mp3 | cone | 3 |
-| /audio/child-mode/words/dinosaur.mp3 | dinosaur | 1 |
-| /audio/child-mode/words/tie.mp3 | tie | 5 |
 | /audio/child-mode/words/elbow.mp3 | elbow | 1 |
-| /audio/child-mode/words/x.mp3 | x | 2 |
 | /audio/child-mode/words/feather.mp3 | feather | 1 |
 | /audio/child-mode/words/flamingo.mp3 | flamingo | 1 |
 | /audio/child-mode/words/guitar.mp3 | guitar | 1 |
 | /audio/child-mode/words/gorilla.mp3 | gorilla | 1 |
 | /audio/child-mode/words/helicopter.mp3 | helicopter | 1 |
-| /audio/child-mode/words/hedgehog.mp3 | hedgehog | 1 |
 | /audio/child-mode/words/instrument.mp3 | instrument | 1 |
-| /audio/child-mode/words/jacket.mp3 | jacket | 1 |
-| /audio/child-mode/words/jellyfish.mp3 | jellyfish | 1 |
 | /audio/child-mode/words/kettle.mp3 | kettle | 1 |
-| /audio/child-mode/words/lemon.mp3 | lemon | 1 |
-| /audio/child-mode/words/rose.mp3 | rose | 4 |
-| /audio/child-mode/words/z.mp3 | z | 10 |
 | /audio/child-mode/words/necklace.mp3 | necklace | 1 |
-| /audio/child-mode/words/newspaper.mp3 | newspaper | 1 |
-| /audio/child-mode/words/olive.mp3 | olive | 1 |
-| /audio/child-mode/words/pumpkin.mp3 | pumpkin | 1 |
-| /audio/child-mode/words/question.mp3 | question | 2 |
-| /audio/child-mode/words/rocket.mp3 | rocket | 1 |
-| /audio/child-mode/words/sunflower.mp3 | sunflower | 1 |
-| /audio/child-mode/words/sandwich.mp3 | sandwich | 1 |
-| /audio/child-mode/words/tomato.mp3 | tomato | 1 |
 | /audio/child-mode/words/umpire.mp3 | umpire | 1 |
-| /audio/child-mode/words/understand.mp3 | understand | 1 |
-| /audio/child-mode/words/volcano.mp3 | volcano | 1 |
+| /audio/child-mode/words/uniform.mp3 | uniform | 1 |
 | /audio/child-mode/words/vulture.mp3 | vulture | 1 |
+| /audio/child-mode/words/watermelon.mp3 | watermelon | 1 |
 | /audio/child-mode/words/yoghurt.mp3 | yoghurt | 1 |
-| /audio/child-mode/words/yawn.mp3 | yawn | 3 |
 | /audio/child-mode/words/zigzag.mp3 | zigzag | 1 |
 | /audio/child-mode/words/ambulance.mp3 | ambulance | 1 |
 | /audio/child-mode/words/engine.mp3 | engine | 1 |
 | /audio/child-mode/words/sandcastle.mp3 | sandcastle | 1 |
-| /audio/child-mode/words/table.mp3 | table | 1 |
-| /audio/child-mode/words/friday.mp3 | friday | 1 |
-| /audio/child-mode/words/monday.mp3 | monday | 1 |
-| /audio/child-mode/words/sunday.mp3 | sunday | 1 |
-| /audio/child-mode/words/tuesday.mp3 | tuesday | 1 |
-| /audio/child-mode/words/grandad.mp3 | grandad | 1 |
-| /audio/child-mode/words/miles.mp3 | miles | 1 |
-| /audio/child-mode/words/noah.mp3 | noah | 1 |
-| /audio/child-mode/words/maya.mp3 | maya | 2 |
-| /audio/child-mode/words/twenty.mp3 | twenty | 2 |
-| /audio/child-mode/words/five.mp3 | five | 5 |
-| /audio/child-mode/words/four.mp3 | four | 2 |
-| /audio/child-mode/words/daniel's.mp3 | daniel's | 1 |
-| /audio/child-mode/words/amira's.mp3 | amira's | 1 |
-| /audio/child-mode/words/crackers.mp3 | crackers | 1 |
-| /audio/child-mode/words/nine.mp3 | nine | 2 |
-| /audio/child-mode/words/twelve.mp3 | twelve | 1 |
 | /audio/child-mode/words/femi.mp3 | femi | 1 |
 | /audio/child-mode/words/sana.mp3 | sana | 1 |
 | /audio/child-mode/words/priya.mp3 | priya | 2 |
-| /audio/child-mode/words/seven.mp3 | seven | 1 |
 | /audio/child-mode/words/forty.mp3 | forty | 1 |
 | /audio/child-mode/words/ben's.mp3 | ben's | 1 |
 | /audio/child-mode/words/asha's.mp3 | asha's | 1 |
-| /audio/child-mode/words/dad's.mp3 | dad's | 1 |
 | /audio/child-mode/words/gita.mp3 | gita | 1 |
-| /audio/child-mode/words/nobody.mp3 | nobody | 1 |
-| /audio/child-mode/words/cape.mp3 | cape | 2 |
 | /audio/child-mode/words/cope.mp3 | cope | 1 |
 | /audio/child-mode/words/tape.mp3 | tape | 2 |
 | /audio/child-mode/words/tip.mp3 | tip | 5 |
-| /audio/child-mode/words/men.mp3 | men | 4 |
 | /audio/child-mode/words/pane.mp3 | pane | 2 |
 | /audio/child-mode/words/rid.mp3 | rid | 1 |
-| /audio/child-mode/words/rode.mp3 | rode | 3 |
-| /audio/child-mode/words/hope.mp3 | hope | 2 |
-| /audio/child-mode/words/hip.mp3 | hip | 3 |
 | /audio/child-mode/words/hate.mp3 | hate | 1 |
-| /audio/child-mode/words/note.mp3 | note | 2 |
-| /audio/child-mode/words/robe.mp3 | robe | 2 |
 | /audio/child-mode/words/rob.mp3 | rob | 2 |
-| /audio/child-mode/words/rub.mp3 | rub | 2 |
-| /audio/child-mode/words/mule.mp3 | mule | 3 |
-| /audio/child-mode/words/tube.mp3 | tube | 4 |
-| /audio/child-mode/words/cute.mp3 | cute | 3 |
-| /audio/child-mode/words/theme.mp3 | theme | 1 |
-| /audio/child-mode/words/scene.mp3 | scene | 1 |
-| /audio/child-mode/words/complete.mp3 | complete | 1 |
 | /audio/child-mode/words/gas.mp3 | gas | 1 |
-| /audio/child-mode/words/cane.mp3 | cane | 2 |
-| /audio/child-mode/words/dam.mp3 | dam | 1 |
-| /audio/child-mode/words/plane.mp3 | plane | 1 |
-| /audio/child-mode/words/grape.mp3 | grape | 1 |
 | /audio/child-mode/words/shin.mp3 | shin | 2 |
-| /audio/child-mode/words/bite.mp3 | bite | 2 |
-| /audio/child-mode/words/rip.mp3 | rip | 2 |
-| /audio/child-mode/words/ripe.mp3 | ripe | 1 |
-| /audio/child-mode/words/prize.mp3 | prize | 1 |
-| /audio/child-mode/words/stone.mp3 | stone | 1 |
-| /audio/child-mode/words/dime.mp3 | dime | 1 |
-| /audio/child-mode/words/hide.mp3 | hide | 3 |
-| /audio/child-mode/words/rod.mp3 | rod | 3 |
-| /audio/child-mode/words/hug.mp3 | hug | 2 |
 | /audio/child-mode/words/hog.mp3 | hog | 2 |
-| /audio/child-mode/words/press.mp3 | press | 6 |
-| /audio/child-mode/words/nurse.mp3 | nurse | 4 |
-| /audio/child-mode/words/bring.mp3 | bring | 1 |
 | /audio/child-mode/words/lace.mp3 | lace | 1 |
-| /audio/child-mode/words/school.mp3 | school | 1 |
 | /audio/child-mode/words/lick.mp3 | lick | 4 |
-| /audio/child-mode/words/bend.mp3 | bend | 2 |
-| /audio/child-mode/words/bumpy.mp3 | bumpy | 1 |
-| /audio/child-mode/words/climb.mp3 | climb | 3 |
-| /audio/child-mode/words/went.mp3 | went | 1 |
-| /audio/child-mode/words/flew.mp3 | flew | 6 |
 | /audio/child-mode/words/spilt.mp3 | spilt | 1 |
-| /audio/child-mode/words/fell.mp3 | fell | 2 |
 | /audio/child-mode/words/dipped.mp3 | dipped | 1 |
-| /audio/child-mode/words/spun.mp3 | spun | 1 |
-| /audio/child-mode/words/boots.mp3 | boots | 2 |
-| /audio/child-mode/words/stir.mp3 | stir | 2 |
-| /audio/child-mode/words/pour.mp3 | pour | 3 |
-| /audio/child-mode/words/hike.mp3 | hike | 1 |
-| /audio/child-mode/words/rest.mp3 | rest | 1 |
-| /audio/child-mode/words/singer.mp3 | singer | 5 |
 | /audio/child-mode/words/sung.mp3 | sung | 1 |
-| /audio/child-mode/words/sang.mp3 | sang | 8 |
-| /audio/child-mode/words/sweep.mp3 | sweep | 2 |
 | /audio/child-mode/words/scrub.mp3 | scrub | 1 |
 | /audio/child-mode/words/wipe.mp3 | wipe | 1 |
-| /audio/child-mode/words/ladder.mp3 | ladder | 1 |
+| /audio/child-mode/words/sweep.mp3 | sweep | 2 |
 | /audio/child-mode/words/soar.mp3 | soar | 2 |
 | /audio/child-mode/words/glide.mp3 | glide | 1 |
 | /audio/child-mode/words/drift.mp3 | drift | 2 |
-| /audio/child-mode/words/taught.mp3 | taught | 1 |
 | /audio/child-mode/words/teaches.mp3 | teaches | 2 |
-| /audio/child-mode/words/pull.mp3 | pull | 3 |
-| /audio/child-mode/words/peck.mp3 | peck | 2 |
-| /audio/child-mode/words/bump.mp3 | bump | 1 |
-| /audio/child-mode/words/rang.mp3 | rang | 1 |
-| /audio/child-mode/words/build.mp3 | build | 3 |
 | /audio/child-mode/words/perch.mp3 | perch | 1 |
-| /audio/child-mode/words/baker.mp3 | baker | 2 |
-| /audio/child-mode/words/bake.mp3 | bake | 6 |
-| /audio/child-mode/words/hens.mp3 | hens | 7 |
-| /audio/child-mode/words/stars.mp3 | stars | 4 |
-| /audio/child-mode/words/ducks.mp3 | ducks | 1 |
-| /audio/child-mode/words/buses.mp3 | buses | 2 |
-| /audio/child-mode/words/foxes.mp3 | foxes | 5 |
-| /audio/child-mode/words/babies.mp3 | babies | 1 |
-| /audio/child-mode/words/baby.mp3 | baby | 1 |
-| /audio/child-mode/words/ladies.mp3 | ladies | 3 |
-| /audio/child-mode/words/lady.mp3 | lady | 3 |
-| /audio/child-mode/words/parties.mp3 | parties | 1 |
-| /audio/child-mode/words/party.mp3 | party | 1 |
-| /audio/child-mode/words/babys.mp3 | babys | 1 |
 | /audio/child-mode/words/cots.mp3 | cots | 1 |
 | /audio/child-mode/words/citys.mp3 | citys | 1 |
 | /audio/child-mode/words/ponies.mp3 | ponies | 2 |
 | /audio/child-mode/words/pony.mp3 | pony | 2 |
-| /audio/child-mode/words/stories.mp3 | stories | 1 |
-| /audio/child-mode/words/story.mp3 | story | 1 |
-| /audio/child-mode/words/women.mp3 | women | 2 |
-| /audio/child-mode/words/woman.mp3 | woman | 2 |
-| /audio/child-mode/words/children.mp3 | children | 2 |
-| /audio/child-mode/words/child.mp3 | child | 2 |
 | /audio/child-mode/words/mouses.mp3 | mouses | 1 |
-| /audio/child-mode/words/kitchen.mp3 | kitchen | 1 |
 | /audio/child-mode/words/foots.mp3 | foots | 1 |
-| /audio/child-mode/words/splashed.mp3 | splashed | 2 |
-| /audio/child-mode/words/foot.mp3 | foot | 2 |
-| /audio/child-mode/words/mice.mp3 | mice | 2 |
-| /audio/child-mode/words/leaves.mp3 | leaves | 2 |
-| /audio/child-mode/words/wolves.mp3 | wolves | 2 |
-| /audio/child-mode/words/knives.mp3 | knives | 3 |
-| /audio/child-mode/words/shelves.mp3 | shelves | 1 |
-| /audio/child-mode/words/shelf.mp3 | shelf | 2 |
-| /audio/child-mode/words/leafs.mp3 | leafs | 1 |
-| /audio/child-mode/words/doorstep.mp3 | doorstep | 1 |
 | /audio/child-mode/words/wolfs.mp3 | wolfs | 1 |
 | /audio/child-mode/words/howled.mp3 | howled | 1 |
-| /audio/child-mode/words/outside.mp3 | outside | 6 |
-| /audio/child-mode/words/puppies.mp3 | puppies | 1 |
-| /audio/child-mode/words/geese.mp3 | geese | 2 |
-| /audio/child-mode/words/goose.mp3 | goose | 2 |
-| /audio/child-mode/words/peach.mp3 | peach | 3 |
-| /audio/child-mode/words/peaches.mp3 | peaches | 1 |
-| /audio/child-mode/words/loaves.mp3 | loaves | 3 |
-| /audio/child-mode/words/loaf.mp3 | loaf | 3 |
 | /audio/child-mode/words/slices.mp3 | slices | 1 |
-| /audio/child-mode/words/slice.mp3 | slice | 1 |
-| /audio/child-mode/words/sheeps.mp3 | sheeps | 1 |
 | /audio/child-mode/words/grazed.mp3 | grazed | 1 |
-| /audio/child-mode/words/meadow.mp3 | meadow | 1 |
-| /audio/child-mode/words/berries.mp3 | berries | 1 |
-| /audio/child-mode/words/berry.mp3 | berry | 1 |
 | /audio/child-mode/words/ponys.mp3 | ponys | 1 |
-| /audio/child-mode/words/trotted.mp3 | trotted | 1 |
-| /audio/child-mode/words/around.mp3 | around | 8 |
-| /audio/child-mode/words/field.mp3 | field | 1 |
-| /audio/child-mode/words/halves.mp3 | halves | 1 |
 | /audio/child-mode/words/chicks.mp3 | chicks | 1 |
-| /audio/child-mode/words/pens.mp3 | pens | 1 |
-| /audio/child-mode/words/caps.mp3 | caps | 1 |
-| /audio/child-mode/words/washes.mp3 | washes | 1 |
-| /audio/child-mode/words/wash.mp3 | wash | 2 |
+| /audio/child-mode/words/remake.mp3 | remake | 7 |
+| /audio/child-mode/words/maker.mp3 | maker | 2 |
+| /audio/child-mode/words/unmake.mp3 | unmake | 1 |
+| /audio/child-mode/words/unread.mp3 | unread | 1 |
+| /audio/child-mode/words/unplayed.mp3 | unplayed | 1 |
+| /audio/child-mode/words/helpless.mp3 | helpless | 2 |
+| /audio/child-mode/words/rehelp.mp3 | rehelp | 1 |
+| /audio/child-mode/words/rejoice.mp3 | rejoice | 1 |
+| /audio/child-mode/words/joyless.mp3 | joyless | 2 |
+| /audio/child-mode/words/recare.mp3 | recare | 1 |
+| /audio/child-mode/words/carer.mp3 | carer | 1 |
+| /audio/child-mode/words/rehope.mp3 | rehope | 1 |
+| /audio/child-mode/words/fearful.mp3 | fearful | 2 |
+| /audio/child-mode/words/refear.mp3 | refear | 1 |
+| /audio/child-mode/words/harmful.mp3 | harmful | 2 |
+| /audio/child-mode/words/reharm.mp3 | reharm | 1 |
+| /audio/child-mode/words/harmless.mp3 | harmless | 2 |
+| /audio/child-mode/words/sings.mp3 | sings | 1 |
+| /audio/child-mode/words/teaching.mp3 | teaching | 1 |
+| /audio/child-mode/words/farming.mp3 | farming | 1 |
+| /audio/child-mode/words/hennes.mp3 | hennes | 1 |
 | /audio/child-mode/words/washing.mp3 | washing | 1 |
-| /audio/child-mode/words/washed.mp3 | washed | 2 |
+| /audio/child-mode/words/washes.mp3 | washes | 1 |
 | /audio/child-mode/words/naps.mp3 | naps | 1 |
 | /audio/child-mode/words/napping.mp3 | napping | 1 |
 | /audio/child-mode/words/napped.mp3 | napped | 1 |
-| /audio/child-mode/words/bakes.mp3 | bakes | 1 |
-| /audio/child-mode/words/baking.mp3 | baking | 1 |
-| /audio/child-mode/words/baked.mp3 | baked | 1 |
-| /audio/child-mode/words/jumping.mp3 | jumping | 3 |
-| /audio/child-mode/words/jumps.mp3 | jumps | 2 |
-| /audio/child-mode/words/jumped.mp3 | jumped | 4 |
-| /audio/child-mode/words/going.mp3 | going | 1 |
-| /audio/child-mode/words/reading.mp3 | reading | 3 |
-| /audio/child-mode/words/reads.mp3 | reads | 2 |
-| /audio/child-mode/words/ready.mp3 | ready | 1 |
-| /audio/child-mode/words/singing.mp3 | singing | 4 |
-| /audio/child-mode/words/playing.mp3 | playing | 2 |
-| /audio/child-mode/words/plays.mp3 | plays | 2 |
-| /audio/child-mode/words/played.mp3 | played | 2 |
-| /audio/child-mode/words/doing.mp3 | doing | 3 |
+| /audio/child-mode/words/bakes.mp3 | bakes | 2 |
+| /audio/child-mode/words/baking.mp3 | baking | 2 |
 | /audio/child-mode/words/boils.mp3 | boils | 1 |
-| /audio/child-mode/words/sleeping.mp3 | sleeping | 1 |
-| /audio/child-mode/words/building.mp3 | building | 1 |
-| /audio/child-mode/words/painting.mp3 | painting | 2 |
-| /audio/child-mode/words/running.mp3 | running | 1 |
-| /audio/child-mode/words/runs.mp3 | runs | 1 |
-| /audio/child-mode/words/walked.mp3 | walked | 4 |
-| /audio/child-mode/words/walks.mp3 | walks | 1 |
-| /audio/child-mode/words/walking.mp3 | walking | 2 |
-| /audio/child-mode/words/opened.mp3 | opened | 1 |
-| /audio/child-mode/words/helped.mp3 | helped | 3 |
-| /audio/child-mode/words/helps.mp3 | helps | 2 |
-| /audio/child-mode/words/helping.mp3 | helping | 4 |
-| /audio/child-mode/words/hopped.mp3 | hopped | 2 |
-| /audio/child-mode/words/landed.mp3 | landed | 1 |
-| /audio/child-mode/words/walk.mp3 | walk | 3 |
-| /audio/child-mode/words/cried.mp3 | cried | 1 |
 | /audio/child-mode/words/cries.mp3 | cries | 1 |
 | /audio/child-mode/words/crying.mp3 | crying | 1 |
-| /audio/child-mode/words/locks.mp3 | locks | 2 |
-| /audio/child-mode/words/locking.mp3 | locking | 2 |
-| /audio/child-mode/words/filled.mp3 | filled | 2 |
-| /audio/child-mode/words/sings.mp3 | sings | 2 |
-| /audio/child-mode/words/helper.mp3 | helper | 5 |
-| /audio/child-mode/words/painter.mp3 | painter | 4 |
-| /audio/child-mode/words/paints.mp3 | paints | 2 |
-| /audio/child-mode/words/farmer.mp3 | farmer | 2 |
-| /audio/child-mode/words/teaching.mp3 | teaching | 1 |
-| /audio/child-mode/words/careful.mp3 | careful | 4 |
-| /audio/child-mode/words/cares.mp3 | cares | 3 |
-| /audio/child-mode/words/caring.mp3 | caring | 2 |
-| /audio/child-mode/words/joyful.mp3 | joyful | 4 |
-| /audio/child-mode/words/joys.mp3 | joys | 2 |
-| /audio/child-mode/words/enjoy.mp3 | enjoy | 1 |
-| /audio/child-mode/words/playful.mp3 | playful | 1 |
-| /audio/child-mode/words/joy.mp3 | joy | 4 |
-| /audio/child-mode/words/care.mp3 | care | 3 |
-| /audio/child-mode/words/help.mp3 | help | 1 |
-| /audio/child-mode/words/unlock.mp3 | unlock | 2 |
-| /audio/child-mode/words/unhappy.mp3 | unhappy | 1 |
-| /audio/child-mode/words/untie.mp3 | untie | 2 |
-| /audio/child-mode/words/ties.mp3 | ties | 1 |
-| /audio/child-mode/words/unpack.mp3 | unpack | 2 |
-| /audio/child-mode/words/unlocked.mp3 | unlocked | 1 |
-| /audio/child-mode/words/undone.mp3 | undone | 1 |
-| /audio/child-mode/words/untied.mp3 | untied | 1 |
-| /audio/child-mode/words/reread.mp3 | reread | 2 |
-| /audio/child-mode/words/redo.mp3 | redo | 3 |
-| /audio/child-mode/words/refill.mp3 | refill | 2 |
-| /audio/child-mode/words/retell.mp3 | retell | 2 |
-| /audio/child-mode/words/rebuild.mp3 | rebuild | 1 |
-| /audio/child-mode/words/fearless.mp3 | fearless | 2 |
-| /audio/child-mode/words/fears.mp3 | fears | 1 |
-| /audio/child-mode/words/feared.mp3 | feared | 1 |
-| /audio/child-mode/words/careless.mp3 | careless | 2 |
-| /audio/child-mode/words/harmful.mp3 | harmful | 1 |
-| /audio/child-mode/words/harm.mp3 | harm | 1 |
-| /audio/child-mode/words/helpless.mp3 | helpless | 2 |
-| /audio/child-mode/words/useless.mp3 | useless | 1 |
-| /audio/child-mode/words/useful.mp3 | useful | 1 |
-| /audio/child-mode/words/uses.mp3 | uses | 1 |
-| /audio/child-mode/words/taller.mp3 | taller | 4 |
-| /audio/child-mode/words/fastest.mp3 | fastest | 3 |
-| /audio/child-mode/words/faster.mp3 | faster | 3 |
-| /audio/child-mode/words/slowest.mp3 | slowest | 2 |
+| /audio/child-mode/words/locks.mp3 | locks | 1 |
+| /audio/child-mode/words/locking.mp3 | locking | 1 |
 | /audio/child-mode/words/slower.mp3 | slower | 1 |
-| /audio/child-mode/words/quickly.mp3 | quickly | 3 |
-| /audio/child-mode/words/quicker.mp3 | quicker | 2 |
 | /audio/child-mode/words/quickest.mp3 | quickest | 2 |
-| /audio/child-mode/words/softly.mp3 | softly | 3 |
-| /audio/child-mode/words/softer.mp3 | softer | 2 |
-| /audio/child-mode/words/gently.mp3 | gently | 1 |
+| /audio/child-mode/words/quicker.mp3 | quicker | 2 |
 | /audio/child-mode/words/gentler.mp3 | gentler | 1 |
-| /audio/child-mode/words/quietly.mp3 | quietly | 1 |
-| /audio/child-mode/words/quieter.mp3 | quieter | 1 |
-| /audio/child-mode/words/loudly.mp3 | loudly | 1 |
-| /audio/child-mode/words/preheat.mp3 | preheat | 5 |
 | /audio/child-mode/words/heated.mp3 | heated | 2 |
 | /audio/child-mode/words/heats.mp3 | heats | 1 |
-| /audio/child-mode/words/preview.mp3 | preview | 4 |
 | /audio/child-mode/words/views.mp3 | views | 1 |
 | /audio/child-mode/words/viewed.mp3 | viewed | 2 |
-| /audio/child-mode/words/heat.mp3 | heat | 1 |
-| /audio/child-mode/words/view.mp3 | view | 1 |
-| /audio/child-mode/words/cooking.mp3 | cooking | 1 |
-| /audio/child-mode/words/cooks.mp3 | cooks | 1 |
+| /audio/child-mode/words/safety.mp3 | safety | 1 |
+| /audio/child-mode/words/resafe.mp3 | resafe | 1 |
+| /audio/child-mode/words/unpaint.mp3 | unpaint | 1 |
+| /audio/child-mode/words/paintful.mp3 | paintful | 1 |
+| /audio/child-mode/words/hoping.mp3 | hoping | 1 |
+| /audio/child-mode/words/caring.mp3 | caring | 1 |
+| /audio/child-mode/words/builder.mp3 | builder | 1 |
+| /audio/child-mode/words/unbuilt.mp3 | unbuilt | 1 |
 | /audio/child-mode/words/cooked.mp3 | cooked | 1 |
-| /audio/child-mode/words/hopeful.mp3 | hopeful | 1 |
-| /audio/child-mode/words/hopes.mp3 | hopes | 1 |
-| /audio/child-mode/words/hoped.mp3 | hoped | 1 |
-| /audio/child-mode/words/splashing.mp3 | splashing | 1 |
-| /audio/child-mode/words/packs.mp3 | packs | 1 |
-| /audio/child-mode/words/telling.mp3 | telling | 1 |
-| /audio/child-mode/words/bravely.mp3 | bravely | 1 |
 | /audio/child-mode/words/braver.mp3 | braver | 1 |
-| /audio/child-mode/words/bravest.mp3 | bravest | 1 |
-| /audio/child-mode/words/preschool.mp3 | preschool | 1 |
+| /audio/child-mode/words/bravely.mp3 | bravely | 1 |
 | /audio/child-mode/words/schools.mp3 | schools | 1 |
 | /audio/child-mode/words/schooling.mp3 | schooling | 1 |
-| /audio/child-mode/words/behind.mp3 | behind | 27 |
-| /audio/child-mode/words/thunder.mp3 | thunder | 1 |
-| /audio/child-mode/words/between.mp3 | between | 15 |
-| /audio/child-mode/words/began.mp3 | began | 1 |
-| /audio/child-mode/words/before.mp3 | before | 2 |
-| /audio/child-mode/words/nearly.mp3 | nearly | 1 |
-| /audio/child-mode/words/because.mp3 | because | 1 |
-| /audio/child-mode/words/begin.mp3 | begin | 1 |
-| /audio/child-mode/words/inside.mp3 | inside | 15 |
-| /audio/child-mode/words/aboard.mp3 | aboard | 1 |
-| /audio/child-mode/words/bellow.mp3 | bellow | 1 |
-| /audio/child-mode/words/through.mp3 | through | 14 |
-| /audio/child-mode/words/opposite.mp3 | opposite | 6 |
-| /audio/child-mode/words/among.mp3 | among | 5 |
-| /audio/child-mode/words/across.mp3 | across | 1 |
-| /audio/child-mode/words/ar.mp3 | ar | 39 |
-| /audio/child-mode/words/er.mp3 | er | 44 |
-| /audio/child-mode/words/ir.mp3 | ir | 40 |
-| /audio/child-mode/words/ur.mp3 | ur | 36 |
-| /audio/child-mode/words/ai.mp3 | ai | 20 |
-| /audio/child-mode/words/yard.mp3 | yard | 1 |
-| /audio/child-mode/words/horn.mp3 | horn | 4 |
-| /audio/child-mode/words/hard.mp3 | hard | 2 |
-| /audio/child-mode/words/north.mp3 | north | 2 |
-| /audio/child-mode/words/oa.mp3 | oa | 27 |
-| /audio/child-mode/words/fern.mp3 | fern | 3 |
-| /audio/child-mode/words/herd.mp3 | herd | 4 |
-| /audio/child-mode/words/spider.mp3 | spider | 1 |
-| /audio/child-mode/words/cart.mp3 | cart | 3 |
-| /audio/child-mode/words/third.mp3 | third | 4 |
-| /audio/child-mode/words/dirt.mp3 | dirt | 2 |
-| /audio/child-mode/words/fire.mp3 | fire | 3 |
-| /audio/child-mode/words/dart.mp3 | dart | 1 |
-| /audio/child-mode/words/hurt.mp3 | hurt | 1 |
-| /audio/child-mode/words/burn.mp3 | burn | 3 |
-| /audio/child-mode/words/purse.mp3 | purse | 1 |
 | /audio/child-mode/words/surf.mp3 | surf | 2 |
 | /audio/child-mode/words/turnip.mp3 | turnip | 1 |
-| /audio/child-mode/words/burst.mp3 | burst | 1 |
 | /audio/child-mode/words/se.mp3 | se | 1 |
 | /audio/child-mode/words/ce.mp3 | ce | 1 |
 | /audio/child-mode/words/sister.mp3 | sister | 1 |
-| /audio/child-mode/words/fur.mp3 | fur | 2 |
-| /audio/child-mode/words/rag.mp3 | rag | 2 |
-| /audio/child-mode/words/tag.mp3 | tag | 1 |
-| /audio/child-mode/words/fed.mp3 | fed | 1 |
 | /audio/child-mode/words/wed.mp3 | wed | 1 |
-| /audio/child-mode/words/twig.mp3 | twig | 1 |
-| /audio/child-mode/words/dip.mp3 | dip | 2 |
-| /audio/child-mode/words/lip.mp3 | lip | 2 |
-| /audio/child-mode/words/fit.mp3 | fit | 1 |
-| /audio/child-mode/words/pop.mp3 | pop | 1 |
-| /audio/child-mode/words/drop.mp3 | drop | 1 |
-| /audio/child-mode/words/lot.mp3 | lot | 1 |
-| /audio/child-mode/words/tug.mp3 | tug | 1 |
+| /audio/child-mode/words/jig.mp3 | jig | 2 |
 | /audio/child-mode/words/rung.mp3 | rung | 2 |
-| /audio/child-mode/words/wing.mp3 | wing | 4 |
-| /audio/child-mode/words/hang.mp3 | hang | 2 |
-| /audio/child-mode/words/bang.mp3 | bang | 2 |
 | /audio/child-mode/words/fang.mp3 | fang | 1 |
-| /audio/child-mode/words/gong.mp3 | gong | 2 |
 | /audio/child-mode/words/sank.mp3 | sank | 2 |
-| /audio/child-mode/words/back.mp3 | back | 2 |
-| /audio/child-mode/words/pick.mp3 | pick | 1 |
-| /audio/child-mode/words/pack.mp3 | pack | 2 |
 | /audio/child-mode/words/stiff.mp3 | stiff | 1 |
-| /audio/child-mode/words/stack.mp3 | stack | 1 |
-| /audio/child-mode/words/pill.mp3 | pill | 1 |
 | /audio/child-mode/words/bill.mp3 | bill | 3 |
-| /audio/child-mode/words/mill.mp3 | mill | 2 |
 | /audio/child-mode/words/bald.mp3 | bald | 1 |
-| /audio/child-mode/words/tell.mp3 | tell | 1 |
-| /audio/child-mode/words/cast.mp3 | cast | 1 |
-| /audio/child-mode/words/cash.mp3 | cash | 2 |
-| /audio/child-mode/words/crash.mp3 | crash | 1 |
 | /audio/child-mode/words/splat.mp3 | splat | 1 |
-| /audio/child-mode/words/swish.mp3 | swish | 2 |
-| /audio/child-mode/words/stuck.mp3 | stuck | 2 |
-| /audio/child-mode/words/flame.mp3 | flame | 1 |
-| /audio/child-mode/words/lit.mp3 | lit | 2 |
-| /audio/child-mode/words/board.mp3 | board | 1 |
-| /audio/child-mode/words/float.mp3 | float | 1 |
-| /audio/child-mode/words/coach.mp3 | coach | 1 |
-| /audio/child-mode/words/deep.mp3 | deep | 3 |
-| /audio/child-mode/words/jeep.mp3 | jeep | 2 |
 | /audio/child-mode/words/blouse.mp3 | blouse | 3 |
-| /audio/child-mode/words/turn.mp3 | turn | 3 |
 | /audio/child-mode/words/churn.mp3 | churn | 1 |
 | /audio/child-mode/words/cord.mp3 | cord | 1 |
 | /audio/child-mode/words/rink.mp3 | rink | 1 |
 | /audio/child-mode/words/goal.mp3 | goal | 1 |
 | /audio/child-mode/words/elena.mp3 | elena | 1 |
+| /audio/child-mode/words/nobody's.mp3 | nobody's | 1 |
 | /audio/child-mode/words/sam's.mp3 | sam's | 1 |
 | /audio/child-mode/words/ollie's.mp3 | ollie's | 1 |
-| /audio/child-mode/words/nobody's.mp3 | nobody's | 1 |
-| /audio/child-mode/words/carmen.mp3 | carmen | 1 |
 | /audio/child-mode/words/grandpa.mp3 | grandpa | 2 |
+| /audio/child-mode/words/carmen.mp3 | carmen | 1 |
 | /audio/child-mode/words/effie.mp3 | effie | 1 |
 | /audio/child-mode/words/ivo.mp3 | ivo | 1 |
 | /audio/child-mode/words/jonah.mp3 | jonah | 1 |
 | /audio/child-mode/words/gran.mp3 | gran | 2 |
-| /audio/child-mode/words/breakfast.mp3 | breakfast | 1 |
 | /audio/child-mode/words/rim.mp3 | rim | 1 |
 | /audio/child-mode/words/flop.mp3 | flop | 1 |
-| /audio/child-mode/words/ton.mp3 | ton | 1 |
-| /audio/child-mode/words/bull.mp3 | bull | 1 |
 | /audio/child-mode/words/mast.mp3 | mast | 1 |
-| /audio/child-mode/words/mist.mp3 | mist | 1 |
 | /audio/child-mode/words/bolt.mp3 | bolt | 1 |
-| /audio/child-mode/words/ban.mp3 | ban | 1 |
+| /audio/child-mode/words/zap.mp3 | zap | 1 |
 | /audio/child-mode/words/loft.mp3 | loft | 1 |
-| /audio/child-mode/words/cluck.mp3 | cluck | 1 |
 | /audio/child-mode/words/rig.mp3 | rig | 1 |
-| /audio/child-mode/words/plan.mp3 | plan | 2 |
 | /audio/child-mode/words/plot.mp3 | plot | 1 |
 | /audio/child-mode/words/trick.mp3 | trick | 1 |
 | /audio/child-mode/words/vat.mp3 | vat | 1 |
-| /audio/child-mode/words/chew.mp3 | chew | 2 |
-| /audio/child-mode/words/fold.mp3 | fold | 1 |
-| /audio/child-mode/words/soap.mp3 | soap | 1 |
-| /audio/child-mode/words/hair.mp3 | hair | 1 |
 | /audio/child-mode/words/hinge.mp3 | hinge | 1 |
-| /audio/child-mode/words/knob.mp3 | knob | 1 |
-| /audio/child-mode/words/chased.mp3 | chased | 1 |
-| /audio/child-mode/words/dinner.mp3 | dinner | 1 |
-| /audio/child-mode/words/its.mp3 | its | 1 |
 | /audio/child-mode/words/knits.mp3 | knits | 1 |
-| /audio/child-mode/words/socks.mp3 | socks | 1 |
 | /audio/child-mode/words/creep.mp3 | creep | 1 |
 | /audio/child-mode/words/claw.mp3 | claw | 2 |
 | /audio/child-mode/words/oven.mp3 | oven | 1 |
 | /audio/child-mode/words/swimmer.mp3 | swimmer | 1 |
-| /audio/child-mode/words/swims.mp3 | swims | 1 |
+| /audio/child-mode/words/dancing.mp3 | dancing | 1 |
 | /audio/child-mode/words/dancer.mp3 | dancer | 2 |
 | /audio/child-mode/words/dances.mp3 | dances | 1 |
 | /audio/child-mode/words/danced.mp3 | danced | 1 |
-| /audio/child-mode/words/dancing.mp3 | dancing | 1 |
-| /audio/child-mode/words/colour.mp3 | colour | 1 |
-| /audio/child-mode/words/boiled.mp3 | boiled | 1 |
 | /audio/child-mode/words/froze.mp3 | froze | 1 |
 | /audio/child-mode/words/spilled.mp3 | spilled | 1 |
-| /audio/child-mode/words/drip.mp3 | drip | 1 |
+| /audio/child-mode/words/boiled.mp3 | boiled | 1 |
 | /audio/child-mode/words/drain.mp3 | drain | 1 |
 | /audio/child-mode/words/crawled.mp3 | crawled | 1 |
-| /audio/child-mode/words/raced.mp3 | raced | 1 |
 | /audio/child-mode/words/popped.mp3 | popped | 1 |
-| /audio/child-mode/words/held.mp3 | held | 1 |
 | /audio/child-mode/words/sneak.mp3 | sneak | 1 |
 | /audio/child-mode/words/stomp.mp3 | stomp | 1 |
-| /audio/child-mode/words/march.mp3 | march | 1 |
 | /audio/child-mode/words/gallop.mp3 | gallop | 1 |
-| /audio/child-mode/words/fixed.mp3 | fixed | 1 |
-| /audio/child-mode/words/kicked.mp3 | kicked | 1 |
-| /audio/child-mode/words/dance.mp3 | dance | 1 |
-| /audio/child-mode/words/stage.mp3 | stage | 1 |
-| /audio/child-mode/words/music.mp3 | music | 1 |
-| /audio/child-mode/words/wrap.mp3 | wrap | 1 |
-| /audio/child-mode/words/bow.mp3 | bow | 1 |
-| /audio/child-mode/words/line.mp3 | line | 1 |
-| /audio/child-mode/words/giggled.mp3 | giggled | 1 |
-| /audio/child-mode/words/wept.mp3 | wept | 1 |
 | /audio/child-mode/words/frowned.mp3 | frowned | 1 |
-| /audio/child-mode/words/ay.mp3 | ay | 5 |
-| /audio/child-mode/words/ee.mp3 | ee | 17 |
-| /audio/child-mode/words/igh.mp3 | igh | 5 |
+| /audio/child-mode/words/wept.mp3 | wept | 1 |
 | /audio/child-mode/words/snale.mp3 | snale | 1 |
 | /audio/child-mode/words/snayl.mp3 | snayl | 1 |
 | /audio/child-mode/words/snaile.mp3 | snaile | 1 |
-| /audio/child-mode/words/paynt.mp3 | paynt | 1 |
 | /audio/child-mode/words/pante.mp3 | pante | 1 |
 | /audio/child-mode/words/painte.mp3 | painte | 1 |
-| /audio/child-mode/words/ew.mp3 | ew | 8 |
+| /audio/child-mode/words/paynt.mp3 | paynt | 1 |
+| /audio/child-mode/words/dae.mp3 | dae | 1 |
 | /audio/child-mode/words/dai.mp3 | dai | 1 |
 | /audio/child-mode/words/daye.mp3 | daye | 1 |
-| /audio/child-mode/words/dae.mp3 | dae | 1 |
 | /audio/child-mode/words/stai.mp3 | stai | 1 |
 | /audio/child-mode/words/staye.mp3 | staye | 1 |
 | /audio/child-mode/words/stae.mp3 | stae | 1 |
-| /audio/child-mode/words/ea.mp3 | ea | 6 |
-| /audio/child-mode/words/oo.mp3 | oo | 13 |
 | /audio/child-mode/words/sheap.mp3 | sheap | 1 |
 | /audio/child-mode/words/shepe.mp3 | shepe | 1 |
 | /audio/child-mode/words/shiep.mp3 | shiep | 1 |
-| /audio/child-mode/words/bea.mp3 | bea | 1 |
 | /audio/child-mode/words/bie.mp3 | bie | 1 |
 | /audio/child-mode/words/beey.mp3 | beey | 1 |
+| /audio/child-mode/words/bea.mp3 | bea | 1 |
 | /audio/child-mode/words/beech.mp3 | beech | 1 |
 | /audio/child-mode/words/beache.mp3 | beache | 1 |
 | /audio/child-mode/words/biech.mp3 | biech | 1 |
 | /audio/child-mode/words/bote.mp3 | bote | 1 |
 | /audio/child-mode/words/boet.mp3 | boet | 1 |
 | /audio/child-mode/words/boate.mp3 | boate | 1 |
-| /audio/child-mode/words/cote.mp3 | cote | 1 |
 | /audio/child-mode/words/coate.mp3 | coate | 1 |
 | /audio/child-mode/words/koat.mp3 | koat | 1 |
+| /audio/child-mode/words/cote.mp3 | cote | 1 |
+| /audio/child-mode/words/lyte.mp3 | lyte | 1 |
 | /audio/child-mode/words/lite.mp3 | lite | 1 |
 | /audio/child-mode/words/liht.mp3 | liht | 1 |
-| /audio/child-mode/words/lyte.mp3 | lyte | 1 |
 | /audio/child-mode/words/nite.mp3 | nite | 1 |
 | /audio/child-mode/words/niht.mp3 | niht | 1 |
 | /audio/child-mode/words/nighte.mp3 | nighte | 1 |
-| /audio/child-mode/words/ou.mp3 | ou | 5 |
-| /audio/child-mode/words/boot.mp3 | boot | 2 |
-| /audio/child-mode/words/room.mp3 | room | 2 |
-| /audio/child-mode/words/ow.mp3 | ow | 8 |
 | /audio/child-mode/words/aw.mp3 | aw | 5 |
-| /audio/child-mode/words/show.mp3 | show | 2 |
-| /audio/child-mode/words/fond.mp3 | fond | 1 |
-| /audio/child-mode/words/mouth.mp3 | mouth | 2 |
-| /audio/child-mode/words/soup.mp3 | soup | 1 |
-| /audio/child-mode/words/oi.mp3 | oi | 4 |
-| /audio/child-mode/words/oy.mp3 | oy | 5 |
-| /audio/child-mode/words/coin.mp3 | coin | 4 |
-| /audio/child-mode/words/toy.mp3 | toy | 3 |
-| /audio/child-mode/words/boy.mp3 | boy | 3 |
-| /audio/child-mode/words/coyn.mp3 | coyn | 1 |
 | /audio/child-mode/words/koin.mp3 | koin | 1 |
 | /audio/child-mode/words/coine.mp3 | coine | 1 |
-| /audio/child-mode/words/point.mp3 | point | 1 |
+| /audio/child-mode/words/coyn.mp3 | coyn | 1 |
 | /audio/child-mode/words/poynt.mp3 | poynt | 1 |
 | /audio/child-mode/words/poient.mp3 | poient | 1 |
 | /audio/child-mode/words/pointe.mp3 | pointe | 1 |
+| /audio/child-mode/words/joy.mp3 | joy | 3 |
 | /audio/child-mode/words/boi.mp3 | boi | 1 |
 | /audio/child-mode/words/boye.mp3 | boye | 1 |
 | /audio/child-mode/words/boey.mp3 | boey | 1 |
+| /audio/child-mode/words/toey.mp3 | toey | 1 |
 | /audio/child-mode/words/toi.mp3 | toi | 1 |
 | /audio/child-mode/words/toye.mp3 | toye | 1 |
-| /audio/child-mode/words/toey.mp3 | toey | 1 |
-| /audio/child-mode/words/ue.mp3 | ue | 2 |
-| /audio/child-mode/words/screw.mp3 | screw | 1 |
 | /audio/child-mode/words/fled.mp3 | fled | 1 |
-| /audio/child-mode/words/noo.mp3 | noo | 1 |
 | /audio/child-mode/words/nue.mp3 | nue | 1 |
 | /audio/child-mode/words/newe.mp3 | newe | 1 |
+| /audio/child-mode/words/noo.mp3 | noo | 1 |
 | /audio/child-mode/words/groo.mp3 | groo | 1 |
 | /audio/child-mode/words/grue.mp3 | grue | 1 |
 | /audio/child-mode/words/grewe.mp3 | grewe | 1 |
 | /audio/child-mode/words/sau.mp3 | sau | 1 |
 | /audio/child-mode/words/sawe.mp3 | sawe | 1 |
+| /audio/child-mode/words/cloar.mp3 | cloar | 1 |
 | /audio/child-mode/words/clau.mp3 | clau | 1 |
 | /audio/child-mode/words/clawe.mp3 | clawe | 1 |
-| /audio/child-mode/words/cloar.mp3 | cloar | 1 |
-| /audio/child-mode/words/tail.mp3 | tail | 1 |
-| /audio/child-mode/words/toast.mp3 | toast | 1 |
+| /audio/child-mode/words/raine.mp3 | raine | 1 |
 | /audio/child-mode/words/rane.mp3 | rane | 1 |
 | /audio/child-mode/words/rayn.mp3 | rayn | 1 |
-| /audio/child-mode/words/raine.mp3 | raine | 1 |
 | /audio/child-mode/words/straw.mp3 | straw | 1 |
-| /audio/child-mode/words/strap.mp3 | strap | 1 |
-| /audio/child-mode/words/food.mp3 | food | 1 |
 
 ## 5. Phrase recordings (shared pool /audio/child-mode/phrases)
 
@@ -4580,39 +3730,39 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/the-ducks-flew-south-802640.mp3 | the ducks flew south | 1 |
 | /audio/child-mode/phrases/the-park-closed-241ad3.mp3 | the park closed | 1 |
 | /audio/child-mode/phrases/the-nights-were-freezing-ee5a88.mp3 | the nights were freezing | 1 |
+| /audio/child-mode/phrases/it-began-to-rain-8336ea.mp3 | it began to rain | 1 |
 | /audio/child-mode/phrases/pigeons-came-to-eat-them-5ec98f.mp3 | pigeons came to eat them | 1 |
 | /audio/child-mode/phrases/the-flowers-grew-on-the-path-f9c34b.mp3 | the flowers grew on the path | 1 |
 | /audio/child-mode/phrases/zack-tipped-the-packet-fast-6e5a46.mp3 | Zack tipped the packet fast | 1 |
-| /audio/child-mode/phrases/it-began-to-rain-8336ea.mp3 | it began to rain | 1 |
-| /audio/child-mode/phrases/the-door-stopped-screeching-cfb78e.mp3 | the door stopped screeching | 1 |
-| /audio/child-mode/phrases/the-door-screeched-louder-1ba68e.mp3 | the door screeched louder | 1 |
 | /audio/child-mode/phrases/gran-bought-a-new-door-742452.mp3 | Gran bought a new door | 1 |
 | /audio/child-mode/phrases/the-baby-woke-up-crying-fff59e.mp3 | the baby woke up crying | 1 |
+| /audio/child-mode/phrases/the-door-stopped-screeching-cfb78e.mp3 | the door stopped screeching | 1 |
+| /audio/child-mode/phrases/the-door-screeched-louder-1ba68e.mp3 | the door screeched louder | 1 |
+| /audio/child-mode/phrases/its-flowers-turned-blue-fd8a6f.mp3 | its flowers turned blue | 1 |
 | /audio/child-mode/phrases/its-leaves-drooped-61dc52.mp3 | its leaves drooped | 1 |
 | /audio/child-mode/phrases/it-grew-taller-60e40a.mp3 | it grew taller | 1 |
 | /audio/child-mode/phrases/the-children-came-back-5a72c7.mp3 | the children came back | 1 |
-| /audio/child-mode/phrases/its-flowers-turned-blue-fd8a6f.mp3 | its flowers turned blue | 1 |
-| /audio/child-mode/phrases/melted-them-into-one-lump-fe120e.mp3 | melted them into one lump | 1 |
-| /audio/child-mode/phrases/snapped-them-in-half-4d65b1.mp3 | snapped them in half | 1 |
 | /audio/child-mode/phrases/made-them-longer-a536e6.mp3 | made them longer | 1 |
 | /audio/child-mode/phrases/left-them-on-the-seat-58ec68.mp3 | left them on the seat | 1 |
-| /audio/child-mode/phrases/her-hair-stuck-up-toward-it-733d33.mp3 | her hair stuck up toward it | 1 |
+| /audio/child-mode/phrases/melted-them-into-one-lump-fe120e.mp3 | melted them into one lump | 1 |
+| /audio/child-mode/phrases/snapped-them-in-half-4d65b1.mp3 | snapped them in half | 1 |
 | /audio/child-mode/phrases/the-balloon-popped-41ed83.mp3 | the balloon popped | 1 |
 | /audio/child-mode/phrases/her-jumper-changed-colour-5a2498.mp3 | her jumper changed colour | 1 |
 | /audio/child-mode/phrases/she-held-it-above-her-head-da3b7b.mp3 | she held it above her head | 1 |
-| /audio/child-mode/phrases/school-was-closed-9db8ad.mp3 | school was closed | 1 |
-| /audio/child-mode/phrases/the-radio-broke-1bbe23.mp3 | the radio broke | 1 |
+| /audio/child-mode/phrases/her-hair-stuck-up-toward-it-733d33.mp3 | her hair stuck up toward it | 1 |
 | /audio/child-mode/phrases/papa-lost-his-boots-6c5618.mp3 | Papa lost his boots | 1 |
 | /audio/child-mode/phrases/snow-fell-all-night-a7a0b4.mp3 | snow fell all night | 1 |
-| /audio/child-mode/phrases/popcorn-jumped-out-of-the-pot-9131c7.mp3 | popcorn jumped out of the pot | 1 |
+| /audio/child-mode/phrases/school-was-closed-9db8ad.mp3 | school was closed | 1 |
+| /audio/child-mode/phrases/the-radio-broke-1bbe23.mp3 | the radio broke | 1 |
 | /audio/child-mode/phrases/the-corn-would-not-pop-86ae08.mp3 | the corn would not pop | 1 |
 | /audio/child-mode/phrases/the-pot-went-cold-2d99e0.mp3 | the pot went cold | 1 |
 | /audio/child-mode/phrases/omar-pressed-the-lid-on-f9ce5b.mp3 | Omar pressed the lid on | 1 |
-| /audio/child-mode/phrases/the-water-inside-had-boiled-1cc9cb.mp3 | the water inside had boiled | 1 |
+| /audio/child-mode/phrases/popcorn-jumped-out-of-the-pot-9131c7.mp3 | popcorn jumped out of the pot | 1 |
 | /audio/child-mode/phrases/auntie-hurried-inside-a26430.mp3 | Auntie hurried inside | 1 |
 | /audio/child-mode/phrases/the-garden-was-noisy-267593.mp3 | the garden was noisy | 1 |
 | /audio/child-mode/phrases/the-trowel-banged-it-5a5619.mp3 | the trowel banged it | 1 |
-| /audio/child-mode/phrases/he-heard-the-gate-creak-first-19ae6b.mp3 | he heard the gate creak first | 1 |
+| /audio/child-mode/phrases/the-water-inside-had-boiled-1cc9cb.mp3 | the water inside had boiled | 1 |
+| /audio/child-mode/phrases/his-ears-noticed-movement-at-the-entrance-707d66.mp3 | his ears noticed movement at the entrance | 1 |
 | /audio/child-mode/phrases/he-saw-the-doorbell-ring-ec7afa.mp3 | he saw the doorbell ring | 1 |
 | /audio/child-mode/phrases/he-smelled-the-dinner-2919e2.mp3 | he smelled the dinner | 1 |
 | /audio/child-mode/phrases/the-delivery-man-called-his-name-eace7b.mp3 | the delivery man called his name | 1 |
@@ -4624,179 +3774,179 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/the-cone-had-a-hole-73ce36.mp3 | the cone had a hole | 1 |
 | /audio/child-mode/phrases/milly-licked-too-fast-5832f5.mp3 | Milly licked too fast | 1 |
 | /audio/child-mode/phrases/the-pavement-was-sticky-ca021a.mp3 | the pavement was sticky | 1 |
+| /audio/child-mode/phrases/a-train-was-passing-528197.mp3 | a train was passing | 1 |
 | /audio/child-mode/phrases/the-tunnel-walls-bounced-the-sound-9f7773.mp3 | the tunnel walls bounced the sound | 1 |
 | /audio/child-mode/phrases/someone-else-was-hiding-there-cdd39f.mp3 | someone else was hiding there | 1 |
 | /audio/child-mode/phrases/he-shouted-hello-1f82b4.mp3 | he shouted hello | 1 |
-| /audio/child-mode/phrases/a-train-was-passing-528197.mp3 | a train was passing | 1 |
+| /audio/child-mode/phrases/someone-painted-it-orange-5b0b55.mp3 | someone painted it orange | 1 |
 | /audio/child-mode/phrases/it-stood-out-in-the-wet-all-winter-cfbbf1.mp3 | it stood out in the wet all winter | 1 |
 | /audio/child-mode/phrases/mo-rode-it-too-fast-56d85f.mp3 | Mo rode it too fast | 1 |
 | /audio/child-mode/phrases/the-chain-was-stiff-450eb7.mp3 | the chain was stiff | 1 |
-| /audio/child-mode/phrases/someone-painted-it-orange-5b0b55.mp3 | someone painted it orange | 1 |
+| /audio/child-mode/phrases/a-dog-dug-it-up-93376e.mp3 | a dog dug it up | 1 |
 | /audio/child-mode/phrases/the-tide-came-in-over-it-6d3c5c.mp3 | the tide came in over it | 1 |
 | /audio/child-mode/phrases/rosa-stamped-on-it-b7abe1.mp3 | Rosa stamped on it | 1 |
 | /audio/child-mode/phrases/she-built-it-all-afternoon-94e30e.mp3 | she built it all afternoon | 1 |
-| /audio/child-mode/phrases/a-dog-dug-it-up-93376e.mp3 | a dog dug it up | 1 |
-| /audio/child-mode/phrases/years-of-sunlight-faded-them-a22adb.mp3 | years of sunlight faded them | 1 |
-| /audio/child-mode/phrases/they-were-washed-wrong-once-661c2c.mp3 | they were washed wrong once | 1 |
 | /audio/child-mode/phrases/the-shady-corner-protected-them-3ef1be.mp3 | the shady corner protected them | 1 |
 | /audio/child-mode/phrases/someone-swapped-the-curtains-1bce01.mp3 | someone swapped the curtains | 1 |
-| /audio/child-mode/phrases/the-moth-circled-because-the-light-attracted-1c2f5c.mp3 | The moth circled because the light attracted it. | 1 |
-| /audio/child-mode/phrases/the-light-glowed-because-the-moth-circled-it-71970c.mp3 | The light glowed because the moth circled it. | 1 |
+| /audio/child-mode/phrases/years-of-sunlight-faded-them-a22adb.mp3 | years of sunlight faded them | 1 |
+| /audio/child-mode/phrases/they-were-washed-wrong-once-661c2c.mp3 | they were washed wrong once | 1 |
 | /audio/child-mode/phrases/the-moth-circled-because-the-garden-was-loud-931f0f.mp3 | The moth circled because the garden was loud. | 1 |
 | /audio/child-mode/phrases/the-moth-slept-because-the-light-was-warm-d906e0.mp3 | The moth slept because the light was warm. | 1 |
-| /audio/child-mode/phrases/pia-s-shoes-hurt-because-her-feet-had-grown-eb7df8.mp3 | Pia's shoes hurt because her feet had grown. | 1 |
+| /audio/child-mode/phrases/the-moth-circled-because-the-light-attracted-1c2f5c.mp3 | The moth circled because the light attracted it. | 1 |
+| /audio/child-mode/phrases/the-light-glowed-because-the-moth-circled-it-71970c.mp3 | The light glowed because the moth circled it. | 1 |
 | /audio/child-mode/phrases/pia-s-feet-grew-because-her-shoes-hurt-e0842b.mp3 | Pia's feet grew because her shoes hurt. | 1 |
 | /audio/child-mode/phrases/pia-s-shoes-hurt-because-they-got-wet-931959.mp3 | Pia's shoes hurt because they got wet. | 1 |
 | /audio/child-mode/phrases/pia-s-feet-ached-because-she-skipped-lunch-9b5226.mp3 | Pia's feet ached because she skipped lunch. | 1 |
-| /audio/child-mode/phrases/the-bread-went-hard-because-it-was-left-unco-daf547.mp3 | The bread went hard because it was left uncovered. | 1 |
-| /audio/child-mode/phrases/the-bread-was-left-out-because-it-went-hard-56664f.mp3 | The bread was left out because it went hard. | 1 |
+| /audio/child-mode/phrases/pia-s-shoes-hurt-because-her-feet-had-grown-eb7df8.mp3 | Pia's shoes hurt because her feet had grown. | 1 |
 | /audio/child-mode/phrases/the-bread-went-hard-because-the-board-was-ol-16c26e.mp3 | The bread went hard because the board was old. | 1 |
 | /audio/child-mode/phrases/the-bread-stayed-soft-because-it-was-covered-6d5b35.mp3 | The bread stayed soft because it was covered. | 1 |
-| /audio/child-mode/phrases/the-marble-rolled-because-the-ramp-sloped-do-bd871e.mp3 | The marble rolled because the ramp sloped down. | 1 |
+| /audio/child-mode/phrases/the-bread-went-hard-because-it-was-left-unco-daf547.mp3 | The bread went hard because it was left uncovered. | 1 |
+| /audio/child-mode/phrases/the-bread-was-left-out-because-it-went-hard-56664f.mp3 | The bread was left out because it went hard. | 1 |
 | /audio/child-mode/phrases/the-ramp-sloped-because-the-marble-rolled-256590.mp3 | The ramp sloped because the marble rolled. | 1 |
 | /audio/child-mode/phrases/the-marble-rolled-because-the-rug-was-red-f81728.mp3 | The marble rolled because the rug was red. | 1 |
 | /audio/child-mode/phrases/the-marble-stopped-because-kip-let-go-20e25e.mp3 | The marble stopped because Kip let go. | 1 |
+| /audio/child-mode/phrases/the-marble-rolled-because-the-ramp-sloped-do-bd871e.mp3 | The marble rolled because the ramp sloped down. | 1 |
 | /audio/child-mode/phrases/the-worms-came-up-because-their-soil-filled-8d88ba.mp3 | The worms came up because their soil filled with rain. | 1 |
 | /audio/child-mode/phrases/the-rain-fell-because-the-worms-came-up-14bab4.mp3 | The rain fell because the worms came up. | 1 |
 | /audio/child-mode/phrases/the-worms-came-up-because-the-stones-were-wa-d7a072.mp3 | The worms came up because the stones were warm. | 1 |
 | /audio/child-mode/phrases/the-worms-hid-because-the-path-was-wet-8819aa.mp3 | The worms hid because the path was wet. | 1 |
-| /audio/child-mode/phrases/the-family-laughed-because-laughing-spreads-ad4765.mp3 | The family laughed because laughing spreads. | 1 |
 | /audio/child-mode/phrases/ivy-laughed-because-the-family-was-laughing-707eff.mp3 | Ivy laughed because the family was laughing. | 1 |
 | /audio/child-mode/phrases/the-family-laughed-because-the-newspaper-was-4e226c.mp3 | The family laughed because the newspaper was funny. | 1 |
 | /audio/child-mode/phrases/grandma-stopped-laughing-because-of-dad-935012.mp3 | Grandma stopped laughing because of Dad. | 1 |
+| /audio/child-mode/phrases/the-family-laughed-because-laughing-spreads-ad4765.mp3 | The family laughed because laughing spreads. | 1 |
 | /audio/child-mode/phrases/the-flame-flickered-because-the-door-let-in-c365aa.mp3 | The flame flickered because the door let in a draught. | 1 |
 | /audio/child-mode/phrases/the-door-opened-because-the-flame-flickered-b98342.mp3 | The door opened because the flame flickered. | 1 |
 | /audio/child-mode/phrases/the-flame-flickered-because-the-wax-was-old-82f56f.mp3 | The flame flickered because the wax was old. | 1 |
 | /audio/child-mode/phrases/the-flame-grew-taller-because-of-the-wind-b3551e.mp3 | The flame grew taller because of the wind. | 1 |
-| /audio/child-mode/phrases/suki-fell-asleep-because-everything-made-her-90244a.mp3 | Suki fell asleep because everything made her cosy and calm. | 1 |
+| /audio/child-mode/phrases/suki-stayed-awake-because-of-the-milk-5fdc56.mp3 | Suki stayed awake because of the milk. | 1 |
+| /audio/child-mode/phrases/the-bedtime-routine-relaxed-suki-until-she-s-59009d.mp3 | The bedtime routine relaxed Suki until she slept. | 1 |
 | /audio/child-mode/phrases/papa-read-the-story-because-suki-fell-asleep-3267d6.mp3 | Papa read the story because Suki fell asleep. | 1 |
 | /audio/child-mode/phrases/suki-fell-asleep-because-the-story-was-scary-3ffede.mp3 | Suki fell asleep because the story was scary. | 1 |
-| /audio/child-mode/phrases/suki-stayed-awake-because-of-the-milk-5fdc56.mp3 | Suki stayed awake because of the milk. | 1 |
-| /audio/child-mode/phrases/uncle-josh-jumped-back-from-the-counter-54342d.mp3 | Uncle Josh jumped back from the counter | 1 |
+| /audio/child-mode/phrases/someone-washed-the-dishes-5023ff.mp3 | someone washed the dishes | 1 |
+| /audio/child-mode/phrases/he-moved-suddenly-and-struck-the-bag-with-hi-7af949.mp3 | he moved suddenly and struck the bag with his elbow | 1 |
 | /audio/child-mode/phrases/the-wasp-smelled-the-jam-bf3e96.mp3 | the wasp smelled the jam | 1 |
 | /audio/child-mode/phrases/flour-settled-on-the-dishes-a48b08.mp3 | flour settled on the dishes | 1 |
-| /audio/child-mode/phrases/someone-washed-the-dishes-5023ff.mp3 | someone washed the dishes | 1 |
 | /audio/child-mode/phrases/its-cracked-pot-had-lost-half-its-soil-ff7fdd.mp3 | its cracked pot had lost half its soil | 1 |
 | /audio/child-mode/phrases/the-pigeons-knocked-it-fb8886.mp3 | the pigeons knocked it | 1 |
 | /audio/child-mode/phrases/it-startled-the-pigeons-fe9c05.mp3 | it startled the pigeons | 1 |
 | /audio/child-mode/phrases/the-frost-landed-on-its-leaves-fc1736.mp3 | the frost landed on its leaves | 1 |
-| /audio/child-mode/phrases/water-found-the-gap-by-the-pipe-94fe3d.mp3 | water found the gap by the pipe | 1 |
 | /audio/child-mode/phrases/dee-answered-the-phone-2ea8e2.mp3 | Dee answered the phone | 1 |
 | /audio/child-mode/phrases/dee-hung-up-the-phone-d14c46.mp3 | Dee hung up the phone | 1 |
 | /audio/child-mode/phrases/the-kitchen-ceiling-was-painted-4bcc9b.mp3 | the kitchen ceiling was painted | 1 |
-| /audio/child-mode/phrases/the-hard-yard-made-the-ball-bounce-higher-1881d3.mp3 | the hard yard made the ball bounce higher | 1 |
-| /audio/child-mode/phrases/the-pitch-flooded-on-friday-5f37a7.mp3 | the pitch flooded on Friday | 1 |
+| /audio/child-mode/phrases/water-found-the-gap-by-the-pipe-94fe3d.mp3 | water found the gap by the pipe | 1 |
 | /audio/child-mode/phrases/mr-njoku-threw-them-back-7e12ac.mp3 | Mr Njoku threw them back | 1 |
 | /audio/child-mode/phrases/the-tomatoes-attracted-the-balls-45311b.mp3 | the tomatoes attracted the balls | 1 |
-| /audio/child-mode/phrases/the-softened-ice-cream-dripped-onto-them-bc1e59.mp3 | the softened ice cream dripped onto them | 1 |
+| /audio/child-mode/phrases/the-firm-ground-sent-each-bounce-over-the-fe-6e157a.mp3 | the firm ground sent each bounce over the fence | 1 |
+| /audio/child-mode/phrases/the-pitch-flooded-on-friday-5f37a7.mp3 | the pitch flooded on Friday | 1 |
+| /audio/child-mode/phrases/someone-bought-more-peas-44dc7a.mp3 | someone bought more peas | 1 |
+| /audio/child-mode/phrases/meltwater-from-above-glued-them-into-one-blo-fff99e.mp3 | meltwater from above glued them into one block | 1 |
 | /audio/child-mode/phrases/the-door-was-propped-open-9f5bd8.mp3 | the door was propped open | 1 |
 | /audio/child-mode/phrases/the-party-guests-arrived-28dda0.mp3 | the party guests arrived | 1 |
-| /audio/child-mode/phrases/someone-bought-more-peas-44dc7a.mp3 | someone bought more peas | 1 |
 | /audio/child-mode/phrases/the-lift-stopped-at-every-floor-eef166.mp3 | the lift stopped at every floor | 1 |
 | /audio/child-mode/phrases/her-name-was-called-early-9093e1.mp3 | her name was called early | 1 |
 | /audio/child-mode/phrases/she-pressed-every-button-6c6cb7.mp3 | she pressed every button | 1 |
 | /audio/child-mode/phrases/she-burst-out-of-the-doors-9a87e4.mp3 | she burst out of the doors | 1 |
-| /audio/child-mode/phrases/the-tailless-kite-went-into-a-spin-47e1e7.mp3 | the tailless kite went into a spin | 1 |
 | /audio/child-mode/phrases/the-caretaker-wound-it-there-498170.mp3 | the caretaker wound it there | 1 |
 | /audio/child-mode/phrases/the-kite-rattled-like-a-bird-7d0fe8.mp3 | the kite rattled like a bird | 1 |
 | /audio/child-mode/phrases/the-string-was-too-short-ca2c12.mp3 | the string was too short | 1 |
-| /audio/child-mode/phrases/dried-fluff-showed-all-over-the-glass-af7ca9.mp3 | dried fluff showed all over the glass | 1 |
-| /audio/child-mode/phrases/the-shower-steamed-the-mirror-3b5a26.mp3 | the shower steamed the mirror | 1 |
+| /audio/child-mode/phrases/the-tailless-kite-went-into-a-spin-47e1e7.mp3 | the tailless kite went into a spin | 1 |
 | /audio/child-mode/phrases/he-cleaned-the-whole-bathroom-d8deb1.mp3 | he cleaned the whole bathroom | 1 |
 | /audio/child-mode/phrases/the-towel-fell-in-the-bath-f4fd43.mp3 | the towel fell in the bath | 1 |
+| /audio/child-mode/phrases/the-first-wipe-left-visible-fibres-behind-5b27f4.mp3 | the first wipe left visible fibres behind | 1 |
+| /audio/child-mode/phrases/the-shower-steamed-the-mirror-3b5a26.mp3 | the shower steamed the mirror | 1 |
 | /audio/child-mode/phrases/the-fair-sold-out-of-tickets-early-59c592.mp3 | the fair sold out of tickets early | 1 |
 | /audio/child-mode/phrases/the-warm-dry-weather-5f8b25.mp3 | the warm, dry weather | 1 |
 | /audio/child-mode/phrases/the-popular-baking-stall-f943cc.mp3 | the popular baking stall | 1 |
 | /audio/child-mode/phrases/payday-weekend-211816.mp3 | payday weekend | 1 |
-| /audio/child-mode/phrases/his-little-sister-woke-him-early-ff8f5c.mp3 | his little sister woke him early | 1 |
 | /audio/child-mode/phrases/staying-up-late-with-his-comic-79818c.mp3 | staying up late with his comic | 1 |
 | /audio/child-mode/phrases/his-phone-dying-overnight-c6dec7.mp3 | his phone dying overnight | 1 |
 | /audio/child-mode/phrases/the-thick-dark-curtains-442127.mp3 | the thick dark curtains | 1 |
+| /audio/child-mode/phrases/his-little-sister-woke-him-early-ff8f5c.mp3 | his little sister woke him early | 1 |
+| /audio/child-mode/phrases/cold-nights-by-the-glass-af11c1.mp3 | cold nights by the glass | 1 |
 | /audio/child-mode/phrases/too-little-water-3378b6.mp3 | too little water | 1 |
 | /audio/child-mode/phrases/daily-watering-275ef1.mp3 | daily watering | 1 |
 | /audio/child-mode/phrases/a-pot-with-no-drain-hole-707171.mp3 | a pot with no drain hole | 1 |
-| /audio/child-mode/phrases/cold-nights-by-the-glass-af11c1.mp3 | cold nights by the glass | 1 |
+| /audio/child-mode/phrases/children-coming-in-already-sniffing-201cbe.mp3 | children coming in already sniffing | 1 |
 | /audio/child-mode/phrases/the-class-played-outside-too-long-28ef78.mp3 | the class played outside too long | 1 |
 | /audio/child-mode/phrases/crowding-indoors-all-week-d00fe5.mp3 | crowding indoors all week | 1 |
 | /audio/child-mode/phrases/the-unaired-stuffy-room-37a71b.mp3 | the unaired, stuffy room | 1 |
-| /audio/child-mode/phrases/children-coming-in-already-sniffing-201cbe.mp3 | children coming in already sniffing | 1 |
 | /audio/child-mode/phrases/someone-cut-the-rope-with-scissors-a70008.mp3 | someone cut the rope with scissors | 1 |
 | /audio/child-mode/phrases/years-of-weather-wearing-the-fibres-ba4758.mp3 | years of weather wearing the fibres | 1 |
 | /audio/child-mode/phrases/the-knot-rubbing-the-branch-cb246f.mp3 | the knot rubbing the branch | 1 |
 | /audio/child-mode/phrases/two-riders-at-once-c9e7c8.mp3 | two riders at once | 1 |
-| /audio/child-mode/phrases/the-bakery-had-cut-all-its-prices-759418.mp3 | the bakery had cut all its prices | 1 |
-| /audio/child-mode/phrases/the-food-show-clips-285828.mp3 | the food show clips | 1 |
 | /audio/child-mode/phrases/the-rival-bakery-being-shut-6723ee.mp3 | the rival bakery being shut | 1 |
 | /audio/child-mode/phrases/the-first-plum-tarts-of-the-year-fbbd67.mp3 | the first plum tarts of the year | 1 |
-| /audio/child-mode/phrases/the-phone-was-switched-off-3aa3da.mp3 | the phone was switched off | 1 |
-| /audio/child-mode/phrases/the-roaring-blender-1d21e2.mp3 | the roaring blender | 1 |
+| /audio/child-mode/phrases/the-bakery-had-cut-all-its-prices-759418.mp3 | the bakery had cut all its prices | 1 |
+| /audio/child-mode/phrases/the-food-show-clips-285828.mp3 | the food show clips | 1 |
 | /audio/child-mode/phrases/the-radio-playing-cricket-d3a478.mp3 | the radio playing cricket | 1 |
 | /audio/child-mode/phrases/the-phone-buried-in-the-sofa-260f5b.mp3 | the phone buried in the sofa | 1 |
+| /audio/child-mode/phrases/the-phone-was-switched-off-3aa3da.mp3 | the phone was switched off | 1 |
+| /audio/child-mode/phrases/the-roaring-blender-1d21e2.mp3 | the roaring blender | 1 |
+| /audio/child-mode/phrases/tired-arms-from-swimming-1dee46.mp3 | tired arms from swimming | 1 |
 | /audio/child-mode/phrases/a-leak-let-water-into-the-boat-faa513.mp3 | a leak let water into the boat | 1 |
 | /audio/child-mode/phrases/the-tide-against-them-e039a3.mp3 | the tide against them | 1 |
 | /audio/child-mode/phrases/the-wind-in-their-faces-3107fb.mp3 | the wind in their faces | 1 |
-| /audio/child-mode/phrases/tired-arms-from-swimming-1dee46.mp3 | tired arms from swimming | 1 |
-| /audio/child-mode/phrases/the-cat-picked-a-spot-and-children-followed-cce16d.mp3 | the cat picked a spot and children followed | 1 |
 | /audio/child-mode/phrases/the-children-picked-a-spot-and-the-cat-follo-3ae424.mp3 | the children picked a spot and the cat followed | 1 |
 | /audio/child-mode/phrases/the-dinner-ladies-called-them-together-2d23a8.mp3 | the dinner ladies called them together | 1 |
 | /audio/child-mode/phrases/the-sun-followed-the-children-4e605c.mp3 | the sun followed the children | 1 |
-| /audio/child-mode/phrases/two-months-of-ticked-off-training-e2ca2e.mp3 | two months of ticked-off training | 1 |
-| /audio/child-mode/phrases/the-lucky-red-socks-a861d0.mp3 | the lucky red socks | 1 |
+| /audio/child-mode/phrases/the-cat-picked-a-spot-and-children-followed-cce16d.mp3 | the cat picked a spot and children followed | 1 |
 | /audio/child-mode/phrases/winning-three-races-bd834d.mp3 | winning three races | 1 |
 | /audio/child-mode/phrases/the-coach-s-smile-641edd.mp3 | the coach's smile | 1 |
-| /audio/child-mode/phrases/dad-going-to-the-food-cupboard-f4c9e3.mp3 | Dad going to the food cupboard | 1 |
+| /audio/child-mode/phrases/her-steady-practice-over-many-weeks-92979d.mp3 | her steady practice over many weeks | 1 |
+| /audio/child-mode/phrases/the-lucky-red-socks-a861d0.mp3 | the lucky red socks | 1 |
 | /audio/child-mode/phrases/the-creaking-floorboard-itself-386b1b.mp3 | the creaking floorboard itself | 1 |
 | /audio/child-mode/phrases/biscuit-appearing-in-the-kitchen-f46fbf.mp3 | Biscuit appearing in the kitchen | 1 |
 | /audio/child-mode/phrases/the-visitor-watching-7fd75b.mp3 | the visitor watching | 1 |
+| /audio/child-mode/phrases/dad-going-to-the-food-cupboard-f4c9e3.mp3 | Dad going to the food cupboard | 1 |
 | /audio/child-mode/phrases/crowd-and-band-drove-each-other-louder-644a43.mp3 | crowd and band drove each other louder | 1 |
 | /audio/child-mode/phrases/only-the-band-made-the-crowd-loud-4f92d5.mp3 | only the band made the crowd loud | 1 |
 | /audio/child-mode/phrases/only-the-crowd-made-the-band-loud-253555.mp3 | only the crowd made the band loud | 1 |
 | /audio/child-mode/phrases/the-hall-s-engine-made-the-noise-f2ad3e.mp3 | the hall's engine made the noise | 1 |
-| /audio/child-mode/phrases/first-drops-make-people-open-umbrellas-28bb99.mp3 | first drops make people open umbrellas | 1 |
 | /audio/child-mode/phrases/open-umbrellas-pull-down-the-rain-94b25a.mp3 | open umbrellas pull down the rain | 1 |
 | /audio/child-mode/phrases/gran-signals-the-street-3dfc65.mp3 | Gran signals the street | 1 |
 | /audio/child-mode/phrases/the-pavement-attracts-clouds-1116af.mp3 | the pavement attracts clouds | 1 |
+| /audio/child-mode/phrases/first-drops-make-people-open-umbrellas-28bb99.mp3 | first drops make people open umbrellas | 1 |
 | /audio/child-mode/phrases/hours-had-passed-since-his-small-lunch-fa1a78.mp3 | hours had passed since his small lunch | 1 |
 | /audio/child-mode/phrases/the-van-s-tune-made-him-hungry-5a074b.mp3 | the van's tune made him hungry | 1 |
 | /audio/child-mode/phrases/his-rumbling-tummy-called-the-van-c0dcf8.mp3 | his rumbling tummy called the van | 1 |
 | /audio/child-mode/phrases/mum-s-laughing-reminded-him-3dbe08.mp3 | Mum's laughing reminded him | 1 |
+| /audio/child-mode/phrases/the-vet-taught-the-rooster-to-crow-c7ee96.mp3 | the vet taught the rooster to crow | 1 |
 | /audio/child-mode/phrases/dawn-light-wakes-the-rooster-so-he-crows-322c90.mp3 | dawn light wakes the rooster, so he crows | 1 |
 | /audio/child-mode/phrases/the-rooster-s-crow-raises-the-sun-b8446e.mp3 | the rooster's crow raises the sun | 1 |
 | /audio/child-mode/phrases/the-farmer-wakes-the-rooster-c75a7c.mp3 | the farmer wakes the rooster | 1 |
-| /audio/child-mode/phrases/the-vet-taught-the-rooster-to-crow-c7ee96.mp3 | the vet taught the rooster to crow | 1 |
 | /audio/child-mode/phrases/big-fires-bring-many-firefighters-985a3f.mp3 | big fires bring many firefighters | 1 |
 | /audio/child-mode/phrases/many-firefighters-make-fires-big-af9817.mp3 | many firefighters make fires big | 1 |
 | /audio/child-mode/phrases/small-fires-send-firefighters-away-af8945.mp3 | small fires send firefighters away | 1 |
 | /audio/child-mode/phrases/posters-cause-fewer-fires-8c1984.mp3 | posters cause fewer fires | 1 |
+| /audio/child-mode/phrases/the-can-went-cold-584b09.mp3 | the can went cold | 1 |
 | /audio/child-mode/phrases/the-drink-sprayed-out-when-opened-902685.mp3 | the drink sprayed out when opened | 1 |
 | /audio/child-mode/phrases/the-drink-went-flat-6ab4a8.mp3 | the drink went flat | 1 |
 | /audio/child-mode/phrases/dad-opened-it-at-the-table-1c8374.mp3 | Dad opened it at the table | 1 |
-| /audio/child-mode/phrases/the-can-went-cold-584b09.mp3 | the can went cold | 1 |
-| /audio/child-mode/phrases/it-drained-the-batteries-aa84d6.mp3 | it drained the batteries | 1 |
-| /audio/child-mode/phrases/it-cracked-the-glass-d3b97b.mp3 | it cracked the glass | 1 |
 | /audio/child-mode/phrases/it-made-the-beam-brighter-7f88d6.mp3 | it made the beam brighter | 1 |
 | /audio/child-mode/phrases/it-started-the-camp-out-f16b34.mp3 | it started the camp-out | 1 |
-| /audio/child-mode/phrases/the-cat-s-fur-set-off-her-allergy-3d3733.mp3 | the cat's fur set off her allergy | 1 |
+| /audio/child-mode/phrases/it-drained-the-batteries-aa84d6.mp3 | it drained the batteries | 1 |
+| /audio/child-mode/phrases/it-cracked-the-glass-d3b97b.mp3 | it cracked the glass | 1 |
 | /audio/child-mode/phrases/she-had-caught-a-cold-saying-hello-e31a91.mp3 | she had caught a cold saying hello | 1 |
 | /audio/child-mode/phrases/her-watery-eyes-made-her-sneeze-41cb27.mp3 | her watery eyes made her sneeze | 1 |
 | /audio/child-mode/phrases/the-neighbour-was-dusty-52c290.mp3 | the neighbour was dusty | 1 |
+| /audio/child-mode/phrases/the-cat-s-fur-set-off-her-allergy-3d3733.mp3 | the cat's fur set off her allergy | 1 |
 | /audio/child-mode/phrases/mould-grew-on-them-over-the-weeks-77bf8a.mp3 | mould grew on them over the weeks | 1 |
 | /audio/child-mode/phrases/the-fridge-froze-them-167646.mp3 | the fridge froze them | 1 |
 | /audio/child-mode/phrases/val-found-the-box-241051.mp3 | Val found the box | 1 |
 | /audio/child-mode/phrases/a-mouse-slept-on-them-f45743.mp3 | a mouse slept on them | 1 |
+| /audio/child-mode/phrases/the-bath-stayed-full-because-of-the-chain-8ee1dc.mp3 | The bath stayed full because of the chain. | 1 |
 | /audio/child-mode/phrases/the-bath-emptied-because-the-plug-had-come-l-49c1f1.mp3 | The bath emptied because the plug had come loose. | 1 |
 | /audio/child-mode/phrases/the-plug-came-loose-because-the-bath-emptied-8c60d8.mp3 | The plug came loose because the bath emptied. | 1 |
 | /audio/child-mode/phrases/the-bath-emptied-because-the-water-was-cold-4f9eec.mp3 | The bath emptied because the water was cold. | 1 |
-| /audio/child-mode/phrases/the-bath-stayed-full-because-of-the-chain-8ee1dc.mp3 | The bath stayed full because of the chain. | 1 |
-| /audio/child-mode/phrases/the-balloon-rose-because-the-gas-inside-was-3cc45e.mp3 | The balloon rose because the gas inside was lighter than air. | 1 |
-| /audio/child-mode/phrases/the-ceiling-pulled-the-balloon-up-2f9c8d.mp3 | The ceiling pulled the balloon up. | 1 |
 | /audio/child-mode/phrases/the-balloon-rose-because-nia-held-it-tight-405d1f.mp3 | The balloon rose because Nia held it tight. | 1 |
 | /audio/child-mode/phrases/the-broom-kept-the-balloon-up-4ad18e.mp3 | The broom kept the balloon up. | 1 |
-| /audio/child-mode/phrases/it-stole-a-chip-60d64d.mp3 | it stole a chip | 1 |
+| /audio/child-mode/phrases/light-gas-carried-the-balloon-upward-ff7a68.mp3 | Light gas carried the balloon upward. | 1 |
+| /audio/child-mode/phrases/the-ceiling-pulled-the-balloon-up-2f9c8d.mp3 | The ceiling pulled the balloon up. | 1 |
 | /audio/child-mode/phrases/pia-sat-on-the-wall-8ce889.mp3 | Pia sat on the wall | 1 |
 | /audio/child-mode/phrases/the-bag-blew-away-9d2cf7.mp3 | the bag blew away | 1 |
 | /audio/child-mode/phrases/the-tide-came-in-88d400.mp3 | the tide came in | 1 |
-| /audio/child-mode/phrases/gum-was-stuck-around-a-wheel-62c1ed.mp3 | gum was stuck around a wheel | 1 |
+| /audio/child-mode/phrases/it-stole-a-chip-60d64d.mp3 | it stole a chip | 1 |
+| /audio/child-mode/phrases/chewing-gum-stopped-one-wheel-turning-smooth-61d1d0.mp3 | chewing gum stopped one wheel turning smoothly | 1 |
 | /audio/child-mode/phrases/the-shopping-was-too-heavy-188f20.mp3 | the shopping was too heavy | 1 |
 | /audio/child-mode/phrases/its-song-annoyed-dad-b6d037.mp3 | its song annoyed Dad | 1 |
 | /audio/child-mode/phrases/the-floor-was-wet-bf8386.mp3 | the floor was wet | 1 |
@@ -4804,123 +3954,117 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/the-giggling-7533e5.mp3 | the giggling | 1 |
 | /audio/child-mode/phrases/putting-the-glass-down-3d4408.mp3 | putting the glass down | 1 |
 | /audio/child-mode/phrases/a-scary-story-24eb15.mp3 | a scary story | 1 |
-| /audio/child-mode/phrases/flecks-from-the-paint-skin-lumped-the-first-a6340a.mp3 | flecks from the paint skin lumped the first coat | 1 |
+| /audio/child-mode/phrases/the-brush-was-too-wide-6b5a74.mp3 | the brush was too wide | 1 |
+| /audio/child-mode/phrases/the-first-coat-dried-with-bumps-in-it-549dd8.mp3 | the first coat dried with bumps in it | 1 |
 | /audio/child-mode/phrases/the-tin-was-left-open-overnight-882a18.mp3 | the tin was left open overnight | 1 |
 | /audio/child-mode/phrases/dad-sanded-the-door-50dff8.mp3 | Dad sanded the door | 1 |
-| /audio/child-mode/phrases/the-brush-was-too-wide-6b5a74.mp3 | the brush was too wide | 1 |
-| /audio/child-mode/phrases/a-hot-wind-blew-all-day-aedd8e.mp3 | a hot wind blew all day | 1 |
-| /audio/child-mode/phrases/the-damp-misty-morning-a62e79.mp3 | the damp, misty morning | 1 |
 | /audio/child-mode/phrases/the-shady-corner-5423d4.mp3 | the shady corner | 1 |
 | /audio/child-mode/phrases/clothes-pegged-up-dripping-ffef35.mp3 | clothes pegged up dripping | 1 |
-| /audio/child-mode/phrases/a-child-took-him-home-1b5b67.mp3 | a child took him home | 1 |
+| /audio/child-mode/phrases/a-hot-wind-blew-all-day-aedd8e.mp3 | a hot wind blew all day | 1 |
+| /audio/child-mode/phrases/the-damp-misty-morning-a62e79.mp3 | the damp, misty morning | 1 |
 | /audio/child-mode/phrases/the-weak-latch-f9c022.mp3 | the weak latch | 1 |
 | /audio/child-mode/phrases/the-shelf-right-beside-the-cage-d282ad.mp3 | the shelf right beside the cage | 1 |
 | /audio/child-mode/phrases/the-extra-carrot-night-opening-be8e45.mp3 | the extra carrot-night opening | 1 |
+| /audio/child-mode/phrases/a-child-took-him-home-1b5b67.mp3 | a child took him home | 1 |
 | /audio/child-mode/phrases/hot-sun-causes-both-at-once-e0cc67.mp3 | hot sun causes both at once | 1 |
 | /audio/child-mode/phrases/ice-cream-causes-sunburn-4ef8c7.mp3 | ice cream causes sunburn | 1 |
 | /audio/child-mode/phrases/sunburn-makes-people-buy-cones-daf1b5.mp3 | sunburn makes people buy cones | 1 |
 | /audio/child-mode/phrases/the-newspaper-causes-july-b5eefb.mp3 | the newspaper causes July | 1 |
+| /audio/child-mode/phrases/the-switch-is-in-his-chair-14b5ac.mp3 | the switch is in his chair | 1 |
 | /audio/child-mode/phrases/evening-darkness-triggers-both-347e0e.mp3 | evening darkness triggers both | 1 |
 | /audio/child-mode/phrases/grandad-s-yawns-switch-on-the-lights-b7483d.mp3 | Grandad's yawns switch on the lights | 1 |
 | /audio/child-mode/phrases/the-streetlights-make-him-yawn-23076d.mp3 | the streetlights make him yawn | 1 |
-| /audio/child-mode/phrases/the-switch-is-in-his-chair-14b5ac.mp3 | the switch is in his chair | 1 |
-| /audio/child-mode/phrases/the-magnet-had-pulled-the-compass-off-north-144c66.mp3 | the magnet had pulled the compass off north | 1 |
-| /audio/child-mode/phrases/the-compass-broke-in-the-rain-716996.mp3 | the compass broke in the rain | 1 |
 | /audio/child-mode/phrases/they-turned-left-at-the-fork-e2896a.mp3 | they turned left at the fork | 1 |
 | /audio/child-mode/phrases/the-stile-moved-f81677.mp3 | the stile moved | 1 |
-| /audio/child-mode/phrases/the-wax-was-too-soft-a454fc.mp3 | the wax was too soft | 1 |
+| /audio/child-mode/phrases/a-pocket-magnet-misdirected-the-needle-5113e8.mp3 | a pocket magnet misdirected the needle | 1 |
+| /audio/child-mode/phrases/the-compass-broke-in-the-rain-716996.mp3 | the compass broke in the rain | 1 |
 | /audio/child-mode/phrases/the-open-back-door-8a1f7a.mp3 | the open back door | 1 |
 | /audio/child-mode/phrases/the-ceiling-fan-4eefcc.mp3 | the ceiling fan | 1 |
 | /audio/child-mode/phrases/the-puffing-cousins-d0a542.mp3 | the puffing cousins | 1 |
-| /audio/child-mode/phrases/very-sleepy-3a3cd4.mp3 | very sleepy | 1 |
+| /audio/child-mode/phrases/the-wax-was-too-soft-a454fc.mp3 | the wax was too soft | 1 |
+| /audio/child-mode/phrases/quite-angry-278159.mp3 | quite angry | 1 |
 | /audio/child-mode/phrases/very-hungry-213bea.mp3 | very hungry | 3 |
 | /audio/child-mode/phrases/wide-awake-d7d617.mp3 | wide awake | 1 |
-| /audio/child-mode/phrases/quite-angry-278159.mp3 | quite angry | 1 |
-| /audio/child-mode/phrases/easily-broken-367776.mp3 | easily broken | 1 |
 | /audio/child-mode/phrases/very-heavy-f174f4.mp3 | very heavy | 1 |
 | /audio/child-mode/phrases/impossible-to-break-1402d3.mp3 | impossible to break | 1 |
 | /audio/child-mode/phrases/full-of-flowers-ec70d9.mp3 | full of flowers | 1 |
-| /audio/child-mode/phrases/strong-and-well-made-123aed.mp3 | strong and well made | 1 |
 | /audio/child-mode/phrases/bright-and-colourful-5b9567.mp3 | bright and colourful | 1 |
 | /audio/child-mode/phrases/weak-and-floppy-8848d9.mp3 | weak and floppy | 1 |
 | /audio/child-mode/phrases/brand-new-f19e13.mp3 | brand new | 2 |
-| /audio/child-mode/phrases/a-soft-sound-of-talking-c4dfd0.mp3 | a soft sound of talking | 1 |
-| /audio/child-mode/phrases/a-loud-crash-2494cb.mp3 | a loud crash | 1 |
+| /audio/child-mode/phrases/strong-and-well-made-123aed.mp3 | strong and well made | 1 |
 | /audio/child-mode/phrases/a-kind-of-stair-92d464.mp3 | a kind of stair | 1 |
 | /audio/child-mode/phrases/a-bright-light-411b39.mp3 | a bright light | 1 |
+| /audio/child-mode/phrases/a-soft-sound-of-talking-c4dfd0.mp3 | a soft sound of talking | 1 |
+| /audio/child-mode/phrases/a-loud-crash-2494cb.mp3 | a loud crash | 1 |
+| /audio/child-mode/phrases/small-and-light-b6636b.mp3 | small and light | 1 |
 | /audio/child-mode/phrases/sharp-and-rough-at-the-edges-2127c5.mp3 | sharp and rough at the edges | 1 |
 | /audio/child-mode/phrases/smooth-and-round-c38851.mp3 | smooth and round | 1 |
 | /audio/child-mode/phrases/wet-and-shiny-9db1cd.mp3 | wet and shiny | 1 |
-| /audio/child-mode/phrases/small-and-light-b6636b.mp3 | small and light | 1 |
 | /audio/child-mode/phrases/empty-on-the-inside-cd460f.mp3 | empty on the inside | 1 |
 | /audio/child-mode/phrases/solid-all-the-way-through-dd3e23.mp3 | solid all the way through | 1 |
 | /audio/child-mode/phrases/covered-in-leaves-5f8ef7.mp3 | covered in leaves | 1 |
 | /audio/child-mode/phrases/very-long-3da10f.mp3 | very long | 1 |
-| /audio/child-mode/phrases/uncomfortably-cold-435ff5.mp3 | uncomfortably cold | 2 |
 | /audio/child-mode/phrases/nice-and-warm-da77d1.mp3 | nice and warm | 1 |
 | /audio/child-mode/phrases/very-narrow-2dd353.mp3 | very narrow | 1 |
 | /audio/child-mode/phrases/too-dark-ef7047.mp3 | too dark | 1 |
-| /audio/child-mode/phrases/to-fix-something-b15b8a.mp3 | to fix something | 1 |
-| /audio/child-mode/phrases/to-throw-something-away-783d74.mp3 | to throw something away | 1 |
+| /audio/child-mode/phrases/uncomfortably-cold-435ff5.mp3 | uncomfortably cold | 2 |
 | /audio/child-mode/phrases/to-paint-something-5b4891.mp3 | to paint something | 1 |
 | /audio/child-mode/phrases/to-hide-something-12fc42.mp3 | to hide something | 1 |
+| /audio/child-mode/phrases/to-fix-something-b15b8a.mp3 | to fix something | 1 |
+| /audio/child-mode/phrases/to-throw-something-away-783d74.mp3 | to throw something away | 1 |
 | /audio/child-mode/phrases/a-big-special-meal-620fa4.mp3 | a big special meal | 1 |
 | /audio/child-mode/phrases/a-small-snack-db1125.mp3 | a small snack | 1 |
 | /audio/child-mode/phrases/a-kind-of-basket-e9f7c2.mp3 | a kind of basket | 1 |
 | /audio/child-mode/phrases/a-long-walk-903703.mp3 | a long walk | 1 |
-| /audio/child-mode/phrases/a-mess-of-things-not-needed-547c4c.mp3 | a mess of things not needed | 1 |
 | /audio/child-mode/phrases/a-neat-row-of-books-4d4505.mp3 | a neat row of books | 1 |
 | /audio/child-mode/phrases/a-set-of-school-rules-537496.mp3 | a set of school rules | 1 |
 | /audio/child-mode/phrases/a-kind-of-desk-aaa6a6.mp3 | a kind of desk | 1 |
-| /audio/child-mode/phrases/very-very-big-1aae9c.mp3 | very, very big | 1 |
+| /audio/child-mode/phrases/a-mess-of-things-not-needed-547c4c.mp3 | a mess of things not needed | 1 |
+| /audio/child-mode/phrases/made-of-stone-73e00d.mp3 | made of stone | 1 |
 | /audio/child-mode/phrases/very-old-d35281.mp3 | very old | 3 |
 | /audio/child-mode/phrases/tiny-and-light-11e3b3.mp3 | tiny and light | 1 |
-| /audio/child-mode/phrases/made-of-stone-73e00d.mp3 | made of stone | 1 |
-| /audio/child-mode/phrases/shining-brightly-3d669a.mp3 | shining brightly | 1 |
+| /audio/child-mode/phrases/very-expensive-58120f.mp3 | very expensive | 2 |
 | /audio/child-mode/phrases/dull-and-dirty-ee2809.mp3 | dull and dirty | 1 |
 | /audio/child-mode/phrases/out-of-tune-3901b7.mp3 | out of tune | 2 |
-| /audio/child-mode/phrases/very-expensive-58120f.mp3 | very expensive | 2 |
 | /audio/child-mode/phrases/easily-frightened-4ecc69.mp3 | easily frightened | 1 |
 | /audio/child-mode/phrases/bold-and-fierce-862134.mp3 | bold and fierce | 1 |
 | /audio/child-mode/phrases/green-and-leafy-28d71e.mp3 | green and leafy | 1 |
-| /audio/child-mode/phrases/very-fast-3d9d8a.mp3 | very fast | 1 |
-| /audio/child-mode/phrases/very-slow-3da4d9.mp3 | very slow | 1 |
-| /audio/child-mode/phrases/very-loud-3da110.mp3 | very loud | 1 |
 | /audio/child-mode/phrases/far-away-d52580.mp3 | far away | 1 |
+| /audio/child-mode/phrases/very-slow-3da4d9.mp3 | very slow | 1 |
 | /audio/child-mode/phrases/very-valuable-443559.mp3 | very valuable | 1 |
 | /audio/child-mode/phrases/made-of-clay-1abfd0.mp3 | made of clay | 1 |
+| /audio/child-mode/phrases/torn-to-bits-a34e37.mp3 | torn to bits | 1 |
 | /audio/child-mode/phrases/wet-through-ae94eb.mp3 | wet through | 1 |
 | /audio/child-mode/phrases/dry-and-crisp-cfb355.mp3 | dry and crisp | 1 |
 | /audio/child-mode/phrases/warm-and-cosy-deca82.mp3 | warm and cosy | 1 |
-| /audio/child-mode/phrases/torn-to-bits-a34e37.mp3 | torn to bits | 1 |
-| /audio/child-mode/phrases/ate-very-fast-18aae5.mp3 | ate very fast | 1 |
 | /audio/child-mode/phrases/buried-in-the-garden-18d7aa.mp3 | buried in the garden | 1 |
 | /audio/child-mode/phrases/ate-very-slowly-e1325c.mp3 | ate very slowly | 1 |
 | /audio/child-mode/phrases/sniffed-carefully-96d0f0.mp3 | sniffed carefully | 1 |
-| /audio/child-mode/phrases/moved-smoothly-along-1a33aa.mp3 | moved smoothly along | 1 |
-| /audio/child-mode/phrases/splashed-noisily-a524ab.mp3 | splashed noisily | 1 |
+| /audio/child-mode/phrases/ate-very-fast-18aae5.mp3 | ate very fast | 1 |
 | /audio/child-mode/phrases/sank-slowly-dc76cf.mp3 | sank slowly | 1 |
 | /audio/child-mode/phrases/flew-high-up-a50ca9.mp3 | flew high up | 1 |
-| /audio/child-mode/phrases/ran-with-quick-little-steps-ef48c2.mp3 | ran with quick little steps | 1 |
+| /audio/child-mode/phrases/moved-smoothly-along-1a33aa.mp3 | moved smoothly along | 1 |
+| /audio/child-mode/phrases/splashed-noisily-a524ab.mp3 | splashed noisily | 1 |
 | /audio/child-mode/phrases/slept-in-the-sun-28d197.mp3 | slept in the sun | 2 |
 | /audio/child-mode/phrases/crawled-very-slowly-a00319.mp3 | crawled very slowly | 1 |
 | /audio/child-mode/phrases/dug-a-deep-hole-a99096.mp3 | dug a deep hole | 1 |
+| /audio/child-mode/phrases/ran-with-quick-little-steps-ef48c2.mp3 | ran with quick little steps | 1 |
 | /audio/child-mode/phrases/begged-with-all-his-heart-987e3b.mp3 | begged with all his heart | 1 |
 | /audio/child-mode/phrases/shouted-angrily-fb6803.mp3 | shouted angrily | 1 |
 | /audio/child-mode/phrases/whispered-a-secret-106820.mp3 | whispered a secret | 1 |
 | /audio/child-mode/phrases/gave-up-quietly-ba2740.mp3 | gave up quietly | 1 |
-| /audio/child-mode/phrases/shook-with-fear-ca7105.mp3 | shook with fear | 1 |
 | /audio/child-mode/phrases/purred-happily-3fafda.mp3 | purred happily | 1 |
 | /audio/child-mode/phrases/stretched-out-flat-97239b.mp3 | stretched out flat | 1 |
 | /audio/child-mode/phrases/fell-fast-asleep-365944.mp3 | fell fast asleep | 1 |
+| /audio/child-mode/phrases/shook-with-fear-ca7105.mp3 | shook with fear | 1 |
 | /audio/child-mode/phrases/complained-in-a-low-voice-34eb1a.mp3 | complained in a low voice | 1 |
 | /audio/child-mode/phrases/sang-a-cheerful-song-86e2a0.mp3 | sang a cheerful song | 1 |
 | /audio/child-mode/phrases/climbed-very-fast-31fdba.mp3 | climbed very fast | 1 |
 | /audio/child-mode/phrases/waved-at-neighbours-c8c48c.mp3 | waved at neighbours | 1 |
+| /audio/child-mode/phrases/turned-to-rain-cdfa4b.mp3 | turned to rain | 1 |
 | /audio/child-mode/phrases/floated-slowly-along-49691f.mp3 | floated slowly along | 1 |
 | /audio/child-mode/phrases/popped-at-once-2a7b5e.mp3 | popped at once | 1 |
 | /audio/child-mode/phrases/shot-up-like-rockets-d1bf80.mp3 | shot up like rockets | 1 |
-| /audio/child-mode/phrases/turned-to-rain-cdfa4b.mp3 | turned to rain | 1 |
 | /audio/child-mode/phrases/looked-for-a-long-time-f1fcb5.mp3 | looked for a long time | 1 |
 | /audio/child-mode/phrases/glanced-away-quickly-a6ca2b.mp3 | glanced away quickly | 1 |
 | /audio/child-mode/phrases/cried-loudly-347d17.mp3 | cried loudly | 1 |
@@ -4929,38 +4073,38 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/disappointingly-small-14d1b1.mp3 | disappointingly small | 1 |
 | /audio/child-mode/phrases/dangerously-loud-2e1a3f.mp3 | dangerously loud | 1 |
 | /audio/child-mode/phrases/over-too-quickly-6ea35f.mp3 | over too quickly | 1 |
+| /audio/child-mode/phrases/lost-on-the-path-c46954.mp3 | lost on the path | 1 |
 | /audio/child-mode/phrases/completely-tired-out-bbf921.mp3 | completely tired out | 1 |
 | /audio/child-mode/phrases/full-of-energy-909695.mp3 | full of energy | 1 |
 | /audio/child-mode/phrases/very-thirsty-c5cc89.mp3 | very thirsty | 1 |
-| /audio/child-mode/phrases/lost-on-the-path-c46954.mp3 | lost on the path | 1 |
-| /audio/child-mode/phrases/a-noisy-disturbance-f7f456.mp3 | a noisy disturbance | 1 |
-| /audio/child-mode/phrases/a-peaceful-hush-452831.mp3 | a peaceful hush | 1 |
 | /audio/child-mode/phrases/a-kind-of-bird-aaa59e.mp3 | a kind of bird | 1 |
 | /audio/child-mode/phrases/a-school-lesson-339e2a.mp3 | a school lesson | 1 |
+| /audio/child-mode/phrases/a-noisy-disturbance-f7f456.mp3 | a noisy disturbance | 1 |
+| /audio/child-mode/phrases/a-peaceful-hush-452831.mp3 | a peaceful hush | 1 |
+| /audio/child-mode/phrases/out-of-breath-561755.mp3 | out of breath | 1 |
 | /audio/child-mode/phrases/completely-soaked-538b29.mp3 | completely soaked | 1 |
 | /audio/child-mode/phrases/perfectly-dry-ae914c.mp3 | perfectly dry | 1 |
 | /audio/child-mode/phrases/very-late-3da0d4.mp3 | very late | 1 |
-| /audio/child-mode/phrases/out-of-breath-561755.mp3 | out of breath | 1 |
-| /audio/child-mode/phrases/ate-with-small-bites-8427db.mp3 | ate with small bites | 1 |
-| /audio/child-mode/phrases/swallowed-in-one-go-742e4c.mp3 | swallowed in one go | 1 |
 | /audio/child-mode/phrases/pushed-away-b5eac6.mp3 | pushed away | 1 |
 | /audio/child-mode/phrases/sniffed-and-left-160748.mp3 | sniffed and left | 1 |
-| /audio/child-mode/phrases/perfectly-clean-980041.mp3 | perfectly clean | 1 |
+| /audio/child-mode/phrases/ate-with-small-bites-8427db.mp3 | ate with small bites | 1 |
+| /audio/child-mode/phrases/swallowed-in-one-go-742e4c.mp3 | swallowed in one go | 1 |
 | /audio/child-mode/phrases/covered-in-flour-bcab58.mp3 | covered in flour | 1 |
 | /audio/child-mode/phrases/very-small-f24063.mp3 | very small | 1 |
 | /audio/child-mode/phrases/closed-on-sundays-513682.mp3 | closed on Sundays | 1 |
-| /audio/child-mode/phrases/flew-high-upward-483aa2.mp3 | flew high upward | 1 |
-| /audio/child-mode/phrases/dived-to-the-ground-729fd4.mp3 | dived to the ground | 1 |
+| /audio/child-mode/phrases/perfectly-clean-980041.mp3 | perfectly clean | 1 |
 | /audio/child-mode/phrases/built-a-nest-67e21f.mp3 | built a nest | 1 |
 | /audio/child-mode/phrases/called-loudly-84a30e.mp3 | called loudly | 1 |
-| /audio/child-mode/phrases/sharp-and-unpleasant-to-taste-b5f71e.mp3 | sharp and unpleasant to taste | 1 |
+| /audio/child-mode/phrases/flew-high-upward-483aa2.mp3 | flew high upward | 1 |
+| /audio/child-mode/phrases/dived-to-the-ground-729fd4.mp3 | dived to the ground | 1 |
 | /audio/child-mode/phrases/sweet-as-honey-4cf541.mp3 | sweet as honey | 1 |
 | /audio/child-mode/phrases/too-hot-to-eat-1eafad.mp3 | too hot to eat | 1 |
 | /audio/child-mode/phrases/thick-and-lumpy-6e7db6.mp3 | thick and lumpy | 1 |
-| /audio/child-mode/phrases/shy-around-new-people-1c6d00.mp3 | shy around new people | 1 |
+| /audio/child-mode/phrases/sharp-and-unpleasant-to-taste-b5f71e.mp3 | sharp and unpleasant to taste | 1 |
 | /audio/child-mode/phrases/loud-and-confident-7b90b2.mp3 | loud and confident | 1 |
 | /audio/child-mode/phrases/angry-at-her-sister-cbdff7.mp3 | angry at her sister | 1 |
 | /audio/child-mode/phrases/tired-of-visiting-c5539c.mp3 | tired of visiting | 1 |
+| /audio/child-mode/phrases/shy-around-new-people-1c6d00.mp3 | shy around new people | 1 |
 | /audio/child-mode/phrases/shaky-and-likely-to-break-1c8d34.mp3 | shaky and likely to break | 1 |
 | /audio/child-mode/phrases/solid-and-safe-1614f6.mp3 | solid and safe | 1 |
 | /audio/child-mode/phrases/newly-painted-b8d815.mp3 | newly painted | 1 |
@@ -4972,133 +4116,133 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/cosily-warm-1017b3.mp3 | cosily warm | 1 |
 | /audio/child-mode/phrases/strangely-quiet-f3fd75.mp3 | strangely quiet | 1 |
 | /audio/child-mode/phrases/very-tidy-3da558.mp3 | very tidy | 1 |
+| /audio/child-mode/phrases/lost-and-confused-9803d6.mp3 | lost and confused | 1 |
 | /audio/child-mode/phrases/fast-and-energetic-5ef385.mp3 | fast and energetic | 1 |
 | /audio/child-mode/phrases/slow-and-lazy-833dc5.mp3 | slow and lazy | 1 |
 | /audio/child-mode/phrases/quiet-and-careful-48a4e8.mp3 | quiet and careful | 1 |
-| /audio/child-mode/phrases/lost-and-confused-9803d6.mp3 | lost and confused | 1 |
+| /audio/child-mode/phrases/stay-silent-2a4f41.mp3 | stay silent | 1 |
 | /audio/child-mode/phrases/speak-low-and-unclearly-1b5160.mp3 | speak low and unclearly | 1 |
 | /audio/child-mode/phrases/shout-to-the-whole-hall-6d56f0.mp3 | shout to the whole hall | 1 |
 | /audio/child-mode/phrases/sing-in-tune-c1918b.mp3 | sing in tune | 1 |
-| /audio/child-mode/phrases/stay-silent-2a4f41.mp3 | stay silent | 1 |
+| /audio/child-mode/phrases/closed-for-winter-fce590.mp3 | closed for winter | 1 |
 | /audio/child-mode/phrases/full-of-activity-332c69.mp3 | full of activity | 1 |
 | /audio/child-mode/phrases/silent-and-still-85ac80.mp3 | silent and still | 1 |
 | /audio/child-mode/phrases/deep-under-water-27462e.mp3 | deep under water | 1 |
-| /audio/child-mode/phrases/closed-for-winter-fce590.mp3 | closed for winter | 1 |
-| /audio/child-mode/phrases/giving-very-little-light-eebec9.mp3 | giving very little light | 1 |
 | /audio/child-mode/phrases/warm-to-touch-4b219d.mp3 | warm to touch | 1 |
 | /audio/child-mode/phrases/newly-bought-3b4ad9.mp3 | newly bought | 1 |
-| /audio/child-mode/phrases/disappear-completely-93df28.mp3 | disappear completely | 1 |
-| /audio/child-mode/phrases/grow-much-bigger-4521d1.mp3 | grow much bigger | 1 |
+| /audio/child-mode/phrases/giving-very-little-light-eebec9.mp3 | giving very little light | 1 |
 | /audio/child-mode/phrases/shine-more-brightly-f126db.mp3 | shine more brightly | 1 |
 | /audio/child-mode/phrases/stay-in-plain-sight-5e9d1a.mp3 | stay in plain sight | 1 |
-| /audio/child-mode/phrases/a-long-deep-sleep-6d7139.mp3 | a long deep sleep | 1 |
+| /audio/child-mode/phrases/disappear-completely-93df28.mp3 | disappear completely | 1 |
+| /audio/child-mode/phrases/grow-much-bigger-4521d1.mp3 | grow much bigger | 1 |
 | /audio/child-mode/phrases/a-hunting-trip-b415b9.mp3 | a hunting trip | 1 |
 | /audio/child-mode/phrases/a-loud-growl-24dd69.mp3 | a loud growl | 1 |
 | /audio/child-mode/phrases/a-morning-walk-ddeb48.mp3 | a morning walk | 1 |
-| /audio/child-mode/phrases/a-smell-in-the-air-397ca9.mp3 | a smell in the air | 1 |
-| /audio/child-mode/phrases/a-loud-timer-25c3ad.mp3 | a loud timer | 1 |
+| /audio/child-mode/phrases/a-long-deep-sleep-6d7139.mp3 | a long deep sleep | 1 |
 | /audio/child-mode/phrases/a-kind-of-pie-52c09f.mp3 | a kind of pie | 1 |
 | /audio/child-mode/phrases/a-cold-draught-d01b65.mp3 | a cold draught | 1 |
-| /audio/child-mode/phrases/made-the-effort-worth-it-db1e99.mp3 | made the effort worth it | 1 |
+| /audio/child-mode/phrases/a-smell-in-the-air-397ca9.mp3 | a smell in the air | 1 |
+| /audio/child-mode/phrases/a-loud-timer-25c3ad.mp3 | a loud timer | 1 |
 | /audio/child-mode/phrases/cost-extra-money-f34c6c.mp3 | cost extra money | 1 |
 | /audio/child-mode/phrases/ruined-completely-54767b.mp3 | ruined completely | 1 |
 | /audio/child-mode/phrases/measured-exactly-57df00.mp3 | measured exactly | 1 |
+| /audio/child-mode/phrases/made-the-effort-worth-it-db1e99.mp3 | made the effort worth it | 1 |
 | /audio/child-mode/phrases/looked-hard-and-closely-67cae7.mp3 | looked hard and closely | 1 |
 | /audio/child-mode/phrases/knocked-politely-5b2f84.mp3 | knocked politely | 1 |
 | /audio/child-mode/phrases/walked-away-9ffecc.mp3 | walked away | 1 |
 | /audio/child-mode/phrases/listened-carefully-b3e3fe.mp3 | listened carefully | 1 |
-| /audio/child-mode/phrases/floated-up-and-down-b08d1a.mp3 | floated up and down | 1 |
 | /audio/child-mode/phrases/sank-to-the-bottom-a2581f.mp3 | sank to the bottom | 1 |
 | /audio/child-mode/phrases/sped-across-the-lake-71b7fc.mp3 | sped across the lake | 1 |
 | /audio/child-mode/phrases/leaked-at-the-seams-e9c161.mp3 | leaked at the seams | 1 |
+| /audio/child-mode/phrases/floated-up-and-down-b08d1a.mp3 | floated up and down | 1 |
 | /audio/child-mode/phrases/covered-a-hole-to-fix-it-289ab2.mp3 | covered a hole to fix it | 1 |
 | /audio/child-mode/phrases/cut-a-bigger-hole-792060.mp3 | cut a bigger hole | 1 |
 | /audio/child-mode/phrases/washed-in-hot-water-e3d3f1.mp3 | washed in hot water | 1 |
 | /audio/child-mode/phrases/folded-and-put-away-b4fa37.mp3 | folded and put away | 1 |
+| /audio/child-mode/phrases/queued-politely-f1e9bf.mp3 | queued politely | 1 |
 | /audio/child-mode/phrases/ran-very-quickly-1186a9.mp3 | ran very quickly | 1 |
 | /audio/child-mode/phrases/strolled-slowly-46f8d9.mp3 | strolled slowly | 1 |
 | /audio/child-mode/phrases/danced-in-circles-a22b3c.mp3 | danced in circles | 1 |
-| /audio/child-mode/phrases/queued-politely-f1e9bf.mp3 | queued politely | 1 |
 | /audio/child-mode/phrases/warm-and-comfortable-96bb0a.mp3 | warm and comfortable | 1 |
 | /audio/child-mode/phrases/cold-and-damp-4343fb.mp3 | cold and damp | 1 |
 | /audio/child-mode/phrases/bored-and-restless-c1e16b.mp3 | bored and restless | 1 |
 | /audio/child-mode/phrases/half-asleep-71b8d8.mp3 | half asleep | 1 |
+| /audio/child-mode/phrases/far-too-slow-31c2cc.mp3 | far too slow | 1 |
 | /audio/child-mode/phrases/very-quiet-f220b6.mp3 | very quiet | 1 |
 | /audio/child-mode/phrases/booming-loud-2fda1a.mp3 | booming loud | 1 |
-| /audio/child-mode/phrases/far-too-slow-31c2cc.mp3 | far too slow | 1 |
-| /audio/child-mode/phrases/huge-beyond-belief-500eda.mp3 | huge beyond belief | 1 |
-| /audio/child-mode/phrases/tiny-and-neat-c27c4a.mp3 | tiny and neat | 1 |
 | /audio/child-mode/phrases/scaly-and-green-2b40cb.mp3 | scaly and green | 1 |
 | /audio/child-mode/phrases/very-fierce-1bb3b0.mp3 | very fierce | 1 |
-| /audio/child-mode/phrases/easily-damaged-77895d.mp3 | easily damaged | 1 |
+| /audio/child-mode/phrases/huge-beyond-belief-500eda.mp3 | huge beyond belief | 1 |
+| /audio/child-mode/phrases/tiny-and-neat-c27c4a.mp3 | tiny and neat | 1 |
 | /audio/child-mode/phrases/tough-as-old-boots-b8a192.mp3 | tough as old boots | 1 |
 | /audio/child-mode/phrases/high-up-45d770.mp3 | high up | 1 |
+| /audio/child-mode/phrases/easily-damaged-77895d.mp3 | easily damaged | 1 |
 | /audio/child-mode/phrases/in-a-bad-mood-4e773e.mp3 | in a bad mood | 1 |
 | /audio/child-mode/phrases/full-of-jokes-61d40c.mp3 | full of jokes | 1 |
 | /audio/child-mode/phrases/fast-asleep-820029.mp3 | fast asleep | 1 |
+| /audio/child-mode/phrases/hissed-a-warning-390bf0.mp3 | hissed a warning | 1 |
 | /audio/child-mode/phrases/moved-suddenly-and-fast-fa784a.mp3 | moved suddenly and fast | 1 |
 | /audio/child-mode/phrases/changed-its-colour-f52357.mp3 | changed its colour | 1 |
-| /audio/child-mode/phrases/hissed-a-warning-390bf0.mp3 | hissed a warning | 1 |
-| /audio/child-mode/phrases/old-in-age-88a0e8.mp3 | old in age | 1 |
-| /audio/child-mode/phrases/very-young-f2ae64.mp3 | very young | 1 |
 | /audio/child-mode/phrases/new-to-the-street-9d86f3.mp3 | new to the street | 1 |
 | /audio/child-mode/phrases/tall-and-thin-fba1ee.mp3 | tall and thin | 1 |
-| /audio/child-mode/phrases/a-muddle-of-mixed-up-things-75280c.mp3 | a muddle of mixed-up things | 1 |
+| /audio/child-mode/phrases/old-in-age-88a0e8.mp3 | old in age | 1 |
+| /audio/child-mode/phrases/very-young-f2ae64.mp3 | very young | 1 |
 | /audio/child-mode/phrases/a-tidy-line-d2c024.mp3 | a tidy line | 1 |
 | /audio/child-mode/phrases/a-locked-box-43a495.mp3 | a locked box | 1 |
 | /audio/child-mode/phrases/a-shopping-list-e55992.mp3 | a shopping list | 1 |
+| /audio/child-mode/phrases/a-muddle-of-mixed-up-things-75280c.mp3 | a muddle of mixed-up things | 1 |
+| /audio/child-mode/phrases/afraid-of-people-df76b9.mp3 | afraid of people | 1 |
 | /audio/child-mode/phrases/extremely-hungry-64542f.mp3 | extremely hungry | 1 |
 | /audio/child-mode/phrases/completely-full-148046.mp3 | completely full | 1 |
 | /audio/child-mode/phrases/soft-and-fluffy-9119f8.mp3 | soft and fluffy | 1 |
-| /audio/child-mode/phrases/afraid-of-people-df76b9.mp3 | afraid of people | 1 |
-| /audio/child-mode/phrases/completely-puzzled-edcd5f.mp3 | completely puzzled | 1 |
-| /audio/child-mode/phrases/bored-quickly-2031bd.mp3 | bored quickly | 1 |
 | /audio/child-mode/phrases/made-everyone-laugh-97db97.mp3 | made everyone laugh | 1 |
 | /audio/child-mode/phrases/was-solved-at-once-98aec3.mp3 | was solved at once | 1 |
-| /audio/child-mode/phrases/calm-and-peaceful-8cbc59.mp3 | calm and peaceful | 1 |
+| /audio/child-mode/phrases/completely-puzzled-edcd5f.mp3 | completely puzzled | 1 |
+| /audio/child-mode/phrases/bored-quickly-2031bd.mp3 | bored quickly | 1 |
 | /audio/child-mode/phrases/wild-and-stormy-a69b76.mp3 | wild and stormy | 1 |
 | /audio/child-mode/phrases/deep-and-cold-3416e7.mp3 | deep and cold | 1 |
 | /audio/child-mode/phrases/full-of-boats-61431f.mp3 | full of boats | 1 |
+| /audio/child-mode/phrases/calm-and-peaceful-8cbc59.mp3 | calm and peaceful | 1 |
 | /audio/child-mode/phrases/cleverly-tricky-8d965e.mp3 | cleverly tricky | 1 |
 | /audio/child-mode/phrases/plain-and-easy-842429.mp3 | plain and easy | 1 |
 | /audio/child-mode/phrases/written-in-ink-5ba161.mp3 | written in ink | 1 |
 | /audio/child-mode/phrases/missing-a-piece-6463af.mp3 | missing a piece | 1 |
+| /audio/child-mode/phrases/full-of-books-614359.mp3 | full of books | 1 |
 | /audio/child-mode/phrases/big-and-awkward-to-carry-aae50c.mp3 | big and awkward to carry | 1 |
 | /audio/child-mode/phrases/light-as-a-feather-4eb6d6.mp3 | light as a feather | 1 |
 | /audio/child-mode/phrases/tied-with-ribbon-d8756d.mp3 | tied with ribbon | 1 |
-| /audio/child-mode/phrases/full-of-books-614359.mp3 | full of books | 1 |
-| /audio/child-mode/phrases/gone-bad-and-smelly-975967.mp3 | gone bad and smelly | 1 |
-| /audio/child-mode/phrases/fresh-and-creamy-54f308.mp3 | fresh and creamy | 1 |
 | /audio/child-mode/phrases/frozen-solid-1d495d.mp3 | frozen solid | 1 |
 | /audio/child-mode/phrases/watered-down-eb90a3.mp3 | watered down | 1 |
-| /audio/child-mode/phrases/always-faithful-9b3846.mp3 | always faithful | 1 |
+| /audio/child-mode/phrases/gone-bad-and-smelly-975967.mp3 | gone bad and smelly | 1 |
+| /audio/child-mode/phrases/fresh-and-creamy-54f308.mp3 | fresh and creamy | 1 |
 | /audio/child-mode/phrases/quick-to-run-off-207b57.mp3 | quick to run off | 1 |
 | /audio/child-mode/phrases/afraid-of-sheep-3d4adf.mp3 | afraid of sheep | 1 |
+| /audio/child-mode/phrases/always-faithful-9b3846.mp3 | always faithful | 1 |
 | /audio/child-mode/phrases/smiled-hugely-2cf62e.mp3 | smiled hugely | 1 |
 | /audio/child-mode/phrases/burst-into-tears-65252e.mp3 | burst into tears | 1 |
 | /audio/child-mode/phrases/frowned-crossly-fb2d3f.mp3 | frowned crossly | 1 |
 | /audio/child-mode/phrases/left-the-room-1f8efe.mp3 | left the room | 1 |
-| /audio/child-mode/phrases/the-bat-slept-upside-down-in-the-cave-323b61.mp3 | The bat slept upside down in the cave. | 1 |
 | /audio/child-mode/phrases/ben-swung-the-bat-at-the-ball-b13578.mp3 | Ben swung the bat at the ball. | 1 |
 | /audio/child-mode/phrases/the-bat-cracked-when-it-hit-the-post-e807c6.mp3 | The bat cracked when it hit the post. | 1 |
 | /audio/child-mode/phrases/dad-bought-a-new-bat-for-cricket-1e9c4d.mp3 | Dad bought a new bat for cricket. | 1 |
-| /audio/child-mode/phrases/mia-gripped-the-bat-and-faced-the-bowler-1d8230.mp3 | Mia gripped the bat and faced the bowler. | 1 |
-| /audio/child-mode/phrases/the-bat-flew-out-at-dusk-to-catch-moths-aebf7e.mp3 | The bat flew out at dusk to catch moths. | 1 |
+| /audio/child-mode/phrases/the-bat-slept-upside-down-in-the-cave-323b61.mp3 | The bat slept upside down in the cave. | 1 |
 | /audio/child-mode/phrases/a-baby-bat-clung-to-its-mother-3146b2.mp3 | A baby bat clung to its mother. | 1 |
 | /audio/child-mode/phrases/the-bat-hung-from-the-branch-by-its-feet-e46f33.mp3 | The bat hung from the branch by its feet. | 1 |
+| /audio/child-mode/phrases/mia-gripped-the-bat-and-faced-the-bowler-1d8230.mp3 | Mia gripped the bat and faced the bowler. | 1 |
+| /audio/child-mode/phrases/the-bat-flew-out-at-dusk-to-catch-moths-aebf7e.mp3 | The bat flew out at dusk to catch moths. | 1 |
 | /audio/child-mode/phrases/we-heard-the-ring-of-the-doorbell-7369cc.mp3 | We heard the ring of the doorbell. | 1 |
 | /audio/child-mode/phrases/her-gold-ring-sparkled-in-the-sun-ab44b4.mp3 | Her gold ring sparkled in the sun. | 1 |
 | /audio/child-mode/phrases/the-ring-slipped-off-her-finger-497679.mp3 | The ring slipped off her finger. | 1 |
 | /audio/child-mode/phrases/gran-keeps-her-ring-in-a-tiny-box-ac1465.mp3 | Gran keeps her ring in a tiny box. | 1 |
-| /audio/child-mode/phrases/the-silver-ring-fit-her-thumb-perfectly-94378e.mp3 | The silver ring fit her thumb perfectly. | 1 |
 | /audio/child-mode/phrases/we-heard-the-phone-ring-twice-8047d3.mp3 | We heard the phone ring twice. | 1 |
 | /audio/child-mode/phrases/give-the-bell-a-loud-ring-at-noon-59be30.mp3 | Give the bell a loud ring at noon. | 1 |
 | /audio/child-mode/phrases/the-ring-of-laughter-filled-the-hall-136d3e.mp3 | The ring of laughter filled the hall. | 1 |
+| /audio/child-mode/phrases/the-silver-ring-fit-her-thumb-perfectly-94378e.mp3 | The silver ring fit her thumb perfectly. | 1 |
 | /audio/child-mode/phrases/terrified-and-running-aa8a31.mp3 | terrified and running | 1 |
-| /audio/child-mode/phrases/a-bakery-8b9dcb.mp3 | a bakery | 1 |
 | /audio/child-mode/phrases/a-library-132ad3.mp3 | a library | 2 |
 | /audio/child-mode/phrases/a-swimming-pool-39dd0f.mp3 | a swimming pool | 2 |
 | /audio/child-mode/phrases/a-garden-974b67.mp3 | a garden | 1 |
+| /audio/child-mode/phrases/a-bakery-8b9dcb.mp3 | a bakery | 1 |
 | /audio/child-mode/phrases/a-football-pitch-9b8570.mp3 | a football pitch | 1 |
 | /audio/child-mode/phrases/a-cinema-8e855c.mp3 | a cinema | 3 |
 | /audio/child-mode/phrases/a-farm-eca014.mp3 | a farm | 1 |
@@ -5109,145 +4253,145 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/a-pet-shop-19de69.mp3 | a pet shop | 1 |
 | /audio/child-mode/phrases/a-classroom-ec35cd.mp3 | a classroom | 1 |
 | /audio/child-mode/phrases/a-beach-805c24.mp3 | a beach | 1 |
+| /audio/child-mode/phrases/a-lift-eca37f.mp3 | a lift | 1 |
 | /audio/child-mode/phrases/a-train-81a8fe.mp3 | a train | 1 |
 | /audio/child-mode/phrases/a-bus-eed859.mp3 | a bus | 1 |
 | /audio/child-mode/phrases/a-boat-ec9e1c.mp3 | a boat | 1 |
-| /audio/child-mode/phrases/a-lift-eca37f.mp3 | a lift | 1 |
+| /audio/child-mode/phrases/a-cave-ec9e6f.mp3 | a cave | 1 |
 | /audio/child-mode/phrases/an-aquarium-571098.mp3 | an aquarium | 1 |
 | /audio/child-mode/phrases/a-museum-of-paintings-3af3c2.mp3 | a museum of paintings | 1 |
-| /audio/child-mode/phrases/a-cave-ec9e6f.mp3 | a cave | 1 |
+| /audio/child-mode/phrases/the-school-library-bbf6e0.mp3 | the school library | 1 |
 | /audio/child-mode/phrases/the-school-dinner-hall-61be26.mp3 | the school dinner hall | 1 |
 | /audio/child-mode/phrases/his-kitchen-at-home-3ab212.mp3 | his kitchen at home | 1 |
 | /audio/child-mode/phrases/a-sweet-shop-2cd4ce.mp3 | a sweet shop | 1 |
-| /audio/child-mode/phrases/the-school-library-bbf6e0.mp3 | the school library | 1 |
-| /audio/child-mode/phrases/the-beach-65c3b4.mp3 | the beach | 1 |
-| /audio/child-mode/phrases/a-funfair-621ddf.mp3 | a funfair | 1 |
 | /audio/child-mode/phrases/a-forest-95f39b.mp3 | a forest | 1 |
 | /audio/child-mode/phrases/a-car-park-e1f193.mp3 | a car park | 1 |
-| /audio/child-mode/phrases/the-family-will-hurry-home-before-the-rain-fe6401.mp3 | the family will hurry home before the rain | 1 |
-| /audio/child-mode/phrases/the-family-will-start-a-barbecue-6d7318.mp3 | the family will start a barbecue | 1 |
+| /audio/child-mode/phrases/the-beach-65c3b4.mp3 | the beach | 1 |
+| /audio/child-mode/phrases/a-funfair-621ddf.mp3 | a funfair | 1 |
 | /audio/child-mode/phrases/the-family-will-go-swimming-29a2bb.mp3 | the family will go swimming | 1 |
 | /audio/child-mode/phrases/the-family-will-fall-asleep-on-the-grass-893e35.mp3 | the family will fall asleep on the grass | 1 |
-| /audio/child-mode/phrases/theo-will-wash-the-dog-bbf83f.mp3 | Theo will wash the dog | 1 |
+| /audio/child-mode/phrases/the-family-will-hurry-home-before-the-rain-fe6401.mp3 | the family will hurry home before the rain | 1 |
+| /audio/child-mode/phrases/the-family-will-start-a-barbecue-6d7318.mp3 | the family will start a barbecue | 1 |
 | /audio/child-mode/phrases/theo-will-take-a-bath-himself-756b44.mp3 | Theo will take a bath himself | 1 |
 | /audio/child-mode/phrases/theo-will-feed-the-cat-86bc27.mp3 | Theo will feed the cat | 1 |
 | /audio/child-mode/phrases/theo-will-go-to-bed-207ee7.mp3 | Theo will go to bed | 1 |
-| /audio/child-mode/phrases/dad-will-pop-out-the-burnt-toast-145f41.mp3 | Dad will pop out the burnt toast | 1 |
-| /audio/child-mode/phrases/dad-will-water-the-plants-739ea1.mp3 | Dad will water the plants | 1 |
+| /audio/child-mode/phrases/theo-will-wash-the-dog-bbf83f.mp3 | Theo will wash the dog | 1 |
 | /audio/child-mode/phrases/dad-will-eat-the-toast-happily-b46bb1.mp3 | Dad will eat the toast happily | 1 |
 | /audio/child-mode/phrases/dad-will-read-another-page-de6576.mp3 | Dad will read another page | 1 |
-| /audio/child-mode/phrases/aya-will-go-and-buy-honey-5f4df4.mp3 | Aya will go and buy honey | 1 |
+| /audio/child-mode/phrases/dad-will-pop-out-the-burnt-toast-145f41.mp3 | Dad will pop out the burnt toast | 1 |
+| /audio/child-mode/phrases/dad-will-water-the-plants-739ea1.mp3 | Dad will water the plants | 1 |
 | /audio/child-mode/phrases/aya-will-throw-the-jar-away-f67dd7.mp3 | Aya will throw the jar away | 1 |
 | /audio/child-mode/phrases/aya-will-make-her-bed-10e3bc.mp3 | Aya will make her bed | 1 |
 | /audio/child-mode/phrases/aya-will-eat-the-pancakes-now-1df15d.mp3 | Aya will eat the pancakes now | 1 |
+| /audio/child-mode/phrases/aya-will-go-and-buy-honey-5f4df4.mp3 | Aya will go and buy honey | 1 |
 | /audio/child-mode/phrases/raj-will-get-new-batteries-a7100e.mp3 | Raj will get new batteries | 1 |
 | /audio/child-mode/phrases/raj-will-throw-the-torch-in-the-bin-3f4a86.mp3 | Raj will throw the torch in the bin | 1 |
 | /audio/child-mode/phrases/raj-will-shine-the-torch-again-at-once-8a7386.mp3 | Raj will shine the torch again at once | 1 |
 | /audio/child-mode/phrases/raj-will-go-outside-to-play-961d44.mp3 | Raj will go outside to play | 1 |
-| /audio/child-mode/phrases/nell-will-rush-to-switch-off-the-music-6e51e0.mp3 | Nell will rush to switch off the music | 1 |
 | /audio/child-mode/phrases/nell-will-turn-the-music-up-6c2295.mp3 | Nell will turn the music up | 1 |
 | /audio/child-mode/phrases/nell-will-start-singing-along-650208.mp3 | Nell will start singing along | 1 |
 | /audio/child-mode/phrases/nell-will-open-the-window-114b41.mp3 | Nell will open the window | 1 |
+| /audio/child-mode/phrases/nell-will-rush-to-switch-off-the-music-6e51e0.mp3 | Nell will rush to switch off the music | 1 |
 | /audio/child-mode/phrases/grandad-will-spread-sand-on-the-icy-path-17e24b.mp3 | Grandad will spread sand on the icy path | 1 |
 | /audio/child-mode/phrases/grandad-will-run-down-the-path-c6f99f.mp3 | Grandad will run down the path | 1 |
 | /audio/child-mode/phrases/grandad-will-plant-flowers-cc9012.mp3 | Grandad will plant flowers | 1 |
 | /audio/child-mode/phrases/grandad-will-wash-the-windows-984bf4.mp3 | Grandad will wash the windows | 1 |
+| /audio/child-mode/phrases/the-postman-ate-it-cea2d3.mp3 | the postman ate it | 1 |
 | /audio/child-mode/phrases/a-bird-took-it-9dbc7f.mp3 | a bird took it | 1 |
 | /audio/child-mode/phrases/mum-tidied-it-away-32542e.mp3 | Mum tidied it away | 1 |
 | /audio/child-mode/phrases/it-is-still-on-the-plate-210307.mp3 | it is still on the plate | 1 |
-| /audio/child-mode/phrases/the-postman-ate-it-cea2d3.mp3 | the postman ate it | 1 |
+| /audio/child-mode/phrases/she-had-lost-the-picnic-rug-c4e2ec.mp3 | she had lost the picnic rug | 1 |
 | /audio/child-mode/phrases/she-could-tell-rain-was-coming-370d0e.mp3 | she could tell rain was coming | 1 |
 | /audio/child-mode/phrases/she-was-tired-of-picnics-forever-1e1201.mp3 | she was tired of picnics forever | 1 |
 | /audio/child-mode/phrases/the-museum-was-free-that-day-35ac00.mp3 | the museum was free that day | 1 |
-| /audio/child-mode/phrases/she-had-lost-the-picnic-rug-c4e2ec.mp3 | she had lost the picnic rug | 1 |
 | /audio/child-mode/phrases/he-wanted-to-help-her-without-a-fuss-1e3e42.mp3 | he wanted to help her without a fuss | 1 |
 | /audio/child-mode/phrases/he-hated-oranges-d1f493.mp3 | he hated oranges | 1 |
 | /audio/child-mode/phrases/the-teacher-told-him-to-share-72a208.mp3 | the teacher told him to share | 1 |
 | /audio/child-mode/phrases/he-wanted-everyone-to-praise-him-6abdb3.mp3 | he wanted everyone to praise him | 1 |
-| /audio/child-mode/phrases/the-lane-was-not-safe-to-ride-today-adab4d.mp3 | the lane was not safe to ride today | 1 |
 | /audio/child-mode/phrases/her-scooter-was-stolen-3452ef.mp3 | her scooter was stolen | 1 |
 | /audio/child-mode/phrases/she-was-bored-of-scooting-5a1138.mp3 | she was bored of scooting | 1 |
 | /audio/child-mode/phrases/she-wanted-to-be-late-for-tea-b785e9.mp3 | she wanted to be late for tea | 1 |
-| /audio/child-mode/phrases/she-needed-quiet-to-hear-the-call-2e6a9e.mp3 | she needed quiet to hear the call | 1 |
-| /audio/child-mode/phrases/she-wanted-to-watch-television-8ee3ef.mp3 | she wanted to watch television | 1 |
+| /audio/child-mode/phrases/the-lane-was-not-safe-to-ride-today-adab4d.mp3 | the lane was not safe to ride today | 1 |
 | /audio/child-mode/phrases/the-kitchen-was-too-cold-3c3cb9.mp3 | the kitchen was too cold | 1 |
 | /audio/child-mode/phrases/she-was-hiding-from-grandad-6dcbe4.mp3 | she was hiding from Grandad | 1 |
+| /audio/child-mode/phrases/she-needed-quiet-to-hear-the-call-2e6a9e.mp3 | she needed quiet to hear the call | 1 |
+| /audio/child-mode/phrases/she-wanted-to-watch-television-8ee3ef.mp3 | she wanted to watch television | 1 |
+| /audio/child-mode/phrases/the-parents-asked-for-the-change-e99624.mp3 | the parents asked for the change | 1 |
 | /audio/child-mode/phrases/jonah-had-shown-he-was-brilliant-in-goal-d7716d.mp3 | Jonah had shown he was brilliant in goal | 1 |
 | /audio/child-mode/phrases/jonah-was-too-slow-to-run-eed8c5.mp3 | Jonah was too slow to run | 1 |
 | /audio/child-mode/phrases/the-coach-wanted-the-team-to-lose-58b623.mp3 | the coach wanted the team to lose | 1 |
-| /audio/child-mode/phrases/the-parents-asked-for-the-change-e99624.mp3 | the parents asked for the change | 1 |
 | /audio/child-mode/phrases/a-flood-once-ruined-her-seeds-9d9f5a.mp3 | a flood once ruined her seeds | 1 |
 | /audio/child-mode/phrases/she-likes-collecting-jam-90324f.mp3 | she likes collecting jam | 1 |
 | /audio/child-mode/phrases/the-jars-look-pretty-on-the-shelf-3b43c0.mp3 | the jars look pretty on the shelf | 1 |
 | /audio/child-mode/phrases/seeds-grow-better-inside-glass-2591ca.mp3 | seeds grow better inside glass | 1 |
-| /audio/child-mode/phrases/being-new-to-riding-alone-she-wanted-to-feel-4be2a4.mp3 | being new to riding alone, she wanted to feel safe and ready | 1 |
 | /audio/child-mode/phrases/the-back-seats-were-broken-f9b989.mp3 | the back seats were broken | 1 |
 | /audio/child-mode/phrases/she-wanted-to-annoy-her-friends-b57856.mp3 | she wanted to annoy her friends | 1 |
 | /audio/child-mode/phrases/the-driver-was-her-uncle-97cd47.mp3 | the driver was her uncle | 1 |
-| /audio/child-mode/phrases/he-was-making-sure-it-would-not-slip-72e52e.mp3 | he was making sure it would not slip | 1 |
-| /audio/child-mode/phrases/he-could-not-decide-which-wall-to-paint-380a66.mp3 | he could not decide which wall to paint | 1 |
+| /audio/child-mode/phrases/being-new-to-riding-alone-she-wanted-to-feel-4be2a4.mp3 | being new to riding alone, she wanted to feel safe and ready | 1 |
 | /audio/child-mode/phrases/he-was-trying-to-break-the-ladder-46830a.mp3 | he was trying to break the ladder | 1 |
 | /audio/child-mode/phrases/he-had-forgotten-his-paintbrush-fb057f.mp3 | he had forgotten his paintbrush | 1 |
+| /audio/child-mode/phrases/he-was-making-sure-it-would-not-slip-72e52e.mp3 | he was making sure it would not slip | 1 |
+| /audio/child-mode/phrases/he-could-not-decide-which-wall-to-paint-380a66.mp3 | he could not decide which wall to paint | 1 |
 | /audio/child-mode/phrases/someone-had-been-out-in-heavy-rain-16ab77.mp3 | someone had been out in heavy rain | 1 |
 | /audio/child-mode/phrases/the-family-had-been-at-the-beach-9da6f1.mp3 | the family had been at the beach | 1 |
 | /audio/child-mode/phrases/mum-had-bought-new-boots-73abef.mp3 | Mum had bought new boots | 1 |
 | /audio/child-mode/phrases/the-bath-had-overflowed-a6c5e0.mp3 | the bath had overflowed | 1 |
-| /audio/child-mode/phrases/the-hamster-was-busy-while-everyone-was-away-1a8337.mp3 | the hamster was busy while everyone was away | 1 |
 | /audio/child-mode/phrases/a-child-fed-the-hamster-at-dawn-1bddee.mp3 | a child fed the hamster at dawn | 1 |
 | /audio/child-mode/phrases/the-caretaker-cleaned-the-cage-8235df.mp3 | the caretaker cleaned the cage | 1 |
 | /audio/child-mode/phrases/the-hamster-slept-all-night-b0ebff.mp3 | the hamster slept all night | 1 |
+| /audio/child-mode/phrases/the-hamster-was-busy-while-everyone-was-away-1a8337.mp3 | the hamster was busy while everyone was away | 1 |
+| /audio/child-mode/phrases/the-oven-had-never-worked-1d8b5b.mp3 | the oven had never worked | 1 |
 | /audio/child-mode/phrases/dad-burnt-the-cake-he-was-baking-e83a7f.mp3 | Dad burnt the cake he was baking | 1 |
 | /audio/child-mode/phrases/dad-forgot-to-bake-anything-68dd2d.mp3 | Dad forgot to bake anything | 1 |
 | /audio/child-mode/phrases/burglars-had-opened-the-window-86ad91.mp3 | burglars had opened the window | 1 |
-| /audio/child-mode/phrases/the-oven-had-never-worked-1d8b5b.mp3 | the oven had never worked | 1 |
+| /audio/child-mode/phrases/marta-forgot-she-owned-a-recorder-13583b.mp3 | Marta forgot she owned a recorder | 1 |
 | /audio/child-mode/phrases/her-brother-had-taken-the-recorder-without-a-a61710.mp3 | her brother had taken the recorder without asking | 1 |
 | /audio/child-mode/phrases/marta-had-sold-her-recorder-5d0927.mp3 | Marta had sold her recorder | 1 |
 | /audio/child-mode/phrases/the-teacher-had-collected-the-recorders-9a5a5b.mp3 | the teacher had collected the recorders | 1 |
-| /audio/child-mode/phrases/marta-forgot-she-owned-a-recorder-13583b.mp3 | Marta forgot she owned a recorder | 1 |
 | /audio/child-mode/phrases/the-girl-next-door-8288c7.mp3 | the girl next door | 1 |
 | /audio/child-mode/phrases/grandpa-though-he-swore-he-never-touched-him-35d514.mp3 | Grandpa, though he swore he never touched him | 1 |
 | /audio/child-mode/phrases/the-wind-bd4f94.mp3 | the wind | 1 |
 | /audio/child-mode/phrases/nobody-it-never-moved-4207c3.mp3 | nobody — it never moved | 1 |
-| /audio/child-mode/phrases/a-large-heavy-animal-from-the-woods-b33f4d.mp3 | a large, heavy animal from the woods | 1 |
-| /audio/child-mode/phrases/a-small-garden-bird-568088.mp3 | a small garden bird | 1 |
 | /audio/child-mode/phrases/a-naughty-child-from-next-door-f5d83c.mp3 | a naughty child from next door | 1 |
 | /audio/child-mode/phrases/a-strong-gust-of-wind-a18772.mp3 | a strong gust of wind | 1 |
-| /audio/child-mode/phrases/spray-painting-ela-s-bicycle-as-a-surprise-75fe81.mp3 | spray-painting Ela's bicycle as a surprise | 1 |
-| /audio/child-mode/phrases/painting-the-bathroom-walls-a-new-colour-731033.mp3 | painting the bathroom walls a new colour | 1 |
+| /audio/child-mode/phrases/a-large-heavy-animal-from-the-woods-b33f4d.mp3 | a large, heavy animal from the woods | 1 |
+| /audio/child-mode/phrases/a-small-garden-bird-568088.mp3 | a small garden bird | 1 |
 | /audio/child-mode/phrases/cleaning-her-glasses-abf6ea.mp3 | cleaning her glasses | 1 |
 | /audio/child-mode/phrases/buying-a-brand-new-bicycle-b863d9.mp3 | buying a brand-new bicycle | 1 |
+| /audio/child-mode/phrases/spray-painting-ela-s-bicycle-as-a-surprise-75fe81.mp3 | spray-painting Ela's bicycle as a surprise | 1 |
+| /audio/child-mode/phrases/painting-the-bathroom-walls-a-new-colour-731033.mp3 | painting the bathroom walls a new colour | 1 |
+| /audio/child-mode/phrases/a-burglar-reset-the-clocks-251f86.mp3 | a burglar reset the clocks | 1 |
 | /audio/child-mode/phrases/the-electricity-had-been-off-for-a-long-time-815726.mp3 | the electricity had been off for a long time | 1 |
 | /audio/child-mode/phrases/someone-left-the-freezer-drawers-hanging-ope-5c5e1c.mp3 | someone left the freezer drawers hanging open | 1 |
 | /audio/child-mode/phrases/the-family-bought-soft-ice-cream-cae6f4.mp3 | the family bought soft ice cream | 1 |
-| /audio/child-mode/phrases/a-burglar-reset-the-clocks-251f86.mp3 | a burglar reset the clocks | 1 |
-| /audio/child-mode/phrases/she-drew-a-girl-waving-from-the-bus-window-2ba133.mp3 | she drew a girl waving from the bus window | 1 |
 | /audio/child-mode/phrases/she-said-twice-in-a-bright-voice-that-she-di-951b11.mp3 | she said twice, in a bright voice, that she did not mind missing it | 1 |
 | /audio/child-mode/phrases/it-was-time-for-art-dccc62.mp3 | it was time for art | 1 |
 | /audio/child-mode/phrases/her-voice-was-bright-d5f346.mp3 | her voice was bright | 1 |
-| /audio/child-mode/phrases/he-kept-the-shelter-s-leaflet-all-week-962671.mp3 | he kept the shelter's leaflet all week | 1 |
-| /audio/child-mode/phrases/he-shrugged-at-the-shelter-and-said-any-dog-bcc6dd.mp3 | he shrugged at the shelter and said any dog would do | 1 |
+| /audio/child-mode/phrases/she-drew-a-girl-waving-from-the-bus-window-2ba133.mp3 | she drew a girl waving from the bus window | 1 |
 | /audio/child-mode/phrases/the-terrier-was-grey-124063.mp3 | the terrier was grey | 1 |
 | /audio/child-mode/phrases/they-went-home-7eafa0.mp3 | they went home | 1 |
-| /audio/child-mode/phrases/the-shelves-were-sorted-the-way-femi-sorts-h-fb311b.mp3 | the shelves were sorted the way Femi sorts his pencils | 1 |
+| /audio/child-mode/phrases/he-kept-the-shelter-s-leaflet-all-week-962671.mp3 | he kept the shelter's leaflet all week | 1 |
+| /audio/child-mode/phrases/he-shrugged-at-the-shelter-and-said-any-dog-bcc6dd.mp3 | he shrugged at the shelter and said any dog would do | 1 |
 | /audio/child-mode/phrases/nobody-saw-who-tidied-the-book-corner-shelve-ef47fe.mp3 | nobody saw who tidied the book corner shelves | 1 |
 | /audio/child-mode/phrases/the-classroom-has-a-book-corner-e30a9d.mp3 | the classroom has a book corner | 1 |
 | /audio/child-mode/phrases/it-happened-after-lunch-f8e2d8.mp3 | it happened after lunch | 1 |
+| /audio/child-mode/phrases/the-shelves-were-sorted-the-way-femi-sorts-h-fb311b.mp3 | the shelves were sorted the way Femi sorts his pencils | 1 |
 | /audio/child-mode/phrases/the-medal-was-polished-every-sunday-f95bf0.mp3 | the medal was polished every Sunday | 1 |
 | /audio/child-mode/phrases/harri-claimed-the-win-did-not-matter-at-all-f255f0.mp3 | Harri claimed the win did not matter at all | 1 |
 | /audio/child-mode/phrases/sports-day-was-rainy-4e5e87.mp3 | sports day was rainy | 1 |
 | /audio/child-mode/phrases/visitors-came-to-the-house-1d0e36.mp3 | visitors came to the house | 1 |
-| /audio/child-mode/phrases/he-set-up-every-piece-without-looking-2e4549.mp3 | he set up every piece without looking | 1 |
 | /audio/child-mode/phrases/he-said-he-had-never-played-c4e10e.mp3 | he said he had never played | 1 |
 | /audio/child-mode/phrases/there-was-a-box-lid-4c6025.mp3 | there was a box lid | 1 |
 | /audio/child-mode/phrases/mr-salt-had-a-queen-ea7067.mp3 | Mr Salt had a queen | 1 |
+| /audio/child-mode/phrases/he-set-up-every-piece-without-looking-2e4549.mp3 | he set up every piece without looking | 1 |
 | /audio/child-mode/phrases/the-credits-rolled-to-long-slow-breathing-d011c3.mp3 | the credits rolled to long, slow breathing | 1 |
 | /audio/child-mode/phrases/she-insisted-she-was-wide-awake-for-the-whol-c8a2db.mp3 | she insisted she was wide awake for the whole film | 1 |
 | /audio/child-mode/phrases/they-watched-a-film-f3aa21.mp3 | they watched a film | 1 |
 | /audio/child-mode/phrases/leo-sat-beside-her-61b6c8.mp3 | Leo sat beside her | 1 |
+| /audio/child-mode/phrases/mornings-were-cold-184d96.mp3 | mornings were cold | 2 |
 | /audio/child-mode/phrases/a-bowl-marked-c-a-t-in-his-own-careful-lette-eb77d7.mp3 | a bowl marked C-A-T in his own careful letters | 1 |
 | /audio/child-mode/phrases/he-grumbled-that-the-cat-was-nothing-but-a-n-d9c9bd.mp3 | he grumbled that the cat was nothing but a nuisance | 1 |
 | /audio/child-mode/phrases/the-school-had-a-boiler-room-a92a76.mp3 | the school had a boiler room | 1 |
-| /audio/child-mode/phrases/mornings-were-cold-184d96.mp3 | mornings were cold | 2 |
 | /audio/child-mode/phrases/she-hid-away-to-read-under-a-blanket-3b108e.mp3 | she hid away to read under a blanket | 1 |
 | /audio/child-mode/phrases/she-told-everyone-the-thunder-did-not-scare-93bd4f.mp3 | she told everyone the thunder did not scare her one bit | 1 |
 | /audio/child-mode/phrases/she-owned-some-music-dc2816.mp3 | she owned some music | 1 |
@@ -5255,24 +4399,24 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/surprised-it-was-so-easy-38905b.mp3 | surprised it was so easy | 1 |
 | /audio/child-mode/phrases/still-terrified-1bc7a1.mp3 | still terrified | 1 |
 | /audio/child-mode/phrases/angry-with-dad-a391de.mp3 | angry with Dad | 1 |
-| /audio/child-mode/phrases/proud-and-careful-with-her-prize-63e0ec.mp3 | proud and careful with her prize | 1 |
-| /audio/child-mode/phrases/sorry-she-bought-it-22a0dd.mp3 | sorry she bought it | 1 |
 | /audio/child-mode/phrases/frightened-of-the-shop-f94481.mp3 | frightened of the shop | 1 |
 | /audio/child-mode/phrases/bored-by-painting-39fe2d.mp3 | bored by painting | 1 |
+| /audio/child-mode/phrases/proud-and-careful-with-her-prize-63e0ec.mp3 | proud and careful with her prize | 1 |
+| /audio/child-mode/phrases/sorry-she-bought-it-22a0dd.mp3 | sorry she bought it | 1 |
 | /audio/child-mode/phrases/a-theatre-with-actors-on-stage-5eaea3.mp3 | a theatre with actors on stage | 1 |
 | /audio/child-mode/phrases/her-bedroom-8399e0.mp3 | her bedroom | 1 |
 | /audio/child-mode/phrases/a-stadium-479198.mp3 | a stadium | 1 |
 | /audio/child-mode/phrases/a-supermarket-d91ac3.mp3 | a supermarket | 1 |
 | /audio/child-mode/phrases/a-street-market-583b1b.mp3 | a street market | 1 |
 | /audio/child-mode/phrases/a-garage-974b5a.mp3 | a garage | 1 |
+| /audio/child-mode/phrases/kip-will-fall-asleep-c78471.mp3 | Kip will fall asleep | 1 |
 | /audio/child-mode/phrases/kip-will-go-to-lunch-when-the-bell-rings-90e036.mp3 | Kip will go to lunch when the bell rings | 1 |
 | /audio/child-mode/phrases/kip-will-sit-in-the-quiet-classroom-doing-wo-db6759.mp3 | Kip will sit in the quiet classroom doing worksheets | 1 |
 | /audio/child-mode/phrases/kip-will-go-home-for-the-day-8eebc8.mp3 | Kip will go home for the day | 1 |
-| /audio/child-mode/phrases/kip-will-fall-asleep-c78471.mp3 | Kip will fall asleep | 1 |
-| /audio/child-mode/phrases/build-a-snowman-4584b4.mp3 | build a snowman | 1 |
-| /audio/child-mode/phrases/cook-carrot-soup-df8059.mp3 | cook carrot soup | 1 |
 | /audio/child-mode/phrases/go-back-to-bed-82c9dd.mp3 | go back to bed | 1 |
 | /audio/child-mode/phrases/water-the-flowers-6d7666.mp3 | water the flowers | 1 |
+| /audio/child-mode/phrases/build-a-snowman-4584b4.mp3 | build a snowman | 1 |
+| /audio/child-mode/phrases/cook-carrot-soup-df8059.mp3 | cook carrot soup | 1 |
 | /audio/child-mode/phrases/too-scared-to-try-again-956165.mp3 | too scared to try again | 1 |
 | /audio/child-mode/phrases/cross-with-the-queue-dd5439.mp3 | cross with the queue | 1 |
 | /audio/child-mode/phrases/a-hospital-bce356.mp3 | a hospital | 1 |
@@ -5283,175 +4427,45 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/he-was-tired-of-dinosaurs-995e27.mp3 | he was tired of dinosaurs | 1 |
 | /audio/child-mode/phrases/his-mum-told-him-to-tidy-his-whole-room-18971a.mp3 | his mum told him to tidy his whole room | 1 |
 | /audio/child-mode/phrases/he-wanted-to-sleep-with-it-b944e0.mp3 | he wanted to sleep with it | 1 |
+| /audio/child-mode/phrases/because-the-council-made-her-680381.mp3 | because the council made her | 1 |
 | /audio/child-mode/phrases/to-look-after-the-town-s-early-workers-f752d5.mp3 | to look after the town's early workers | 1 |
 | /audio/child-mode/phrases/to-sell-her-rolls-for-more-money-e6e066.mp3 | to sell her rolls for more money | 1 |
 | /audio/child-mode/phrases/because-she-could-not-sleep-8d0f9c.mp3 | because she could not sleep | 1 |
-| /audio/child-mode/phrases/because-the-council-made-her-680381.mp3 | because the council made her | 1 |
-| /audio/child-mode/phrases/the-cat-walked-through-mud-and-over-the-cake-5bbaff.mp3 | the cat walked through mud and over the cake | 1 |
-| /audio/child-mode/phrases/someone-dropped-the-birthday-cake-on-the-flo-6e0522.mp3 | someone dropped the birthday cake on the floor | 1 |
 | /audio/child-mode/phrases/the-baker-made-the-cake-wrong-5ef8a5.mp3 | the baker made the cake wrong | 1 |
 | /audio/child-mode/phrases/a-candle-fell-by-itself-78efbb.mp3 | a candle fell by itself | 1 |
-| /audio/child-mode/phrases/a-giant-vegetable-he-grew-for-the-show-a90b35.mp3 | a giant vegetable he grew for the show | 1 |
+| /audio/child-mode/phrases/the-cat-walked-through-mud-and-over-the-cake-5bbaff.mp3 | the cat walked through mud and over the cake | 1 |
+| /audio/child-mode/phrases/someone-dropped-the-birthday-cake-on-the-flo-6e0522.mp3 | someone dropped the birthday cake on the floor | 1 |
 | /audio/child-mode/phrases/his-usual-flat-and-empty-muddy-bag-3aa381.mp3 | his usual flat and empty muddy bag | 1 |
 | /audio/child-mode/phrases/a-lost-kitten-a46370.mp3 | a lost kitten | 1 |
 | /audio/child-mode/phrases/his-gardening-gloves-9336a7.mp3 | his gardening gloves | 1 |
+| /audio/child-mode/phrases/a-giant-vegetable-he-grew-for-the-show-a90b35.mp3 | a giant vegetable he grew for the show | 1 |
 | /audio/child-mode/phrases/he-was-first-up-every-morning-to-warm-their-bcf846.mp3 | he was first up every morning to warm their bottles | 1 |
 | /audio/child-mode/phrases/he-said-the-baby-lambs-were-fine-whatever-2ea068.mp3 | he said the baby lambs were fine, whatever | 1 |
 | /audio/child-mode/phrases/there-was-football-on-saturday-a3fe8b.mp3 | there was football on Saturday | 1 |
+| /audio/child-mode/phrases/the-cook-moved-every-open-sack-of-flour-up-h-90fbd5.mp3 | the cook moved every open sack of flour up high | 1 |
 | /audio/child-mode/phrases/a-humane-trap-and-peanut-butter-went-to-the-3f9ebe.mp3 | a humane trap and peanut butter went to the store room | 1 |
 | /audio/child-mode/phrases/the-head-said-the-school-absolutely-had-no-m-668d93.mp3 | the head said the school absolutely had no mouse | 1 |
 | /audio/child-mode/phrases/the-school-had-a-store-room-a6a2df.mp3 | the school had a store room | 1 |
-| /audio/child-mode/phrases/the-cook-moved-every-open-sack-of-flour-up-h-90fbd5.mp3 | the cook moved every open sack of flour up high | 1 |
-| /audio/child-mode/phrases/to-protect-it-in-case-her-bottle-leaked-agai-815443.mp3 | to protect it in case her bottle leaked again | 1 |
-| /audio/child-mode/phrases/because-rain-was-pouring-on-the-walk-to-scho-6d573c.mp3 | because rain was pouring on the walk to school | 1 |
 | /audio/child-mode/phrases/to-hide-the-book-from-her-friends-c67676.mp3 | to hide the book from her friends | 1 |
 | /audio/child-mode/phrases/because-the-bag-looked-nice-c16334.mp3 | because the bag looked nice | 1 |
-| /audio/child-mode/phrases/they-grow-toward-the-light-from-the-window-f9f39e.mp3 | they grow toward the light from the window | 1 |
+| /audio/child-mode/phrases/to-protect-it-in-case-her-bottle-leaked-agai-815443.mp3 | to protect it in case her bottle leaked again | 1 |
+| /audio/child-mode/phrases/because-rain-was-pouring-on-the-walk-to-scho-6d573c.mp3 | because rain was pouring on the walk to school | 1 |
 | /audio/child-mode/phrases/gran-turning-the-pots-knocks-each-plant-side-e94e2c.mp3 | Gran turning the pots knocks each plant sideways | 1 |
 | /audio/child-mode/phrases/the-wind-pushes-them-71ed10.mp3 | the wind pushes them | 1 |
 | /audio/child-mode/phrases/the-pots-are-broken-6fc6ef.mp3 | the pots are broken | 1 |
-| /audio/child-mode/phrases/a-book-with-photographs-of-lightning-b6da7f.mp3 | a book with photographs of lightning | 1 |
-| /audio/child-mode/phrases/a-book-of-animal-jokes-9cae77.mp3 | a book of animal jokes | 1 |
-| /audio/child-mode/phrases/a-cookbook-about-soup-8e681d.mp3 | a cookbook about soup | 1 |
-| /audio/child-mode/phrases/a-story-about-a-lost-puppy-a6669e.mp3 | a story about a lost puppy | 1 |
-| /audio/child-mode/phrases/neat-silver-ladder-lines-6d88b6.mp3 | neat silver ladder lines | 1 |
-| /audio/child-mode/phrases/green-tree-leaves-9aee6e.mp3 | green tree leaves | 1 |
-| /audio/child-mode/phrases/large-black-wheels-f287bf.mp3 | large black wheels | 1 |
-| /audio/child-mode/phrases/a-yellow-sun-9f47f3.mp3 | a yellow sun | 1 |
-| /audio/child-mode/phrases/a-tiny-crab-was-inside-it-bd897f.mp3 | a tiny crab was inside it | 1 |
-| /audio/child-mode/phrases/it-was-too-heavy-to-carry-da7e19.mp3 | it was too heavy to carry | 1 |
-| /audio/child-mode/phrases/it-belonged-to-a-shop-4d11c8.mp3 | it belonged to a shop | 1 |
-| /audio/child-mode/phrases/it-was-painted-blue-f9e5bf.mp3 | it was painted blue | 1 |
-| /audio/child-mode/phrases/it-tore-a77d84.mp3 | it tore | 1 |
-| /audio/child-mode/phrases/it-turned-blue-643c57.mp3 | it turned blue | 1 |
-| /audio/child-mode/phrases/it-was-empty-ed0242.mp3 | it was empty | 1 |
-| /audio/child-mode/phrases/it-fell-into-water-cba985.mp3 | it fell into water | 1 |
-| /audio/child-mode/phrases/the-bike-chain-was-loose-3b4f21.mp3 | the bike chain was loose | 1 |
-| /audio/child-mode/phrases/the-path-was-closed-a1f618.mp3 | the path was closed | 1 |
-| /audio/child-mode/phrases/the-bell-was-too-loud-8503e7.mp3 | the bell was too loud | 1 |
-| /audio/child-mode/phrases/the-tire-was-purple-f674f7.mp3 | the tire was purple | 1 |
-| /audio/child-mode/phrases/an-acorn-65e39c.mp3 | an acorn | 1 |
-| /audio/child-mode/phrases/a-sandwich-a18cb7.mp3 | a sandwich | 1 |
-| /audio/child-mode/phrases/a-blue-ribbon-840c03.mp3 | a blue ribbon | 1 |
-| /audio/child-mode/phrases/a-pencil-ac9001.mp3 | a pencil | 1 |
-| /audio/child-mode/phrases/so-they-would-not-crack-38d266.mp3 | so they would not crack | 1 |
-| /audio/child-mode/phrases/so-the-cans-would-freeze-335b30.mp3 | so the cans would freeze | 1 |
-| /audio/child-mode/phrases/so-the-shelf-would-move-3c583d.mp3 | so the shelf would move | 1 |
-| /audio/child-mode/phrases/so-the-bag-would-turn-blue-76de14.mp3 | so the bag would turn blue | 1 |
-| /audio/child-mode/phrases/on-the-sunny-classroom-window-ledge-55b047.mp3 | on the sunny classroom window ledge | 1 |
-| /audio/child-mode/phrases/under-her-desk-ba5d51.mp3 | under her desk | 1 |
-| /audio/child-mode/phrases/beside-the-lunch-trays-8292a1.mp3 | beside the lunch trays | 1 |
-| /audio/child-mode/phrases/inside-her-backpack-7feb12.mp3 | inside her backpack | 1 |
-| /audio/child-mode/phrases/into-the-hall-341780.mp3 | into the hall | 1 |
-| /audio/child-mode/phrases/onto-the-field-ced1e6.mp3 | onto the field | 1 |
-| /audio/child-mode/phrases/behind-the-shed-805fe2.mp3 | behind the shed | 1 |
-| /audio/child-mode/phrases/beside-the-road-b7e058.mp3 | beside the road | 1 |
-| /audio/child-mode/phrases/on-the-bottom-74a541.mp3 | on the bottom | 1 |
-| /audio/child-mode/phrases/beside-the-sink-b7e0cc.mp3 | beside the sink | 1 |
-| /audio/child-mode/phrases/in-his-lunch-box-2d2d17.mp3 | in his lunch box | 1 |
-| /audio/child-mode/phrases/under-the-rug-af36ff.mp3 | under the rug | 3 |
-| /audio/child-mode/phrases/beside-the-stairs-340795.mp3 | beside the stairs | 1 |
-| /audio/child-mode/phrases/under-the-cafe-960e52.mp3 | under the cafe | 1 |
-| /audio/child-mode/phrases/inside-the-shop-4416cf.mp3 | inside the shop | 1 |
-| /audio/child-mode/phrases/behind-the-bus-stop-ebe1a1.mp3 | behind the bus stop | 1 |
-| /audio/child-mode/phrases/in-the-red-bin-5ccc89.mp3 | in the red bin | 1 |
-| /audio/child-mode/phrases/on-the-top-shelf-cbcd1d.mp3 | on the top shelf | 1 |
-| /audio/child-mode/phrases/beside-the-door-b7d8ac.mp3 | beside the door | 1 |
-| /audio/child-mode/phrases/in-the-side-pocket-of-his-bag-7ee18d.mp3 | in the side pocket of his bag | 1 |
-| /audio/child-mode/phrases/under-the-pool-ladder-797f08.mp3 | under the pool ladder | 1 |
-| /audio/child-mode/phrases/inside-a-lunch-tray-7fc253.mp3 | inside a lunch tray | 1 |
-| /audio/child-mode/phrases/beside-the-teacher-s-desk-350a80.mp3 | beside the teacher's desk | 1 |
-| /audio/child-mode/phrases/in-the-lost-property-box-3ec88a.mp3 | in the lost property box | 1 |
-| /audio/child-mode/phrases/inside-ivy-s-pocket-fcb60d.mp3 | inside Ivy's pocket | 1 |
-| /audio/child-mode/phrases/on-the-lunch-table-d779f3.mp3 | on the lunch table | 1 |
-| /audio/child-mode/phrases/beside-the-playground-gate-839c9a.mp3 | beside the playground gate | 1 |
-| /audio/child-mode/phrases/inside-the-office-drawer-26ed54.mp3 | inside the office drawer | 1 |
-| /audio/child-mode/phrases/under-a-classroom-chair-cfec7f.mp3 | under a classroom chair | 1 |
-| /audio/child-mode/phrases/on-the-bus-seat-f8976d.mp3 | on the bus seat | 1 |
-| /audio/child-mode/phrases/coach-lee-f865f8.mp3 | Coach Lee | 1 |
-| /audio/child-mode/phrases/her-brother-a2b4f8.mp3 | her brother | 1 |
-| /audio/child-mode/phrases/the-librarian-fa2227.mp3 | the librarian | 3 |
-| /audio/child-mode/phrases/a-bus-driver-bc39b3.mp3 | a bus driver | 1 |
-| /audio/child-mode/phrases/the-teacher-4f19f9.mp3 | the teacher | 1 |
-| /audio/child-mode/phrases/the-bus-driver-9b0a3f.mp3 | the bus driver | 2 |
-| /audio/child-mode/phrases/her-teacher-ecf384.mp3 | her teacher | 2 |
-| /audio/child-mode/phrases/rosa-s-cousin-f2712d.mp3 | Rosa's cousin | 1 |
-| /audio/child-mode/phrases/a-park-ranger-ce353f.mp3 | a park ranger | 1 |
-| /audio/child-mode/phrases/her-neighbor-14caa5.mp3 | her neighbor | 1 |
-| /audio/child-mode/phrases/the-choir-teacher-169e3e.mp3 | the choir teacher | 1 |
-| /audio/child-mode/phrases/her-cousin-92b344.mp3 | her cousin | 2 |
-| /audio/child-mode/phrases/after-lunch-a814fb.mp3 | after lunch | 1 |
-| /audio/child-mode/phrases/before-breakfast-dc1fe1.mp3 | before breakfast | 2 |
-| /audio/child-mode/phrases/during-assembly-8c2baa.mp3 | during assembly | 1 |
-| /audio/child-mode/phrases/after-home-time-b63e54.mp3 | after home time | 1 |
-| /audio/child-mode/phrases/the-rolls-with-seeds-on-top-3aee0b.mp3 | the rolls with seeds on top | 1 |
-| /audio/child-mode/phrases/the-plain-rolls-94293b.mp3 | the plain rolls | 1 |
-| /audio/child-mode/phrases/the-burnt-rolls-94e082.mp3 | the burnt rolls | 1 |
-| /audio/child-mode/phrases/the-rolls-in-a-paper-bag-614d59.mp3 | the rolls in a paper bag | 1 |
-| /audio/child-mode/phrases/the-lettuce-e8a96e.mp3 | the lettuce | 1 |
-| /audio/child-mode/phrases/the-tomato-plants-3123ed.mp3 | the tomato plants | 1 |
-| /audio/child-mode/phrases/the-apple-tree-62a54a.mp3 | the apple tree | 1 |
-| /audio/child-mode/phrases/the-flower-pots-ada19b.mp3 | the flower pots | 1 |
-| /audio/child-mode/phrases/the-librarian-s-b4b03b.mp3 | the librarian's | 1 |
-| /audio/child-mode/phrases/ms-chen-s-77baf4.mp3 | Ms. Chen's | 1 |
-| /audio/child-mode/phrases/the-last-note-b4c18c.mp3 | the last note | 1 |
-| /audio/child-mode/phrases/the-first-word-5dcd57.mp3 | the first word | 1 |
-| /audio/child-mode/phrases/the-middle-drumbeat-8de60c.mp3 | the middle drumbeat | 1 |
-| /audio/child-mode/phrases/the-title-670bf0.mp3 | the title | 1 |
-| /audio/child-mode/phrases/the-garden-team-holding-fresh-carrots-d90a40.mp3 | the garden team holding fresh carrots | 1 |
-| /audio/child-mode/phrases/the-chess-board-under-a-chair-5d4227.mp3 | the chess board under a chair | 1 |
-| /audio/child-mode/phrases/the-empty-hallway-e711ed.mp3 | the empty hallway | 1 |
-| /audio/child-mode/phrases/the-lunch-menu-4f335c.mp3 | the lunch menu | 1 |
-| /audio/child-mode/phrases/the-watered-soil-7a1343.mp3 | the watered soil | 1 |
-| /audio/child-mode/phrases/the-dry-soil-8a3688.mp3 | the dry soil | 1 |
-| /audio/child-mode/phrases/the-soil-in-the-bag-8988d2.mp3 | the soil in the bag | 1 |
-| /audio/child-mode/phrases/the-soil-on-the-shelf-35f31b.mp3 | the soil on the shelf | 1 |
-| /audio/child-mode/phrases/apples-and-cheese-47c559.mp3 | apples and cheese | 1 |
-| /audio/child-mode/phrases/sandwich-wrappers-213018.mp3 | sandwich wrappers | 1 |
-| /audio/child-mode/phrases/paper-napkins-9170e9.mp3 | paper napkins | 1 |
-| /audio/child-mode/phrases/a-turtle-crawling-toward-the-water-a7d25d.mp3 | a turtle crawling toward the water | 1 |
-| /audio/child-mode/phrases/a-chair-with-a-cracked-leg-1d9900.mp3 | a chair with a cracked leg | 1 |
-| /audio/child-mode/phrases/a-bike-beside-a-gate-e734b0.mp3 | a bike beside a gate | 1 |
-| /audio/child-mode/phrases/a-bowl-of-soup-da8fa4.mp3 | a bowl of soup | 1 |
-| /audio/child-mode/phrases/it-was-very-heavy-a62a07.mp3 | it was very heavy | 1 |
-| /audio/child-mode/phrases/it-was-made-of-paper-f2c70a.mp3 | it was made of paper | 1 |
-| /audio/child-mode/phrases/it-had-no-sleeves-f1ca90.mp3 | it had no sleeves | 1 |
-| /audio/child-mode/phrases/it-was-kept-in-a-lunch-box-aa8346.mp3 | it was kept in a lunch box | 1 |
-| /audio/child-mode/phrases/a-blue-cloth-ebacfa.mp3 | a blue cloth | 1 |
-| /audio/child-mode/phrases/a-red-sponge-4fa67c.mp3 | a red sponge | 1 |
-| /audio/child-mode/phrases/a-paper-plate-45a011.mp3 | a paper plate | 1 |
-| /audio/child-mode/phrases/a-green-brush-a3d5cf.mp3 | a green brush | 1 |
-| /audio/child-mode/phrases/on-the-front-of-her-notebook-26813d.mp3 | on the front of her notebook | 1 |
-| /audio/child-mode/phrases/inside-the-reward-box-ea70c6.mp3 | inside the reward box | 1 |
-| /audio/child-mode/phrases/under-her-chair-5f6baa.mp3 | under her chair | 1 |
-| /audio/child-mode/phrases/on-the-classroom-door-796e4b.mp3 | on the classroom door | 1 |
-| /audio/child-mode/phrases/under-the-chair-57dc6f.mp3 | under the chair | 2 |
-| /audio/child-mode/phrases/inside-the-piano-c6bace.mp3 | inside the piano | 1 |
-| /audio/child-mode/phrases/on-the-playground-a7b181.mp3 | on the playground | 1 |
-| /audio/child-mode/phrases/beside-the-bus-a87ae6.mp3 | beside the bus | 1 |
-| /audio/child-mode/phrases/where-the-water-moved-slowly-near-the-reeds-1d18cc.mp3 | where the water moved slowly near the reeds | 1 |
-| /audio/child-mode/phrases/inside-the-school-sink-f9e3eb.mp3 | inside the school sink | 1 |
-| /audio/child-mode/phrases/under-a-playground-slide-7b2938.mp3 | under a playground slide | 1 |
-| /audio/child-mode/phrases/beside-the-lunchroom-door-8b4394.mp3 | beside the lunchroom door | 1 |
-| /audio/child-mode/phrases/a-loose-board-f62d97.mp3 | a loose board | 1 |
-| /audio/child-mode/phrases/a-sleeping-dog-30b2e4.mp3 | a sleeping dog | 1 |
-| /audio/child-mode/phrases/a-red-backpack-840174.mp3 | a red backpack | 1 |
-| /audio/child-mode/phrases/a-painted-sign-6c5ad5.mp3 | a painted sign | 1 |
-| /audio/child-mode/phrases/a-radio-817b88.mp3 | a radio | 1 |
-| /audio/child-mode/phrases/a-lunch-pass-bfee4c.mp3 | a lunch pass | 1 |
-| /audio/child-mode/phrases/a-toy-badge-e1db30.mp3 | a toy badge | 1 |
-| /audio/child-mode/phrases/a-map-of-the-zoo-b7df1c.mp3 | a map of the zoo | 1 |
-| /audio/child-mode/phrases/ten-thirty-394d2d.mp3 | ten thirty | 1 |
-| /audio/child-mode/phrases/nine-fifteen-f631c2.mp3 | nine fifteen | 1 |
-| /audio/child-mode/phrases/eleven-forty-d0e32d.mp3 | eleven forty | 1 |
-| /audio/child-mode/phrases/eight-o-clock-313735.mp3 | eight o'clock | 1 |
-| /audio/child-mode/phrases/paper-cups-e562bb.mp3 | paper cups | 1 |
-| /audio/child-mode/phrases/plastic-spoons-966ec5.mp3 | plastic spoons | 1 |
-| /audio/child-mode/phrases/muddy-shoes-c524f4.mp3 | muddy shoes | 1 |
-| /audio/child-mode/phrases/wooden-blocks-f825a0.mp3 | wooden blocks | 2 |
+| /audio/child-mode/phrases/they-grow-toward-the-light-from-the-window-f9f39e.mp3 | they grow toward the light from the window | 1 |
+| /audio/child-mode/phrases/in-the-calmest-patch-of-the-stream-e6fe69.mp3 | in the calmest patch of the stream | 1 |
+| /audio/child-mode/phrases/a-red-backpack-against-the-railing-bcab4d.mp3 | a red backpack against the railing | 1 |
+| /audio/child-mode/phrases/a-painted-warning-sign-by-the-entrance-db306b.mp3 | a painted warning sign by the entrance | 1 |
+| /audio/child-mode/phrases/one-plank-that-was-not-secure-f115ed.mp3 | one plank that was not secure | 1 |
+| /audio/child-mode/phrases/a-sleeping-dog-beside-the-path-942902.mp3 | a sleeping dog beside the path | 1 |
+| /audio/child-mode/phrases/a-laminated-pass-for-the-lunchroom-4f2c25.mp3 | a laminated pass for the lunchroom | 1 |
+| /audio/child-mode/phrases/a-silver-badge-used-for-classroom-play-2693c8.mp3 | a silver badge used for classroom play | 1 |
+| /audio/child-mode/phrases/a-folded-visitor-map-from-the-zoo-bf4a6e.mp3 | a folded visitor map from the zoo | 1 |
+| /audio/child-mode/phrases/portable-communication-equipment-6f1f04.mp3 | portable communication equipment | 1 |
+| /audio/child-mode/phrases/the-caretaker-3252cb.mp3 | the caretaker | 2 |
 | /audio/child-mode/phrases/miss-adu-32982d.mp3 | Miss Adu | 1 |
 | /audio/child-mode/phrases/the-taxi-driver-1eb322.mp3 | the taxi driver | 1 |
-| /audio/child-mode/phrases/the-caretaker-3252cb.mp3 | the caretaker | 2 |
 | /audio/child-mode/phrases/mr-pole-3760d0.mp3 | Mr Pole | 1 |
 | /audio/child-mode/phrases/the-winner-4f8642.mp3 | the winner | 1 |
 | /audio/child-mode/phrases/a-parent-ac49da.mp3 | a parent | 1 |
@@ -5461,14 +4475,14 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/at-half-past-ten-982c7b.mp3 | at half past ten | 1 |
 | /audio/child-mode/phrases/at-eleven-b5d42d.mp3 | at eleven | 1 |
 | /audio/child-mode/phrases/at-lunchtime-f4d391.mp3 | at lunchtime | 3 |
-| /audio/child-mode/phrases/it-had-a-dent-in-one-corner-eaf879.mp3 | it had a dent in one corner | 1 |
 | /audio/child-mode/phrases/it-smelled-of-orange-90b12b.mp3 | it smelled of orange | 1 |
 | /audio/child-mode/phrases/it-had-a-rocket-sticker-cab5db.mp3 | it had a rocket sticker | 1 |
 | /audio/child-mode/phrases/it-had-his-name-on-it-384388.mp3 | it had his name on it | 1 |
-| /audio/child-mode/phrases/from-breakfast-until-home-time-931709.mp3 | from breakfast until home time | 1 |
+| /audio/child-mode/phrases/it-had-a-dent-in-one-corner-eaf879.mp3 | it had a dent in one corner | 1 |
 | /audio/child-mode/phrases/exactly-one-hour-996d55.mp3 | exactly one hour | 1 |
 | /audio/child-mode/phrases/a-whole-week-9c232f.mp3 | a whole week | 1 |
 | /audio/child-mode/phrases/until-the-next-morning-3a19f4.mp3 | until the next morning | 1 |
+| /audio/child-mode/phrases/for-the-whole-school-day-df5d58.mp3 | for the whole school day | 1 |
 | /audio/child-mode/phrases/the-dinosaur-glove-3983d1.mp3 | the dinosaur glove | 1 |
 | /audio/child-mode/phrases/the-stripy-scarf-f8431f.mp3 | the stripy scarf | 1 |
 | /audio/child-mode/phrases/the-water-bottle-bb8cc3.mp3 | the water bottle | 1 |
@@ -5478,131 +4492,126 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/nell-s-dressing-up-box-806741.mp3 | Nell's dressing-up box | 1 |
 | /audio/child-mode/phrases/the-staff-room-d9f061.mp3 | the staff room | 1 |
 | /audio/child-mode/phrases/the-art-shop-b9c722.mp3 | the art shop | 1 |
+| /audio/child-mode/phrases/dive-from-the-high-board-906c2c.mp3 | dive from the high board | 1 |
 | /audio/child-mode/phrases/swim-whole-lengths-without-a-float-4fb31e.mp3 | swim whole lengths without a float | 1 |
 | /audio/child-mode/phrases/swim-widths-with-a-float-b0599d.mp3 | swim widths with a float | 1 |
 | /audio/child-mode/phrases/stay-where-she-can-stand-103324.mp3 | stay where she can stand | 1 |
-| /audio/child-mode/phrases/dive-from-the-high-board-906c2c.mp3 | dive from the high board | 1 |
+| /audio/child-mode/phrases/nothing-at-all-9640d8.mp3 | nothing at all | 2 |
 | /audio/child-mode/phrases/two-pounds-fifty-1cfdcd.mp3 | two pounds fifty | 1 |
 | /audio/child-mode/phrases/five-pounds-4aa8a1.mp3 | five pounds | 1 |
 | /audio/child-mode/phrases/ten-pounds-307db8.mp3 | ten pounds | 1 |
-| /audio/child-mode/phrases/nothing-at-all-9640d8.mp3 | nothing at all | 2 |
+| /audio/child-mode/phrases/it-was-a-feeding-day-instead-1129d2.mp3 | it was a feeding day instead | 1 |
 | /audio/child-mode/phrases/rain-days-mean-no-watering-and-it-had-rained-b8a13c.mp3 | rain days mean no watering, and it had rained | 1 |
 | /audio/child-mode/phrases/thursday-was-not-a-watering-day-8fba86.mp3 | Thursday was not a watering day | 1 |
 | /audio/child-mode/phrases/the-can-was-lost-b59fdd.mp3 | the can was lost | 1 |
-| /audio/child-mode/phrases/it-was-a-feeding-day-instead-1129d2.mp3 | it was a feeding day instead | 1 |
-| /audio/child-mode/phrases/the-newest-bench-because-mr-alam-fed-the-spa-444ce2.mp3 | the newest bench, because Mr Alam fed the sparrows | 1 |
-| /audio/child-mode/phrases/the-oak-bench-because-of-captain-reya-9056d0.mp3 | the oak bench, because of Captain Reya | 1 |
 | /audio/child-mode/phrases/the-iron-bench-because-of-the-twins-fae771.mp3 | the iron bench, because of the twins | 1 |
 | /audio/child-mode/phrases/no-bench-has-one-cbdd19.mp3 | no bench has one | 1 |
-| /audio/child-mode/phrases/the-fish-were-given-new-food-cdfc9c.mp3 | the fish were given new food | 1 |
-| /audio/child-mode/phrases/the-gravel-was-rinsed-be794d.mp3 | the gravel was rinsed | 1 |
+| /audio/child-mode/phrases/mr-alam-s-bench-to-remember-the-birds-he-fed-53f689.mp3 | Mr Alam's bench, to remember the birds he fed | 1 |
+| /audio/child-mode/phrases/the-oak-bench-because-of-captain-reya-9056d0.mp3 | the oak bench, because of Captain Reya | 1 |
 | /audio/child-mode/phrases/the-glass-was-wiped-43c0fc.mp3 | the glass was wiped | 1 |
 | /audio/child-mode/phrases/the-fish-waited-in-a-bucket-3625b8.mp3 | the fish waited in a bucket | 1 |
-| /audio/child-mode/phrases/medals-were-polished-667ee2.mp3 | medals were polished | 1 |
+| /audio/child-mode/phrases/the-fish-were-given-new-food-cdfc9c.mp3 | the fish were given new food | 1 |
+| /audio/child-mode/phrases/the-gravel-was-rinsed-be794d.mp3 | the gravel was rinsed | 1 |
 | /audio/child-mode/phrases/lanes-were-painted-e87113.mp3 | lanes were painted | 1 |
 | /audio/child-mode/phrases/bean-bags-were-counted-d68f8f.mp3 | bean bags were counted | 1 |
 | /audio/child-mode/phrases/the-megaphone-was-tested-4337a0.mp3 | the megaphone was tested | 1 |
-| /audio/child-mode/phrases/a-camera-8df40c.mp3 | a camera | 1 |
-| /audio/child-mode/phrases/a-raincoat-aa4b2e.mp3 | a raincoat | 1 |
+| /audio/child-mode/phrases/medals-were-polished-667ee2.mp3 | medals were polished | 1 |
 | /audio/child-mode/phrases/a-notebook-47f885.mp3 | a notebook | 1 |
 | /audio/child-mode/phrases/a-torch-81a7a1.mp3 | a torch | 1 |
-| /audio/child-mode/phrases/a-box-of-old-paintbrushes-1c5af1.mp3 | a box of old paintbrushes | 1 |
+| /audio/child-mode/phrases/a-camera-8df40c.mp3 | a camera | 1 |
+| /audio/child-mode/phrases/a-raincoat-aa4b2e.mp3 | a raincoat | 1 |
 | /audio/child-mode/phrases/screwdrivers-on-hooks-f65df6.mp3 | screwdrivers on hooks | 1 |
 | /audio/child-mode/phrases/jars-of-screws-354ff9.mp3 | jars of screws | 1 |
 | /audio/child-mode/phrases/a-radio-by-the-door-63bc40.mp3 | a radio by the door | 1 |
+| /audio/child-mode/phrases/a-box-of-old-paintbrushes-1c5af1.mp3 | a box of old paintbrushes | 1 |
 | /audio/child-mode/phrases/a-poetry-competition-was-judged-cab766.mp3 | a poetry competition was judged | 1 |
 | /audio/child-mode/phrases/an-author-signed-books-801368.mp3 | an author signed books | 1 |
 | /audio/child-mode/phrases/reading-tokens-counted-double-5cfecd.mp3 | reading tokens counted double | 1 |
 | /audio/child-mode/phrases/the-librarian-wore-her-book-dress-8950a5.mp3 | the librarian wore her book dress | 1 |
-| /audio/child-mode/phrases/a-bonfire-was-lit-in-the-road-6e4ed7.mp3 | a bonfire was lit in the road | 1 |
 | /audio/child-mode/phrases/candles-stood-in-jam-jars-96a9b2.mp3 | candles stood in jam jars | 1 |
 | /audio/child-mode/phrases/a-guitar-played-requests-18e6b6.mp3 | a guitar played requests | 1 |
 | /audio/child-mode/phrases/the-chip-van-kept-selling-7d1707.mp3 | the chip van kept selling | 1 |
+| /audio/child-mode/phrases/a-bonfire-was-lit-in-the-road-6e4ed7.mp3 | a bonfire was lit in the road | 1 |
 | /audio/child-mode/phrases/no-eating-or-drinking-27d2f4.mp3 | no eating or drinking | 1 |
 | /audio/child-mode/phrases/walk-don-t-run-b9adba.mp3 | walk, don't run | 1 |
 | /audio/child-mode/phrases/no-flash-photographs-37f576.mp3 | no flash photographs | 1 |
+| /audio/child-mode/phrases/the-marrow-rode-the-wheelbarrow-a93594.mp3 | the marrow rode the wheelbarrow | 1 |
 | /audio/child-mode/phrases/carrots-were-pulled-and-washed-b8df14.mp3 | carrots were pulled and washed | 1 |
 | /audio/child-mode/phrases/beans-were-picked-f1367c.mp3 | beans were picked | 1 |
 | /audio/child-mode/phrases/potatoes-were-hunted-ecc60d.mp3 | potatoes were hunted | 1 |
-| /audio/child-mode/phrases/the-marrow-rode-the-wheelbarrow-a93594.mp3 | the marrow rode the wheelbarrow | 1 |
 | /audio/child-mode/phrases/the-rain-bd4cb3.mp3 | the rain | 1 |
-| /audio/child-mode/phrases/twenty-minutes-97df36.mp3 | twenty minutes | 1 |
-| /audio/child-mode/phrases/ten-minutes-4acc88.mp3 | ten minutes | 1 |
 | /audio/child-mode/phrases/half-an-hour-97ccb7.mp3 | half an hour | 1 |
 | /audio/child-mode/phrases/an-afternoon-ceac80.mp3 | an afternoon | 1 |
-| /audio/child-mode/phrases/a-basket-of-picture-books-c884d9.mp3 | a basket of picture books | 1 |
+| /audio/child-mode/phrases/twenty-minutes-97df36.mp3 | twenty minutes | 1 |
+| /audio/child-mode/phrases/ten-minutes-4acc88.mp3 | ten minutes | 1 |
 | /audio/child-mode/phrases/board-games-75d76e.mp3 | board games | 1 |
 | /audio/child-mode/phrases/dinosaur-figures-c8c0e9.mp3 | dinosaur figures | 1 |
 | /audio/child-mode/phrases/outgrown-wellies-42cc72.mp3 | outgrown wellies | 1 |
+| /audio/child-mode/phrases/a-basket-of-picture-books-c884d9.mp3 | a basket of picture books | 1 |
 | /audio/child-mode/phrases/no-one-could-catch-him-from-in-front-15e01b.mp3 | no one could catch him from in front | 1 |
 | /audio/child-mode/phrases/his-starts-were-lightning-fa32e4.mp3 | his starts were lightning | 1 |
 | /audio/child-mode/phrases/he-kept-the-pace-steady-90475e.mp3 | he kept the pace steady | 1 |
 | /audio/child-mode/phrases/he-was-the-captain-ecbd0e.mp3 | he was the captain | 1 |
-| /audio/child-mode/phrases/a-e-b885c2.mp3 | a_e | 28 |
-| /audio/child-mode/phrases/i-e-b887e3.mp3 | i_e | 28 |
-| /audio/child-mode/phrases/o-e-b8897b.mp3 | o_e | 27 |
-| /audio/child-mode/phrases/u-e-b88b13.mp3 | u_e | 22 |
-| /audio/child-mode/phrases/e-e-b886d2.mp3 | e_e | 7 |
-| /audio/child-mode/phrases/waiting-for-a-seed-to-grow-3cb334.mp3 | waiting for a seed to grow | 1 |
-| /audio/child-mode/phrases/a-dog-that-barked-f71c3d.mp3 | a dog that barked | 1 |
 | /audio/child-mode/phrases/everything-about-paper-cups-d26676.mp3 | everything about paper cups | 1 |
 | /audio/child-mode/phrases/a-girl-who-hates-plants-ea92ff.mp3 | a girl who hates plants | 1 |
-| /audio/child-mode/phrases/searching-everywhere-for-a-lost-book-6e6c15.mp3 | searching everywhere for a lost book | 1 |
+| /audio/child-mode/phrases/waiting-for-a-seed-to-grow-3cb334.mp3 | waiting for a seed to grow | 1 |
+| /audio/child-mode/phrases/a-dog-that-barked-f71c3d.mp3 | a dog that barked | 1 |
 | /audio/child-mode/phrases/looking-inside-the-fridge-c518a4.mp3 | looking inside the fridge | 1 |
 | /audio/child-mode/phrases/how-libraries-lend-books-acc81f.mp3 | how libraries lend books | 1 |
 | /audio/child-mode/phrases/a-boy-who-loves-tidying-3649b1.mp3 | a boy who loves tidying | 1 |
+| /audio/child-mode/phrases/searching-everywhere-for-a-lost-book-6e6c15.mp3 | searching everywhere for a lost book | 1 |
 | /audio/child-mode/phrases/fixing-a-noisy-bike-23736b.mp3 | fixing a noisy bike | 1 |
 | /audio/child-mode/phrases/a-ride-to-the-park-ebfbd5.mp3 | a ride to the park | 1 |
 | /audio/child-mode/phrases/all-the-parts-of-a-bicycle-63214d.mp3 | all the parts of a bicycle | 1 |
 | /audio/child-mode/phrases/a-broken-bike-nobody-fixed-9e0a42.mp3 | a broken bike nobody fixed | 1 |
-| /audio/child-mode/phrases/a-wobbly-tooth-finally-coming-out-d3d046.mp3 | a wobbly tooth finally coming out | 1 |
 | /audio/child-mode/phrases/laughing-at-dinner-4e0853.mp3 | laughing at dinner | 1 |
 | /audio/child-mode/phrases/how-to-brush-your-teeth-d7b813.mp3 | how to brush your teeth | 1 |
 | /audio/child-mode/phrases/a-boy-scared-of-the-dentist-b4045b.mp3 | a boy scared of the dentist | 1 |
+| /audio/child-mode/phrases/a-wobbly-tooth-finally-coming-out-d3d046.mp3 | a wobbly tooth finally coming out | 1 |
 | /audio/child-mode/phrases/slowly-making-friends-with-a-kitten-edc9da.mp3 | slowly making friends with a kitten | 1 |
 | /audio/child-mode/phrases/a-dish-of-water-on-the-steps-aa8763.mp3 | a dish of water on the steps | 1 |
 | /audio/child-mode/phrases/how-to-look-after-every-pet-5f05f9.mp3 | how to look after every pet | 1 |
 | /audio/child-mode/phrases/a-kitten-that-ran-away-forever-fe138b.mp3 | a kitten that ran away forever | 1 |
+| /audio/child-mode/phrases/a-boy-who-lost-his-hat-19d70a.mp3 | a boy who lost his hat | 1 |
 | /audio/child-mode/phrases/finding-a-lost-mitten-354286.mp3 | finding a lost mitten | 1 |
 | /audio/child-mode/phrases/footprints-in-the-snow-656f0f.mp3 | footprints in the snow | 1 |
 | /audio/child-mode/phrases/all-kinds-of-winter-clothes-dd66b5.mp3 | all kinds of winter clothes | 1 |
-| /audio/child-mode/phrases/a-boy-who-lost-his-hat-19d70a.mp3 | a boy who lost his hat | 1 |
 | /audio/child-mode/phrases/a-choir-learning-to-sing-together-7897a8.mp3 | a choir learning to sing together | 1 |
 | /audio/child-mode/phrases/miss-obi-clapping-a-beat-e2943d.mp3 | Miss Obi clapping a beat | 1 |
 | /audio/child-mode/phrases/every-kind-of-music-cd452a.mp3 | every kind of music | 1 |
 | /audio/child-mode/phrases/a-show-that-was-cancelled-8053f4.mp3 | a show that was cancelled | 1 |
+| /audio/child-mode/phrases/a-pancake-that-fell-on-the-floor-19c6a9.mp3 | a pancake that fell on the floor | 1 |
 | /audio/child-mode/phrases/practising-until-a-pancake-flip-works-5f9c4e.mp3 | practising until a pancake flip works | 1 |
 | /audio/child-mode/phrases/a-dad-watching-on-sunday-63bba2.mp3 | a dad watching on Sunday | 1 |
 | /audio/child-mode/phrases/what-people-eat-for-breakfast-8ddf31.mp3 | what people eat for breakfast | 1 |
-| /audio/child-mode/phrases/a-pancake-that-fell-on-the-floor-19c6a9.mp3 | a pancake that fell on the floor | 1 |
+| /audio/child-mode/phrases/why-bees-never-leave-the-hive-2ca0f1.mp3 | why bees never leave the hive | 1 |
 | /audio/child-mode/phrases/how-bees-turn-nectar-into-honey-e61ebb.mp3 | how bees turn nectar into honey | 1 |
 | /audio/child-mode/phrases/a-sweet-juice-called-nectar-82d357.mp3 | a sweet juice called nectar | 1 |
 | /audio/child-mode/phrases/every-insect-in-the-garden-4c16ba.mp3 | every insect in the garden | 1 |
-| /audio/child-mode/phrases/why-bees-never-leave-the-hive-2ca0f1.mp3 | why bees never leave the hive | 1 |
-| /audio/child-mode/phrases/how-a-tadpole-becomes-a-frog-1aed64.mp3 | how a tadpole becomes a frog | 1 |
-| /audio/child-mode/phrases/back-legs-growing-first-226e47.mp3 | back legs growing first | 1 |
 | /audio/child-mode/phrases/animals-that-live-in-ponds-bde506.mp3 | animals that live in ponds | 1 |
 | /audio/child-mode/phrases/how-frogs-build-nests-e2f78a.mp3 | how frogs build nests | 1 |
-| /audio/child-mode/phrases/how-old-paper-is-made-new-again-68e23d.mp3 | how old paper is made new again | 1 |
-| /audio/child-mode/phrases/a-grey-soup-of-paper-and-water-640119.mp3 | a grey soup of paper and water | 1 |
+| /audio/child-mode/phrases/how-a-tadpole-becomes-a-frog-1aed64.mp3 | how a tadpole becomes a frog | 1 |
+| /audio/child-mode/phrases/back-legs-growing-first-226e47.mp3 | back legs growing first | 1 |
 | /audio/child-mode/phrases/everything-factories-can-make-54901d.mp3 | everything factories can make | 1 |
 | /audio/child-mode/phrases/why-paper-must-be-thrown-away-b7cbed.mp3 | why paper must be thrown away | 1 |
-| /audio/child-mode/phrases/how-a-lighthouse-keeps-ships-safe-3ca4de.mp3 | how a lighthouse keeps ships safe | 1 |
-| /audio/child-mode/phrases/a-big-lamp-that-turns-a91108.mp3 | a big lamp that turns | 1 |
+| /audio/child-mode/phrases/how-old-paper-is-made-new-again-68e23d.mp3 | how old paper is made new again | 1 |
+| /audio/child-mode/phrases/a-grey-soup-of-paper-and-water-640119.mp3 | a grey soup of paper and water | 1 |
 | /audio/child-mode/phrases/different-kinds-of-tall-buildings-804c33.mp3 | different kinds of tall buildings | 1 |
 | /audio/child-mode/phrases/ships-that-sail-only-in-the-day-3ac6b9.mp3 | ships that sail only in the day | 1 |
-| /audio/child-mode/phrases/how-ants-work-together-to-gather-food-e282ab.mp3 | how ants work together to gather food | 1 |
+| /audio/child-mode/phrases/how-a-lighthouse-keeps-ships-safe-3ca4de.mp3 | how a lighthouse keeps ships safe | 1 |
+| /audio/child-mode/phrases/a-big-lamp-that-turns-a91108.mp3 | a big lamp that turns | 1 |
 | /audio/child-mode/phrases/one-ant-finds-a-crumb-and-leaves-a-trail-6e2a5e.mp3 | one ant finds a crumb and leaves a trail | 1 |
 | /audio/child-mode/phrases/all-the-tiny-animals-in-the-world-b588a9.mp3 | all the tiny animals in the world | 1 |
 | /audio/child-mode/phrases/ants-that-live-all-alone-f47c78.mp3 | ants that live all alone | 1 |
-| /audio/child-mode/phrases/how-shadows-change-through-the-day-289050.mp3 | how shadows change through the day | 1 |
+| /audio/child-mode/phrases/how-ants-work-together-to-gather-food-e282ab.mp3 | how ants work together to gather food | 1 |
 | /audio/child-mode/phrases/small-shadows-at-midday-8631a1.mp3 | small shadows at midday | 1 |
 | /audio/child-mode/phrases/why-the-sky-is-blue-609050.mp3 | why the sky is blue | 1 |
 | /audio/child-mode/phrases/shadows-that-never-move-4957d8.mp3 | shadows that never move | 1 |
-| /audio/child-mode/phrases/how-a-spider-builds-its-web-32f7fb.mp3 | how a spider builds its web | 1 |
+| /audio/child-mode/phrases/how-shadows-change-through-the-day-289050.mp3 | how shadows change through the day | 1 |
 | /audio/child-mode/phrases/wind-carrying-one-thread-374746.mp3 | wind carrying one thread | 1 |
 | /audio/child-mode/phrases/every-animal-that-makes-a-home-edda39.mp3 | every animal that makes a home | 1 |
 | /audio/child-mode/phrases/a-spider-that-hates-webs-ab6abc.mp3 | a spider that hates webs | 1 |
+| /audio/child-mode/phrases/how-a-spider-builds-its-web-32f7fb.mp3 | how a spider builds its web | 1 |
 | /audio/child-mode/phrases/why-the-moon-looks-different-each-night-e03501.mp3 | why the moon looks different each night | 1 |
 | /audio/child-mode/phrases/seeing-only-a-sliver-of-the-bright-side-ba59fb.mp3 | seeing only a sliver of the bright side | 1 |
 | /audio/child-mode/phrases/all-the-stars-in-space-265b60.mp3 | all the stars in space | 1 |
@@ -5611,86 +4620,86 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/a-round-sign-held-up-to-stop-the-cars-e753df.mp3 | a round sign held up to stop the cars | 1 |
 | /audio/child-mode/phrases/all-the-jobs-grown-ups-do-884afd.mp3 | all the jobs grown-ups do | 1 |
 | /audio/child-mode/phrases/children-who-cross-alone-6936c6.mp3 | children who cross alone | 1 |
+| /audio/child-mode/phrases/a-room-that-stayed-messy-525c1a.mp3 | a room that stayed messy | 1 |
 | /audio/child-mode/phrases/a-class-tidying-their-room-together-a106f1.mp3 | a class tidying their room together | 1 |
 | /audio/child-mode/phrases/one-team-stacking-chairs-480058.mp3 | one team stacking chairs | 1 |
 | /audio/child-mode/phrases/every-rule-at-school-8a1538.mp3 | every rule at school | 1 |
-| /audio/child-mode/phrases/a-room-that-stayed-messy-525c1a.mp3 | a room that stayed messy | 1 |
 | /audio/child-mode/phrases/a-saturday-trip-to-buy-food-with-nan-bcacaa.mp3 | a Saturday trip to buy food with Nan | 1 |
 | /audio/child-mode/phrases/one-free-plum-from-the-stall-man-56c666.mp3 | one free plum from the stall man | 1 |
 | /audio/child-mode/phrases/how-all-shops-sell-food-c10c4d.mp3 | how all shops sell food | 1 |
 | /audio/child-mode/phrases/a-boy-who-stayed-at-home-7c79fb.mp3 | a boy who stayed at home | 1 |
+| /audio/child-mode/phrases/clothes-nobody-ever-washes-900e23.mp3 | clothes nobody ever washes | 1 |
 | /audio/child-mode/phrases/a-busy-morning-at-the-launderette-7e0577.mp3 | a busy morning at the launderette | 1 |
 | /audio/child-mode/phrases/towels-folded-into-tall-piles-c5e005.mp3 | towels folded into tall piles | 1 |
 | /audio/child-mode/phrases/every-shop-on-the-street-242105.mp3 | every shop on the street | 1 |
-| /audio/child-mode/phrases/clothes-nobody-ever-washes-900e23.mp3 | clothes nobody ever washes | 1 |
-| /audio/child-mode/phrases/playing-outside-after-the-rain-5deb40.mp3 | playing outside after the rain | 1 |
-| /audio/child-mode/phrases/leaf-boats-in-the-gutter-fac3af.mp3 | leaf boats in the gutter | 1 |
 | /audio/child-mode/phrases/why-weather-changes-857aad.mp3 | why weather changes | 1 |
 | /audio/child-mode/phrases/children-stuck-indoors-all-day-665eef.mp3 | children stuck indoors all day | 1 |
+| /audio/child-mode/phrases/playing-outside-after-the-rain-5deb40.mp3 | playing outside after the rain | 1 |
+| /audio/child-mode/phrases/leaf-boats-in-the-gutter-fac3af.mp3 | leaf boats in the gutter | 1 |
+| /audio/child-mode/phrases/a-family-with-nothing-to-do-d3b1ed.mp3 | a family with nothing to do | 1 |
 | /audio/child-mode/phrases/a-family-filling-in-their-calendar-c38acd.mp3 | a family filling in their calendar | 1 |
 | /audio/child-mode/phrases/a-big-red-circle-for-grandma-384464.mp3 | a big red circle for Grandma | 1 |
 | /audio/child-mode/phrases/how-to-count-all-the-months-e29359.mp3 | how to count all the months | 1 |
-| /audio/child-mode/phrases/a-family-with-nothing-to-do-d3b1ed.mp3 | a family with nothing to do | 1 |
-| /audio/child-mode/phrases/the-post-arriving-on-our-road-894fc5.mp3 | the post arriving on our road | 1 |
-| /audio/child-mode/phrases/a-parcel-for-number-12-9b32be.mp3 | a parcel for number 12 | 1 |
 | /audio/child-mode/phrases/how-dogs-guard-houses-9e1001.mp3 | how dogs guard houses | 1 |
 | /audio/child-mode/phrases/a-road-that-gets-no-letters-4a27c9.mp3 | a road that gets no letters | 1 |
-| /audio/child-mode/phrases/a-bakery-starting-its-morning-13a0fa.mp3 | a bakery starting its morning | 1 |
+| /audio/child-mode/phrases/the-post-arriving-on-our-road-894fc5.mp3 | the post arriving on our road | 1 |
+| /audio/child-mode/phrases/a-parcel-for-number-12-9b32be.mp3 | a parcel for number 12 | 1 |
 | /audio/child-mode/phrases/a-queue-at-eight-o-clock-e36fee.mp3 | a queue at eight o'clock | 1 |
 | /audio/child-mode/phrases/every-food-people-like-ca218b.mp3 | every food people like | 1 |
 | /audio/child-mode/phrases/a-shop-that-never-opens-bcf4d7.mp3 | a shop that never opens | 1 |
-| /audio/child-mode/phrases/the-corner-nobody-wanted-f41935.mp3 | The Corner Nobody Wanted | 1 |
+| /audio/child-mode/phrases/a-bakery-starting-its-morning-13a0fa.mp3 | a bakery starting its morning | 1 |
 | /audio/child-mode/phrases/crisp-packets-by-the-fence-b6b293.mp3 | Crisp Packets by the Fence | 1 |
 | /audio/child-mode/phrases/a-guide-to-every-garden-flower-875bbd.mp3 | A Guide to Every Garden Flower | 1 |
 | /audio/child-mode/phrases/the-year-the-garden-failed-aec95f.mp3 | The Year the Garden Failed | 1 |
-| /audio/child-mode/phrases/the-long-way-round-61fe00.mp3 | The Long Way Round | 1 |
-| /audio/child-mode/phrases/fixing-the-old-footbridge-d4e5e8.mp3 | Fixing the Old Footbridge | 1 |
+| /audio/child-mode/phrases/the-corner-nobody-wanted-f41935.mp3 | The Corner Nobody Wanted | 1 |
 | /audio/child-mode/phrases/all-about-herons-799626.mp3 | All About Herons | 1 |
 | /audio/child-mode/phrases/the-shortest-path-to-school-430799.mp3 | The Shortest Path to School | 1 |
+| /audio/child-mode/phrases/the-long-way-round-61fe00.mp3 | The Long Way Round | 1 |
+| /audio/child-mode/phrases/fixing-the-old-footbridge-d4e5e8.mp3 | Fixing the Old Footbridge | 1 |
+| /audio/child-mode/phrases/the-girl-who-gave-up-music-60284c.mp3 | The Girl Who Gave Up Music | 1 |
 | /audio/child-mode/phrases/slow-first-fast-later-466f02.mp3 | Slow First, Fast Later | 1 |
 | /audio/child-mode/phrases/a-drum-kit-in-the-garage-2df573.mp3 | A Drum Kit in the Garage | 1 |
 | /audio/child-mode/phrases/famous-drummers-of-the-world-a3235d.mp3 | Famous Drummers of the World | 1 |
-| /audio/child-mode/phrases/the-girl-who-gave-up-music-60284c.mp3 | The Girl Who Gave Up Music | 1 |
 | /audio/child-mode/phrases/the-otters-who-outsmarted-the-aquarium-fd0d18.mp3 | The Otters Who Outsmarted the Aquarium | 1 |
 | /audio/child-mode/phrases/cameras-by-the-glass-wall-3dc583.mp3 | Cameras by the Glass Wall | 1 |
 | /audio/child-mode/phrases/how-to-visit-a-city-aquarium-2f847b.mp3 | How to Visit a City Aquarium | 1 |
 | /audio/child-mode/phrases/the-otters-who-never-moved-1534d4.mp3 | The Otters Who Never Moved | 1 |
-| /audio/child-mode/phrases/a-paper-plane-passed-down-9edf38.mp3 | A Paper Plane Passed Down | 1 |
 | /audio/child-mode/phrases/a-flight-across-the-kitchen-4ba10f.mp3 | A Flight Across the Kitchen | 1 |
 | /audio/child-mode/phrases/the-history-of-real-aeroplanes-60af8c.mp3 | The History of Real Aeroplanes | 1 |
 | /audio/child-mode/phrases/the-plane-that-would-not-fly-95686c.mp3 | The Plane That Would Not Fly | 1 |
-| /audio/child-mode/phrases/our-spring-drawn-in-rain-e0041e.mp3 | Our Spring, Drawn in Rain | 1 |
-| /audio/child-mode/phrases/a-plastic-tube-and-a-ruler-c78ccb.mp3 | A Plastic Tube and a Ruler | 1 |
+| /audio/child-mode/phrases/a-paper-plane-passed-down-9edf38.mp3 | A Paper Plane Passed Down | 1 |
 | /audio/child-mode/phrases/why-storms-happen-7c8aa3.mp3 | Why Storms Happen | 1 |
 | /audio/child-mode/phrases/the-chart-nobody-filled-in-281fce.mp3 | The Chart Nobody Filled In | 1 |
+| /audio/child-mode/phrases/our-spring-drawn-in-rain-e0041e.mp3 | Our Spring, Drawn in Rain | 1 |
+| /audio/child-mode/phrases/a-plastic-tube-and-a-ruler-c78ccb.mp3 | A Plastic Tube and a Ruler | 1 |
+| /audio/child-mode/phrases/the-week-the-busker-stayed-home-8916fa.mp3 | The Week the Busker Stayed Home | 1 |
 | /audio/child-mode/phrases/the-week-the-escalator-broke-166fe7.mp3 | The Week the Escalator Broke | 1 |
 | /audio/child-mode/phrases/the-sign-that-said-sorry-all-week-16764d.mp3 | The Sign That Said Sorry All Week | 1 |
 | /audio/child-mode/phrases/how-train-stations-are-built-9e56fc.mp3 | How Train Stations Are Built | 1 |
-| /audio/child-mode/phrases/the-week-the-busker-stayed-home-8916fa.mp3 | The Week the Busker Stayed Home | 1 |
 | /audio/child-mode/phrases/a-bank-that-saves-tomorrow-s-fields-15a5f5.mp3 | A Bank That Saves Tomorrow's Fields | 1 |
 | /audio/child-mode/phrases/a-pumpkin-seed-from-long-ago-5a6c3b.mp3 | A Pumpkin Seed from Long Ago | 1 |
 | /audio/child-mode/phrases/how-to-cook-with-beans-dd7fea.mp3 | How to Cook with Beans | 1 |
 | /audio/child-mode/phrases/the-bank-that-lost-its-seeds-a77256.mp3 | The Bank That Lost Its Seeds | 1 |
-| /audio/child-mode/phrases/the-class-made-soup-that-everyone-loved-baee1b.mp3 | the class made soup that everyone loved | 1 |
-| /audio/child-mode/phrases/carrots-were-cut-into-little-moons-65d6ad.mp3 | carrots were cut into little moons | 1 |
 | /audio/child-mode/phrases/miss-lee-added-some-ginger-30ecfb.mp3 | Miss Lee added some ginger | 1 |
 | /audio/child-mode/phrases/sam-stirred-the-pot-3a36b3.mp3 | Sam stirred the pot | 1 |
+| /audio/child-mode/phrases/the-class-made-soup-that-everyone-loved-baee1b.mp3 | the class made soup that everyone loved | 1 |
+| /audio/child-mode/phrases/carrots-were-cut-into-little-moons-65d6ad.mp3 | carrots were cut into little moons | 1 |
+| /audio/child-mode/phrases/bonfires-should-be-checked-6532dc.mp3 | bonfires should be checked | 1 |
 | /audio/child-mode/phrases/people-can-make-gardens-safer-for-hedgehogs-893256.mp3 | people can make gardens safer for hedgehogs | 1 |
 | /audio/child-mode/phrases/hedgehogs-sleep-in-piles-of-leaves-c4fbba.mp3 | hedgehogs sleep in piles of leaves | 1 |
 | /audio/child-mode/phrases/a-gap-in-a-fence-helps-hedgehogs-walk-throug-8b45bb.mp3 | a gap in a fence helps hedgehogs walk through | 1 |
-| /audio/child-mode/phrases/bonfires-should-be-checked-6532dc.mp3 | bonfires should be checked | 1 |
-| /audio/child-mode/phrases/maya-s-diary-recorded-how-the-moon-changed-889f3e.mp3 | Maya's diary recorded how the moon changed | 1 |
 | /audio/child-mode/phrases/she-drew-with-a-silver-pencil-a8c3c5.mp3 | she drew with a silver pencil | 1 |
 | /audio/child-mode/phrases/some-nights-she-wrote-hidden-71a9f5.mp3 | some nights she wrote 'hidden' | 1 |
 | /audio/child-mode/phrases/she-kept-the-diary-for-a-month-8118d5.mp3 | she kept the diary for a month | 1 |
-| /audio/child-mode/phrases/the-phone-box-became-a-tiny-library-9075d5.mp3 | the phone box became a tiny library | 1 |
+| /audio/child-mode/phrases/maya-s-diary-recorded-how-the-moon-changed-889f3e.mp3 | Maya's diary recorded how the moon changed | 1 |
 | /audio/child-mode/phrases/the-box-is-red-88fc8c.mp3 | the box is red | 1 |
 | /audio/child-mode/phrases/the-shelves-change-every-week-f5a3c8.mp3 | the shelves change every week | 1 |
 | /audio/child-mode/phrases/people-leave-a-book-when-they-take-one-12def6.mp3 | people leave a book when they take one | 1 |
-| /audio/child-mode/phrases/the-allotment-grows-food-in-every-season-6f4059.mp3 | the allotment grows food in every season | 1 |
-| /audio/child-mode/phrases/beans-climb-very-high-2455b1.mp3 | beans climb very high | 1 |
+| /audio/child-mode/phrases/the-phone-box-became-a-tiny-library-9075d5.mp3 | the phone box became a tiny library | 1 |
 | /audio/child-mode/phrases/potatoes-are-dug-in-autumn-4df12d.mp3 | potatoes are dug in autumn | 1 |
 | /audio/child-mode/phrases/kale-stands-in-the-frost-72fd27.mp3 | kale stands in the frost | 1 |
+| /audio/child-mode/phrases/the-allotment-grows-food-in-every-season-6f4059.mp3 | the allotment grows food in every season | 1 |
+| /audio/child-mode/phrases/beans-climb-very-high-2455b1.mp3 | beans climb very high | 1 |
 | /audio/child-mode/phrases/a-day-of-visitors-trying-out-the-station-400035.mp3 | a day of visitors trying out the station | 1 |
 | /audio/child-mode/phrases/the-helmets-wobbled-b01585.mp3 | the helmets wobbled | 1 |
 | /audio/child-mode/phrases/the-long-ladder-unfolds-to-reach-high-window-b49e46.mp3 | the long ladder unfolds to reach high windows | 1 |
@@ -5699,279 +4708,303 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/turbines-are-taller-than-the-church-e60e3c.mp3 | turbines are taller than the church | 1 |
 | /audio/child-mode/phrases/blades-rest-on-still-days-4f6228.mp3 | blades rest on still days | 1 |
 | /audio/child-mode/phrases/the-blades-look-like-pinwheels-54395a.mp3 | the blades look like pinwheels | 1 |
-| /audio/child-mode/phrases/the-street-celebrated-mr-chen-s-birthday-tog-9d9b5f.mp3 | the street celebrated Mr Chen's birthday together | 1 |
 | /audio/child-mode/phrases/the-cake-had-one-hundred-candles-7f0026.mp3 | the cake had one hundred candles | 1 |
 | /audio/child-mode/phrases/the-banner-was-as-long-as-a-bus-4f9a74.mp3 | the banner was as long as a bus | 1 |
 | /audio/child-mode/phrases/flags-were-strung-from-lamp-post-to-lamp-pos-ffb540.mp3 | flags were strung from lamp post to lamp post | 1 |
+| /audio/child-mode/phrases/the-street-celebrated-mr-chen-s-birthday-tog-9d9b5f.mp3 | the street celebrated Mr Chen's birthday together | 1 |
+| /audio/child-mode/phrases/leo-decided-swimming-was-not-for-him-3fedf9.mp3 | Leo decided swimming was not for him. | 1 |
 | /audio/child-mode/phrases/weekly-tips-and-practice-carried-leo-to-a-fu-d250cf.mp3 | Weekly tips and practice carried Leo to a full length at last. | 1 |
 | /audio/child-mode/phrases/at-first-leo-stood-up-coughing-halfway-down-1f7e57.mp3 | At first Leo stood up coughing halfway down the pool. | 1 |
 | /audio/child-mode/phrases/swimming-pools-hold-lessons-every-saturday-819094.mp3 | Swimming pools hold lessons every Saturday. | 1 |
-| /audio/child-mode/phrases/leo-decided-swimming-was-not-for-him-3fedf9.mp3 | Leo decided swimming was not for him. | 1 |
 | /audio/child-mode/phrases/scientists-rebuilt-a-huge-dinosaur-skeleton-54db06.mp3 | Scientists rebuilt a huge dinosaur skeleton while visitors watched. | 1 |
 | /audio/child-mode/phrases/the-skeleton-arrived-in-ninety-two-boxes-29cbd3.mp3 | The skeleton arrived in ninety-two boxes. | 1 |
 | /audio/child-mode/phrases/museums-keep-many-kinds-of-old-things-90af2d.mp3 | Museums keep many kinds of old things. | 1 |
 | /audio/child-mode/phrases/the-dinosaur-could-never-be-put-together-9d2c72.mp3 | The dinosaur could never be put together. | 1 |
+| /audio/child-mode/phrases/the-family-sat-bored-until-the-lights-return-120be8.mp3 | The family sat bored until the lights returned. | 1 |
 | /audio/child-mode/phrases/a-power-cut-turned-into-a-cosy-evening-of-ol-1415ca.mp3 | A power cut turned into a cosy evening of old games. | 1 |
 | /audio/child-mode/phrases/mum-found-some-candles-7a26ed.mp3 | Mum found some candles. | 1 |
 | /audio/child-mode/phrases/electricity-comes-into-homes-through-wires-5b8318.mp3 | Electricity comes into homes through wires. | 1 |
-| /audio/child-mode/phrases/the-family-sat-bored-until-the-lights-return-120be8.mp3 | The family sat bored until the lights returned. | 1 |
-| /audio/child-mode/phrases/by-waiting-quietly-nadia-discovered-the-tide-5d4491.mp3 | By waiting quietly, Nadia discovered the tide pool was full of life. | 1 |
-| /audio/child-mode/phrases/a-crab-came-out-from-under-a-stone-b236d3.mp3 | A crab came out from under a stone. | 1 |
 | /audio/child-mode/phrases/the-seaside-has-sand-rocks-and-waves-2ba6ad.mp3 | The seaside has sand, rocks and waves. | 1 |
 | /audio/child-mode/phrases/nadia-found-nothing-in-the-empty-pool-3c5ab4.mp3 | Nadia found nothing in the empty pool. | 1 |
+| /audio/child-mode/phrases/by-waiting-quietly-nadia-discovered-the-tide-5d4491.mp3 | By waiting quietly, Nadia discovered the tide pool was full of life. | 1 |
+| /audio/child-mode/phrases/a-crab-came-out-from-under-a-stone-b236d3.mp3 | A crab came out from under a stone. | 1 |
+| /audio/child-mode/phrases/robot-vacuums-work-best-in-messy-rooms-f1b692.mp3 | Robot vacuums work best in messy rooms. | 1 |
 | /audio/child-mode/phrases/a-robot-cleans-well-only-in-a-home-tidied-fo-655c0f.mp3 | A robot cleans well only in a home tidied for it first. | 1 |
 | /audio/child-mode/phrases/a-sock-can-stop-a-robot-vacuum-fed114.mp3 | A sock can stop a robot vacuum. | 1 |
 | /audio/child-mode/phrases/machines-do-many-jobs-in-houses-366a79.mp3 | Machines do many jobs in houses. | 1 |
-| /audio/child-mode/phrases/robot-vacuums-work-best-in-messy-rooms-f1b692.mp3 | Robot vacuums work best in messy rooms. | 1 |
-| /audio/child-mode/phrases/the-island-s-daily-life-moves-to-the-rhythm-88d6b1.mp3 | The island's daily life moves to the rhythm of its ferry. | 1 |
-| /audio/child-mode/phrases/the-ferry-carries-crates-at-noon-ec56bb.mp3 | The ferry carries crates at noon. | 1 |
 | /audio/child-mode/phrases/boats-come-in-many-shapes-and-sizes-4ac52a.mp3 | Boats come in many shapes and sizes. | 1 |
 | /audio/child-mode/phrases/the-islanders-ignore-the-ferry-completely-86132c.mp3 | The islanders ignore the ferry completely. | 1 |
-| /audio/child-mode/phrases/amir-searched-the-flat-until-he-found-a-good-d35569.mp3 | Amir searched the flat until he found a good place to practise. | 1 |
+| /audio/child-mode/phrases/the-island-s-daily-life-moves-to-the-rhythm-88d6b1.mp3 | The island's daily life moves to the rhythm of its ferry. | 1 |
+| /audio/child-mode/phrases/the-ferry-carries-crates-at-noon-ec56bb.mp3 | The ferry carries crates at noon. | 1 |
 | /audio/child-mode/phrases/the-bathroom-had-a-wonderful-echo-87a824.mp3 | The bathroom had a wonderful echo. | 1 |
 | /audio/child-mode/phrases/trumpets-are-brass-instruments-83f42c.mp3 | Trumpets are brass instruments. | 1 |
 | /audio/child-mode/phrases/amir-gave-his-trumpet-away-d3b180.mp3 | Amir gave his trumpet away. | 1 |
-| /audio/child-mode/phrases/one-painted-door-slowly-grew-into-a-whole-st-645580.mp3 | One painted door slowly grew into a whole street of art. | 1 |
-| /audio/child-mode/phrases/a-whale-was-painted-above-a-door-d5cd10.mp3 | A whale was painted above a door. | 1 |
+| /audio/child-mode/phrases/amir-searched-the-flat-until-he-found-a-good-d35569.mp3 | Amir searched the flat until he found a good place to practise. | 1 |
 | /audio/child-mode/phrases/artists-use-many-colours-of-paint-6da0c4.mp3 | Artists use many colours of paint. | 1 |
 | /audio/child-mode/phrases/the-street-stayed-grey-and-plain-f0f227.mp3 | The street stayed grey and plain. | 1 |
-| /audio/child-mode/phrases/starting-again-after-a-tower-falls-28208b.mp3 | starting again after a tower falls | 1 |
+| /audio/child-mode/phrases/one-painted-door-slowly-grew-into-a-whole-st-645580.mp3 | One painted door slowly grew into a whole street of art. | 1 |
+| /audio/child-mode/phrases/a-whale-was-painted-above-a-door-d5cd10.mp3 | A whale was painted above a door. | 1 |
 | /audio/child-mode/phrases/blocks-rolling-everywhere-33c651.mp3 | blocks rolling everywhere | 1 |
 | /audio/child-mode/phrases/how-to-build-real-houses-e34c70.mp3 | how to build real houses | 1 |
 | /audio/child-mode/phrases/a-brother-sent-out-of-the-room-818eff.mp3 | a brother sent out of the room | 1 |
+| /audio/child-mode/phrases/starting-again-after-a-tower-falls-28208b.mp3 | starting again after a tower falls | 1 |
 | /audio/child-mode/phrases/getting-a-kite-to-fly-at-last-6f2ad2.mp3 | getting a kite to fly at last | 1 |
 | /audio/child-mode/phrases/a-tail-made-from-a-scarf-e4ac42.mp3 | a tail made from a scarf | 1 |
 | /audio/child-mode/phrases/all-the-things-wind-can-do-7ee36c.mp3 | all the things wind can do | 1 |
 | /audio/child-mode/phrases/a-kite-lost-in-a-tree-16a344.mp3 | a kite lost in a tree | 1 |
+| /audio/child-mode/phrases/magnets-that-pull-everything-3ccfb6.mp3 | magnets that pull everything | 1 |
 | /audio/child-mode/phrases/what-magnets-do-and-do-not-pull-715cb4.mp3 | what magnets do and do not pull | 1 |
 | /audio/child-mode/phrases/a-magnet-grabbing-paper-clips-8b40ef.mp3 | a magnet grabbing paper clips | 1 |
 | /audio/child-mode/phrases/every-toy-in-the-toy-box-f56632.mp3 | every toy in the toy box | 1 |
-| /audio/child-mode/phrases/magnets-that-pull-everything-3ccfb6.mp3 | magnets that pull everything | 1 |
-| /audio/child-mode/phrases/how-scraps-become-soil-for-plants-231873.mp3 | how scraps become soil for plants | 1 |
-| /audio/child-mode/phrases/eggshells-going-into-the-bin-b7ea40.mp3 | eggshells going into the bin | 1 |
 | /audio/child-mode/phrases/all-the-creatures-in-a-garden-9ae50d.mp3 | all the creatures in a garden | 1 |
 | /audio/child-mode/phrases/why-scraps-must-go-to-the-tip-642e62.mp3 | why scraps must go to the tip | 1 |
-| /audio/child-mode/phrases/waiting-for-a-turn-at-the-dentist-d7f66a.mp3 | waiting for a turn at the dentist | 1 |
+| /audio/child-mode/phrases/how-scraps-become-soil-for-plants-231873.mp3 | how scraps become soil for plants | 1 |
+| /audio/child-mode/phrases/eggshells-going-into-the-bin-b7ea40.mp3 | eggshells going into the bin | 1 |
 | /audio/child-mode/phrases/a-tank-with-stripy-fish-7d6c78.mp3 | a tank with stripy fish | 1 |
 | /audio/child-mode/phrases/how-teeth-grow-cbbe6f.mp3 | how teeth grow | 1 |
 | /audio/child-mode/phrases/a-boy-who-ran-out-of-the-door-405d13.mp3 | a boy who ran out of the door | 1 |
+| /audio/child-mode/phrases/waiting-for-a-turn-at-the-dentist-d7f66a.mp3 | waiting for a turn at the dentist | 1 |
 | /audio/child-mode/phrases/a-family-crowding-together-for-sunday-dinner-badd81.mp3 | a family crowding together for Sunday dinner | 1 |
 | /audio/child-mode/phrases/a-big-silver-pot-139184.mp3 | a big silver pot | 1 |
 | /audio/child-mode/phrases/recipes-from-around-the-world-866519.mp3 | recipes from around the world | 1 |
 | /audio/child-mode/phrases/a-quiet-dinner-eaten-alone-28afb1.mp3 | a quiet dinner eaten alone | 1 |
+| /audio/child-mode/phrases/a-hamster-that-never-left-its-cage-889fee.mp3 | a hamster that never left its cage | 1 |
 | /audio/child-mode/phrases/tracking-down-an-escaped-hamster-ad54b3.mp3 | tracking down an escaped hamster | 1 |
 | /audio/child-mode/phrases/seed-shells-by-the-library-4e3fce.mp3 | seed shells by the library | 1 |
 | /audio/child-mode/phrases/how-to-care-for-small-pets-7f1f1a.mp3 | how to care for small pets | 1 |
-| /audio/child-mode/phrases/a-hamster-that-never-left-its-cage-889fee.mp3 | a hamster that never left its cage | 1 |
-| /audio/child-mode/phrases/how-the-tide-changes-life-in-a-rock-pool-fdf7a8.mp3 | how the tide changes life in a rock pool | 1 |
-| /audio/child-mode/phrases/pools-sitting-still-in-the-sun-47b9e0.mp3 | pools sitting still in the sun | 1 |
 | /audio/child-mode/phrases/every-animal-in-the-sea-dbfbe9.mp3 | every animal in the sea | 1 |
 | /audio/child-mode/phrases/pools-the-sea-never-touches-8e8cdd.mp3 | pools the sea never touches | 1 |
-| /audio/child-mode/phrases/riders-of-the-night-bus-b2f142.mp3 | Riders of the Night Bus | 1 |
-| /audio/child-mode/phrases/a-baker-dusted-in-flour-b73fe0.mp3 | A Baker Dusted in Flour | 1 |
+| /audio/child-mode/phrases/how-the-tide-changes-life-in-a-rock-pool-fdf7a8.mp3 | how the tide changes life in a rock pool | 1 |
+| /audio/child-mode/phrases/pools-sitting-still-in-the-sun-47b9e0.mp3 | pools sitting still in the sun | 1 |
 | /audio/child-mode/phrases/how-buses-are-driven-85e92f.mp3 | How Buses Are Driven | 1 |
 | /audio/child-mode/phrases/the-bus-that-stopped-running-4ca101.mp3 | The Bus That Stopped Running | 1 |
-| /audio/child-mode/phrases/third-time-lucky-at-the-campfire-4570d5.mp3 | Third Time Lucky at the Campfire | 1 |
+| /audio/child-mode/phrases/riders-of-the-night-bus-b2f142.mp3 | Riders of the Night Bus | 1 |
+| /audio/child-mode/phrases/a-baker-dusted-in-flour-b73fe0.mp3 | A Baker Dusted in Flour | 1 |
 | /audio/child-mode/phrases/a-match-behind-a-hand-58c0f7.mp3 | A Match Behind a Hand | 1 |
 | /audio/child-mode/phrases/forests-and-their-trees-6cdb89.mp3 | Forests and Their Trees | 1 |
 | /audio/child-mode/phrases/the-fire-that-never-lit-e7d2bb.mp3 | The Fire That Never Lit | 1 |
+| /audio/child-mode/phrases/third-time-lucky-at-the-campfire-4570d5.mp3 | Third Time Lucky at the Campfire | 1 |
 | /audio/child-mode/phrases/swifts-live-almost-their-whole-lives-in-the-a7cbb8.mp3 | swifts live almost their whole lives in the air | 1 |
 | /audio/child-mode/phrases/their-nests-are-under-roofs-74e130.mp3 | their nests are under roofs | 1 |
 | /audio/child-mode/phrases/they-scream-over-town-in-late-summer-f1ec6f.mp3 | they scream over town in late summer | 1 |
 | /audio/child-mode/phrases/chicks-may-not-land-for-two-years-94d5b6.mp3 | chicks may not land for two years | 1 |
+| /audio/child-mode/phrases/volunteers-sit-at-long-tables-with-toolboxes-35e7c1.mp3 | volunteers sit at long tables with toolboxes | 1 |
 | /audio/child-mode/phrases/volunteers-fix-people-s-broken-things-for-fr-d1983d.mp3 | volunteers fix people's broken things for free | 1 |
 | /audio/child-mode/phrases/it-happens-in-the-hall-23ca88.mp3 | it happens in the hall | 1 |
 | /audio/child-mode/phrases/some-jackets-have-stuck-zips-45796f.mp3 | some jackets have stuck zips | 1 |
-| /audio/child-mode/phrases/volunteers-sit-at-long-tables-with-toolboxes-35e7c1.mp3 | volunteers sit at long tables with toolboxes | 1 |
-| /audio/child-mode/phrases/the-twins-worked-as-a-team-and-won-a-special-f38a06.mp3 | The twins worked as a team and won a special ribbon. | 1 |
-| /audio/child-mode/phrases/a-wave-stole-the-castle-gate-684426.mp3 | A wave stole the castle gate. | 1 |
 | /audio/child-mode/phrases/beaches-are-made-of-sand-and-shells-b73afa.mp3 | Beaches are made of sand and shells. | 1 |
 | /audio/child-mode/phrases/the-twins-gave-up-after-the-wave-b926d5.mp3 | The twins gave up after the wave. | 1 |
-| /audio/child-mode/phrases/one-shop-s-idea-spread-until-the-whole-stree-c4836f.mp3 | One shop's idea spread until the whole street protected birds. | 1 |
+| /audio/child-mode/phrases/the-twins-worked-as-a-team-and-won-a-special-f38a06.mp3 | The twins worked as a team and won a special ribbon. | 1 |
+| /audio/child-mode/phrases/a-wave-stole-the-castle-gate-684426.mp3 | A wave stole the castle gate. | 1 |
 | /audio/child-mode/phrases/a-paper-owl-was-stuck-in-the-bookshop-window-580b58.mp3 | A paper owl was stuck in the bookshop window. | 1 |
 | /audio/child-mode/phrases/bookshops-sell-many-kinds-of-books-859d8d.mp3 | Bookshops sell many kinds of books. | 1 |
 | /audio/child-mode/phrases/the-street-took-every-sticker-down-49818a.mp3 | The street took every sticker down. | 1 |
+| /audio/child-mode/phrases/one-shop-s-idea-spread-until-the-whole-stree-c4836f.mp3 | One shop's idea spread until the whole street protected birds. | 1 |
 | /audio/child-mode/phrases/the-radio-that-came-back-to-life-32a57c.mp3 | The Radio That Came Back to Life | 1 |
 | /audio/child-mode/phrases/crackles-at-breakfast-12c46f.mp3 | Crackles at Breakfast | 1 |
 | /audio/child-mode/phrases/how-sound-travels-5f04db.mp3 | How Sound Travels | 1 |
 | /audio/child-mode/phrases/the-radio-they-threw-away-f51910.mp3 | The Radio They Threw Away | 1 |
+| /audio/child-mode/phrases/the-apples-were-left-to-rot-a241c5.mp3 | The apples were left to rot. | 1 |
 | /audio/child-mode/phrases/the-school-found-ways-to-share-a-huge-apple-8528ad.mp3 | The school found ways to share a huge apple harvest. | 1 |
 | /audio/child-mode/phrases/class-1-pressed-juice-with-a-hand-press-cea298.mp3 | Class 1 pressed juice with a hand press. | 1 |
 | /audio/child-mode/phrases/apple-trees-blossom-in-the-spring-1ad74b.mp3 | Apple trees blossom in the spring. | 1 |
-| /audio/child-mode/phrases/the-apples-were-left-to-rot-a241c5.mp3 | The apples were left to rot. | 1 |
-| /audio/child-mode/phrases/the-cat-sat-on-the-mat-e6ec4e.mp3 | The cat sat on the mat. | 1 |
+| /audio/child-mode/phrases/we-went-out-late-1c5a2e.mp3 | We went out late. | 1 |
 | /audio/child-mode/phrases/run-fast-and-jump-high-83cea4.mp3 | Run fast and jump high. | 1 |
 | /audio/child-mode/phrases/she-is-very-happy-ba1beb.mp3 | She is very happy. | 1 |
-| /audio/child-mode/phrases/we-went-out-late-1c5a2e.mp3 | We went out late. | 1 |
 | /audio/child-mode/phrases/the-dog-dug-up-a-bone-203a3c.mp3 | The dog dug up a bone. | 1 |
 | /audio/child-mode/phrases/he-hops-and-skips-well-3e9bd9.mp3 | He hops and skips well. | 1 |
 | /audio/child-mode/phrases/they-are-so-tall-e11652.mp3 | They are so tall. | 1 |
 | /audio/child-mode/phrases/i-ran-off-quickly-4938c6.mp3 | I ran off quickly. | 1 |
+| /audio/child-mode/phrases/you-did-so-well-939a16.mp3 | You did so well. | 1 |
 | /audio/child-mode/phrases/a-frog-sat-on-a-log-eb3b9f.mp3 | A frog sat on a log. | 1 |
 | /audio/child-mode/phrases/she-sang-and-danced-1fe917.mp3 | She sang and danced. | 1 |
 | /audio/child-mode/phrases/it-is-too-cold-5699c6.mp3 | It is too cold. | 1 |
-| /audio/child-mode/phrases/you-did-so-well-939a16.mp3 | You did so well. | 1 |
+| /audio/child-mode/phrases/they-ran-and-hid-198deb.mp3 | They ran and hid. | 1 |
 | /audio/child-mode/phrases/my-hat-fell-in-the-mud-111ba2.mp3 | My hat fell in the mud. | 1 |
 | /audio/child-mode/phrases/sit-down-and-rest-up-dea1ee.mp3 | Sit down and rest up. | 1 |
 | /audio/child-mode/phrases/it-was-so-loud-6ba673.mp3 | It was so loud. | 1 |
-| /audio/child-mode/phrases/they-ran-and-hid-198deb.mp3 | They ran and hid. | 1 |
-| /audio/child-mode/phrases/the-bee-flew-to-the-rose-3bff53.mp3 | The bee flew to the rose. | 1 |
-| /audio/child-mode/phrases/come-in-and-dry-off-9e3185.mp3 | Come in and dry off. | 1 |
 | /audio/child-mode/phrases/she-is-quite-quick-20dca6.mp3 | She is quite quick. | 1 |
 | /audio/child-mode/phrases/he-will-not-stop-34c746.mp3 | He will not stop. | 1 |
-| /audio/child-mode/phrases/a-crab-hid-under-a-rock-ebee97.mp3 | A crab hid under a rock. | 1 |
+| /audio/child-mode/phrases/the-bee-flew-to-the-rose-3bff53.mp3 | The bee flew to the rose. | 1 |
+| /audio/child-mode/phrases/come-in-and-dry-off-9e3185.mp3 | Come in and dry off. | 1 |
 | /audio/child-mode/phrases/hop-up-and-hold-on-c63aa8.mp3 | Hop up and hold on. | 1 |
 | /audio/child-mode/phrases/it-got-very-dark-1ec5c3.mp3 | It got very dark. | 1 |
 | /audio/child-mode/phrases/you-may-go-in-38fa9b.mp3 | You may go in. | 1 |
+| /audio/child-mode/phrases/a-crab-hid-under-a-rock-ebee97.mp3 | A crab hid under a rock. | 1 |
 | /audio/child-mode/phrases/the-hen-laid-an-egg-9576a0.mp3 | The hen laid an egg. | 1 |
 | /audio/child-mode/phrases/duck-down-and-creep-in-c368a0.mp3 | Duck down and creep in. | 1 |
 | /audio/child-mode/phrases/it-is-far-too-wet-af7f68.mp3 | It is far too wet. | 1 |
 | /audio/child-mode/phrases/she-may-not-come-6fc874.mp3 | She may not come. | 1 |
-| /audio/child-mode/phrases/the-moth-flew-at-the-lamp-eaa055.mp3 | The moth flew at the lamp. | 1 |
 | /audio/child-mode/phrases/spin-round-and-sit-down-16248c.mp3 | Spin round and sit down. | 1 |
 | /audio/child-mode/phrases/he-was-not-there-46f4b3.mp3 | He was not there. | 1 |
 | /audio/child-mode/phrases/you-can-all-go-51b06b.mp3 | You can all go. | 1 |
-| /audio/child-mode/phrases/opens-the-zip-531be1.mp3 | opens the zip | 1 |
-| /audio/child-mode/phrases/closes-the-zip-e3ff25.mp3 | closes the zip | 1 |
-| /audio/child-mode/phrases/makes-a-new-zip-2b96b9.mp3 | makes a new zip | 1 |
-| /audio/child-mode/phrases/loses-the-zip-5abe37.mp3 | loses the zip | 1 |
-| /audio/child-mode/phrases/not-kind-71930d.mp3 | not kind | 1 |
-| /audio/child-mode/phrases/very-kind-3da069.mp3 | very kind | 1 |
-| /audio/child-mode/phrases/kind-again-94e698.mp3 | kind again | 1 |
-| /audio/child-mode/phrases/kind-of-2d42a0.mp3 | kind of | 1 |
-| /audio/child-mode/phrases/tell-again-76a22a.mp3 | tell again | 1 |
-| /audio/child-mode/phrases/read-again-dfe6fc.mp3 | read again | 1 |
-| /audio/child-mode/phrases/tell-first-76fe07.mp3 | tell first | 1 |
-| /audio/child-mode/phrases/stop-telling-d814bd.mp3 | stop telling | 1 |
-| /audio/child-mode/phrases/build-it-over-42a43d.mp3 | build it over | 1 |
-| /audio/child-mode/phrases/build-it-first-96822d.mp3 | build it first | 1 |
-| /audio/child-mode/phrases/knock-it-down-e1821e.mp3 | knock it down | 1 |
-| /audio/child-mode/phrases/buy-a-new-one-6bb7dc.mp3 | buy a new one | 1 |
-| /audio/child-mode/phrases/without-care-a41baf.mp3 | without care | 1 |
-| /audio/child-mode/phrases/without-fear-a41d63.mp3 | without fear | 1 |
-| /audio/child-mode/phrases/full-of-care-7f11df.mp3 | full of care | 1 |
-| /audio/child-mode/phrases/care-again-ceb017.mp3 | care again | 1 |
-| /audio/child-mode/phrases/no-hope-at-all-af1ad3.mp3 | no hope at all | 1 |
-| /audio/child-mode/phrases/no-fear-at-all-a804ee.mp3 | no fear at all | 1 |
-| /audio/child-mode/phrases/full-of-hope-7f14d8.mp3 | full of hope | 1 |
-| /audio/child-mode/phrases/hope-again-692f71.mp3 | hope again | 1 |
+| /audio/child-mode/phrases/the-moth-flew-at-the-lamp-eaa055.mp3 | The moth flew at the lamp. | 1 |
+| /audio/child-mode/phrases/child-feeling-unhappy-967c25.mp3 | child-feeling-unhappy | 1 |
+| /audio/child-mode/phrases/two-children-unfair-share-d5c063.mp3 | two-children-unfair-share | 1 |
+| /audio/child-mode/phrases/child-being-unkind-d6679a.mp3 | child-being-unkind | 1 |
+| /audio/child-mode/phrases/sad-child-4ce725.mp3 | sad-child | 1 |
+| /audio/child-mode/phrases/unfair-game-29d122.mp3 | unfair-game | 1 |
+| /audio/child-mode/phrases/unkind-words-84d0e2.mp3 | unkind-words | 1 |
+| /audio/child-mode/phrases/children-replay-game-835819.mp3 | children-replay-game | 1 |
+| /audio/child-mode/phrases/child-remakes-model-c920db.mp3 | child-remakes-model | 1 |
+| /audio/child-mode/phrases/child-rereads-book-e88d42.mp3 | child-rereads-book | 1 |
+| /audio/child-mode/phrases/child-remakes-picture-6dab3b.mp3 | child-remakes-picture | 1 |
+| /audio/child-mode/phrases/child-rereads-page-e894b3.mp3 | child-rereads-page | 1 |
+| /audio/child-mode/phrases/children-replay-song-835ee9.mp3 | children-replay-song | 1 |
+| /audio/child-mode/phrases/helpful-child-50c663.mp3 | helpful-child | 1 |
+| /audio/child-mode/phrases/joyful-child-a70803.mp3 | joyful-child | 1 |
+| /audio/child-mode/phrases/careful-child-carrying-glass-79cd8e.mp3 | careful-child-carrying-glass | 1 |
+| /audio/child-mode/phrases/child-helping-friend-294f0f.mp3 | child-helping-friend | 1 |
+| /audio/child-mode/phrases/child-smiling-with-joy-7fe858.mp3 | child-smiling-with-joy | 1 |
+| /audio/child-mode/phrases/child-carefully-carrying-glass-b83c66.mp3 | child-carefully-carrying-glass | 1 |
+| /audio/child-mode/phrases/child-feeling-hopeless-c69295.mp3 | child-feeling-hopeless | 1 |
+| /audio/child-mode/phrases/fearless-child-b7b6f6.mp3 | fearless-child | 1 |
+| /audio/child-mode/phrases/harmless-butterfly-25caca.mp3 | harmless-butterfly | 1 |
+| /audio/child-mode/phrases/harmless-butterfly-on-hand-fb1cb6.mp3 | harmless-butterfly-on-hand | 1 |
+| /audio/child-mode/phrases/child-trying-bravely-377b87.mp3 | child-trying-bravely | 1 |
+| /audio/child-mode/phrases/team-feeling-hopeless-dfc047.mp3 | team-feeling-hopeless | 1 |
+| /audio/child-mode/phrases/person-singing-e4fa9d.mp3 | person-singing | 1 |
+| /audio/child-mode/phrases/teacher-with-class-14ed38.mp3 | teacher-with-class | 1 |
+| /audio/child-mode/phrases/child-helper-cebdb5.mp3 | child-helper | 1 |
+| /audio/child-mode/phrases/person-reading-to-class-4a4143.mp3 | person-reading-to-class | 1 |
+| /audio/child-mode/phrases/person-painting-4c91b4.mp3 | person-painting | 1 |
+| /audio/child-mode/phrases/farmer-on-farm-b38001.mp3 | farmer-on-farm | 1 |
 | /audio/child-mode/phrases/in-a-brave-way-aeaf3c.mp3 | in a brave way | 1 |
-| /audio/child-mode/phrases/in-a-soft-way-3ef5f7.mp3 | in a soft way | 1 |
 | /audio/child-mode/phrases/a-brave-person-a7530b.mp3 | a brave person | 1 |
-| /audio/child-mode/phrases/being-brave-26e755.mp3 | being brave | 1 |
+| /audio/child-mode/phrases/being-afraid-acb011.mp3 | being afraid | 1 |
 | /audio/child-mode/phrases/in-a-proud-way-40c57b.mp3 | in a proud way | 1 |
-| /audio/child-mode/phrases/in-a-quick-way-82abcf.mp3 | in a quick way | 1 |
 | /audio/child-mode/phrases/a-proud-person-2c77d0.mp3 | a proud person | 1 |
-| /audio/child-mode/phrases/very-proud-f20d14.mp3 | very proud | 1 |
-| /audio/child-mode/phrases/a-test-before-9190de.mp3 | a test before | 1 |
-| /audio/child-mode/phrases/a-test-after-af0295.mp3 | a test after | 1 |
 | /audio/child-mode/phrases/the-best-test-d8ef95.mp3 | the best test | 1 |
 | /audio/child-mode/phrases/a-look-before-6ed29f.mp3 | a look before | 1 |
-| /audio/child-mode/phrases/order-before-it-is-out-7ffe66.mp3 | order before it is out | 1 |
+| /audio/child-mode/phrases/a-test-after-af0295.mp3 | a test after | 1 |
 | /audio/child-mode/phrases/order-after-it-is-out-73e5cc.mp3 | order after it is out | 1 |
 | /audio/child-mode/phrases/heat-the-order-5f2060.mp3 | heat the order | 1 |
 | /audio/child-mode/phrases/order-more-8a8b13.mp3 | order more | 1 |
-| /audio/child-mode/phrases/without-an-end-15da71.mp3 | without an end | 1 |
-| /audio/child-mode/phrases/without-a-spot-1084ac.mp3 | without a spot | 1 |
-| /audio/child-mode/phrases/the-very-end-33eb25.mp3 | the very end | 1 |
-| /audio/child-mode/phrases/end-again-cef8d6.mp3 | end again | 1 |
-| /audio/child-mode/phrases/in-the-box-4ee97f.mp3 | in the box | 1 |
-| /audio/child-mode/phrases/on-the-box-6728e6.mp3 | on the box | 1 |
+| /audio/child-mode/phrases/order-before-it-is-out-7ffe66.mp3 | order before it is out | 1 |
+| /audio/child-mode/phrases/unsafe-bridge-4111a9.mp3 | unsafe-bridge | 1 |
+| /audio/child-mode/phrases/child-repaints-wall-aa5024.mp3 | child-repaints-wall | 1 |
+| /audio/child-mode/phrases/hopeful-child-2346a2.mp3 | hopeful-child | 1 |
+| /audio/child-mode/phrases/careless-spill-44140d.mp3 | careless-spill | 1 |
+| /audio/child-mode/phrases/baker-with-bread-5cd949.mp3 | baker-with-bread | 1 |
+| /audio/child-mode/phrases/child-rebuilds-block-tower-500f8d.mp3 | child-rebuilds-block-tower | 1 |
 | /audio/child-mode/phrases/under-the-box-af36ba.mp3 | under the box | 1 |
 | /audio/child-mode/phrases/behind-the-box-41f31c.mp3 | behind the box | 1 |
-| /audio/child-mode/phrases/in-the-barn-2c1940.mp3 | in the barn | 1 |
+| /audio/child-mode/phrases/on-the-box-6728e6.mp3 | on the box | 1 |
 | /audio/child-mode/phrases/on-the-barn-4c4580.mp3 | on the barn | 1 |
 | /audio/child-mode/phrases/behind-the-barn-805673.mp3 | behind the barn | 1 |
 | /audio/child-mode/phrases/under-the-barn-960dc8.mp3 | under the barn | 1 |
-| /audio/child-mode/phrases/on-the-chair-d50b2f.mp3 | on the chair | 1 |
+| /audio/child-mode/phrases/in-the-barn-2c1940.mp3 | in the barn | 1 |
 | /audio/child-mode/phrases/in-the-chair-af56ff.mp3 | in the chair | 1 |
 | /audio/child-mode/phrases/behind-the-chair-8b3a94.mp3 | behind the chair | 1 |
-| /audio/child-mode/phrases/next-to-b9a6fc.mp3 | next to | 9 |
-| /audio/child-mode/phrases/under-the-table-590c3e.mp3 | under the table | 1 |
-| /audio/child-mode/phrases/on-the-table-d63afe.mp3 | on the table | 1 |
+| /audio/child-mode/phrases/on-the-roof-4c4e81.mp3 | on the roof | 1 |
+| /audio/child-mode/phrases/in-the-roof-2c2241.mp3 | in the roof | 1 |
+| /audio/child-mode/phrases/under-the-roof-9616c9.mp3 | under the roof | 1 |
+| /audio/child-mode/phrases/behind-the-roof-805f75.mp3 | behind the roof | 1 |
 | /audio/child-mode/phrases/in-the-table-b086cd.mp3 | in the table | 1 |
 | /audio/child-mode/phrases/next-to-the-table-a7feef.mp3 | next to the table | 1 |
+| /audio/child-mode/phrases/on-the-table-d63afe.mp3 | on the table | 1 |
+| /audio/child-mode/phrases/next-to-the-bed-eac2d1.mp3 | next to the bed | 1 |
+| /audio/child-mode/phrases/under-the-bed-af36b8.mp3 | under the bed | 1 |
+| /audio/child-mode/phrases/on-the-bed-6728e5.mp3 | on the bed | 1 |
+| /audio/child-mode/phrases/behind-the-bed-41f31b.mp3 | behind the bed | 1 |
 | /audio/child-mode/phrases/behind-the-tree-806099.mp3 | behind the tree | 1 |
 | /audio/child-mode/phrases/in-front-of-the-tree-ac9547.mp3 | in front of the tree | 1 |
-| /audio/child-mode/phrases/above-the-tree-fdb2a8.mp3 | above the tree | 2 |
 | /audio/child-mode/phrases/in-the-tree-2c2366.mp3 | in the tree | 2 |
-| /audio/child-mode/phrases/next-to-the-basket-7de948.mp3 | next to the basket | 1 |
-| /audio/child-mode/phrases/in-the-basket-976cfd.mp3 | in the basket | 1 |
+| /audio/child-mode/phrases/above-the-curtain-c0419d.mp3 | above the curtain | 1 |
+| /audio/child-mode/phrases/next-to-the-curtain-b6a686.mp3 | next to the curtain | 1 |
+| /audio/child-mode/phrases/in-front-of-the-curtain-f2d20f.mp3 | in front of the curtain | 1 |
 | /audio/child-mode/phrases/under-the-basket-50a072.mp3 | under the basket | 1 |
 | /audio/child-mode/phrases/behind-the-basket-efc341.mp3 | behind the basket | 1 |
-| /audio/child-mode/phrases/not-yet-22790c.mp3 | not yet | 1 |
+| /audio/child-mode/phrases/next-to-the-basket-7de948.mp3 | next to the basket | 1 |
+| /audio/child-mode/phrases/in-the-basket-976cfd.mp3 | in the basket | 1 |
+| /audio/child-mode/phrases/under-the-plate-58c9e0.mp3 | under the plate | 1 |
+| /audio/child-mode/phrases/behind-the-plate-8c2806.mp3 | behind the plate | 1 |
+| /audio/child-mode/phrases/on-the-plate-d5f8a1.mp3 | on the plate | 1 |
+| /audio/child-mode/phrases/next-to-the-plate-a7bc92.mp3 | next to the plate | 1 |
 | /audio/child-mode/phrases/between-the-books-ea2bda.mp3 | between the books | 1 |
 | /audio/child-mode/phrases/on-the-books-d4fd29.mp3 | on the books | 1 |
 | /audio/child-mode/phrases/under-the-books-57ce69.mp3 | under the books | 1 |
 | /audio/child-mode/phrases/behind-the-books-8b2c8e.mp3 | behind the books | 1 |
-| /audio/child-mode/phrases/in-front-of-the-bear-ac8b30.mp3 | in front of the bear | 1 |
-| /audio/child-mode/phrases/behind-the-bear-805682.mp3 | behind the bear | 1 |
+| /audio/child-mode/phrases/between-the-pillows-4c0646.mp3 | between the pillows | 1 |
+| /audio/child-mode/phrases/on-the-pillows-3068b6.mp3 | on the pillows | 1 |
+| /audio/child-mode/phrases/under-the-pillows-ac8972.mp3 | under the pillows | 1 |
+| /audio/child-mode/phrases/behind-the-pillows-30061a.mp3 | behind the pillows | 1 |
 | /audio/child-mode/phrases/on-the-bear-4c458f.mp3 | on the bear | 1 |
 | /audio/child-mode/phrases/under-the-bear-960dd6.mp3 | under the bear | 1 |
-| /audio/child-mode/phrases/in-front-of-5f25d3.mp3 | in front of | 3 |
-| /audio/child-mode/phrases/in-a-bit-c7cd4d.mp3 | in a bit | 1 |
-| /audio/child-mode/phrases/first-of-all-648d5b.mp3 | first of all | 1 |
-| /audio/child-mode/phrases/for-now-ba82c8.mp3 | for now | 1 |
+| /audio/child-mode/phrases/in-front-of-the-bear-ac8b30.mp3 | in front of the bear | 1 |
+| /audio/child-mode/phrases/behind-the-bear-805682.mp3 | behind the bear | 1 |
+| /audio/child-mode/phrases/inside-the-garage-888e8e.mp3 | inside the garage | 1 |
+| /audio/child-mode/phrases/in-front-of-the-garage-7842ac.mp3 | in front of the garage | 1 |
+| /audio/child-mode/phrases/behind-the-garage-fb6c56.mp3 | behind the garage | 1 |
+| /audio/child-mode/phrases/above-the-garage-157fca.mp3 | above the garage | 1 |
 | /audio/child-mode/phrases/under-the-tree-9617ed.mp3 | under the tree | 1 |
 | /audio/child-mode/phrases/next-to-the-tree-43270a.mp3 | next to the tree | 1 |
-| /audio/child-mode/phrases/below-the-bird-376122.mp3 | below the bird | 1 |
-| /audio/child-mode/phrases/above-the-bird-fda8a5.mp3 | above the bird | 1 |
+| /audio/child-mode/phrases/behind-the-door-8057c7.mp3 | behind the door | 1 |
+| /audio/child-mode/phrases/in-the-door-2c1a94.mp3 | in the door | 1 |
+| /audio/child-mode/phrases/above-the-door-fda9d7.mp3 | above the door | 1 |
+| /audio/child-mode/phrases/under-the-door-960f1b.mp3 | under the door | 1 |
 | /audio/child-mode/phrases/behind-the-bird-805695.mp3 | behind the bird | 1 |
 | /audio/child-mode/phrases/next-to-the-bird-431d06.mp3 | next to the bird | 1 |
-| /audio/child-mode/phrases/under-the-ball-960dc7.mp3 | under the ball | 1 |
+| /audio/child-mode/phrases/below-the-bird-376122.mp3 | below the bird | 1 |
+| /audio/child-mode/phrases/above-the-bird-fda8a5.mp3 | above the bird | 1 |
+| /audio/child-mode/phrases/above-the-bridge-b04bd0.mp3 | above the bridge | 1 |
+| /audio/child-mode/phrases/behind-the-bridge-f0f148.mp3 | behind the bridge | 1 |
+| /audio/child-mode/phrases/on-the-bridge-74d53e.mp3 | on the bridge | 1 |
+| /audio/child-mode/phrases/below-the-bridge-94d2cd.mp3 | below the bridge | 1 |
 | /audio/child-mode/phrases/on-the-ball-4c457f.mp3 | on the ball | 1 |
 | /audio/child-mode/phrases/in-the-ball-2c193f.mp3 | in the ball | 1 |
 | /audio/child-mode/phrases/behind-the-ball-805673.mp3 | behind the ball | 1 |
+| /audio/child-mode/phrases/under-the-ball-960dc7.mp3 | under the ball | 1 |
 | /audio/child-mode/phrases/next-to-the-cup-eac2d7.mp3 | next to the cup | 1 |
 | /audio/child-mode/phrases/in-the-cup-4ee984.mp3 | in the cup | 1 |
 | /audio/child-mode/phrases/under-the-cup-af36bf.mp3 | under the cup | 1 |
 | /audio/child-mode/phrases/above-the-cup-45bf50.mp3 | above the cup | 1 |
-| /audio/child-mode/phrases/granny-bola-8c746e.mp3 | Granny Bola | 1 |
 | /audio/child-mode/phrases/the-gardener-26d0b2.mp3 | the gardener | 1 |
 | /audio/child-mode/phrases/the-twins-67136f.mp3 | the twins | 3 |
 | /audio/child-mode/phrases/nobody-did-37c5c8.mp3 | nobody did | 1 |
+| /audio/child-mode/phrases/granny-bola-8c746e.mp3 | Granny Bola | 1 |
+| /audio/child-mode/phrases/a-balloon-ff6d15.mp3 | a balloon | 1 |
 | /audio/child-mode/phrases/a-green-sticker-10ef32.mp3 | a green sticker | 1 |
 | /audio/child-mode/phrases/a-new-toothbrush-9c1f23.mp3 | a new toothbrush | 1 |
-| /audio/child-mode/phrases/a-balloon-ff6d15.mp3 | a balloon | 1 |
+| /audio/child-mode/phrases/the-radio-66e318.mp3 | the radio | 1 |
 | /audio/child-mode/phrases/the-postlady-ae4ad0.mp3 | the postlady | 1 |
 | /audio/child-mode/phrases/the-milkman-3e6278.mp3 | the milkman | 1 |
 | /audio/child-mode/phrases/a-blackbird-51cd2f.mp3 | a blackbird | 1 |
-| /audio/child-mode/phrases/the-radio-66e318.mp3 | the radio | 1 |
 | /audio/child-mode/phrases/dinner-plates-6318d8.mp3 | dinner plates | 1 |
 | /audio/child-mode/phrases/story-books-1436b3.mp3 | story books | 1 |
 | /audio/child-mode/phrases/shoe-boxes-7a119e.mp3 | shoe boxes | 1 |
-| /audio/child-mode/phrases/the-toast-670eeb.mp3 | the toast | 1 |
 | /audio/child-mode/phrases/the-soup-bd4d7d.mp3 | the soup | 1 |
 | /audio/child-mode/phrases/his-hand-17d3b3.mp3 | his hand | 1 |
 | /audio/child-mode/phrases/the-kettle-33435d.mp3 | the kettle | 1 |
-| /audio/child-mode/phrases/their-dad-110808.mp3 | their dad | 1 |
+| /audio/child-mode/phrases/the-toast-670eeb.mp3 | the toast | 1 |
 | /audio/child-mode/phrases/a-decorator-7b69ed.mp3 | a decorator | 1 |
 | /audio/child-mode/phrases/the-neighbours-aacce7.mp3 | the neighbours | 1 |
+| /audio/child-mode/phrases/their-dad-110808.mp3 | their dad | 1 |
+| /audio/child-mode/phrases/a-garden-glove-8ea22d.mp3 | a garden glove | 1 |
 | /audio/child-mode/phrases/a-shiny-bottle-top-f85383.mp3 | a shiny bottle top | 1 |
 | /audio/child-mode/phrases/a-slice-of-bread-1d4573.mp3 | a slice of bread | 1 |
 | /audio/child-mode/phrases/a-silver-ring-a565ca.mp3 | a silver ring | 1 |
-| /audio/child-mode/phrases/a-garden-glove-8ea22d.mp3 | a garden glove | 1 |
 | /audio/child-mode/phrases/folded-card-879e9d.mp3 | folded card | 1 |
 | /audio/child-mode/phrases/sticky-tape-16b493.mp3 | sticky tape | 1 |
 | /audio/child-mode/phrases/a-hammer-999df8.mp3 | a hammer | 1 |
+| /audio/child-mode/phrases/on-saturdays-a53119.mp3 | on Saturdays | 1 |
 | /audio/child-mode/phrases/every-tuesday-a9673a.mp3 | every Tuesday | 1 |
 | /audio/child-mode/phrases/every-morning-20c0cd.mp3 | every morning | 1 |
-| /audio/child-mode/phrases/on-saturdays-a53119.mp3 | on Saturdays | 1 |
+| /audio/child-mode/phrases/on-his-head-a6d554.mp3 | on his head | 1 |
 | /audio/child-mode/phrases/in-the-fruit-bowl-871803.mp3 | in the fruit bowl | 1 |
 | /audio/child-mode/phrases/on-his-desk-a6d325.mp3 | on his desk | 1 |
 | /audio/child-mode/phrases/in-the-car-4ee982.mp3 | in the car | 1 |
-| /audio/child-mode/phrases/on-his-head-a6d554.mp3 | on his head | 1 |
-| /audio/child-mode/phrases/under-the-biggest-lily-pad-bf6acb.mp3 | under the biggest lily pad | 1 |
 | /audio/child-mode/phrases/behind-a-rock-d09f24.mp3 | behind a rock | 1 |
 | /audio/child-mode/phrases/in-the-reeds-b064da.mp3 | in the reeds | 1 |
 | /audio/child-mode/phrases/on-the-bank-4c457f.mp3 | on the bank | 1 |
-| /audio/child-mode/phrases/straight-after-lunch-c08fc3.mp3 | straight after lunch | 1 |
+| /audio/child-mode/phrases/under-the-biggest-lily-pad-bf6acb.mp3 | under the biggest lily pad | 1 |
 | /audio/child-mode/phrases/at-bedtime-7903f2.mp3 | at bedtime | 1 |
 | /audio/child-mode/phrases/in-the-morning-f4652b.mp3 | in the morning | 1 |
-| /audio/child-mode/phrases/behind-the-recycling-bins-64bed3.mp3 | behind the recycling bins | 1 |
-| /audio/child-mode/phrases/inside-the-shed-4416ce.mp3 | inside the shed | 1 |
+| /audio/child-mode/phrases/straight-after-lunch-c08fc3.mp3 | straight after lunch | 1 |
 | /audio/child-mode/phrases/by-the-front-door-c4c03e.mp3 | by the front door | 1 |
 | /audio/child-mode/phrases/under-a-cover-50b83f.mp3 | under a cover | 1 |
+| /audio/child-mode/phrases/behind-the-recycling-bins-64bed3.mp3 | behind the recycling bins | 1 |
+| /audio/child-mode/phrases/inside-the-shed-4416ce.mp3 | inside the shed | 1 |
 | /audio/child-mode/phrases/at-seven-3507f6.mp3 | at seven | 1 |
 | /audio/child-mode/phrases/after-school-b9bfc3.mp3 | after school | 1 |
 | /audio/child-mode/phrases/at-nine-3fa83a.mp3 | at nine | 1 |
@@ -5979,58 +5012,57 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/on-the-sofa-4c4f0c.mp3 | on the sofa | 1 |
 | /audio/child-mode/phrases/in-the-hammock-527ed3.mp3 | in the hammock | 1 |
 | /audio/child-mode/phrases/at-the-kitchen-table-67a688.mp3 | at the kitchen table | 1 |
-| /audio/child-mode/phrases/in-the-airing-cupboard-b03604.mp3 | in the airing cupboard | 1 |
 | /audio/child-mode/phrases/under-the-car-af36bc.mp3 | under the car | 1 |
 | /audio/child-mode/phrases/up-a-tree-fd9ee1.mp3 | up a tree | 1 |
 | /audio/child-mode/phrases/next-door-5becc6.mp3 | next door | 1 |
+| /audio/child-mode/phrases/in-the-airing-cupboard-b03604.mp3 | in the airing cupboard | 1 |
+| /audio/child-mode/phrases/a-girl-paints-a-picture-of-rain-dd424f.mp3 | A girl paints a picture of rain. | 1 |
 | /audio/child-mode/phrases/a-girl-in-wellies-jumps-over-a-puddle-4373ad.mp3 | A girl in wellies jumps over a puddle. | 1 |
 | /audio/child-mode/phrases/a-girl-sleeps-in-her-warm-bed-646e4e.mp3 | A girl sleeps in her warm bed. | 1 |
 | /audio/child-mode/phrases/a-boy-in-wellies-fills-a-puddle-22b8be.mp3 | A boy in wellies fills a puddle. | 1 |
-| /audio/child-mode/phrases/a-girl-paints-a-picture-of-rain-dd424f.mp3 | A girl paints a picture of rain. | 1 |
 | /audio/child-mode/phrases/two-boys-carry-a-ladder-past-the-bakery-785d08.mp3 | Two boys carry a ladder past the bakery. | 1 |
 | /audio/child-mode/phrases/two-boys-buy-buns-at-the-bakery-7b36e4.mp3 | Two boys buy buns at the bakery. | 1 |
 | /audio/child-mode/phrases/one-boy-climbs-a-ladder-at-home-7be26b.mp3 | One boy climbs a ladder at home. | 1 |
 | /audio/child-mode/phrases/two-bakers-carry-a-table-f4435b.mp3 | Two bakers carry a table. | 1 |
+| /audio/child-mode/phrases/a-cat-plays-with-a-ball-of-wool-f6261d.mp3 | A cat plays with a ball of wool. | 1 |
 | /audio/child-mode/phrases/a-cat-sleeps-inside-an-open-umbrella-f21b11.mp3 | A cat sleeps inside an open umbrella. | 1 |
 | /audio/child-mode/phrases/a-cat-hides-from-the-rain-indoors-46f9f2.mp3 | A cat hides from the rain indoors. | 1 |
 | /audio/child-mode/phrases/a-dog-sleeps-under-an-umbrella-2da532.mp3 | A dog sleeps under an umbrella. | 1 |
-| /audio/child-mode/phrases/a-cat-plays-with-a-ball-of-wool-f6261d.mp3 | A cat plays with a ball of wool. | 1 |
-| /audio/child-mode/phrases/grandad-and-a-child-fly-a-red-kite-970a68.mp3 | Grandad and a child fly a red kite. | 1 |
-| /audio/child-mode/phrases/grandad-buys-a-child-a-red-ball-b1563a.mp3 | Grandad buys a child a red ball. | 1 |
 | /audio/child-mode/phrases/two-children-fly-two-kites-281858.mp3 | Two children fly two kites. | 1 |
 | /audio/child-mode/phrases/grandad-reads-about-kites-fc2e18.mp3 | Grandad reads about kites. | 1 |
+| /audio/child-mode/phrases/grandad-and-a-child-fly-a-red-kite-970a68.mp3 | Grandad and a child fly a red kite. | 1 |
+| /audio/child-mode/phrases/grandad-buys-a-child-a-red-ball-b1563a.mp3 | Grandad buys a child a red ball. | 1 |
+| /audio/child-mode/phrases/someone-irons-a-red-shirt-80ad37.mp3 | Someone irons a red shirt. | 1 |
 | /audio/child-mode/phrases/one-red-sock-falls-from-the-washing-line-f765f3.mp3 | One red sock falls from the washing line. | 1 |
 | /audio/child-mode/phrases/a-red-sock-hangs-safely-on-the-line-1b35a6.mp3 | A red sock hangs safely on the line. | 1 |
 | /audio/child-mode/phrases/the-empty-line-swings-in-the-wind-c3b3a8.mp3 | The empty line swings in the wind. | 1 |
-| /audio/child-mode/phrases/someone-irons-a-red-shirt-80ad37.mp3 | Someone irons a red shirt. | 1 |
-| /audio/child-mode/phrases/three-ducks-wait-in-line-at-the-ice-cream-va-e90f0f.mp3 | Three ducks wait in line at the ice-cream van. | 1 |
-| /audio/child-mode/phrases/three-children-feed-ducks-at-the-pond-7f0eb2.mp3 | Three children feed ducks at the pond. | 1 |
 | /audio/child-mode/phrases/an-ice-cream-van-drives-past-a-farm-462646.mp3 | An ice-cream van drives past a farm. | 1 |
 | /audio/child-mode/phrases/one-duck-swims-away-from-a-boat-795334.mp3 | One duck swims away from a boat. | 1 |
-| /audio/child-mode/phrases/a-boy-holds-up-a-giant-wobbly-jelly-19e976.mp3 | A boy holds up a giant wobbly jelly. | 1 |
+| /audio/child-mode/phrases/three-ducks-wait-in-line-at-the-ice-cream-va-e90f0f.mp3 | Three ducks wait in line at the ice-cream van. | 1 |
+| /audio/child-mode/phrases/three-children-feed-ducks-at-the-pond-7f0eb2.mp3 | Three children feed ducks at the pond. | 1 |
 | /audio/child-mode/phrases/a-boy-eats-a-small-spoon-of-jelly-1fd060.mp3 | A boy eats a small spoon of jelly. | 1 |
 | /audio/child-mode/phrases/a-chef-drops-a-tall-cake-142111.mp3 | A chef drops a tall cake. | 1 |
 | /audio/child-mode/phrases/a-boy-washes-a-tall-glass-cb6ac9.mp3 | A boy washes a tall glass. | 1 |
-| /audio/child-mode/phrases/a-snowman-wears-sunglasses-in-the-sunshine-143270.mp3 | A snowman wears sunglasses in the sunshine. | 1 |
-| /audio/child-mode/phrases/a-snowman-melts-away-in-the-rain-7207c3.mp3 | A snowman melts away in the rain. | 1 |
+| /audio/child-mode/phrases/a-boy-holds-up-a-giant-wobbly-jelly-19e976.mp3 | A boy holds up a giant wobbly jelly. | 1 |
 | /audio/child-mode/phrases/a-child-wears-sunglasses-at-the-beach-121371.mp3 | A child wears sunglasses at the beach. | 1 |
 | /audio/child-mode/phrases/a-snowman-wears-a-woolly-scarf-at-night-b33d4b.mp3 | A snowman wears a woolly scarf at night. | 1 |
+| /audio/child-mode/phrases/a-snowman-wears-sunglasses-in-the-sunshine-143270.mp3 | A snowman wears sunglasses in the sunshine. | 1 |
+| /audio/child-mode/phrases/a-snowman-melts-away-in-the-rain-7207c3.mp3 | A snowman melts away in the rain. | 1 |
 | /audio/child-mode/phrases/tiptoed-past-the-dog-1be6b4.mp3 | tiptoed past the dog | 1 |
 | /audio/child-mode/phrases/woke-the-dog-up-46737d.mp3 | woke the dog up | 1 |
 | /audio/child-mode/phrases/fed-the-dog-8a8efa.mp3 | fed the dog | 1 |
 | /audio/child-mode/phrases/ran-to-the-park-fb492a.mp3 | ran to the park | 1 |
-| /audio/child-mode/phrases/balanced-six-plates-on-one-arm-2ab980.mp3 | balanced six plates on one arm | 1 |
 | /audio/child-mode/phrases/dropped-six-plates-88e60c.mp3 | dropped six plates | 1 |
-| /audio/child-mode/phrases/washed-the-dishes-ce8364.mp3 | washed the dishes | 1 |
 | /audio/child-mode/phrases/wrote-down-an-order-e6c1e4.mp3 | wrote down an order | 1 |
-| /audio/child-mode/phrases/squeezed-lemons-1c0a9c.mp3 | squeezed lemons | 1 |
+| /audio/child-mode/phrases/balanced-six-plates-on-one-arm-2ab980.mp3 | balanced six plates on one arm | 1 |
 | /audio/child-mode/phrases/planted-a-lemon-tree-c45104.mp3 | planted a lemon tree | 1 |
 | /audio/child-mode/phrases/drank-the-lemonade-d1631a.mp3 | drank the lemonade | 1 |
 | /audio/child-mode/phrases/bought-some-oranges-bb9a8d.mp3 | bought some oranges | 1 |
+| /audio/child-mode/phrases/squeezed-lemons-1c0a9c.mp3 | squeezed lemons | 1 |
+| /audio/child-mode/phrases/blew-the-whistle-26e3ff.mp3 | blew the whistle | 1 |
 | /audio/child-mode/phrases/tipped-the-ball-over-the-bar-1f4826.mp3 | tipped the ball over the bar | 1 |
 | /audio/child-mode/phrases/let-the-ball-in-e2a84b.mp3 | let the ball in | 1 |
 | /audio/child-mode/phrases/scored-a-goal-658a19.mp3 | scored a goal | 1 |
-| /audio/child-mode/phrases/blew-the-whistle-26e3ff.mp3 | blew the whistle | 1 |
 | /audio/child-mode/phrases/mended-the-map-with-tape-2ceac4.mp3 | mended the map with tape | 1 |
 | /audio/child-mode/phrases/tore-the-map-in-half-34f4d7.mp3 | tore the map in half | 1 |
 | /audio/child-mode/phrases/drew-a-new-map-c3a516.mp3 | drew a new map | 1 |
@@ -6039,311 +5071,336 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/sang-a-sailor-song-d1973c.mp3 | sang a sailor song | 1 |
 | /audio/child-mode/phrases/flew-out-the-window-c83058.mp3 | flew out the window | 1 |
 | /audio/child-mode/phrases/slept-on-its-perch-107602.mp3 | slept on its perch | 1 |
-| /audio/child-mode/phrases/rolled-a-huge-snowball-82cc17.mp3 | rolled a huge snowball | 1 |
-| /audio/child-mode/phrases/threw-a-small-snowball-afeafb.mp3 | threw a small snowball | 1 |
 | /audio/child-mode/phrases/shovelled-the-path-f0946f.mp3 | shovelled the path | 1 |
 | /audio/child-mode/phrases/stayed-indoors-71e4f3.mp3 | stayed indoors | 1 |
+| /audio/child-mode/phrases/rolled-a-huge-snowball-82cc17.mp3 | rolled a huge snowball | 1 |
+| /audio/child-mode/phrases/threw-a-small-snowball-afeafb.mp3 | threw a small snowball | 1 |
+| /audio/child-mode/phrases/mended-the-cover-2f9f46.mp3 | mended the cover | 1 |
 | /audio/child-mode/phrases/stamped-the-wrong-date-c5f945.mp3 | stamped the wrong date | 1 |
 | /audio/child-mode/phrases/lost-the-book-b12703.mp3 | lost the book | 1 |
 | /audio/child-mode/phrases/read-the-book-aloud-c5ff39.mp3 | read the book aloud | 1 |
-| /audio/child-mode/phrases/mended-the-cover-2f9f46.mp3 | mended the cover | 1 |
-| /audio/child-mode/phrases/the-lift-was-out-of-order-d77c28.mp3 | the lift was out of order | 1 |
-| /audio/child-mode/phrases/the-stairs-were-quicker-f46779.mp3 | the stairs were quicker | 1 |
 | /audio/child-mode/phrases/they-liked-climbing-stairs-e93b57.mp3 | they liked climbing stairs | 1 |
 | /audio/child-mode/phrases/the-lift-was-full-ee1d4f.mp3 | the lift was full | 1 |
-| /audio/child-mode/phrases/the-boots-were-far-too-big-for-her-f3a3d6.mp3 | the boots were far too big for her | 1 |
+| /audio/child-mode/phrases/the-lift-was-out-of-order-d77c28.mp3 | the lift was out of order | 1 |
+| /audio/child-mode/phrases/the-stairs-were-quicker-f46779.mp3 | the stairs were quicker | 1 |
 | /audio/child-mode/phrases/rosa-s-own-feet-were-enormous-e8dc2f.mp3 | Rosa's own feet were enormous | 1 |
 | /audio/child-mode/phrases/the-mud-made-the-footprints-deep-1f8822.mp3 | the mud made the footprints deep | 1 |
 | /audio/child-mode/phrases/a-giant-walked-down-the-road-f9f21f.mp3 | a giant walked down the road | 1 |
+| /audio/child-mode/phrases/the-boots-were-far-too-big-for-her-f3a3d6.mp3 | the boots were far too big for her | 1 |
 | /audio/child-mode/phrases/they-did-not-mind-thanks-to-the-cake-b5df14.mp3 | they did not mind, thanks to the cake | 1 |
 | /audio/child-mode/phrases/they-were-very-cross-348f80.mp3 | they were very cross | 1 |
 | /audio/child-mode/phrases/they-cancelled-the-picnic-straight-away-b50e0a.mp3 | they cancelled the picnic straight away | 1 |
 | /audio/child-mode/phrases/they-forgot-the-cake-214b3d.mp3 | they forgot the cake | 1 |
-| /audio/child-mode/phrases/the-sea-was-not-as-safe-as-it-looked-b9d77b.mp3 | the sea was not as safe as it looked | 1 |
 | /audio/child-mode/phrases/the-beach-was-closing-for-winter-e7df68.mp3 | the beach was closing for winter | 1 |
 | /audio/child-mode/phrases/a-race-was-starting-631847.mp3 | a race was starting | 1 |
 | /audio/child-mode/phrases/the-calm-sea-was-safe-c39efe.mp3 | the calm sea was safe | 1 |
+| /audio/child-mode/phrases/the-sea-was-not-as-safe-as-it-looked-b9d77b.mp3 | the sea was not as safe as it looked | 1 |
 | /audio/child-mode/phrases/to-buy-a-plant-for-mum-s-birthday-9492a6.mp3 | to buy a plant for Mum's birthday | 1 |
 | /audio/child-mode/phrases/to-buy-his-own-birthday-plant-d11f42.mp3 | to buy his own birthday plant | 1 |
 | /audio/child-mode/phrases/to-ride-the-bus-every-month-b35386.mp3 | to ride the bus every month | 1 |
 | /audio/child-mode/phrases/because-he-lost-his-money-ca3462.mp3 | because he lost his money | 1 |
+| /audio/child-mode/phrases/because-the-bench-was-new-e2b2db.mp3 | because the bench was new | 1 |
 | /audio/child-mode/phrases/to-warn-that-the-paint-was-wet-937b59.mp3 | to warn that the paint was wet | 1 |
 | /audio/child-mode/phrases/to-celebrate-a-holiday-46b30e.mp3 | to celebrate a holiday | 1 |
 | /audio/child-mode/phrases/because-a-race-finished-there-3d4869.mp3 | because a race finished there | 1 |
-| /audio/child-mode/phrases/because-the-bench-was-new-e2b2db.mp3 | because the bench was new | 1 |
 | /audio/child-mode/phrases/played-striker-55eb48.mp3 | played striker | 1 |
 | /audio/child-mode/phrases/played-in-goal-405913.mp3 | played in goal | 1 |
 | /audio/child-mode/phrases/watched-from-the-bench-fad005.mp3 | watched from the bench | 1 |
 | /audio/child-mode/phrases/refereed-the-match-ade59e.mp3 | refereed the match | 1 |
+| /audio/child-mode/phrases/nobody-was-hungry-9ddab6.mp3 | nobody was hungry | 1 |
 | /audio/child-mode/phrases/it-was-being-saved-for-the-fair-d6f489.mp3 | it was being saved for the fair | 1 |
 | /audio/child-mode/phrases/it-smelled-bad-1d8ca8.mp3 | it smelled bad | 1 |
 | /audio/child-mode/phrases/it-was-burnt-black-b3f9a5.mp3 | it was burnt black | 1 |
-| /audio/child-mode/phrases/nobody-was-hungry-9ddab6.mp3 | nobody was hungry | 1 |
-| /audio/child-mode/phrases/the-painter-127363.mp3 | the painter | 1 |
 | /audio/child-mode/phrases/the-neighbour-33b8a2.mp3 | the neighbour | 1 |
-| /audio/child-mode/phrases/the-fishing-boat-2bac48.mp3 | the fishing boat | 1 |
-| /audio/child-mode/phrases/the-seagull-222267.mp3 | the seagull | 1 |
+| /audio/child-mode/phrases/the-painter-127363.mp3 | the painter | 1 |
 | /audio/child-mode/phrases/a-ferry-80a4d0.mp3 | a ferry | 1 |
 | /audio/child-mode/phrases/the-harbour-master-f97ad7.mp3 | the harbour master | 1 |
+| /audio/child-mode/phrases/the-fishing-boat-2bac48.mp3 | the fishing boat | 1 |
+| /audio/child-mode/phrases/the-seagull-222267.mp3 | the seagull | 1 |
 | /audio/child-mode/phrases/the-teacher-s-7d7e67.mp3 | the teacher's | 1 |
-| /audio/child-mode/phrases/auntie-vee-db0dba.mp3 | Auntie Vee | 1 |
 | /audio/child-mode/phrases/their-mother-eebd06.mp3 | their mother | 2 |
 | /audio/child-mode/phrases/a-grandparent-d8f87d.mp3 | a grandparent | 1 |
-| /audio/child-mode/phrases/the-seedling-4f8052.mp3 | the seedling | 1 |
+| /audio/child-mode/phrases/auntie-vee-db0dba.mp3 | Auntie Vee | 1 |
 | /audio/child-mode/phrases/the-cactus-204865.mp3 | the cactus | 1 |
 | /audio/child-mode/phrases/the-shelf-66f90c.mp3 | the shelf | 1 |
 | /audio/child-mode/phrases/a-sunflower-4c2f2f.mp3 | a sunflower | 1 |
+| /audio/child-mode/phrases/the-seedling-4f8052.mp3 | the seedling | 1 |
 | /audio/child-mode/phrases/her-dad-3d237f.mp3 | her dad | 1 |
 | /audio/child-mode/phrases/a-toymaker-ddbd72.mp3 | a toymaker | 1 |
-| /audio/child-mode/phrases/the-penguins-9ff47a.mp3 | the penguins | 1 |
 | /audio/child-mode/phrases/the-visitors-6935f4.mp3 | the visitors | 1 |
 | /audio/child-mode/phrases/the-keepers-9a9d4e.mp3 | the keepers | 1 |
 | /audio/child-mode/phrases/the-seals-66f755.mp3 | the seals | 1 |
+| /audio/child-mode/phrases/the-penguins-9ff47a.mp3 | the penguins | 1 |
 | /audio/child-mode/phrases/both-of-them-e9845e.mp3 | both of them | 2 |
 | /audio/child-mode/phrases/neither-of-them-5cdb1c.mp3 | neither of them | 1 |
 | /audio/child-mode/phrases/the-puppet-show-sold-out-before-lunch-8d632e.mp3 | The puppet show sold out before lunch. | 1 |
 | /audio/child-mode/phrases/the-puppet-show-was-cancelled-at-lunch-8e8ac9.mp3 | The puppet show was cancelled at lunch. | 1 |
 | /audio/child-mode/phrases/many-tickets-were-left-after-lunch-fd94a8.mp3 | Many tickets were left after lunch. | 1 |
 | /audio/child-mode/phrases/the-puppets-had-their-lunch-771479.mp3 | The puppets had their lunch. | 1 |
+| /audio/child-mode/phrases/ravi-walks-to-the-pool-asleep-12a5ad.mp3 | Ravi walks to the pool asleep. | 1 |
 | /audio/child-mode/phrases/ravi-knows-the-route-extremely-well-5e051b.mp3 | Ravi knows the route extremely well. | 1 |
 | /audio/child-mode/phrases/ravi-swims-with-his-eyes-shut-bd3be8.mp3 | Ravi swims with his eyes shut. | 1 |
 | /audio/child-mode/phrases/ravi-keeps-getting-lost-17f266.mp3 | Ravi keeps getting lost. | 1 |
-| /audio/child-mode/phrases/ravi-walks-to-the-pool-asleep-12a5ad.mp3 | Ravi walks to the pool asleep. | 1 |
 | /audio/child-mode/phrases/everyone-stood-up-before-the-match-ended-2d23ee.mp3 | Everyone stood up before the match ended. | 1 |
 | /audio/child-mode/phrases/everyone-left-before-the-match-ended-a6793d.mp3 | Everyone left before the match ended. | 1 |
 | /audio/child-mode/phrases/the-class-sat-quietly-to-the-end-acdc5f.mp3 | The class sat quietly to the end. | 1 |
 | /audio/child-mode/phrases/the-referee-lost-the-whistle-e2e012.mp3 | The referee lost the whistle. | 1 |
+| /audio/child-mode/phrases/dad-dislikes-gran-s-soup-709197.mp3 | Dad dislikes Gran's soup. | 1 |
 | /audio/child-mode/phrases/dad-says-gran-s-soup-smells-very-strong-35d6cb.mp3 | Dad says Gran's soup smells very strong. | 1 |
 | /audio/child-mode/phrases/gran-s-soup-is-always-cold-e0f67f.mp3 | Gran's soup is always cold. | 1 |
 | /audio/child-mode/phrases/gran-cooks-while-the-street-sleeps-1faeb2.mp3 | Gran cooks while the street sleeps. | 1 |
-| /audio/child-mode/phrases/dad-dislikes-gran-s-soup-709197.mp3 | Dad dislikes Gran's soup. | 1 |
-| /audio/child-mode/phrases/omar-had-stopped-being-patient-before-the-bu-957c46.mp3 | Omar had stopped being patient before the bus came. | 1 |
-| /audio/child-mode/phrases/omar-ran-after-the-bus-56f0e6.mp3 | Omar ran after the bus. | 1 |
 | /audio/child-mode/phrases/omar-waited-calmly-and-quietly-for-the-bus-9bf4b9.mp3 | Omar waited calmly and quietly for the bus. | 1 |
 | /audio/child-mode/phrases/the-bus-never-appeared-at-all-c30c15.mp3 | The bus never appeared at all. | 1 |
+| /audio/child-mode/phrases/omar-had-stopped-being-patient-before-the-bu-957c46.mp3 | Omar had stopped being patient before the bus came. | 1 |
+| /audio/child-mode/phrases/omar-ran-after-the-bus-56f0e6.mp3 | Omar ran after the bus. | 1 |
+| /audio/child-mode/phrases/the-house-needed-new-carpets-6a96ac.mp3 | The house needed new carpets. | 1 |
 | /audio/child-mode/phrases/the-puppy-chewed-all-the-shoes-2650e1.mp3 | The puppy chewed all the shoes. | 1 |
 | /audio/child-mode/phrases/the-puppy-fetched-shoes-politely-5f5c24.mp3 | The puppy fetched shoes politely. | 1 |
 | /audio/child-mode/phrases/the-puppy-had-its-own-toys-209931.mp3 | The puppy had its own toys. | 1 |
-| /audio/child-mode/phrases/the-house-needed-new-carpets-6a96ac.mp3 | The house needed new carpets. | 1 |
-| /audio/child-mode/phrases/lila-found-it-hard-not-to-tell-the-secret-608175.mp3 | Lila found it hard not to tell the secret. | 1 |
-| /audio/child-mode/phrases/lila-told-the-secret-on-monday-d07892.mp3 | Lila told the secret on Monday. | 1 |
 | /audio/child-mode/phrases/lila-forgot-the-secret-by-friday-82c9ea.mp3 | Lila forgot the secret by Friday. | 1 |
 | /audio/child-mode/phrases/lila-finished-her-work-on-friday-e2f9f8.mp3 | Lila finished her work on Friday. | 1 |
-| /audio/child-mode/phrases/hailstones-bounced-all-over-the-trampoline-e13fa4.mp3 | Hailstones bounced all over the trampoline. | 1 |
+| /audio/child-mode/phrases/lila-found-it-hard-not-to-tell-the-secret-608175.mp3 | Lila found it hard not to tell the secret. | 1 |
+| /audio/child-mode/phrases/lila-told-the-secret-on-monday-d07892.mp3 | Lila told the secret on Monday. | 1 |
 | /audio/child-mode/phrases/popcorn-spilled-onto-the-trampoline-c87313.mp3 | Popcorn spilled onto the trampoline. | 1 |
 | /audio/child-mode/phrases/the-trampoline-blew-away-in-the-storm-ca22aa.mp3 | The trampoline blew away in the storm. | 1 |
 | /audio/child-mode/phrases/the-children-made-popcorn-indoors-ed5275.mp3 | The children made popcorn indoors. | 1 |
-| /audio/child-mode/phrases/auntie-meg-db0d94.mp3 | Auntie Meg | 1 |
-| /audio/child-mode/phrases/the-judge-665d4b.mp3 | the judge | 1 |
+| /audio/child-mode/phrases/hailstones-bounced-all-over-the-trampoline-e13fa4.mp3 | Hailstones bounced all over the trampoline. | 1 |
 | /audio/child-mode/phrases/next-door-s-gardener-7bd2fb.mp3 | next door's gardener | 1 |
 | /audio/child-mode/phrases/nobody-this-year-ef26d4.mp3 | nobody this year | 1 |
-| /audio/child-mode/phrases/at-night-34af6e.mp3 | at night | 1 |
+| /audio/child-mode/phrases/auntie-meg-db0d94.mp3 | Auntie Meg | 1 |
+| /audio/child-mode/phrases/the-judge-665d4b.mp3 | the judge | 1 |
 | /audio/child-mode/phrases/all-day-32335f.mp3 | all day | 1 |
 | /audio/child-mode/phrases/on-mondays-be25e4.mp3 | on Mondays | 1 |
+| /audio/child-mode/phrases/at-night-34af6e.mp3 | at night | 1 |
 | /audio/child-mode/phrases/a-small-dog-leads-a-tall-man-down-the-street-546f08.mp3 | A small dog leads a tall man down the street. | 1 |
 | /audio/child-mode/phrases/a-tall-man-carries-a-small-dog-643df4.mp3 | A tall man carries a small dog. | 1 |
 | /audio/child-mode/phrases/two-dogs-chase-a-ball-7bf706.mp3 | Two dogs chase a ball. | 1 |
 | /audio/child-mode/phrases/a-man-buys-a-dog-lead-7fdd9d.mp3 | A man buys a dog lead. | 1 |
+| /audio/child-mode/phrases/counted-his-money-a2f3fc.mp3 | counted his money | 1 |
 | /audio/child-mode/phrases/hid-a-coin-in-one-bun-ca0f89.mp3 | hid a coin in one bun | 1 |
 | /audio/child-mode/phrases/ate-a-hundred-buns-4c0e12.mp3 | ate a hundred buns | 1 |
 | /audio/child-mode/phrases/dropped-the-tray-102048.mp3 | dropped the tray | 1 |
-| /audio/child-mode/phrases/counted-his-money-a2f3fc.mp3 | counted his money | 1 |
 | /audio/child-mode/phrases/the-vet-def2e0.mp3 | the vet | 1 |
 | /audio/child-mode/phrases/the-parrot-learned-alone-88af9a.mp3 | the parrot learned alone | 1 |
-| /audio/child-mode/phrases/in-the-drawer-under-the-bed-bc0bff.mp3 | in the drawer under the bed | 1 |
 | /audio/child-mode/phrases/in-the-wardrobe-853d8a.mp3 | in the wardrobe | 1 |
 | /audio/child-mode/phrases/at-school-d5db12.mp3 | at school | 1 |
 | /audio/child-mode/phrases/in-the-wash-2c24c4.mp3 | in the wash | 1 |
+| /audio/child-mode/phrases/in-the-drawer-under-the-bed-bc0bff.mp3 | in the drawer under the bed | 1 |
 | /audio/child-mode/phrases/the-family-fell-asleep-before-the-film-ended-402fb1.mp3 | The family fell asleep before the film ended. | 1 |
 | /audio/child-mode/phrases/the-family-cheers-at-the-film-s-ending-db2f07.mp3 | The family cheers at the film's ending. | 1 |
 | /audio/child-mode/phrases/the-family-queues-for-cinema-tickets-b82bd7.mp3 | The family queues for cinema tickets. | 1 |
 | /audio/child-mode/phrases/one-child-watches-cartoons-at-breakfast-d19229.mp3 | One child watches cartoons at breakfast. | 1 |
+| /audio/child-mode/phrases/bought-a-new-football-27975d.mp3 | bought a new football | 1 |
 | /audio/child-mode/phrases/got-the-ball-down-with-a-mop-41d271.mp3 | got the ball down with a mop | 1 |
 | /audio/child-mode/phrases/threw-the-ball-onto-the-roof-df41e4.mp3 | threw the ball onto the roof | 1 |
 | /audio/child-mode/phrases/cleaned-the-classroom-floor-c99b32.mp3 | cleaned the classroom floor | 1 |
-| /audio/child-mode/phrases/bought-a-new-football-27975d.mp3 | bought a new football | 1 |
-| /audio/child-mode/phrases/the-baby-kept-blowing-them-out-22af0e.mp3 | the baby kept blowing them out | 1 |
 | /audio/child-mode/phrases/the-wind-blew-them-out-8d8db2.mp3 | the wind blew them out | 1 |
 | /audio/child-mode/phrases/they-burned-down-to-stubs-81d695.mp3 | they burned down to stubs | 1 |
 | /audio/child-mode/phrases/the-party-started-again-a31789.mp3 | the party started again | 1 |
+| /audio/child-mode/phrases/the-baby-kept-blowing-them-out-22af0e.mp3 | the baby kept blowing them out | 1 |
 | /audio/child-mode/phrases/the-dumplings-made-the-long-wait-worthwhile-31d740.mp3 | the dumplings made the long wait worthwhile | 1 |
 | /audio/child-mode/phrases/the-queue-was-far-too-long-to-bother-ced39d.mp3 | the queue was far too long to bother | 1 |
 | /audio/child-mode/phrases/the-dumplings-were-disappointing-ddd286.mp3 | the dumplings were disappointing | 1 |
 | /audio/child-mode/phrases/the-square-was-too-crowded-to-visit-52e86f.mp3 | the square was too crowded to visit | 1 |
 | /audio/child-mode/phrases/her-little-brother-c52962.mp3 | her little brother | 1 |
-| /audio/child-mode/phrases/the-parents-131138.mp3 | the parents | 1 |
-| /audio/child-mode/phrases/the-coach-65db48.mp3 | the coach | 1 |
 | /audio/child-mode/phrases/the-players-2b9128.mp3 | the players | 1 |
 | /audio/child-mode/phrases/the-groundskeeper-1ef3f3.mp3 | the groundskeeper | 1 |
-| /audio/child-mode/phrases/the-sea-covered-the-sandcastle-before-tea-fb1963.mp3 | The sea covered the sandcastle before tea. | 1 |
+| /audio/child-mode/phrases/the-parents-131138.mp3 | the parents | 1 |
+| /audio/child-mode/phrases/the-coach-65db48.mp3 | the coach | 1 |
 | /audio/child-mode/phrases/the-sandcastle-survived-until-dark-343fcc.mp3 | The sandcastle survived until dark. | 1 |
 | /audio/child-mode/phrases/someone-ate-tea-on-the-sandcastle-c85ae4.mp3 | Someone ate tea on the sandcastle. | 1 |
 | /audio/child-mode/phrases/the-castle-was-rebuilt-at-tea-time-db4763.mp3 | The castle was rebuilt at tea time. | 1 |
+| /audio/child-mode/phrases/the-sea-covered-the-sandcastle-before-tea-fb1963.mp3 | The sea covered the sandcastle before tea. | 1 |
 | /audio/child-mode/phrases/the-cheese-smelled-so-bad-everyone-opened-th-b66880.mp3 | The cheese smelled so bad everyone opened the windows. | 1 |
 | /audio/child-mode/phrases/everyone-raced-to-taste-the-cheese-f33a53.mp3 | Everyone raced to taste the cheese. | 1 |
 | /audio/child-mode/phrases/the-kitchen-windows-were-broken-b1ca6c.mp3 | The kitchen windows were broken. | 1 |
 | /audio/child-mode/phrases/the-cheese-was-served-right-beside-the-windo-e70610.mp3 | The cheese was served right beside the window. | 1 |
+| /audio/child-mode/phrases/dropped-his-squeegee-9f30cd.mp3 | dropped his squeegee | 1 |
 | /audio/child-mode/phrases/waved-at-the-children-on-the-bus-ba1cc3.mp3 | waved at the children on the bus | 1 |
 | /audio/child-mode/phrases/cleaned-the-bus-windows-29194f.mp3 | cleaned the bus windows | 1 |
 | /audio/child-mode/phrases/drove-the-bus-to-school-a96591.mp3 | drove the bus to school | 1 |
-| /audio/child-mode/phrases/dropped-his-squeegee-9f30cd.mp3 | dropped his squeegee | 1 |
 | /audio/child-mode/phrases/a-birdwatcher-305fcd.mp3 | a birdwatcher | 1 |
 | /audio/child-mode/phrases/nobody-saw-it-6dc8f3.mp3 | nobody saw it | 1 |
-| /audio/child-mode/phrases/pulled-on-his-thick-socks-467da9.mp3 | pulled on his thick socks | 1 |
-| /audio/child-mode/phrases/zipped-up-his-coat-3a9e5b.mp3 | zipped up his coat | 1 |
-| /audio/child-mode/phrases/put-on-his-mittens-f716b1.mp3 | put on his mittens | 1 |
-| /audio/child-mode/phrases/built-a-snowman-9b5008.mp3 | built a snowman | 1 |
-| /audio/child-mode/phrases/folded-the-paper-in-half-904236.mp3 | folded the paper in half | 1 |
-| /audio/child-mode/phrases/drew-a-bumblebee-ea7a30.mp3 | drew a bumblebee | 1 |
-| /audio/child-mode/phrases/wrote-her-name-inside-6a6e50.mp3 | wrote her name inside | 1 |
-| /audio/child-mode/phrases/posted-the-card-92094d.mp3 | posted the card | 1 |
-| /audio/child-mode/phrases/everyone-stopped-when-the-bell-rang-f71628.mp3 | everyone stopped when the bell rang | 1 |
-| /audio/child-mode/phrases/they-lined-up-quietly-cd228f.mp3 | they lined up quietly | 1 |
-| /audio/child-mode/phrases/they-walked-to-the-yard-494e7a.mp3 | they walked to the yard | 1 |
-| /audio/child-mode/phrases/they-rang-the-bell-themselves-c34602.mp3 | they rang the bell themselves | 1 |
-| /audio/child-mode/phrases/hosed-off-the-mud-802e35.mp3 | hosed off the mud | 1 |
-| /audio/child-mode/phrases/rubbed-it-with-sponges-9a9327.mp3 | rubbed it with sponges | 1 |
-| /audio/child-mode/phrases/dried-it-with-a-towel-acfa09.mp3 | dried it with a towel | 1 |
-| /audio/child-mode/phrases/drove-to-the-sea-34cb9d.mp3 | drove to the sea | 1 |
-| /audio/child-mode/phrases/wetting-the-cotton-wool-39e216.mp3 | wetting the cotton wool | 1 |
-| /audio/child-mode/phrases/sprinkling-the-seeds-adfd59.mp3 | sprinkling the seeds | 1 |
-| /audio/child-mode/phrases/putting-the-tray-in-the-sun-572c08.mp3 | putting the tray in the sun | 1 |
-| /audio/child-mode/phrases/eating-the-cress-sandwiches-73978a.mp3 | eating the cress sandwiches | 1 |
-| /audio/child-mode/phrases/turned-the-bike-upside-down-9a86c3.mp3 | turned the bike upside down | 1 |
-| /audio/child-mode/phrases/pulled-out-the-flat-tube-46e401.mp3 | pulled out the flat tube | 1 |
-| /audio/child-mode/phrases/pumped-up-the-new-tube-9a7fec.mp3 | pumped up the new tube | 1 |
-| /audio/child-mode/phrases/rode-to-the-park-8d2d63.mp3 | rode to the park | 1 |
-| /audio/child-mode/phrases/miss-bell-arranged-the-rows-e91bd5.mp3 | Miss Bell arranged the rows | 1 |
-| /audio/child-mode/phrases/the-photographer-counted-9d31fd.mp3 | the photographer counted | 1 |
-| /audio/child-mode/phrases/everyone-said-cheese-4181c0.mp3 | everyone said CHEESE | 1 |
-| /audio/child-mode/phrases/the-photos-were-posted-home-953575.mp3 | the photos were posted home | 1 |
-| /audio/child-mode/phrases/warmed-the-milk-in-the-pan-194e25.mp3 | warmed the milk in the pan | 1 |
-| /audio/child-mode/phrases/stirred-in-the-chocolate-142154.mp3 | stirred in the chocolate | 1 |
-| /audio/child-mode/phrases/added-the-cream-on-top-c4e598.mp3 | added the cream on top | 1 |
-| /audio/child-mode/phrases/drank-it-by-the-fire-23f46a.mp3 | drank it by the fire | 1 |
-| /audio/child-mode/phrases/ade-scrubbed-the-mud-out-d268e7.mp3 | Ade scrubbed the mud out | 1 |
-| /audio/child-mode/phrases/ade-filled-the-tub-f8d6e8.mp3 | Ade filled the tub | 1 |
-| /audio/child-mode/phrases/ade-rubbed-biscuit-dry-74d115.mp3 | Ade rubbed Biscuit dry | 1 |
-| /audio/child-mode/phrases/biscuit-dug-a-hole-7bf275.mp3 | Biscuit dug a hole | 1 |
-| /audio/child-mode/phrases/they-poured-batter-into-the-pan-c9273e.mp3 | they poured batter into the pan | 1 |
-| /audio/child-mode/phrases/they-whisked-the-batter-8a87bb.mp3 | they whisked the batter | 1 |
-| /audio/child-mode/phrases/they-lifted-the-pancake-out-eb2b6a.mp3 | they lifted the pancake out | 1 |
-| /audio/child-mode/phrases/they-washed-the-plates-8b4ff3.mp3 | they washed the plates | 1 |
-| /audio/child-mode/phrases/he-sealed-and-stamped-the-envelope-4100c5.mp3 | he sealed and stamped the envelope | 1 |
-| /audio/child-mode/phrases/he-wrote-about-his-tooth-c119f1.mp3 | he wrote about his tooth | 1 |
-| /audio/child-mode/phrases/he-posted-it-in-the-box-e72ce9.mp3 | he posted it in the box | 1 |
-| /audio/child-mode/phrases/gran-wrote-back-74fd82.mp3 | gran wrote back | 1 |
-| /audio/child-mode/phrases/hunted-for-a-dinosaur-story-f31e4e.mp3 | hunted for a dinosaur story | 1 |
-| /audio/child-mode/phrases/returned-last-week-s-books-fab8c3.mp3 | returned last week's books | 1 |
-| /audio/child-mode/phrases/had-her-pile-stamped-9cfb78.mp3 | had her pile stamped | 1 |
-| /audio/child-mode/phrases/read-under-the-table-2f7577.mp3 | read under the table | 1 |
-| /audio/child-mode/phrases/the-poles-were-clicked-and-threaded-1de974.mp3 | the poles were clicked and threaded | 1 |
-| /audio/child-mode/phrases/the-groundsheet-was-spread-out-5a7b80.mp3 | the groundsheet was spread out | 1 |
-| /audio/child-mode/phrases/the-corners-were-pegged-2dfcee.mp3 | the corners were pegged | 1 |
-| /audio/child-mode/phrases/it-rained-on-the-tent-f08c83.mp3 | it rained on the tent | 1 |
-| /audio/child-mode/phrases/popped-the-balloon-and-cut-eye-holes-1671ab.mp3 | popped the balloon and cut eye holes | 1 |
-| /audio/child-mode/phrases/pasted-newspaper-on-the-balloon-413fcd.mp3 | pasted newspaper on the balloon | 1 |
-| /audio/child-mode/phrases/painted-the-mask-gold-39fa40.mp3 | painted the mask gold | 1 |
-| /audio/child-mode/phrases/wore-the-mask-to-school-f35d40.mp3 | wore the mask to school | 1 |
-| /audio/child-mode/phrases/sorted-the-pile-into-groups-797c83.mp3 | sorted the pile into groups | 1 |
-| /audio/child-mode/phrases/emptied-the-bins-into-a-pile-5e5ba5.mp3 | emptied the bins into a pile | 1 |
-| /audio/child-mode/phrases/wheeled-it-all-to-the-kerb-27d012.mp3 | wheeled it all to the kerb | 1 |
-| /audio/child-mode/phrases/drove-the-morning-truck-4e0b7e.mp3 | drove the morning truck | 1 |
-| /audio/child-mode/phrases/made-a-hole-with-a-skewer-ae1727.mp3 | made a hole with a skewer | 1 |
-| /audio/child-mode/phrases/chose-the-roundest-conker-daec61.mp3 | chose the roundest conker | 1 |
-| /audio/child-mode/phrases/threaded-and-knotted-the-string-65f06c.mp3 | threaded and knotted the string | 1 |
-| /audio/child-mode/phrases/won-the-tournament-127302.mp3 | won the tournament | 1 |
-| /audio/child-mode/phrases/the-story-66ffcc.mp3 | the story | 1 |
-| /audio/child-mode/phrases/the-bath-with-the-boats-3ba0ae.mp3 | the bath with the boats | 1 |
-| /audio/child-mode/phrases/brushing-teeth-968be5.mp3 | brushing teeth | 1 |
-| /audio/child-mode/phrases/at-the-biscuit-tin-b68a08.mp3 | at the biscuit tin | 1 |
-| /audio/child-mode/phrases/under-the-doormat-1f0715.mp3 | under the doormat | 1 |
-| /audio/child-mode/phrases/inside-the-welly-c73777.mp3 | inside the welly | 1 |
-| /audio/child-mode/phrases/at-the-sweet-shop-bc825c.mp3 | at the sweet shop | 1 |
-| /audio/child-mode/phrases/the-dish-went-into-the-oven-9c2c33.mp3 | the dish went into the oven | 1 |
-| /audio/child-mode/phrases/the-apples-were-chopped-ede843.mp3 | the apples were chopped | 1 |
-| /audio/child-mode/phrases/the-crumbs-were-spread-on-top-1c6ba5.mp3 | the crumbs were spread on top | 1 |
-| /audio/child-mode/phrases/the-apples-were-picked-68c50e.mp3 | the apples were picked | 1 |
-| /audio/child-mode/phrases/pia-chose-a-sticker-5d430e.mp3 | Pia chose a sticker | 1 |
-| /audio/child-mode/phrases/the-chair-hummed-up-high-b86ba4.mp3 | the chair hummed up high | 1 |
-| /audio/child-mode/phrases/her-teeth-were-counted-fa2bc5.mp3 | her teeth were counted | 1 |
-| /audio/child-mode/phrases/pia-lost-a-tooth-ff0d57.mp3 | Pia lost a tooth | 1 |
-| /audio/child-mode/phrases/added-the-bow-and-hid-the-present-49b959.mp3 | added the bow and hid the present | 1 |
-| /audio/child-mode/phrases/cut-the-paper-to-size-c3a9be.mp3 | cut the paper to size | 1 |
-| /audio/child-mode/phrases/taped-the-folded-ends-bfd5ac.mp3 | taped the folded ends | 1 |
-| /audio/child-mode/phrases/opened-the-present-herself-76948f.mp3 | opened the present herself | 1 |
-| /audio/child-mode/phrases/all-the-rubbish-was-packed-away-92215b.mp3 | all the rubbish was packed away | 1 |
-| /audio/child-mode/phrases/everyone-found-a-dry-spot-9bdb96.mp3 | everyone found a dry spot | 1 |
-| /audio/child-mode/phrases/sandwiches-were-swapped-12c25a.mp3 | sandwiches were swapped | 1 |
-| /audio/child-mode/phrases/the-bus-drove-home-e8c9f5.mp3 | the bus drove home | 1 |
-| /audio/child-mode/phrases/tied-on-the-string-and-tail-448d32.mp3 | tied on the string and tail | 1 |
-| /audio/child-mode/phrases/slotted-the-sticks-into-a-cross-acaec9.mp3 | slotted the sticks into a cross | 1 |
-| /audio/child-mode/phrases/stretched-the-sail-on-the-frame-858c27.mp3 | stretched the sail on the frame | 1 |
-| /audio/child-mode/phrases/flew-the-kite-at-the-beach-884ea1.mp3 | flew the kite at the beach | 1 |
-| /audio/child-mode/phrases/the-boots-stood-drying-by-the-radiator-56e251.mp3 | the boots stood drying by the radiator | 1 |
-| /audio/child-mode/phrases/the-boots-were-banged-together-804baa.mp3 | the boots were banged together | 1 |
-| /audio/child-mode/phrases/the-laces-were-scrubbed-e670c6.mp3 | the laces were scrubbed | 1 |
-| /audio/child-mode/phrases/new-boots-were-bought-dc1580.mp3 | new boots were bought | 1 |
-| /audio/child-mode/phrases/a-drop-wrinkled-on-the-cold-saucer-ed0f27.mp3 | a drop wrinkled on the cold saucer | 1 |
-| /audio/child-mode/phrases/the-berries-were-picked-ec3ad5.mp3 | the berries were picked | 1 |
+| /audio/child-mode/phrases/curled-into-a-ball-jumped-on-the-box-fell-as-150d09.mp3 | curled into a ball → jumped on the box → fell asleep | 1 |
+| /audio/child-mode/phrases/jumped-on-the-box-fell-asleep-curled-into-a-f732a5.mp3 | jumped on the box → fell asleep → curled into a ball | 1 |
+| /audio/child-mode/phrases/fell-asleep-curled-into-a-ball-jumped-on-the-f5ce8d.mp3 | fell asleep → curled into a ball → jumped on the box | 1 |
+| /audio/child-mode/phrases/jumped-on-the-box-curled-into-a-ball-fell-as-8084aa.mp3 | jumped on the box → curled into a ball → fell asleep | 1 |
+| /audio/child-mode/phrases/put-in-the-seed-saw-a-green-shoot-watered-th-f1c457.mp3 | put in the seed → saw a green shoot → watered the soil | 1 |
+| /audio/child-mode/phrases/saw-a-green-shoot-watered-the-soil-put-in-th-15975c.mp3 | saw a green shoot → watered the soil → put in the seed | 1 |
+| /audio/child-mode/phrases/put-in-the-seed-watered-the-soil-saw-a-green-e77e70.mp3 | put in the seed → watered the soil → saw a green shoot | 1 |
+| /audio/child-mode/phrases/watered-the-soil-put-in-the-seed-saw-a-green-aab748.mp3 | watered the soil → put in the seed → saw a green shoot | 1 |
+| /audio/child-mode/phrases/rinsed-his-hands-rubbed-in-soap-wet-his-hand-f2fe55.mp3 | rinsed his hands → rubbed in soap → wet his hands | 1 |
+| /audio/child-mode/phrases/wet-his-hands-rubbed-in-soap-rinsed-his-hand-36f85c.mp3 | wet his hands → rubbed in soap → rinsed his hands | 1 |
+| /audio/child-mode/phrases/rubbed-in-soap-wet-his-hands-rinsed-his-hand-ceaac2.mp3 | rubbed in soap → wet his hands → rinsed his hands | 1 |
+| /audio/child-mode/phrases/wet-his-hands-rinsed-his-hands-rubbed-in-soa-c8217d.mp3 | wet his hands → rinsed his hands → rubbed in soap | 1 |
+| /audio/child-mode/phrases/put-on-her-shirt-put-on-her-trousers-tied-he-41e4e6.mp3 | put on her shirt → put on her trousers → tied her shoes | 1 |
+| /audio/child-mode/phrases/put-on-her-trousers-put-on-her-shirt-tied-he-38518d.mp3 | put on her trousers → put on her shirt → tied her shoes | 1 |
+| /audio/child-mode/phrases/put-on-her-shirt-tied-her-shoes-put-on-her-t-189879.mp3 | put on her shirt → tied her shoes → put on her trousers | 1 |
+| /audio/child-mode/phrases/tied-her-shoes-put-on-her-trousers-put-on-he-cf16ff.mp3 | tied her shoes → put on her trousers → put on her shirt | 1 |
+| /audio/child-mode/phrases/toast-popped-up-put-bread-in-spread-the-butt-86c44b.mp3 | toast popped up → put bread in → spread the butter | 1 |
+| /audio/child-mode/phrases/put-bread-in-spread-the-butter-toast-popped-677c96.mp3 | put bread in → spread the butter → toast popped up | 1 |
+| /audio/child-mode/phrases/spread-the-butter-toast-popped-up-put-bread-46b85b.mp3 | spread the butter → toast popped up → put bread in | 1 |
+| /audio/child-mode/phrases/put-bread-in-toast-popped-up-spread-the-butt-2a754d.mp3 | put bread in → toast popped up → spread the butter | 1 |
+| /audio/child-mode/phrases/threw-the-ball-dog-brought-it-back-dog-chase-c38c70.mp3 | threw the ball → dog brought it back → dog chased it | 1 |
+| /audio/child-mode/phrases/dog-brought-it-back-dog-chased-it-threw-the-ff02c6.mp3 | dog brought it back → dog chased it → threw the ball | 1 |
+| /audio/child-mode/phrases/threw-the-ball-dog-chased-it-dog-brought-it-f6ec8f.mp3 | threw the ball → dog chased it → dog brought it back | 1 |
+| /audio/child-mode/phrases/dog-chased-it-threw-the-ball-dog-brought-it-c37e99.mp3 | dog chased it → threw the ball → dog brought it back | 1 |
+| /audio/child-mode/phrases/coloured-the-sun-added-the-rays-drew-a-circl-ebded7.mp3 | coloured the sun → added the rays → drew a circle | 1 |
+| /audio/child-mode/phrases/drew-a-circle-added-the-rays-coloured-the-su-57bf3f.mp3 | drew a circle → added the rays → coloured the sun | 1 |
+| /audio/child-mode/phrases/added-the-rays-drew-a-circle-coloured-the-su-2e14b3.mp3 | added the rays → drew a circle → coloured the sun | 1 |
+| /audio/child-mode/phrases/drew-a-circle-coloured-the-sun-added-the-ray-696aa3.mp3 | drew a circle → coloured the sun → added the rays | 1 |
+| /audio/child-mode/phrases/set-down-blocks-stacked-the-tower-smiled-at-ae8584.mp3 | set down blocks → stacked the tower → smiled at the tower | 1 |
+| /audio/child-mode/phrases/stacked-the-tower-set-down-blocks-smiled-at-d8cf7c.mp3 | stacked the tower → set down blocks → smiled at the tower | 1 |
+| /audio/child-mode/phrases/set-down-blocks-smiled-at-the-tower-stacked-e2e821.mp3 | set down blocks → smiled at the tower → stacked the tower | 1 |
+| /audio/child-mode/phrases/smiled-at-the-tower-stacked-the-tower-set-do-9077fa.mp3 | smiled at the tower → stacked the tower → set down blocks | 1 |
+| /audio/child-mode/phrases/laid-down-bread-closed-the-sandwich-added-th-daabfa.mp3 | laid down bread → closed the sandwich → added the cheese | 1 |
+| /audio/child-mode/phrases/closed-the-sandwich-added-the-cheese-laid-do-ca5d4b.mp3 | closed the sandwich → added the cheese → laid down bread | 1 |
+| /audio/child-mode/phrases/laid-down-bread-added-the-cheese-closed-the-3fb845.mp3 | laid down bread → added the cheese → closed the sandwich | 1 |
+| /audio/child-mode/phrases/added-the-cheese-laid-down-bread-closed-the-334de4.mp3 | added the cheese → laid down bread → closed the sandwich | 1 |
+| /audio/child-mode/phrases/walked-outside-opened-an-umbrella-put-on-boo-e2e2e1.mp3 | walked outside → opened an umbrella → put on boots | 1 |
+| /audio/child-mode/phrases/put-on-boots-opened-an-umbrella-walked-outsi-1f0881.mp3 | put on boots → opened an umbrella → walked outside | 1 |
+| /audio/child-mode/phrases/opened-an-umbrella-put-on-boots-walked-outsi-8fa8e7.mp3 | opened an umbrella → put on boots → walked outside | 1 |
+| /audio/child-mode/phrases/put-on-boots-walked-outside-opened-an-umbrel-ec349d.mp3 | put on boots → walked outside → opened an umbrella | 1 |
+| /audio/child-mode/phrases/read-the-page-opened-the-book-put-in-a-bookm-5dae23.mp3 | read the page → opened the book → put in a bookmark | 1 |
+| /audio/child-mode/phrases/opened-the-book-put-in-a-bookmark-read-the-p-a4cf65.mp3 | opened the book → put in a bookmark → read the page | 1 |
+| /audio/child-mode/phrases/put-in-a-bookmark-read-the-page-opened-the-b-193e3d.mp3 | put in a bookmark → read the page → opened the book | 1 |
+| /audio/child-mode/phrases/opened-the-book-read-the-page-put-in-a-bookm-164312.mp3 | opened the book → read the page → put in a bookmark | 1 |
+| /audio/child-mode/phrases/drank-the-water-filled-the-cup-put-cup-in-si-a5c629.mp3 | drank the water → filled the cup → put cup in sink | 1 |
+| /audio/child-mode/phrases/filled-the-cup-put-cup-in-sink-drank-the-wat-623f26.mp3 | filled the cup → put cup in sink → drank the water | 1 |
+| /audio/child-mode/phrases/put-cup-in-sink-drank-the-water-filled-the-c-b7ac0f.mp3 | put cup in sink → drank the water → filled the cup | 1 |
+| /audio/child-mode/phrases/filled-the-cup-drank-the-water-put-cup-in-si-620431.mp3 | filled the cup → drank the water → put cup in sink | 1 |
+| /audio/child-mode/phrases/cracked-the-egg-cooked-the-egg-whisked-the-e-d70b1c.mp3 | cracked the egg → cooked the egg → whisked the egg | 1 |
+| /audio/child-mode/phrases/cooked-the-egg-whisked-the-egg-cracked-the-e-f75034.mp3 | cooked the egg → whisked the egg → cracked the egg | 1 |
+| /audio/child-mode/phrases/cracked-the-egg-whisked-the-egg-cooked-the-e-3d573f.mp3 | cracked the egg → whisked the egg → cooked the egg | 1 |
+| /audio/child-mode/phrases/whisked-the-egg-cracked-the-egg-cooked-the-e-1afc14.mp3 | whisked the egg → cracked the egg → cooked the egg | 1 |
+| /audio/child-mode/phrases/kicked-the-ball-ball-went-in-goal-team-cheer-c763f1.mp3 | kicked the ball → ball went in goal → team cheered | 1 |
+| /audio/child-mode/phrases/ball-went-in-goal-kicked-the-ball-team-cheer-eb2af2.mp3 | ball went in goal → kicked the ball → team cheered | 1 |
+| /audio/child-mode/phrases/kicked-the-ball-team-cheered-ball-went-in-go-2a9731.mp3 | kicked the ball → team cheered → ball went in goal | 1 |
+| /audio/child-mode/phrases/team-cheered-ball-went-in-goal-kicked-the-ba-fd14c5.mp3 | team cheered → ball went in goal → kicked the ball | 1 |
+| /audio/child-mode/phrases/brushed-the-dog-clipped-on-the-lead-walked-t-f10d65.mp3 | brushed the dog → clipped on the lead → walked the dog | 1 |
+| /audio/child-mode/phrases/clipped-on-the-lead-brushed-the-dog-walked-t-7b4011.mp3 | clipped on the lead → brushed the dog → walked the dog | 1 |
+| /audio/child-mode/phrases/brushed-the-dog-walked-the-dog-clipped-on-th-d3a9d4.mp3 | brushed the dog → walked the dog → clipped on the lead | 1 |
+| /audio/child-mode/phrases/walked-the-dog-clipped-on-the-lead-brushed-t-a1b8a0.mp3 | walked the dog → clipped on the lead → brushed the dog | 1 |
+| /audio/child-mode/phrases/shaped-the-loaf-mixed-the-dough-put-loaf-in-581c20.mp3 | shaped the loaf → mixed the dough → put loaf in oven | 1 |
+| /audio/child-mode/phrases/mixed-the-dough-put-loaf-in-oven-shaped-the-2faa83.mp3 | mixed the dough → put loaf in oven → shaped the loaf | 1 |
+| /audio/child-mode/phrases/put-loaf-in-oven-shaped-the-loaf-mixed-the-d-1a4be3.mp3 | put loaf in oven → shaped the loaf → mixed the dough | 1 |
+| /audio/child-mode/phrases/mixed-the-dough-shaped-the-loaf-put-loaf-in-6270c7.mp3 | mixed the dough → shaped the loaf → put loaf in oven | 1 |
+| /audio/child-mode/phrases/climbed-into-bed-put-on-pyjamas-brushed-his-6b0d14.mp3 | climbed into bed → put on pyjamas → brushed his teeth | 1 |
+| /audio/child-mode/phrases/brushed-his-teeth-put-on-pyjamas-climbed-int-bbff5b.mp3 | brushed his teeth → put on pyjamas → climbed into bed | 1 |
+| /audio/child-mode/phrases/put-on-pyjamas-brushed-his-teeth-climbed-int-b62789.mp3 | put on pyjamas → brushed his teeth → climbed into bed | 1 |
+| /audio/child-mode/phrases/brushed-his-teeth-climbed-into-bed-put-on-py-f64155.mp3 | brushed his teeth → climbed into bed → put on pyjamas | 1 |
+| /audio/child-mode/phrases/found-the-paper-folded-a-plane-flew-the-plan-befcb1.mp3 | found the paper → folded a plane → flew the plane | 1 |
+| /audio/child-mode/phrases/folded-a-plane-found-the-paper-flew-the-plan-78550d.mp3 | folded a plane → found the paper → flew the plane | 1 |
+| /audio/child-mode/phrases/found-the-paper-flew-the-plane-folded-a-plan-a58eb5.mp3 | found the paper → flew the plane → folded a plane | 1 |
+| /audio/child-mode/phrases/flew-the-plane-folded-a-plane-found-the-pape-479c08.mp3 | flew the plane → folded a plane → found the paper | 1 |
+| /audio/child-mode/phrases/bit-the-apple-washed-the-apple-picked-the-ap-7d7250.mp3 | bit the apple → washed the apple → picked the apple | 1 |
+| /audio/child-mode/phrases/picked-the-apple-washed-the-apple-bit-the-ap-667db5.mp3 | picked the apple → washed the apple → bit the apple | 1 |
+| /audio/child-mode/phrases/washed-the-apple-picked-the-apple-bit-the-ap-cb0ade.mp3 | washed the apple → picked the apple → bit the apple | 1 |
+| /audio/child-mode/phrases/picked-the-apple-bit-the-apple-washed-the-ap-8e0e85.mp3 | picked the apple → bit the apple → washed the apple | 1 |
+| /audio/child-mode/phrases/made-a-snowball-added-the-hat-added-the-head-7a3a0b.mp3 | made a snowball → added the hat → added the head | 1 |
+| /audio/child-mode/phrases/added-the-hat-added-the-head-made-a-snowball-665f9b.mp3 | added the hat → added the head → made a snowball | 1 |
+| /audio/child-mode/phrases/made-a-snowball-added-the-head-added-the-hat-5ada62.mp3 | made a snowball → added the head → added the hat | 1 |
+| /audio/child-mode/phrases/added-the-head-made-a-snowball-added-the-hat-33ad08.mp3 | added the head → made a snowball → added the hat | 1 |
+| /audio/child-mode/phrases/gave-the-gift-tied-the-bow-wrapped-the-gift-93da28.mp3 | gave the gift → tied the bow → wrapped the gift | 1 |
+| /audio/child-mode/phrases/wrapped-the-gift-tied-the-bow-gave-the-gift-3af648.mp3 | wrapped the gift → tied the bow → gave the gift | 1 |
+| /audio/child-mode/phrases/tied-the-bow-wrapped-the-gift-gave-the-gift-aee3cc.mp3 | tied the bow → wrapped the gift → gave the gift | 1 |
+| /audio/child-mode/phrases/wrapped-the-gift-gave-the-gift-tied-the-bow-96593a.mp3 | wrapped the gift → gave the gift → tied the bow | 1 |
+| /audio/child-mode/phrases/dug-the-hole-watered-the-roots-planted-the-t-cf3f3f.mp3 | dug the hole → watered the roots → planted the tree | 1 |
+| /audio/child-mode/phrases/watered-the-roots-planted-the-tree-dug-the-h-55db21.mp3 | watered the roots → planted the tree → dug the hole | 1 |
+| /audio/child-mode/phrases/dug-the-hole-planted-the-tree-watered-the-ro-c6e102.mp3 | dug the hole → planted the tree → watered the roots | 1 |
+| /audio/child-mode/phrases/planted-the-tree-dug-the-hole-watered-the-ro-6d34e3.mp3 | planted the tree → dug the hole → watered the roots | 1 |
+| /audio/child-mode/phrases/tied-the-bag-filled-the-bag-put-bag-in-bin-67bb82.mp3 | tied the bag → filled the bag → put bag in bin | 1 |
+| /audio/child-mode/phrases/filled-the-bag-put-bag-in-bin-tied-the-bag-e60c3f.mp3 | filled the bag → put bag in bin → tied the bag | 1 |
+| /audio/child-mode/phrases/put-bag-in-bin-tied-the-bag-filled-the-bag-50ea48.mp3 | put bag in bin → tied the bag → filled the bag | 1 |
+| /audio/child-mode/phrases/filled-the-bag-tied-the-bag-put-bag-in-bin-c94468.mp3 | filled the bag → tied the bag → put bag in bin | 1 |
+| /audio/child-mode/phrases/bus-stopped-children-stepped-off-doors-opene-3b0708.mp3 | bus stopped → children stepped off → doors opened | 1 |
+| /audio/child-mode/phrases/children-stepped-off-doors-opened-bus-stoppe-807d06.mp3 | children stepped off → doors opened → bus stopped | 1 |
+| /audio/child-mode/phrases/bus-stopped-doors-opened-children-stepped-of-5f0bf5.mp3 | bus stopped → doors opened → children stepped off | 1 |
+| /audio/child-mode/phrases/doors-opened-bus-stopped-children-stepped-of-12ca49.mp3 | doors opened → bus stopped → children stepped off | 1 |
+| /audio/child-mode/phrases/picked-up-pencil-coloured-it-red-drew-the-st-6e1517.mp3 | picked up pencil → coloured it red → drew the star | 1 |
+| /audio/child-mode/phrases/coloured-it-red-drew-the-star-picked-up-penc-f9d5f7.mp3 | coloured it red → drew the star → picked up pencil | 1 |
+| /audio/child-mode/phrases/picked-up-pencil-drew-the-star-coloured-it-r-8037bd.mp3 | picked up pencil → drew the star → coloured it red | 1 |
+| /audio/child-mode/phrases/drew-the-star-picked-up-pencil-coloured-it-r-8315f2.mp3 | drew the star → picked up pencil → coloured it red | 1 |
+| /audio/child-mode/phrases/led-pony-through-opened-the-gate-shut-the-ga-4523d7.mp3 | led pony through → opened the gate → shut the gate | 1 |
+| /audio/child-mode/phrases/opened-the-gate-shut-the-gate-led-pony-throu-7108f4.mp3 | opened the gate → shut the gate → led pony through | 1 |
+| /audio/child-mode/phrases/shut-the-gate-led-pony-through-opened-the-ga-e77aa8.mp3 | shut the gate → led pony through → opened the gate | 1 |
+| /audio/child-mode/phrases/opened-the-gate-led-pony-through-shut-the-ga-f5b853.mp3 | opened the gate → led pony through → shut the gate | 1 |
+| /audio/child-mode/phrases/frog-sat-frog-jumped-frog-swam-away-18a51a.mp3 | frog sat → frog jumped → frog swam away | 1 |
+| /audio/child-mode/phrases/frog-jumped-frog-sat-frog-swam-away-f278db.mp3 | frog jumped → frog sat → frog swam away | 1 |
+| /audio/child-mode/phrases/frog-sat-frog-swam-away-frog-jumped-5e6961.mp3 | frog sat → frog swam away → frog jumped | 1 |
+| /audio/child-mode/phrases/frog-swam-away-frog-jumped-frog-sat-46116e.mp3 | frog swam away → frog jumped → frog sat | 1 |
+| /audio/child-mode/phrases/ate-breakfast-added-milk-poured-cereal-e08bc1.mp3 | ate breakfast → added milk → poured cereal | 1 |
+| /audio/child-mode/phrases/poured-cereal-added-milk-ate-breakfast-16aa05.mp3 | poured cereal → added milk → ate breakfast | 1 |
+| /audio/child-mode/phrases/added-milk-poured-cereal-ate-breakfast-d99de5.mp3 | added milk → poured cereal → ate breakfast | 1 |
+| /audio/child-mode/phrases/poured-cereal-ate-breakfast-added-milk-8fcad8.mp3 | poured cereal → ate breakfast → added milk | 1 |
+| /audio/child-mode/phrases/zipped-the-coat-went-into-snow-put-on-the-ha-958947.mp3 | zipped the coat → went into snow → put on the hat | 1 |
+| /audio/child-mode/phrases/went-into-snow-put-on-the-hat-zipped-the-coa-d54e72.mp3 | went into snow → put on the hat → zipped the coat | 1 |
+| /audio/child-mode/phrases/zipped-the-coat-put-on-the-hat-went-into-sno-61d279.mp3 | zipped the coat → put on the hat → went into snow | 1 |
+| /audio/child-mode/phrases/put-on-the-hat-zipped-the-coat-went-into-sno-cb43b1.mp3 | put on the hat → zipped the coat → went into snow | 1 |
+| /audio/child-mode/phrases/dried-the-plate-washed-the-plate-put-plate-o-24c760.mp3 | dried the plate → washed the plate → put plate on shelf | 1 |
+| /audio/child-mode/phrases/washed-the-plate-put-plate-on-shelf-dried-th-27005e.mp3 | washed the plate → put plate on shelf → dried the plate | 1 |
+| /audio/child-mode/phrases/put-plate-on-shelf-dried-the-plate-washed-th-7fc950.mp3 | put plate on shelf → dried the plate → washed the plate | 1 |
+| /audio/child-mode/phrases/washed-the-plate-dried-the-plate-put-plate-o-92a3a7.mp3 | washed the plate → dried the plate → put plate on shelf | 1 |
 | /audio/child-mode/phrases/the-labels-went-on-dc790a.mp3 | the labels went on | 1 |
 | /audio/child-mode/phrases/the-jars-were-bought-96ab23.mp3 | the jars were bought | 1 |
-| /audio/child-mode/phrases/cheeping-came-from-inside-the-shells-df7db5.mp3 | cheeping came from inside the shells | 1 |
+| /audio/child-mode/phrases/the-jam-passed-the-cold-saucer-test-8dfd55.mp3 | the jam passed the cold-saucer test | 1 |
+| /audio/child-mode/phrases/the-berries-were-picked-ec3ad5.mp3 | the berries were picked | 1 |
 | /audio/child-mode/phrases/the-eggs-went-under-the-lamp-a5c4cd.mp3 | the eggs went under the lamp | 1 |
 | /audio/child-mode/phrases/the-chicks-turned-fluffy-3505db.mp3 | the chicks turned fluffy | 1 |
 | /audio/child-mode/phrases/a-seventh-egg-arrived-bc854b.mp3 | a seventh egg arrived | 1 |
-| /audio/child-mode/phrases/after-the-mirror-showed-the-back-of-his-head-2fd613.mp3 | after the mirror showed the back of his head | 1 |
+| /audio/child-mode/phrases/cheeping-came-from-inside-the-shells-df7db5.mp3 | cheeping came from inside the shells | 1 |
+| /audio/child-mode/phrases/once-otto-had-seen-the-finished-haircut-227a7f.mp3 | once Otto had seen the finished haircut | 1 |
 | /audio/child-mode/phrases/before-the-gown-went-on-d02fa0.mp3 | before the gown went on | 1 |
 | /audio/child-mode/phrases/while-the-spray-bottle-worked-c622e1.mp3 | while the spray bottle worked | 1 |
 | /audio/child-mode/phrases/it-stayed-on-the-shelf-4e04cd.mp3 | it stayed on the shelf | 1 |
-| /audio/child-mode/phrases/visited-the-dinosaur-hall-960655.mp3 | visited the dinosaur hall | 1 |
 | /audio/child-mode/phrases/put-bags-in-the-lockers-eeb433.mp3 | put bags in the lockers | 1 |
 | /audio/child-mode/phrases/visited-the-gift-shop-970eb6.mp3 | visited the gift shop | 1 |
 | /audio/child-mode/phrases/rode-the-bus-home-6d6612.mp3 | rode the bus home | 1 |
-| /audio/child-mode/phrases/after-the-last-frost-in-april-76d220.mp3 | after the last frost, in April | 1 |
+| /audio/child-mode/phrases/visited-the-dinosaur-hall-960655.mp3 | visited the dinosaur hall | 1 |
+| /audio/child-mode/phrases/once-the-winter-frosts-had-ended-1d9e0f.mp3 | once the winter frosts had ended | 1 |
 | /audio/child-mode/phrases/before-the-seeds-were-potted-aea1f8.mp3 | before the seeds were potted | 1 |
 | /audio/child-mode/phrases/after-the-lettuce-was-cut-6b808f.mp3 | after the lettuce was cut | 1 |
 | /audio/child-mode/phrases/during-the-slug-battle-72fa08.mp3 | during the slug battle | 1 |
-| /audio/child-mode/phrases/the-night-before-the-match-79d09a.mp3 | the night before the match | 1 |
+| /audio/child-mode/phrases/during-the-warm-up-laps-5ccad0.mp3 | during the warm-up laps | 1 |
+| /audio/child-mode/phrases/on-the-evening-ahead-of-match-day-534586.mp3 | on the evening ahead of match day | 1 |
 | /audio/child-mode/phrases/at-noon-with-the-team-sheet-a2ed3f.mp3 | at noon with the team sheet | 1 |
 | /audio/child-mode/phrases/after-the-whistle-blew-405a9a.mp3 | after the whistle blew | 1 |
-| /audio/child-mode/phrases/during-the-warm-up-laps-5ccad0.mp3 | during the warm-up laps | 1 |
 | /audio/child-mode/phrases/short-and-close-to-his-feet-795a3f.mp3 | short and close to his feet | 1 |
 | /audio/child-mode/phrases/stretching-long-to-the-fence-a247b9.mp3 | stretching long to the fence | 1 |
 | /audio/child-mode/phrases/touching-the-hedge-ec68d5.mp3 | touching the hedge | 1 |
 | /audio/child-mode/phrases/gone-completely-6d0b6a.mp3 | gone completely | 1 |
+| /audio/child-mode/phrases/new-shelves-were-built-e52fb6.mp3 | new shelves were built | 1 |
 | /audio/child-mode/phrases/the-old-spot-was-hoovered-2e89ec.mp3 | the old spot was hoovered | 1 |
 | /audio/child-mode/phrases/the-books-came-off-the-shelves-74af26.mp3 | the books came off the shelves | 1 |
 | /audio/child-mode/phrases/the-case-waddled-across-the-room-7723c3.mp3 | the case waddled across the room | 1 |
-| /audio/child-mode/phrases/new-shelves-were-built-e52fb6.mp3 | new shelves were built | 1 |
+| /audio/child-mode/phrases/the-tins-went-into-the-sink-4ff634.mp3 | the tins went into the sink | 1 |
 | /audio/child-mode/phrases/the-sponge-was-baked-in-the-tins-9f010c.mp3 | the sponge was baked in the tins | 1 |
 | /audio/child-mode/phrases/the-icing-was-licked-off-fingers-ff3a61.mp3 | the icing was licked off fingers | 1 |
 | /audio/child-mode/phrases/the-cherry-went-on-top-7b950e.mp3 | the cherry went on top | 1 |
-| /audio/child-mode/phrases/the-tins-went-into-the-sink-4ff634.mp3 | the tins went into the sink | 1 |
-| /audio/child-mode/phrases/the-wet-things-were-brought-in-to-dry-914670.mp3 | the wet things were brought in to dry | 1 |
-| /audio/child-mode/phrases/the-lopsided-snowman-was-built-in-the-garden-b9394b.mp3 | the lopsided snowman was built in the garden | 1 |
 | /audio/child-mode/phrases/the-sledging-on-the-hill-happened-74f7b6.mp3 | the sledging on the hill happened | 1 |
 | /audio/child-mode/phrases/snow-began-to-fall-64b1c9.mp3 | snow began to fall | 1 |
-| /audio/child-mode/phrases/the-weeds-were-pulled-out-52ccde.mp3 | the weeds were pulled out | 1 |
-| /audio/child-mode/phrases/the-marigolds-were-planted-83a967.mp3 | the marigolds were planted | 1 |
+| /audio/child-mode/phrases/the-wet-things-were-brought-in-to-dry-914670.mp3 | the wet things were brought in to dry | 1 |
+| /audio/child-mode/phrases/the-lopsided-snowman-was-built-in-the-garden-b9394b.mp3 | the lopsided snowman was built in the garden | 1 |
 | /audio/child-mode/phrases/the-empty-pots-were-stacked-99f46d.mp3 | the empty pots were stacked | 1 |
 | /audio/child-mode/phrases/the-barrow-was-emptied-438221.mp3 | the barrow was emptied | 1 |
-| /audio/child-mode/phrases/the-flip-flop-went-into-the-water-7617af.mp3 | the flip-flop went into the water | 1 |
-| /audio/child-mode/phrases/rio-hopped-to-the-bench-222bdd.mp3 | Rio hopped to the bench | 1 |
+| /audio/child-mode/phrases/the-weeds-were-pulled-out-52ccde.mp3 | the weeds were pulled out | 1 |
+| /audio/child-mode/phrases/the-marigolds-were-planted-83a967.mp3 | the marigolds were planted | 1 |
 | /audio/child-mode/phrases/the-flip-flop-was-fished-out-4e5c0c.mp3 | the flip-flop was fished out | 1 |
 | /audio/child-mode/phrases/the-pool-was-closed-166b85.mp3 | the pool was closed | 1 |
-| /audio/child-mode/phrases/the-jars-were-wrapped-in-newspaper-8eeee6.mp3 | the jars were wrapped in newspaper | 1 |
+| /audio/child-mode/phrases/the-flip-flop-went-into-the-water-7617af.mp3 | the flip-flop went into the water | 1 |
+| /audio/child-mode/phrases/rio-hopped-to-the-bench-222bdd.mp3 | Rio hopped to the bench | 1 |
 | /audio/child-mode/phrases/the-box-was-taped-shut-b1fb97.mp3 | the box was taped shut | 1 |
 | /audio/child-mode/phrases/the-third-label-was-written-af4971.mp3 | the third label was written | 1 |
 | /audio/child-mode/phrases/the-parcel-was-posted-8659c2.mp3 | the parcel was posted | 1 |
-| /audio/child-mode/phrases/the-auditions-were-held-e8316d.mp3 | the auditions were held | 1 |
+| /audio/child-mode/phrases/the-jars-were-wrapped-in-newspaper-8eeee6.mp3 | the jars were wrapped in newspaper | 1 |
 | /audio/child-mode/phrases/the-cast-took-their-bows-2c0e0a.mp3 | the cast took their bows | 1 |
 | /audio/child-mode/phrases/flowers-landed-on-the-stage-712dbb.mp3 | flowers landed on the stage | 1 |
 | /audio/child-mode/phrases/the-prompt-book-closed-d78e47.mp3 | the prompt book closed | 1 |
-| /audio/child-mode/phrases/the-sand-and-soil-were-layered-ff6048.mp3 | the sand and soil were layered | 1 |
+| /audio/child-mode/phrases/the-auditions-were-held-e8316d.mp3 | the auditions were held | 1 |
 | /audio/child-mode/phrases/the-worms-drew-wavy-tunnel-lines-past-the-gl-51aaa0.mp3 | the worms drew wavy tunnel lines past the glass | 1 |
 | /audio/child-mode/phrases/the-trowel-went-into-the-jar-3fd89b.mp3 | the trowel went into the jar | 1 |
 | /audio/child-mode/phrases/the-wormery-was-emptied-out-9ddc62.mp3 | the wormery was emptied out | 1 |
+| /audio/child-mode/phrases/the-sand-and-soil-were-layered-ff6048.mp3 | the sand and soil were layered | 1 |
 | /audio/child-mode/phrases/the-lucky-bounce-off-the-post-1bac3e.mp3 | the lucky bounce off the post | 1 |
 | /audio/child-mode/phrases/ffion-s-header-fd2449.mp3 | Ffion's header | 1 |
 | /audio/child-mode/phrases/the-half-time-oranges-d4f22b.mp3 | the half-time oranges | 1 |
@@ -6352,150 +5409,118 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/the-letter-is-posted-in-the-box-5b3726.mp3 | the letter is posted in the box | 1 |
 | /audio/child-mode/phrases/the-postie-brings-it-to-the-door-7763ab.mp3 | the postie brings it to the door | 1 |
 | /audio/child-mode/phrases/the-letter-is-written-536a9e.mp3 | the letter is written | 1 |
+| /audio/child-mode/phrases/the-bars-reach-the-shops-bbb28c.mp3 | the bars reach the shops | 1 |
 | /audio/child-mode/phrases/they-dry-in-the-sun-92cb4c.mp3 | they dry in the sun | 1 |
 | /audio/child-mode/phrases/they-are-ground-to-paste-1479a1.mp3 | they are ground to paste | 1 |
 | /audio/child-mode/phrases/sugar-and-milk-join-in-a058e8.mp3 | sugar and milk join in | 1 |
-| /audio/child-mode/phrases/the-bars-reach-the-shops-bbb28c.mp3 | the bars reach the shops | 1 |
 | /audio/child-mode/phrases/the-furnace-melts-the-crumbs-b44c91.mp3 | the furnace melts the crumbs | 1 |
 | /audio/child-mode/phrases/bottles-are-collected-from-kerbsides-aa9350.mp3 | bottles are collected from kerbsides | 1 |
 | /audio/child-mode/phrases/new-bottles-are-blown-4dcfc5.mp3 | new bottles are blown | 1 |
 | /audio/child-mode/phrases/the-bottles-are-sorted-by-colour-dbe0d5.mp3 | the bottles are sorted by colour | 1 |
+| /audio/child-mode/phrases/the-dentist-is-telephoned-691860.mp3 | the dentist is telephoned | 1 |
 | /audio/child-mode/phrases/a-coin-appears-by-morning-b03f2c.mp3 | a coin appears by morning | 1 |
 | /audio/child-mode/phrases/the-tooth-starts-to-wobble-e79023.mp3 | the tooth starts to wobble | 1 |
 | /audio/child-mode/phrases/the-tooth-comes-out-b1d340.mp3 | the tooth comes out | 1 |
-| /audio/child-mode/phrases/the-dentist-is-telephoned-691860.mp3 | the dentist is telephoned | 1 |
-| /audio/child-mode/phrases/fan-the-nectar-with-their-wings-80e6de.mp3 | fan the nectar with their wings | 1 |
-| /audio/child-mode/phrases/drink-nectar-from-flowers-cc6e2f.mp3 | drink nectar from flowers | 1 |
 | /audio/child-mode/phrases/pass-it-mouth-to-mouth-adc7da.mp3 | pass it mouth to mouth | 1 |
 | /audio/child-mode/phrases/break-the-wax-open-e26a09.mp3 | break the wax open | 1 |
+| /audio/child-mode/phrases/fan-the-nectar-with-their-wings-80e6de.mp3 | fan the nectar with their wings | 1 |
+| /audio/child-mode/phrases/drink-nectar-from-flowers-cc6e2f.mp3 | drink nectar from flowers | 1 |
+| /audio/child-mode/phrases/they-ask-where-they-are-going-cfc23a.mp3 | they ask where they are going | 1 |
 | /audio/child-mode/phrases/they-put-on-their-kit-969fe5.mp3 | they put on their kit | 1 |
 | /audio/child-mode/phrases/the-pagers-beep-614a58.mp3 | the pagers beep | 1 |
 | /audio/child-mode/phrases/the-boat-goes-down-the-slipway-818e93.mp3 | the boat goes down the slipway | 1 |
-| /audio/child-mode/phrases/they-ask-where-they-are-going-cfc23a.mp3 | they ask where they are going | 1 |
-| /audio/child-mode/phrases/it-is-checked-and-mended-if-needed-5efc53.mp3 | it is checked and mended if needed | 1 |
-| /audio/child-mode/phrases/it-is-borrowed-at-the-desk-60788c.mp3 | it is borrowed at the desk | 1 |
 | /audio/child-mode/phrases/it-lives-beside-someone-s-bed-3ca293.mp3 | it lives beside someone's bed | 1 |
 | /audio/child-mode/phrases/it-is-reshelved-immediately-unchecked-fb8f86.mp3 | it is reshelved immediately unchecked | 1 |
-| /audio/child-mode/phrases/the-watering-rota-keeps-them-growing-all-ter-60cecc.mp3 | the watering rota keeps them growing all term | 1 |
+| /audio/child-mode/phrases/it-is-checked-and-mended-if-needed-5efc53.mp3 | it is checked and mended if needed | 1 |
+| /audio/child-mode/phrases/it-is-borrowed-at-the-desk-60788c.mp3 | it is borrowed at the desk | 1 |
 | /audio/child-mode/phrases/the-seeds-are-sown-in-trays-91900f.mp3 | the seeds are sown in trays | 1 |
 | /audio/child-mode/phrases/the-soup-is-eaten-c0ef69.mp3 | the soup is eaten | 1 |
 | /audio/child-mode/phrases/the-trays-are-washed-81ac9f.mp3 | the trays are washed | 1 |
-| /audio/child-mode/phrases/laid-out-the-three-bowls-9e84a3.mp3 | laid out the three bowls | 1 |
-| /audio/child-mode/phrases/stood-up-the-cereal-boxes-aae24a.mp3 | stood up the cereal boxes | 1 |
-| /audio/child-mode/phrases/placed-the-spoons-d109fa.mp3 | placed the spoons | 1 |
-| /audio/child-mode/phrases/poured-the-milk-cee642.mp3 | poured the milk | 1 |
-| /audio/child-mode/phrases/teddy-was-squeezed-in-a-towel-c37baf.mp3 | teddy was squeezed in a towel | 1 |
-| /audio/child-mode/phrases/teddy-had-his-bath-d5559c.mp3 | teddy had his bath | 1 |
-| /audio/child-mode/phrases/teddy-rode-the-washing-line-47586a.mp3 | teddy rode the washing line | 1 |
-| /audio/child-mode/phrases/teddy-was-lost-at-the-park-fabaf2.mp3 | teddy was lost at the park | 1 |
-| /audio/child-mode/phrases/coloured-the-row-gold-4f2d8b.mp3 | coloured the row gold | 1 |
-| /audio/child-mode/phrases/marked-a-w-on-the-chart-5cec7c.mp3 | marked a W on the chart | 1 |
-| /audio/child-mode/phrases/drew-a-star-on-the-square-70f4c7.mp3 | drew a star on the square | 1 |
-| /audio/child-mode/phrases/started-a-new-chart-7f4479.mp3 | started a new chart | 1 |
-| /audio/child-mode/phrases/putting-boots-on-f3648d.mp3 | putting boots on | 1 |
-| /audio/child-mode/phrases/inspecting-the-puddles-5267bd.mp3 | inspecting the puddles | 1 |
-| /audio/child-mode/phrases/the-jumping-contest-119569.mp3 | the jumping contest | 1 |
-| /audio/child-mode/phrases/drying-the-dog-5de59a.mp3 | drying the dog | 1 |
-| /audio/child-mode/phrases/the-speaking-parts-were-practised-d295ce.mp3 | the speaking parts were practised | 1 |
-| /audio/child-mode/phrases/everyone-learned-where-to-stand-8186cb.mp3 | everyone learned where to stand | 1 |
-| /audio/child-mode/phrases/the-costumes-came-out-83648f.mp3 | the costumes came out | 1 |
-| /audio/child-mode/phrases/the-audience-arrived-256453.mp3 | the audience arrived | 1 |
-| /audio/child-mode/phrases/the-oats-were-scattered-on-the-water-15a277.mp3 | the oats were scattered on the water | 1 |
-| /audio/child-mode/phrases/the-oats-were-shared-into-cups-590324.mp3 | the oats were shared into cups | 1 |
-| /audio/child-mode/phrases/the-walk-to-the-pond-1effa1.mp3 | the walk to the pond | 1 |
-| /audio/child-mode/phrases/bread-was-thrown-instead-862fe5.mp3 | bread was thrown instead | 1 |
-| /audio/child-mode/phrases/brushed-off-the-flaky-bits-90b282.mp3 | brushed off the flaky bits | 1 |
-| /audio/child-mode/phrases/stirred-the-paint-smooth-c56f94.mp3 | stirred the paint smooth | 1 |
-| /audio/child-mode/phrases/painted-plank-by-plank-9272c6.mp3 | painted plank by plank | 1 |
-| /audio/child-mode/phrases/built-a-new-fence-b71938.mp3 | built a new fence | 1 |
-| /audio/child-mode/phrases/the-torch-was-clipped-to-the-pole-240b9b.mp3 | the torch was clipped to the pole | 1 |
-| /audio/child-mode/phrases/the-cushions-were-piled-up-36ff90.mp3 | the cushions were piled up | 1 |
-| /audio/child-mode/phrases/the-pirate-voice-reading-7cc016.mp3 | the pirate voice reading | 1 |
-| /audio/child-mode/phrases/breakfast-was-cooked-f2da09.mp3 | breakfast was cooked | 1 |
-| /audio/child-mode/phrases/the-atlas-plank-bridged-the-gap-43e003.mp3 | the atlas plank bridged the gap | 1 |
+| /audio/child-mode/phrases/a-whole-term-of-watering-c102c4.mp3 | a whole term of watering | 1 |
 | /audio/child-mode/phrases/the-two-towers-were-started-c9d733.mp3 | the two towers were started | 1 |
 | /audio/child-mode/phrases/the-books-went-back-on-shelves-1c8ec2.mp3 | the books went back on shelves | 1 |
 | /audio/child-mode/phrases/a-second-marble-was-found-681c08.mp3 | a second marble was found | 1 |
-| /audio/child-mode/phrases/first-while-it-was-still-light-595ce9.mp3 | first, while it was still light | 1 |
+| /audio/child-mode/phrases/the-atlas-plank-bridged-the-gap-43e003.mp3 | the atlas plank bridged the gap | 1 |
+| /audio/child-mode/phrases/at-the-start-before-sunset-e386a6.mp3 | at the start, before sunset | 1 |
 | /audio/child-mode/phrases/after-the-bonfire-was-lit-cdf558.mp3 | after the bonfire was lit | 1 |
 | /audio/child-mode/phrases/during-the-rockets-4950ef.mp3 | during the rockets | 1 |
 | /audio/child-mode/phrases/at-six-with-the-sparklers-6451c8.mp3 | at six with the sparklers | 1 |
-| /audio/child-mode/phrases/wet-sand-was-packed-into-the-buckets-3a1245.mp3 | wet sand was packed into the buckets | 1 |
-| /audio/child-mode/phrases/the-feather-flag-went-up-ceeb43.mp3 | the feather flag went up | 1 |
-| /audio/child-mode/phrases/the-shells-were-arranged-c89106.mp3 | the shells were arranged | 1 |
-| /audio/child-mode/phrases/the-tide-washed-it-away-6d3a87.mp3 | the tide washed it away | 1 |
-| /audio/child-mode/phrases/the-chairs-were-borrowed-from-next-door-46a4a7.mp3 | the chairs were borrowed from next door | 1 |
-| /audio/child-mode/phrases/the-thank-you-card-was-signed-35f9f8.mp3 | the thank-you card was signed | 1 |
+| /audio/child-mode/phrases/the-tide-later-washed-the-castle-away-70397c.mp3 | the tide later washed the castle away | 1 |
+| /audio/child-mode/phrases/the-buckets-were-filled-and-turned-over-bc8a6c.mp3 | the buckets were filled and turned over | 1 |
+| /audio/child-mode/phrases/the-feather-flag-was-placed-on-the-top-tower-71a38c.mp3 | the feather flag was placed on the top tower | 1 |
+| /audio/child-mode/phrases/the-shells-were-arranged-around-the-castle-4cae0c.mp3 | the shells were arranged around the castle | 1 |
 | /audio/child-mode/phrases/the-chairs-went-back-two-at-a-time-99cb2d.mp3 | the chairs went back two at a time | 1 |
 | /audio/child-mode/phrases/the-flowers-wilted-c813ed.mp3 | the flowers wilted | 1 |
-| /audio/child-mode/phrases/carding-combs-untangle-the-fibres-6d546c.mp3 | carding combs untangle the fibres | 1 |
+| /audio/child-mode/phrases/the-neighbours-lent-their-chairs-8c055e.mp3 | the neighbours lent their chairs | 1 |
+| /audio/child-mode/phrases/the-thank-you-card-was-signed-35f9f8.mp3 | the thank-you card was signed | 1 |
 | /audio/child-mode/phrases/the-sheep-is-sheared-in-early-summer-bad2b0.mp3 | the sheep is sheared in early summer | 1 |
 | /audio/child-mode/phrases/the-thread-is-knitted-bfac27.mp3 | the thread is knitted | 1 |
 | /audio/child-mode/phrases/the-jumper-is-worn-c3881d.mp3 | the jumper is worn | 1 |
+| /audio/child-mode/phrases/carding-combs-untangle-the-fibres-6d546c.mp3 | carding combs untangle the fibres | 1 |
 | /audio/child-mode/phrases/feeding-by-themselves-in-the-quiet-room-1e0abb.mp3 | feeding by themselves in the quiet room | 1 |
 | /audio/child-mode/phrases/being-weighed-on-arrival-b97542.mp3 | being weighed on arrival | 1 |
 | /audio/child-mode/phrases/release-at-the-hedge-ebc70e.mp3 | release at the hedge | 1 |
 | /audio/child-mode/phrases/hibernating-all-winter-a705bc.mp3 | hibernating all winter | 1 |
+| /audio/child-mode/phrases/it-was-posted-to-the-school-4ff206.mp3 | it was posted to the school | 1 |
 | /audio/child-mode/phrases/it-got-a-dusting-of-frost-929934.mp3 | it got a dusting of frost | 1 |
 | /audio/child-mode/phrases/it-fell-at-the-bus-stop-45b828.mp3 | it fell at the bus stop | 1 |
 | /audio/child-mode/phrases/priya-took-it-home-566210.mp3 | Priya took it home | 1 |
-| /audio/child-mode/phrases/it-was-posted-to-the-school-4ff206.mp3 | it was posted to the school | 1 |
-| /audio/child-mode/phrases/the-green-man-and-the-beeps-arrive-da824d.mp3 | the green man and the beeps arrive | 1 |
-| /audio/child-mode/phrases/the-button-is-pressed-950276.mp3 | the button is pressed | 1 |
 | /audio/child-mode/phrases/the-amber-warning-shows-af3ca3.mp3 | the amber warning shows | 1 |
 | /audio/child-mode/phrases/the-wait-light-switches-on-f95adf.mp3 | the WAIT light switches on | 1 |
-| /audio/child-mode/phrases/owning-up-to-a-mistake-is-better-than-hiding-f810d2.mp3 | owning up to a mistake is better than hiding it | 1 |
+| /audio/child-mode/phrases/the-green-man-and-the-beeps-arrive-da824d.mp3 | the green man and the beeps arrive | 1 |
+| /audio/child-mode/phrases/the-button-is-pressed-950276.mp3 | the button is pressed | 1 |
 | /audio/child-mode/phrases/a-comic-was-left-out-in-the-rain-38ea21.mp3 | a comic was left out in the rain | 1 |
 | /audio/child-mode/phrases/never-lend-anything-to-anyone-37a191.mp3 | never lend anything to anyone | 1 |
 | /audio/child-mode/phrases/comics-cost-pocket-money-83a02c.mp3 | comics cost pocket money | 1 |
-| /audio/child-mode/phrases/a-mistake-can-teach-you-how-to-do-better-1e6f7d.mp3 | a mistake can teach you how to do better | 1 |
-| /audio/child-mode/phrases/the-first-biscuits-burned-black-89b071.mp3 | the first biscuits burned black | 1 |
+| /audio/child-mode/phrases/owning-up-to-a-mistake-is-better-than-hiding-f810d2.mp3 | owning up to a mistake is better than hiding it | 1 |
 | /audio/child-mode/phrases/baking-always-goes-wrong-ce08c1.mp3 | baking always goes wrong | 1 |
 | /audio/child-mode/phrases/ovens-can-be-hot-32787e.mp3 | ovens can be hot | 1 |
+| /audio/child-mode/phrases/a-mistake-can-teach-you-how-to-do-better-1e6f7d.mp3 | a mistake can teach you how to do better | 1 |
+| /audio/child-mode/phrases/the-first-biscuits-burned-black-89b071.mp3 | the first biscuits burned black | 1 |
+| /audio/child-mode/phrases/tape-can-fix-many-things-4c2e93.mp3 | tape can fix many things | 1 |
 | /audio/child-mode/phrases/a-secret-mistake-feels-heavier-than-a-told-o-da44b2.mp3 | a secret mistake feels heavier than a told one | 1 |
 | /audio/child-mode/phrases/a-blue-crayon-got-snapped-11de2f.mp3 | a blue crayon got snapped | 1 |
 | /audio/child-mode/phrases/crayons-should-never-be-shared-e3c73e.mp3 | crayons should never be shared | 1 |
-| /audio/child-mode/phrases/tape-can-fix-many-things-4c2e93.mp3 | tape can fix many things | 1 |
 | /audio/child-mode/phrases/do-not-judge-someone-before-you-know-them-51cdfb.mp3 | do not judge someone before you know them | 1 |
 | /audio/child-mode/phrases/ravi-s-bag-was-heavy-4d8570.mp3 | Ravi's bag was heavy | 1 |
 | /audio/child-mode/phrases/always-get-off-the-bus-early-dbe2a3.mp3 | always get off the bus early | 1 |
 | /audio/child-mode/phrases/school-gates-are-meeting-places-452a01.mp3 | school gates are meeting places | 1 |
-| /audio/child-mode/phrases/racing-to-be-first-can-spoil-the-fun-3dc23f.mp3 | racing to be first can spoil the fun | 1 |
 | /audio/child-mode/phrases/lena-s-tooth-was-wobbly-bb0fcc.mp3 | Lena's tooth was wobbly | 1 |
 | /audio/child-mode/phrases/teeth-should-never-come-out-23f7a9.mp3 | teeth should never come out | 1 |
 | /audio/child-mode/phrases/sam-said-well-done-1f4b22.mp3 | Sam said well done | 1 |
-| /audio/child-mode/phrases/too-much-of-a-good-thing-can-do-harm-d50160.mp3 | too much of a good thing can do harm | 1 |
-| /audio/child-mode/phrases/the-tank-water-turned-cloudy-1e642e.mp3 | the tank water turned cloudy | 1 |
+| /audio/child-mode/phrases/racing-to-be-first-can-spoil-the-fun-3dc23f.mp3 | racing to be first can spoil the fun | 1 |
 | /audio/child-mode/phrases/goldfish-should-not-be-fed-913e0b.mp3 | goldfish should not be fed | 1 |
 | /audio/child-mode/phrases/pet-shops-know-about-fish-c99aef.mp3 | pet shops know about fish | 1 |
+| /audio/child-mode/phrases/too-much-of-a-good-thing-can-do-harm-d50160.mp3 | too much of a good thing can do harm | 1 |
+| /audio/child-mode/phrases/the-tank-water-turned-cloudy-1e642e.mp3 | the tank water turned cloudy | 1 |
+| /audio/child-mode/phrases/librarians-point-at-corners-cbb3e5.mp3 | librarians point at corners | 1 |
 | /audio/child-mode/phrases/your-noise-can-spoil-things-for-others-7d0ded.mp3 | your noise can spoil things for others | 1 |
 | /audio/child-mode/phrases/posy-whispered-a-song-1cb938.mp3 | Posy whispered a song | 1 |
 | /audio/child-mode/phrases/libraries-should-ban-jokes-d7b99f.mp3 | libraries should ban jokes | 1 |
-| /audio/child-mode/phrases/librarians-point-at-corners-cbb3e5.mp3 | librarians point at corners | 1 |
 | /audio/child-mode/phrases/a-promise-matters-even-when-it-is-hard-to-ke-73770f.mp3 | a promise matters even when it is hard to keep | 1 |
 | /audio/child-mode/phrases/the-plum-leaves-curled-up-eb43ef.mp3 | the plum leaves curled up | 1 |
 | /audio/child-mode/phrases/never-help-your-neighbours-1a5f93.mp3 | never help your neighbours | 1 |
 | /audio/child-mode/phrases/summer-weeks-can-be-hot-31162f.mp3 | summer weeks can be hot | 1 |
-| /audio/child-mode/phrases/kindness-you-give-comes-back-to-you-171cee.mp3 | kindness you give comes back to you | 1 |
-| /audio/child-mode/phrases/books-flew-into-the-puddles-b812f5.mp3 | books flew into the puddles | 1 |
 | /audio/child-mode/phrases/icy-days-are-for-staying-home-3451aa.mp3 | icy days are for staying home | 1 |
 | /audio/child-mode/phrases/little-brothers-are-a-nuisance-65ac41.mp3 | little brothers are a nuisance | 1 |
+| /audio/child-mode/phrases/kindness-you-give-comes-back-to-you-171cee.mp3 | kindness you give comes back to you | 1 |
+| /audio/child-mode/phrases/books-flew-into-the-puddles-b812f5.mp3 | books flew into the puddles | 1 |
+| /audio/child-mode/phrases/broken-arms-make-eating-hard-dba340.mp3 | broken arms make eating hard | 1 |
 | /audio/child-mode/phrases/small-kindnesses-grow-into-friendship-8ba3e8.mp3 | small kindnesses grow into friendship | 1 |
 | /audio/child-mode/phrases/bo-shared-his-grapes-275ef9.mp3 | Bo shared his grapes | 1 |
 | /audio/child-mode/phrases/eat-lunch-alone-if-you-can-d50f56.mp3 | eat lunch alone if you can | 1 |
-| /audio/child-mode/phrases/broken-arms-make-eating-hard-dba340.mp3 | broken arms make eating hard | 1 |
-| /audio/child-mode/phrases/a-helper-is-never-left-to-struggle-alone-7812ee.mp3 | a helper is never left to struggle alone | 1 |
 | /audio/child-mode/phrases/grandpa-tan-fixed-umbrellas-2bea61.mp3 | Grandpa Tan fixed umbrellas | 1 |
 | /audio/child-mode/phrases/keep-your-pennies-for-yourself-cddc68.mp3 | keep your pennies for yourself | 1 |
 | /audio/child-mode/phrases/storms-can-break-roofs-5586d8.mp3 | storms can break roofs | 1 |
-| /audio/child-mode/phrases/sharing-doubles-a-good-moment-4a204e.mp3 | sharing doubles a good moment | 1 |
+| /audio/child-mode/phrases/a-helper-is-never-left-to-struggle-alone-7812ee.mp3 | a helper is never left to struggle alone | 1 |
 | /audio/child-mode/phrases/a-coin-rolled-under-a-table-4bb493.mp3 | a coin rolled under a table | 1 |
 | /audio/child-mode/phrases/keep-both-toffee-apples-3ed8e0.mp3 | keep both toffee apples | 1 |
 | /audio/child-mode/phrases/fairs-sell-toffee-apples-92f85d.mp3 | fairs sell toffee apples | 1 |
-| /audio/child-mode/phrases/gentle-support-helps-courage-grow-e75939.mp3 | gentle support helps courage grow | 1 |
-| /audio/child-mode/phrases/wren-sang-very-quietly-d36cc4.mp3 | Wren sang very quietly | 1 |
+| /audio/child-mode/phrases/sharing-doubles-a-good-moment-4a204e.mp3 | sharing doubles a good moment | 1 |
 | /audio/child-mode/phrases/loud-singers-matter-most-4dab44.mp3 | loud singers matter most | 1 |
 | /audio/child-mode/phrases/choirs-give-concerts-82b5d0.mp3 | choirs give concerts | 1 |
+| /audio/child-mode/phrases/gentle-support-helps-courage-grow-e75939.mp3 | gentle support helps courage grow | 1 |
+| /audio/child-mode/phrases/wren-sang-very-quietly-d36cc4.mp3 | Wren sang very quietly | 1 |
 | /audio/child-mode/phrases/helping-without-being-asked-opens-hearts-44b0ba.mp3 | helping without being asked opens hearts | 1 |
 | /audio/child-mode/phrases/a-tractor-sank-in-the-mud-b4e3c4.mp3 | a tractor sank in the mud | 1 |
 | /audio/child-mode/phrases/pride-is-always-right-a7518c.mp3 | pride is always right | 1 |
@@ -6504,103 +5529,103 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/there-was-glass-on-the-slide-95008d.mp3 | there was glass on the slide | 1 |
 | /audio/child-mode/phrases/football-matters-more-than-safety-d04590.mp3 | football matters more than safety | 1 |
 | /audio/child-mode/phrases/notes-go-in-trays-44c615.mp3 | notes go in trays | 1 |
-| /audio/child-mode/phrases/fair-sharing-lets-everyone-enjoy-more-1144ce.mp3 | fair sharing lets everyone enjoy more | 1 |
 | /audio/child-mode/phrases/eleven-children-wanted-one-rope-f11857.mp3 | eleven children wanted one rope | 1 |
 | /audio/child-mode/phrases/the-strongest-should-keep-the-rope-a11a12.mp3 | the strongest should keep the rope | 1 |
 | /audio/child-mode/phrases/skipping-has-counting-songs-4a0d85.mp3 | skipping has counting songs | 1 |
-| /audio/child-mode/phrases/keep-going-even-when-nothing-seems-to-happen-cc66dc.mp3 | keep going even when nothing seems to happen | 1 |
+| /audio/child-mode/phrases/fair-sharing-lets-everyone-enjoy-more-1144ce.mp3 | fair sharing lets everyone enjoy more | 1 |
+| /audio/child-mode/phrases/sunflowers-grow-in-gardens-944000.mp3 | sunflowers grow in gardens | 1 |
+| /audio/child-mode/phrases/keep-trying-when-progress-is-slow-f41efc.mp3 | keep trying when progress is slow | 1 |
 | /audio/child-mode/phrases/marco-s-flower-grew-first-7ab15d.mp3 | Marco's flower grew first | 1 |
 | /audio/child-mode/phrases/slow-seeds-never-grow-939e35.mp3 | slow seeds never grow | 1 |
-| /audio/child-mode/phrases/sunflowers-grow-in-gardens-944000.mp3 | sunflowers grow in gardens | 1 |
 | /audio/child-mode/phrases/many-small-tries-add-up-to-a-big-win-d458d3.mp3 | many small tries add up to a big win | 1 |
 | /audio/child-mode/phrases/ola-wore-winter-gloves-d2f322.mp3 | Ola wore winter gloves | 1 |
 | /audio/child-mode/phrases/give-up-after-one-autumn-4aa20b.mp3 | give up after one autumn | 1 |
 | /audio/child-mode/phrases/playgrounds-have-monkey-bars-b449e4.mp3 | playgrounds have monkey bars | 1 |
+| /audio/child-mode/phrases/libraries-have-craft-books-ecef74.mp3 | libraries have craft books | 1 |
 | /audio/child-mode/phrases/big-goals-are-finished-one-small-step-at-a-t-1a2c96.mp3 | big goals are finished one small step at a time | 1 |
 | /audio/child-mode/phrases/his-thumbs-ached-at-fifty-4c8455.mp3 | his thumbs ached at fifty | 1 |
 | /audio/child-mode/phrases/one-hundred-is-too-many-99befd.mp3 | one hundred is too many | 1 |
-| /audio/child-mode/phrases/libraries-have-craft-books-ecef74.mp3 | libraries have craft books | 1 |
-| /audio/child-mode/phrases/practice-done-quietly-still-shines-in-the-en-12073e.mp3 | practice done quietly still shines in the end | 1 |
-| /audio/child-mode/phrases/emil-practised-against-a-garage-989671.mp3 | Emil practised against a garage | 1 |
 | /audio/child-mode/phrases/goalkeepers-never-matter-ba68f8.mp3 | goalkeepers never matter | 1 |
 | /audio/child-mode/phrases/matches-can-end-level-97bc60.mp3 | matches can end level | 1 |
+| /audio/child-mode/phrases/practice-done-quietly-still-shines-in-the-en-12073e.mp3 | practice done quietly still shines in the end | 1 |
+| /audio/child-mode/phrases/emil-practised-against-a-garage-989671.mp3 | Emil practised against a garage | 1 |
+| /audio/child-mode/phrases/sledges-go-on-hills-72a9d7.mp3 | sledges go on hills | 1 |
 | /audio/child-mode/phrases/use-waiting-time-to-get-ready-336538.mp3 | use waiting time to get ready | 1 |
 | /audio/child-mode/phrases/the-first-snow-would-not-stick-c30978.mp3 | the first snow would not stick | 1 |
 | /audio/child-mode/phrases/watching-the-sky-brings-snow-4c2f39.mp3 | watching the sky brings snow | 1 |
-| /audio/child-mode/phrases/sledges-go-on-hills-72a9d7.mp3 | sledges go on hills | 1 |
-| /audio/child-mode/phrases/finishing-takes-one-person-who-will-not-quit-c1265c.mp3 | finishing takes one person who will not quit | 1 |
-| /audio/child-mode/phrases/the-piece-was-in-a-trouser-turn-up-7de9d5.mp3 | the piece was in a trouser turn-up | 1 |
 | /audio/child-mode/phrases/lost-pieces-stay-lost-8a3f25.mp3 | lost pieces stay lost | 1 |
 | /audio/child-mode/phrases/dogs-sleep-in-baskets-c9f56d.mp3 | dogs sleep in baskets | 1 |
-| /audio/child-mode/phrases/hard-work-is-worth-it-even-for-small-things-efc0f3.mp3 | hard work is worth it even for small things | 1 |
+| /audio/child-mode/phrases/finishing-takes-one-person-who-will-not-quit-c1265c.mp3 | finishing takes one person who will not quit | 1 |
+| /audio/child-mode/phrases/the-piece-was-in-a-trouser-turn-up-7de9d5.mp3 | the piece was in a trouser turn-up | 1 |
 | /audio/child-mode/phrases/the-watch-ran-five-minutes-slow-97aed7.mp3 | the watch ran five minutes slow | 1 |
 | /audio/child-mode/phrases/old-watches-cannot-be-fixed-4ff68e.mp3 | old watches cannot be fixed | 1 |
 | /audio/child-mode/phrases/winter-is-for-projects-730227.mp3 | winter is for projects | 1 |
-| /audio/child-mode/phrases/caring-for-something-makes-it-precious-acf1fd.mp3 | caring for something makes it precious | 1 |
-| /audio/child-mode/phrases/the-robot-got-skateboard-wheels-9e36d4.mp3 | the robot got skateboard wheels | 1 |
+| /audio/child-mode/phrases/hard-work-is-worth-it-even-for-small-things-efc0f3.mp3 | hard work is worth it even for small things | 1 |
 | /audio/child-mode/phrases/broken-things-belong-in-bins-2e3ff0.mp3 | broken things belong in bins | 1 |
 | /audio/child-mode/phrases/schools-have-corridors-874308.mp3 | schools have corridors | 1 |
-| /audio/child-mode/phrases/old-things-earn-trust-that-shiny-things-have-b8e13e.mp3 | old things earn trust that shiny things have not | 1 |
-| /audio/child-mode/phrases/never-buy-anything-new-when-something-old-st-de6ed5.mp3 | never buy anything new when something old still works | 1 |
+| /audio/child-mode/phrases/caring-for-something-makes-it-precious-acf1fd.mp3 | caring for something makes it precious | 1 |
+| /audio/child-mode/phrases/the-robot-got-skateboard-wheels-9e36d4.mp3 | the robot got skateboard wheels | 1 |
 | /audio/child-mode/phrases/picking-apples-is-dangerous-d6f241.mp3 | picking apples is dangerous | 1 |
 | /audio/child-mode/phrases/a-ladder-slid-on-the-wet-grass-2b8d62.mp3 | a ladder slid on the wet grass | 1 |
-| /audio/child-mode/phrases/quiet-skill-can-speak-louder-than-showing-of-9f86a1.mp3 | quiet skill can speak louder than showing off | 1 |
+| /audio/child-mode/phrases/old-things-earn-trust-that-shiny-things-have-b8e13e.mp3 | old things earn trust that shiny things have not | 1 |
+| /audio/child-mode/phrases/never-buy-anything-new-when-something-old-st-de6ed5.mp3 | never buy anything new when something old still works | 1 |
 | /audio/child-mode/phrases/trumpets-are-better-than-harps-7f799d.mp3 | trumpets are better than harps | 1 |
 | /audio/child-mode/phrases/never-tell-anyone-about-a-concert-6abb98.mp3 | never tell anyone about a concert | 1 |
 | /audio/child-mode/phrases/the-hall-forgot-to-clap-once-adf146.mp3 | the hall forgot to clap once | 1 |
-| /audio/child-mode/phrases/courage-grows-when-you-know-help-is-in-reach-b3b343.mp3 | courage grows when you know help is in reach | 1 |
+| /audio/child-mode/phrases/quiet-skill-can-speak-louder-than-showing-of-9f86a1.mp3 | quiet skill can speak louder than showing off | 1 |
+| /audio/child-mode/phrases/knowing-help-is-near-can-build-courage-bbb13c.mp3 | knowing help is near can build courage | 1 |
 | /audio/child-mode/phrases/darkness-is-truly-dangerous-7a24e6.mp3 | darkness is truly dangerous | 1 |
 | /audio/child-mode/phrases/torches-belong-on-pillows-b8ff0c.mp3 | torches belong on pillows | 1 |
 | /audio/child-mode/phrases/fathers-are-always-right-2fdebe.mp3 | fathers are always right | 1 |
-| /audio/child-mode/phrases/being-honest-feels-better-than-winning-unfai-313a00.mp3 | being honest feels better than winning unfairly | 1 |
 | /audio/child-mode/phrases/always-aim-for-ten-out-of-ten-b76c0a.mp3 | always aim for ten out of ten | 1 |
 | /audio/child-mode/phrases/spelling-tests-do-not-matter-d67d1f.mp3 | spelling tests do not matter | 1 |
 | /audio/child-mode/phrases/a-list-lay-by-the-photocopier-ca6355.mp3 | a list lay by the photocopier | 1 |
-| /audio/child-mode/phrases/sometimes-the-kindest-help-is-the-smallest-c3431b.mp3 | sometimes the kindest help is the smallest | 1 |
+| /audio/child-mode/phrases/being-honest-feels-better-than-winning-unfai-313a00.mp3 | being honest feels better than winning unfairly | 1 |
+| /audio/child-mode/phrases/small-help-can-be-the-kindest-help-377279.mp3 | small help can be the kindest help | 1 |
 | /audio/child-mode/phrases/never-touch-anything-outdoors-a749f6.mp3 | never touch anything outdoors | 1 |
 | /audio/child-mode/phrases/storms-knock-down-nests-d7615a.mp3 | storms knock down nests | 1 |
 | /audio/child-mode/phrases/lamps-can-keep-eggs-warm-4430db.mp3 | lamps can keep eggs warm | 1 |
+| /audio/child-mode/phrases/a-jam-roll-collapsed-before-judging-b4d6e2.mp3 | a jam roll collapsed before judging | 1 |
 | /audio/child-mode/phrases/friendship-can-matter-more-than-prizes-a040f0.mp3 | friendship can matter more than prizes | 1 |
 | /audio/child-mode/phrases/never-enter-a-bake-off-202c0e.mp3 | never enter a bake-off | 1 |
 | /audio/child-mode/phrases/lemon-cakes-beat-jam-rolls-b53460.mp3 | lemon cakes beat jam rolls | 1 |
-| /audio/child-mode/phrases/a-jam-roll-collapsed-before-judging-b4d6e2.mp3 | a jam roll collapsed before judging | 1 |
-| /audio/child-mode/phrases/a-gentle-answer-teaches-more-than-an-angry-o-72100e.mp3 | a gentle answer teaches more than an angry one | 1 |
+| /audio/child-mode/phrases/gentle-words-teach-better-than-anger-a6d875.mp3 | gentle words teach better than anger | 1 |
 | /audio/child-mode/phrases/echoes-live-in-stairwells-ad95a9.mp3 | echoes live in stairwells | 1 |
 | /audio/child-mode/phrases/games-should-be-banned-indoors-d6c0d7.mp3 | games should be banned indoors | 1 |
 | /audio/child-mode/phrases/third-floors-are-grumpy-dbfd42.mp3 | third floors are grumpy | 1 |
-| /audio/child-mode/phrases/losing-well-today-can-win-friends-tomorrow-f5466c.mp3 | losing well today can win friends tomorrow | 1 |
+| /audio/child-mode/phrases/the-vote-was-nineteen-to-one-51166f.mp3 | the vote was nineteen to one | 1 |
+| /audio/child-mode/phrases/lose-well-now-gain-friends-later-eb8bf4.mp3 | lose well now; gain friends later | 1 |
 | /audio/child-mode/phrases/parties-are-better-than-nets-e9d35b.mp3 | parties are better than nets | 1 |
 | /audio/child-mode/phrases/never-vote-against-the-class-503b55.mp3 | never vote against the class | 1 |
-| /audio/child-mode/phrases/the-vote-was-nineteen-to-one-51166f.mp3 | the vote was nineteen to one | 1 |
+| /audio/child-mode/phrases/a-girl-owned-a-telescope-e9852c.mp3 | a girl owned a telescope | 1 |
 | /audio/child-mode/phrases/wonders-grow-when-they-are-shared-b2f2db.mp3 | wonders grow when they are shared | 1 |
 | /audio/child-mode/phrases/sana-chalked-a-sign-and-neighbours-queued-be352a.mp3 | Sana chalked a sign and neighbours queued | 1 |
 | /audio/child-mode/phrases/a-comet-passed-during-one-week-e2e510.mp3 | a comet passed during one week | 1 |
-| /audio/child-mode/phrases/a-girl-owned-a-telescope-e9852c.mp3 | a girl owned a telescope | 1 |
-| /audio/child-mode/phrases/wrong-turns-can-open-doors-plans-never-would-8d4d5e.mp3 | wrong turns can open doors plans never would | 1 |
-| /audio/child-mode/phrases/a-driver-stopped-a-street-early-7d2618.mp3 | a driver stopped a street early | 1 |
 | /audio/child-mode/phrases/the-museum-was-free-on-thursdays-829b1d.mp3 | the museum was free on Thursdays | 1 |
 | /audio/child-mode/phrases/marisol-saw-whale-bones-cab770.mp3 | Marisol saw whale bones | 1 |
-| /audio/child-mode/phrases/a-true-apology-names-the-wrong-and-mends-it-ca18a8.mp3 | a true apology names the wrong and mends it | 1 |
-| /audio/child-mode/phrases/tom-broke-his-gran-s-teapot-8f5fd7.mp3 | Tom broke his gran's teapot | 1 |
+| /audio/child-mode/phrases/wrong-turns-can-lead-to-good-discoveries-c159bd.mp3 | wrong turns can lead to good discoveries | 1 |
+| /audio/child-mode/phrases/a-driver-stopped-a-street-early-7d2618.mp3 | a driver stopped a street early | 1 |
 | /audio/child-mode/phrases/the-teapot-was-taped-back-together-7acfc0.mp3 | the teapot was taped back together | 1 |
 | /audio/child-mode/phrases/gran-kept-a-letter-in-her-purse-65dac6.mp3 | Gran kept a letter in her purse | 1 |
-| /audio/child-mode/phrases/steady-unseen-work-holds-the-world-together-bd094d.mp3 | steady unseen work holds the world together | 1 |
-| /audio/child-mode/phrases/a-keeper-wrote-down-ships-names-f4ea49.mp3 | a keeper wrote down ships' names | 1 |
+| /audio/child-mode/phrases/a-true-apology-names-the-wrong-and-mends-it-ca18a8.mp3 | a true apology names the wrong and mends it | 1 |
+| /audio/child-mode/phrases/tom-broke-his-gran-s-teapot-8f5fd7.mp3 | Tom broke his gran's teapot | 1 |
 | /audio/child-mode/phrases/the-harbourmaster-read-a-list-aloud-16cb76.mp3 | the harbourmaster read a list aloud | 1 |
 | /audio/child-mode/phrases/the-keeper-retired-after-forty-years-cba029.mp3 | the keeper retired after forty years | 1 |
-| /audio/child-mode/phrases/what-is-built-to-last-beats-what-is-built-to-e4a140.mp3 | what is built to last beats what is built to impress | 1 |
+| /audio/child-mode/phrases/steady-unseen-work-holds-the-world-together-bd094d.mp3 | steady unseen work holds the world together | 1 |
+| /audio/child-mode/phrases/a-keeper-wrote-down-ships-names-f4ea49.mp3 | a keeper wrote down ships' names | 1 |
 | /audio/child-mode/phrases/a-great-wind-blew-at-the-festival-c07d68.mp3 | a great wind blew at the festival | 1 |
 | /audio/child-mode/phrases/big-lanterns-tore-one-by-one-c063aa.mp3 | big lanterns tore one by one | 1 |
 | /audio/child-mode/phrases/one-lantern-crossed-the-line-7784e4.mp3 | one lantern crossed the line | 1 |
-| /audio/child-mode/phrases/grabbing-the-most-can-leave-you-knowing-the-1a8497.mp3 | grabbing the most can leave you knowing the least | 1 |
+| /audio/child-mode/phrases/what-is-built-to-last-beats-what-is-built-to-e4a140.mp3 | what is built to last beats what is built to impress | 1 |
 | /audio/child-mode/phrases/one-goldfish-ate-the-others-flakes-aca98b.mp3 | one goldfish ate the others' flakes | 1 |
 | /audio/child-mode/phrases/the-family-forgot-to-feed-the-fish-438401.mp3 | the family forgot to feed the fish | 1 |
 | /audio/child-mode/phrases/two-fish-ate-water-weed-39b3ed.mp3 | two fish ate water-weed | 1 |
-| /audio/child-mode/phrases/small-quiet-care-can-change-a-whole-place-a7beca.mp3 | small quiet care can change a whole place | 1 |
+| /audio/child-mode/phrases/grabbing-the-most-can-leave-you-knowing-the-1a8497.mp3 | grabbing the most can leave you knowing the least | 1 |
 | /audio/child-mode/phrases/mud-season-ruined-the-shoes-c05f61.mp3 | mud season ruined the shoes | 1 |
 | /audio/child-mode/phrases/boots-were-dried-by-a-radiator-984844.mp3 | boots were dried by a radiator | 1 |
 | /audio/child-mode/phrases/the-head-caught-ede-one-day-c97dc5.mp3 | the head caught Ede one day | 1 |
-| /audio/child-mode/phrases/walls-that-keep-trouble-out-keep-friendship-fb2eff.mp3 | walls that keep trouble out keep friendship out too | 1 |
+| /audio/child-mode/phrases/small-quiet-care-can-change-a-whole-place-a7beca.mp3 | small quiet care can change a whole place | 1 |
+| /audio/child-mode/phrases/blocking-trouble-can-also-block-friendship-4f1b0b.mp3 | blocking trouble can also block friendship | 1 |
 | /audio/child-mode/phrases/twins-drew-a-chalk-line-in-the-attic-fc9459.mp3 | twins drew a chalk line in the attic | 1 |
 | /audio/child-mode/phrases/the-attic-became-very-tidy-3b6783.mp3 | the attic became very tidy | 1 |
 | /audio/child-mode/phrases/the-chalk-was-washed-away-38889a.mp3 | the chalk was washed away | 1 |
@@ -6608,102 +5633,102 @@ Generated 2026-07-30T05:22:06.431Z from the shipped v3 banks. Regenerate with `n
 | /audio/child-mode/phrases/ines-plants-a-sunflower-seed-in-a-pot-on-her-1875ce.mp3 | Ines plants a sunflower seed in a pot on her own windowsill at home | 1 |
 | /audio/child-mode/phrases/ines-gives-up-learning-the-violin-after-one-c8923d.mp3 | Ines gives up learning the violin after one single squeaky week of lessons | 1 |
 | /audio/child-mode/phrases/ines-waters-her-plant-once-and-forgets-it-574c31.mp3 | Ines waters her plant once and forgets it | 1 |
+| /audio/child-mode/phrases/cam-saves-his-pocket-money-for-weeks-to-buy-c884d4.mp3 | Cam saves his pocket money for weeks to buy a brand-new comic | 1 |
 | /audio/child-mode/phrases/cam-scratches-dad-s-bike-and-leaves-a-note-o-24154a.mp3 | Cam scratches Dad's bike and leaves a note owning up before Dad sees | 1 |
 | /audio/child-mode/phrases/cam-reads-comics-carefully-indoors-39a38c.mp3 | Cam reads comics carefully indoors | 1 |
 | /audio/child-mode/phrases/cam-hides-the-mug-he-broke-behind-the-cereal-b4918d.mp3 | Cam hides the mug he broke behind the cereal boxes where nobody looks | 1 |
-| /audio/child-mode/phrases/cam-saves-his-pocket-money-for-weeks-to-buy-c884d4.mp3 | Cam saves his pocket money for weeks to buy a brand-new comic | 1 |
-| /audio/child-mode/phrases/seeing-a-lost-toddler-ray-stays-beside-him-a-8ac618.mp3 | Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search | 1 |
+| /audio/child-mode/phrases/ray-stays-with-a-lost-toddler-and-calls-a-gu-dd82d8.mp3 | Ray stays with a lost toddler and calls a guard | 1 |
 | /audio/child-mode/phrases/ray-builds-every-bird-in-the-garden-a-wooden-639d1f.mp3 | Ray builds every bird in the garden a wooden house | 1 |
 | /audio/child-mode/phrases/ray-carries-a-fallen-chick-home-to-raise-it-970c7a.mp3 | Ray carries a fallen chick home to raise it himself in a shoebox by his bed | 1 |
 | /audio/child-mode/phrases/ray-watches-an-egg-hatch-on-television-ea2f5a.mp3 | Ray watches an egg hatch on television | 1 |
+| /audio/child-mode/phrases/a-keeper-who-paints-his-lighthouse-red-5e075a.mp3 | a keeper who paints his lighthouse red | 1 |
 | /audio/child-mode/phrases/the-caretaker-who-salts-the-school-steps-bef-92759e.mp3 | the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked | 1 |
 | /audio/child-mode/phrases/a-singer-who-performs-on-television-so-that-9e55a9.mp3 | a singer who performs on television so that millions can applaud her name | 1 |
 | /audio/child-mode/phrases/a-sailor-who-names-his-boat-after-a-lighthou-dcd32d.mp3 | a sailor who names his boat after a lighthouse | 1 |
-| /audio/child-mode/phrases/a-keeper-who-paints-his-lighthouse-red-5e075a.mp3 | a keeper who paints his lighthouse red | 1 |
-| /audio/child-mode/phrases/on-sports-day-vic-stops-mid-race-to-pull-up-2c2c45.mp3 | On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together | 1 |
-| /audio/child-mode/phrases/vic-bakes-a-lemon-cake-for-the-fair-cdf6ef.mp3 | Vic bakes a lemon cake for the fair | 1 |
 | /audio/child-mode/phrases/on-sports-day-vic-guards-his-bag-of-sweets-s-242777.mp3 | On sports day, Vic guards his bag of sweets so that nobody else gets a single one | 1 |
 | /audio/child-mode/phrases/vic-enters-two-contests-in-one-day-7d6c1d.mp3 | Vic enters two contests in one day | 1 |
-| /audio/child-mode/phrases/jo-writes-three-sure-sentences-in-the-story-21a541.mp3 | Jo writes three sure sentences in the story contest while others start epics they never finish | 1 |
+| /audio/child-mode/phrases/on-sports-day-vic-stops-mid-race-to-pull-up-2c2c45.mp3 | On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together | 1 |
+| /audio/child-mode/phrases/vic-bakes-a-lemon-cake-for-the-fair-cdf6ef.mp3 | Vic bakes a lemon cake for the fair | 1 |
+| /audio/child-mode/phrases/jo-enters-the-festival-every-single-year-2e8b7c.mp3 | Jo enters the festival every single year | 1 |
+| /audio/child-mode/phrases/jo-writes-three-strong-sentences-instead-of-378df4.mp3 | Jo writes three strong sentences instead of an unfinished epic | 1 |
 | /audio/child-mode/phrases/jo-starts-building-the-biggest-grandest-sand-b02268.mp3 | Jo starts building the biggest, grandest sandcastle the beach has ever seen | 1 |
 | /audio/child-mode/phrases/jo-carries-a-lantern-on-the-camping-trip-7692ff.mp3 | Jo carries a lantern on the camping trip | 1 |
-| /audio/child-mode/phrases/jo-enters-the-festival-every-single-year-2e8b7c.mp3 | Jo enters the festival every single year | 1 |
-| /audio/child-mode/phrases/dev-s-ball-lands-over-the-line-he-calls-it-o-e6e763.mp3 | Dev's ball lands over the line; he calls it out himself, though no one saw | 1 |
-| /audio/child-mode/phrases/dev-studies-spelling-every-thursday-night-856fea.mp3 | Dev studies spelling every Thursday night | 1 |
 | /audio/child-mode/phrases/dev-peeks-at-his-sister-s-cards-when-she-lea-adc126.mp3 | Dev peeks at his sister's cards when she leaves the room, and wins the game | 1 |
 | /audio/child-mode/phrases/dev-posts-a-letter-for-his-teacher-24bf88.mp3 | Dev posts a letter for his teacher | 1 |
-| /audio/child-mode/phrases/after-a-falling-out-mia-unblocks-the-den-doo-7b44c9.mp3 | After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in | 1 |
+| /audio/child-mode/phrases/dev-s-ball-lands-over-the-line-he-calls-it-o-e6e763.mp3 | Dev's ball lands over the line; he calls it out himself, though no one saw | 1 |
+| /audio/child-mode/phrases/dev-studies-spelling-every-thursday-night-856fea.mp3 | Dev studies spelling every Thursday night | 1 |
 | /audio/child-mode/phrases/mia-chalks-a-hopscotch-grid-on-the-path-6203e9.mp3 | Mia chalks a hopscotch grid on the path | 1 |
 | /audio/child-mode/phrases/after-a-quarrel-mia-labels-every-pencil-she-7ff46e.mp3 | After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one | 1 |
 | /audio/child-mode/phrases/mia-tidies-the-attic-every-sunday-f66d64.mp3 | Mia tidies the attic every Sunday | 1 |
-| /audio/child-mode/phrases/copying-steals-your-own-chance-to-learn-82cd97.mp3 | copying steals your own chance to learn | 1 |
-| /audio/child-mode/phrases/zia-got-three-answers-wrong-faaee5.mp3 | Zia got three answers wrong | 1 |
+| /audio/child-mode/phrases/mia-opens-the-blocked-den-and-welcomes-her-b-552a92.mp3 | Mia opens the blocked den and welcomes her brother back | 1 |
 | /audio/child-mode/phrases/homework-is-a-waste-of-time-549368.mp3 | homework is a waste of time | 1 |
 | /audio/child-mode/phrases/teachers-use-whiteboards-8f0bc6.mp3 | teachers use whiteboards | 1 |
-| /audio/child-mode/phrases/neighbourly-kindness-circles-back-around-ba7168.mp3 | neighbourly kindness circles back around | 1 |
+| /audio/child-mode/phrases/copying-steals-your-own-chance-to-learn-82cd97.mp3 | copying steals your own chance to learn | 1 |
+| /audio/child-mode/phrases/zia-got-three-answers-wrong-faaee5.mp3 | Zia got three answers wrong | 1 |
 | /audio/child-mode/phrases/a-windscreen-had-frost-on-it-cab162.mp3 | a windscreen had frost on it | 1 |
 | /audio/child-mode/phrases/bins-should-stay-by-the-road-287543.mp3 | bins should stay by the road | 1 |
 | /audio/child-mode/phrases/winter-mornings-are-cold-e064e6.mp3 | winter mornings are cold | 1 |
+| /audio/child-mode/phrases/neighbourly-kindness-circles-back-around-ba7168.mp3 | neighbourly kindness circles back around | 1 |
 | /audio/child-mode/phrases/step-by-step-effort-builds-real-skill-80249e.mp3 | step-by-step effort builds real skill | 1 |
 | /audio/child-mode/phrases/rosa-touched-the-yellow-buoy-80d198.mp3 | Rosa touched the yellow buoy | 1 |
 | /audio/child-mode/phrases/stay-out-of-the-sea-in-june-6159f5.mp3 | stay out of the sea in June | 1 |
 | /audio/child-mode/phrases/beaches-have-buoys-a1b183.mp3 | beaches have buoys | 1 |
+| /audio/child-mode/phrases/football-happens-at-lunch-cd7dc3.mp3 | football happens at lunch | 1 |
 | /audio/child-mode/phrases/a-wrong-can-be-mended-even-slowly-ce3fc3.mp3 | a wrong can be mended, even slowly | 1 |
 | /audio/child-mode/phrases/ollie-s-glasses-were-taped-52ffa4.mp3 | Ollie's glasses were taped | 1 |
 | /audio/child-mode/phrases/teasing-makes-people-laugh-329f3c.mp3 | teasing makes people laugh | 1 |
-| /audio/child-mode/phrases/football-happens-at-lunch-cd7dc3.mp3 | football happens at lunch | 1 |
-| /audio/child-mode/phrases/protection-given-is-remembered-and-returned-54893c.mp3 | protection given is remembered and returned | 1 |
-| /audio/child-mode/phrases/the-lunch-queue-had-a-crush-e674ec.mp3 | the lunch queue had a crush | 1 |
 | /audio/child-mode/phrases/small-children-should-queue-elsewhere-44991a.mp3 | small children should queue elsewhere | 1 |
 | /audio/child-mode/phrases/corridors-get-crowded-604e3f.mp3 | corridors get crowded | 1 |
-| /audio/child-mode/phrases/a-little-practice-every-day-wears-problems-s-42ec66.mp3 | a little practice every day wears problems smooth | 1 |
+| /audio/child-mode/phrases/protection-given-is-remembered-and-returned-54893c.mp3 | protection given is remembered and returned | 1 |
+| /audio/child-mode/phrases/the-lunch-queue-had-a-crush-e674ec.mp3 | the lunch queue had a crush | 1 |
 | /audio/child-mode/phrases/the-dog-left-the-room-e9214c.mp3 | the dog left the room | 1 |
 | /audio/child-mode/phrases/recorders-are-hopeless-instruments-66a82d.mp3 | recorders are hopeless instruments | 1 |
 | /audio/child-mode/phrases/sheds-are-for-practising-b2f95d.mp3 | sheds are for practising | 1 |
+| /audio/child-mode/phrases/a-little-practice-every-day-wears-problems-s-42ec66.mp3 | a little practice every day wears problems smooth | 1 |
 | /audio/child-mode/phrases/confessing-is-quicker-and-lighter-than-hidin-2c18b7.mp3 | confessing is quicker and lighter than hiding | 1 |
 | /audio/child-mode/phrases/the-globe-got-a-dent-d8aae2.mp3 | the globe got a dent | 1 |
 | /audio/child-mode/phrases/globes-should-be-bolted-down-d75979.mp3 | globes should be bolted down | 1 |
 | /audio/child-mode/phrases/secrets-keep-you-company-d5348c.mp3 | secrets keep you company | 1 |
-| /audio/child-mode/phrases/twenty-years-of-kindness-can-be-repaid-in-a-1cce3b.mp3 | twenty years of kindness can be repaid in a day | 1 |
+| /audio/child-mode/phrases/floods-happen-on-lanes-90aeb6.mp3 | floods happen on lanes | 1 |
+| /audio/child-mode/phrases/long-kindness-may-be-repaid-quickly-65b7eb.mp3 | long kindness may be repaid quickly | 1 |
 | /audio/child-mode/phrases/a-foot-of-water-entered-the-shop-284779.mp3 | a foot of water entered the shop | 1 |
 | /audio/child-mode/phrases/shops-should-not-give-credit-96731a.mp3 | shops should not give credit | 1 |
-| /audio/child-mode/phrases/floods-happen-on-lanes-90aeb6.mp3 | floods happen on lanes | 1 |
-| /audio/child-mode/phrases/lifting-others-can-beat-winning-alone-2bebae.mp3 | lifting others can beat winning alone | 1 |
 | /audio/child-mode/phrases/chess-clubs-need-two-classrooms-dcb08b.mp3 | chess clubs need two classrooms | 1 |
 | /audio/child-mode/phrases/never-let-anyone-win-7dea79.mp3 | never let anyone win | 1 |
 | /audio/child-mode/phrases/beginners-ruin-clubs-b85379.mp3 | beginners ruin clubs | 1 |
+| /audio/child-mode/phrases/lifting-others-can-beat-winning-alone-2bebae.mp3 | lifting others can beat winning alone | 1 |
 | /audio/child-mode/phrases/there-is-hidden-wisdom-in-ways-that-look-unt-466183.mp3 | there is hidden wisdom in ways that look untidy | 1 |
 | /audio/child-mode/phrases/blight-took-the-street-s-tomatoes-eea34d.mp3 | blight took the street's tomatoes | 1 |
 | /audio/child-mode/phrases/neat-rows-are-always-wrong-14eda9.mp3 | neat rows are always wrong | 1 |
 | /audio/child-mode/phrases/pumpkins-wander-paths-59fc2b.mp3 | pumpkins wander paths | 1 |
+| /audio/child-mode/phrases/the-horse-bowed-on-the-night-21de27.mp3 | the horse bowed on the night | 1 |
 | /audio/child-mode/phrases/working-as-one-can-join-people-for-good-bbf931.mp3 | working as one can join people for good | 1 |
 | /audio/child-mode/phrases/a-play-needed-a-horse-costume-6b8af9.mp3 | a play needed a horse costume | 1 |
 | /audio/child-mode/phrases/rehearsals-went-badly-at-first-e28e9d.mp3 | rehearsals went badly at first | 1 |
-| /audio/child-mode/phrases/the-horse-bowed-on-the-night-21de27.mp3 | the horse bowed on the night | 1 |
-| /audio/child-mode/phrases/a-life-spent-giving-is-its-own-treasure-2bf2c9.mp3 | a life spent giving is its own treasure | 1 |
-| /audio/child-mode/phrases/a-box-held-a-trowel-and-seeds-9b954e.mp3 | a box held a trowel and seeds | 1 |
 | /audio/child-mode/phrases/the-family-expected-jewellery-c5a1ba.mp3 | the family expected jewellery | 1 |
 | /audio/child-mode/phrases/a-tree-blossomed-in-spring-61640b.mp3 | a tree blossomed in spring | 1 |
-| /audio/child-mode/phrases/tess-tells-the-librarian-today-about-the-jui-ace69c.mp3 | Tess tells the librarian TODAY about the juice she spilled on page nine | 1 |
+| /audio/child-mode/phrases/a-life-spent-giving-is-its-own-treasure-2bf2c9.mp3 | a life spent giving is its own treasure | 1 |
+| /audio/child-mode/phrases/a-box-held-a-trowel-and-seeds-9b954e.mp3 | a box held a trowel and seeds | 1 |
 | /audio/child-mode/phrases/tess-polishes-the-class-globe-till-it-shines-b5aae5.mp3 | Tess polishes the class globe till it shines | 1 |
 | /audio/child-mode/phrases/tess-quietly-slides-the-juice-stained-book-t-e30c20.mp3 | Tess quietly slides the juice-stained book to the very bottom of the returns pile | 1 |
 | /audio/child-mode/phrases/tess-reads-with-juice-far-away-from-books-72761f.mp3 | Tess reads with juice far away from books | 1 |
+| /audio/child-mode/phrases/tess-tells-the-librarian-today-about-the-jui-ace69c.mp3 | Tess tells the librarian TODAY about the juice she spilled on page nine | 1 |
 | /audio/child-mode/phrases/ojas-sharpens-the-class-pencil-pot-every-mor-6e8fc8.mp3 | Ojas sharpens the class pencil pot every morning before anyone notices | 1 |
 | /audio/child-mode/phrases/ojas-wins-the-school-kindness-certificate-on-c07c3c.mp3 | Ojas wins the school kindness certificate on stage | 1 |
 | /audio/child-mode/phrases/ojas-dries-his-own-boots-by-the-radiator-and-261d79.mp3 | Ojas dries his own boots by the radiator and leaves everyone else's dripping | 1 |
 | /audio/child-mode/phrases/ojas-buys-new-boots-for-himself-5e5195.mp3 | Ojas buys new boots for himself | 1 |
+| /audio/child-mode/phrases/libraries-need-cushions-42d907.mp3 | libraries need cushions | 1 |
 | /audio/child-mode/phrases/listening-shows-you-what-talking-drowns-out-30ad19.mp3 | listening shows you what talking drowns out | 1 |
 | /audio/child-mode/phrases/a-sponsored-silence-raised-money-aad889.mp3 | a sponsored silence raised money | 1 |
 | /audio/child-mode/phrases/talking-is-always-wrong-3e6357.mp3 | talking is always wrong | 1 |
-| /audio/child-mode/phrases/libraries-need-cushions-42d907.mp3 | libraries need cushions | 1 |
-| /audio/child-mode/phrases/for-the-science-fair-bea-builds-a-small-volc-f76b1e.mp3 | For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle | 1 |
-| /audio/child-mode/phrases/bea-spends-every-evening-decorating-her-proj-b4b2ff.mp3 | Bea spends every evening decorating her project with gold ribbon and glitter | 1 |
 | /audio/child-mode/phrases/bea-enters-the-lantern-festival-next-year-5e7319.mp3 | Bea enters the lantern festival next year | 1 |
 | /audio/child-mode/phrases/bea-judges-the-fair-with-the-teachers-375d48.mp3 | Bea judges the fair with the teachers | 1 |
+| /audio/child-mode/phrases/bea-makes-a-small-volcano-that-works-every-t-754da2.mp3 | Bea makes a small volcano that works every time | 1 |
+| /audio/child-mode/phrases/bea-spends-every-evening-decorating-her-proj-b4b2ff.mp3 | Bea spends every evening decorating her project with gold ribbon and glitter | 1 |
 
 ## 6. Images — missing slots with drawing briefs
 
-All 411 image slots resolve to existing art on disk. Any NEW art must follow the image spec above.
+All 2111 image slots resolve to existing art on disk. Any NEW art must follow the image spec above.
 
 ## Delivery
 

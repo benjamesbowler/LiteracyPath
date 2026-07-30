@@ -23,20 +23,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "She fed ___ of the cats.",
   "question": "She fed ___ of the cats.",
-  "spokenPrompt": "Which word finishes the sentence? She fed hmm of the cats.",
+  "spokenPrompt": "Which word finishes the sentence? She fed … of the cats.",
   "sentence": "She fed ___ of the cats.",
   "choices": [
-   "all",
    "one",
    "each",
-   "both"
+   "both",
+   "all"
   ],
   "answerOptions": [
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
-   },
    {
     "value": "one",
     "label": "one",
@@ -51,6 +46,11 @@ export const questions = [
     "value": "both",
     "label": "both",
     "text": "both"
+   },
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
    }
   ],
   "answer": "all",
@@ -60,7 +60,7 @@ export const questions = [
    "each": "D-FUNCTION-SWAP",
    "both": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -68,9 +68,10 @@ export const questions = [
   "sentenceText": "She fed ___ of the cats.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -81,7 +82,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "She fed all of the cats."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.all.v2",
@@ -103,27 +110,17 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "He drank ___ of the milk — the jug is empty!",
-  "question": "He drank ___ of the milk — the jug is empty!",
-  "spokenPrompt": "Which word finishes the sentence? He drank hmm of the milk — the jug is empty!",
-  "sentence": "He drank ___ of the milk — the jug is empty!",
+  "prompt": "He drank ___ the milk. The jug is empty!",
+  "question": "He drank ___ the milk. The jug is empty!",
+  "spokenPrompt": "Which word finishes the sentence? He drank … the milk. The jug is empty!",
+  "sentence": "He drank ___ the milk. The jug is empty!",
   "choices": [
-   "all",
-   "some",
    "one",
-   "most"
+   "most",
+   "all",
+   "some"
   ],
   "answerOptions": [
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
-   },
-   {
-    "value": "some",
-    "label": "some",
-    "text": "some"
-   },
    {
     "value": "one",
     "label": "one",
@@ -133,26 +130,37 @@ export const questions = [
     "value": "most",
     "label": "most",
     "text": "most"
+   },
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
+   },
+   {
+    "value": "some",
+    "label": "some",
+    "text": "some"
    }
   ],
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {
-   "some": "D-FUNCTION-SWAP",
    "one": "D-DEVELOPMENTAL",
-   "most": "D-FUNCTION-SWAP"
+   "most": "D-FUNCTION-SWAP",
+   "some": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "He drank ___ of the milk — the jug is empty!",
+  "sentenceText": "He drank ___ the milk. The jug is empty!",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -163,7 +171,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the empty jug pins all; some and most parse but contradict it"
+  "notes": "the empty jug pins all; some and most parse but contradict it",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "He drank all the milk. The jug is empty!"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.all.v3",
@@ -189,12 +203,17 @@ export const questions = [
   "question": "Find the word: all",
   "spokenPrompt": "all. Find the word all.",
   "choices": [
+   "doll",
    "all",
    "ball",
-   "tall",
-   "doll"
+   "tall"
   ],
   "answerOptions": [
+   {
+    "value": "doll",
+    "label": "doll",
+    "text": "doll"
+   },
    {
     "value": "all",
     "label": "all",
@@ -209,11 +228,6 @@ export const questions = [
     "value": "tall",
     "label": "tall",
     "text": "tall"
-   },
-   {
-    "value": "doll",
-    "label": "doll",
-    "text": "doll"
    }
   ],
   "answer": "all",
@@ -223,16 +237,17 @@ export const questions = [
    "tall": "D-VISUAL-NEIGHBOR",
    "doll": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -243,7 +258,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "Find the word: all"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.an.v1",
@@ -267,7 +288,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "I ate ___ egg.",
   "question": "I ate ___ egg.",
-  "spokenPrompt": "Which word finishes the sentence? I ate hmm egg.",
+  "spokenPrompt": "Which word finishes the sentence? I ate … egg.",
   "sentence": "I ate ___ egg.",
   "choices": [
    "an",
@@ -304,7 +325,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -312,9 +333,10 @@ export const questions = [
   "sentenceText": "I ate ___ egg.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-an-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -325,7 +347,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "a egg — THE a/an error"
+  "notes": "a egg — THE a/an error",
+  "imagePath": "/images/assessment/hfw/an.webp",
+  "imageUrl": "/images/assessment/hfw/an.webp",
+  "targetImage": "/images/assessment/hfw/an.webp",
+  "targetImagePath": "/images/assessment/hfw/an.webp",
+  "resolvedImageAssetKey": "an",
+  "imageAlt": "I ate an egg."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.an.v2",
@@ -349,20 +377,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "She saw ___ owl at dusk.",
   "question": "She saw ___ owl at dusk.",
-  "spokenPrompt": "Which word finishes the sentence? She saw hmm owl at dusk.",
+  "spokenPrompt": "Which word finishes the sentence? She saw … owl at dusk.",
   "sentence": "She saw ___ owl at dusk.",
   "choices": [
-   "an",
    "a",
    "the",
-   "that"
+   "that",
+   "an"
   ],
   "answerOptions": [
-   {
-    "value": "an",
-    "label": "an",
-    "text": "an"
-   },
    {
     "value": "a",
     "label": "a",
@@ -377,6 +400,11 @@ export const questions = [
     "value": "that",
     "label": "that",
     "text": "that"
+   },
+   {
+    "value": "an",
+    "label": "an",
+    "text": "an"
    }
   ],
   "answer": "an",
@@ -386,7 +414,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "that": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -394,9 +422,10 @@ export const questions = [
   "sentenceText": "She saw ___ owl at dusk.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-an-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -407,7 +436,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/an.webp",
+  "imageUrl": "/images/assessment/hfw/an.webp",
+  "targetImage": "/images/assessment/hfw/an.webp",
+  "targetImagePath": "/images/assessment/hfw/an.webp",
+  "resolvedImageAssetKey": "an",
+  "imageAlt": "She saw an owl at dusk."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.an.v3",
@@ -433,22 +468,12 @@ export const questions = [
   "question": "Find the word: an",
   "spokenPrompt": "an. Find the word an.",
   "choices": [
-   "an",
-   "and",
    "on",
-   "in"
+   "in",
+   "an",
+   "and"
   ],
   "answerOptions": [
-   {
-    "value": "an",
-    "label": "an",
-    "text": "an"
-   },
-   {
-    "value": "and",
-    "label": "and",
-    "text": "and"
-   },
    {
     "value": "on",
     "label": "on",
@@ -458,6 +483,16 @@ export const questions = [
     "value": "in",
     "label": "in",
     "text": "in"
+   },
+   {
+    "value": "an",
+    "label": "an",
+    "text": "an"
+   },
+   {
+    "value": "and",
+    "label": "and",
+    "text": "and"
    }
   ],
   "answer": "an",
@@ -467,16 +502,17 @@ export const questions = [
    "on": "D-VISUAL-NEIGHBOR",
    "in": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-an-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -487,7 +523,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/an.webp",
+  "imageUrl": "/images/assessment/hfw/an.webp",
+  "targetImage": "/images/assessment/hfw/an.webp",
+  "targetImagePath": "/images/assessment/hfw/an.webp",
+  "resolvedImageAssetKey": "an",
+  "imageAlt": "Find the word: an"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.but.v1",
@@ -511,15 +553,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "I ran fast, ___ I missed the bus.",
   "question": "I ran fast, ___ I missed the bus.",
-  "spokenPrompt": "Which word finishes the sentence? I ran fast, hmm I missed the bus.",
+  "spokenPrompt": "Which word finishes the sentence? I ran fast, … I missed the bus.",
   "sentence": "I ran fast, ___ I missed the bus.",
   "choices": [
+   "if",
    "but",
    "and",
-   "or",
-   "if"
+   "or"
   ],
   "answerOptions": [
+   {
+    "value": "if",
+    "label": "if",
+    "text": "if"
+   },
    {
     "value": "but",
     "label": "but",
@@ -534,11 +581,6 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
-   },
-   {
-    "value": "if",
-    "label": "if",
-    "text": "if"
    }
   ],
   "answer": "but",
@@ -548,7 +590,7 @@ export const questions = [
    "or": "D-FUNCTION-SWAP",
    "if": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -556,9 +598,10 @@ export const questions = [
   "sentenceText": "I ran fast, ___ I missed the bus.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-but-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -569,7 +612,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/but.webp",
+  "imageUrl": "/images/assessment/hfw/but.webp",
+  "targetImage": "/images/assessment/hfw/but.webp",
+  "targetImagePath": "/images/assessment/hfw/but.webp",
+  "resolvedImageAssetKey": "but",
+  "imageAlt": "I ran fast, but I missed the bus."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.but.v2",
@@ -593,7 +642,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The sun is out, ___ it is cold.",
   "question": "The sun is out, ___ it is cold.",
-  "spokenPrompt": "Which word finishes the sentence? The sun is out, hmm it is cold.",
+  "spokenPrompt": "Which word finishes the sentence? The sun is out, … it is cold.",
   "sentence": "The sun is out, ___ it is cold.",
   "choices": [
    "but",
@@ -626,11 +675,11 @@ export const questions = [
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {
-   "and": "D-FUNCTION-SWAP",
    "when": "D-FUNCTION-SWAP",
-   "or": "D-FUNCTION-SWAP"
+   "or": "D-FUNCTION-SWAP",
+   "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -638,9 +687,10 @@ export const questions = [
   "sentenceText": "The sun is out, ___ it is cold.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-but-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -651,7 +701,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/but.webp",
+  "imageUrl": "/images/assessment/hfw/but.webp",
+  "targetImage": "/images/assessment/hfw/but.webp",
+  "targetImagePath": "/images/assessment/hfw/but.webp",
+  "resolvedImageAssetKey": "but",
+  "imageAlt": "The sun is out, but it is cold."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.but.v3",
@@ -677,17 +733,12 @@ export const questions = [
   "question": "Find the word: but",
   "spokenPrompt": "but. Find the word but.",
   "choices": [
-   "but",
    "bat",
    "bus",
-   "cut"
+   "cut",
+   "but"
   ],
   "answerOptions": [
-   {
-    "value": "but",
-    "label": "but",
-    "text": "but"
-   },
    {
     "value": "bat",
     "label": "bat",
@@ -702,6 +753,11 @@ export const questions = [
     "value": "cut",
     "label": "cut",
     "text": "cut"
+   },
+   {
+    "value": "but",
+    "label": "but",
+    "text": "but"
    }
   ],
   "answer": "but",
@@ -711,16 +767,17 @@ export const questions = [
    "bus": "D-VISUAL-NEIGHBOR",
    "cut": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-but-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -731,7 +788,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/but.webp",
+  "imageUrl": "/images/assessment/hfw/but.webp",
+  "targetImage": "/images/assessment/hfw/but.webp",
+  "targetImagePath": "/images/assessment/hfw/but.webp",
+  "resolvedImageAssetKey": "but",
+  "imageAlt": "Find the word: but"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.by.v1",
@@ -755,25 +818,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The nest is ___ the gate.",
   "question": "The nest is ___ the gate.",
-  "spokenPrompt": "Which word finishes the sentence? The nest is hmm the gate.",
+  "spokenPrompt": "Which word finishes the sentence? The nest is … the gate.",
   "sentence": "The nest is ___ the gate.",
   "choices": [
-   "by",
-   "at",
    "on",
-   "in"
+   "in",
+   "by",
+   "at"
   ],
   "answerOptions": [
-   {
-    "value": "by",
-    "label": "by",
-    "text": "by"
-   },
-   {
-    "value": "at",
-    "label": "at",
-    "text": "at"
-   },
    {
     "value": "on",
     "label": "on",
@@ -783,16 +836,26 @@ export const questions = [
     "value": "in",
     "label": "in",
     "text": "in"
+   },
+   {
+    "value": "by",
+    "label": "by",
+    "text": "by"
+   },
+   {
+    "value": "at",
+    "label": "at",
+    "text": "at"
    }
   ],
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {
-   "at": "D-FUNCTION-SWAP",
    "on": "D-FUNCTION-SWAP",
-   "in": "D-FUNCTION-SWAP"
+   "in": "D-FUNCTION-SWAP",
+   "at": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -800,9 +863,10 @@ export const questions = [
   "sentenceText": "The nest is ___ the gate.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-by-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -813,7 +877,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/by.webp",
+  "imageUrl": "/images/assessment/hfw/by.webp",
+  "targetImage": "/images/assessment/hfw/by.webp",
+  "targetImagePath": "/images/assessment/hfw/by.webp",
+  "resolvedImageAssetKey": "by",
+  "imageAlt": "The nest is by the gate."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.by.v2",
@@ -837,15 +907,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We sat ___ the pond.",
   "question": "We sat ___ the pond.",
-  "spokenPrompt": "Which word finishes the sentence? We sat hmm the pond.",
+  "spokenPrompt": "Which word finishes the sentence? We sat … the pond.",
   "sentence": "We sat ___ the pond.",
   "choices": [
+   "at",
    "by",
    "on",
-   "with",
-   "at"
+   "with"
   ],
   "answerOptions": [
+   {
+    "value": "at",
+    "label": "at",
+    "text": "at"
+   },
    {
     "value": "by",
     "label": "by",
@@ -860,21 +935,16 @@ export const questions = [
     "value": "with",
     "label": "with",
     "text": "with"
-   },
-   {
-    "value": "at",
-    "label": "at",
-    "text": "at"
    }
   ],
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
    "with": "D-DEVELOPMENTAL",
-   "at": "D-FUNCTION-SWAP"
+   "at": "D-FUNCTION-SWAP",
+   "on": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -882,9 +952,10 @@ export const questions = [
   "sentenceText": "We sat ___ the pond.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-by-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -895,7 +966,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/by.webp",
+  "imageUrl": "/images/assessment/hfw/by.webp",
+  "targetImage": "/images/assessment/hfw/by.webp",
+  "targetImagePath": "/images/assessment/hfw/by.webp",
+  "resolvedImageAssetKey": "by",
+  "imageAlt": "We sat by the pond."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.by.v3",
@@ -951,20 +1028,21 @@ export const questions = [
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {
-   "my": "D-VISUAL-NEIGHBOR",
    "buy": "D-HOMOPHONE",
-   "be": "D-VISUAL-NEIGHBOR"
+   "be": "D-VISUAL-NEIGHBOR",
+   "my": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-by-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -975,7 +1053,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/by.webp",
+  "imageUrl": "/images/assessment/hfw/by.webp",
+  "targetImage": "/images/assessment/hfw/by.webp",
+  "targetImagePath": "/images/assessment/hfw/by.webp",
+  "resolvedImageAssetKey": "by",
+  "imageAlt": "Find the word: by"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.can.v1",
@@ -999,20 +1083,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ you hop like a frog?",
   "question": "___ you hop like a frog?",
-  "spokenPrompt": "Which word finishes the sentence? hmm you hop like a frog?",
+  "spokenPrompt": "Which word finishes the sentence? … you hop like a frog?",
   "sentence": "___ you hop like a frog?",
   "choices": [
-   "can",
    "do",
    "are",
-   "were"
+   "were",
+   "can"
   ],
   "answerOptions": [
-   {
-    "value": "can",
-    "label": "can",
-    "text": "can"
-   },
    {
     "value": "do",
     "label": "do",
@@ -1027,16 +1106,21 @@ export const questions = [
     "value": "were",
     "label": "were",
     "text": "were"
+   },
+   {
+    "value": "can",
+    "label": "can",
+    "text": "can"
    }
   ],
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {
+   "were": "D-DEVELOPMENTAL",
    "do": "D-FUNCTION-SWAP",
-   "are": "D-DEVELOPMENTAL",
-   "were": "D-DEVELOPMENTAL"
+   "are": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1044,9 +1128,10 @@ export const questions = [
   "sentenceText": "___ you hop like a frog?",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1057,7 +1142,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "can you hop like a frog?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.can.v2",
@@ -1081,25 +1172,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The twins ___ swim fast.",
   "question": "The twins ___ swim fast.",
-  "spokenPrompt": "Which word finishes the sentence? The twins hmm swim fast.",
+  "spokenPrompt": "Which word finishes the sentence? The twins … swim fast.",
   "sentence": "The twins ___ swim fast.",
   "choices": [
-   "can",
-   "had",
    "are",
-   "said"
+   "said",
+   "can",
+   "had"
   ],
   "answerOptions": [
-   {
-    "value": "can",
-    "label": "can",
-    "text": "can"
-   },
-   {
-    "value": "had",
-    "label": "had",
-    "text": "had"
-   },
    {
     "value": "are",
     "label": "are",
@@ -1109,6 +1190,16 @@ export const questions = [
     "value": "said",
     "label": "said",
     "text": "said"
+   },
+   {
+    "value": "can",
+    "label": "can",
+    "text": "can"
+   },
+   {
+    "value": "had",
+    "label": "had",
+    "text": "had"
    }
   ],
   "answer": "can",
@@ -1118,7 +1209,7 @@ export const questions = [
    "are": "D-DEVELOPMENTAL",
    "said": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1126,9 +1217,10 @@ export const questions = [
   "sentenceText": "The twins ___ swim fast.",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1139,7 +1231,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "do stays out — the twins do swim fast would be a second key"
+  "notes": "do stays out — the twins do swim fast would be a second key",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "The twins can swim fast."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.can.v3",
@@ -1165,12 +1263,17 @@ export const questions = [
   "question": "Find the word: can",
   "spokenPrompt": "can. Find the word can.",
   "choices": [
+   "ran",
    "can",
    "cat",
-   "cap",
-   "ran"
+   "cap"
   ],
   "answerOptions": [
+   {
+    "value": "ran",
+    "label": "ran",
+    "text": "ran"
+   },
    {
     "value": "can",
     "label": "can",
@@ -1185,30 +1288,26 @@ export const questions = [
     "value": "cap",
     "label": "cap",
     "text": "cap"
-   },
-   {
-    "value": "ran",
-    "label": "ran",
-    "text": "ran"
    }
   ],
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {
+   "ran": "D-VISUAL-NEIGHBOR",
    "cat": "D-VISUAL-NEIGHBOR",
-   "cap": "D-VISUAL-NEIGHBOR",
-   "ran": "D-VISUAL-NEIGHBOR"
+   "cap": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1219,7 +1318,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "Find the word: can"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.do.v1",
@@ -1243,7 +1348,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ you like plums?",
   "question": "___ you like plums?",
-  "spokenPrompt": "Which word finishes the sentence? hmm you like plums?",
+  "spokenPrompt": "Which word finishes the sentence? … you like plums?",
   "sentence": "___ you like plums?",
   "choices": [
    "do",
@@ -1276,11 +1381,11 @@ export const questions = [
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {
-   "can": "D-FUNCTION-SWAP",
    "had": "D-DEVELOPMENTAL",
-   "is": "D-DEVELOPMENTAL"
+   "is": "D-DEVELOPMENTAL",
+   "can": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1288,9 +1393,10 @@ export const questions = [
   "sentenceText": "___ you like plums?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-do-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1301,7 +1407,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/like.webp",
+  "imageUrl": "/images/assessment/hfw/like.webp",
+  "targetImage": "/images/assessment/hfw/like.webp",
+  "targetImagePath": "/images/assessment/hfw/like.webp",
+  "resolvedImageAssetKey": "like",
+  "imageAlt": "do you like plums?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.do.v2",
@@ -1325,20 +1437,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "What ___ cows eat?",
   "question": "What ___ cows eat?",
-  "spokenPrompt": "Which word finishes the sentence? What hmm cows eat?",
+  "spokenPrompt": "Which word finishes the sentence? What … cows eat?",
   "sentence": "What ___ cows eat?",
   "choices": [
-   "do",
    "can",
    "are",
-   "had"
+   "had",
+   "do"
   ],
   "answerOptions": [
-   {
-    "value": "do",
-    "label": "do",
-    "text": "do"
-   },
    {
     "value": "can",
     "label": "can",
@@ -1353,16 +1460,21 @@ export const questions = [
     "value": "had",
     "label": "had",
     "text": "had"
+   },
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
    }
   ],
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {
-   "can": "D-FUNCTION-SWAP",
    "are": "D-DEVELOPMENTAL",
-   "had": "D-DEVELOPMENTAL"
+   "had": "D-DEVELOPMENTAL",
+   "can": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1370,9 +1482,10 @@ export const questions = [
   "sentenceText": "What ___ cows eat?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-do-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1383,7 +1496,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
+  "resolvedImageAssetKey": "cows",
+  "imageAlt": "What do cows eat?"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.do.v3",
@@ -1409,22 +1528,12 @@ export const questions = [
   "question": "Find the word: do",
   "spokenPrompt": "do. Find the word do.",
   "choices": [
-   "do",
-   "to",
    "go",
-   "dot"
+   "dot",
+   "do",
+   "to"
   ],
   "answerOptions": [
-   {
-    "value": "do",
-    "label": "do",
-    "text": "do"
-   },
-   {
-    "value": "to",
-    "label": "to",
-    "text": "to"
-   },
    {
     "value": "go",
     "label": "go",
@@ -1434,25 +1543,36 @@ export const questions = [
     "value": "dot",
     "label": "dot",
     "text": "dot"
+   },
+   {
+    "value": "do",
+    "label": "do",
+    "text": "do"
+   },
+   {
+    "value": "to",
+    "label": "to",
+    "text": "to"
    }
   ],
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {
-   "to": "D-VISUAL-NEIGHBOR",
    "go": "D-VISUAL-NEIGHBOR",
-   "dot": "D-VISUAL-NEIGHBOR"
+   "dot": "D-VISUAL-NEIGHBOR",
+   "to": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-do-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1463,7 +1583,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/find.webp",
+  "imageUrl": "/images/assessment/hfw/find.webp",
+  "targetImage": "/images/assessment/hfw/find.webp",
+  "targetImagePath": "/images/assessment/hfw/find.webp",
+  "resolvedImageAssetKey": "find",
+  "imageAlt": "Find the word: do"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.each.v1",
@@ -1487,15 +1613,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ kid got a badge.",
   "question": "___ kid got a badge.",
-  "spokenPrompt": "Which word finishes the sentence? hmm kid got a badge.",
+  "spokenPrompt": "Which word finishes the sentence? … kid got a badge.",
   "sentence": "___ kid got a badge.",
   "choices": [
+   "the",
    "each",
    "one",
-   "all",
-   "the"
+   "all"
   ],
   "answerOptions": [
+   {
+    "value": "the",
+    "label": "the",
+    "text": "the"
+   },
    {
     "value": "each",
     "label": "each",
@@ -1510,21 +1641,16 @@ export const questions = [
     "value": "all",
     "label": "all",
     "text": "all"
-   },
-   {
-    "value": "the",
-    "label": "the",
-    "text": "the"
    }
   ],
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {
-   "one": "D-FUNCTION-SWAP",
    "all": "D-DEVELOPMENTAL",
-   "the": "D-FUNCTION-SWAP"
+   "the": "D-FUNCTION-SWAP",
+   "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1532,9 +1658,10 @@ export const questions = [
   "sentenceText": "___ kid got a badge.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-each-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1545,7 +1672,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "all kid — the agreement slip children make"
+  "notes": "all kid — the agreement slip children make",
+  "imagePath": "/images/child-mode/initial-sounds/kid.png",
+  "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+  "targetImage": "/images/child-mode/initial-sounds/kid.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/kid.png",
+  "resolvedImageAssetKey": "kid",
+  "imageAlt": "each kid got a badge."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.each.v2",
@@ -1569,7 +1702,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Put a cup at ___ desk.",
   "question": "Put a cup at ___ desk.",
-  "spokenPrompt": "Which word finishes the sentence? Put a cup at hmm desk.",
+  "spokenPrompt": "Which word finishes the sentence? Put a cup at … desk.",
   "sentence": "Put a cup at ___ desk.",
   "choices": [
    "each",
@@ -1602,11 +1735,11 @@ export const questions = [
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {
-   "one": "D-FUNCTION-SWAP",
    "all": "D-DEVELOPMENTAL",
-   "that": "D-FUNCTION-SWAP"
+   "that": "D-FUNCTION-SWAP",
+   "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1614,9 +1747,10 @@ export const questions = [
   "sentenceText": "Put a cup at ___ desk.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-each-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1627,7 +1761,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/desk.webp",
+  "imageUrl": "/images/assessment/blends/desk.webp",
+  "targetImage": "/images/assessment/blends/desk.webp",
+  "targetImagePath": "/images/assessment/blends/desk.webp",
+  "resolvedImageAssetKey": "desk",
+  "imageAlt": "Put a cup at each desk."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.each.v3",
@@ -1653,17 +1793,12 @@ export const questions = [
   "question": "Find the word: each",
   "spokenPrompt": "each. Find the word each.",
   "choices": [
-   "each",
    "ear",
    "eat",
-   "teach"
+   "teach",
+   "each"
   ],
   "answerOptions": [
-   {
-    "value": "each",
-    "label": "each",
-    "text": "each"
-   },
    {
     "value": "ear",
     "label": "ear",
@@ -1678,25 +1813,31 @@ export const questions = [
     "value": "teach",
     "label": "teach",
     "text": "teach"
+   },
+   {
+    "value": "each",
+    "label": "each",
+    "text": "each"
    }
   ],
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {
-   "ear": "D-VISUAL-NEIGHBOR",
    "eat": "D-VISUAL-NEIGHBOR",
-   "teach": "D-VISUAL-NEIGHBOR"
+   "teach": "D-VISUAL-NEIGHBOR",
+   "ear": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-each-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1707,7 +1848,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/find.webp",
+  "imageUrl": "/images/assessment/hfw/find.webp",
+  "targetImage": "/images/assessment/hfw/find.webp",
+  "targetImagePath": "/images/assessment/hfw/find.webp",
+  "resolvedImageAssetKey": "find",
+  "imageAlt": "Find the word: each"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.had.v1",
@@ -1731,25 +1878,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Last week we ___ a picnic.",
   "question": "Last week we ___ a picnic.",
-  "spokenPrompt": "Which word finishes the sentence? Last week we hmm a picnic.",
+  "spokenPrompt": "Which word finishes the sentence? Last week we … a picnic.",
   "sentence": "Last week we ___ a picnic.",
   "choices": [
-   "had",
-   "have",
    "has",
-   "do"
+   "do",
+   "had",
+   "have"
   ],
   "answerOptions": [
-   {
-    "value": "had",
-    "label": "had",
-    "text": "had"
-   },
-   {
-    "value": "have",
-    "label": "have",
-    "text": "have"
-   },
    {
     "value": "has",
     "label": "has",
@@ -1759,16 +1896,26 @@ export const questions = [
     "value": "do",
     "label": "do",
     "text": "do"
+   },
+   {
+    "value": "had",
+    "label": "had",
+    "text": "had"
+   },
+   {
+    "value": "have",
+    "label": "have",
+    "text": "have"
    }
   ],
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {
-   "have": "D-FUNCTION-SWAP",
    "has": "D-DEVELOPMENTAL",
-   "do": "D-DEVELOPMENTAL"
+   "do": "D-DEVELOPMENTAL",
+   "have": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1776,9 +1923,10 @@ export const questions = [
   "sentenceText": "Last week we ___ a picnic.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-had-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1789,7 +1937,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "last week pins the past tense; have is the tense slip"
+  "notes": "last week pins the past tense; have is the tense slip",
+  "imagePath": "/images/assessment/hfw/had.webp",
+  "imageUrl": "/images/assessment/hfw/had.webp",
+  "targetImage": "/images/assessment/hfw/had.webp",
+  "targetImagePath": "/images/assessment/hfw/had.webp",
+  "resolvedImageAssetKey": "had",
+  "imageAlt": "Last week we had a picnic."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.had.v2",
@@ -1813,15 +1967,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Gran ___ six cats long ago.",
   "question": "Gran ___ six cats long ago.",
-  "spokenPrompt": "Which word finishes the sentence? Gran hmm six cats long ago.",
+  "spokenPrompt": "Which word finishes the sentence? Gran … six cats long ago.",
   "sentence": "Gran ___ six cats long ago.",
   "choices": [
+   "was",
    "had",
    "has",
-   "have",
-   "was"
+   "have"
   ],
   "answerOptions": [
+   {
+    "value": "was",
+    "label": "was",
+    "text": "was"
+   },
    {
     "value": "had",
     "label": "had",
@@ -1836,11 +1995,6 @@ export const questions = [
     "value": "have",
     "label": "have",
     "text": "have"
-   },
-   {
-    "value": "was",
-    "label": "was",
-    "text": "was"
    }
   ],
   "answer": "had",
@@ -1850,7 +2004,7 @@ export const questions = [
    "have": "D-DEVELOPMENTAL",
    "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1858,9 +2012,10 @@ export const questions = [
   "sentenceText": "Gran ___ six cats long ago.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-had-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1871,7 +2026,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/had.webp",
+  "imageUrl": "/images/assessment/hfw/had.webp",
+  "targetImage": "/images/assessment/hfw/had.webp",
+  "targetImagePath": "/images/assessment/hfw/had.webp",
+  "resolvedImageAssetKey": "had",
+  "imageAlt": "Gran had six cats long ago."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.had.v3",
@@ -1927,20 +2088,21 @@ export const questions = [
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {
-   "has": "D-VISUAL-NEIGHBOR",
    "hat": "D-VISUAL-NEIGHBOR",
-   "bad": "D-VISUAL-NEIGHBOR"
+   "bad": "D-VISUAL-NEIGHBOR",
+   "has": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-had-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1951,7 +2113,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/had.webp",
+  "imageUrl": "/images/assessment/hfw/had.webp",
+  "targetImage": "/images/assessment/hfw/had.webp",
+  "targetImagePath": "/images/assessment/hfw/had.webp",
+  "resolvedImageAssetKey": "had",
+  "imageAlt": "Find the word: had"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.how.v1",
@@ -1975,20 +2143,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ do you make jam?",
   "question": "___ do you make jam?",
-  "spokenPrompt": "Which word finishes the sentence? hmm do you make jam?",
+  "spokenPrompt": "Which word finishes the sentence? … do you make jam?",
   "sentence": "___ do you make jam?",
   "choices": [
-   "how",
    "what",
    "when",
-   "which"
+   "which",
+   "how"
   ],
   "answerOptions": [
-   {
-    "value": "how",
-    "label": "how",
-    "text": "how"
-   },
    {
     "value": "what",
     "label": "what",
@@ -2003,16 +2166,21 @@ export const questions = [
     "value": "which",
     "label": "which",
     "text": "which"
+   },
+   {
+    "value": "how",
+    "label": "how",
+    "text": "how"
    }
   ],
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {
+   "which": "D-FUNCTION-SWAP",
    "what": "D-FUNCTION-SWAP",
-   "when": "D-FUNCTION-SWAP",
-   "which": "D-FUNCTION-SWAP"
+   "when": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2020,9 +2188,10 @@ export const questions = [
   "sentenceText": "___ do you make jam?",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-how-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2033,7 +2202,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "how do you make jam?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.how.v2",
@@ -2057,25 +2232,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Tell me ___ the trick works.",
   "question": "Tell me ___ the trick works.",
-  "spokenPrompt": "Which word finishes the sentence? Tell me hmm the trick works.",
+  "spokenPrompt": "Which word finishes the sentence? Tell me … the trick works.",
   "sentence": "Tell me ___ the trick works.",
   "choices": [
-   "how",
-   "when",
    "what",
-   "if"
+   "if",
+   "how",
+   "when"
   ],
   "answerOptions": [
-   {
-    "value": "how",
-    "label": "how",
-    "text": "how"
-   },
-   {
-    "value": "when",
-    "label": "when",
-    "text": "when"
-   },
    {
     "value": "what",
     "label": "what",
@@ -2085,6 +2250,16 @@ export const questions = [
     "value": "if",
     "label": "if",
     "text": "if"
+   },
+   {
+    "value": "how",
+    "label": "how",
+    "text": "how"
+   },
+   {
+    "value": "when",
+    "label": "when",
+    "text": "when"
    }
   ],
   "answer": "how",
@@ -2094,7 +2269,7 @@ export const questions = [
    "what": "D-DEVELOPMENTAL",
    "if": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2102,9 +2277,10 @@ export const questions = [
   "sentenceText": "Tell me ___ the trick works.",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-how-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2115,7 +2291,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "Tell me how the trick works."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.how.v3",
@@ -2141,12 +2323,17 @@ export const questions = [
   "question": "Find the word: how",
   "spokenPrompt": "how. Find the word how.",
   "choices": [
+   "cow",
    "how",
    "who",
-   "now",
-   "cow"
+   "now"
   ],
   "answerOptions": [
+   {
+    "value": "cow",
+    "label": "cow",
+    "text": "cow"
+   },
    {
     "value": "how",
     "label": "how",
@@ -2161,30 +2348,26 @@ export const questions = [
     "value": "now",
     "label": "now",
     "text": "now"
-   },
-   {
-    "value": "cow",
-    "label": "cow",
-    "text": "cow"
    }
   ],
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {
+   "cow": "D-VISUAL-NEIGHBOR",
    "who": "D-VISUAL-NEIGHBOR",
-   "now": "D-VISUAL-NEIGHBOR",
-   "cow": "D-VISUAL-NEIGHBOR"
+   "now": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-how-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2195,7 +2378,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "Find the word: how"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.if.v1",
@@ -2219,7 +2408,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Ask me ___ you get stuck.",
   "question": "Ask me ___ you get stuck.",
-  "spokenPrompt": "Which word finishes the sentence? Ask me hmm you get stuck.",
+  "spokenPrompt": "Which word finishes the sentence? Ask me … you get stuck.",
   "sentence": "Ask me ___ you get stuck.",
   "choices": [
    "if",
@@ -2256,7 +2445,7 @@ export const questions = [
    "and": "D-FUNCTION-SWAP",
    "but": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2264,9 +2453,10 @@ export const questions = [
   "sentenceText": "Ask me ___ you get stuck.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-if-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2277,7 +2467,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/if.webp",
+  "imageUrl": "/images/assessment/generated/concepts/if.webp",
+  "targetImage": "/images/assessment/generated/concepts/if.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
+  "resolvedImageAssetKey": "if",
+  "imageAlt": "Ask me if you get stuck."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.if.v2",
@@ -2301,20 +2497,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ it rains, we stay in.",
   "question": "___ it rains, we stay in.",
-  "spokenPrompt": "Which word finishes the sentence? hmm it rains, we stay in.",
+  "spokenPrompt": "Which word finishes the sentence? … it rains, we stay in.",
   "sentence": "___ it rains, we stay in.",
   "choices": [
-   "if",
    "when",
    "but",
-   "as"
+   "as",
+   "if"
   ],
   "answerOptions": [
-   {
-    "value": "if",
-    "label": "if",
-    "text": "if"
-   },
    {
     "value": "when",
     "label": "when",
@@ -2329,6 +2520,11 @@ export const questions = [
     "value": "as",
     "label": "as",
     "text": "as"
+   },
+   {
+    "value": "if",
+    "label": "if",
+    "text": "if"
    }
   ],
   "answer": "if",
@@ -2338,7 +2534,7 @@ export const questions = [
    "but": "D-DEVELOPMENTAL",
    "as": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2346,9 +2542,10 @@ export const questions = [
   "sentenceText": "___ it rains, we stay in.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-if-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2359,7 +2556,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/if.webp",
+  "imageUrl": "/images/assessment/generated/concepts/if.webp",
+  "targetImage": "/images/assessment/generated/concepts/if.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
+  "resolvedImageAssetKey": "if",
+  "imageAlt": "if it rains, we stay in."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.if.v3",
@@ -2385,22 +2588,12 @@ export const questions = [
   "question": "Find the word: if",
   "spokenPrompt": "if. Find the word if.",
   "choices": [
-   "if",
-   "is",
    "it",
-   "in"
+   "in",
+   "if",
+   "is"
   ],
   "answerOptions": [
-   {
-    "value": "if",
-    "label": "if",
-    "text": "if"
-   },
-   {
-    "value": "is",
-    "label": "is",
-    "text": "is"
-   },
    {
     "value": "it",
     "label": "it",
@@ -2410,6 +2603,16 @@ export const questions = [
     "value": "in",
     "label": "in",
     "text": "in"
+   },
+   {
+    "value": "if",
+    "label": "if",
+    "text": "if"
+   },
+   {
+    "value": "is",
+    "label": "is",
+    "text": "is"
    }
   ],
   "answer": "if",
@@ -2419,16 +2622,17 @@ export const questions = [
    "it": "D-VISUAL-NEIGHBOR",
    "in": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-if-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2439,7 +2643,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/generated/concepts/if.webp",
+  "imageUrl": "/images/assessment/generated/concepts/if.webp",
+  "targetImage": "/images/assessment/generated/concepts/if.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
+  "resolvedImageAssetKey": "if",
+  "imageAlt": "Find the word: if"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.not.v1",
@@ -2463,15 +2673,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The sums are ___ hard — they are easy!",
   "question": "The sums are ___ hard — they are easy!",
-  "spokenPrompt": "Which word finishes the sentence? The sums are hmm hard — they are easy!",
+  "spokenPrompt": "Which word finishes the sentence? The sums are … hard — they are easy!",
   "sentence": "The sums are ___ hard — they are easy!",
   "choices": [
+   "very",
    "not",
    "all",
-   "that",
-   "very"
+   "that"
   ],
   "answerOptions": [
+   {
+    "value": "very",
+    "label": "very",
+    "text": "very"
+   },
    {
     "value": "not",
     "label": "not",
@@ -2486,21 +2701,16 @@ export const questions = [
     "value": "that",
     "label": "that",
     "text": "that"
-   },
-   {
-    "value": "very",
-    "label": "very",
-    "text": "very"
    }
   ],
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {
-   "all": "D-DEVELOPMENTAL",
    "that": "D-FUNCTION-SWAP",
-   "very": "D-FUNCTION-SWAP"
+   "very": "D-FUNCTION-SWAP",
+   "all": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2508,9 +2718,10 @@ export const questions = [
   "sentenceText": "The sums are ___ hard — they are easy!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-not-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2521,7 +2732,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the easy tag pins not"
+  "notes": "the easy tag pins not",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "The sums are not hard — they are easy!"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.not.v2",
@@ -2545,7 +2762,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "That is ___ my hat!",
   "question": "That is ___ my hat!",
-  "spokenPrompt": "Which word finishes the sentence? That is hmm my hat!",
+  "spokenPrompt": "Which word finishes the sentence? That is … my hat!",
   "sentence": "That is ___ my hat!",
   "choices": [
    "not",
@@ -2582,7 +2799,7 @@ export const questions = [
    "all": "D-DEVELOPMENTAL",
    "for": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2590,9 +2807,10 @@ export const questions = [
   "sentenceText": "That is ___ my hat!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-not-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2603,7 +2821,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "now is the not/now slip"
+  "notes": "now is the not/now slip",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "That is not my hat!"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.not.v3",
@@ -2629,17 +2853,12 @@ export const questions = [
   "question": "Find the word: not",
   "spokenPrompt": "not. Find the word not.",
   "choices": [
-   "not",
    "now",
    "nut",
-   "hot"
+   "hot",
+   "not"
   ],
   "answerOptions": [
-   {
-    "value": "not",
-    "label": "not",
-    "text": "not"
-   },
    {
     "value": "now",
     "label": "now",
@@ -2654,25 +2873,31 @@ export const questions = [
     "value": "hot",
     "label": "hot",
     "text": "hot"
+   },
+   {
+    "value": "not",
+    "label": "not",
+    "text": "not"
    }
   ],
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {
-   "now": "D-VISUAL-NEIGHBOR",
    "nut": "D-VISUAL-NEIGHBOR",
-   "hot": "D-VISUAL-NEIGHBOR"
+   "hot": "D-VISUAL-NEIGHBOR",
+   "now": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-not-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2683,7 +2908,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Find the word: not"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.one.v1",
@@ -2707,25 +2938,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "I have just ___ wish.",
   "question": "I have just ___ wish.",
-  "spokenPrompt": "Which word finishes the sentence? I have just hmm wish.",
+  "spokenPrompt": "Which word finishes the sentence? I have just … wish.",
   "sentence": "I have just ___ wish.",
   "choices": [
-   "one",
-   "a",
    "an",
-   "each"
+   "each",
+   "one",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "one",
-    "label": "one",
-    "text": "one"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "an",
     "label": "an",
@@ -2735,6 +2956,16 @@ export const questions = [
     "value": "each",
     "label": "each",
     "text": "each"
+   },
+   {
+    "value": "one",
+    "label": "one",
+    "text": "one"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "one",
@@ -2744,7 +2975,7 @@ export const questions = [
    "an": "D-DEVELOPMENTAL",
    "each": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2752,9 +2983,10 @@ export const questions = [
   "sentenceText": "I have just ___ wish.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2765,7 +2997,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "I have just one wish."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.one.v2",
@@ -2789,15 +3027,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ duck swam off; two stayed.",
   "question": "___ duck swam off; two stayed.",
-  "spokenPrompt": "Which word finishes the sentence? hmm duck swam off; two stayed.",
+  "spokenPrompt": "Which word finishes the sentence? … duck swam off; two stayed.",
   "sentence": "___ duck swam off; two stayed.",
   "choices": [
+   "all",
    "one",
    "a",
-   "each",
-   "all"
+   "each"
   ],
   "answerOptions": [
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
+   },
    {
     "value": "one",
     "label": "one",
@@ -2812,21 +3055,16 @@ export const questions = [
     "value": "each",
     "label": "each",
     "text": "each"
-   },
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
    }
   ],
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {
+   "all": "D-DEVELOPMENTAL",
    "a": "D-FUNCTION-SWAP",
-   "each": "D-FUNCTION-SWAP",
-   "all": "D-DEVELOPMENTAL"
+   "each": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2834,9 +3072,10 @@ export const questions = [
   "sentenceText": "___ duck swam off; two stayed.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2847,7 +3086,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "one duck swam off; two stayed."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.one.v3",
@@ -2907,16 +3152,17 @@ export const questions = [
    "own": "D-VISUAL-NEIGHBOR",
    "once": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2927,7 +3173,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "Find the word: one"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.or.v1",
@@ -2951,20 +3203,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Do you want jam ___ ham?",
   "question": "Do you want jam ___ ham?",
-  "spokenPrompt": "Which word finishes the sentence? Do you want jam hmm ham?",
+  "spokenPrompt": "Which word finishes the sentence? Do you want jam … ham?",
   "sentence": "Do you want jam ___ ham?",
   "choices": [
-   "or",
    "and",
    "but",
-   "not"
+   "not",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "and",
     "label": "and",
@@ -2979,16 +3226,21 @@ export const questions = [
     "value": "not",
     "label": "not",
     "text": "not"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "and": "D-FUNCTION-SWAP",
    "but": "D-DEVELOPMENTAL",
-   "not": "D-FUNCTION-SWAP"
+   "not": "D-FUNCTION-SWAP",
+   "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2996,9 +3248,10 @@ export const questions = [
   "sentenceText": "Do you want jam ___ ham?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-or-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3009,7 +3262,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
+  "resolvedImageAssetKey": "want",
+  "imageAlt": "Do you want jam or ham?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.or.v2",
@@ -3033,25 +3292,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Is the cup full ___ empty?",
   "question": "Is the cup full ___ empty?",
-  "spokenPrompt": "Which word finishes the sentence? Is the cup full hmm empty?",
+  "spokenPrompt": "Which word finishes the sentence? Is the cup full … empty?",
   "sentence": "Is the cup full ___ empty?",
   "choices": [
-   "or",
-   "and",
    "as",
-   "if"
+   "if",
+   "or",
+   "and"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
-   {
-    "value": "and",
-    "label": "and",
-    "text": "and"
-   },
    {
     "value": "as",
     "label": "as",
@@ -3061,16 +3310,26 @@ export const questions = [
     "value": "if",
     "label": "if",
     "text": "if"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "and",
+    "label": "and",
+    "text": "and"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "and": "D-FUNCTION-SWAP",
    "as": "D-DEVELOPMENTAL",
-   "if": "D-DEVELOPMENTAL"
+   "if": "D-DEVELOPMENTAL",
+   "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3078,9 +3337,10 @@ export const questions = [
   "sentenceText": "Is the cup full ___ empty?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-or-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3091,7 +3351,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "empty",
+  "imageAlt": "Is the cup full or empty?"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.or.v3",
@@ -3117,12 +3383,17 @@ export const questions = [
   "question": "Find the word: or",
   "spokenPrompt": "or. Find the word or.",
   "choices": [
+   "on",
    "or",
    "of",
-   "for",
-   "on"
+   "for"
   ],
   "answerOptions": [
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   },
    {
     "value": "or",
     "label": "or",
@@ -3137,30 +3408,26 @@ export const questions = [
     "value": "for",
     "label": "for",
     "text": "for"
-   },
-   {
-    "value": "on",
-    "label": "on",
-    "text": "on"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "of": "D-VISUAL-NEIGHBOR",
    "for": "D-VISUAL-NEIGHBOR",
-   "on": "D-VISUAL-NEIGHBOR"
+   "on": "D-VISUAL-NEIGHBOR",
+   "of": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-or-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3171,7 +3438,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/find.webp",
+  "imageUrl": "/images/assessment/hfw/find.webp",
+  "targetImage": "/images/assessment/hfw/find.webp",
+  "targetImagePath": "/images/assessment/hfw/find.webp",
+  "resolvedImageAssetKey": "find",
+  "imageAlt": "Find the word: or"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.said.v1",
@@ -3195,7 +3468,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Mum ___ we can camp!",
   "question": "Mum ___ we can camp!",
-  "spokenPrompt": "Which word finishes the sentence? Mum hmm we can camp!",
+  "spokenPrompt": "Which word finishes the sentence? Mum … we can camp!",
   "sentence": "Mum ___ we can camp!",
   "choices": [
    "said",
@@ -3228,11 +3501,11 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {
-   "says": "D-FUNCTION-SWAP",
    "sad": "D-VISUAL-NEIGHBOR",
-   "saw": "D-VISUAL-NEIGHBOR"
+   "saw": "D-VISUAL-NEIGHBOR",
+   "says": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3240,9 +3513,10 @@ export const questions = [
   "sentenceText": "Mum ___ we can camp!",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3253,7 +3527,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sad is the said/sad slip; saw parses and reverses the meaning"
+  "notes": "sad is the said/sad slip; saw parses and reverses the meaning",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Mum said we can camp!"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.said.v2",
@@ -3277,20 +3557,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Dad ___ yes at last.",
   "question": "Dad ___ yes at last.",
-  "spokenPrompt": "Which word finishes the sentence? Dad hmm yes at last.",
+  "spokenPrompt": "Which word finishes the sentence? Dad … yes at last.",
   "sentence": "Dad ___ yes at last.",
   "choices": [
-   "said",
    "says",
    "sad",
-   "had"
+   "had",
+   "said"
   ],
   "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   },
    {
     "value": "says",
     "label": "says",
@@ -3305,16 +3580,21 @@ export const questions = [
     "value": "had",
     "label": "had",
     "text": "had"
+   },
+   {
+    "value": "said",
+    "label": "said",
+    "text": "said"
    }
   ],
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {
-   "says": "D-FUNCTION-SWAP",
    "sad": "D-VISUAL-NEIGHBOR",
-   "had": "D-DEVELOPMENTAL"
+   "had": "D-DEVELOPMENTAL",
+   "says": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3322,9 +3602,10 @@ export const questions = [
   "sentenceText": "Dad ___ yes at last.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3335,7 +3616,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Dad said yes at last."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.said.v3",
@@ -3361,22 +3648,12 @@ export const questions = [
   "question": "Find the word: said",
   "spokenPrompt": "said. Find the word said.",
   "choices": [
-   "said",
-   "sad",
    "says",
-   "sand"
+   "sand",
+   "said",
+   "sad"
   ],
   "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   },
-   {
-    "value": "sad",
-    "label": "sad",
-    "text": "sad"
-   },
    {
     "value": "says",
     "label": "says",
@@ -3386,25 +3663,36 @@ export const questions = [
     "value": "sand",
     "label": "sand",
     "text": "sand"
+   },
+   {
+    "value": "said",
+    "label": "said",
+    "text": "said"
+   },
+   {
+    "value": "sad",
+    "label": "sad",
+    "text": "sad"
    }
   ],
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {
-   "sad": "D-VISUAL-NEIGHBOR",
    "says": "D-VISUAL-NEIGHBOR",
-   "sand": "D-VISUAL-NEIGHBOR"
+   "sand": "D-VISUAL-NEIGHBOR",
+   "sad": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3415,7 +3703,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Find the word: said"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.she.v1",
@@ -3439,15 +3733,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "My aunt naps when ___ can.",
   "question": "My aunt naps when ___ can.",
-  "spokenPrompt": "Which word finishes the sentence? My aunt naps when hmm can.",
+  "spokenPrompt": "Which word finishes the sentence? My aunt naps when … can.",
   "sentence": "My aunt naps when ___ can.",
   "choices": [
+   "it",
    "she",
    "he",
-   "we",
-   "it"
+   "we"
   ],
   "answerOptions": [
+   {
+    "value": "it",
+    "label": "it",
+    "text": "it"
+   },
    {
     "value": "she",
     "label": "she",
@@ -3462,21 +3761,16 @@ export const questions = [
     "value": "we",
     "label": "we",
     "text": "we"
-   },
-   {
-    "value": "it",
-    "label": "it",
-    "text": "it"
    }
   ],
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {
+   "it": "D-FUNCTION-SWAP",
    "he": "D-FUNCTION-SWAP",
-   "we": "D-DEVELOPMENTAL",
-   "it": "D-FUNCTION-SWAP"
+   "we": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3484,9 +3778,10 @@ export const questions = [
   "sentenceText": "My aunt naps when ___ can.",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-she-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3497,7 +3792,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the aunt pins she"
+  "notes": "the aunt pins she",
+  "imagePath": "/images/assessment/hfw/she.webp",
+  "imageUrl": "/images/assessment/hfw/she.webp",
+  "targetImage": "/images/assessment/hfw/she.webp",
+  "targetImagePath": "/images/assessment/hfw/she.webp",
+  "resolvedImageAssetKey": "she",
+  "imageAlt": "My aunt naps when she can."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.she.v2",
@@ -3521,7 +3822,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Gran hums as ___ bakes.",
   "question": "Gran hums as ___ bakes.",
-  "spokenPrompt": "Which word finishes the sentence? Gran hums as hmm bakes.",
+  "spokenPrompt": "Which word finishes the sentence? Gran hums as … bakes.",
   "sentence": "Gran hums as ___ bakes.",
   "choices": [
    "she",
@@ -3558,7 +3859,7 @@ export const questions = [
    "it": "D-FUNCTION-SWAP",
    "they": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3566,9 +3867,10 @@ export const questions = [
   "sentenceText": "Gran hums as ___ bakes.",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-she-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3579,7 +3881,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/she.webp",
+  "imageUrl": "/images/assessment/hfw/she.webp",
+  "targetImage": "/images/assessment/hfw/she.webp",
+  "targetImagePath": "/images/assessment/hfw/she.webp",
+  "resolvedImageAssetKey": "she",
+  "imageAlt": "Gran hums as she bakes."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.she.v3",
@@ -3605,17 +3913,12 @@ export const questions = [
   "question": "Find the word: she",
   "spokenPrompt": "she. Find the word she.",
   "choices": [
-   "she",
    "he",
    "see",
-   "sheep"
+   "sheep",
+   "she"
   ],
   "answerOptions": [
-   {
-    "value": "she",
-    "label": "she",
-    "text": "she"
-   },
    {
     "value": "he",
     "label": "he",
@@ -3630,25 +3933,31 @@ export const questions = [
     "value": "sheep",
     "label": "sheep",
     "text": "sheep"
+   },
+   {
+    "value": "she",
+    "label": "she",
+    "text": "she"
    }
   ],
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {
+   "sheep": "D-VISUAL-NEIGHBOR",
    "he": "D-VISUAL-NEIGHBOR",
-   "see": "D-VISUAL-NEIGHBOR",
-   "sheep": "D-VISUAL-NEIGHBOR"
+   "see": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-she-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3659,7 +3968,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/she.webp",
+  "imageUrl": "/images/assessment/hfw/she.webp",
+  "targetImage": "/images/assessment/hfw/she.webp",
+  "targetImagePath": "/images/assessment/hfw/she.webp",
+  "resolvedImageAssetKey": "she",
+  "imageAlt": "Find the word: she"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.their.v1",
@@ -3683,25 +3998,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The twins lost ___ kite.",
   "question": "The twins lost ___ kite.",
-  "spokenPrompt": "Which word finishes the sentence? The twins lost hmm kite.",
+  "spokenPrompt": "Which word finishes the sentence? The twins lost … kite.",
   "sentence": "The twins lost ___ kite.",
   "choices": [
-   "their",
-   "there",
    "they",
-   "his"
+   "his",
+   "their",
+   "there"
   ],
   "answerOptions": [
-   {
-    "value": "their",
-    "label": "their",
-    "text": "their"
-   },
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   },
    {
     "value": "they",
     "label": "they",
@@ -3711,6 +4016,16 @@ export const questions = [
     "value": "his",
     "label": "his",
     "text": "his"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
    }
   ],
   "answer": "their",
@@ -3720,7 +4035,7 @@ export const questions = [
    "they": "D-DEVELOPMENTAL",
    "his": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3728,9 +4043,10 @@ export const questions = [
   "sentenceText": "The twins lost ___ kite.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3741,7 +4057,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "there is the homophone; they is the they/their slip; his misses the plural"
+  "notes": "there is the homophone; they is the they/their slip; his misses the plural",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "The twins lost their kite."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.their.v2",
@@ -3765,15 +4087,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The cubs drank ___ milk.",
   "question": "The cubs drank ___ milk.",
-  "spokenPrompt": "Which word finishes the sentence? The cubs drank hmm milk.",
+  "spokenPrompt": "Which word finishes the sentence? The cubs drank … milk.",
   "sentence": "The cubs drank ___ milk.",
   "choices": [
+   "they",
    "their",
    "there",
-   "the",
-   "they"
+   "the"
   ],
   "answerOptions": [
+   {
+    "value": "they",
+    "label": "they",
+    "text": "they"
+   },
    {
     "value": "their",
     "label": "their",
@@ -3788,21 +4115,16 @@ export const questions = [
     "value": "the",
     "label": "the",
     "text": "the"
-   },
-   {
-    "value": "they",
-    "label": "they",
-    "text": "they"
    }
   ],
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {
+   "they": "D-DEVELOPMENTAL",
    "there": "D-HOMOPHONE",
-   "the": "D-FUNCTION-SWAP",
-   "they": "D-DEVELOPMENTAL"
+   "the": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3810,9 +4132,10 @@ export const questions = [
   "sentenceText": "The cubs drank ___ milk.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3823,7 +4146,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "The cubs drank their milk."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.their.v3",
@@ -3883,16 +4212,17 @@ export const questions = [
    "they": "D-VISUAL-NEIGHBOR",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3903,7 +4233,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "Find the word: their"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.there.v1",
@@ -3927,20 +4263,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Look — the bus is over ___!",
   "question": "Look — the bus is over ___!",
-  "spokenPrompt": "Which word finishes the sentence? Look — the bus is over hmm!",
+  "spokenPrompt": "Which word finishes the sentence? Look — the bus is over …!",
   "sentence": "Look — the bus is over ___!",
   "choices": [
-   "there",
    "their",
    "that",
-   "the"
+   "the",
+   "there"
   ],
   "answerOptions": [
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   },
    {
     "value": "their",
     "label": "their",
@@ -3955,16 +4286,21 @@ export const questions = [
     "value": "the",
     "label": "the",
     "text": "the"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
    }
   ],
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {
+   "the": "D-DEVELOPMENTAL",
    "their": "D-HOMOPHONE",
-   "that": "D-DEVELOPMENTAL",
-   "the": "D-DEVELOPMENTAL"
+   "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3972,9 +4308,10 @@ export const questions = [
   "sentenceText": "Look — the bus is over ___!",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3985,7 +4322,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "Look — the bus is over there!"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.there.v2",
@@ -4009,25 +4352,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We got ___ just in time.",
   "question": "We got ___ just in time.",
-  "spokenPrompt": "Which word finishes the sentence? We got hmm just in time.",
+  "spokenPrompt": "Which word finishes the sentence? We got … just in time.",
   "sentence": "We got ___ just in time.",
   "choices": [
-   "there",
-   "their",
    "that",
-   "then"
+   "then",
+   "there",
+   "their"
   ],
   "answerOptions": [
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   },
-   {
-    "value": "their",
-    "label": "their",
-    "text": "their"
-   },
    {
     "value": "that",
     "label": "that",
@@ -4037,6 +4370,16 @@ export const questions = [
     "value": "then",
     "label": "then",
     "text": "then"
+   },
+   {
+    "value": "there",
+    "label": "there",
+    "text": "there"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
    }
   ],
   "answer": "there",
@@ -4046,7 +4389,7 @@ export const questions = [
    "that": "D-FUNCTION-SWAP",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4054,9 +4397,10 @@ export const questions = [
   "sentenceText": "We got ___ just in time.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4067,7 +4411,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "got their — the classic reversal; then is the there/then slip"
+  "notes": "got their — the classic reversal; then is the there/then slip",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "We got there just in time."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.there.v3",
@@ -4093,12 +4443,17 @@ export const questions = [
   "question": "Find the word: there",
   "spokenPrompt": "there. Find the word there.",
   "choices": [
+   "three",
    "there",
    "their",
-   "then",
-   "three"
+   "then"
   ],
   "answerOptions": [
+   {
+    "value": "three",
+    "label": "three",
+    "text": "three"
+   },
    {
     "value": "there",
     "label": "there",
@@ -4113,30 +4468,26 @@ export const questions = [
     "value": "then",
     "label": "then",
     "text": "then"
-   },
-   {
-    "value": "three",
-    "label": "three",
-    "text": "three"
    }
   ],
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {
+   "three": "D-VISUAL-NEIGHBOR",
    "their": "D-HOMOPHONE",
-   "then": "D-VISUAL-NEIGHBOR",
-   "three": "D-VISUAL-NEIGHBOR"
+   "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4147,7 +4498,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "Find the word: there"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.use.v1",
@@ -4171,7 +4528,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ the key to open the box.",
   "question": "___ the key to open the box.",
-  "spokenPrompt": "Which word finishes the sentence? hmm the key to open the box.",
+  "spokenPrompt": "Which word finishes the sentence? … the key to open the box.",
   "sentence": "___ the key to open the box.",
   "choices": [
    "use",
@@ -4208,7 +4565,7 @@ export const questions = [
    "do": "D-DEVELOPMENTAL",
    "can": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4216,9 +4573,10 @@ export const questions = [
   "sentenceText": "___ the key to open the box.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-use-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4229,7 +4587,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "resolvedImageAssetKey": "use",
+  "imageAlt": "use the key to open the box."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.use.v2",
@@ -4253,20 +4617,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We ___ mud to make bricks.",
   "question": "We ___ mud to make bricks.",
-  "spokenPrompt": "Which word finishes the sentence? We hmm mud to make bricks.",
+  "spokenPrompt": "Which word finishes the sentence? We … mud to make bricks.",
   "sentence": "We ___ mud to make bricks.",
   "choices": [
-   "use",
    "are",
    "do",
-   "can"
+   "can",
+   "use"
   ],
   "answerOptions": [
-   {
-    "value": "use",
-    "label": "use",
-    "text": "use"
-   },
    {
     "value": "are",
     "label": "are",
@@ -4281,16 +4640,21 @@ export const questions = [
     "value": "can",
     "label": "can",
     "text": "can"
+   },
+   {
+    "value": "use",
+    "label": "use",
+    "text": "use"
    }
   ],
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {
-   "are": "D-DEVELOPMENTAL",
    "do": "D-DEVELOPMENTAL",
-   "can": "D-DEVELOPMENTAL"
+   "can": "D-DEVELOPMENTAL",
+   "are": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4298,9 +4662,10 @@ export const questions = [
   "sentenceText": "We ___ mud to make bricks.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-use-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4311,7 +4676,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "had stays out — we had mud would be true too"
+  "notes": "had stays out — we had mud would be true too",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "resolvedImageAssetKey": "use",
+  "imageAlt": "We use mud to make bricks."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.use.v3",
@@ -4337,22 +4708,12 @@ export const questions = [
   "question": "Find the word: use",
   "spokenPrompt": "use. Find the word use.",
   "choices": [
-   "use",
-   "us",
    "fuse",
-   "up"
+   "up",
+   "use",
+   "us"
   ],
   "answerOptions": [
-   {
-    "value": "use",
-    "label": "use",
-    "text": "use"
-   },
-   {
-    "value": "us",
-    "label": "us",
-    "text": "us"
-   },
    {
     "value": "fuse",
     "label": "fuse",
@@ -4362,6 +4723,16 @@ export const questions = [
     "value": "up",
     "label": "up",
     "text": "up"
+   },
+   {
+    "value": "use",
+    "label": "use",
+    "text": "use"
+   },
+   {
+    "value": "us",
+    "label": "us",
+    "text": "us"
    }
   ],
   "answer": "use",
@@ -4371,16 +4742,17 @@ export const questions = [
    "fuse": "D-VISUAL-NEIGHBOR",
    "up": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-use-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4391,7 +4763,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "resolvedImageAssetKey": "use",
+  "imageAlt": "Find the word: use"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.we.v1",
@@ -4415,15 +4793,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Sis and I hid. ___ both grinned.",
   "question": "Sis and I hid. ___ both grinned.",
-  "spokenPrompt": "Which word finishes the sentence? Sis and I hid. hmm both grinned.",
+  "spokenPrompt": "Which word finishes the sentence? Sis and I hid. … both grinned.",
   "sentence": "Sis and I hid. ___ both grinned.",
   "choices": [
+   "you",
    "we",
    "they",
-   "she",
-   "you"
+   "she"
   ],
   "answerOptions": [
+   {
+    "value": "you",
+    "label": "you",
+    "text": "you"
+   },
    {
     "value": "we",
     "label": "we",
@@ -4438,11 +4821,6 @@ export const questions = [
     "value": "she",
     "label": "she",
     "text": "she"
-   },
-   {
-    "value": "you",
-    "label": "you",
-    "text": "you"
    }
   ],
   "answer": "we",
@@ -4452,7 +4830,7 @@ export const questions = [
    "she": "D-DEVELOPMENTAL",
    "you": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4460,9 +4838,10 @@ export const questions = [
   "sentenceText": "Sis and I hid. ___ both grinned.",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-we-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4473,7 +4852,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the speaker is in the pair, so we is the only true reference"
+  "notes": "the speaker is in the pair, so we is the only true reference",
+  "imagePath": "/images/assessment/hfw/we.webp",
+  "imageUrl": "/images/assessment/hfw/we.webp",
+  "targetImage": "/images/assessment/hfw/we.webp",
+  "targetImagePath": "/images/assessment/hfw/we.webp",
+  "resolvedImageAssetKey": "we",
+  "imageAlt": "Sis and I hid. we both grinned."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.we.v2",
@@ -4497,7 +4882,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Dad and I fish. ___ catch cod!",
   "question": "Dad and I fish. ___ catch cod!",
-  "spokenPrompt": "Which word finishes the sentence? Dad and I fish. hmm catch cod!",
+  "spokenPrompt": "Which word finishes the sentence? Dad and I fish. … catch cod!",
   "sentence": "Dad and I fish. ___ catch cod!",
   "choices": [
    "we",
@@ -4534,7 +4919,7 @@ export const questions = [
    "he": "D-FUNCTION-SWAP",
    "you": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4542,9 +4927,10 @@ export const questions = [
   "sentenceText": "Dad and I fish. ___ catch cod!",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-we-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4555,7 +4941,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "catch cod, not get wet — wet contains we and would gift the key a chunk"
+  "notes": "catch cod, not get wet — wet contains we and would gift the key a chunk",
+  "imagePath": "/images/assessment/hfw/we.webp",
+  "imageUrl": "/images/assessment/hfw/we.webp",
+  "targetImage": "/images/assessment/hfw/we.webp",
+  "targetImagePath": "/images/assessment/hfw/we.webp",
+  "resolvedImageAssetKey": "we",
+  "imageAlt": "Dad and I fish. we catch cod!"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.we.v3",
@@ -4581,17 +4973,12 @@ export const questions = [
   "question": "Find the word: we",
   "spokenPrompt": "we. Find the word we.",
   "choices": [
-   "we",
    "me",
    "be",
-   "wet"
+   "wet",
+   "we"
   ],
   "answerOptions": [
-   {
-    "value": "we",
-    "label": "we",
-    "text": "we"
-   },
    {
     "value": "me",
     "label": "me",
@@ -4606,6 +4993,11 @@ export const questions = [
     "value": "wet",
     "label": "wet",
     "text": "wet"
+   },
+   {
+    "value": "we",
+    "label": "we",
+    "text": "we"
    }
   ],
   "answer": "we",
@@ -4615,16 +5007,17 @@ export const questions = [
    "be": "D-VISUAL-NEIGHBOR",
    "wet": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-we-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4635,7 +5028,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/we.webp",
+  "imageUrl": "/images/assessment/hfw/we.webp",
+  "targetImage": "/images/assessment/hfw/we.webp",
+  "targetImagePath": "/images/assessment/hfw/we.webp",
+  "resolvedImageAssetKey": "we",
+  "imageAlt": "Find the word: we"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.were.v1",
@@ -4659,25 +5058,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The shops ___ shut at ten.",
   "question": "The shops ___ shut at ten.",
-  "spokenPrompt": "Which word finishes the sentence? The shops hmm shut at ten.",
+  "spokenPrompt": "Which word finishes the sentence? The shops … shut at ten.",
   "sentence": "The shops ___ shut at ten.",
   "choices": [
-   "were",
-   "was",
    "are",
-   "is"
+   "is",
+   "were",
+   "was"
   ],
   "answerOptions": [
-   {
-    "value": "were",
-    "label": "were",
-    "text": "were"
-   },
-   {
-    "value": "was",
-    "label": "was",
-    "text": "was"
-   },
    {
     "value": "are",
     "label": "are",
@@ -4687,16 +5076,26 @@ export const questions = [
     "value": "is",
     "label": "is",
     "text": "is"
+   },
+   {
+    "value": "were",
+    "label": "were",
+    "text": "were"
+   },
+   {
+    "value": "was",
+    "label": "was",
+    "text": "was"
    }
   ],
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {
-   "was": "D-DEVELOPMENTAL",
    "are": "D-FUNCTION-SWAP",
-   "is": "D-DEVELOPMENTAL"
+   "is": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4704,9 +5103,10 @@ export const questions = [
   "sentenceText": "The shops ___ shut at ten.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4717,7 +5117,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the shops was — the agreement slip; are misses the tense"
+  "notes": "the shops was — the agreement slip; are misses the tense",
+  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "resolvedImageAssetKey": "ten",
+  "imageAlt": "The shops were shut at ten."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.were.v2",
@@ -4741,15 +5147,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "You ___ so brave at the vet!",
   "question": "You ___ so brave at the vet!",
-  "spokenPrompt": "Which word finishes the sentence? You hmm so brave at the vet!",
+  "spokenPrompt": "Which word finishes the sentence? You … so brave at the vet!",
   "sentence": "You ___ so brave at the vet!",
   "choices": [
+   "be",
    "were",
    "was",
-   "are",
-   "be"
+   "are"
   ],
   "answerOptions": [
+   {
+    "value": "be",
+    "label": "be",
+    "text": "be"
+   },
    {
     "value": "were",
     "label": "were",
@@ -4764,21 +5175,16 @@ export const questions = [
     "value": "are",
     "label": "are",
     "text": "are"
-   },
-   {
-    "value": "be",
-    "label": "be",
-    "text": "be"
    }
   ],
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {
-   "was": "D-DEVELOPMENTAL",
    "are": "D-FUNCTION-SWAP",
-   "be": "D-DEVELOPMENTAL"
+   "be": "D-DEVELOPMENTAL",
+   "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4786,9 +5192,10 @@ export const questions = [
   "sentenceText": "You ___ so brave at the vet!",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4799,7 +5206,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "you was — THE developmental error"
+  "notes": "you was — THE developmental error",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "resolvedImageAssetKey": "brave",
+  "imageAlt": "You were so brave at the vet!"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.were.v3",
@@ -4855,20 +5268,21 @@ export const questions = [
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {
-   "where": "D-VISUAL-NEIGHBOR",
    "we": "D-VISUAL-NEIGHBOR",
-   "her": "D-VISUAL-NEIGHBOR"
+   "her": "D-VISUAL-NEIGHBOR",
+   "where": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4879,7 +5293,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/find.webp",
+  "imageUrl": "/images/assessment/hfw/find.webp",
+  "targetImage": "/images/assessment/hfw/find.webp",
+  "targetImagePath": "/images/assessment/hfw/find.webp",
+  "resolvedImageAssetKey": "find",
+  "imageAlt": "Find the word: were"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.what.v1",
@@ -4903,20 +5323,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ is in the big box?",
   "question": "___ is in the big box?",
-  "spokenPrompt": "Which word finishes the sentence? hmm is in the big box?",
+  "spokenPrompt": "Which word finishes the sentence? … is in the big box?",
   "sentence": "___ is in the big box?",
   "choices": [
-   "what",
    "which",
    "when",
-   "that"
+   "that",
+   "what"
   ],
   "answerOptions": [
-   {
-    "value": "what",
-    "label": "what",
-    "text": "what"
-   },
    {
     "value": "which",
     "label": "which",
@@ -4931,16 +5346,21 @@ export const questions = [
     "value": "that",
     "label": "that",
     "text": "that"
+   },
+   {
+    "value": "what",
+    "label": "what",
+    "text": "what"
    }
   ],
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {
+   "that": "D-DEVELOPMENTAL",
    "which": "D-FUNCTION-SWAP",
-   "when": "D-DEVELOPMENTAL",
-   "that": "D-DEVELOPMENTAL"
+   "when": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4948,9 +5368,10 @@ export const questions = [
   "sentenceText": "___ is in the big box?",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-what-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4961,7 +5382,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/what.webp",
+  "imageUrl": "/images/assessment/hfw/what.webp",
+  "targetImage": "/images/assessment/hfw/what.webp",
+  "targetImagePath": "/images/assessment/hfw/what.webp",
+  "resolvedImageAssetKey": "what",
+  "imageAlt": "what is in the big box?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.what.v2",
@@ -4985,25 +5412,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Guess ___ I made for you!",
   "question": "Guess ___ I made for you!",
-  "spokenPrompt": "Which word finishes the sentence? Guess hmm I made for you!",
+  "spokenPrompt": "Which word finishes the sentence? Guess … I made for you!",
   "sentence": "Guess ___ I made for you!",
   "choices": [
-   "what",
-   "which",
    "when",
-   "if"
+   "if",
+   "what",
+   "which"
   ],
   "answerOptions": [
-   {
-    "value": "what",
-    "label": "what",
-    "text": "what"
-   },
-   {
-    "value": "which",
-    "label": "which",
-    "text": "which"
-   },
    {
     "value": "when",
     "label": "when",
@@ -5013,16 +5430,26 @@ export const questions = [
     "value": "if",
     "label": "if",
     "text": "if"
+   },
+   {
+    "value": "what",
+    "label": "what",
+    "text": "what"
+   },
+   {
+    "value": "which",
+    "label": "which",
+    "text": "which"
    }
   ],
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {
+   "if": "D-DEVELOPMENTAL",
    "which": "D-FUNCTION-SWAP",
-   "when": "D-DEVELOPMENTAL",
-   "if": "D-DEVELOPMENTAL"
+   "when": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5030,9 +5457,10 @@ export const questions = [
   "sentenceText": "Guess ___ I made for you!",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-what-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,7 +5471,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/what.webp",
+  "imageUrl": "/images/assessment/hfw/what.webp",
+  "targetImage": "/images/assessment/hfw/what.webp",
+  "targetImagePath": "/images/assessment/hfw/what.webp",
+  "resolvedImageAssetKey": "what",
+  "imageAlt": "Guess what I made for you!"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.what.v3",
@@ -5069,12 +5503,17 @@ export const questions = [
   "question": "Find the word: what",
   "spokenPrompt": "what. Find the word what.",
   "choices": [
+   "hat",
    "what",
    "that",
-   "when",
-   "hat"
+   "when"
   ],
   "answerOptions": [
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
    {
     "value": "what",
     "label": "what",
@@ -5089,30 +5528,26 @@ export const questions = [
     "value": "when",
     "label": "when",
     "text": "when"
-   },
-   {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
    }
   ],
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {
+   "hat": "D-VISUAL-NEIGHBOR",
    "that": "D-VISUAL-NEIGHBOR",
-   "when": "D-VISUAL-NEIGHBOR",
-   "hat": "D-VISUAL-NEIGHBOR"
+   "when": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-what-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5123,7 +5558,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/what.webp",
+  "imageUrl": "/images/assessment/hfw/what.webp",
+  "targetImage": "/images/assessment/hfw/what.webp",
+  "targetImagePath": "/images/assessment/hfw/what.webp",
+  "resolvedImageAssetKey": "what",
+  "imageAlt": "Find the word: what"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.when.v1",
@@ -5145,10 +5586,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ does the show start — at two or three?",
-  "question": "___ does the show start — at two or three?",
-  "spokenPrompt": "Which word finishes the sentence? hmm does the show start — at two or three?",
-  "sentence": "___ does the show start — at two or three?",
+  "prompt": "___ does the show start?",
+  "question": "___ does the show start?",
+  "spokenPrompt": "Which word finishes the sentence? … does the show start?",
+  "sentence": "___ does the show start?",
   "choices": [
    "when",
    "how",
@@ -5184,17 +5625,18 @@ export const questions = [
    "what": "D-DEVELOPMENTAL",
    "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "___ does the show start — at two or three?",
+  "sentenceText": "___ does the show start?",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-when-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5205,7 +5647,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the two-or-three tag pins when over how"
+  "notes": "the two-or-three tag pins when over how",
+  "imagePath": "/images/assessment/hfw/when.webp",
+  "imageUrl": "/images/assessment/hfw/when.webp",
+  "targetImage": "/images/assessment/hfw/when.webp",
+  "targetImagePath": "/images/assessment/hfw/when.webp",
+  "resolvedImageAssetKey": "when",
+  "imageAlt": "when does the show start?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.when.v2",
@@ -5229,20 +5677,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "I clap ___ you sing.",
   "question": "I clap ___ you sing.",
-  "spokenPrompt": "Which word finishes the sentence? I clap hmm you sing.",
+  "spokenPrompt": "Which word finishes the sentence? I clap … you sing.",
   "sentence": "I clap ___ you sing.",
   "choices": [
-   "when",
    "if",
    "as",
-   "and"
+   "and",
+   "when"
   ],
   "answerOptions": [
-   {
-    "value": "when",
-    "label": "when",
-    "text": "when"
-   },
    {
     "value": "if",
     "label": "if",
@@ -5257,6 +5700,11 @@ export const questions = [
     "value": "and",
     "label": "and",
     "text": "and"
+   },
+   {
+    "value": "when",
+    "label": "when",
+    "text": "when"
    }
   ],
   "answer": "when",
@@ -5266,7 +5714,7 @@ export const questions = [
    "as": "D-FUNCTION-SWAP",
    "and": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5274,9 +5722,10 @@ export const questions = [
   "sentenceText": "I clap ___ you sing.",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-when-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5287,7 +5736,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/when.webp",
+  "imageUrl": "/images/assessment/hfw/when.webp",
+  "targetImage": "/images/assessment/hfw/when.webp",
+  "targetImagePath": "/images/assessment/hfw/when.webp",
+  "resolvedImageAssetKey": "when",
+  "imageAlt": "I clap when you sing."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.when.v3",
@@ -5313,22 +5768,12 @@ export const questions = [
   "question": "Find the word: when",
   "spokenPrompt": "when. Find the word when.",
   "choices": [
-   "when",
-   "then",
    "hen",
-   "what"
+   "what",
+   "when",
+   "then"
   ],
   "answerOptions": [
-   {
-    "value": "when",
-    "label": "when",
-    "text": "when"
-   },
-   {
-    "value": "then",
-    "label": "then",
-    "text": "then"
-   },
    {
     "value": "hen",
     "label": "hen",
@@ -5338,6 +5783,16 @@ export const questions = [
     "value": "what",
     "label": "what",
     "text": "what"
+   },
+   {
+    "value": "when",
+    "label": "when",
+    "text": "when"
+   },
+   {
+    "value": "then",
+    "label": "then",
+    "text": "then"
    }
   ],
   "answer": "when",
@@ -5347,16 +5802,17 @@ export const questions = [
    "hen": "D-VISUAL-NEIGHBOR",
    "what": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-when-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5367,7 +5823,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/when.webp",
+  "imageUrl": "/images/assessment/hfw/when.webp",
+  "targetImage": "/images/assessment/hfw/when.webp",
+  "targetImagePath": "/images/assessment/hfw/when.webp",
+  "resolvedImageAssetKey": "when",
+  "imageAlt": "Find the word: when"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.which.v1",
@@ -5391,15 +5853,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "___ hat is yours — red or blue?",
   "question": "___ hat is yours — red or blue?",
-  "spokenPrompt": "Which word finishes the sentence? hmm hat is yours — red or blue?",
+  "spokenPrompt": "Which word finishes the sentence? … hat is yours — red or blue?",
   "sentence": "___ hat is yours — red or blue?",
   "choices": [
+   "this",
    "which",
    "what",
-   "that",
-   "this"
+   "that"
   ],
   "answerOptions": [
+   {
+    "value": "this",
+    "label": "this",
+    "text": "this"
+   },
    {
     "value": "which",
     "label": "which",
@@ -5414,21 +5881,16 @@ export const questions = [
     "value": "that",
     "label": "that",
     "text": "that"
-   },
-   {
-    "value": "this",
-    "label": "this",
-    "text": "this"
    }
   ],
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {
-   "what": "D-FUNCTION-SWAP",
    "that": "D-DEVELOPMENTAL",
-   "this": "D-DEVELOPMENTAL"
+   "this": "D-DEVELOPMENTAL",
+   "what": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5436,9 +5898,10 @@ export const questions = [
   "sentenceText": "___ hat is yours — red or blue?",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5449,7 +5912,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "which hat is yours — red or blue?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.which.v2",
@@ -5473,7 +5942,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Tell me ___ pup you like best.",
   "question": "Tell me ___ pup you like best.",
-  "spokenPrompt": "Which word finishes the sentence? Tell me hmm pup you like best.",
+  "spokenPrompt": "Which word finishes the sentence? Tell me … pup you like best.",
   "sentence": "Tell me ___ pup you like best.",
   "choices": [
    "which",
@@ -5510,7 +5979,7 @@ export const questions = [
    "each": "D-FUNCTION-SWAP",
    "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5518,9 +5987,10 @@ export const questions = [
   "sentenceText": "Tell me ___ pup you like best.",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5531,7 +6001,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "Tell me which pup you like best."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.which.v3",
@@ -5557,17 +6033,12 @@ export const questions = [
   "question": "Find the word: which",
   "spokenPrompt": "which. Find the word which.",
   "choices": [
-   "which",
    "witch",
    "with",
-   "wish"
+   "wish",
+   "which"
   ],
   "answerOptions": [
-   {
-    "value": "which",
-    "label": "which",
-    "text": "which"
-   },
    {
     "value": "witch",
     "label": "witch",
@@ -5582,25 +6053,31 @@ export const questions = [
     "value": "wish",
     "label": "wish",
     "text": "wish"
+   },
+   {
+    "value": "which",
+    "label": "which",
+    "text": "which"
    }
   ],
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {
-   "witch": "D-HOMOPHONE",
    "with": "D-VISUAL-NEIGHBOR",
-   "wish": "D-VISUAL-NEIGHBOR"
+   "wish": "D-VISUAL-NEIGHBOR",
+   "witch": "D-HOMOPHONE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5611,7 +6088,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "Find the word: which"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.words.v1",
@@ -5635,25 +6118,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We read six new ___ today.",
   "question": "We read six new ___ today.",
-  "spokenPrompt": "Which word finishes the sentence? We read six new hmm today.",
+  "spokenPrompt": "Which word finishes the sentence? We read six new … today.",
   "sentence": "We read six new ___ today.",
   "choices": [
-   "words",
-   "word",
    "works",
-   "wands"
+   "wands",
+   "words",
+   "word"
   ],
   "answerOptions": [
-   {
-    "value": "words",
-    "label": "words",
-    "text": "words"
-   },
-   {
-    "value": "word",
-    "label": "word",
-    "text": "word"
-   },
    {
     "value": "works",
     "label": "works",
@@ -5663,16 +6136,26 @@ export const questions = [
     "value": "wands",
     "label": "wands",
     "text": "wands"
+   },
+   {
+    "value": "words",
+    "label": "words",
+    "text": "words"
+   },
+   {
+    "value": "word",
+    "label": "word",
+    "text": "word"
    }
   ],
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {
-   "word": "D-DEVELOPMENTAL",
    "works": "D-VISUAL-NEIGHBOR",
-   "wands": "D-VISUAL-NEIGHBOR"
+   "wands": "D-VISUAL-NEIGHBOR",
+   "word": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5680,9 +6163,10 @@ export const questions = [
   "sentenceText": "We read six new ___ today.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-words-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5693,7 +6177,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "six new word — the plural slip"
+  "notes": "six new word — the plural slip",
+  "imagePath": "/images/assessment/hfw/read.webp",
+  "imageUrl": "/images/assessment/hfw/read.webp",
+  "targetImage": "/images/assessment/hfw/read.webp",
+  "targetImagePath": "/images/assessment/hfw/read.webp",
+  "resolvedImageAssetKey": "read",
+  "imageAlt": "We read six new words today."
  },
  {
   "id": "lp3.hfw_26_50.l1.B.words.v2",
@@ -5717,15 +6207,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Big ___ can be fun to spell.",
   "question": "Big ___ can be fun to spell.",
-  "spokenPrompt": "Which word finishes the sentence? Big hmm can be fun to spell.",
+  "spokenPrompt": "Which word finishes the sentence? Big … can be fun to spell.",
   "sentence": "Big ___ can be fun to spell.",
   "choices": [
+   "worms",
    "words",
    "word",
-   "works",
-   "worms"
+   "works"
   ],
   "answerOptions": [
+   {
+    "value": "worms",
+    "label": "worms",
+    "text": "worms"
+   },
    {
     "value": "words",
     "label": "words",
@@ -5740,11 +6235,6 @@ export const questions = [
     "value": "works",
     "label": "works",
     "text": "works"
-   },
-   {
-    "value": "worms",
-    "label": "worms",
-    "text": "worms"
    }
   ],
   "answer": "words",
@@ -5754,7 +6244,7 @@ export const questions = [
    "works": "D-VISUAL-NEIGHBOR",
    "worms": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5762,9 +6252,10 @@ export const questions = [
   "sentenceText": "Big ___ can be fun to spell.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-words-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5775,7 +6266,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/big.webp",
+  "imageUrl": "/images/assessment/hfw/big.webp",
+  "targetImage": "/images/assessment/hfw/big.webp",
+  "targetImagePath": "/images/assessment/hfw/big.webp",
+  "resolvedImageAssetKey": "big",
+  "imageAlt": "Big words can be fun to spell."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.words.v3",
@@ -5831,20 +6328,21 @@ export const questions = [
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {
-   "word": "D-VISUAL-NEIGHBOR",
    "works": "D-VISUAL-NEIGHBOR",
-   "birds": "D-VISUAL-NEIGHBOR"
+   "birds": "D-VISUAL-NEIGHBOR",
+   "word": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-words-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5855,7 +6353,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/find.webp",
+  "imageUrl": "/images/assessment/hfw/find.webp",
+  "targetImage": "/images/assessment/hfw/find.webp",
+  "targetImagePath": "/images/assessment/hfw/find.webp",
+  "resolvedImageAssetKey": "find",
+  "imageAlt": "Find the word: words"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.your.v1",
@@ -5879,20 +6383,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Is this ___ scarf?",
   "question": "Is this ___ scarf?",
-  "spokenPrompt": "Which word finishes the sentence? Is this hmm scarf?",
+  "spokenPrompt": "Which word finishes the sentence? Is this … scarf?",
   "sentence": "Is this ___ scarf?",
   "choices": [
-   "your",
    "you",
    "his",
-   "the"
+   "the",
+   "your"
   ],
   "answerOptions": [
-   {
-    "value": "your",
-    "label": "your",
-    "text": "your"
-   },
    {
     "value": "you",
     "label": "you",
@@ -5907,6 +6406,11 @@ export const questions = [
     "value": "the",
     "label": "the",
     "text": "the"
+   },
+   {
+    "value": "your",
+    "label": "your",
+    "text": "your"
    }
   ],
   "answer": "your",
@@ -5916,7 +6420,7 @@ export const questions = [
    "his": "D-FUNCTION-SWAP",
    "the": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5924,9 +6428,10 @@ export const questions = [
   "sentenceText": "Is this ___ scarf?",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5937,7 +6442,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "is this you scarf — the you/your slip"
+  "notes": "is this you scarf — the you/your slip",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Is this your scarf?"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.your.v2",
@@ -5961,25 +6472,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Pack ___ bags for camp.",
   "question": "Pack ___ bags for camp.",
-  "spokenPrompt": "Which word finishes the sentence? Pack hmm bags for camp.",
+  "spokenPrompt": "Which word finishes the sentence? Pack … bags for camp.",
   "sentence": "Pack ___ bags for camp.",
   "choices": [
-   "your",
-   "you",
    "the",
-   "their"
+   "their",
+   "your",
+   "you"
   ],
   "answerOptions": [
-   {
-    "value": "your",
-    "label": "your",
-    "text": "your"
-   },
-   {
-    "value": "you",
-    "label": "you",
-    "text": "you"
-   },
    {
     "value": "the",
     "label": "the",
@@ -5989,6 +6490,16 @@ export const questions = [
     "value": "their",
     "label": "their",
     "text": "their"
+   },
+   {
+    "value": "your",
+    "label": "your",
+    "text": "your"
+   },
+   {
+    "value": "you",
+    "label": "you",
+    "text": "you"
    }
   ],
   "answer": "your",
@@ -5998,7 +6509,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "their": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6006,9 +6517,10 @@ export const questions = [
   "sentenceText": "Pack ___ bags for camp.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6019,7 +6531,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Pack your bags for camp."
  },
  {
   "id": "lp3.hfw_26_50.l1.C.your.v3",
@@ -6045,12 +6563,17 @@ export const questions = [
   "question": "Find the word: your",
   "spokenPrompt": "your. Find the word your.",
   "choices": [
+   "out",
    "your",
    "you",
-   "our",
-   "out"
+   "our"
   ],
   "answerOptions": [
+   {
+    "value": "out",
+    "label": "out",
+    "text": "out"
+   },
    {
     "value": "your",
     "label": "your",
@@ -6065,11 +6588,6 @@ export const questions = [
     "value": "our",
     "label": "our",
     "text": "our"
-   },
-   {
-    "value": "out",
-    "label": "out",
-    "text": "out"
    }
   ],
   "answer": "your",
@@ -6079,16 +6597,17 @@ export const questions = [
    "our": "D-VISUAL-NEIGHBOR",
    "out": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6099,7 +6618,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Find the word: your"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.all.v1",
@@ -6123,7 +6648,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: We ate ___ the grapes.",
   "question": "Build the missing word: We ate ___ the grapes.",
-  "spokenPrompt": "Build the missing word. We ate hmm the grapes.",
+  "spokenPrompt": "Build the missing word. We ate … the grapes.",
   "sentence": "We ate ___ the grapes.",
   "choices": [
    "all"
@@ -6138,7 +6663,7 @@ export const questions = [
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6160,9 +6685,10 @@ export const questions = [
   "sentenceText": "We ate all the grapes.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6173,7 +6699,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the double l is the work — one l is the tempting build"
+  "notes": "the double l is the work — one l is the tempting build",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "Build the missing word: We ate all the grapes."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.all.v2",
@@ -6197,7 +6729,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ my pens ran out.",
   "question": "Build the missing word: ___ my pens ran out.",
-  "spokenPrompt": "Build the missing word. hmm my pens ran out.",
+  "spokenPrompt": "Build the missing word. … my pens ran out.",
   "sentence": "___ my pens ran out.",
   "choices": [
    "all"
@@ -6212,7 +6744,7 @@ export const questions = [
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6234,9 +6766,10 @@ export const questions = [
   "sentenceText": "all my pens ran out.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6247,7 +6780,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "Build the missing word: all my pens ran out."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.an.v1",
@@ -6271,7 +6810,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: He fed ___ ox at the farm.",
   "question": "Build the missing word: He fed ___ ox at the farm.",
-  "spokenPrompt": "Build the missing word. He fed hmm ox at the farm.",
+  "spokenPrompt": "Build the missing word. He fed … ox at the farm.",
   "sentence": "He fed ___ ox at the farm.",
   "choices": [
    "an"
@@ -6286,7 +6825,7 @@ export const questions = [
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6306,9 +6845,10 @@ export const questions = [
   "sentenceText": "He fed an ox at the farm.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-an-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6319,7 +6859,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/an.webp",
+  "imageUrl": "/images/assessment/hfw/an.webp",
+  "targetImage": "/images/assessment/hfw/an.webp",
+  "targetImagePath": "/images/assessment/hfw/an.webp",
+  "resolvedImageAssetKey": "an",
+  "imageAlt": "Build the missing word: He fed an ox at the farm."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.an.v2",
@@ -6343,7 +6889,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: I need ___ extra bed.",
   "question": "Build the missing word: I need ___ extra bed.",
-  "spokenPrompt": "Build the missing word. I need hmm extra bed.",
+  "spokenPrompt": "Build the missing word. I need … extra bed.",
   "sentence": "I need ___ extra bed.",
   "choices": [
    "an"
@@ -6358,7 +6904,7 @@ export const questions = [
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6378,9 +6924,10 @@ export const questions = [
   "sentenceText": "I need an extra bed.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-an-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6391,7 +6938,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/an.webp",
+  "imageUrl": "/images/assessment/hfw/an.webp",
+  "targetImage": "/images/assessment/hfw/an.webp",
+  "targetImagePath": "/images/assessment/hfw/an.webp",
+  "resolvedImageAssetKey": "an",
+  "imageAlt": "Build the missing word: I need an extra bed."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.but.v1",
@@ -6415,7 +6968,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: I tried, ___ I slipped.",
   "question": "Build the missing word: I tried, ___ I slipped.",
-  "spokenPrompt": "Build the missing word. I tried, hmm I slipped.",
+  "spokenPrompt": "Build the missing word. I tried, … I slipped.",
   "sentence": "I tried, ___ I slipped.",
   "choices": [
    "but"
@@ -6430,7 +6983,7 @@ export const questions = [
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6452,9 +7005,10 @@ export const questions = [
   "sentenceText": "I tried, but I slipped.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-but-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6465,7 +7019,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/but.webp",
+  "imageUrl": "/images/assessment/hfw/but.webp",
+  "targetImage": "/images/assessment/hfw/but.webp",
+  "targetImagePath": "/images/assessment/hfw/but.webp",
+  "resolvedImageAssetKey": "but",
+  "imageAlt": "Build the missing word: I tried, but I slipped."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.but.v2",
@@ -6489,7 +7049,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Small ___ strong!",
   "question": "Build the missing word: Small ___ strong!",
-  "spokenPrompt": "Build the missing word. Small hmm strong!",
+  "spokenPrompt": "Build the missing word. Small … strong!",
   "sentence": "Small ___ strong!",
   "choices": [
    "but"
@@ -6504,7 +7064,7 @@ export const questions = [
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6526,9 +7086,10 @@ export const questions = [
   "sentenceText": "Small but strong!",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-but-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6539,7 +7100,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/but.webp",
+  "imageUrl": "/images/assessment/hfw/but.webp",
+  "targetImage": "/images/assessment/hfw/but.webp",
+  "targetImagePath": "/images/assessment/hfw/but.webp",
+  "resolvedImageAssetKey": "but",
+  "imageAlt": "Build the missing word: Small but strong!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.by.v1",
@@ -6563,7 +7130,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Stand ___ the door, please.",
   "question": "Build the missing word: Stand ___ the door, please.",
-  "spokenPrompt": "Build the missing word. Stand hmm the door, please.",
+  "spokenPrompt": "Build the missing word. Stand … the door, please.",
   "sentence": "Stand ___ the door, please.",
   "choices": [
    "by"
@@ -6578,7 +7145,7 @@ export const questions = [
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6598,9 +7165,10 @@ export const questions = [
   "sentenceText": "Stand by the door, please.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-by-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6611,7 +7179,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bi is the tempting phonetic build"
+  "notes": "bi is the tempting phonetic build",
+  "imagePath": "/images/assessment/hfw/by.webp",
+  "imageUrl": "/images/assessment/hfw/by.webp",
+  "targetImage": "/images/assessment/hfw/by.webp",
+  "targetImagePath": "/images/assessment/hfw/by.webp",
+  "resolvedImageAssetKey": "by",
+  "imageAlt": "Build the missing word: Stand by the door, please."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.by.v2",
@@ -6635,7 +7209,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The mill sits ___ a stream.",
   "question": "Build the missing word: The mill sits ___ a stream.",
-  "spokenPrompt": "Build the missing word. The mill sits hmm a stream.",
+  "spokenPrompt": "Build the missing word. The mill sits … a stream.",
   "sentence": "The mill sits ___ a stream.",
   "choices": [
    "by"
@@ -6650,7 +7224,7 @@ export const questions = [
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6670,9 +7244,10 @@ export const questions = [
   "sentenceText": "The mill sits by a stream.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-by-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6683,7 +7258,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/by.webp",
+  "imageUrl": "/images/assessment/hfw/by.webp",
+  "targetImage": "/images/assessment/hfw/by.webp",
+  "targetImagePath": "/images/assessment/hfw/by.webp",
+  "resolvedImageAssetKey": "by",
+  "imageAlt": "Build the missing word: The mill sits by a stream."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.can.v1",
@@ -6707,7 +7288,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Foxes ___ jump high.",
   "question": "Build the missing word: Foxes ___ jump high.",
-  "spokenPrompt": "Build the missing word. Foxes hmm jump high.",
+  "spokenPrompt": "Build the missing word. Foxes … jump high.",
   "sentence": "Foxes ___ jump high.",
   "choices": [
    "can"
@@ -6722,7 +7303,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6744,9 +7325,10 @@ export const questions = [
   "sentenceText": "Foxes can jump high.",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6757,7 +7339,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "kan — the k is present and tempting"
+  "notes": "kan — the k is present and tempting",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "Build the missing word: Foxes can jump high."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.can.v2",
@@ -6781,7 +7369,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ we camp out back?",
   "question": "Build the missing word: ___ we camp out back?",
-  "spokenPrompt": "Build the missing word. hmm we camp out back?",
+  "spokenPrompt": "Build the missing word. … we camp out back?",
   "sentence": "___ we camp out back?",
   "choices": [
    "can"
@@ -6796,7 +7384,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6818,9 +7406,10 @@ export const questions = [
   "sentenceText": "can we camp out back?",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6831,7 +7420,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "Build the missing word: can we camp out back?"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.do.v1",
@@ -6855,7 +7450,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ frogs sleep in mud?",
   "question": "Build the missing word: ___ frogs sleep in mud?",
-  "spokenPrompt": "Build the missing word. hmm frogs sleep in mud?",
+  "spokenPrompt": "Build the missing word. … frogs sleep in mud?",
   "sentence": "___ frogs sleep in mud?",
   "choices": [
    "do"
@@ -6870,7 +7465,7 @@ export const questions = [
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6890,9 +7485,10 @@ export const questions = [
   "sentenceText": "do frogs sleep in mud?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-do-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6903,7 +7499,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "doo — the u is present and tempting"
+  "notes": "doo — the u is present and tempting",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: do frogs sleep in mud?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.do.v2",
@@ -6927,7 +7529,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: We ___ sums after lunch.",
   "question": "Build the missing word: We ___ sums after lunch.",
-  "spokenPrompt": "Build the missing word. We hmm sums after lunch.",
+  "spokenPrompt": "Build the missing word. We … sums after lunch.",
   "sentence": "We ___ sums after lunch.",
   "choices": [
    "do"
@@ -6942,7 +7544,7 @@ export const questions = [
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6962,9 +7564,10 @@ export const questions = [
   "sentenceText": "We do sums after lunch.",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-do-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6975,7 +7578,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: We do sums after lunch."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.each.v1",
@@ -6999,7 +7608,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Give ___ hen some corn.",
   "question": "Build the missing word: Give ___ hen some corn.",
-  "spokenPrompt": "Build the missing word. Give hmm hen some corn.",
+  "spokenPrompt": "Build the missing word. Give … hen some corn.",
   "sentence": "Give ___ hen some corn.",
   "choices": [
    "each"
@@ -7014,7 +7623,7 @@ export const questions = [
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7036,9 +7645,10 @@ export const questions = [
   "sentenceText": "Give each hen some corn.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-each-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7049,7 +7659,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "eech — the i tempts the phonetic build"
+  "notes": "eech — the i tempts the phonetic build",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: Give each hen some corn."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.each.v2",
@@ -7073,7 +7689,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ box has a lid.",
   "question": "Build the missing word: ___ box has a lid.",
-  "spokenPrompt": "Build the missing word. hmm box has a lid.",
+  "spokenPrompt": "Build the missing word. … box has a lid.",
   "sentence": "___ box has a lid.",
   "choices": [
    "each"
@@ -7088,7 +7704,7 @@ export const questions = [
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7110,9 +7726,10 @@ export const questions = [
   "sentenceText": "each box has a lid.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-each-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7123,7 +7740,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: each box has a lid."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.had.v1",
@@ -7147,7 +7770,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: We ___ fun at the fair.",
   "question": "Build the missing word: We ___ fun at the fair.",
-  "spokenPrompt": "Build the missing word. We hmm fun at the fair.",
+  "spokenPrompt": "Build the missing word. We … fun at the fair.",
   "sentence": "We ___ fun at the fair.",
   "choices": [
    "had"
@@ -7162,7 +7785,7 @@ export const questions = [
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7184,9 +7807,10 @@ export const questions = [
   "sentenceText": "We had fun at the fair.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-had-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7197,7 +7821,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/had.webp",
+  "imageUrl": "/images/assessment/hfw/had.webp",
+  "targetImage": "/images/assessment/hfw/had.webp",
+  "targetImagePath": "/images/assessment/hfw/had.webp",
+  "resolvedImageAssetKey": "had",
+  "imageAlt": "Build the missing word: We had fun at the fair."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.had.v2",
@@ -7221,7 +7851,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The pup ___ my sock!",
   "question": "Build the missing word: The pup ___ my sock!",
-  "spokenPrompt": "Build the missing word. The pup hmm my sock!",
+  "spokenPrompt": "Build the missing word. The pup … my sock!",
   "sentence": "The pup ___ my sock!",
   "choices": [
    "had"
@@ -7236,7 +7866,7 @@ export const questions = [
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7258,9 +7888,10 @@ export const questions = [
   "sentenceText": "The pup had my sock!",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-had-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7271,7 +7902,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/had.webp",
+  "imageUrl": "/images/assessment/hfw/had.webp",
+  "targetImage": "/images/assessment/hfw/had.webp",
+  "targetImagePath": "/images/assessment/hfw/had.webp",
+  "resolvedImageAssetKey": "had",
+  "imageAlt": "Build the missing word: The pup had my sock!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.how.v1",
@@ -7295,7 +7932,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ do bees make honey?",
   "question": "Build the missing word: ___ do bees make honey?",
-  "spokenPrompt": "Build the missing word. hmm do bees make honey?",
+  "spokenPrompt": "Build the missing word. … do bees make honey?",
   "sentence": "___ do bees make honey?",
   "choices": [
    "how"
@@ -7310,7 +7947,7 @@ export const questions = [
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7332,9 +7969,10 @@ export const questions = [
   "sentenceText": "how do bees make honey?",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-how-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7345,7 +7983,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "hou — the u is present and tempting"
+  "notes": "hou — the u is present and tempting",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "Build the missing word: how do bees make honey?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.how.v2",
@@ -7369,7 +8013,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Show me ___ to knit.",
   "question": "Build the missing word: Show me ___ to knit.",
-  "spokenPrompt": "Build the missing word. Show me hmm to knit.",
+  "spokenPrompt": "Build the missing word. Show me … to knit.",
   "sentence": "Show me ___ to knit.",
   "choices": [
    "how"
@@ -7384,7 +8028,7 @@ export const questions = [
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7406,9 +8050,10 @@ export const questions = [
   "sentenceText": "Show me how to knit.",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-how-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7419,7 +8064,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/how.webp",
+  "imageUrl": "/images/assessment/hfw/how.webp",
+  "targetImage": "/images/assessment/hfw/how.webp",
+  "targetImagePath": "/images/assessment/hfw/how.webp",
+  "resolvedImageAssetKey": "how",
+  "imageAlt": "Build the missing word: Show me how to knit."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.if.v1",
@@ -7443,7 +8094,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Yell ___ you spot land!",
   "question": "Build the missing word: Yell ___ you spot land!",
-  "spokenPrompt": "Build the missing word. Yell hmm you spot land!",
+  "spokenPrompt": "Build the missing word. Yell … you spot land!",
   "sentence": "Yell ___ you spot land!",
   "choices": [
    "if"
@@ -7458,7 +8109,7 @@ export const questions = [
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7478,9 +8129,10 @@ export const questions = [
   "sentenceText": "Yell if you spot land!",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-if-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7491,7 +8143,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/if.webp",
+  "imageUrl": "/images/assessment/generated/concepts/if.webp",
+  "targetImage": "/images/assessment/generated/concepts/if.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
+  "resolvedImageAssetKey": "if",
+  "imageAlt": "Build the missing word: Yell if you spot land!"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.if.v2",
@@ -7515,7 +8173,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Ask Dad ___ we may go.",
   "question": "Build the missing word: Ask Dad ___ we may go.",
-  "spokenPrompt": "Build the missing word. Ask Dad hmm we may go.",
+  "spokenPrompt": "Build the missing word. Ask Dad … we may go.",
   "sentence": "Ask Dad ___ we may go.",
   "choices": [
    "if"
@@ -7530,7 +8188,7 @@ export const questions = [
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7550,9 +8208,10 @@ export const questions = [
   "sentenceText": "Ask Dad if we may go.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-if-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7563,7 +8222,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/if.webp",
+  "imageUrl": "/images/assessment/generated/concepts/if.webp",
+  "targetImage": "/images/assessment/generated/concepts/if.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
+  "resolvedImageAssetKey": "if",
+  "imageAlt": "Build the missing word: Ask Dad if we may go."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.not.v1",
@@ -7587,7 +8252,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: That is ___ my cup.",
   "question": "Build the missing word: That is ___ my cup.",
-  "spokenPrompt": "Build the missing word. That is hmm my cup.",
+  "spokenPrompt": "Build the missing word. That is … my cup.",
   "sentence": "That is ___ my cup.",
   "choices": [
    "not"
@@ -7602,7 +8267,7 @@ export const questions = [
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7624,9 +8289,10 @@ export const questions = [
   "sentenceText": "That is not my cup.",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-not-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7637,7 +8303,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Build the missing word: That is not my cup."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.not.v2",
@@ -7661,7 +8333,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Do ___ wake the baby!",
   "question": "Build the missing word: Do ___ wake the baby!",
-  "spokenPrompt": "Build the missing word. Do hmm wake the baby!",
+  "spokenPrompt": "Build the missing word. Do … wake the baby!",
   "sentence": "Do ___ wake the baby!",
   "choices": [
    "not"
@@ -7676,7 +8348,7 @@ export const questions = [
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7698,9 +8370,10 @@ export const questions = [
   "sentenceText": "Do not wake the baby!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-not-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7711,7 +8384,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Build the missing word: Do not wake the baby!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.one.v1",
@@ -7735,7 +8414,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Just ___ more lap to run!",
   "question": "Build the missing word: Just ___ more lap to run!",
-  "spokenPrompt": "Build the missing word. Just hmm more lap to run!",
+  "spokenPrompt": "Build the missing word. Just … more lap to run!",
   "sentence": "Just ___ more lap to run!",
   "choices": [
    "one"
@@ -7750,7 +8429,7 @@ export const questions = [
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7772,9 +8451,10 @@ export const questions = [
   "sentenceText": "Just one more lap to run!",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7785,7 +8465,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wun — the w and u are present and tempting"
+  "notes": "wun — the w and u are present and tempting",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "Build the missing word: Just one more lap to run!"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.one.v2",
@@ -7809,7 +8495,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ star shone first.",
   "question": "Build the missing word: ___ star shone first.",
-  "spokenPrompt": "Build the missing word. hmm star shone first.",
+  "spokenPrompt": "Build the missing word. … star shone first.",
   "sentence": "___ star shone first.",
   "choices": [
    "one"
@@ -7824,7 +8510,7 @@ export const questions = [
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7846,9 +8532,10 @@ export const questions = [
   "sentenceText": "one star shone first.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7859,7 +8546,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "Build the missing word: one star shone first."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.or.v1",
@@ -7883,7 +8576,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Milk ___ water with lunch?",
   "question": "Build the missing word: Milk ___ water with lunch?",
-  "spokenPrompt": "Build the missing word. Milk hmm water with lunch?",
+  "spokenPrompt": "Build the missing word. Milk … water with lunch?",
   "sentence": "Milk ___ water with lunch?",
   "choices": [
    "or"
@@ -7898,7 +8591,7 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7918,9 +8611,10 @@ export const questions = [
   "sentenceText": "Milk or water with lunch?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-or-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7931,7 +8625,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: Milk or water with lunch?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.or.v2",
@@ -7955,7 +8655,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Walk ___ ride — you pick.",
   "question": "Build the missing word: Walk ___ ride — you pick.",
-  "spokenPrompt": "Build the missing word. Walk hmm ride — you pick.",
+  "spokenPrompt": "Build the missing word. Walk … ride — you pick.",
   "sentence": "Walk ___ ride — you pick.",
   "choices": [
    "or"
@@ -7970,7 +8670,7 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7990,9 +8690,10 @@ export const questions = [
   "sentenceText": "Walk or ride — you pick.",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-or-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8003,7 +8704,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: Walk or ride — you pick."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.said.v1",
@@ -8027,7 +8734,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The vet ___ to rest the pup.",
   "question": "Build the missing word: The vet ___ to rest the pup.",
-  "spokenPrompt": "Build the missing word. The vet hmm to rest the pup.",
+  "spokenPrompt": "Build the missing word. The vet … to rest the pup.",
   "sentence": "The vet ___ to rest the pup.",
   "choices": [
    "said"
@@ -8042,7 +8749,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8064,9 +8771,10 @@ export const questions = [
   "sentenceText": "The vet said to rest the pup.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8077,7 +8785,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sed — the e is present; the ai is the irregular work"
+  "notes": "sed — the e is present; the ai is the irregular work",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Build the missing word: The vet said to rest the pup."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.said.v2",
@@ -8101,7 +8815,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Gran ___ bedtime is nine.",
   "question": "Build the missing word: Gran ___ bedtime is nine.",
-  "spokenPrompt": "Build the missing word. Gran hmm bedtime is nine.",
+  "spokenPrompt": "Build the missing word. Gran … bedtime is nine.",
   "sentence": "Gran ___ bedtime is nine.",
   "choices": [
    "said"
@@ -8116,7 +8830,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8138,9 +8852,10 @@ export const questions = [
   "sentenceText": "Gran said bedtime is nine.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8151,7 +8866,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Build the missing word: Gran said bedtime is nine."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.she.v1",
@@ -8175,7 +8896,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: May ___ join our team?",
   "question": "Build the missing word: May ___ join our team?",
-  "spokenPrompt": "Build the missing word. May hmm join our team?",
+  "spokenPrompt": "Build the missing word. May … join our team?",
   "sentence": "May ___ join our team?",
   "choices": [
    "she"
@@ -8190,7 +8911,7 @@ export const questions = [
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8212,9 +8933,10 @@ export const questions = [
   "sentenceText": "May she join our team?",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-she-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8225,7 +8947,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/she.webp",
+  "imageUrl": "/images/assessment/hfw/she.webp",
+  "targetImage": "/images/assessment/hfw/she.webp",
+  "targetImagePath": "/images/assessment/hfw/she.webp",
+  "resolvedImageAssetKey": "she",
+  "imageAlt": "Build the missing word: May she join our team?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.she.v2",
@@ -8249,7 +8977,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ dug up a gem!",
   "question": "Build the missing word: ___ dug up a gem!",
-  "spokenPrompt": "Build the missing word. hmm dug up a gem!",
+  "spokenPrompt": "Build the missing word. … dug up a gem!",
   "sentence": "___ dug up a gem!",
   "choices": [
    "she"
@@ -8264,7 +8992,7 @@ export const questions = [
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8286,9 +9014,10 @@ export const questions = [
   "sentenceText": "she dug up a gem!",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-she-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8299,7 +9028,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/she.webp",
+  "imageUrl": "/images/assessment/hfw/she.webp",
+  "targetImage": "/images/assessment/hfw/she.webp",
+  "targetImagePath": "/images/assessment/hfw/she.webp",
+  "resolvedImageAssetKey": "she",
+  "imageAlt": "Build the missing word: she dug up a gem!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.their.v1",
@@ -8323,7 +9058,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The bees kept ___ honey safe.",
   "question": "Build the missing word: The bees kept ___ honey safe.",
-  "spokenPrompt": "Build the missing word. The bees kept hmm honey safe.",
+  "spokenPrompt": "Build the missing word. The bees kept … honey safe.",
   "sentence": "The bees kept ___ honey safe.",
   "choices": [
    "their"
@@ -8338,7 +9073,7 @@ export const questions = [
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8362,9 +9097,10 @@ export const questions = [
   "sentenceText": "The bees kept their honey safe.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8375,7 +9111,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "thair — the a is present; ei order is the work"
+  "notes": "thair — the a is present; ei order is the work",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "Build the missing word: The bees kept their honey safe."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.their.v2",
@@ -8399,7 +9141,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The kids lost ___ ball again.",
   "question": "Build the missing word: The kids lost ___ ball again.",
-  "spokenPrompt": "Build the missing word. The kids lost hmm ball again.",
+  "spokenPrompt": "Build the missing word. The kids lost … ball again.",
   "sentence": "The kids lost ___ ball again.",
   "choices": [
    "their"
@@ -8414,7 +9156,7 @@ export const questions = [
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8438,9 +9180,10 @@ export const questions = [
   "sentenceText": "The kids lost their ball again.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8451,7 +9194,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "Build the missing word: The kids lost their ball again."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.there.v1",
@@ -8475,7 +9224,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Park the bikes over ___.",
   "question": "Build the missing word: Park the bikes over ___.",
-  "spokenPrompt": "Build the missing word. Park the bikes over hmm.",
+  "spokenPrompt": "Build the missing word. Park the bikes over ….",
   "sentence": "Park the bikes over ___.",
   "choices": [
    "there"
@@ -8490,7 +9239,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8514,9 +9263,10 @@ export const questions = [
   "sentenceText": "Park the bikes over there.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8527,7 +9277,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "their letters minus one e — the double e is the work"
+  "notes": "their letters minus one e — the double e is the work",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "Build the missing word: Park the bikes over there."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.there.v2",
@@ -8551,7 +9307,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Is anybody ___?",
   "question": "Build the missing word: Is anybody ___?",
-  "spokenPrompt": "Build the missing word. Is anybody hmm?",
+  "spokenPrompt": "Build the missing word. Is anybody …?",
   "sentence": "Is anybody ___?",
   "choices": [
    "there"
@@ -8566,7 +9322,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8590,9 +9346,10 @@ export const questions = [
   "sentenceText": "Is anybody there?",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8603,7 +9360,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "Build the missing word: Is anybody there?"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.use.v1",
@@ -8627,7 +9390,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ both hands to lift it.",
   "question": "Build the missing word: ___ both hands to lift it.",
-  "spokenPrompt": "Build the missing word. hmm both hands to lift it.",
+  "spokenPrompt": "Build the missing word. … both hands to lift it.",
   "sentence": "___ both hands to lift it.",
   "choices": [
    "use"
@@ -8642,7 +9405,7 @@ export const questions = [
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8664,9 +9427,10 @@ export const questions = [
   "sentenceText": "use both hands to lift it.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-use-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8677,7 +9441,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "yooz — z and o are present and tempting"
+  "notes": "yooz — z and o are present and tempting",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "resolvedImageAssetKey": "use",
+  "imageAlt": "Build the missing word: use both hands to lift it."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.use.v2",
@@ -8701,7 +9471,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: We ___ twigs for the nest.",
   "question": "Build the missing word: We ___ twigs for the nest.",
-  "spokenPrompt": "Build the missing word. We hmm twigs for the nest.",
+  "spokenPrompt": "Build the missing word. We … twigs for the nest.",
   "sentence": "We ___ twigs for the nest.",
   "choices": [
    "use"
@@ -8716,7 +9486,7 @@ export const questions = [
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8738,9 +9508,10 @@ export const questions = [
   "sentenceText": "We use twigs for the nest.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-use-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8751,7 +9522,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
+  "resolvedImageAssetKey": "use",
+  "imageAlt": "Build the missing word: We use twigs for the nest."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.we.v1",
@@ -8775,7 +9552,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Can ___ bake a plum pie?",
   "question": "Build the missing word: Can ___ bake a plum pie?",
-  "spokenPrompt": "Build the missing word. Can hmm bake a plum pie?",
+  "spokenPrompt": "Build the missing word. Can … bake a plum pie?",
   "sentence": "Can ___ bake a plum pie?",
   "choices": [
    "we"
@@ -8790,7 +9567,7 @@ export const questions = [
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8810,9 +9587,10 @@ export const questions = [
   "sentenceText": "Can we bake a plum pie?",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-we-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8823,7 +9601,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/we.webp",
+  "imageUrl": "/images/assessment/hfw/we.webp",
+  "targetImage": "/images/assessment/hfw/we.webp",
+  "targetImagePath": "/images/assessment/hfw/we.webp",
+  "resolvedImageAssetKey": "we",
+  "imageAlt": "Build the missing word: Can we bake a plum pie?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.we.v2",
@@ -8847,7 +9631,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ swam till six.",
   "question": "Build the missing word: ___ swam till six.",
-  "spokenPrompt": "Build the missing word. hmm swam till six.",
+  "spokenPrompt": "Build the missing word. … swam till six.",
   "sentence": "___ swam till six.",
   "choices": [
    "we"
@@ -8862,7 +9646,7 @@ export const questions = [
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8882,9 +9666,10 @@ export const questions = [
   "sentenceText": "we swam till six.",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-we-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8895,7 +9680,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/we.webp",
+  "imageUrl": "/images/assessment/hfw/we.webp",
+  "targetImage": "/images/assessment/hfw/we.webp",
+  "targetImagePath": "/images/assessment/hfw/we.webp",
+  "resolvedImageAssetKey": "we",
+  "imageAlt": "Build the missing word: we swam till six."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.were.v1",
@@ -8919,7 +9710,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: The socks ___ still damp.",
   "question": "Build the missing word: The socks ___ still damp.",
-  "spokenPrompt": "Build the missing word. The socks hmm still damp.",
+  "spokenPrompt": "Build the missing word. The socks … still damp.",
   "sentence": "The socks ___ still damp.",
   "choices": [
    "were"
@@ -8934,7 +9725,7 @@ export const questions = [
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8956,9 +9747,10 @@ export const questions = [
   "sentenceText": "The socks were still damp.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8969,7 +9761,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wur — the u is present; the double e is the work"
+  "notes": "wur — the u is present; the double e is the work",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: The socks were still damp."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.were.v2",
@@ -8993,7 +9791,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: You ___ fast today!",
   "question": "Build the missing word: You ___ fast today!",
-  "spokenPrompt": "Build the missing word. You hmm fast today!",
+  "spokenPrompt": "Build the missing word. You … fast today!",
   "sentence": "You ___ fast today!",
   "choices": [
    "were"
@@ -9008,7 +9806,7 @@ export const questions = [
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9030,9 +9828,10 @@ export const questions = [
   "sentenceText": "You were fast today!",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9043,7 +9842,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: You were fast today!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.what.v1",
@@ -9067,7 +9872,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ fell off the shelf?",
   "question": "Build the missing word: ___ fell off the shelf?",
-  "spokenPrompt": "Build the missing word. hmm fell off the shelf?",
+  "spokenPrompt": "Build the missing word. … fell off the shelf?",
   "sentence": "___ fell off the shelf?",
   "choices": [
    "what"
@@ -9082,7 +9887,7 @@ export const questions = [
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9104,9 +9909,10 @@ export const questions = [
   "sentenceText": "what fell off the shelf?",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-what-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9117,7 +9923,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wot — the o is present and tempting"
+  "notes": "wot — the o is present and tempting",
+  "imagePath": "/images/assessment/hfw/what.webp",
+  "imageUrl": "/images/assessment/hfw/what.webp",
+  "targetImage": "/images/assessment/hfw/what.webp",
+  "targetImagePath": "/images/assessment/hfw/what.webp",
+  "resolvedImageAssetKey": "what",
+  "imageAlt": "Build the missing word: what fell off the shelf?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.what.v2",
@@ -9141,7 +9953,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Guess ___ I found!",
   "question": "Build the missing word: Guess ___ I found!",
-  "spokenPrompt": "Build the missing word. Guess hmm I found!",
+  "spokenPrompt": "Build the missing word. Guess … I found!",
   "sentence": "Guess ___ I found!",
   "choices": [
    "what"
@@ -9156,7 +9968,7 @@ export const questions = [
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9178,9 +9990,10 @@ export const questions = [
   "sentenceText": "Guess what I found!",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-what-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9191,7 +10004,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/what.webp",
+  "imageUrl": "/images/assessment/hfw/what.webp",
+  "targetImage": "/images/assessment/hfw/what.webp",
+  "targetImagePath": "/images/assessment/hfw/what.webp",
+  "resolvedImageAssetKey": "what",
+  "imageAlt": "Build the missing word: Guess what I found!"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.when.v1",
@@ -9215,7 +10034,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ does the pool open?",
   "question": "Build the missing word: ___ does the pool open?",
-  "spokenPrompt": "Build the missing word. hmm does the pool open?",
+  "spokenPrompt": "Build the missing word. … does the pool open?",
   "sentence": "___ does the pool open?",
   "choices": [
    "when"
@@ -9230,7 +10049,7 @@ export const questions = [
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9252,9 +10071,10 @@ export const questions = [
   "sentenceText": "when does the pool open?",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-when-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9265,7 +10085,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wen — the h placement is the work"
+  "notes": "wen — the h placement is the work",
+  "imagePath": "/images/assessment/hfw/when.webp",
+  "imageUrl": "/images/assessment/hfw/when.webp",
+  "targetImage": "/images/assessment/hfw/when.webp",
+  "targetImagePath": "/images/assessment/hfw/when.webp",
+  "resolvedImageAssetKey": "when",
+  "imageAlt": "Build the missing word: when does the pool open?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.when.v2",
@@ -9289,7 +10115,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Clap ___ the song ends.",
   "question": "Build the missing word: Clap ___ the song ends.",
-  "spokenPrompt": "Build the missing word. Clap hmm the song ends.",
+  "spokenPrompt": "Build the missing word. Clap … the song ends.",
   "sentence": "Clap ___ the song ends.",
   "choices": [
    "when"
@@ -9304,7 +10130,7 @@ export const questions = [
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9326,9 +10152,10 @@ export const questions = [
   "sentenceText": "Clap when the song ends.",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-when-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9339,7 +10166,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/when.webp",
+  "imageUrl": "/images/assessment/hfw/when.webp",
+  "targetImage": "/images/assessment/hfw/when.webp",
+  "targetImagePath": "/images/assessment/hfw/when.webp",
+  "resolvedImageAssetKey": "when",
+  "imageAlt": "Build the missing word: Clap when the song ends."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.which.v1",
@@ -9363,7 +10196,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: ___ sock is mine?",
   "question": "Build the missing word: ___ sock is mine?",
-  "spokenPrompt": "Build the missing word. hmm sock is mine?",
+  "spokenPrompt": "Build the missing word. … sock is mine?",
   "sentence": "___ sock is mine?",
   "choices": [
    "which"
@@ -9378,7 +10211,7 @@ export const questions = [
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9402,9 +10235,10 @@ export const questions = [
   "sentenceText": "which sock is mine?",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9415,7 +10249,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wich — the second h is the work"
+  "notes": "wich — the second h is the work",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "Build the missing word: which sock is mine?"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.which.v2",
@@ -9439,7 +10279,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Pick ___ game we play.",
   "question": "Build the missing word: Pick ___ game we play.",
-  "spokenPrompt": "Build the missing word. Pick hmm game we play.",
+  "spokenPrompt": "Build the missing word. Pick … game we play.",
   "sentence": "Pick ___ game we play.",
   "choices": [
    "which"
@@ -9454,7 +10294,7 @@ export const questions = [
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9478,9 +10318,10 @@ export const questions = [
   "sentenceText": "Pick which game we play.",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9491,7 +10332,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "Build the missing word: Pick which game we play."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.words.v1",
@@ -9515,7 +10362,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Rhyming ___ end the same.",
   "question": "Build the missing word: Rhyming ___ end the same.",
-  "spokenPrompt": "Build the missing word. Rhyming hmm end the same.",
+  "spokenPrompt": "Build the missing word. Rhyming … end the same.",
   "sentence": "Rhyming ___ end the same.",
   "choices": [
    "words"
@@ -9530,7 +10377,7 @@ export const questions = [
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9554,9 +10401,10 @@ export const questions = [
   "sentenceText": "Rhyming words end the same.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-words-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9567,7 +10415,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wurds — the u is present and tempting"
+  "notes": "wurds — the u is present and tempting",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: Rhyming words end the same."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.words.v2",
@@ -9591,7 +10445,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Long ___ need long tiles.",
   "question": "Build the missing word: Long ___ need long tiles.",
-  "spokenPrompt": "Build the missing word. Long hmm need long tiles.",
+  "spokenPrompt": "Build the missing word. Long … need long tiles.",
   "sentence": "Long ___ need long tiles.",
   "choices": [
    "words"
@@ -9606,7 +10460,7 @@ export const questions = [
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9630,9 +10484,10 @@ export const questions = [
   "sentenceText": "Long words need long tiles.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-words-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9643,7 +10498,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
+  "resolvedImageAssetKey": "build",
+  "imageAlt": "Build the missing word: Long words need long tiles."
  },
  {
   "id": "lp3.hfw_26_50.l2.A.your.v1",
@@ -9667,7 +10528,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Tie ___ laces up tight.",
   "question": "Build the missing word: Tie ___ laces up tight.",
-  "spokenPrompt": "Build the missing word. Tie hmm laces up tight.",
+  "spokenPrompt": "Build the missing word. Tie … laces up tight.",
   "sentence": "Tie ___ laces up tight.",
   "choices": [
    "your"
@@ -9682,7 +10543,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9704,9 +10565,10 @@ export const questions = [
   "sentenceText": "Tie your laces up tight.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9717,7 +10579,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "yor — building without the u is the tempting path"
+  "notes": "yor — building without the u is the tempting path",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Build the missing word: Tie your laces up tight."
  },
  {
   "id": "lp3.hfw_26_50.l2.B.your.v2",
@@ -9741,7 +10609,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Bring ___ kit on Monday.",
   "question": "Build the missing word: Bring ___ kit on Monday.",
-  "spokenPrompt": "Build the missing word. Bring hmm kit on Monday.",
+  "spokenPrompt": "Build the missing word. Bring … kit on Monday.",
   "sentence": "Bring ___ kit on Monday.",
   "choices": [
    "your"
@@ -9756,7 +10624,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9778,9 +10646,10 @@ export const questions = [
   "sentenceText": "Bring your kit on Monday.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9791,7 +10660,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Build the missing word: Bring your kit on Monday."
  },
  {
   "id": "lp3.hfw_26_50.l1.R.said.v7r",
@@ -9815,25 +10690,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The coach ___ to rest up.",
   "question": "The coach ___ to rest up.",
-  "spokenPrompt": "Which word finishes the sentence? The coach hmm to rest up.",
+  "spokenPrompt": "Which word finishes the sentence? The coach … to rest up.",
   "sentence": "The coach ___ to rest up.",
   "choices": [
-   "said",
-   "says",
    "saw",
-   "had"
+   "had",
+   "said",
+   "says"
   ],
   "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   },
-   {
-    "value": "says",
-    "label": "says",
-    "text": "says"
-   },
    {
     "value": "saw",
     "label": "saw",
@@ -9843,6 +10708,16 @@ export const questions = [
     "value": "had",
     "label": "had",
     "text": "had"
+   },
+   {
+    "value": "said",
+    "label": "said",
+    "text": "said"
+   },
+   {
+    "value": "says",
+    "label": "says",
+    "text": "says"
    }
   ],
   "answer": "said",
@@ -9852,7 +10727,7 @@ export const questions = [
    "saw": "D-VISUAL-NEIGHBOR",
    "had": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -9860,9 +10735,10 @@ export const questions = [
   "sentenceText": "The coach ___ to rest up.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9873,7 +10749,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "The coach said to rest up."
  },
  {
   "id": "lp3.hfw_26_50.l1.R.their.v7r",
@@ -9897,20 +10779,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ants built ___ nest fast.",
   "question": "The ants built ___ nest fast.",
-  "spokenPrompt": "Which word finishes the sentence? The ants built hmm nest fast.",
+  "spokenPrompt": "Which word finishes the sentence? The ants built … nest fast.",
   "sentence": "The ants built ___ nest fast.",
   "choices": [
-   "their",
    "there",
    "the",
-   "his"
+   "his",
+   "their"
   ],
   "answerOptions": [
-   {
-    "value": "their",
-    "label": "their",
-    "text": "their"
-   },
    {
     "value": "there",
     "label": "there",
@@ -9925,16 +10802,21 @@ export const questions = [
     "value": "his",
     "label": "his",
     "text": "his"
+   },
+   {
+    "value": "their",
+    "label": "their",
+    "text": "their"
    }
   ],
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {
-   "there": "D-HOMOPHONE",
    "the": "D-FUNCTION-SWAP",
-   "his": "D-FUNCTION-SWAP"
+   "his": "D-FUNCTION-SWAP",
+   "there": "D-HOMOPHONE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -9942,9 +10824,10 @@ export const questions = [
   "sentenceText": "The ants built ___ nest fast.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-their-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9955,7 +10838,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "their",
+  "imageAlt": "The ants built their nest fast."
  },
  {
   "id": "lp3.hfw_26_50.l1.R.were.v7r",
@@ -9979,7 +10868,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The buns ___ still warm.",
   "question": "The buns ___ still warm.",
-  "spokenPrompt": "Which word finishes the sentence? The buns hmm still warm.",
+  "spokenPrompt": "Which word finishes the sentence? The buns … still warm.",
   "sentence": "The buns ___ still warm.",
   "choices": [
    "were",
@@ -10016,7 +10905,7 @@ export const questions = [
    "are": "D-FUNCTION-SWAP",
    "had": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10024,9 +10913,10 @@ export const questions = [
   "sentenceText": "The buns ___ still warm.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-were-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10037,7 +10927,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/warm.webp",
+  "imageUrl": "/images/assessment/generated/concepts/warm.webp",
+  "targetImage": "/images/assessment/generated/concepts/warm.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/warm.webp",
+  "resolvedImageAssetKey": "warm",
+  "imageAlt": "The buns were still warm."
  },
  {
   "id": "lp3.hfw_26_50.l1.R.one.v7r",
@@ -10061,15 +10957,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Just ___ bun is left.",
   "question": "Just ___ bun is left.",
-  "spokenPrompt": "Which word finishes the sentence? Just hmm bun is left.",
+  "spokenPrompt": "Which word finishes the sentence? Just … bun is left.",
   "sentence": "Just ___ bun is left.",
   "choices": [
+   "all",
    "one",
    "an",
-   "each",
-   "all"
+   "each"
   ],
   "answerOptions": [
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
+   },
    {
     "value": "one",
     "label": "one",
@@ -10084,21 +10985,16 @@ export const questions = [
     "value": "each",
     "label": "each",
     "text": "each"
-   },
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
    }
   ],
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {
-   "an": "D-DEVELOPMENTAL",
    "each": "D-FUNCTION-SWAP",
-   "all": "D-DEVELOPMENTAL"
+   "all": "D-DEVELOPMENTAL",
+   "an": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10106,9 +11002,10 @@ export const questions = [
   "sentenceText": "Just ___ bun is left.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-one-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10119,7 +11016,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "only would gift the key its on-chunk"
+  "notes": "only would gift the key its on-chunk",
+  "imagePath": "/images/assessment/hfw/one.webp",
+  "imageUrl": "/images/assessment/hfw/one.webp",
+  "targetImage": "/images/assessment/hfw/one.webp",
+  "targetImagePath": "/images/assessment/hfw/one.webp",
+  "resolvedImageAssetKey": "one",
+  "imageAlt": "Just one bun is left."
  },
  {
   "id": "lp3.hfw_26_50.l1.R.which.v7r",
@@ -10145,22 +11048,12 @@ export const questions = [
   "question": "Point to the word: which",
   "spokenPrompt": "which. Find the word which.",
   "choices": [
-   "which",
-   "witch",
    "wish",
-   "when"
+   "when",
+   "which",
+   "witch"
   ],
   "answerOptions": [
-   {
-    "value": "which",
-    "label": "which",
-    "text": "which"
-   },
-   {
-    "value": "witch",
-    "label": "witch",
-    "text": "witch"
-   },
    {
     "value": "wish",
     "label": "wish",
@@ -10170,25 +11063,36 @@ export const questions = [
     "value": "when",
     "label": "when",
     "text": "when"
+   },
+   {
+    "value": "which",
+    "label": "which",
+    "text": "which"
+   },
+   {
+    "value": "witch",
+    "label": "witch",
+    "text": "witch"
    }
   ],
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {
+   "when": "D-VISUAL-NEIGHBOR",
    "witch": "D-HOMOPHONE",
-   "wish": "D-VISUAL-NEIGHBOR",
-   "when": "D-VISUAL-NEIGHBOR"
+   "wish": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-which-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10199,7 +11103,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
+  "resolvedImageAssetKey": "which",
+  "imageAlt": "Point to the word: which"
  },
  {
   "id": "lp3.hfw_26_50.l1.R.all.v7r",
@@ -10225,17 +11135,12 @@ export const questions = [
   "question": "Point to the word: all",
   "spokenPrompt": "all. Find the word all.",
   "choices": [
-   "all",
    "tall",
    "ball",
-   "ill"
+   "ill",
+   "all"
   ],
   "answerOptions": [
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
-   },
    {
     "value": "tall",
     "label": "tall",
@@ -10250,6 +11155,11 @@ export const questions = [
     "value": "ill",
     "label": "ill",
     "text": "ill"
+   },
+   {
+    "value": "all",
+    "label": "all",
+    "text": "all"
    }
   ],
   "answer": "all",
@@ -10259,16 +11169,17 @@ export const questions = [
    "ball": "D-VISUAL-NEIGHBOR",
    "ill": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-all-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10279,7 +11190,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "print recognition IS the construct — surface match is the task",
+  "imagePath": "/images/assessment/hfw/all.webp",
+  "imageUrl": "/images/assessment/hfw/all.webp",
+  "targetImage": "/images/assessment/hfw/all.webp",
+  "targetImagePath": "/images/assessment/hfw/all.webp",
+  "resolvedImageAssetKey": "all",
+  "imageAlt": "Point to the word: all"
  },
  {
   "id": "lp3.hfw_26_50.l2.R.there.v7r",
@@ -10303,7 +11220,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Sit ___ by the window.",
   "question": "Build the missing word: Sit ___ by the window.",
-  "spokenPrompt": "Build the missing word. Sit hmm by the window.",
+  "spokenPrompt": "Build the missing word. Sit … by the window.",
   "sentence": "Sit ___ by the window.",
   "choices": [
    "there"
@@ -10318,7 +11235,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10342,9 +11259,10 @@ export const questions = [
   "sentenceText": "Sit there by the window.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-there-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10355,7 +11273,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
+  "resolvedImageAssetKey": "there",
+  "imageAlt": "Build the missing word: Sit there by the window."
  },
  {
   "id": "lp3.hfw_26_50.l2.R.said.v7r",
@@ -10379,7 +11303,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Who ___ that?",
   "question": "Build the missing word: Who ___ that?",
-  "spokenPrompt": "Build the missing word. Who hmm that?",
+  "spokenPrompt": "Build the missing word. Who … that?",
   "sentence": "Who ___ that?",
   "choices": [
    "said"
@@ -10394,7 +11318,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10416,9 +11340,10 @@ export const questions = [
   "sentenceText": "Who said that?",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-said-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10429,7 +11354,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/said.webp",
+  "imageUrl": "/images/assessment/hfw/said.webp",
+  "targetImage": "/images/assessment/hfw/said.webp",
+  "targetImagePath": "/images/assessment/hfw/said.webp",
+  "resolvedImageAssetKey": "said",
+  "imageAlt": "Build the missing word: Who said that?"
  },
  {
   "id": "lp3.hfw_26_50.l2.R.can.v7r",
@@ -10453,7 +11384,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Crabs ___ nip — take care!",
   "question": "Build the missing word: Crabs ___ nip — take care!",
-  "spokenPrompt": "Build the missing word. Crabs hmm nip — take care!",
+  "spokenPrompt": "Build the missing word. Crabs … nip — take care!",
   "sentence": "Crabs ___ nip — take care!",
   "choices": [
    "can"
@@ -10468,7 +11399,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10490,9 +11421,10 @@ export const questions = [
   "sentenceText": "Crabs can nip — take care!",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-can-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10503,7 +11435,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/can.webp",
+  "imageUrl": "/images/assessment/hfw/can.webp",
+  "targetImage": "/images/assessment/hfw/can.webp",
+  "targetImagePath": "/images/assessment/hfw/can.webp",
+  "resolvedImageAssetKey": "can",
+  "imageAlt": "Build the missing word: Crabs can nip — take care!"
  },
  {
   "id": "lp3.hfw_26_50.l2.R.your.v7r",
@@ -10527,7 +11465,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Build the missing word: Is this ___ pen or mine?",
   "question": "Build the missing word: Is this ___ pen or mine?",
-  "spokenPrompt": "Build the missing word. Is this hmm pen or mine?",
+  "spokenPrompt": "Build the missing word. Is this … pen or mine?",
   "sentence": "Is this ___ pen or mine?",
   "choices": [
    "your"
@@ -10542,7 +11480,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10564,9 +11502,10 @@ export const questions = [
   "sentenceText": "Is this your pen or mine?",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hfw_26_50-your-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -10577,6 +11516,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
+  "resolvedImageAssetKey": "your",
+  "imageAlt": "Build the missing word: Is this your pen or mine?"
  }
 ];

@@ -146,7 +146,7 @@ export default {
     psc("plural_irregular", 2, 1, 1, "The ___ marched in the band.",
       ["men", "man", "women", "woman"], [FS, SEM, SEM],
       "band and marched gift chunks to man and woman — a tied distractor pair"),
-    psc("plural_irregular", 2, 1, 2, "Both ___ lost a tooth today.",
+    psc("plural_irregular", 2, 1, 2, "Both six-year-old ___ lost a milk tooth today.",
       ["children", "child", "women", "woman"], [FS, SEM, SEM]),
     pes("plural_irregular", 2, 1, 3, "The mouses hid in the kitchen.",
       ["mouses", "kitchen", "hid", "The"],

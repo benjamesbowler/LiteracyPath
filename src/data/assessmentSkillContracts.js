@@ -20,6 +20,7 @@ function makePhase(level, phase, levelConfig = {}) {
   return {
     level,
     phase,
+    learnerBand: level === 1 ? "kindergarten_entry_esl" : "grade_1_extension",
     allowedFormats: [...(levelConfig.allowedFormats || [])],
     minimumSelectableCount: ASSESSMENT_CONTRACT_ROUND_SIZE,
     roundSize: ASSESSMENT_CONTRACT_ROUND_SIZE,
@@ -40,6 +41,22 @@ function makeContract(config = {}) {
     displayName: config.skillName,
     aliases: [...(config.aliases || [])],
     status: "complete",
+    progression: {
+      ...assessmentReleaseStandard.defaults.progression,
+      requiredLevelOnePhases: [
+        ...assessmentReleaseStandard.defaults.progression.requiredLevelOnePhases
+      ]
+    },
+    difficultyProfile: {
+      1: {
+        learnerBand: "kindergarten_entry_esl",
+        rule: config.levels?.[1]?.rule || ""
+      },
+      2: {
+        learnerBand: "grade_1_extension",
+        rule: config.levels?.[2]?.rule || ""
+      }
+    },
     roundSize: ASSESSMENT_CONTRACT_ROUND_SIZE,
     minimumSelectableCountPerPhase: ASSESSMENT_CONTRACT_ROUND_SIZE,
     retryWrongAnswerAllowance: 3,

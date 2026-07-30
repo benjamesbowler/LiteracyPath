@@ -210,6 +210,7 @@ export const legacyCandidateSourceNames = new Set(sourceOfTruthRegistry.legacyCa
 
 const HFW_SKILL_IDS = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 const HFW_ALLOWED_FORMAT_PREFIX = /^HFW_SENTENCE_(?:CLOZE|SPELL)_L[12]P[12]_\d{2}$/;
+const ASSESSMENT_REBUILD_V3_SOURCE = "skills_rebuild_v3_2026_08";
 const BLOCKED_QA_STATUSES = new Set(["blocked", "rejected", "deprecated", "legacy"]);
 const BAD_HFW_PROMPT_PATTERNS = [
   /\btap the word\b/i,
@@ -294,10 +295,17 @@ export function getRuntimeSourceIssues(question = {}, context = {}) {
     issues.push(`archive/legacy path is not runtime-approved: ${sourceFile}`);
   }
   if (isHighFrequencyRuntimeSkill(skillId)) {
-    if (question.source !== sourceOfTruthRegistry.hfw.allowedQuestionSource) {
+    const isV3HfwQuestion =
+      question.source === ASSESSMENT_REBUILD_V3_SOURCE
+      && sourceName === `v3_${skillId}`
+      && sourceFile === `src/data/v3/banks/${skillId}.v3.generated.js`;
+    if (
+      question.source !== sourceOfTruthRegistry.hfw.allowedQuestionSource
+      && !isV3HfwQuestion
+    ) {
       issues.push("HFW runtime questions must come from approved_hfw_workbook");
     }
-    if (!HFW_ALLOWED_FORMAT_PREFIX.test(format)) {
+    if (!isV3HfwQuestion && !HFW_ALLOWED_FORMAT_PREFIX.test(format)) {
       issues.push(`HFW format is not in the approved sentence cloze/spell set: ${format || "UNKNOWN"}`);
     }
     if (BAD_HFW_PROMPT_PATTERNS.some(pattern => pattern.test(text))) {

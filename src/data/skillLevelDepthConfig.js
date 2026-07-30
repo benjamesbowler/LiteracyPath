@@ -222,13 +222,13 @@ export const managedAssessmentSkillDepthConfig = [
     levels: {
       1: {
         designed: true,
-        rule: "Identify a spatial relationship from a picture or concrete text clue.",
-        allowedFormats: ["PREPOSITION_IMAGE_CHOICE", "PREPOSITION_TEXT_CHOICE", "GRAMMAR_IMAGE_CHOICE"]
+        rule: "Kindergarten entry-ESL: answer a short “Where is it?” question from one clear spatial picture using familiar relations such as in, on, under, behind, and next to.",
+        allowedFormats: ["PREPOSITION_SCENE_CHOICE", "PREPOSITION_TEXT_CHOICE"]
       },
       2: {
         designed: true,
-        rule: "Complete a sentence or context using a precise spatial relationship.",
-        allowedFormats: ["PREPOSITION_SENTENCE_FIT", "PREPOSITION_CONTEXT_CHOICE", "GRAMMAR_BASICS"]
+        rule: "Grade 1 extension: use a precise spatial word in a short image-backed sentence, including over, through, opposite, among, around, inside, and outside.",
+        allowedFormats: ["PREPOSITION_SENTENCE_FIT", "PREPOSITION_PRECISION"]
       }
     }
   },
@@ -284,28 +284,73 @@ export const managedAssessmentSkillDepthConfig = [
     }
   },
   ...[
-    ["prefixes_suffixes", "Prefixes and Suffixes"],
-    ["sentence_comprehension", "Sentence Comprehension"],
-    ["key_details", "Key Details"],
-    ["sequencing", "Sequencing"],
-    ["main_idea", "Main Idea"],
-    ["inference", "Inference"],
-    ["cause_effect", "Cause and Effect"],
-    ["context_clues", "Context Clues"],
-    ["theme_higher_comprehension", "Theme and Higher Comprehension"]
-  ].map(([skillId, skillName]) => ({
+    {
+      skillId: "prefixes_suffixes",
+      skillName: "Prefixes and Suffixes",
+      level1: "Kindergarten entry-ESL: connect a familiar picture and base word to the concrete meanings of un-, re-, -ful, -less, and a person ending in -er.",
+      level2: "Grade 1 extension: build and interpret inflected or derived words in short sentences using -s/-es, -ing, -ed, -er/-est, -ly, and pre-."
+    },
+    {
+      skillId: "sentence_comprehension",
+      skillName: "Sentence Comprehension",
+      level1: "Kindergarten entry-ESL: answer a literal who, what, where, or action question from one short picture-supported sentence.",
+      level2: "Grade 1 extension: connect two clauses, resolve a pronoun, or choose the best restatement of a short sentence."
+    },
+    {
+      skillId: "key_details",
+      skillName: "Key Details",
+      level1: "Kindergarten entry-ESL: find one directly stated person, action, place, or number in a short illustrated text.",
+      level2: "Grade 1 extension: combine details across sentences, reject an unsupported detail, or select the most precise stated evidence."
+    },
+    {
+      skillId: "sequencing",
+      skillName: "Sequencing",
+      level1: "Kindergarten entry-ESL: order three familiar everyday events shown in three clear pictures.",
+      level2: "Grade 1 extension: reason about before/after language, implied order, and multi-step processes in a short illustrated text."
+    },
+    {
+      skillId: "main_idea",
+      skillName: "Main Idea",
+      level1: "Kindergarten entry-ESL: choose what a very short illustrated fiction, information, or everyday passage is mostly about.",
+      level2: "Grade 1 extension: separate a main idea from a detail and choose a best title or concise summary."
+    },
+    {
+      skillId: "inference",
+      skillName: "Inference",
+      level1: "Kindergarten entry-ESL: infer a feeling, place, or likely next action from an obvious picture and stated clue.",
+      level2: "Grade 1 extension: infer an unstated reason or idea and identify the sentence that supports it."
+    },
+    {
+      skillId: "cause_effect",
+      skillName: "Cause and Effect",
+      level1: "Kindergarten entry-ESL: identify one explicit cause or effect in a short illustrated because-event pair.",
+      level2: "Grade 1 extension: follow a cause chain, compare multiple causes, and resist reversed cause/effect distractors."
+    },
+    {
+      skillId: "context_clues",
+      skillName: "Context Clues",
+      level1: "Kindergarten entry-ESL: use a direct definition, example, action, and picture to understand one familiar unknown word.",
+      level2: "Grade 1 extension: use synonym, contrast, or inference clues across a short passage to determine a more precise meaning."
+    },
+    {
+      skillId: "theme_higher_comprehension",
+      skillName: "Theme and Higher Comprehension",
+      level1: "Kindergarten entry-ESL: choose an obvious lesson about fixing a mistake, kindness, or effort from a short illustrated story.",
+      level2: "Grade 1 extension: distinguish theme from plot details, compare plausible lessons, and apply the lesson to a new situation."
+    }
+  ].map(({ skillId, skillName, level1, level2 }) => ({
     skillId,
     skillName,
     aliases: [skillName.toLowerCase()],
     levels: {
       1: {
         designed: true,
-        rule: "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+        rule: level1,
         allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "IMAGE_CHOICE", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "FIX_SENTENCE", "UNKNOWN", "MULTIPLE_CHOICE"]
       },
       2: {
         designed: true,
-        rule: "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+        rule: level2,
         allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "IMAGE_CHOICE", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "FIX_SENTENCE", "UNKNOWN", "MULTIPLE_CHOICE"]
       }
     }

@@ -33,7 +33,9 @@ export function AssessmentAudioButton({
     });
   }
 
-  if (!approvedAudioPath) {
+  const canUseBrowserVoice = Boolean(String(text || "").trim());
+
+  if (!approvedAudioPath && !canUseBrowserVoice) {
     if (audioPath && import.meta.env.DEV) {
       console.warn("Assessment audio unavailable or not approved.", { text, audioPath, label });
     }
@@ -57,8 +59,8 @@ export function AssessmentAudioButton({
     setAudioState("loading");
     try {
       await speakText(text, approvedAudioPath, {
-        allowBrowserFallback: false,
-        requireApprovedAudio: true,
+        allowBrowserFallback: !approvedAudioPath,
+        requireApprovedAudio: Boolean(approvedAudioPath),
         audioRole
       });
       setAudioState("playing");

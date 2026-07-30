@@ -57,19 +57,20 @@ export const questions = [
   "answer": "nervous",
   "correctAnswer": "nervous",
   "distractorRationales": {
+   "sleepy": "D-PLAUSIBLE-UNSUPPORTED",
    "bored": "D-OPPOSITE",
-   "angry": "D-PLAUSIBLE-UNSUPPORTED",
-   "sleepy": "D-PLAUSIBLE-UNSUPPORTED"
+   "angry": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,7 +81,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wiping hands + re-checking music kills every rival reading"
+  "notes": "wiping hands + re-checking music kills every rival reading",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "resolvedImageAssetKey": "quickly",
+  "imageAlt": "Illustration for Sami stood in the wings holding his recorder. He wiped his hands on his shirt three times. Through the curtain he could see all the chairs were full. He peeped at the audience, then quickly stepped back and checked his music again."
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v2",
@@ -108,12 +115,17 @@ export const questions = [
   "passage": "Lena's cat had been at the vet all day. When Mum's phone finally rang, Lena froze. Mum listened, then smiled and gave a thumbs up. Lena let out a long breath and flopped onto the sofa like a rag doll.",
   "cell": "feeling_from_evidence",
   "choices": [
+   "cross",
    "relieved",
    "worried",
-   "jealous",
-   "cross"
+   "jealous"
   ],
   "answerOptions": [
+   {
+    "value": "cross",
+    "label": "cross",
+    "text": "cross"
+   },
    {
     "value": "relieved",
     "label": "relieved",
@@ -128,11 +140,6 @@ export const questions = [
     "value": "jealous",
     "label": "jealous",
     "text": "jealous"
-   },
-   {
-    "value": "cross",
-    "label": "cross",
-    "text": "cross"
    }
   ],
   "answer": "relieved",
@@ -142,15 +149,16 @@ export const questions = [
    "jealous": "D-PLAUSIBLE-UNSUPPORTED",
    "cross": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -161,7 +169,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap"
+  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap",
+  "imagePath": "/images/assessment/digraphs/phone.webp",
+  "imageUrl": "/images/assessment/digraphs/phone.webp",
+  "targetImage": "/images/assessment/digraphs/phone.webp",
+  "targetImagePath": "/images/assessment/digraphs/phone.webp",
+  "resolvedImageAssetKey": "phone",
+  "imageAlt": "Illustration for Lena's cat had been at the vet all day. When Mum's phone finally rang, Lena froze. Mum listened, then smiled and gave a thumbs up. Lena let out a long breath and flopped onto the sofa like a rag doll."
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v3",
@@ -189,22 +203,12 @@ export const questions = [
   "passage": "Everyone else had finished the race. Dara was still running, last by a whole lap. She kept her eyes on the finish line and pumped her arms. When she crossed it, she punched the air as if she had come first.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "proud",
-   "ashamed",
    "confused",
-   "scared"
+   "scared",
+   "proud",
+   "ashamed"
   ],
   "answerOptions": [
-   {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
-   },
-   {
-    "value": "ashamed",
-    "label": "ashamed",
-    "text": "ashamed"
-   },
    {
     "value": "confused",
     "label": "confused",
@@ -214,24 +218,35 @@ export const questions = [
     "value": "scared",
     "label": "scared",
     "text": "scared"
+   },
+   {
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
+   },
+   {
+    "value": "ashamed",
+    "label": "ashamed",
+    "text": "ashamed"
    }
   ],
   "answer": "proud",
   "correctAnswer": "proud",
   "distractorRationales": {
+   "scared": "D-PLAUSIBLE-UNSUPPORTED",
    "ashamed": "D-PLAUSIBLE-UNSUPPORTED",
-   "confused": "D-OPPOSITE",
-   "scared": "D-PLAUSIBLE-UNSUPPORTED"
+   "confused": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -242,7 +257,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last"
+  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last",
+  "imagePath": "/images/assessment/generated/concepts/proud.webp",
+  "imageUrl": "/images/assessment/generated/concepts/proud.webp",
+  "targetImage": "/images/assessment/generated/concepts/proud.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/proud.webp",
+  "resolvedImageAssetKey": "proud",
+  "imageAlt": "Illustration for Everyone else had finished the race. Dara was still running, last by a whole lap. She kept her eyes on the finish line and pumped her arms. When she crossed it, she punched the air as if she had come first."
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v4",
@@ -270,12 +291,17 @@ export const questions = [
   "passage": "At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in twos and threes. He did not know a single name. He practised saying 'hello' very quietly to himself.",
   "cell": "feeling_from_evidence",
   "choices": [
+   "tired",
    "nervous",
    "furious",
-   "proud",
-   "tired"
+   "proud"
   ],
   "answerOptions": [
+   {
+    "value": "tired",
+    "label": "tired",
+    "text": "tired"
+   },
    {
     "value": "nervous",
     "label": "nervous",
@@ -290,11 +316,6 @@ export const questions = [
     "value": "proud",
     "label": "proud",
     "text": "proud"
-   },
-   {
-    "value": "tired",
-    "label": "tired",
-    "text": "tired"
    }
   ],
   "answer": "nervous",
@@ -304,15 +325,16 @@ export const questions = [
    "proud": "D-PLAUSIBLE-UNSUPPORTED",
    "tired": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -323,7 +345,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the too-hard grip and whispered practice are the clues"
+  "notes": "the too-hard grip and whispered practice are the clues",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for At the new school gate, Ivo held Dad's hand a little too hard. He watched the other children stream past, laughing in twos and threes. He did not know a single name. He practised saying 'hello' very quietly to himself."
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v5",
@@ -351,22 +379,12 @@ export const questions = [
   "passage": "Bea's balloon slipped off her wrist at the fair. She watched the red dot get smaller and smaller in the sky. Her lip wobbled. Then she looked down at the string still in her hand and quickly wiped one eye with her sleeve.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "sad",
-   "thrilled",
    "hungry",
-   "brave"
+   "brave",
+   "sad",
+   "thrilled"
   ],
   "answerOptions": [
-   {
-    "value": "sad",
-    "label": "sad",
-    "text": "sad"
-   },
-   {
-    "value": "thrilled",
-    "label": "thrilled",
-    "text": "thrilled"
-   },
    {
     "value": "hungry",
     "label": "hungry",
@@ -376,6 +394,16 @@ export const questions = [
     "value": "brave",
     "label": "brave",
     "text": "brave"
+   },
+   {
+    "value": "sad",
+    "label": "sad",
+    "text": "sad"
+   },
+   {
+    "value": "thrilled",
+    "label": "thrilled",
+    "text": "thrilled"
    }
   ],
   "answer": "sad",
@@ -385,15 +413,16 @@ export const questions = [
    "hungry": "D-PLAUSIBLE-UNSUPPORTED",
    "brave": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -404,7 +433,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun"
+  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun",
+  "imagePath": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ad/sad-02.webp",
+  "resolvedImageAssetKey": "sad",
+  "imageAlt": "Illustration for Bea's balloon slipped off her wrist at the fair. She watched the red dot get smaller and smaller in the sky. Her lip wobbled. Then she looked down at the string still in her hand and quickly wiped one eye with her sleeve."
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v6",
@@ -432,17 +467,12 @@ export const questions = [
   "passage": "Kofi had studied his spelling words all week. When Miss Reed handed back the tests, she gave his desk a little tap and a wink. Kofi looked at the top of his page, sat up very straight, and could not stop smiling for the whole lesson.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "proud",
    "disappointed",
    "jealous",
-   "nervous"
+   "nervous",
+   "proud"
   ],
   "answerOptions": [
-   {
-    "value": "proud",
-    "label": "proud",
-    "text": "proud"
-   },
    {
     "value": "disappointed",
     "label": "disappointed",
@@ -457,6 +487,11 @@ export const questions = [
     "value": "nervous",
     "label": "nervous",
     "text": "nervous"
+   },
+   {
+    "value": "proud",
+    "label": "proud",
+    "text": "proud"
    }
   ],
   "answer": "proud",
@@ -466,15 +501,16 @@ export const questions = [
    "jealous": "D-PLAUSIBLE-UNSUPPORTED",
    "nervous": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -485,7 +521,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "nervous fits BEFORE results; the wink and straight back mark after"
+  "notes": "nervous fits BEFORE results; the wink and straight back mark after",
+  "imagePath": "/images/assessment/generated/concepts/proud.webp",
+  "imageUrl": "/images/assessment/generated/concepts/proud.webp",
+  "targetImage": "/images/assessment/generated/concepts/proud.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/proud.webp",
+  "resolvedImageAssetKey": "proud",
+  "imageAlt": "Illustration for Kofi had studied his spelling words all week. When Miss Reed handed back the tests, she gave his desk a little tap and a wink. Kofi looked at the top of his page, sat up very straight, and could not stop smiling for the whole lesson."
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v7",
@@ -513,22 +555,12 @@ export const questions = [
   "passage": "The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her torch but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "brave",
-   "terrified and running",
    "bored",
-   "silly"
+   "silly",
+   "brave",
+   "terrified and running"
   ],
   "answerOptions": [
-   {
-    "value": "brave",
-    "label": "brave",
-    "text": "brave"
-   },
-   {
-    "value": "terrified and running",
-    "label": "terrified and running",
-    "text": "terrified and running"
-   },
    {
     "value": "bored",
     "label": "bored",
@@ -538,6 +570,16 @@ export const questions = [
     "value": "silly",
     "label": "silly",
     "text": "silly"
+   },
+   {
+    "value": "brave",
+    "label": "brave",
+    "text": "brave"
+   },
+   {
+    "value": "terrified and running",
+    "label": "terrified and running",
+    "text": "terrified and running"
    }
   ],
   "answer": "brave",
@@ -547,15 +589,16 @@ export const questions = [
    "bored": "D-PLAUSIBLE-UNSUPPORTED",
    "silly": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -566,7 +609,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "she is scared-ish but holds still and counts — the point is managed fear"
+  "notes": "she is scared-ish but holds still and counts — the point is managed fear",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
+  "resolvedImageAssetKey": "brave",
+  "imageAlt": "Illustration for The tour guide switched off the lights inside the cave. The dark was thicker than any night. Noor squeezed her torch but did not turn it on. 'One minute of true dark,' the guide had promised. Noor counted slowly and kept both feet very still."
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v8",
@@ -594,17 +643,12 @@ export const questions = [
   "passage": "Ren watched his sister open her birthday parcel. Inside was the robot he had wanted for months. He clapped along with everyone else, but his clap was slow. He kept looking at the robot, then at his own empty hands.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "jealous",
    "delighted",
    "scared",
-   "calm"
+   "calm",
+   "jealous"
   ],
   "answerOptions": [
-   {
-    "value": "jealous",
-    "label": "jealous",
-    "text": "jealous"
-   },
    {
     "value": "delighted",
     "label": "delighted",
@@ -619,24 +663,30 @@ export const questions = [
     "value": "calm",
     "label": "calm",
     "text": "calm"
+   },
+   {
+    "value": "jealous",
+    "label": "jealous",
+    "text": "jealous"
    }
   ],
   "answer": "jealous",
   "correctAnswer": "jealous",
   "distractorRationales": {
+   "calm": "D-PLAUSIBLE-UNSUPPORTED",
    "delighted": "D-OPPOSITE",
-   "scared": "D-PLAUSIBLE-UNSUPPORTED",
-   "calm": "D-PLAUSIBLE-UNSUPPORTED"
+   "scared": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -647,7 +697,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "slow clap + empty hands; delighted is the surface reading of a party"
+  "notes": "slow clap + empty hands; delighted is the surface reading of a party",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "empty",
+  "imageAlt": "Illustration for Ren watched his sister open her birthday parcel. Inside was the robot he had wanted for months. He clapped along with everyone else, but his clap was slow. He kept looking at the robot, then at his own empty hands."
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v1",
@@ -675,17 +731,12 @@ export const questions = [
   "passage": "Everything smelled of warm bread. Rows of buns sat behind curved glass. A bell above the door jingled, and a lady in a floury apron called out, 'Next, please!'",
   "cell": "where_am_i",
   "choices": [
-   "a bakery",
    "a library",
    "a swimming pool",
-   "a garden"
+   "a garden",
+   "a bakery"
   ],
   "answerOptions": [
-   {
-    "value": "a bakery",
-    "label": "a bakery",
-    "text": "a bakery"
-   },
    {
     "value": "a library",
     "label": "a library",
@@ -700,24 +751,30 @@ export const questions = [
     "value": "a garden",
     "label": "a garden",
     "text": "a garden"
+   },
+   {
+    "value": "a bakery",
+    "label": "a bakery",
+    "text": "a bakery"
    }
   ],
   "answer": "a bakery",
   "correctAnswer": "a bakery",
   "distractorRationales": {
-   "a library": "D-PLAUSIBLE-UNSUPPORTED",
    "a swimming pool": "D-OPPOSITE",
-   "a garden": "D-PLAUSIBLE-UNSUPPORTED"
+   "a garden": "D-PLAUSIBLE-UNSUPPORTED",
+   "a library": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -728,7 +785,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "smell + glass counter + floury apron"
+  "notes": "smell + glass counter + floury apron",
+  "imagePath": "/images/assessment/language/variants/adjectives/curved-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/curved-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/curved-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/curved-01.webp",
+  "resolvedImageAssetKey": "curved",
+  "imageAlt": "Illustration for Everything smelled of warm bread. Rows of buns sat behind curved glass. A bell above the door jingled, and a lady in a floury apron called out, 'Next, please!'"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v2",
@@ -786,19 +849,20 @@ export const questions = [
   "answer": "a swimming pool",
   "correctAnswer": "a swimming pool",
   "distractorRationales": {
-   "a football pitch": "D-TOPIC-ADJACENT",
    "a cinema": "D-PLAUSIBLE-UNSUPPORTED",
-   "a farm": "D-OPPOSITE"
+   "a farm": "D-OPPOSITE",
+   "a football pitch": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -809,7 +873,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "whistle tempts football; chlorine and armbands decide"
+  "notes": "whistle tempts football; chlorine and armbands decide",
+  "imagePath": "/images/assessment/digraphs/whistle.webp",
+  "imageUrl": "/images/assessment/digraphs/whistle.webp",
+  "targetImage": "/images/assessment/digraphs/whistle.webp",
+  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
+  "resolvedImageAssetKey": "whistle",
+  "imageAlt": "Illustration for Mara pulled her armbands tight. The air smelled of chlorine, and shouts echoed off the high ceiling. Somewhere a whistle blew, and the big clock on the wall had only one long red hand."
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v3",
@@ -867,19 +937,20 @@ export const questions = [
   "answer": "a library",
   "correctAnswer": "a library",
   "distractorRationales": {
-   "a bookshop": "D-TOPIC-ADJACENT",
    "a playground": "D-OPPOSITE",
-   "a kitchen": "D-PLAUSIBLE-UNSUPPORTED"
+   "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
+   "a bookshop": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -890,7 +961,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bookshop is the near-miss; the date stamp and borrowing decide"
+  "notes": "bookshop is the near-miss; the date stamp and borrowing decide",
+  "imagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
+  "resolvedImageAssetKey": "tables",
+  "imageAlt": "Illustration for Hush hung over the long tables. Pages turned with tiny whispers. A trolley of books rolled softly past, and a lady stamped a date inside a cover. 'Two weeks,' she mouthed, almost silently."
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v4",
@@ -952,15 +1029,16 @@ export const questions = [
    "a classroom": "D-OPPOSITE",
    "a beach": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -971,7 +1049,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "straw + huge warm animal + brush"
+  "notes": "straw + huge warm animal + brush",
+  "imagePath": "/images/child-mode/initial-sounds/under.png",
+  "imageUrl": "/images/child-mode/initial-sounds/under.png",
+  "targetImage": "/images/child-mode/initial-sounds/under.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
+  "resolvedImageAssetKey": "under",
+  "imageAlt": "Illustration for Straw crunched under Tia's boots. Something warm and huge breathed near her shoulder, smelling of grass. A bucket clanked, and a man in muddy overalls said, 'She likes you. Want to hold the brush?'"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v5",
@@ -999,12 +1083,17 @@ export const questions = [
   "passage": "The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a trolley of snacks squeaked up the aisle.",
   "cell": "where_am_i",
   "choices": [
+   "a lift",
    "a train",
    "a bus",
-   "a boat",
-   "a lift"
+   "a boat"
   ],
   "answerOptions": [
+   {
+    "value": "a lift",
+    "label": "a lift",
+    "text": "a lift"
+   },
    {
     "value": "a train",
     "label": "a train",
@@ -1019,29 +1108,25 @@ export const questions = [
     "value": "a boat",
     "label": "a boat",
     "text": "a boat"
-   },
-   {
-    "value": "a lift",
-    "label": "a lift",
-    "text": "a lift"
    }
   ],
   "answer": "a train",
   "correctAnswer": "a train",
   "distractorRationales": {
+   "a lift": "D-OPPOSITE",
    "a bus": "D-TOPIC-ADJACENT",
-   "a boat": "D-PLAUSIBLE-UNSUPPORTED",
-   "a lift": "D-OPPOSITE"
+   "a boat": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1052,7 +1137,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bus is close; announced stops + aisle trolley + sliding fields decide"
+  "notes": "bus is close; announced stops + aisle trolley + sliding fields decide",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for The floor hummed under their feet. Fields slid past the window, faster and faster. A voice from the ceiling said the next stop was in ten minutes, and a trolley of snacks squeaked up the aisle."
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v6",
@@ -1080,12 +1171,17 @@ export const questions = [
   "passage": "Blue light rippled across everyone's faces. A long shadow glided by behind the glass, and a hundred silver shapes turned at once like one creature. 'No flash photos,' whispered the guide.",
   "cell": "where_am_i",
   "choices": [
+   "a cave",
    "an aquarium",
    "a cinema",
-   "a museum of paintings",
-   "a cave"
+   "a museum of paintings"
   ],
   "answerOptions": [
+   {
+    "value": "a cave",
+    "label": "a cave",
+    "text": "a cave"
+   },
    {
     "value": "an aquarium",
     "label": "an aquarium",
@@ -1100,11 +1196,6 @@ export const questions = [
     "value": "a museum of paintings",
     "label": "a museum of paintings",
     "text": "a museum of paintings"
-   },
-   {
-    "value": "a cave",
-    "label": "a cave",
-    "text": "a cave"
    }
   ],
   "answer": "an aquarium",
@@ -1114,15 +1205,16 @@ export const questions = [
    "a museum of paintings": "D-PLAUSIBLE-UNSUPPORTED",
    "a cave": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1133,7 +1225,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cinema shares dark + glow; the glass and gliding shapes decide"
+  "notes": "cinema shares dark + glow; the glass and gliding shapes decide",
+  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "resolvedImageAssetKey": "silver",
+  "imageAlt": "Illustration for Blue light rippled across everyone's faces. A long shadow glided by behind the glass, and a hundred silver shapes turned at once like one creature. 'No flash photos,' whispered the guide."
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v7",
@@ -1161,12 +1259,17 @@ export const questions = [
   "passage": "Trays clattered somewhere behind the counter. The smell of gravy filled the hall. Omar slid his tray along the rails, said 'yes please' to the peas, and looked for an empty seat beside his friends.",
   "cell": "where_am_i",
   "choices": [
+   "the school library",
    "the school dinner hall",
    "his kitchen at home",
-   "a sweet shop",
-   "the school library"
+   "a sweet shop"
   ],
   "answerOptions": [
+   {
+    "value": "the school library",
+    "label": "the school library",
+    "text": "the school library"
+   },
    {
     "value": "the school dinner hall",
     "label": "the school dinner hall",
@@ -1181,11 +1284,6 @@ export const questions = [
     "value": "a sweet shop",
     "label": "a sweet shop",
     "text": "a sweet shop"
-   },
-   {
-    "value": "the school library",
-    "label": "the school library",
-    "text": "the school library"
    }
   ],
   "answer": "the school dinner hall",
@@ -1195,15 +1293,16 @@ export const questions = [
    "a sweet shop": "D-PLAUSIBLE-UNSUPPORTED",
    "the school library": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,7 +1313,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "tray rails + choosing peas + finding a seat"
+  "notes": "tray rails + choosing peas + finding a seat",
+  "imagePath": "/images/vocabulary/friends.png",
+  "imageUrl": "/images/vocabulary/friends.png",
+  "targetImage": "/images/vocabulary/friends.png",
+  "targetImagePath": "/images/vocabulary/friends.png",
+  "resolvedImageAssetKey": "friends",
+  "imageAlt": "Illustration for Trays clattered somewhere behind the counter. The smell of gravy filled the hall. Omar slid his tray along the rails, said 'yes please' to the peas, and looked for an empty seat beside his friends."
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v8",
@@ -1242,22 +1347,12 @@ export const questions = [
   "passage": "Gulls screamed overhead. Wind tugged the flags on the sandcastles. Somewhere an ice-cream van sang its tinkling song, and Dad rubbed cream on Zoe's nose, saying the sun was strong today.",
   "cell": "where_am_i",
   "choices": [
-   "the beach",
-   "a funfair",
    "a forest",
-   "a car park"
+   "a car park",
+   "the beach",
+   "a funfair"
   ],
   "answerOptions": [
-   {
-    "value": "the beach",
-    "label": "the beach",
-    "text": "the beach"
-   },
-   {
-    "value": "a funfair",
-    "label": "a funfair",
-    "text": "a funfair"
-   },
    {
     "value": "a forest",
     "label": "a forest",
@@ -1267,6 +1362,16 @@ export const questions = [
     "value": "a car park",
     "label": "a car park",
     "text": "a car park"
+   },
+   {
+    "value": "the beach",
+    "label": "the beach",
+    "text": "the beach"
+   },
+   {
+    "value": "a funfair",
+    "label": "a funfair",
+    "text": "a funfair"
    }
   ],
   "answer": "the beach",
@@ -1276,15 +1381,16 @@ export const questions = [
    "a forest": "D-OPPOSITE",
    "a car park": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1295,7 +1401,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "van music tempts funfair; gulls + sandcastles + sun cream decide"
+  "notes": "van music tempts funfair; gulls + sandcastles + sun cream decide",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/overhead-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/overhead-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/overhead-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/overhead-01.webp",
+  "resolvedImageAssetKey": "overhead",
+  "imageAlt": "Illustration for Gulls screamed overhead. Wind tugged the flags on the sandcastles. Somewhere an ice-cream van sang its tinkling song, and Dad rubbed cream on Zoe's nose, saying the sun was strong today."
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v1",
@@ -1323,22 +1435,12 @@ export const questions = [
   "passage": "Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mum started packing the food back into the basket, fast.",
   "cell": "what_happens_next",
   "choices": [
-   "the family will hurry home before the rain",
-   "the family will start a barbecue",
    "the family will go swimming",
-   "the family will fall asleep on the grass"
+   "the family will fall asleep on the grass",
+   "the family will hurry home before the rain",
+   "the family will start a barbecue"
   ],
   "answerOptions": [
-   {
-    "value": "the family will hurry home before the rain",
-    "label": "the family will hurry home before the rain",
-    "text": "the family will hurry home before the rain"
-   },
-   {
-    "value": "the family will start a barbecue",
-    "label": "the family will start a barbecue",
-    "text": "the family will start a barbecue"
-   },
    {
     "value": "the family will go swimming",
     "label": "the family will go swimming",
@@ -1348,24 +1450,35 @@ export const questions = [
     "value": "the family will fall asleep on the grass",
     "label": "the family will fall asleep on the grass",
     "text": "the family will fall asleep on the grass"
+   },
+   {
+    "value": "the family will hurry home before the rain",
+    "label": "the family will hurry home before the rain",
+    "text": "the family will hurry home before the rain"
+   },
+   {
+    "value": "the family will start a barbecue",
+    "label": "the family will start a barbecue",
+    "text": "the family will start a barbecue"
    }
   ],
   "answer": "the family will hurry home before the rain",
   "correctAnswer": "the family will hurry home before the rain",
   "distractorRationales": {
-   "the family will start a barbecue": "D-OPPOSITE",
    "the family will go swimming": "D-PLAUSIBLE-UNSUPPORTED",
-   "the family will fall asleep on the grass": "D-PLAUSIBLE-UNSUPPORTED"
+   "the family will fall asleep on the grass": "D-PLAUSIBLE-UNSUPPORTED",
+   "the family will start a barbecue": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1376,7 +1489,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence"
+  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence",
+  "imagePath": "/images/assessment/digraphs/thunder.webp",
+  "imageUrl": "/images/assessment/digraphs/thunder.webp",
+  "targetImage": "/images/assessment/digraphs/thunder.webp",
+  "targetImagePath": "/images/assessment/digraphs/thunder.webp",
+  "resolvedImageAssetKey": "thunder",
+  "imageAlt": "Illustration for Black clouds rolled over the park. The wind flipped the picnic blanket corner over the sandwiches. Far away, thunder grumbled. Mum started packing the food back into the basket, fast."
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v2",
@@ -1404,17 +1523,12 @@ export const questions = [
   "passage": "Theo filled the tub with warm water. He fetched the dog shampoo and an old towel. Then he opened the back door and called, 'Biscuit! Here, boy!' From the garden came the sound of happy, muddy paws.",
   "cell": "what_happens_next",
   "choices": [
-   "Theo will wash the dog",
    "Theo will take a bath himself",
    "Theo will feed the cat",
-   "Theo will go to bed"
+   "Theo will go to bed",
+   "Theo will wash the dog"
   ],
   "answerOptions": [
-   {
-    "value": "Theo will wash the dog",
-    "label": "Theo will wash the dog",
-    "text": "Theo will wash the dog"
-   },
    {
     "value": "Theo will take a bath himself",
     "label": "Theo will take a bath himself",
@@ -1429,6 +1543,11 @@ export const questions = [
     "value": "Theo will go to bed",
     "label": "Theo will go to bed",
     "text": "Theo will go to bed"
+   },
+   {
+    "value": "Theo will wash the dog",
+    "label": "Theo will wash the dog",
+    "text": "Theo will wash the dog"
    }
   ],
   "answer": "Theo will wash the dog",
@@ -1438,15 +1557,16 @@ export const questions = [
    "Theo will feed the cat": "D-PLAUSIBLE-UNSUPPORTED",
    "Theo will go to bed": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,7 +1577,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "dog shampoo is the deciding detail against 'his own bath'"
+  "notes": "dog shampoo is the deciding detail against 'his own bath'",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "filled",
+  "imageAlt": "Illustration for Theo filled the tub with warm water. He fetched the dog shampoo and an old towel. Then he opened the back door and called, 'Biscuit! Here, boy!' From the garden came the sound of happy, muddy paws."
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v3",
@@ -1485,22 +1611,12 @@ export const questions = [
   "passage": "The smell of toast turned sharp and smoky. A thin grey wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen.",
   "cell": "what_happens_next",
   "choices": [
-   "Dad will pop out the burnt toast",
-   "Dad will water the plants",
    "Dad will eat the toast happily",
-   "Dad will read another page"
+   "Dad will read another page",
+   "Dad will pop out the burnt toast",
+   "Dad will water the plants"
   ],
   "answerOptions": [
-   {
-    "value": "Dad will pop out the burnt toast",
-    "label": "Dad will pop out the burnt toast",
-    "text": "Dad will pop out the burnt toast"
-   },
-   {
-    "value": "Dad will water the plants",
-    "label": "Dad will water the plants",
-    "text": "Dad will water the plants"
-   },
    {
     "value": "Dad will eat the toast happily",
     "label": "Dad will eat the toast happily",
@@ -1510,24 +1626,35 @@ export const questions = [
     "value": "Dad will read another page",
     "label": "Dad will read another page",
     "text": "Dad will read another page"
+   },
+   {
+    "value": "Dad will pop out the burnt toast",
+    "label": "Dad will pop out the burnt toast",
+    "text": "Dad will pop out the burnt toast"
+   },
+   {
+    "value": "Dad will water the plants",
+    "label": "Dad will water the plants",
+    "text": "Dad will water the plants"
    }
   ],
   "answer": "Dad will pop out the burnt toast",
   "correctAnswer": "Dad will pop out the burnt toast",
   "distractorRationales": {
-   "Dad will water the plants": "D-PLAUSIBLE-UNSUPPORTED",
    "Dad will eat the toast happily": "D-OPPOSITE",
-   "Dad will read another page": "D-SEQUENCE-SWAP"
+   "Dad will read another page": "D-SEQUENCE-SWAP",
+   "Dad will water the plants": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1538,7 +1665,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "reading the paper is what he was doing BEFORE — the swap trap"
+  "notes": "reading the paper is what he was doing BEFORE — the swap trap",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for The smell of toast turned sharp and smoky. A thin grey wisp curled out of the toaster. Dad sniffed twice, dropped his newspaper, and ran for the kitchen."
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v4",
@@ -1566,17 +1699,12 @@ export const questions = [
   "passage": "Aya counted her pocket money twice. She put on her coat and took the empty honey jar from the shelf. 'Back soon,' she called, 'we need more for the pancakes!'",
   "cell": "what_happens_next",
   "choices": [
-   "Aya will go and buy honey",
    "Aya will throw the jar away",
    "Aya will make her bed",
-   "Aya will eat the pancakes now"
+   "Aya will eat the pancakes now",
+   "Aya will go and buy honey"
   ],
   "answerOptions": [
-   {
-    "value": "Aya will go and buy honey",
-    "label": "Aya will go and buy honey",
-    "text": "Aya will go and buy honey"
-   },
    {
     "value": "Aya will throw the jar away",
     "label": "Aya will throw the jar away",
@@ -1591,6 +1719,11 @@ export const questions = [
     "value": "Aya will eat the pancakes now",
     "label": "Aya will eat the pancakes now",
     "text": "Aya will eat the pancakes now"
+   },
+   {
+    "value": "Aya will go and buy honey",
+    "label": "Aya will go and buy honey",
+    "text": "Aya will go and buy honey"
    }
   ],
   "answer": "Aya will go and buy honey",
@@ -1600,15 +1733,16 @@ export const questions = [
    "Aya will make her bed": "D-PLAUSIBLE-UNSUPPORTED",
    "Aya will eat the pancakes now": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1619,7 +1753,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "money + empty jar + 'we need more' point one way"
+  "notes": "money + empty jar + 'we need more' point one way",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
+  "resolvedImageAssetKey": "called",
+  "imageAlt": "Illustration for Aya counted her pocket money twice. She put on her coat and took the empty honey jar from the shelf. 'Back soon,' she called, 'we need more for the pancakes!'"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v5",
@@ -1681,15 +1821,16 @@ export const questions = [
    "Raj will shine the torch again at once": "D-OPPOSITE",
    "Raj will go outside to play": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1700,7 +1841,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "remembering the battery drawer is the plan"
+  "notes": "remembering the battery drawer is the plan",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for The torch blinked, went dim, then died. Raj shook it, but the dark stayed. He remembered the drawer in the kitchen where the little round batteries lived, and he felt his way toward the stairs."
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v6",
@@ -1728,17 +1875,12 @@ export const questions = [
   "passage": "Nell's baby brother finally fell asleep in his cot. Mum tiptoed out backwards. Just then, Nell's music box began to plink loudly in her pocket. Mum spun round with wide eyes.",
   "cell": "what_happens_next",
   "choices": [
-   "Nell will rush to switch off the music",
    "Nell will turn the music up",
    "Nell will start singing along",
-   "Nell will open the window"
+   "Nell will open the window",
+   "Nell will rush to switch off the music"
   ],
   "answerOptions": [
-   {
-    "value": "Nell will rush to switch off the music",
-    "label": "Nell will rush to switch off the music",
-    "text": "Nell will rush to switch off the music"
-   },
    {
     "value": "Nell will turn the music up",
     "label": "Nell will turn the music up",
@@ -1753,6 +1895,11 @@ export const questions = [
     "value": "Nell will open the window",
     "label": "Nell will open the window",
     "text": "Nell will open the window"
+   },
+   {
+    "value": "Nell will rush to switch off the music",
+    "label": "Nell will rush to switch off the music",
+    "text": "Nell will rush to switch off the music"
    }
   ],
   "answer": "Nell will rush to switch off the music",
@@ -1762,15 +1909,16 @@ export const questions = [
    "Nell will start singing along": "D-OPPOSITE",
    "Nell will open the window": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1781,7 +1929,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sleeping baby + wide eyes = silence needed"
+  "notes": "sleeping baby + wide eyes = silence needed",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "resolvedImageAssetKey": "asleep",
+  "imageAlt": "Illustration for Nell's baby brother finally fell asleep in his cot. Mum tiptoed out backwards. Just then, Nell's music box began to plink loudly in her pocket. Mum spun round with wide eyes."
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v7",
@@ -1843,15 +1997,16 @@ export const questions = [
    "Grandad will plant flowers": "D-PLAUSIBLE-UNSUPPORTED",
    "Grandad will wash the windows": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1862,7 +2017,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the glance at the gritting sand sets the plan"
+  "notes": "the glance at the gritting sand sets the plan",
+  "imagePath": "/images/assessment/blends/glass.webp",
+  "imageUrl": "/images/assessment/blends/glass.webp",
+  "targetImage": "/images/assessment/blends/glass.webp",
+  "targetImagePath": "/images/assessment/blends/glass.webp",
+  "resolvedImageAssetKey": "glass",
+  "imageAlt": "Illustration for Frost had turned the path to glass overnight. Grandad tested it with one boot and slid an arm's length. 'Not today,' he said, looking at the gritting sand by the gate."
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v8",
@@ -1890,12 +2051,17 @@ export const questions = [
   "passage": "The jam sandwich was gone. Only crumbs led away across the kitchen floor, and the cat flap was still swinging gently. Outside, a magpie sat on the fence with something red and sticky on its beak.",
   "cell": "what_happens_next",
   "choices": [
+   "the postman ate it",
    "a bird took it",
    "Mum tidied it away",
-   "it is still on the plate",
-   "the postman ate it"
+   "it is still on the plate"
   ],
   "answerOptions": [
+   {
+    "value": "the postman ate it",
+    "label": "the postman ate it",
+    "text": "the postman ate it"
+   },
    {
     "value": "a bird took it",
     "label": "a bird took it",
@@ -1910,29 +2076,25 @@ export const questions = [
     "value": "it is still on the plate",
     "label": "it is still on the plate",
     "text": "it is still on the plate"
-   },
-   {
-    "value": "the postman ate it",
-    "label": "the postman ate it",
-    "text": "the postman ate it"
    }
   ],
   "answer": "a bird took it",
   "correctAnswer": "a bird took it",
   "distractorRationales": {
-   "Mum tidied it away": "D-PLAUSIBLE-UNSUPPORTED",
    "it is still on the plate": "D-OPPOSITE",
-   "the postman ate it": "D-PLAUSIBLE-UNSUPPORTED"
+   "the postman ate it": "D-PLAUSIBLE-UNSUPPORTED",
+   "Mum tidied it away": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1943,7 +2105,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "crumb trail + swinging flap + sticky beak"
+  "notes": "crumb trail + swinging flap + sticky beak",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "resolvedImageAssetKey": "sandwich",
+  "imageAlt": "Illustration for The jam sandwich was gone. Only crumbs led away across the kitchen floor, and the cat flap was still swinging gently. Outside, a magpie sat on the fence with something red and sticky on its beak."
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v1",
@@ -1971,12 +2139,17 @@ export const questions = [
   "passage": "Ma put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic rug and slid it back on top of the cupboard. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'",
   "cell": "why_did_they",
   "choices": [
+   "she had lost the picnic rug",
    "she could tell rain was coming",
    "she was tired of picnics forever",
-   "the museum was free that day",
-   "she had lost the picnic rug"
+   "the museum was free that day"
   ],
   "answerOptions": [
+   {
+    "value": "she had lost the picnic rug",
+    "label": "she had lost the picnic rug",
+    "text": "she had lost the picnic rug"
+   },
    {
     "value": "she could tell rain was coming",
     "label": "she could tell rain was coming",
@@ -1991,11 +2164,6 @@ export const questions = [
     "value": "the museum was free that day",
     "label": "the museum was free that day",
     "text": "the museum was free that day"
-   },
-   {
-    "value": "she had lost the picnic rug",
-    "label": "she had lost the picnic rug",
-    "text": "she had lost the picnic rug"
    }
   ],
   "answer": "she could tell rain was coming",
@@ -2005,15 +2173,16 @@ export const questions = [
    "the museum was free that day": "D-PLAUSIBLE-UNSUPPORTED",
    "she had lost the picnic rug": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2024,7 +2193,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "two umbrellas + window checks; the rug is put AWAY, not lost"
+  "notes": "two umbrellas + window checks; the rug is put AWAY, not lost",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for Ma put two umbrellas by the door instead of one. She checked the window again, then rolled up the picnic rug and slid it back on top of the cupboard. 'We'll do the indoor museum instead,' she said, 'and take the bus, not walk.'"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v2",
@@ -2086,15 +2261,16 @@ export const questions = [
    "the teacher told him to share": "D-PLAUSIBLE-UNSUPPORTED",
    "he wanted everyone to praise him": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +2281,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "'without a word' and looking away kill the showing-off reading"
+  "notes": "'without a word' and looking away kill the showing-off reading",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
+  "resolvedImageAssetKey": "sandwich",
+  "imageAlt": "Illustration for At lunch, Marco slid his orange across to Lily without a word. Lily's lunchbox had fallen in a puddle that morning, and everyone had seen her empty tray. Marco kept his eyes on his own sandwich, as if nothing had happened."
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v3",
@@ -2133,17 +2315,12 @@ export const questions = [
   "passage": "Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where the council had painted a wet, shining square of new tar.",
   "cell": "why_did_they",
   "choices": [
-   "the lane was not safe to ride today",
    "her scooter was stolen",
    "she was bored of scooting",
-   "she wanted to be late for tea"
+   "she wanted to be late for tea",
+   "the lane was not safe to ride today"
   ],
   "answerOptions": [
-   {
-    "value": "the lane was not safe to ride today",
-    "label": "the lane was not safe to ride today",
-    "text": "the lane was not safe to ride today"
-   },
    {
     "value": "her scooter was stolen",
     "label": "her scooter was stolen",
@@ -2158,6 +2335,11 @@ export const questions = [
     "value": "she wanted to be late for tea",
     "label": "she wanted to be late for tea",
     "text": "she wanted to be late for tea"
+   },
+   {
+    "value": "the lane was not safe to ride today",
+    "label": "the lane was not safe to ride today",
+    "text": "the lane was not safe to ride today"
    }
   ],
   "answer": "the lane was not safe to ride today",
@@ -2167,15 +2349,16 @@ export const questions = [
    "she was bored of scooting": "D-PLAUSIBLE-UNSUPPORTED",
    "she wanted to be late for tea": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2186,7 +2369,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "she still HAS the scooter; the wet tar is the mechanism"
+  "notes": "she still HAS the scooter; the wet tar is the mechanism",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "resolvedImageAssetKey": "carefully",
+  "imageAlt": "Illustration for Pia usually raced her scooter down Hill Lane. Today she got off at the top and walked it down slowly, holding the brake lever the whole way. Halfway down, she stepped carefully around a patch where the council had painted a wet, shining square of new tar."
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v4",
@@ -2214,22 +2403,12 @@ export const questions = [
   "passage": "Gran turned the television right down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said.",
   "cell": "why_did_they",
   "choices": [
-   "she needed quiet to hear the call",
-   "she wanted to watch television",
    "the kitchen was too cold",
-   "she was hiding from Grandad"
+   "she was hiding from Grandad",
+   "she needed quiet to hear the call",
+   "she wanted to watch television"
   ],
   "answerOptions": [
-   {
-    "value": "she needed quiet to hear the call",
-    "label": "she needed quiet to hear the call",
-    "text": "she needed quiet to hear the call"
-   },
-   {
-    "value": "she wanted to watch television",
-    "label": "she wanted to watch television",
-    "text": "she wanted to watch television"
-   },
    {
     "value": "the kitchen was too cold",
     "label": "the kitchen was too cold",
@@ -2239,24 +2418,35 @@ export const questions = [
     "value": "she was hiding from Grandad",
     "label": "she was hiding from Grandad",
     "text": "she was hiding from Grandad"
+   },
+   {
+    "value": "she needed quiet to hear the call",
+    "label": "she needed quiet to hear the call",
+    "text": "she needed quiet to hear the call"
+   },
+   {
+    "value": "she wanted to watch television",
+    "label": "she wanted to watch television",
+    "text": "she wanted to watch television"
    }
   ],
   "answer": "she needed quiet to hear the call",
   "correctAnswer": "she needed quiet to hear the call",
   "distractorRationales": {
+   "she was hiding from Grandad": "D-PLAUSIBLE-UNSUPPORTED",
    "she wanted to watch television": "D-OPPOSITE",
-   "the kitchen was too cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "she was hiding from Grandad": "D-PLAUSIBLE-UNSUPPORTED"
+   "the kitchen was too cold": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2267,7 +2457,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "'I can hear you clearly now' confirms the mechanism"
+  "notes": "'I can hear you clearly now' confirms the mechanism",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
+  "resolvedImageAssetKey": "right",
+  "imageAlt": "Illustration for Gran turned the television right down when the phone rang. She carried the phone to the quiet hallway and shut the kitchen door behind her. 'Yes, doctor, I can hear you clearly now,' she said."
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v5",
@@ -2295,12 +2491,17 @@ export const questions = [
   "passage": "Coach Adams moved Jonah from striker to goalkeeper for the final. Some parents muttered. But in training all week, Jonah had tipped every single shot over the bar, even the hard low ones. When the final whistle blew, Jonah had kept the only clean sheet of the season.",
   "cell": "why_did_they",
   "choices": [
+   "the parents asked for the change",
    "Jonah had shown he was brilliant in goal",
    "Jonah was too slow to run",
-   "the coach wanted the team to lose",
-   "the parents asked for the change"
+   "the coach wanted the team to lose"
   ],
   "answerOptions": [
+   {
+    "value": "the parents asked for the change",
+    "label": "the parents asked for the change",
+    "text": "the parents asked for the change"
+   },
    {
     "value": "Jonah had shown he was brilliant in goal",
     "label": "Jonah had shown he was brilliant in goal",
@@ -2315,11 +2516,6 @@ export const questions = [
     "value": "the coach wanted the team to lose",
     "label": "the coach wanted the team to lose",
     "text": "the coach wanted the team to lose"
-   },
-   {
-    "value": "the parents asked for the change",
-    "label": "the parents asked for the change",
-    "text": "the parents asked for the change"
    }
   ],
   "answer": "Jonah had shown he was brilliant in goal",
@@ -2329,15 +2525,16 @@ export const questions = [
    "the coach wanted the team to lose": "D-OPPOSITE",
    "the parents asked for the change": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2348,7 +2545,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the training detail is the evidence; parents actually muttered AGAINST it"
+  "notes": "the training detail is the evidence; parents actually muttered AGAINST it",
+  "imagePath": "/images/assessment/digraphs/whistle.webp",
+  "imageUrl": "/images/assessment/digraphs/whistle.webp",
+  "targetImage": "/images/assessment/digraphs/whistle.webp",
+  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
+  "resolvedImageAssetKey": "whistle",
+  "imageAlt": "Illustration for Coach Adams moved Jonah from striker to goalkeeper for the final. Some parents muttered. But in training all week, Jonah had tipped every single shot over the bar, even the hard low ones. When the final whistle blew, Jonah had kept the only clean sheet of the season."
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v6",
@@ -2406,19 +2609,20 @@ export const questions = [
   "answer": "a flood once ruined her seeds",
   "correctAnswer": "a flood once ruined her seeds",
   "distractorRationales": {
+   "seeds grow better inside glass": "D-PLAUSIBLE-UNSUPPORTED",
    "she likes collecting jam": "D-TOPIC-ADJACENT",
-   "the jars look pretty on the shelf": "D-PLAUSIBLE-UNSUPPORTED",
-   "seeds grow better inside glass": "D-PLAUSIBLE-UNSUPPORTED"
+   "the jars look pretty on the shelf": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2429,7 +2633,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the tide mark corroborates her one-line explanation"
+  "notes": "the tide mark corroborates her one-line explanation",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
+  "resolvedImageAssetKey": "tight",
+  "imageAlt": "Illustration for Auntie Fern always kept her seed packets in old jam jars with the lids screwed tight. 'One flood in this shed was enough,' she would say, tapping a jar. On the top shelf, a faded brown tide mark still ran along the wooden wall."
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v7",
@@ -2457,17 +2667,12 @@ export const questions = [
   "passage": "On the first bus ride to school by herself, Asha sat directly behind the driver, even though the back seats were empty and her friends always said the back was best. She held her ticket in her hand the whole way instead of putting it in her bag.",
   "cell": "why_did_they",
   "choices": [
-   "being new to riding alone, she wanted to feel safe and ready",
    "the back seats were broken",
    "she wanted to annoy her friends",
-   "the driver was her uncle"
+   "the driver was her uncle",
+   "being new to riding alone, she wanted to feel safe and ready"
   ],
   "answerOptions": [
-   {
-    "value": "being new to riding alone, she wanted to feel safe and ready",
-    "label": "being new to riding alone, she wanted to feel safe and ready",
-    "text": "being new to riding alone, she wanted to feel safe and ready"
-   },
    {
     "value": "the back seats were broken",
     "label": "the back seats were broken",
@@ -2482,24 +2687,30 @@ export const questions = [
     "value": "the driver was her uncle",
     "label": "the driver was her uncle",
     "text": "the driver was her uncle"
+   },
+   {
+    "value": "being new to riding alone, she wanted to feel safe and ready",
+    "label": "being new to riding alone, she wanted to feel safe and ready",
+    "text": "being new to riding alone, she wanted to feel safe and ready"
    }
   ],
   "answer": "being new to riding alone, she wanted to feel safe and ready",
   "correctAnswer": "being new to riding alone, she wanted to feel safe and ready",
   "distractorRationales": {
-   "the back seats were broken": "D-PLAUSIBLE-UNSUPPORTED",
    "she wanted to annoy her friends": "D-OPPOSITE",
-   "the driver was her uncle": "D-PLAUSIBLE-UNSUPPORTED"
+   "the driver was her uncle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the back seats were broken": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2510,7 +2721,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "first-time-alone frames both choices; nothing supports the rivals"
+  "notes": "first-time-alone frames both choices; nothing supports the rivals",
+  "imagePath": "/images/vocabulary/friends.png",
+  "imageUrl": "/images/vocabulary/friends.png",
+  "targetImage": "/images/vocabulary/friends.png",
+  "targetImagePath": "/images/vocabulary/friends.png",
+  "resolvedImageAssetKey": "friends",
+  "imageAlt": "Illustration for On the first bus ride to school by herself, Asha sat directly behind the driver, even though the back seats were empty and her friends always said the back was best. She held her ticket in her hand the whole way instead of putting it in her bag."
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v8",
@@ -2538,22 +2755,12 @@ export const questions = [
   "passage": "Mr Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush.",
   "cell": "why_did_they",
   "choices": [
-   "he was making sure it would not slip",
-   "he could not decide which wall to paint",
    "he was trying to break the ladder",
-   "he had forgotten his paintbrush"
+   "he had forgotten his paintbrush",
+   "he was making sure it would not slip",
+   "he could not decide which wall to paint"
   ],
   "answerOptions": [
-   {
-    "value": "he was making sure it would not slip",
-    "label": "he was making sure it would not slip",
-    "text": "he was making sure it would not slip"
-   },
-   {
-    "value": "he could not decide which wall to paint",
-    "label": "he could not decide which wall to paint",
-    "text": "he could not decide which wall to paint"
-   },
    {
     "value": "he was trying to break the ladder",
     "label": "he was trying to break the ladder",
@@ -2563,24 +2770,35 @@ export const questions = [
     "value": "he had forgotten his paintbrush",
     "label": "he had forgotten his paintbrush",
     "text": "he had forgotten his paintbrush"
+   },
+   {
+    "value": "he was making sure it would not slip",
+    "label": "he was making sure it would not slip",
+    "text": "he was making sure it would not slip"
+   },
+   {
+    "value": "he could not decide which wall to paint",
+    "label": "he could not decide which wall to paint",
+    "text": "he could not decide which wall to paint"
    }
   ],
   "answer": "he was making sure it would not slip",
   "correctAnswer": "he was making sure it would not slip",
   "distractorRationales": {
-   "he could not decide which wall to paint": "D-PLAUSIBLE-UNSUPPORTED",
    "he was trying to break the ladder": "D-OPPOSITE",
-   "he had forgotten his paintbrush": "D-SEQUENCE-SWAP"
+   "he had forgotten his paintbrush": "D-SEQUENCE-SWAP",
+   "he could not decide which wall to paint": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,7 +2809,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the wobble test is the mechanism; the brush comes AFTER by design"
+  "notes": "the wobble test is the mechanism; the brush comes AFTER by design",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Mr Okafor propped his ladder against the wall, then moved it twice before climbing. Each time he pushed the feet a little farther from the wall and pressed down on a rung with his boot. Only when the ladder did not wobble at all did he pick up his paintbrush."
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v1",
@@ -2653,15 +2877,16 @@ export const questions = [
    "Mum had bought new boots": "D-PLAUSIBLE-UNSUPPORTED",
    "the bath had overflowed": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2672,7 +2897,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "three water clues point outdoors; overflow explains only one of them"
+  "notes": "three water clues point outdoors; overflow explains only one of them",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for When Jess came in from the garden, a dripping umbrella already stood open in the bath. Two coats hung heavy on the radiator, and Mum was stuffing newspaper into a pair of dark, shining boots."
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v2",
@@ -2700,17 +2931,12 @@ export const questions = [
   "passage": "The classroom hamster wheel was still spinning slowly when the children arrived. The food bowl, full last night, held only two pellets, and the tissue-paper mountain in the corner now had a perfectly round doorway.",
   "cell": "what_went_unsaid",
   "choices": [
-   "the hamster was busy while everyone was away",
    "a child fed the hamster at dawn",
    "the caretaker cleaned the cage",
-   "the hamster slept all night"
+   "the hamster slept all night",
+   "the hamster was busy while everyone was away"
   ],
   "answerOptions": [
-   {
-    "value": "the hamster was busy while everyone was away",
-    "label": "the hamster was busy while everyone was away",
-    "text": "the hamster was busy while everyone was away"
-   },
    {
     "value": "a child fed the hamster at dawn",
     "label": "a child fed the hamster at dawn",
@@ -2725,6 +2951,11 @@ export const questions = [
     "value": "the hamster slept all night",
     "label": "the hamster slept all night",
     "text": "the hamster slept all night"
+   },
+   {
+    "value": "the hamster was busy while everyone was away",
+    "label": "the hamster was busy while everyone was away",
+    "text": "the hamster was busy while everyone was away"
    }
   ],
   "answer": "the hamster was busy while everyone was away",
@@ -2734,15 +2965,16 @@ export const questions = [
    "the caretaker cleaned the cage": "D-OPPOSITE",
    "the hamster slept all night": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2753,7 +2985,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "spinning wheel + eaten food + built doorway"
+  "notes": "spinning wheel + eaten food + built doorway",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for The classroom hamster wheel was still spinning slowly when the children arrived. The food bowl, full last night, held only two pellets, and the tissue-paper mountain in the corner now had a perfectly round doorway."
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v3",
@@ -2781,12 +3019,17 @@ export const questions = [
   "passage": "Dad met them at the door wearing one oven glove and a guilty smile. The kitchen window was wide open in the cold, a tea towel was flapping over the smoke alarm, and a very dark cake sat in the bin.",
   "cell": "what_went_unsaid",
   "choices": [
+   "the oven had never worked",
    "Dad burnt the cake he was baking",
    "Dad forgot to bake anything",
-   "burglars had opened the window",
-   "the oven had never worked"
+   "burglars had opened the window"
   ],
   "answerOptions": [
+   {
+    "value": "the oven had never worked",
+    "label": "the oven had never worked",
+    "text": "the oven had never worked"
+   },
    {
     "value": "Dad burnt the cake he was baking",
     "label": "Dad burnt the cake he was baking",
@@ -2801,11 +3044,6 @@ export const questions = [
     "value": "burglars had opened the window",
     "label": "burglars had opened the window",
     "text": "burglars had opened the window"
-   },
-   {
-    "value": "the oven had never worked",
-    "label": "the oven had never worked",
-    "text": "the oven had never worked"
    }
   ],
   "answer": "Dad burnt the cake he was baking",
@@ -2815,15 +3053,16 @@ export const questions = [
    "burglars had opened the window": "D-PLAUSIBLE-UNSUPPORTED",
    "the oven had never worked": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2834,7 +3073,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "each clue is smoke management; the binned cake completes it"
+  "notes": "each clue is smoke management; the binned cake completes it",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for Dad met them at the door wearing one oven glove and a guilty smile. The kitchen window was wide open in the cold, a tea towel was flapping over the smoke alarm, and a very dark cake sat in the bin."
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v4",
@@ -2862,12 +3107,17 @@ export const questions = [
   "passage": "Marta's recorder case felt strangely light on the walk to school. When the music teacher asked everyone to play, Marta opened the case and found only a folded note from her little brother: 'Borrowed it for my pirate band. Sorry!'",
   "cell": "what_went_unsaid",
   "choices": [
+   "Marta forgot she owned a recorder",
    "her brother had taken the recorder without asking",
    "Marta had sold her recorder",
-   "the teacher had collected the recorders",
-   "Marta forgot she owned a recorder"
+   "the teacher had collected the recorders"
   ],
   "answerOptions": [
+   {
+    "value": "Marta forgot she owned a recorder",
+    "label": "Marta forgot she owned a recorder",
+    "text": "Marta forgot she owned a recorder"
+   },
    {
     "value": "her brother had taken the recorder without asking",
     "label": "her brother had taken the recorder without asking",
@@ -2882,29 +3132,25 @@ export const questions = [
     "value": "the teacher had collected the recorders",
     "label": "the teacher had collected the recorders",
     "text": "the teacher had collected the recorders"
-   },
-   {
-    "value": "Marta forgot she owned a recorder",
-    "label": "Marta forgot she owned a recorder",
-    "text": "Marta forgot she owned a recorder"
    }
   ],
   "answer": "her brother had taken the recorder without asking",
   "correctAnswer": "her brother had taken the recorder without asking",
   "distractorRationales": {
-   "Marta had sold her recorder": "D-PLAUSIBLE-UNSUPPORTED",
    "the teacher had collected the recorders": "D-OPPOSITE",
-   "Marta forgot she owned a recorder": "D-OPPOSITE"
+   "Marta forgot she owned a recorder": "D-OPPOSITE",
+   "Marta had sold her recorder": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2915,7 +3161,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the note states it; the light case was the early clue"
+  "notes": "the note states it; the light case was the early clue",
+  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "resolvedImageAssetKey": "teacher",
+  "imageAlt": "Illustration for Marta's recorder case felt strangely light on the walk to school. When the music teacher asked everyone to play, Marta opened the case and found only a folded note from her little brother: 'Borrowed it for my pirate band. Sorry!'"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v5",
@@ -2977,15 +3229,16 @@ export const questions = [
    "the wind": "D-PLAUSIBLE-UNSUPPORTED",
    "nobody — it never moved": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2996,7 +3249,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the matching scarf is the fingerprint"
+  "notes": "the matching scarf is the fingerprint",
+  "imagePath": "/images/assessment/language/variants/adjectives/serious-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/serious-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/serious-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/serious-01.webp",
+  "resolvedImageAssetKey": "serious",
+  "imageAlt": "Illustration for The garden gnome had moved again. On Monday he faced the pond; by Friday he was under the rose bush, wearing a doll's scarf. Grandpa swore he never touched him. From the fence, the little girl next door watched with a very serious face, and one more doll's scarf in her hand."
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v6",
@@ -3024,22 +3283,12 @@ export const questions = [
   "passage": "By morning the bird feeder lay on the grass, split open and licked clean. The pole it hung from was bent in a smooth curve, like a drinking straw. In the flower bed below, deep five-toed prints led away toward the woods, each one wider than Dad's boot.",
   "cell": "what_went_unsaid",
   "choices": [
-   "a large, heavy animal from the woods",
-   "a small garden bird",
    "a naughty child from next door",
-   "a strong gust of wind"
+   "a strong gust of wind",
+   "a large, heavy animal from the woods",
+   "a small garden bird"
   ],
   "answerOptions": [
-   {
-    "value": "a large, heavy animal from the woods",
-    "label": "a large, heavy animal from the woods",
-    "text": "a large, heavy animal from the woods"
-   },
-   {
-    "value": "a small garden bird",
-    "label": "a small garden bird",
-    "text": "a small garden bird"
-   },
    {
     "value": "a naughty child from next door",
     "label": "a naughty child from next door",
@@ -3049,24 +3298,35 @@ export const questions = [
     "value": "a strong gust of wind",
     "label": "a strong gust of wind",
     "text": "a strong gust of wind"
+   },
+   {
+    "value": "a large, heavy animal from the woods",
+    "label": "a large, heavy animal from the woods",
+    "text": "a large, heavy animal from the woods"
+   },
+   {
+    "value": "a small garden bird",
+    "label": "a small garden bird",
+    "text": "a small garden bird"
    }
   ],
   "answer": "a large, heavy animal from the woods",
   "correctAnswer": "a large, heavy animal from the woods",
   "distractorRationales": {
-   "a small garden bird": "D-OPPOSITE",
    "a naughty child from next door": "D-PLAUSIBLE-UNSUPPORTED",
-   "a strong gust of wind": "D-PLAUSIBLE-UNSUPPORTED"
+   "a strong gust of wind": "D-PLAUSIBLE-UNSUPPORTED",
+   "a small garden bird": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3077,7 +3337,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "bent metal + wide prints rule out the small and the bodiless"
+  "notes": "bent metal + wide prints rule out the small and the bodiless",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for By morning the bird feeder lay on the grass, split open and licked clean. The pole it hung from was bent in a smooth curve, like a drinking straw. In the flower bed below, deep five-toed prints led away toward the woods, each one wider than Dad's boot."
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v7",
@@ -3105,22 +3371,12 @@ export const questions = [
   "passage": "The whole flat smelled of paint, though the walls were the same colour as ever. Newspaper was taped inside the bath tub, and tiny silver spots freckled Mum's glasses. On the balcony, Ela's old bicycle stood drying — suddenly, gloriously silver from wheel to wheel.",
   "cell": "what_went_unsaid",
   "choices": [
-   "spray-painting Ela's bicycle as a surprise",
-   "painting the bathroom walls a new colour",
    "cleaning her glasses",
-   "buying a brand-new bicycle"
+   "buying a brand-new bicycle",
+   "spray-painting Ela's bicycle as a surprise",
+   "painting the bathroom walls a new colour"
   ],
   "answerOptions": [
-   {
-    "value": "spray-painting Ela's bicycle as a surprise",
-    "label": "spray-painting Ela's bicycle as a surprise",
-    "text": "spray-painting Ela's bicycle as a surprise"
-   },
-   {
-    "value": "painting the bathroom walls a new colour",
-    "label": "painting the bathroom walls a new colour",
-    "text": "painting the bathroom walls a new colour"
-   },
    {
     "value": "cleaning her glasses",
     "label": "cleaning her glasses",
@@ -3130,24 +3386,35 @@ export const questions = [
     "value": "buying a brand-new bicycle",
     "label": "buying a brand-new bicycle",
     "text": "buying a brand-new bicycle"
+   },
+   {
+    "value": "spray-painting Ela's bicycle as a surprise",
+    "label": "spray-painting Ela's bicycle as a surprise",
+    "text": "spray-painting Ela's bicycle as a surprise"
+   },
+   {
+    "value": "painting the bathroom walls a new colour",
+    "label": "painting the bathroom walls a new colour",
+    "text": "painting the bathroom walls a new colour"
    }
   ],
   "answer": "spray-painting Ela's bicycle as a surprise",
   "correctAnswer": "spray-painting Ela's bicycle as a surprise",
   "distractorRationales": {
+   "buying a brand-new bicycle": "D-PLAUSIBLE-UNSUPPORTED",
    "painting the bathroom walls a new colour": "D-TOPIC-ADJACENT",
-   "cleaning her glasses": "D-DETAIL-AS-MAIN",
-   "buying a brand-new bicycle": "D-PLAUSIBLE-UNSUPPORTED"
+   "cleaning her glasses": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3158,7 +3425,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "same-colour walls kills the wall reading; silver spots + silver bike join up"
+  "notes": "same-colour walls kills the wall reading; silver spots + silver bike join up",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for The whole flat smelled of paint, though the walls were the same colour as ever. Newspaper was taped inside the bath tub, and tiny silver spots freckled Mum's glasses. On the balcony, Ela's old bicycle stood drying — suddenly, gloriously silver from wheel to wheel."
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v8",
@@ -3186,12 +3459,17 @@ export const questions = [
   "passage": "When the lights came back on, the ice-cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, 00:00, 00:00, and every radio in the house had forgotten its stations.",
   "cell": "what_went_unsaid",
   "choices": [
+   "a burglar reset the clocks",
    "the electricity had been off for a long time",
    "someone left the freezer drawers hanging open",
-   "the family bought soft ice cream",
-   "a burglar reset the clocks"
+   "the family bought soft ice cream"
   ],
   "answerOptions": [
+   {
+    "value": "a burglar reset the clocks",
+    "label": "a burglar reset the clocks",
+    "text": "a burglar reset the clocks"
+   },
    {
     "value": "the electricity had been off for a long time",
     "label": "the electricity had been off for a long time",
@@ -3206,29 +3484,25 @@ export const questions = [
     "value": "the family bought soft ice cream",
     "label": "the family bought soft ice cream",
     "text": "the family bought soft ice cream"
-   },
-   {
-    "value": "a burglar reset the clocks",
-    "label": "a burglar reset the clocks",
-    "text": "a burglar reset the clocks"
    }
   ],
   "answer": "the electricity had been off for a long time",
   "correctAnswer": "the electricity had been off for a long time",
   "distractorRationales": {
+   "a burglar reset the clocks": "D-PLAUSIBLE-UNSUPPORTED",
    "someone left the freezer drawers hanging open": "D-TOPIC-ADJACENT",
-   "the family bought soft ice cream": "D-PLAUSIBLE-UNSUPPORTED",
-   "a burglar reset the clocks": "D-PLAUSIBLE-UNSUPPORTED"
+   "the family bought soft ice cream": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3239,7 +3513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "blinking clocks + forgetful radios only fit a power cut, not an open freezer"
+  "notes": "blinking clocks + forgetful radios only fit a power cut, not an open freezer",
+  "imagePath": "/images/assessment/digraphs/clock.webp",
+  "imageUrl": "/images/assessment/digraphs/clock.webp",
+  "targetImage": "/images/assessment/digraphs/clock.webp",
+  "targetImagePath": "/images/assessment/digraphs/clock.webp",
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Illustration for When the lights came back on, the ice-cream tub on the counter was soft as soup, and the freezer drawers stood in puddles. The oven clock blinked 00:00, 00:00, 00:00, and every radio in the house had forgotten its stations."
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v1",
@@ -3267,17 +3547,12 @@ export const questions = [
   "passage": "Tilly said she did not mind missing the trip. She said it twice, in a bright voice. But all through art she drew the same picture: a little bus on a long road, with a girl waving from the window seat.",
   "cell": "evidence_pick",
   "choices": [
-   "she drew a girl waving from the bus window",
    "she said twice, in a bright voice, that she did not mind missing it",
    "it was time for art",
-   "her voice was bright"
+   "her voice was bright",
+   "she drew a girl waving from the bus window"
   ],
   "answerOptions": [
-   {
-    "value": "she drew a girl waving from the bus window",
-    "label": "she drew a girl waving from the bus window",
-    "text": "she drew a girl waving from the bus window"
-   },
    {
     "value": "she said twice, in a bright voice, that she did not mind missing it",
     "label": "she said twice, in a bright voice, that she did not mind missing it",
@@ -3292,6 +3567,11 @@ export const questions = [
     "value": "her voice was bright",
     "label": "her voice was bright",
     "text": "her voice was bright"
+   },
+   {
+    "value": "she drew a girl waving from the bus window",
+    "label": "she drew a girl waving from the bus window",
+    "text": "she drew a girl waving from the bus window"
    }
   ],
   "answer": "she drew a girl waving from the bus window",
@@ -3301,15 +3581,16 @@ export const questions = [
    "it was time for art": "D-DETAIL-AS-MAIN",
    "her voice was bright": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3320,7 +3601,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the drawing contradicts the words — evidence beats statements"
+  "notes": "the drawing contradicts the words — evidence beats statements",
+  "imagePath": "/images/assessment/generated/concepts/bright.webp",
+  "imageUrl": "/images/assessment/generated/concepts/bright.webp",
+  "targetImage": "/images/assessment/generated/concepts/bright.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/bright.webp",
+  "resolvedImageAssetKey": "bright",
+  "imageAlt": "Illustration for Tilly said she did not mind missing the trip. She said it twice, in a bright voice. But all through art she drew the same picture: a little bus on a long road, with a girl waving from the window seat."
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v2",
@@ -3348,22 +3635,12 @@ export const questions = [
   "passage": "'Any dog would do,' said Ba, shrugging at the shelter. Then a grey terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked, twice, whether terriers like long walks, and he kept the shelter's leaflet in his top pocket all week.",
   "cell": "evidence_pick",
   "choices": [
-   "he kept the shelter's leaflet all week",
-   "he shrugged at the shelter and said any dog would do",
    "the terrier was grey",
-   "they went home"
+   "they went home",
+   "he kept the shelter's leaflet all week",
+   "he shrugged at the shelter and said any dog would do"
   ],
   "answerOptions": [
-   {
-    "value": "he kept the shelter's leaflet all week",
-    "label": "he kept the shelter's leaflet all week",
-    "text": "he kept the shelter's leaflet all week"
-   },
-   {
-    "value": "he shrugged at the shelter and said any dog would do",
-    "label": "he shrugged at the shelter and said any dog would do",
-    "text": "he shrugged at the shelter and said any dog would do"
-   },
    {
     "value": "the terrier was grey",
     "label": "the terrier was grey",
@@ -3373,24 +3650,35 @@ export const questions = [
     "value": "they went home",
     "label": "they went home",
     "text": "they went home"
+   },
+   {
+    "value": "he kept the shelter's leaflet all week",
+    "label": "he kept the shelter's leaflet all week",
+    "text": "he kept the shelter's leaflet all week"
+   },
+   {
+    "value": "he shrugged at the shelter and said any dog would do",
+    "label": "he shrugged at the shelter and said any dog would do",
+    "text": "he shrugged at the shelter and said any dog would do"
    }
   ],
   "answer": "he kept the shelter's leaflet all week",
   "correctAnswer": "he kept the shelter's leaflet all week",
   "distractorRationales": {
-   "he shrugged at the shelter and said any dog would do": "D-OPPOSITE",
    "the terrier was grey": "D-DETAIL-AS-MAIN",
-   "they went home": "D-DETAIL-AS-MAIN"
+   "they went home": "D-DETAIL-AS-MAIN",
+   "he shrugged at the shelter and said any dog would do": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3401,7 +3689,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "shrug words vs pocket evidence"
+  "notes": "shrug words vs pocket evidence",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "resolvedImageAssetKey": "whether",
+  "imageAlt": "Illustration for 'Any dog would do,' said Ba, shrugging at the shelter. Then a grey terrier pressed its nose to the bars. Ba knelt down for a long time. On the way home he asked, twice, whether terriers like long walks, and he kept the shelter's leaflet in his top pocket all week."
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v3",
@@ -3429,17 +3723,12 @@ export const questions = [
   "passage": "Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by colour, exactly like Femi sorts his pencil tin, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch.",
   "cell": "evidence_pick",
   "choices": [
-   "the shelves were sorted the way Femi sorts his pencils",
    "nobody saw who tidied the book corner shelves",
    "the classroom has a book corner",
-   "it happened after lunch"
+   "it happened after lunch",
+   "the shelves were sorted the way Femi sorts his pencils"
   ],
   "answerOptions": [
-   {
-    "value": "the shelves were sorted the way Femi sorts his pencils",
-    "label": "the shelves were sorted the way Femi sorts his pencils",
-    "text": "the shelves were sorted the way Femi sorts his pencils"
-   },
    {
     "value": "nobody saw who tidied the book corner shelves",
     "label": "nobody saw who tidied the book corner shelves",
@@ -3454,6 +3743,11 @@ export const questions = [
     "value": "it happened after lunch",
     "label": "it happened after lunch",
     "text": "it happened after lunch"
+   },
+   {
+    "value": "the shelves were sorted the way Femi sorts his pencils",
+    "label": "the shelves were sorted the way Femi sorts his pencils",
+    "text": "the shelves were sorted the way Femi sorts his pencils"
    }
   ],
   "answer": "the shelves were sorted the way Femi sorts his pencils",
@@ -3463,15 +3757,16 @@ export const questions = [
    "the classroom has a book corner": "D-DETAIL-AS-MAIN",
    "it happened after lunch": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3482,7 +3777,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "matching habits are the fingerprint"
+  "notes": "matching habits are the fingerprint",
+  "imagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
+  "resolvedImageAssetKey": "shelves",
+  "imageAlt": "Illustration for Nobody saw who tidied the book corner. But Miss Diaz noticed that the shelves were sorted by colour, exactly like Femi sorts his pencil tin, and that the beanbag was patted into a neat square, just the way Femi leaves his chair cushion after lunch."
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v4",
@@ -3540,19 +3841,20 @@ export const questions = [
   "answer": "the medal was polished every Sunday",
   "correctAnswer": "the medal was polished every Sunday",
   "distractorRationales": {
+   "visitors came to the house": "D-DETAIL-AS-MAIN",
    "Harri claimed the win did not matter at all": "D-OPPOSITE",
-   "sports day was rainy": "D-DETAIL-AS-MAIN",
-   "visitors came to the house": "D-DETAIL-AS-MAIN"
+   "sports day was rainy": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +3865,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "actions over words again — the polishing habit"
+  "notes": "actions over words again — the polishing habit",
+  "imagePath": "/images/assessment/hfw/every.webp",
+  "imageUrl": "/images/assessment/hfw/every.webp",
+  "targetImage": "/images/assessment/hfw/every.webp",
+  "targetImagePath": "/images/assessment/hfw/every.webp",
+  "resolvedImageAssetKey": "every",
+  "imageAlt": "Illustration for Harri claimed the win did not matter. Yet the medal hung over his bed, polished every Sunday. The race photograph moved from the drawer, to the shelf, to a frame on the wall. And whenever visitors came, somehow the talk always found its way to that rainy sports day."
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v5",
@@ -3591,17 +3899,12 @@ export const questions = [
   "passage": "The new boy said he had never played chess before. Then he set up every piece without looking at the box lid. He moved his knight in that funny L-shape straight away, and when Mr Salt's queen crept forward, the new boy smiled a small, knowing smile.",
   "cell": "evidence_pick",
   "choices": [
-   "he set up every piece without looking",
    "he said he had never played",
    "there was a box lid",
-   "Mr Salt had a queen"
+   "Mr Salt had a queen",
+   "he set up every piece without looking"
   ],
   "answerOptions": [
-   {
-    "value": "he set up every piece without looking",
-    "label": "he set up every piece without looking",
-    "text": "he set up every piece without looking"
-   },
    {
     "value": "he said he had never played",
     "label": "he said he had never played",
@@ -3616,24 +3919,30 @@ export const questions = [
     "value": "Mr Salt had a queen",
     "label": "Mr Salt had a queen",
     "text": "Mr Salt had a queen"
+   },
+   {
+    "value": "he set up every piece without looking",
+    "label": "he set up every piece without looking",
+    "text": "he set up every piece without looking"
    }
   ],
   "answer": "he set up every piece without looking",
   "correctAnswer": "he set up every piece without looking",
   "distractorRationales": {
+   "Mr Salt had a queen": "D-DETAIL-AS-MAIN",
    "he said he had never played": "D-OPPOSITE",
-   "there was a box lid": "D-DETAIL-AS-MAIN",
-   "Mr Salt had a queen": "D-DETAIL-AS-MAIN"
+   "there was a box lid": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3644,7 +3953,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "setup knowledge is the giveaway"
+  "notes": "setup knowledge is the giveaway",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for The new boy said he had never played chess before. Then he set up every piece without looking at the box lid. He moved his knight in that funny L-shape straight away, and when Mr Salt's queen crept forward, the new boy smiled a small, knowing smile."
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v6",
@@ -3702,19 +4017,20 @@ export const questions = [
   "answer": "the credits rolled to long, slow breathing",
   "correctAnswer": "the credits rolled to long, slow breathing",
   "distractorRationales": {
+   "Leo sat beside her": "D-PLAUSIBLE-UNSUPPORTED",
    "she insisted she was wide awake for the whole film": "D-OPPOSITE",
-   "they watched a film": "D-DETAIL-AS-MAIN",
-   "Leo sat beside her": "D-PLAUSIBLE-UNSUPPORTED"
+   "they watched a film": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3725,7 +4041,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the breathing detail settles it"
+  "notes": "the breathing detail settles it",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
+  "resolvedImageAssetKey": "asleep",
+  "imageAlt": "Illustration for Mum insisted she was wide awake for the film. Halfway through, her mug tipped gently in her hand, and Leo caught it. By the big ending, her head had found the cushion, and the credits rolled to the sound of long, slow breathing."
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v7",
@@ -3753,12 +4075,17 @@ export const questions = [
   "passage": "The caretaker grumbled that the school cat was 'nothing but a nuisance'. But the nuisance had a cushion in the boiler room, a bowl marked C-A-T in the caretaker's own careful letters, and on cold mornings, the first warm lap it looked for was his.",
   "cell": "evidence_pick",
   "choices": [
+   "mornings were cold",
    "a bowl marked C-A-T in his own careful letters",
    "he grumbled that the cat was nothing but a nuisance",
-   "the school had a boiler room",
-   "mornings were cold"
+   "the school had a boiler room"
   ],
   "answerOptions": [
+   {
+    "value": "mornings were cold",
+    "label": "mornings were cold",
+    "text": "mornings were cold"
+   },
    {
     "value": "a bowl marked C-A-T in his own careful letters",
     "label": "a bowl marked C-A-T in his own careful letters",
@@ -3773,29 +4100,25 @@ export const questions = [
     "value": "the school had a boiler room",
     "label": "the school had a boiler room",
     "text": "the school had a boiler room"
-   },
-   {
-    "value": "mornings were cold",
-    "label": "mornings were cold",
-    "text": "mornings were cold"
    }
   ],
   "answer": "a bowl marked C-A-T in his own careful letters",
   "correctAnswer": "a bowl marked C-A-T in his own careful letters",
   "distractorRationales": {
-   "he grumbled that the cat was nothing but a nuisance": "D-OPPOSITE",
    "the school had a boiler room": "D-DETAIL-AS-MAIN",
-   "mornings were cold": "D-DETAIL-AS-MAIN"
+   "mornings were cold": "D-DETAIL-AS-MAIN",
+   "he grumbled that the cat was nothing but a nuisance": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3806,7 +4129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the hand-lettered bowl is devotion in evidence form"
+  "notes": "the hand-lettered bowl is devotion in evidence form",
+  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "resolvedImageAssetKey": "careful",
+  "imageAlt": "Illustration for The caretaker grumbled that the school cat was 'nothing but a nuisance'. But the nuisance had a cushion in the boiler room, a bowl marked C-A-T in the caretaker's own careful letters, and on cold mornings, the first warm lap it looked for was his."
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v8",
@@ -3868,15 +4197,16 @@ export const questions = [
    "she owned some music": "D-DETAIL-AS-MAIN",
    "Gran was in the kitchen": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3887,7 +4217,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "escalating avoidance behaviours are the evidence chain"
+  "notes": "escalating avoidance behaviours are the evidence chain",
+  "imagePath": "/images/assessment/digraphs/thunder.webp",
+  "imageUrl": "/images/assessment/digraphs/thunder.webp",
+  "targetImage": "/images/assessment/digraphs/thunder.webp",
+  "targetImagePath": "/images/assessment/digraphs/thunder.webp",
+  "resolvedImageAssetKey": "thunder",
+  "imageAlt": "Illustration for Priti told everyone the thunder did not scare her one bit. Still, at the first rumble she turned her music up very loud. At the second, she remembered an urgent reason to visit the kitchen, where Gran was. At the third, she decided the safest place to read was under her blanket with a torch."
  },
  {
   "id": "lp3.inference.l1.R.feeling_from_evidence.v9r",
@@ -3915,12 +4251,17 @@ export const questions = [
   "passage": "The splinter was tiny but it was IN Milo's finger. He looked away while Dad held the tweezers. 'Done,' said Dad, before Milo had even squeezed his eyes shut properly. Milo stared at his finger, then laughed out loud.",
   "cell": "feeling_from_evidence",
   "choices": [
+   "sleepy",
    "surprised it was so easy",
    "still terrified",
-   "angry with Dad",
-   "sleepy"
+   "angry with Dad"
   ],
   "answerOptions": [
+   {
+    "value": "sleepy",
+    "label": "sleepy",
+    "text": "sleepy"
+   },
    {
     "value": "surprised it was so easy",
     "label": "surprised it was so easy",
@@ -3935,29 +4276,25 @@ export const questions = [
     "value": "angry with Dad",
     "label": "angry with Dad",
     "text": "angry with Dad"
-   },
-   {
-    "value": "sleepy",
-    "label": "sleepy",
-    "text": "sleepy"
    }
   ],
   "answer": "surprised it was so easy",
   "correctAnswer": "surprised it was so easy",
   "distractorRationales": {
-   "still terrified": "D-SEQUENCE-SWAP",
    "angry with Dad": "D-OPPOSITE",
-   "sleepy": "D-PLAUSIBLE-UNSUPPORTED"
+   "sleepy": "D-PLAUSIBLE-UNSUPPORTED",
+   "still terrified": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3968,7 +4305,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The splinter was tiny but it was IN Milo's finger. He looked away while Dad held the tweezers. 'Done,' said Dad, before Milo had even squeezed his eyes shut properly. Milo stared at his finger, then laughed out loud."
  },
  {
   "id": "lp3.inference.l1.R.feeling_from_evidence.v10r",
@@ -3996,22 +4339,12 @@ export const questions = [
   "passage": "Wren had saved her pocket money for six weeks. At the till, the shopkeeper counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "proud and careful with her prize",
-   "sorry she bought it",
    "frightened of the shop",
-   "bored by painting"
+   "bored by painting",
+   "proud and careful with her prize",
+   "sorry she bought it"
   ],
   "answerOptions": [
-   {
-    "value": "proud and careful with her prize",
-    "label": "proud and careful with her prize",
-    "text": "proud and careful with her prize"
-   },
-   {
-    "value": "sorry she bought it",
-    "label": "sorry she bought it",
-    "text": "sorry she bought it"
-   },
    {
     "value": "frightened of the shop",
     "label": "frightened of the shop",
@@ -4021,24 +4354,35 @@ export const questions = [
     "value": "bored by painting",
     "label": "bored by painting",
     "text": "bored by painting"
+   },
+   {
+    "value": "proud and careful with her prize",
+    "label": "proud and careful with her prize",
+    "text": "proud and careful with her prize"
+   },
+   {
+    "value": "sorry she bought it",
+    "label": "sorry she bought it",
+    "text": "sorry she bought it"
    }
   ],
   "answer": "proud and careful with her prize",
   "correctAnswer": "proud and careful with her prize",
   "distractorRationales": {
-   "sorry she bought it": "D-OPPOSITE",
    "frightened of the shop": "D-PLAUSIBLE-UNSUPPORTED",
-   "bored by painting": "D-OPPOSITE"
+   "bored by painting": "D-OPPOSITE",
+   "sorry she bought it": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4049,7 +4393,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+  "resolvedImageAssetKey": "careful",
+  "imageAlt": "Illustration for Wren had saved her pocket money for six weeks. At the till, the shopkeeper counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner."
  },
  {
   "id": "lp3.inference.l1.R.where_am_i.v9r",
@@ -4077,17 +4427,12 @@ export const questions = [
   "passage": "Rows of red seats sloped down toward the glowing screen. Ana balanced the popcorn on her knees. The lights dimmed slowly, and a hush spread as the first music swelled.",
   "cell": "where_am_i",
   "choices": [
-   "a cinema",
    "a theatre with actors on stage",
    "her bedroom",
-   "a stadium"
+   "a stadium",
+   "a cinema"
   ],
   "answerOptions": [
-   {
-    "value": "a cinema",
-    "label": "a cinema",
-    "text": "a cinema"
-   },
    {
     "value": "a theatre with actors on stage",
     "label": "a theatre with actors on stage",
@@ -4102,24 +4447,30 @@ export const questions = [
     "value": "a stadium",
     "label": "a stadium",
     "text": "a stadium"
+   },
+   {
+    "value": "a cinema",
+    "label": "a cinema",
+    "text": "a cinema"
    }
   ],
   "answer": "a cinema",
   "correctAnswer": "a cinema",
   "distractorRationales": {
+   "a stadium": "D-PLAUSIBLE-UNSUPPORTED",
    "a theatre with actors on stage": "D-TOPIC-ADJACENT",
-   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED",
-   "a stadium": "D-PLAUSIBLE-UNSUPPORTED"
+   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4130,7 +4481,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "resolvedImageAssetKey": "slowly",
+  "imageAlt": "Illustration for Rows of red seats sloped down toward the glowing screen. Ana balanced the popcorn on her knees. The lights dimmed slowly, and a hush spread as the first music swelled."
  },
  {
   "id": "lp3.inference.l1.R.where_am_i.v10r",
@@ -4192,15 +4549,16 @@ export const questions = [
    "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
    "a garage": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4211,7 +4569,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/shortest-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/shortest-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/shortest-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/shortest-01.webp",
+  "resolvedImageAssetKey": "shortest",
+  "imageAlt": "Illustration for Everything here had a price sticker and a wobbling tower of tins. A voice announced that spilled grapes were being cleaned on aisle four. Mum ticked the last thing off her list and steered the rattling trolley toward the shortest queue."
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v9r",
@@ -4239,12 +4603,17 @@ export const questions = [
   "passage": "Kip's tummy growled in the quiet classroom, loud as a bear. The clock said one minute until the lunch bell. He slid his workbook into his tray and looked at the door.",
   "cell": "what_happens_next",
   "choices": [
+   "Kip will fall asleep",
    "Kip will go to lunch when the bell rings",
    "Kip will sit in the quiet classroom doing worksheets",
-   "Kip will go home for the day",
-   "Kip will fall asleep"
+   "Kip will go home for the day"
   ],
   "answerOptions": [
+   {
+    "value": "Kip will fall asleep",
+    "label": "Kip will fall asleep",
+    "text": "Kip will fall asleep"
+   },
    {
     "value": "Kip will go to lunch when the bell rings",
     "label": "Kip will go to lunch when the bell rings",
@@ -4259,11 +4628,6 @@ export const questions = [
     "value": "Kip will go home for the day",
     "label": "Kip will go home for the day",
     "text": "Kip will go home for the day"
-   },
-   {
-    "value": "Kip will fall asleep",
-    "label": "Kip will fall asleep",
-    "text": "Kip will fall asleep"
    }
   ],
   "answer": "Kip will go to lunch when the bell rings",
@@ -4273,15 +4637,16 @@ export const questions = [
    "Kip will go home for the day": "D-PLAUSIBLE-UNSUPPORTED",
    "Kip will fall asleep": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4292,7 +4657,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/clock.webp",
+  "imageUrl": "/images/assessment/digraphs/clock.webp",
+  "targetImage": "/images/assessment/digraphs/clock.webp",
+  "targetImagePath": "/images/assessment/digraphs/clock.webp",
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Illustration for Kip's tummy growled in the quiet classroom, loud as a bear. The clock said one minute until the lunch bell. He slid his workbook into his tray and looked at the door."
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v10r",
@@ -4320,22 +4691,12 @@ export const questions = [
   "passage": "Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of coal buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white garden.",
   "cell": "what_happens_next",
   "choices": [
-   "build a snowman",
-   "cook carrot soup",
    "go back to bed",
-   "water the flowers"
+   "water the flowers",
+   "build a snowman",
+   "cook carrot soup"
   ],
   "answerOptions": [
-   {
-    "value": "build a snowman",
-    "label": "build a snowman",
-    "text": "build a snowman"
-   },
-   {
-    "value": "cook carrot soup",
-    "label": "cook carrot soup",
-    "text": "cook carrot soup"
-   },
    {
     "value": "go back to bed",
     "label": "go back to bed",
@@ -4345,24 +4706,35 @@ export const questions = [
     "value": "water the flowers",
     "label": "water the flowers",
     "text": "water the flowers"
+   },
+   {
+    "value": "build a snowman",
+    "label": "build a snowman",
+    "text": "build a snowman"
+   },
+   {
+    "value": "cook carrot soup",
+    "label": "cook carrot soup",
+    "text": "cook carrot soup"
    }
   ],
   "answer": "build a snowman",
   "correctAnswer": "build a snowman",
   "distractorRationales": {
+   "water the flowers": "D-PLAUSIBLE-UNSUPPORTED",
    "cook carrot soup": "D-TOPIC-ADJACENT",
-   "go back to bed": "D-OPPOSITE",
-   "water the flowers": "D-PLAUSIBLE-UNSUPPORTED"
+   "go back to bed": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-what_happens_next-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4373,7 +4745,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
+  "resolvedImageAssetKey": "carrots",
+  "imageAlt": "Illustration for Snow had fallen all night, thick and perfect. Two carrots, a scarf, and a bag of coal buttons waited by the back door. Josh pulled on his mittens and pushed the door open into the white garden."
  },
  {
   "id": "lp3.inference.l1.R.feeling_from_evidence.v11r",
@@ -4401,17 +4779,12 @@ export const questions = [
   "passage": "It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favourite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'",
   "cell": "feeling_from_evidence",
   "choices": [
-   "excited",
    "too scared to try again",
    "cross with the queue",
-   "bored"
+   "bored",
+   "excited"
   ],
   "answerOptions": [
-   {
-    "value": "excited",
-    "label": "excited",
-    "text": "excited"
-   },
    {
     "value": "too scared to try again",
     "label": "too scared to try again",
@@ -4426,24 +4799,30 @@ export const questions = [
     "value": "bored",
     "label": "bored",
     "text": "bored"
+   },
+   {
+    "value": "excited",
+    "label": "excited",
+    "text": "excited"
    }
   ],
   "answer": "excited",
   "correctAnswer": "excited",
   "distractorRationales": {
+   "bored": "D-OPPOSITE",
    "too scared to try again": "D-SEQUENCE-SWAP",
-   "cross with the queue": "D-PLAUSIBLE-UNSUPPORTED",
-   "bored": "D-OPPOSITE"
+   "cross with the queue": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-feeling_from_evidence-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,7 +4833,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/quest/dino/ground.webp",
+  "imageUrl": "/images/quest/dino/ground.webp",
+  "targetImage": "/images/quest/dino/ground.webp",
+  "targetImagePath": "/images/quest/dino/ground.webp",
+  "resolvedImageAssetKey": "ground",
+  "imageAlt": "Illustration for It was Ola's turn on the tall slide at last. From the top, the ground looked very far away. She gripped the rail, sang her favourite song under her breath, and let go. At the bottom she shouted, 'AGAIN!'"
  },
  {
   "id": "lp3.inference.l1.R.where_am_i.v11r",
@@ -4516,15 +4901,16 @@ export const questions = [
    "a school": "D-OPPOSITE",
    "a greenhouse": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l1-where_am_i-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4535,7 +4921,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/patient-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/patient-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/patient-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/patient-01.webp",
+  "resolvedImageAssetKey": "patient",
+  "imageAlt": "Illustration for White coats hurried past on soft shoes. A machine somewhere beeped a steady, patient beep. Gran sat up in the high bed and grinned at the grapes they had brought her."
  },
  {
   "id": "lp3.inference.l2.R.why_did_they.v9r",
@@ -4597,15 +4989,16 @@ export const questions = [
    "his mum told him to tidy his whole room": "D-PLAUSIBLE-UNSUPPORTED",
    "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4616,7 +5009,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "resolvedImageAssetKey": "dinosaur",
+  "imageAlt": "Illustration for Half an hour before the guests arrived, Ade hid his favourite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favourite dinosaur into a soggy stump."
  },
  {
   "id": "lp3.inference.l2.R.why_did_they.v10r",
@@ -4644,12 +5043,17 @@ export const questions = [
   "passage": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. The bin men, the postwoman, and the night-shift nurses began to wave through the window like old friends.",
   "cell": "why_did_they",
   "choices": [
+   "because the council made her",
    "to look after the town's early workers",
    "to sell her rolls for more money",
-   "because she could not sleep",
-   "because the council made her"
+   "because she could not sleep"
   ],
   "answerOptions": [
+   {
+    "value": "because the council made her",
+    "label": "because the council made her",
+    "text": "because the council made her"
+   },
    {
     "value": "to look after the town's early workers",
     "label": "to look after the town's early workers",
@@ -4664,29 +5068,25 @@ export const questions = [
     "value": "because she could not sleep",
     "label": "because she could not sleep",
     "text": "because she could not sleep"
-   },
-   {
-    "value": "because the council made her",
-    "label": "because the council made her",
-    "text": "because the council made her"
    }
   ],
   "answer": "to look after the town's early workers",
   "correctAnswer": "to look after the town's early workers",
   "distractorRationales": {
+   "because the council made her": "D-PLAUSIBLE-UNSUPPORTED",
    "to sell her rolls for more money": "D-OPPOSITE",
-   "because she could not sleep": "D-PLAUSIBLE-UNSUPPORTED",
-   "because the council made her": "D-PLAUSIBLE-UNSUPPORTED"
+   "because she could not sleep": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4697,7 +5097,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/before-earlier-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/before-earlier-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/before-earlier-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/before-earlier-01.webp",
+  "resolvedImageAssetKey": "earlier",
+  "imageAlt": "Illustration for The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. The bin men, the postwoman, and the night-shift nurses began to wave through the window like old friends."
  },
  {
   "id": "lp3.inference.l2.R.what_went_unsaid.v9r",
@@ -4725,22 +5131,12 @@ export const questions = [
   "passage": "The trail of tiny muddy paw prints began at the cat flap. It crossed the clean kitchen floor, climbed impossibly onto the counter, and ended in the middle of the fresh white birthday cake — where one candle now leaned at a guilty angle.",
   "cell": "what_went_unsaid",
   "choices": [
-   "the cat walked through mud and over the cake",
-   "someone dropped the birthday cake on the floor",
    "the baker made the cake wrong",
-   "a candle fell by itself"
+   "a candle fell by itself",
+   "the cat walked through mud and over the cake",
+   "someone dropped the birthday cake on the floor"
   ],
   "answerOptions": [
-   {
-    "value": "the cat walked through mud and over the cake",
-    "label": "the cat walked through mud and over the cake",
-    "text": "the cat walked through mud and over the cake"
-   },
-   {
-    "value": "someone dropped the birthday cake on the floor",
-    "label": "someone dropped the birthday cake on the floor",
-    "text": "someone dropped the birthday cake on the floor"
-   },
    {
     "value": "the baker made the cake wrong",
     "label": "the baker made the cake wrong",
@@ -4750,24 +5146,35 @@ export const questions = [
     "value": "a candle fell by itself",
     "label": "a candle fell by itself",
     "text": "a candle fell by itself"
+   },
+   {
+    "value": "the cat walked through mud and over the cake",
+    "label": "the cat walked through mud and over the cake",
+    "text": "the cat walked through mud and over the cake"
+   },
+   {
+    "value": "someone dropped the birthday cake on the floor",
+    "label": "someone dropped the birthday cake on the floor",
+    "text": "someone dropped the birthday cake on the floor"
    }
   ],
   "answer": "the cat walked through mud and over the cake",
   "correctAnswer": "the cat walked through mud and over the cake",
   "distractorRationales": {
-   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED",
    "the baker made the cake wrong": "D-OPPOSITE",
-   "a candle fell by itself": "D-DETAIL-AS-MAIN"
+   "a candle fell by itself": "D-DETAIL-AS-MAIN",
+   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,7 +5185,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/companions/full/muddy.webp",
+  "imageUrl": "/images/companions/full/muddy.webp",
+  "targetImage": "/images/companions/full/muddy.webp",
+  "targetImagePath": "/images/companions/full/muddy.webp",
+  "resolvedImageAssetKey": "muddy",
+  "imageAlt": "Illustration for The trail of tiny muddy paw prints began at the cat flap. It crossed the clean kitchen floor, climbed impossibly onto the counter, and ended in the middle of the fresh white birthday cake — where one candle now leaned at a guilty angle."
  },
  {
   "id": "lp3.inference.l2.R.what_went_unsaid.v10r",
@@ -4806,17 +5219,12 @@ export const questions = [
   "passage": "Dad came home from the allotment whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the whole kitchen, then said, far too casually, 'So... is the village show still on Saturday?'",
   "cell": "what_went_unsaid",
   "choices": [
-   "a giant vegetable he grew for the show",
    "his usual flat and empty muddy bag",
    "a lost kitten",
-   "his gardening gloves"
+   "his gardening gloves",
+   "a giant vegetable he grew for the show"
   ],
   "answerOptions": [
-   {
-    "value": "a giant vegetable he grew for the show",
-    "label": "a giant vegetable he grew for the show",
-    "text": "a giant vegetable he grew for the show"
-   },
    {
     "value": "his usual flat and empty muddy bag",
     "label": "his usual flat and empty muddy bag",
@@ -4831,24 +5239,30 @@ export const questions = [
     "value": "his gardening gloves",
     "label": "his gardening gloves",
     "text": "his gardening gloves"
+   },
+   {
+    "value": "a giant vegetable he grew for the show",
+    "label": "a giant vegetable he grew for the show",
+    "text": "a giant vegetable he grew for the show"
    }
   ],
   "answer": "a giant vegetable he grew for the show",
   "correctAnswer": "a giant vegetable he grew for the show",
   "distractorRationales": {
-   "his usual flat and empty muddy bag": "D-OPPOSITE",
    "a lost kitten": "D-PLAUSIBLE-UNSUPPORTED",
-   "his gardening gloves": "D-PLAUSIBLE-UNSUPPORTED"
+   "his gardening gloves": "D-PLAUSIBLE-UNSUPPORTED",
+   "his usual flat and empty muddy bag": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4859,7 +5273,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/companions/full/muddy.webp",
+  "imageUrl": "/images/companions/full/muddy.webp",
+  "targetImage": "/images/companions/full/muddy.webp",
+  "targetImagePath": "/images/companions/full/muddy.webp",
+  "resolvedImageAssetKey": "muddy",
+  "imageAlt": "Illustration for Dad came home from the allotment whistling, which he never did. His muddy bag, usually flat, bulged in one huge round shape. He hid it behind his back through the whole kitchen, then said, far too casually, 'So... is the village show still on Saturday?'"
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v9r",
@@ -4917,19 +5337,20 @@ export const questions = [
   "answer": "he was first up every morning to warm their bottles",
   "correctAnswer": "he was first up every morning to warm their bottles",
   "distractorRationales": {
+   "mornings were cold": "D-DETAIL-AS-MAIN",
    "he said the baby lambs were fine, whatever": "D-OPPOSITE",
-   "there was football on Saturday": "D-DETAIL-AS-MAIN",
-   "mornings were cold": "D-DETAIL-AS-MAIN"
+   "there was football on Saturday": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4940,7 +5361,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "resolvedImageAssetKey": "smallest",
+  "imageAlt": "Illustration for Sol said the baby lambs were 'fine, whatever'. But he was first up in the cold every morning to warm their bottles. He gave up Saturday football when the smallest lamb was poorly, and he kept a photo of it standing up for the first time."
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v10r",
@@ -4968,12 +5395,17 @@ export const questions = [
   "passage": "The head teacher announced that the school definitely, absolutely did not have a mouse. Meanwhile, the caretaker was seen carrying a tiny humane trap and a jar of peanut butter toward the store room, and the cook had moved every open sack of flour onto the highest shelf.",
   "cell": "evidence_pick",
   "choices": [
+   "the cook moved every open sack of flour up high",
    "a humane trap and peanut butter went to the store room",
    "the head said the school absolutely had no mouse",
-   "the school had a store room",
-   "the cook moved every open sack of flour up high"
+   "the school had a store room"
   ],
   "answerOptions": [
+   {
+    "value": "the cook moved every open sack of flour up high",
+    "label": "the cook moved every open sack of flour up high",
+    "text": "the cook moved every open sack of flour up high"
+   },
    {
     "value": "a humane trap and peanut butter went to the store room",
     "label": "a humane trap and peanut butter went to the store room",
@@ -4988,11 +5420,6 @@ export const questions = [
     "value": "the school had a store room",
     "label": "the school had a store room",
     "text": "the school had a store room"
-   },
-   {
-    "value": "the cook moved every open sack of flour up high",
-    "label": "the cook moved every open sack of flour up high",
-    "text": "the cook moved every open sack of flour up high"
    }
   ],
   "answer": "a humane trap and peanut butter went to the store room",
@@ -5002,15 +5429,16 @@ export const questions = [
    "the school had a store room": "D-DETAIL-AS-MAIN",
    "the cook moved every open sack of flour up high": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-evidence_pick-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +5449,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "resolvedImageAssetKey": "teacher",
+  "imageAlt": "Illustration for The head teacher announced that the school definitely, absolutely did not have a mouse. Meanwhile, the caretaker was seen carrying a tiny humane trap and a jar of peanut butter toward the store room, and the cook had moved every open sack of flour onto the highest shelf."
  },
  {
   "id": "lp3.inference.l2.R.why_did_they.v11r",
@@ -5049,22 +5483,12 @@ export const questions = [
   "passage": "Nina wrapped her library book in a plastic bag before putting it in her rucksack, even though the sky was blue. Her water bottle had leaked once before, all over her spelling homework, and the librarian's eyebrows were famous across three year groups.",
   "cell": "why_did_they",
   "choices": [
-   "to protect it in case her bottle leaked again",
-   "because rain was pouring on the walk to school",
    "to hide the book from her friends",
-   "because the bag looked nice"
+   "because the bag looked nice",
+   "to protect it in case her bottle leaked again",
+   "because rain was pouring on the walk to school"
   ],
   "answerOptions": [
-   {
-    "value": "to protect it in case her bottle leaked again",
-    "label": "to protect it in case her bottle leaked again",
-    "text": "to protect it in case her bottle leaked again"
-   },
-   {
-    "value": "because rain was pouring on the walk to school",
-    "label": "because rain was pouring on the walk to school",
-    "text": "because rain was pouring on the walk to school"
-   },
    {
     "value": "to hide the book from her friends",
     "label": "to hide the book from her friends",
@@ -5074,24 +5498,35 @@ export const questions = [
     "value": "because the bag looked nice",
     "label": "because the bag looked nice",
     "text": "because the bag looked nice"
+   },
+   {
+    "value": "to protect it in case her bottle leaked again",
+    "label": "to protect it in case her bottle leaked again",
+    "text": "to protect it in case her bottle leaked again"
+   },
+   {
+    "value": "because rain was pouring on the walk to school",
+    "label": "because rain was pouring on the walk to school",
+    "text": "because rain was pouring on the walk to school"
    }
   ],
   "answer": "to protect it in case her bottle leaked again",
   "correctAnswer": "to protect it in case her bottle leaked again",
   "distractorRationales": {
-   "because rain was pouring on the walk to school": "D-PLAUSIBLE-UNSUPPORTED",
    "to hide the book from her friends": "D-PLAUSIBLE-UNSUPPORTED",
-   "because the bag looked nice": "D-OPPOSITE"
+   "because the bag looked nice": "D-OPPOSITE",
+   "because rain was pouring on the walk to school": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-why_did_they-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5102,7 +5537,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Nina wrapped her library book in a plastic bag before putting it in her rucksack, even though the sky was blue. Her water bottle had leaked once before, all over her spelling homework, and the librarian's eyebrows were famous across three year groups."
  },
  {
   "id": "lp3.inference.l2.R.what_went_unsaid.v11r",
@@ -5130,17 +5571,12 @@ export const questions = [
   "passage": "Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again.",
   "cell": "what_went_unsaid",
   "choices": [
-   "they grow toward the light from the window",
    "Gran turning the pots knocks each plant sideways",
    "the wind pushes them",
-   "the pots are broken"
+   "the pots are broken",
+   "they grow toward the light from the window"
   ],
   "answerOptions": [
-   {
-    "value": "they grow toward the light from the window",
-    "label": "they grow toward the light from the window",
-    "text": "they grow toward the light from the window"
-   },
    {
     "value": "Gran turning the pots knocks each plant sideways",
     "label": "Gran turning the pots knocks each plant sideways",
@@ -5155,24 +5591,30 @@ export const questions = [
     "value": "the pots are broken",
     "label": "the pots are broken",
     "text": "the pots are broken"
+   },
+   {
+    "value": "they grow toward the light from the window",
+    "label": "they grow toward the light from the window",
+    "text": "they grow toward the light from the window"
    }
   ],
   "answer": "they grow toward the light from the window",
   "correctAnswer": "they grow toward the light from the window",
   "distractorRationales": {
+   "the pots are broken": "D-PLAUSIBLE-UNSUPPORTED",
    "Gran turning the pots knocks each plant sideways": "D-OPPOSITE",
-   "the wind pushes them": "D-PLAUSIBLE-UNSUPPORTED",
-   "the pots are broken": "D-PLAUSIBLE-UNSUPPORTED"
+   "the wind pushes them": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "inference-l2-what_went_unsaid-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5183,6 +5625,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for Every plant on the windowsill leaned the same way, like dancers frozen mid-bow. The cactus alone stood up straight. Gran turned each pot half a circle, and by the next week, the leaners were bowing toward the window all over again."
  }
 ];

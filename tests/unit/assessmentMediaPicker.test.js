@@ -165,7 +165,7 @@ test("rhyming option images are recorded in assessment session usage", () => {
   );
 });
 
-test("every published rhyming option resolves to complete exact-word image media", async () => {
+test("every published picture-choice rhyming option resolves to exact-word image media", async () => {
   const assessmentVariantPathsByWord = new Map();
   Object.values(rhymingAssessmentImageVariants).forEach(words => {
     Object.entries(words).forEach(([word, paths]) => {
@@ -182,13 +182,19 @@ test("every published rhyming option resolves to complete exact-word image media
       phase: question.phase || question.assessmentPhase || 1
     });
 
-    const isPictureItem = question.mediaTier !== "text";
+    const isPictureChoiceItem = question.formatType === "RHYME_MATCH_PICTURE";
     const resolvedCards = resolved.imageCards || [];
     assert.equal(
       resolvedCards.length,
-      isPictureItem ? resolved.choices.length : 0,
-      `${question.id} should ${isPictureItem ? "have one image card per option" : "remain text-only"}`
+      isPictureChoiceItem ? resolved.choices.length : 0,
+      `${question.id} should ${isPictureChoiceItem ? "have one image card per option" : "use its main supporting image"}`
     );
+    if (!isPictureChoiceItem && question.mediaTier === "image-required") {
+      assert.ok(
+        resolved.imagePath || resolved.imageUrl || resolved.targetImage,
+        `${question.id} should retain at least one supporting image`
+      );
+    }
     resolvedCards.forEach(card => {
       const path = card.image || card.imagePath || card.imageUrl || "";
       const record = getAssessmentMediaByPath(path, "image");

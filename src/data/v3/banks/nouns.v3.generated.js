@@ -25,22 +25,12 @@ export const questions = [
   "question": "Which one shows a person?",
   "spokenPrompt": "Which one shows a person?",
   "choices": [
-   "king",
-   "swim",
    "clap",
-   "dig"
+   "dig",
+   "king",
+   "swim"
   ],
   "answerOptions": [
-   {
-    "value": "king",
-    "label": "king",
-    "text": "king"
-   },
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
-   },
    {
     "value": "clap",
     "label": "clap",
@@ -50,6 +40,16 @@ export const questions = [
     "value": "dig",
     "label": "dig",
     "text": "dig"
+   },
+   {
+    "value": "king",
+    "label": "king",
+    "text": "king"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
    }
   ],
   "answer": "king",
@@ -81,24 +81,6 @@ export const questions = [
   "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.A.noun_person.v1_card_king",
-    "word": "king",
-    "value": "king",
-    "label": "king",
-    "image": "/images/child-mode/initial-sounds/king.png",
-    "imagePath": "/images/child-mode/initial-sounds/king.png",
-    "imageAlt": "king"
-   },
-   {
-    "id": "lp3.nouns.l1.A.noun_person.v1_card_swim",
-    "word": "swim",
-    "value": "swim",
-    "label": "swim",
-    "image": "/images/assessment/blends/swim.webp",
-    "imagePath": "/images/assessment/blends/swim.webp",
-    "imageAlt": "swim"
-   },
-   {
     "id": "lp3.nouns.l1.A.noun_person.v1_card_clap",
     "word": "clap",
     "value": "clap",
@@ -112,9 +94,27 @@ export const questions = [
     "word": "dig",
     "value": "dig",
     "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
     "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_king",
+    "word": "king",
+    "value": "king",
+    "label": "king",
+    "image": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+    "imageAlt": "king"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
    }
   ]
  },
@@ -142,17 +142,12 @@ export const questions = [
   "question": "Which one shows a person?",
   "spokenPrompt": "Which one shows a person?",
   "choices": [
-   "vet",
    "draw",
    "hop",
-   "press"
+   "press",
+   "vet"
   ],
   "answerOptions": [
-   {
-    "value": "vet",
-    "label": "vet",
-    "text": "vet"
-   },
    {
     "value": "draw",
     "label": "draw",
@@ -167,14 +162,19 @@ export const questions = [
     "value": "press",
     "label": "press",
     "text": "press"
+   },
+   {
+    "value": "vet",
+    "label": "vet",
+    "text": "vet"
    }
   ],
   "answer": "vet",
   "correctAnswer": "vet",
   "distractorRationales": {
-   "draw": "D-FUNCTION-SWAP",
    "hop": "D-FUNCTION-SWAP",
-   "press": "D-FUNCTION-SWAP"
+   "press": "D-FUNCTION-SWAP",
+   "draw": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -198,15 +198,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.B.noun_person.v2_card_vet",
-    "word": "vet",
-    "value": "vet",
-    "label": "vet",
-    "image": "/images/child-mode/initial-sounds/vet.png",
-    "imagePath": "/images/child-mode/initial-sounds/vet.png",
-    "imageAlt": "vet"
-   },
-   {
     "id": "lp3.nouns.l1.B.noun_person.v2_card_draw",
     "word": "draw",
     "value": "draw",
@@ -220,8 +211,8 @@ export const questions = [
     "word": "hop",
     "value": "hop",
     "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
     "imageAlt": "hop"
    },
    {
@@ -232,6 +223,15 @@ export const questions = [
     "image": "/images/assessment/blends/press.webp",
     "imagePath": "/images/assessment/blends/press.webp",
     "imageAlt": "press"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_person.v2_card_vet",
+    "word": "vet",
+    "value": "vet",
+    "label": "vet",
+    "image": "/images/child-mode/initial-sounds/vet.png",
+    "imagePath": "/images/child-mode/initial-sounds/vet.png",
+    "imageAlt": "vet"
    }
   ]
  },
@@ -376,17 +376,12 @@ export const questions = [
   "question": "Which word names a person?",
   "spokenPrompt": "Which word names a person?",
   "choices": [
-   "vet",
    "run",
    "wet",
-   "hop"
+   "hop",
+   "vet"
   ],
   "answerOptions": [
-   {
-    "value": "vet",
-    "label": "vet",
-    "text": "vet"
-   },
    {
     "value": "run",
     "label": "run",
@@ -401,24 +396,30 @@ export const questions = [
     "value": "hop",
     "label": "hop",
     "text": "hop"
+   },
+   {
+    "value": "vet",
+    "label": "vet",
+    "text": "vet"
    }
   ],
   "answer": "vet",
   "correctAnswer": "vet",
   "distractorRationales": {
+   "hop": "D-FUNCTION-SWAP",
    "run": "D-FUNCTION-SWAP",
-   "wet": "D-FUNCTION-SWAP",
-   "hop": "D-FUNCTION-SWAP"
+   "wet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_person-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -429,7 +430,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/vet.png",
+  "imageUrl": "/images/child-mode/initial-sounds/vet.png",
+  "targetImage": "/images/child-mode/initial-sounds/vet.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
+  "resolvedImageAssetKey": "vet",
+  "imageAlt": "Which word names a person?"
  },
  {
   "id": "lp3.nouns.l1.B.noun_person.v5",
@@ -485,19 +492,20 @@ export const questions = [
   "answer": "nurse",
   "correctAnswer": "nurse",
   "distractorRationales": {
+   "dig": "D-FUNCTION-SWAP",
    "sing": "D-FUNCTION-SWAP",
-   "soft": "D-FUNCTION-SWAP",
-   "dig": "D-FUNCTION-SWAP"
+   "soft": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_person-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -508,7 +516,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "resolvedImageAssetKey": "nurse",
+  "imageAlt": "Which word names a person?"
  },
  {
   "id": "lp3.nouns.l1.C.noun_person.v6",
@@ -534,12 +548,17 @@ export const questions = [
   "question": "Which word names a person?",
   "spokenPrompt": "Which word names a person?",
   "choices": [
+   "sit",
    "king",
    "jump",
-   "cold",
-   "sit"
+   "cold"
   ],
   "answerOptions": [
+   {
+    "value": "sit",
+    "label": "sit",
+    "text": "sit"
+   },
    {
     "value": "king",
     "label": "king",
@@ -554,29 +573,25 @@ export const questions = [
     "value": "cold",
     "label": "cold",
     "text": "cold"
-   },
-   {
-    "value": "sit",
-    "label": "sit",
-    "text": "sit"
    }
   ],
   "answer": "king",
   "correctAnswer": "king",
   "distractorRationales": {
+   "sit": "D-FUNCTION-SWAP",
    "jump": "D-FUNCTION-SWAP",
-   "cold": "D-FUNCTION-SWAP",
-   "sit": "D-FUNCTION-SWAP"
+   "cold": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_person-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -587,7 +602,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
+  "resolvedImageAssetKey": "king",
+  "imageAlt": "Which word names a person?"
  },
  {
   "id": "lp3.nouns.l1.A.noun_animal.v1",
@@ -643,9 +664,9 @@ export const questions = [
   "answer": "fox",
   "correctAnswer": "fox",
   "distractorRationales": {
+   "draw": "D-FUNCTION-SWAP",
    "clap": "D-FUNCTION-SWAP",
-   "dig": "D-FUNCTION-SWAP",
-   "draw": "D-FUNCTION-SWAP"
+   "dig": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -691,8 +712,8 @@ export const questions = [
     "word": "dig",
     "value": "dig",
     "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
     "imageAlt": "dig"
    },
    {
@@ -730,12 +751,17 @@ export const questions = [
   "question": "Which one shows an animal?",
   "spokenPrompt": "Which one shows an animal?",
   "choices": [
+   "hop",
    "zebra",
    "swim",
-   "press",
-   "hop"
+   "press"
   ],
   "answerOptions": [
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
    {
     "value": "zebra",
     "label": "zebra",
@@ -750,11 +776,6 @@ export const questions = [
     "value": "press",
     "label": "press",
     "text": "press"
-   },
-   {
-    "value": "hop",
-    "label": "hop",
-    "text": "hop"
    }
   ],
   "answer": "zebra",
@@ -786,6 +807,15 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.nouns.l1.B.noun_animal.v2_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imageAlt": "hop"
+   },
+   {
     "id": "lp3.nouns.l1.B.noun_animal.v2_card_zebra",
     "word": "zebra",
     "value": "zebra",
@@ -811,15 +841,6 @@ export const questions = [
     "image": "/images/assessment/blends/press.webp",
     "imagePath": "/images/assessment/blends/press.webp",
     "imageAlt": "press"
-   },
-   {
-    "id": "lp3.nouns.l1.B.noun_animal.v2_card_hop",
-    "word": "hop",
-    "value": "hop",
-    "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
-    "imageAlt": "hop"
    }
   ]
  },
@@ -847,22 +868,12 @@ export const questions = [
   "question": "Which one shows an animal?",
   "spokenPrompt": "Which one shows an animal?",
   "choices": [
-   "sheep",
-   "draw",
    "clap",
-   "swim"
+   "swim",
+   "sheep",
+   "draw"
   ],
   "answerOptions": [
-   {
-    "value": "sheep",
-    "label": "sheep",
-    "text": "sheep"
-   },
-   {
-    "value": "draw",
-    "label": "draw",
-    "text": "draw"
-   },
    {
     "value": "clap",
     "label": "clap",
@@ -872,14 +883,24 @@ export const questions = [
     "value": "swim",
     "label": "swim",
     "text": "swim"
+   },
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
    }
   ],
   "answer": "sheep",
   "correctAnswer": "sheep",
   "distractorRationales": {
+   "swim": "D-FUNCTION-SWAP",
    "draw": "D-FUNCTION-SWAP",
-   "clap": "D-FUNCTION-SWAP",
-   "swim": "D-FUNCTION-SWAP"
+   "clap": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -903,24 +924,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.C.noun_animal.v3_card_sheep",
-    "word": "sheep",
-    "value": "sheep",
-    "label": "sheep",
-    "image": "/images/assessment/long-vowels/sheep.webp",
-    "imagePath": "/images/assessment/long-vowels/sheep.webp",
-    "imageAlt": "sheep"
-   },
-   {
-    "id": "lp3.nouns.l1.C.noun_animal.v3_card_draw",
-    "word": "draw",
-    "value": "draw",
-    "label": "draw",
-    "image": "/images/assessment/blends/draw.webp",
-    "imagePath": "/images/assessment/blends/draw.webp",
-    "imageAlt": "draw"
-   },
-   {
     "id": "lp3.nouns.l1.C.noun_animal.v3_card_clap",
     "word": "clap",
     "value": "clap",
@@ -937,6 +940,24 @@ export const questions = [
     "image": "/images/assessment/blends/swim.webp",
     "imagePath": "/images/assessment/blends/swim.webp",
     "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_sheep",
+    "word": "sheep",
+    "value": "sheep",
+    "label": "sheep",
+    "image": "/images/assessment/long-vowels/sheep.webp",
+    "imagePath": "/images/assessment/long-vowels/sheep.webp",
+    "imageAlt": "sheep"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
    }
   ]
  },
@@ -964,12 +985,17 @@ export const questions = [
   "question": "Which word names an animal?",
   "spokenPrompt": "Which word names an animal?",
   "choices": [
+   "big",
    "frog",
    "wet",
-   "run",
-   "big"
+   "run"
   ],
   "answerOptions": [
+   {
+    "value": "big",
+    "label": "big",
+    "text": "big"
+   },
    {
     "value": "frog",
     "label": "frog",
@@ -984,11 +1010,6 @@ export const questions = [
     "value": "run",
     "label": "run",
     "text": "run"
-   },
-   {
-    "value": "big",
-    "label": "big",
-    "text": "big"
    }
   ],
   "answer": "frog",
@@ -998,15 +1019,16 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "big": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_animal-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1017,7 +1039,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/frog.webp",
+  "imageUrl": "/images/assessment/blends/frog.webp",
+  "targetImage": "/images/assessment/blends/frog.webp",
+  "targetImagePath": "/images/assessment/blends/frog.webp",
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Which word names an animal?"
  },
  {
   "id": "lp3.nouns.l1.B.noun_animal.v5",
@@ -1043,22 +1071,12 @@ export const questions = [
   "question": "Which word names an animal?",
   "spokenPrompt": "Which word names an animal?",
   "choices": [
-   "duck",
-   "dig",
    "hot",
-   "nap"
+   "nap",
+   "duck",
+   "dig"
   ],
   "answerOptions": [
-   {
-    "value": "duck",
-    "label": "duck",
-    "text": "duck"
-   },
-   {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
-   },
    {
     "value": "hot",
     "label": "hot",
@@ -1068,6 +1086,16 @@ export const questions = [
     "value": "nap",
     "label": "nap",
     "text": "nap"
+   },
+   {
+    "value": "duck",
+    "label": "duck",
+    "text": "duck"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
    }
   ],
   "answer": "duck",
@@ -1077,15 +1105,16 @@ export const questions = [
    "hot": "D-FUNCTION-SWAP",
    "nap": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_animal-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1096,7 +1125,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/duck.webp",
+  "imageUrl": "/images/assessment/digraphs/duck.webp",
+  "targetImage": "/images/assessment/digraphs/duck.webp",
+  "targetImagePath": "/images/assessment/digraphs/duck.webp",
+  "resolvedImageAssetKey": "duck",
+  "imageAlt": "Which word names an animal?"
  },
  {
   "id": "lp3.nouns.l1.C.noun_animal.v6",
@@ -1122,17 +1157,12 @@ export const questions = [
   "question": "Which word names an animal?",
   "spokenPrompt": "Which word names an animal?",
   "choices": [
-   "lion",
    "sing",
    "tall",
-   "eat"
+   "eat",
+   "lion"
   ],
   "answerOptions": [
-   {
-    "value": "lion",
-    "label": "lion",
-    "text": "lion"
-   },
    {
     "value": "sing",
     "label": "sing",
@@ -1147,6 +1177,11 @@ export const questions = [
     "value": "eat",
     "label": "eat",
     "text": "eat"
+   },
+   {
+    "value": "lion",
+    "label": "lion",
+    "text": "lion"
    }
   ],
   "answer": "lion",
@@ -1156,15 +1191,16 @@ export const questions = [
    "tall": "D-FUNCTION-SWAP",
    "eat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_animal-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1175,7 +1211,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
+  "resolvedImageAssetKey": "lion",
+  "imageAlt": "Which word names an animal?"
  },
  {
   "id": "lp3.nouns.l1.A.noun_place.v1",
@@ -1201,22 +1243,12 @@ export const questions = [
   "question": "Which one shows a place?",
   "spokenPrompt": "Which one shows a place?",
   "choices": [
-   "farm",
-   "clap",
    "swim",
-   "hop"
+   "hop",
+   "farm",
+   "clap"
   ],
   "answerOptions": [
-   {
-    "value": "farm",
-    "label": "farm",
-    "text": "farm"
-   },
-   {
-    "value": "clap",
-    "label": "clap",
-    "text": "clap"
-   },
    {
     "value": "swim",
     "label": "swim",
@@ -1226,14 +1258,24 @@ export const questions = [
     "value": "hop",
     "label": "hop",
     "text": "hop"
+   },
+   {
+    "value": "farm",
+    "label": "farm",
+    "text": "farm"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
    }
   ],
   "answer": "farm",
   "correctAnswer": "farm",
   "distractorRationales": {
-   "clap": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP",
-   "hop": "D-FUNCTION-SWAP"
+   "hop": "D-FUNCTION-SWAP",
+   "clap": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1257,6 +1299,24 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imageAlt": "hop"
+   },
+   {
     "id": "lp3.nouns.l1.A.noun_place.v1_card_farm",
     "word": "farm",
     "value": "farm",
@@ -1273,24 +1333,6 @@ export const questions = [
     "image": "/images/assessment/blends/clap.webp",
     "imagePath": "/images/assessment/blends/clap.webp",
     "imageAlt": "clap"
-   },
-   {
-    "id": "lp3.nouns.l1.A.noun_place.v1_card_swim",
-    "word": "swim",
-    "value": "swim",
-    "label": "swim",
-    "image": "/images/assessment/blends/swim.webp",
-    "imagePath": "/images/assessment/blends/swim.webp",
-    "imageAlt": "swim"
-   },
-   {
-    "id": "lp3.nouns.l1.A.noun_place.v1_card_hop",
-    "word": "hop",
-    "value": "hop",
-    "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
-    "imageAlt": "hop"
    }
   ]
  },
@@ -1318,17 +1360,12 @@ export const questions = [
   "question": "Which one shows a place?",
   "spokenPrompt": "Which one shows a place?",
   "choices": [
-   "park",
    "dig",
    "draw",
-   "press"
+   "press",
+   "park"
   ],
   "answerOptions": [
-   {
-    "value": "park",
-    "label": "park",
-    "text": "park"
-   },
    {
     "value": "dig",
     "label": "dig",
@@ -1343,14 +1380,19 @@ export const questions = [
     "value": "press",
     "label": "press",
     "text": "press"
+   },
+   {
+    "value": "park",
+    "label": "park",
+    "text": "park"
    }
   ],
   "answer": "park",
   "correctAnswer": "park",
   "distractorRationales": {
-   "dig": "D-FUNCTION-SWAP",
    "draw": "D-FUNCTION-SWAP",
-   "press": "D-FUNCTION-SWAP"
+   "press": "D-FUNCTION-SWAP",
+   "dig": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1374,21 +1416,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.B.noun_place.v2_card_park",
-    "word": "park",
-    "value": "park",
-    "label": "park",
-    "image": "/images/child-mode/initial-sounds/park.png",
-    "imagePath": "/images/child-mode/initial-sounds/park.png",
-    "imageAlt": "park"
-   },
-   {
     "id": "lp3.nouns.l1.B.noun_place.v2_card_dig",
     "word": "dig",
     "value": "dig",
     "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
     "imageAlt": "dig"
    },
    {
@@ -1408,6 +1441,15 @@ export const questions = [
     "image": "/images/assessment/blends/press.webp",
     "imagePath": "/images/assessment/blends/press.webp",
     "imageAlt": "press"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_place.v2_card_park",
+    "word": "park",
+    "value": "park",
+    "label": "park",
+    "image": "/images/child-mode/initial-sounds/park.png",
+    "imagePath": "/images/child-mode/initial-sounds/park.png",
+    "imageAlt": "park"
    }
   ]
  },
@@ -1465,9 +1507,9 @@ export const questions = [
   "answer": "zoo",
   "correctAnswer": "zoo",
   "distractorRationales": {
-   "hop": "D-FUNCTION-SWAP",
    "clap": "D-FUNCTION-SWAP",
-   "draw": "D-FUNCTION-SWAP"
+   "draw": "D-FUNCTION-SWAP",
+   "hop": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1495,8 +1537,8 @@ export const questions = [
     "word": "zoo",
     "value": "zoo",
     "label": "zoo",
-    "image": "/images/child-mode/initial-sounds/zoo.png",
-    "imagePath": "/images/child-mode/initial-sounds/zoo.png",
+    "image": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+    "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
     "imageAlt": "zoo"
    },
    {
@@ -1504,8 +1546,8 @@ export const questions = [
     "word": "hop",
     "value": "hop",
     "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
     "imageAlt": "hop"
    },
    {
@@ -1552,17 +1594,12 @@ export const questions = [
   "question": "Which word names a place?",
   "spokenPrompt": "Which word names a place?",
   "choices": [
-   "shop",
    "shut",
    "slow",
-   "spin"
+   "spin",
+   "shop"
   ],
   "answerOptions": [
-   {
-    "value": "shop",
-    "label": "shop",
-    "text": "shop"
-   },
    {
     "value": "shut",
     "label": "shut",
@@ -1577,6 +1614,11 @@ export const questions = [
     "value": "spin",
     "label": "spin",
     "text": "spin"
+   },
+   {
+    "value": "shop",
+    "label": "shop",
+    "text": "shop"
    }
   ],
   "answer": "shop",
@@ -1586,15 +1628,16 @@ export const questions = [
    "slow": "D-FUNCTION-SWAP",
    "spin": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_place-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1605,7 +1648,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/shop.png",
+  "imageUrl": "/images/child-mode/initial-sounds/shop.png",
+  "targetImage": "/images/child-mode/initial-sounds/shop.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/shop.png",
+  "resolvedImageAssetKey": "shop",
+  "imageAlt": "Which word names a place?"
  },
  {
   "id": "lp3.nouns.l1.B.noun_place.v5",
@@ -1661,19 +1710,20 @@ export const questions = [
   "answer": "beach",
   "correctAnswer": "beach",
   "distractorRationales": {
+   "lace": "D-FUNCTION-SWAP",
    "bring": "D-FUNCTION-SWAP",
-   "brave": "D-FUNCTION-SWAP",
-   "lace": "D-FUNCTION-SWAP"
+   "brave": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_place-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1684,7 +1734,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "lace ties the ac/place overlap — it names a thing, never a place"
+  "notes": "lace ties the ac/place overlap — it names a thing, never a place",
+  "imagePath": "/images/assessment/long-vowels/beach.webp",
+  "imageUrl": "/images/assessment/long-vowels/beach.webp",
+  "targetImage": "/images/assessment/long-vowels/beach.webp",
+  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
+  "resolvedImageAssetKey": "beach",
+  "imageAlt": "Which word names a place?"
  },
  {
   "id": "lp3.nouns.l1.C.noun_place.v6",
@@ -1710,12 +1766,17 @@ export const questions = [
   "question": "Which word names a place?",
   "spokenPrompt": "Which word names a place?",
   "choices": [
+   "swim",
    "school",
    "skip",
-   "chat",
-   "swim"
+   "chat"
   ],
   "answerOptions": [
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
    {
     "value": "school",
     "label": "school",
@@ -1730,11 +1791,6 @@ export const questions = [
     "value": "chat",
     "label": "chat",
     "text": "chat"
-   },
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
    }
   ],
   "answer": "school",
@@ -1744,15 +1800,16 @@ export const questions = [
    "chat": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_place-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1763,7 +1820,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "chat ties the ch/which overlap"
+  "notes": "chat ties the ch/which overlap",
+  "imagePath": "/images/assessment/generated/concepts/school.webp",
+  "imageUrl": "/images/assessment/generated/concepts/school.webp",
+  "targetImage": "/images/assessment/generated/concepts/school.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
+  "resolvedImageAssetKey": "school",
+  "imageAlt": "Which word names a place?"
  },
  {
   "id": "lp3.nouns.l1.A.noun_thing.v1",
@@ -1819,9 +1882,9 @@ export const questions = [
   "answer": "cup",
   "correctAnswer": "cup",
   "distractorRationales": {
+   "hop": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP",
-   "clap": "D-FUNCTION-SWAP",
-   "hop": "D-FUNCTION-SWAP"
+   "clap": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1849,8 +1912,8 @@ export const questions = [
     "word": "cup",
     "value": "cup",
     "label": "cup",
-    "image": "/images/child-mode/initial-sounds/cup.png",
-    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "imageAlt": "cup"
    },
    {
@@ -1876,8 +1939,8 @@ export const questions = [
     "word": "hop",
     "value": "hop",
     "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
     "imageAlt": "hop"
    }
   ]
@@ -1906,12 +1969,17 @@ export const questions = [
   "question": "Which one shows a thing you can hold?",
   "spokenPrompt": "Which one shows a thing you can hold?",
   "choices": [
+   "press",
    "drum",
    "draw",
-   "dig",
-   "press"
+   "dig"
   ],
   "answerOptions": [
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   },
    {
     "value": "drum",
     "label": "drum",
@@ -1926,19 +1994,14 @@ export const questions = [
     "value": "dig",
     "label": "dig",
     "text": "dig"
-   },
-   {
-    "value": "press",
-    "label": "press",
-    "text": "press"
    }
   ],
   "answer": "drum",
   "correctAnswer": "drum",
   "distractorRationales": {
+   "press": "D-FUNCTION-SWAP",
    "draw": "D-FUNCTION-SWAP",
-   "dig": "D-FUNCTION-SWAP",
-   "press": "D-FUNCTION-SWAP"
+   "dig": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1962,6 +2025,15 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
+    "id": "lp3.nouns.l1.B.noun_thing.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   },
+   {
     "id": "lp3.nouns.l1.B.noun_thing.v2_card_drum",
     "word": "drum",
     "value": "drum",
@@ -1984,18 +2056,9 @@ export const questions = [
     "word": "dig",
     "value": "dig",
     "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
     "imageAlt": "dig"
-   },
-   {
-    "id": "lp3.nouns.l1.B.noun_thing.v2_card_press",
-    "word": "press",
-    "value": "press",
-    "label": "press",
-    "image": "/images/assessment/blends/press.webp",
-    "imagePath": "/images/assessment/blends/press.webp",
-    "imageAlt": "press"
    }
   ]
  },
@@ -2023,22 +2086,12 @@ export const questions = [
   "question": "Which one shows a thing you can hold?",
   "spokenPrompt": "Which one shows a thing you can hold?",
   "choices": [
-   "spoon",
-   "hop",
    "swim",
-   "draw"
+   "draw",
+   "spoon",
+   "hop"
   ],
   "answerOptions": [
-   {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
-   },
-   {
-    "value": "hop",
-    "label": "hop",
-    "text": "hop"
-   },
    {
     "value": "swim",
     "label": "swim",
@@ -2048,14 +2101,24 @@ export const questions = [
     "value": "draw",
     "label": "draw",
     "text": "draw"
+   },
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
    }
   ],
   "answer": "spoon",
   "correctAnswer": "spoon",
   "distractorRationales": {
+   "draw": "D-FUNCTION-SWAP",
    "hop": "D-FUNCTION-SWAP",
-   "swim": "D-FUNCTION-SWAP",
-   "draw": "D-FUNCTION-SWAP"
+   "swim": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2079,24 +2142,6 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.C.noun_thing.v3_card_spoon",
-    "word": "spoon",
-    "value": "spoon",
-    "label": "spoon",
-    "image": "/images/assessment/long-vowels/spoon.webp",
-    "imagePath": "/images/assessment/long-vowels/spoon.webp",
-    "imageAlt": "spoon"
-   },
-   {
-    "id": "lp3.nouns.l1.C.noun_thing.v3_card_hop",
-    "word": "hop",
-    "value": "hop",
-    "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
-    "imageAlt": "hop"
-   },
-   {
     "id": "lp3.nouns.l1.C.noun_thing.v3_card_swim",
     "word": "swim",
     "value": "swim",
@@ -2113,6 +2158,24 @@ export const questions = [
     "image": "/images/assessment/blends/draw.webp",
     "imagePath": "/images/assessment/blends/draw.webp",
     "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_spoon",
+    "word": "spoon",
+    "value": "spoon",
+    "label": "spoon",
+    "image": "/images/assessment/long-vowels/spoon.webp",
+    "imagePath": "/images/assessment/long-vowels/spoon.webp",
+    "imageAlt": "spoon"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imageAlt": "hop"
    }
   ]
  },
@@ -2140,12 +2203,17 @@ export const questions = [
   "question": "Which word names a thing?",
   "spokenPrompt": "Which word names a thing?",
   "choices": [
+   "lick",
    "lamp",
    "lift",
-   "loud",
-   "lick"
+   "loud"
   ],
   "answerOptions": [
+   {
+    "value": "lick",
+    "label": "lick",
+    "text": "lick"
+   },
    {
     "value": "lamp",
     "label": "lamp",
@@ -2160,11 +2228,6 @@ export const questions = [
     "value": "loud",
     "label": "loud",
     "text": "loud"
-   },
-   {
-    "value": "lick",
-    "label": "lick",
-    "text": "lick"
    }
   ],
   "answer": "lamp",
@@ -2174,15 +2237,16 @@ export const questions = [
    "loud": "D-FUNCTION-SWAP",
    "lick": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_thing-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2193,7 +2257,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/lamp.webp",
+  "imageUrl": "/images/assessment/blends/lamp.webp",
+  "targetImage": "/images/assessment/blends/lamp.webp",
+  "targetImagePath": "/images/assessment/blends/lamp.webp",
+  "resolvedImageAssetKey": "lamp",
+  "imageAlt": "Which word names a thing?"
  },
  {
   "id": "lp3.nouns.l1.B.noun_thing.v5",
@@ -2219,22 +2289,12 @@ export const questions = [
   "question": "Which word names a thing?",
   "spokenPrompt": "Which word names a thing?",
   "choices": [
-   "belt",
-   "bend",
    "bumpy",
-   "bite"
+   "bite",
+   "belt",
+   "bend"
   ],
   "answerOptions": [
-   {
-    "value": "belt",
-    "label": "belt",
-    "text": "belt"
-   },
-   {
-    "value": "bend",
-    "label": "bend",
-    "text": "bend"
-   },
    {
     "value": "bumpy",
     "label": "bumpy",
@@ -2244,24 +2304,35 @@ export const questions = [
     "value": "bite",
     "label": "bite",
     "text": "bite"
+   },
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
+   },
+   {
+    "value": "bend",
+    "label": "bend",
+    "text": "bend"
    }
   ],
   "answer": "belt",
   "correctAnswer": "belt",
   "distractorRationales": {
-   "bend": "D-FUNCTION-SWAP",
    "bumpy": "D-FUNCTION-SWAP",
-   "bite": "D-FUNCTION-SWAP"
+   "bite": "D-FUNCTION-SWAP",
+   "bend": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_thing-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2272,7 +2343,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/belt.webp",
+  "imageUrl": "/images/assessment/blends/belt.webp",
+  "targetImage": "/images/assessment/blends/belt.webp",
+  "targetImagePath": "/images/assessment/blends/belt.webp",
+  "resolvedImageAssetKey": "belt",
+  "imageAlt": "Which word names a thing?"
  },
  {
   "id": "lp3.nouns.l1.C.noun_thing.v6",
@@ -2298,17 +2375,12 @@ export const questions = [
   "question": "Which word names a thing?",
   "spokenPrompt": "Which word names a thing?",
   "choices": [
-   "clock",
    "climb",
    "clean",
-   "cry"
+   "cry",
+   "clock"
   ],
   "answerOptions": [
-   {
-    "value": "clock",
-    "label": "clock",
-    "text": "clock"
-   },
    {
     "value": "climb",
     "label": "climb",
@@ -2323,6 +2395,11 @@ export const questions = [
     "value": "cry",
     "label": "cry",
     "text": "cry"
+   },
+   {
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
    }
   ],
   "answer": "clock",
@@ -2332,15 +2409,16 @@ export const questions = [
    "clean": "D-FUNCTION-SWAP",
    "cry": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_thing-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2351,7 +2429,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/clock.webp",
+  "imageUrl": "/images/assessment/digraphs/clock.webp",
+  "targetImage": "/images/assessment/digraphs/clock.webp",
+  "targetImagePath": "/images/assessment/digraphs/clock.webp",
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Which word names a thing?"
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v1",
@@ -2375,20 +2459,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ sailed into the bay.",
   "question": "The ___ sailed into the bay.",
-  "spokenPrompt": "Which naming word finishes the sentence? The hmm sailed into the bay.",
+  "spokenPrompt": "Which naming word finishes the sentence? The … sailed into the bay.",
   "sentence": "The ___ sailed into the bay.",
   "choices": [
-   "ship",
    "went",
    "wet",
-   "ran"
+   "ran",
+   "ship"
   ],
   "answerOptions": [
-   {
-    "value": "ship",
-    "label": "ship",
-    "text": "ship"
-   },
    {
     "value": "went",
     "label": "went",
@@ -2403,6 +2482,11 @@ export const questions = [
     "value": "ran",
     "label": "ran",
     "text": "ran"
+   },
+   {
+    "value": "ship",
+    "label": "ship",
+    "text": "ship"
    }
   ],
   "answer": "ship",
@@ -2412,16 +2496,17 @@ export const questions = [
    "wet": "D-FUNCTION-SWAP",
    "ran": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ sailed into the bay.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2432,7 +2517,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot"
+  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot",
+  "imagePath": "/images/assessment/digraphs/ship.webp",
+  "imageUrl": "/images/assessment/digraphs/ship.webp",
+  "targetImage": "/images/assessment/digraphs/ship.webp",
+  "targetImagePath": "/images/assessment/digraphs/ship.webp",
+  "resolvedImageAssetKey": "ship",
+  "imageAlt": "The ship sailed into the bay."
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v2",
@@ -2456,25 +2547,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A ___ buzzed by my ear.",
   "question": "A ___ buzzed by my ear.",
-  "spokenPrompt": "Which naming word finishes the sentence? A hmm buzzed by my ear.",
+  "spokenPrompt": "Which naming word finishes the sentence? A … buzzed by my ear.",
   "sentence": "A ___ buzzed by my ear.",
   "choices": [
-   "wasp",
-   "flew",
    "loud",
-   "ran"
+   "ran",
+   "wasp",
+   "flew"
   ],
   "answerOptions": [
-   {
-    "value": "wasp",
-    "label": "wasp",
-    "text": "wasp"
-   },
-   {
-    "value": "flew",
-    "label": "flew",
-    "text": "flew"
-   },
    {
     "value": "loud",
     "label": "loud",
@@ -2484,6 +2565,16 @@ export const questions = [
     "value": "ran",
     "label": "ran",
     "text": "ran"
+   },
+   {
+    "value": "wasp",
+    "label": "wasp",
+    "text": "wasp"
+   },
+   {
+    "value": "flew",
+    "label": "flew",
+    "text": "flew"
    }
   ],
   "answer": "wasp",
@@ -2493,16 +2584,17 @@ export const questions = [
    "loud": "D-FUNCTION-SWAP",
    "ran": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ buzzed by my ear.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2513,7 +2605,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "by, not past — past contains as and would gift the key a chunk"
+  "notes": "by, not past — past contains as and would gift the key a chunk",
+  "imagePath": "/images/assessment/blends/wasp.webp",
+  "imageUrl": "/images/assessment/blends/wasp.webp",
+  "targetImage": "/images/assessment/blends/wasp.webp",
+  "targetImagePath": "/images/assessment/blends/wasp.webp",
+  "resolvedImageAssetKey": "wasp",
+  "imageAlt": "A wasp buzzed by my ear."
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v3",
@@ -2537,15 +2635,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ dripped on the rug.",
   "question": "The ___ dripped on the rug.",
-  "spokenPrompt": "Which naming word finishes the sentence? The hmm dripped on the rug.",
+  "spokenPrompt": "Which naming word finishes the sentence? The … dripped on the rug.",
   "sentence": "The ___ dripped on the rug.",
   "choices": [
+   "fell",
    "paint",
    "spilt",
-   "damp",
-   "fell"
+   "damp"
   ],
   "answerOptions": [
+   {
+    "value": "fell",
+    "label": "fell",
+    "text": "fell"
+   },
    {
     "value": "paint",
     "label": "paint",
@@ -2560,11 +2663,6 @@ export const questions = [
     "value": "damp",
     "label": "damp",
     "text": "damp"
-   },
-   {
-    "value": "fell",
-    "label": "fell",
-    "text": "fell"
    }
   ],
   "answer": "paint",
@@ -2574,16 +2672,17 @@ export const questions = [
    "damp": "D-FUNCTION-SWAP",
    "fell": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ dripped on the rug.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2594,7 +2693,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+  "resolvedImageAssetKey": "rug",
+  "imageAlt": "The paint dripped on the rug."
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v4",
@@ -2618,7 +2723,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Our ___ creaks in the wind.",
   "question": "Our ___ creaks in the wind.",
-  "spokenPrompt": "Which naming word finishes the sentence? Our hmm creaks in the wind.",
+  "spokenPrompt": "Which naming word finishes the sentence? Our … creaks in the wind.",
   "sentence": "Our ___ creaks in the wind.",
   "choices": [
    "gate",
@@ -2651,20 +2756,21 @@ export const questions = [
   "answer": "gate",
   "correctAnswer": "gate",
   "distractorRationales": {
-   "blew": "D-FUNCTION-SWAP",
    "old": "D-FUNCTION-SWAP",
-   "shut": "D-FUNCTION-SWAP"
+   "shut": "D-FUNCTION-SWAP",
+   "blew": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our ___ creaks in the wind.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2675,7 +2781,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/gate.webp",
+  "imageUrl": "/images/assessment/long-vowels/gate.webp",
+  "targetImage": "/images/assessment/long-vowels/gate.webp",
+  "targetImagePath": "/images/assessment/long-vowels/gate.webp",
+  "resolvedImageAssetKey": "gate",
+  "imageAlt": "Our gate creaks in the wind."
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v5",
@@ -2701,17 +2813,12 @@ export const questions = [
   "question": "Which word in this sentence is a naming word? \"The kite dipped and spun.\"",
   "spokenPrompt": "Which word in this sentence is a naming word? \"The kite dipped and spun.\"",
   "choices": [
-   "kite",
    "dipped",
    "spun",
-   "and"
+   "and",
+   "kite"
   ],
   "answerOptions": [
-   {
-    "value": "kite",
-    "label": "kite",
-    "text": "kite"
-   },
    {
     "value": "dipped",
     "label": "dipped",
@@ -2726,6 +2833,11 @@ export const questions = [
     "value": "and",
     "label": "and",
     "text": "and"
+   },
+   {
+    "value": "kite",
+    "label": "kite",
+    "text": "kite"
    }
   ],
   "answer": "kite",
@@ -2735,15 +2847,16 @@ export const questions = [
    "spun": "D-FUNCTION-SWAP",
    "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2754,7 +2867,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/kite.webp",
+  "imageUrl": "/images/assessment/long-vowels/kite.webp",
+  "targetImage": "/images/assessment/long-vowels/kite.webp",
+  "targetImagePath": "/images/assessment/long-vowels/kite.webp",
+  "resolvedImageAssetKey": "kite",
+  "imageAlt": "Which word in this sentence is a naming word? \"The kite dipped and spun.\""
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v6",
@@ -2780,22 +2899,12 @@ export const questions = [
   "question": "Which word in this sentence is a naming word? \"My boots got soaked.\"",
   "spokenPrompt": "Which word in this sentence is a naming word? \"My boots got soaked.\"",
   "choices": [
-   "boots",
-   "got",
    "soaked",
-   "my"
+   "my",
+   "boots",
+   "got"
   ],
   "answerOptions": [
-   {
-    "value": "boots",
-    "label": "boots",
-    "text": "boots"
-   },
-   {
-    "value": "got",
-    "label": "got",
-    "text": "got"
-   },
    {
     "value": "soaked",
     "label": "soaked",
@@ -2805,24 +2914,35 @@ export const questions = [
     "value": "my",
     "label": "my",
     "text": "my"
+   },
+   {
+    "value": "boots",
+    "label": "boots",
+    "text": "boots"
+   },
+   {
+    "value": "got",
+    "label": "got",
+    "text": "got"
    }
   ],
   "answer": "boots",
   "correctAnswer": "boots",
   "distractorRationales": {
-   "got": "D-FUNCTION-SWAP",
    "soaked": "D-FUNCTION-SWAP",
-   "my": "D-FUNCTION-SWAP"
+   "my": "D-FUNCTION-SWAP",
+   "got": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2833,7 +2953,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/boots.webp",
+  "imageUrl": "/images/assessment/generated/concepts/boots.webp",
+  "targetImage": "/images/assessment/generated/concepts/boots.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/boots.webp",
+  "resolvedImageAssetKey": "boots",
+  "imageAlt": "Which word in this sentence is a naming word? \"My boots got soaked.\""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v7",
@@ -2857,15 +2983,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ hooted all night long.",
   "question": "The ___ hooted all night long.",
-  "spokenPrompt": "Which naming word finishes the sentence? The hmm hooted all night long.",
+  "spokenPrompt": "Which naming word finishes the sentence? The … hooted all night long.",
   "sentence": "The ___ hooted all night long.",
   "choices": [
+   "flew",
    "owl",
    "slept",
-   "dark",
-   "flew"
+   "dark"
   ],
   "answerOptions": [
+   {
+    "value": "flew",
+    "label": "flew",
+    "text": "flew"
+   },
    {
     "value": "owl",
     "label": "owl",
@@ -2880,30 +3011,26 @@ export const questions = [
     "value": "dark",
     "label": "dark",
     "text": "dark"
-   },
-   {
-    "value": "flew",
-    "label": "flew",
-    "text": "flew"
    }
   ],
   "answer": "owl",
   "correctAnswer": "owl",
   "distractorRationales": {
+   "flew": "D-FUNCTION-SWAP",
    "slept": "D-FUNCTION-SWAP",
-   "dark": "D-FUNCTION-SWAP",
-   "flew": "D-FUNCTION-SWAP"
+   "dark": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ hooted all night long.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2914,7 +3041,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/night.webp",
+  "imageUrl": "/images/assessment/long-vowels/night.webp",
+  "targetImage": "/images/assessment/long-vowels/night.webp",
+  "targetImagePath": "/images/assessment/long-vowels/night.webp",
+  "resolvedImageAssetKey": "night",
+  "imageAlt": "The owl hooted all night long."
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v8",
@@ -2938,7 +3071,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A ___ rolled off the shelf.",
   "question": "A ___ rolled off the shelf.",
-  "spokenPrompt": "Which naming word finishes the sentence? A hmm rolled off the shelf.",
+  "spokenPrompt": "Which naming word finishes the sentence? A … rolled off the shelf.",
   "sentence": "A ___ rolled off the shelf.",
   "choices": [
    "jar",
@@ -2971,20 +3104,21 @@ export const questions = [
   "answer": "jar",
   "correctAnswer": "jar",
   "distractorRationales": {
+   "fell": "D-FUNCTION-SWAP",
    "broke": "D-FUNCTION-SWAP",
-   "full": "D-FUNCTION-SWAP",
-   "fell": "D-FUNCTION-SWAP"
+   "full": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ rolled off the shelf.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2995,7 +3129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/shelf.webp",
+  "imageUrl": "/images/assessment/blends/shelf.webp",
+  "targetImage": "/images/assessment/blends/shelf.webp",
+  "targetImagePath": "/images/assessment/blends/shelf.webp",
+  "resolvedImageAssetKey": "shelf",
+  "imageAlt": "A jar rolled off the shelf."
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v1",
@@ -3021,22 +3161,12 @@ export const questions = [
   "question": "Which word names a thing, not a doing word?",
   "spokenPrompt": "Which word names a thing, not a doing word?",
   "choices": [
-   "bed",
-   "jump",
    "run",
-   "go"
+   "go",
+   "bed",
+   "jump"
   ],
   "answerOptions": [
-   {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
-   },
-   {
-    "value": "jump",
-    "label": "jump",
-    "text": "jump"
-   },
    {
     "value": "run",
     "label": "run",
@@ -3046,6 +3176,16 @@ export const questions = [
     "value": "go",
     "label": "go",
     "text": "go"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "jump",
+    "label": "jump",
+    "text": "jump"
    }
   ],
   "answer": "bed",
@@ -3055,15 +3195,16 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "go": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3074,7 +3215,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the blueprint exemplar set"
+  "notes": "the blueprint exemplar set",
+  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "resolvedImageAssetKey": "bed",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v2",
@@ -3100,12 +3247,17 @@ export const questions = [
   "question": "Which word names a thing, not a doing word?",
   "spokenPrompt": "Which word names a thing, not a doing word?",
   "choices": [
+   "pour",
    "fork",
    "stir",
-   "chop",
-   "pour"
+   "chop"
   ],
   "answerOptions": [
+   {
+    "value": "pour",
+    "label": "pour",
+    "text": "pour"
+   },
    {
     "value": "fork",
     "label": "fork",
@@ -3120,11 +3272,6 @@ export const questions = [
     "value": "chop",
     "label": "chop",
     "text": "chop"
-   },
-   {
-    "value": "pour",
-    "label": "pour",
-    "text": "pour"
    }
   ],
   "answer": "fork",
@@ -3134,15 +3281,16 @@ export const questions = [
    "chop": "D-FUNCTION-SWAP",
    "pour": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3153,7 +3301,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "resolvedImageAssetKey": "fork",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v3",
@@ -3179,17 +3333,12 @@ export const questions = [
   "question": "Which word names a thing, not a doing word?",
   "spokenPrompt": "Which word names a thing, not a doing word?",
   "choices": [
-   "tent",
    "camp",
    "hike",
-   "rest"
+   "rest",
+   "tent"
   ],
   "answerOptions": [
-   {
-    "value": "tent",
-    "label": "tent",
-    "text": "tent"
-   },
    {
     "value": "camp",
     "label": "camp",
@@ -3204,6 +3353,11 @@ export const questions = [
     "value": "rest",
     "label": "rest",
     "text": "rest"
+   },
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
    }
   ],
   "answer": "tent",
@@ -3213,15 +3367,16 @@ export const questions = [
    "hike": "D-FUNCTION-SWAP",
    "rest": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3232,7 +3387,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/tent.webp",
+  "imageUrl": "/images/assessment/blends/tent.webp",
+  "targetImage": "/images/assessment/blends/tent.webp",
+  "targetImagePath": "/images/assessment/blends/tent.webp",
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v4",
@@ -3256,20 +3417,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ sang to the crowd.",
   "question": "The ___ sang to the crowd.",
-  "spokenPrompt": "Which naming word finishes the sentence? The hmm sang to the crowd.",
+  "spokenPrompt": "Which naming word finishes the sentence? The … sang to the crowd.",
   "sentence": "The ___ sang to the crowd.",
   "choices": [
-   "singer",
    "sing",
    "sung",
-   "sang"
+   "sang",
+   "singer"
   ],
   "answerOptions": [
-   {
-    "value": "singer",
-    "label": "singer",
-    "text": "singer"
-   },
    {
     "value": "sing",
     "label": "sing",
@@ -3284,25 +3440,31 @@ export const questions = [
     "value": "sang",
     "label": "sang",
     "text": "sang"
+   },
+   {
+    "value": "singer",
+    "label": "singer",
+    "text": "singer"
    }
   ],
   "answer": "singer",
   "correctAnswer": "singer",
   "distractorRationales": {
-   "sing": "D-FUNCTION-SWAP",
    "sung": "D-FUNCTION-SWAP",
-   "sang": "D-FUNCTION-SWAP"
+   "sang": "D-FUNCTION-SWAP",
+   "sing": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ sang to the crowd.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3313,7 +3475,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the whole verb family competes — only the naming word can follow The"
+  "notes": "the whole verb family competes — only the naming word can follow The",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
+  "resolvedImageAssetKey": "singer",
+  "imageAlt": "The singer sang to the crowd."
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v5",
@@ -3339,22 +3507,12 @@ export const questions = [
   "question": "Which word names a thing, not a doing word?",
   "spokenPrompt": "Which word names a thing, not a doing word?",
   "choices": [
-   "broom",
-   "sweep",
    "scrub",
-   "wipe"
+   "wipe",
+   "broom",
+   "sweep"
   ],
   "answerOptions": [
-   {
-    "value": "broom",
-    "label": "broom",
-    "text": "broom"
-   },
-   {
-    "value": "sweep",
-    "label": "sweep",
-    "text": "sweep"
-   },
    {
     "value": "scrub",
     "label": "scrub",
@@ -3364,6 +3522,16 @@ export const questions = [
     "value": "wipe",
     "label": "wipe",
     "text": "wipe"
+   },
+   {
+    "value": "broom",
+    "label": "broom",
+    "text": "broom"
+   },
+   {
+    "value": "sweep",
+    "label": "sweep",
+    "text": "sweep"
    }
   ],
   "answer": "broom",
@@ -3373,15 +3541,16 @@ export const questions = [
    "scrub": "D-FUNCTION-SWAP",
    "wipe": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3392,7 +3561,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/broom.webp",
+  "imageUrl": "/images/assessment/blends/broom.webp",
+  "targetImage": "/images/assessment/blends/broom.webp",
+  "targetImagePath": "/images/assessment/blends/broom.webp",
+  "resolvedImageAssetKey": "broom",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v6",
@@ -3448,19 +3623,20 @@ export const questions = [
   "answer": "climb",
   "correctAnswer": "climb",
   "distractorRationales": {
-   "ladder": "D-FUNCTION-SWAP",
    "roof": "D-FUNCTION-SWAP",
-   "wall": "D-FUNCTION-SWAP"
+   "wall": "D-FUNCTION-SWAP",
+   "ladder": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3471,7 +3647,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/not.webp",
+  "imageUrl": "/images/assessment/hfw/not.webp",
+  "targetImage": "/images/assessment/hfw/not.webp",
+  "targetImagePath": "/images/assessment/hfw/not.webp",
+  "resolvedImageAssetKey": "not",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v7",
@@ -3527,19 +3709,20 @@ export const questions = [
   "answer": "kite",
   "correctAnswer": "kite",
   "distractorRationales": {
+   "drift": "D-FUNCTION-SWAP",
    "soar": "D-FUNCTION-SWAP",
-   "glide": "D-FUNCTION-SWAP",
-   "drift": "D-FUNCTION-SWAP"
+   "glide": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3550,7 +3733,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/kite.webp",
+  "imageUrl": "/images/assessment/long-vowels/kite.webp",
+  "targetImage": "/images/assessment/long-vowels/kite.webp",
+  "targetImagePath": "/images/assessment/long-vowels/kite.webp",
+  "resolvedImageAssetKey": "kite",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v8",
@@ -3574,20 +3763,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Our ___ reads to us after lunch.",
   "question": "Our ___ reads to us after lunch.",
-  "spokenPrompt": "Which naming word finishes the sentence? Our hmm reads to us after lunch.",
+  "spokenPrompt": "Which naming word finishes the sentence? Our … reads to us after lunch.",
   "sentence": "Our ___ reads to us after lunch.",
   "choices": [
-   "teacher",
    "teach",
    "taught",
-   "teaches"
+   "teaches",
+   "teacher"
   ],
   "answerOptions": [
-   {
-    "value": "teacher",
-    "label": "teacher",
-    "text": "teacher"
-   },
    {
     "value": "teach",
     "label": "teach",
@@ -3602,25 +3786,31 @@ export const questions = [
     "value": "teaches",
     "label": "teaches",
     "text": "teaches"
+   },
+   {
+    "value": "teacher",
+    "label": "teacher",
+    "text": "teacher"
    }
   ],
   "answer": "teacher",
   "correctAnswer": "teacher",
   "distractorRationales": {
+   "teaches": "D-FUNCTION-SWAP",
    "teach": "D-FUNCTION-SWAP",
-   "taught": "D-FUNCTION-SWAP",
-   "teaches": "D-FUNCTION-SWAP"
+   "taught": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our ___ reads to us after lunch.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3631,7 +3821,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "resolvedImageAssetKey": "teacher",
+  "imageAlt": "Our teacher reads to us after lunch."
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v1",
@@ -3657,12 +3853,17 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
+   "We went out late.",
    "The cat sat on the mat.",
    "Run fast and jump high.",
-   "She is very happy.",
-   "We went out late."
+   "She is very happy."
   ],
   "answerOptions": [
+   {
+    "value": "We went out late.",
+    "label": "We went out late.",
+    "text": "We went out late."
+   },
    {
     "value": "The cat sat on the mat.",
     "label": "The cat sat on the mat.",
@@ -3677,29 +3878,25 @@ export const questions = [
     "value": "She is very happy.",
     "label": "She is very happy.",
     "text": "She is very happy."
-   },
-   {
-    "value": "We went out late.",
-    "label": "We went out late.",
-    "text": "We went out late."
    }
   ],
   "answer": "The cat sat on the mat.",
   "correctAnswer": "The cat sat on the mat.",
   "distractorRationales": {
+   "We went out late.": "D-FUNCTION-SWAP",
    "Run fast and jump high.": "D-FUNCTION-SWAP",
-   "She is very happy.": "D-FUNCTION-SWAP",
-   "We went out late.": "D-FUNCTION-SWAP"
+   "She is very happy.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3710,7 +3907,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cat + mat; the others name one thing or none"
+  "notes": "cat + mat; the others name one thing or none",
+  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "resolvedImageAssetKey": "cat",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v2",
@@ -3770,15 +3973,16 @@ export const questions = [
    "They are so tall.": "D-FUNCTION-SWAP",
    "I ran off quickly.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3789,7 +3993,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/bone.webp",
+  "imageUrl": "/images/assessment/long-vowels/bone.webp",
+  "targetImage": "/images/assessment/long-vowels/bone.webp",
+  "targetImagePath": "/images/assessment/long-vowels/bone.webp",
+  "resolvedImageAssetKey": "bone",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v3",
@@ -3815,12 +4025,17 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
+   "You did so well.",
    "A frog sat on a log.",
    "She sang and danced.",
-   "It is too cold.",
-   "You did so well."
+   "It is too cold."
   ],
   "answerOptions": [
+   {
+    "value": "You did so well.",
+    "label": "You did so well.",
+    "text": "You did so well."
+   },
    {
     "value": "A frog sat on a log.",
     "label": "A frog sat on a log.",
@@ -3835,29 +4050,25 @@ export const questions = [
     "value": "It is too cold.",
     "label": "It is too cold.",
     "text": "It is too cold."
-   },
-   {
-    "value": "You did so well.",
-    "label": "You did so well.",
-    "text": "You did so well."
    }
   ],
   "answer": "A frog sat on a log.",
   "correctAnswer": "A frog sat on a log.",
   "distractorRationales": {
+   "You did so well.": "D-FUNCTION-SWAP",
    "She sang and danced.": "D-FUNCTION-SWAP",
-   "It is too cold.": "D-FUNCTION-SWAP",
-   "You did so well.": "D-FUNCTION-SWAP"
+   "It is too cold.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3868,7 +4079,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/frog.webp",
+  "imageUrl": "/images/assessment/blends/frog.webp",
+  "targetImage": "/images/assessment/blends/frog.webp",
+  "targetImagePath": "/images/assessment/blends/frog.webp",
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v4",
@@ -3892,25 +4109,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The cat and the ___ hid in the barn.",
   "question": "The cat and the ___ hid in the barn.",
-  "spokenPrompt": "Which naming word finishes the sentence? The cat and the hmm hid in the barn.",
+  "spokenPrompt": "Which naming word finishes the sentence? The cat and the … hid in the barn.",
   "sentence": "The cat and the ___ hid in the barn.",
   "choices": [
-   "mouse",
-   "ran",
    "wet",
-   "hid"
+   "hid",
+   "mouse",
+   "ran"
   ],
   "answerOptions": [
-   {
-    "value": "mouse",
-    "label": "mouse",
-    "text": "mouse"
-   },
-   {
-    "value": "ran",
-    "label": "ran",
-    "text": "ran"
-   },
    {
     "value": "wet",
     "label": "wet",
@@ -3920,6 +4127,16 @@ export const questions = [
     "value": "hid",
     "label": "hid",
     "text": "hid"
+   },
+   {
+    "value": "mouse",
+    "label": "mouse",
+    "text": "mouse"
+   },
+   {
+    "value": "ran",
+    "label": "ran",
+    "text": "ran"
    }
   ],
   "answer": "mouse",
@@ -3929,16 +4146,17 @@ export const questions = [
    "wet": "D-FUNCTION-SWAP",
    "hid": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The cat and the ___ hid in the barn.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3949,7 +4167,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "finish the two-thing list — only a naming word can join the and"
+  "notes": "finish the two-thing list — only a naming word can join the and",
+  "imagePath": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
+  "resolvedImageAssetKey": "mouse",
+  "imageAlt": "The cat and the mouse hid in the barn."
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v5",
@@ -3975,12 +4199,17 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
+   "They ran and hid.",
    "My hat fell in the mud.",
    "Sit down and rest up.",
-   "It was so loud.",
-   "They ran and hid."
+   "It was so loud."
   ],
   "answerOptions": [
+   {
+    "value": "They ran and hid.",
+    "label": "They ran and hid.",
+    "text": "They ran and hid."
+   },
    {
     "value": "My hat fell in the mud.",
     "label": "My hat fell in the mud.",
@@ -3995,11 +4224,6 @@ export const questions = [
     "value": "It was so loud.",
     "label": "It was so loud.",
     "text": "It was so loud."
-   },
-   {
-    "value": "They ran and hid.",
-    "label": "They ran and hid.",
-    "text": "They ran and hid."
    }
   ],
   "answer": "My hat fell in the mud.",
@@ -4009,15 +4233,16 @@ export const questions = [
    "It was so loud.": "D-FUNCTION-SWAP",
    "They ran and hid.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4028,7 +4253,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ell/fell-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ell/fell-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ell/fell-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ell/fell-02.webp",
+  "resolvedImageAssetKey": "fell",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v6",
@@ -4054,22 +4285,12 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
-   "The bee flew to the rose.",
-   "Come in and dry off.",
    "She is quite quick.",
-   "He will not stop."
+   "He will not stop.",
+   "The bee flew to the rose.",
+   "Come in and dry off."
   ],
   "answerOptions": [
-   {
-    "value": "The bee flew to the rose.",
-    "label": "The bee flew to the rose.",
-    "text": "The bee flew to the rose."
-   },
-   {
-    "value": "Come in and dry off.",
-    "label": "Come in and dry off.",
-    "text": "Come in and dry off."
-   },
    {
     "value": "She is quite quick.",
     "label": "She is quite quick.",
@@ -4079,6 +4300,16 @@ export const questions = [
     "value": "He will not stop.",
     "label": "He will not stop.",
     "text": "He will not stop."
+   },
+   {
+    "value": "The bee flew to the rose.",
+    "label": "The bee flew to the rose.",
+    "text": "The bee flew to the rose."
+   },
+   {
+    "value": "Come in and dry off.",
+    "label": "Come in and dry off.",
+    "text": "Come in and dry off."
    }
   ],
   "answer": "The bee flew to the rose.",
@@ -4088,15 +4319,16 @@ export const questions = [
    "She is quite quick.": "D-FUNCTION-SWAP",
    "He will not stop.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4107,7 +4339,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/flew.webp",
+  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
+  "targetImage": "/images/assessment/generated/concepts/flew.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
+  "resolvedImageAssetKey": "flew",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v7",
@@ -4133,17 +4371,12 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
-   "A crab hid under a rock.",
    "Hop up and hold on.",
    "It got very dark.",
-   "You may go in."
+   "You may go in.",
+   "A crab hid under a rock."
   ],
   "answerOptions": [
-   {
-    "value": "A crab hid under a rock.",
-    "label": "A crab hid under a rock.",
-    "text": "A crab hid under a rock."
-   },
    {
     "value": "Hop up and hold on.",
     "label": "Hop up and hold on.",
@@ -4158,6 +4391,11 @@ export const questions = [
     "value": "You may go in.",
     "label": "You may go in.",
     "text": "You may go in."
+   },
+   {
+    "value": "A crab hid under a rock.",
+    "label": "A crab hid under a rock.",
+    "text": "A crab hid under a rock."
    }
   ],
   "answer": "A crab hid under a rock.",
@@ -4167,15 +4405,16 @@ export const questions = [
    "It got very dark.": "D-FUNCTION-SWAP",
    "You may go in.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4186,7 +4425,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/under.png",
+  "imageUrl": "/images/child-mode/initial-sounds/under.png",
+  "targetImage": "/images/child-mode/initial-sounds/under.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
+  "resolvedImageAssetKey": "under",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v8",
@@ -4210,25 +4455,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A fork and a ___ sat by the plate.",
   "question": "A fork and a ___ sat by the plate.",
-  "spokenPrompt": "Which naming word finishes the sentence? A fork and a hmm sat by the plate.",
+  "spokenPrompt": "Which naming word finishes the sentence? A fork and a … sat by the plate.",
   "sentence": "A fork and a ___ sat by the plate.",
   "choices": [
-   "spoon",
-   "eat",
    "clean",
-   "cut"
+   "cut",
+   "spoon",
+   "eat"
   ],
   "answerOptions": [
-   {
-    "value": "spoon",
-    "label": "spoon",
-    "text": "spoon"
-   },
-   {
-    "value": "eat",
-    "label": "eat",
-    "text": "eat"
-   },
    {
     "value": "clean",
     "label": "clean",
@@ -4238,25 +4473,36 @@ export const questions = [
     "value": "cut",
     "label": "cut",
     "text": "cut"
+   },
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   },
+   {
+    "value": "eat",
+    "label": "eat",
+    "text": "eat"
    }
   ],
   "answer": "spoon",
   "correctAnswer": "spoon",
   "distractorRationales": {
+   "cut": "D-FUNCTION-SWAP",
    "eat": "D-FUNCTION-SWAP",
-   "clean": "D-FUNCTION-SWAP",
-   "cut": "D-FUNCTION-SWAP"
+   "clean": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A fork and a ___ sat by the plate.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4267,7 +4513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/spoon.webp",
+  "imageUrl": "/images/assessment/long-vowels/spoon.webp",
+  "targetImage": "/images/assessment/long-vowels/spoon.webp",
+  "targetImagePath": "/images/assessment/long-vowels/spoon.webp",
+  "resolvedImageAssetKey": "spoon",
+  "imageAlt": "A fork and a spoon sat by the plate."
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v7r",
@@ -4293,17 +4545,12 @@ export const questions = [
   "question": "Which one shows a person?",
   "spokenPrompt": "Which one shows a person?",
   "choices": [
-   "girl",
    "hop",
    "dig",
-   "swim"
+   "swim",
+   "girl"
   ],
   "answerOptions": [
-   {
-    "value": "girl",
-    "label": "girl",
-    "text": "girl"
-   },
    {
     "value": "hop",
     "label": "hop",
@@ -4318,6 +4565,11 @@ export const questions = [
     "value": "swim",
     "label": "swim",
     "text": "swim"
+   },
+   {
+    "value": "girl",
+    "label": "girl",
+    "text": "girl"
    }
   ],
   "answer": "girl",
@@ -4349,21 +4601,12 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.nouns.l1.R.noun_person.v7r_card_girl",
-    "word": "girl",
-    "value": "girl",
-    "label": "girl",
-    "image": "/images/child-mode/initial-sounds/girl.png",
-    "imagePath": "/images/child-mode/initial-sounds/girl.png",
-    "imageAlt": "girl"
-   },
-   {
     "id": "lp3.nouns.l1.R.noun_person.v7r_card_hop",
     "word": "hop",
     "value": "hop",
     "label": "hop",
-    "image": "/images/child-mode/initial-sounds/hop.png",
-    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
     "imageAlt": "hop"
    },
    {
@@ -4371,8 +4614,8 @@ export const questions = [
     "word": "dig",
     "value": "dig",
     "label": "dig",
-    "image": "/images/child-mode/cvc/dig.png",
-    "imagePath": "/images/child-mode/cvc/dig.png",
+    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
     "imageAlt": "dig"
    },
    {
@@ -4383,6 +4626,15 @@ export const questions = [
     "image": "/images/assessment/blends/swim.webp",
     "imagePath": "/images/assessment/blends/swim.webp",
     "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_person.v7r_card_girl",
+    "word": "girl",
+    "value": "girl",
+    "label": "girl",
+    "image": "/images/child-mode/initial-sounds/girl.png",
+    "imagePath": "/images/child-mode/initial-sounds/girl.png",
+    "imageAlt": "girl"
    }
   ]
  },
@@ -4527,12 +4779,17 @@ export const questions = [
   "question": "Which word names a place?",
   "spokenPrompt": "Which word names a place?",
   "choices": [
+   "peck",
    "park",
    "pull",
-   "pink",
-   "peck"
+   "pink"
   ],
   "answerOptions": [
+   {
+    "value": "peck",
+    "label": "peck",
+    "text": "peck"
+   },
    {
     "value": "park",
     "label": "park",
@@ -4547,11 +4804,6 @@ export const questions = [
     "value": "pink",
     "label": "pink",
     "text": "pink"
-   },
-   {
-    "value": "peck",
-    "label": "peck",
-    "text": "peck"
    }
   ],
   "answer": "park",
@@ -4561,15 +4813,16 @@ export const questions = [
    "pink": "D-FUNCTION-SWAP",
    "peck": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_place-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4580,7 +4833,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/park.png",
+  "imageUrl": "/images/child-mode/initial-sounds/park.png",
+  "targetImage": "/images/child-mode/initial-sounds/park.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/park.png",
+  "resolvedImageAssetKey": "park",
+  "imageAlt": "Which word names a place?"
  },
  {
   "id": "lp3.nouns.l1.R.noun_thing.v7r",
@@ -4606,22 +4865,12 @@ export const questions = [
   "question": "Which word names a thing?",
   "spokenPrompt": "Which word names a thing?",
   "choices": [
-   "brush",
-   "brave",
    "bump",
-   "blow"
+   "blow",
+   "brush",
+   "brave"
   ],
   "answerOptions": [
-   {
-    "value": "brush",
-    "label": "brush",
-    "text": "brush"
-   },
-   {
-    "value": "brave",
-    "label": "brave",
-    "text": "brave"
-   },
    {
     "value": "bump",
     "label": "bump",
@@ -4631,24 +4880,35 @@ export const questions = [
     "value": "blow",
     "label": "blow",
     "text": "blow"
+   },
+   {
+    "value": "brush",
+    "label": "brush",
+    "text": "brush"
+   },
+   {
+    "value": "brave",
+    "label": "brave",
+    "text": "brave"
    }
   ],
   "answer": "brush",
   "correctAnswer": "brush",
   "distractorRationales": {
-   "brave": "D-FUNCTION-SWAP",
    "bump": "D-FUNCTION-SWAP",
-   "blow": "D-FUNCTION-SWAP"
+   "blow": "D-FUNCTION-SWAP",
+   "brave": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_thing-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4659,7 +4919,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/brush.webp",
+  "imageUrl": "/images/assessment/digraphs/brush.webp",
+  "targetImage": "/images/assessment/digraphs/brush.webp",
+  "targetImagePath": "/images/assessment/digraphs/brush.webp",
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Which word names a thing?"
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v9r",
@@ -4683,25 +4949,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The ___ chimed at noon.",
   "question": "The ___ chimed at noon.",
-  "spokenPrompt": "Which naming word finishes the sentence? The hmm chimed at noon.",
+  "spokenPrompt": "Which naming word finishes the sentence? The … chimed at noon.",
   "sentence": "The ___ chimed at noon.",
   "choices": [
-   "clock",
-   "rang",
    "loud",
-   "slow"
+   "slow",
+   "clock",
+   "rang"
   ],
   "answerOptions": [
-   {
-    "value": "clock",
-    "label": "clock",
-    "text": "clock"
-   },
-   {
-    "value": "rang",
-    "label": "rang",
-    "text": "rang"
-   },
    {
     "value": "loud",
     "label": "loud",
@@ -4711,25 +4967,36 @@ export const questions = [
     "value": "slow",
     "label": "slow",
     "text": "slow"
+   },
+   {
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
+   },
+   {
+    "value": "rang",
+    "label": "rang",
+    "text": "rang"
    }
   ],
   "answer": "clock",
   "correctAnswer": "clock",
   "distractorRationales": {
-   "rang": "D-FUNCTION-SWAP",
    "loud": "D-FUNCTION-SWAP",
-   "slow": "D-FUNCTION-SWAP"
+   "slow": "D-FUNCTION-SWAP",
+   "rang": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ___ chimed at noon.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,7 +5007,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/clock.webp",
+  "imageUrl": "/images/assessment/digraphs/clock.webp",
+  "targetImage": "/images/assessment/digraphs/clock.webp",
+  "targetImagePath": "/images/assessment/digraphs/clock.webp",
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "The clock chimed at noon."
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v9r",
@@ -4766,17 +5039,12 @@ export const questions = [
   "question": "Which word names a thing, not a doing word?",
   "spokenPrompt": "Which word names a thing, not a doing word?",
   "choices": [
-   "nest",
    "build",
    "perch",
-   "peck"
+   "peck",
+   "nest"
   ],
   "answerOptions": [
-   {
-    "value": "nest",
-    "label": "nest",
-    "text": "nest"
-   },
    {
     "value": "build",
     "label": "build",
@@ -4791,24 +5059,30 @@ export const questions = [
     "value": "peck",
     "label": "peck",
     "text": "peck"
+   },
+   {
+    "value": "nest",
+    "label": "nest",
+    "text": "nest"
    }
   ],
   "answer": "nest",
   "correctAnswer": "nest",
   "distractorRationales": {
-   "build": "D-FUNCTION-SWAP",
    "perch": "D-FUNCTION-SWAP",
-   "peck": "D-FUNCTION-SWAP"
+   "peck": "D-FUNCTION-SWAP",
+   "build": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4819,7 +5093,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/nest.webp",
+  "imageUrl": "/images/assessment/blends/nest.webp",
+  "targetImage": "/images/assessment/blends/nest.webp",
+  "targetImagePath": "/images/assessment/blends/nest.webp",
+  "resolvedImageAssetKey": "nest",
+  "imageAlt": "Which word names a thing, not a doing word?"
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v9r",
@@ -4875,19 +5155,20 @@ export const questions = [
   "answer": "The hen laid an egg.",
   "correctAnswer": "The hen laid an egg.",
   "distractorRationales": {
-   "Duck down and creep in.": "D-FUNCTION-SWAP",
    "It is far too wet.": "D-FUNCTION-SWAP",
-   "She may not come.": "D-FUNCTION-SWAP"
+   "She may not come.": "D-FUNCTION-SWAP",
+   "Duck down and creep in.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4898,7 +5179,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
+  "resolvedImageAssetKey": "hen",
+  "imageAlt": "Which sentence names TWO things?"
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v8r",
@@ -4924,17 +5211,12 @@ export const questions = [
   "question": "Which word names a person?",
   "spokenPrompt": "Which word names a person?",
   "choices": [
-   "baker",
    "bake",
    "water",
-   "mix"
+   "mix",
+   "baker"
   ],
   "answerOptions": [
-   {
-    "value": "baker",
-    "label": "baker",
-    "text": "baker"
-   },
    {
     "value": "bake",
     "label": "bake",
@@ -4949,24 +5231,30 @@ export const questions = [
     "value": "mix",
     "label": "mix",
     "text": "mix"
+   },
+   {
+    "value": "baker",
+    "label": "baker",
+    "text": "baker"
    }
   ],
   "answer": "baker",
   "correctAnswer": "baker",
   "distractorRationales": {
-   "bake": "D-FUNCTION-SWAP",
    "water": "D-FUNCTION-SWAP",
-   "mix": "D-FUNCTION-SWAP"
+   "mix": "D-FUNCTION-SWAP",
+   "bake": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_person-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4977,7 +5265,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "water ties the er/person overlap — it names a thing, never a person"
+  "notes": "water ties the er/person overlap — it names a thing, never a person",
+  "imagePath": "/images/assessment/generated/concepts/baker.webp",
+  "imageUrl": "/images/assessment/generated/concepts/baker.webp",
+  "targetImage": "/images/assessment/generated/concepts/baker.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/baker.webp",
+  "resolvedImageAssetKey": "baker",
+  "imageAlt": "Which word names a person?"
  },
  {
   "id": "lp3.nouns.l1.R.noun_animal.v8r",
@@ -5033,19 +5327,20 @@ export const questions = [
   "answer": "shark",
   "correctAnswer": "shark",
   "distractorRationales": {
+   "dive": "D-FUNCTION-SWAP",
    "sharp": "D-FUNCTION-SWAP",
-   "swim": "D-FUNCTION-SWAP",
-   "dive": "D-FUNCTION-SWAP"
+   "swim": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_animal-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5056,7 +5351,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/shark.webp",
+  "imageUrl": "/images/assessment/digraphs/shark.webp",
+  "targetImage": "/images/assessment/digraphs/shark.webp",
+  "targetImagePath": "/images/assessment/digraphs/shark.webp",
+  "resolvedImageAssetKey": "shark",
+  "imageAlt": "Which word names an animal?"
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v10r",
@@ -5080,15 +5381,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A ___ nested in our chimney.",
   "question": "A ___ nested in our chimney.",
-  "spokenPrompt": "Which naming word finishes the sentence? A hmm nested in our chimney.",
+  "spokenPrompt": "Which naming word finishes the sentence? A … nested in our chimney.",
   "sentence": "A ___ nested in our chimney.",
   "choices": [
+   "sang",
    "bird",
    "flew",
-   "small",
-   "sang"
+   "small"
   ],
   "answerOptions": [
+   {
+    "value": "sang",
+    "label": "sang",
+    "text": "sang"
+   },
    {
     "value": "bird",
     "label": "bird",
@@ -5103,30 +5409,26 @@ export const questions = [
     "value": "small",
     "label": "small",
     "text": "small"
-   },
-   {
-    "value": "sang",
-    "label": "sang",
-    "text": "sang"
    }
   ],
   "answer": "bird",
   "correctAnswer": "bird",
   "distractorRationales": {
-   "flew": "D-FUNCTION-SWAP",
    "small": "D-FUNCTION-SWAP",
-   "sang": "D-FUNCTION-SWAP"
+   "sang": "D-FUNCTION-SWAP",
+   "flew": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "A ___ nested in our chimney.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_in_sentence-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5137,7 +5439,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "resolvedImageAssetKey": "bird",
+  "imageAlt": "A bird nested in our chimney."
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v10r",
@@ -5163,22 +5471,12 @@ export const questions = [
   "question": "Which word is a doing word, not a naming word?",
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
-   "splash",
-   "pond",
    "duck",
-   "puddle"
+   "puddle",
+   "splash",
+   "pond"
   ],
   "answerOptions": [
-   {
-    "value": "splash",
-    "label": "splash",
-    "text": "splash"
-   },
-   {
-    "value": "pond",
-    "label": "pond",
-    "text": "pond"
-   },
    {
     "value": "duck",
     "label": "duck",
@@ -5188,24 +5486,35 @@ export const questions = [
     "value": "puddle",
     "label": "puddle",
     "text": "puddle"
+   },
+   {
+    "value": "splash",
+    "label": "splash",
+    "text": "splash"
+   },
+   {
+    "value": "pond",
+    "label": "pond",
+    "text": "pond"
    }
   ],
   "answer": "splash",
   "correctAnswer": "splash",
   "distractorRationales": {
-   "pond": "D-FUNCTION-SWAP",
    "duck": "D-FUNCTION-SWAP",
-   "puddle": "D-FUNCTION-SWAP"
+   "puddle": "D-FUNCTION-SWAP",
+   "pond": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_vs_verb-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5216,7 +5525,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap"
+  "notes": "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap",
+  "imagePath": "/images/assessment/blends/splash.webp",
+  "imageUrl": "/images/assessment/blends/splash.webp",
+  "targetImage": "/images/assessment/blends/splash.webp",
+  "targetImagePath": "/images/assessment/blends/splash.webp",
+  "resolvedImageAssetKey": "splash",
+  "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v10r",
@@ -5242,17 +5557,12 @@ export const questions = [
   "question": "Which sentence names TWO things?",
   "spokenPrompt": "Which sentence names TWO things?",
   "choices": [
-   "The moth flew at the lamp.",
    "Spin round and sit down.",
    "He was not there.",
-   "You can all go."
+   "You can all go.",
+   "The moth flew at the lamp."
   ],
   "answerOptions": [
-   {
-    "value": "The moth flew at the lamp.",
-    "label": "The moth flew at the lamp.",
-    "text": "The moth flew at the lamp."
-   },
    {
     "value": "Spin round and sit down.",
     "label": "Spin round and sit down.",
@@ -5267,24 +5577,30 @@ export const questions = [
     "value": "You can all go.",
     "label": "You can all go.",
     "text": "You can all go."
+   },
+   {
+    "value": "The moth flew at the lamp.",
+    "label": "The moth flew at the lamp.",
+    "text": "The moth flew at the lamp."
    }
   ],
   "answer": "The moth flew at the lamp.",
   "correctAnswer": "The moth flew at the lamp.",
   "distractorRationales": {
-   "Spin round and sit down.": "D-FUNCTION-SWAP",
    "He was not there.": "D-FUNCTION-SWAP",
-   "You can all go.": "D-FUNCTION-SWAP"
+   "You can all go.": "D-FUNCTION-SWAP",
+   "Spin round and sit down.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nouns-noun_two_step-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5295,6 +5611,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/moth.webp",
+  "imageUrl": "/images/assessment/digraphs/moth.webp",
+  "targetImage": "/images/assessment/digraphs/moth.webp",
+  "targetImagePath": "/images/assessment/digraphs/moth.webp",
+  "resolvedImageAssetKey": "moth",
+  "imageAlt": "Which sentence names TWO things?"
  }
 ];

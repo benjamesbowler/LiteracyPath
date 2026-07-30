@@ -47,6 +47,12 @@ const EARLY_MEDIA_SKILLS = new Set([
 ]);
 
 const DEFAULT_STANDARD = Object.freeze({
+  progression: Object.freeze({
+    phasePassAccuracy: 0.7,
+    requiredLevelOnePhases: Object.freeze([1, 2]),
+    nextSkillUnlockAfter: "L1P2",
+    levelTwoOptional: true
+  }),
   questionCount: Object.freeze({
     requiredLevels: Object.freeze([1, 2]),
     minimumPerLevel: 46,
@@ -110,6 +116,7 @@ export const assessmentReleaseStandardsBySkillId = Object.freeze(Object.fromEntr
       skillId,
       owner: getAssessmentReleaseOwner(skillId),
       version: ASSESSMENT_RELEASE_STANDARD_VERSION,
+      progression: DEFAULT_STANDARD.progression,
       questionCount: DEFAULT_STANDARD.questionCount,
       balance: skillId === "initial_sounds"
         ? INITIAL_SOUNDS_BALANCE_STANDARD

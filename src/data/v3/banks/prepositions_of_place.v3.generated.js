@@ -25,22 +25,12 @@ export const questions = [
   "question": "Where is the cat?",
   "spokenPrompt": "Where is the cat?",
   "choices": [
-   "in the box",
-   "on the box",
    "under the box",
-   "behind the box"
+   "behind the box",
+   "in the box",
+   "on the box"
   ],
   "answerOptions": [
-   {
-    "value": "in the box",
-    "label": "in the box",
-    "text": "in the box"
-   },
-   {
-    "value": "on the box",
-    "label": "on the box",
-    "text": "on the box"
-   },
    {
     "value": "under the box",
     "label": "under the box",
@@ -50,14 +40,24 @@ export const questions = [
     "value": "behind the box",
     "label": "behind the box",
     "text": "behind the box"
+   },
+   {
+    "value": "in the box",
+    "label": "in the box",
+    "text": "in the box"
+   },
+   {
+    "value": "on the box",
+    "label": "on the box",
+    "text": "on the box"
    }
   ],
   "answer": "in the box",
   "correctAnswer": "in the box",
   "distractorRationales": {
+   "behind the box": "D-FUNCTION-SWAP",
    "on the box": "D-FUNCTION-SWAP",
-   "under the box": "D-FUNCTION-SWAP",
-   "behind the box": "D-FUNCTION-SWAP"
+   "under the box": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cat_in_box",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -84,6 +85,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/cat_in_box.png",
   "targetImage": "/images/prepositions/cat_in_box.png",
   "targetImagePath": "/images/prepositions/cat_in_box.png",
+  "resolvedImageAssetKey": "cat_in_box",
   "imageAlt": "cat in box"
  },
  {
@@ -110,17 +112,12 @@ export const questions = [
   "question": "Where is the goat?",
   "spokenPrompt": "Where is the goat?",
   "choices": [
-   "in the barn",
    "on the barn",
    "behind the barn",
-   "under the barn"
+   "under the barn",
+   "in the barn"
   ],
   "answerOptions": [
-   {
-    "value": "in the barn",
-    "label": "in the barn",
-    "text": "in the barn"
-   },
    {
     "value": "on the barn",
     "label": "on the barn",
@@ -135,14 +132,19 @@ export const questions = [
     "value": "under the barn",
     "label": "under the barn",
     "text": "under the barn"
+   },
+   {
+    "value": "in the barn",
+    "label": "in the barn",
+    "text": "in the barn"
    }
   ],
   "answer": "in the barn",
   "correctAnswer": "in the barn",
   "distractorRationales": {
+   "under the barn": "D-FUNCTION-SWAP",
    "on the barn": "D-FUNCTION-SWAP",
-   "behind the barn": "D-FUNCTION-SWAP",
-   "under the barn": "D-FUNCTION-SWAP"
+   "behind the barn": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "goat_inside_barn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -169,6 +172,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/goat_inside_barn.png",
   "targetImage": "/images/prepositions/goat_inside_barn.png",
   "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "resolvedImageAssetKey": "goat_inside_barn",
   "imageAlt": "goat inside barn"
  },
  {
@@ -191,88 +195,9 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
-  "choices": [
-   "in",
-   "and",
-   "big",
-   "run"
-  ],
-  "answerOptions": [
-   {
-    "value": "in",
-    "label": "in",
-    "text": "in"
-   },
-   {
-    "value": "and",
-    "label": "and",
-    "text": "and"
-   },
-   {
-    "value": "big",
-    "label": "big",
-    "text": "big"
-   },
-   {
-    "value": "run",
-    "label": "run",
-    "text": "run"
-   }
-  ],
-  "answer": "in",
-  "correctAnswer": "in",
-  "distractorRationales": {
-   "and": "D-FUNCTION-SWAP",
-   "big": "D-FUNCTION-SWAP",
-   "run": "D-FUNCTION-SWAP"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": false,
-  "scannerExpected": false,
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": ""
- },
- {
-  "id": "lp3.prepositions_of_place.l1.A.in.v4",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "prepositions_of_place",
-  "assessmentSkillId": "prepositions_of_place",
-  "skillName": "Prepositions of Place",
-  "skill": "Prepositions of Place",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "A",
-  "itemType": "grammar_concept",
-  "itemKey": "in",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
-  "questionType": "multiple_choice",
-  "prompt": "The jam lives ___ the jar with the lid on.",
-  "question": "The jam lives ___ the jar with the lid on.",
-  "spokenPrompt": "The jam lives ___ the jar with the lid on.",
+  "prompt": "The cat is ___ the box.",
+  "question": "The cat is ___ the box.",
+  "spokenPrompt": "The cat is … the box.",
   "choices": [
    "in",
    "on",
@@ -304,19 +229,21 @@ export const questions = [
   "answer": "in",
   "correctAnswer": "in",
   "distractorRationales": {
+   "behind": "D-FUNCTION-SWAP",
    "on": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "cat_in_box",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cat_in_box",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -327,7 +254,100 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "with the lid on pins in"
+  "notes": "",
+  "imagePath": "/images/prepositions/cat_in_box.png",
+  "imageUrl": "/images/prepositions/cat_in_box.png",
+  "targetImage": "/images/prepositions/cat_in_box.png",
+  "targetImagePath": "/images/prepositions/cat_in_box.png",
+  "resolvedImageAssetKey": "cat_in_box",
+  "imageAlt": "The cat is in the box."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l1.A.in.v4",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "in",
+  "formatType": "PREPOSITION_TEXT_CHOICE",
+  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "questionType": "multiple_choice",
+  "prompt": "The goat is ___ the barn.",
+  "question": "The goat is ___ the barn.",
+  "spokenPrompt": "The goat is … the barn.",
+  "choices": [
+   "on",
+   "behind",
+   "under",
+   "in"
+  ],
+  "answerOptions": [
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
+   },
+   {
+    "value": "in",
+    "label": "in",
+    "text": "in"
+   }
+  ],
+  "answer": "in",
+  "correctAnswer": "in",
+  "distractorRationales": {
+   "on": "D-FUNCTION-SWAP",
+   "behind": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "scannerExpected": false,
+  "targetWord": "goat_inside_barn",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "requiredImageAssetKey": "goat_inside_barn",
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "",
+  "imagePath": "/images/prepositions/goat_inside_barn.png",
+  "imageUrl": "/images/prepositions/goat_inside_barn.png",
+  "targetImage": "/images/prepositions/goat_inside_barn.png",
+  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "resolvedImageAssetKey": "goat_inside_barn",
+  "imageAlt": "The goat is in the barn."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.on.v1",
@@ -397,6 +417,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ball_on_chair",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -412,6 +433,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/ball_on_chair.png",
   "targetImage": "/images/prepositions/ball_on_chair.png",
   "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "resolvedImageAssetKey": "ball_on_chair",
   "imageAlt": "ball on chair"
  },
  {
@@ -431,56 +453,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "on",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Snow settled ___ the roof.",
-  "question": "Snow settled ___ the roof.",
-  "spokenPrompt": "Snow settled ___ the roof.",
+  "prompt": "Where is the snow?",
+  "question": "Where is the snow?",
+  "spokenPrompt": "Where is the snow?",
   "choices": [
-   "on",
-   "in",
-   "under",
-   "next to"
+   "on the roof",
+   "in the roof",
+   "under the roof",
+   "behind the roof"
   ],
   "answerOptions": [
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "on the roof",
+    "label": "on the roof",
+    "text": "on the roof"
    },
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "in the roof",
+    "label": "in the roof",
+    "text": "in the roof"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "under the roof",
+    "label": "under the roof",
+    "text": "under the roof"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "behind the roof",
+    "label": "behind the roof",
+    "text": "behind the roof"
    }
   ],
-  "answer": "on",
-  "correctAnswer": "on",
+  "answer": "on the roof",
+  "correctAnswer": "on the roof",
   "distractorRationales": {
-   "in": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP"
+   "in the roof": "D-FUNCTION-SWAP",
+   "under the roof": "D-FUNCTION-SWAP",
+   "behind the roof": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "snow_on_roof",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snow_on_roof",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -491,7 +515,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/snow_on_roof.png",
+  "imageUrl": "/images/prepositions/snow_on_roof.png",
+  "targetImage": "/images/prepositions/snow_on_roof.png",
+  "targetImagePath": "/images/prepositions/snow_on_roof.png",
+  "resolvedImageAssetKey": "snow_on_roof",
+  "imageAlt": "snow on roof"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.on.v3",
@@ -513,16 +543,21 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The stamp goes ___ the envelope, top right.",
-  "question": "The stamp goes ___ the envelope, top right.",
-  "spokenPrompt": "The stamp goes ___ the envelope, top right.",
+  "prompt": "The ball is ___ the chair.",
+  "question": "The ball is ___ the chair.",
+  "spokenPrompt": "The ball is … the chair.",
   "choices": [
+   "behind",
    "on",
    "in",
-   "under",
-   "beside"
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "on",
     "label": "on",
@@ -537,11 +572,6 @@ export const questions = [
     "value": "under",
     "label": "under",
     "text": "under"
-   },
-   {
-    "value": "beside",
-    "label": "beside",
-    "text": "beside"
    }
   ],
   "answer": "on",
@@ -549,17 +579,19 @@ export const questions = [
   "distractorRationales": {
    "in": "D-FUNCTION-SWAP",
    "under": "D-FUNCTION-SWAP",
-   "beside": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "ball_on_chair",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ball_on_chair",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -570,7 +602,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/ball_on_chair.png",
+  "imageUrl": "/images/prepositions/ball_on_chair.png",
+  "targetImage": "/images/prepositions/ball_on_chair.png",
+  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "resolvedImageAssetKey": "ball_on_chair",
+  "imageAlt": "The ball is on the chair."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.on.v4",
@@ -592,53 +630,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The snow is ___ the roof.",
+  "question": "The snow is ___ the roof.",
+  "spokenPrompt": "The snow is … the roof.",
   "choices": [
+   "next to",
    "on",
-   "or",
-   "no",
-   "go"
+   "in",
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
    {
     "value": "on",
     "label": "on",
     "text": "on"
    },
    {
-    "value": "or",
-    "label": "or",
-    "text": "or"
+    "value": "in",
+    "label": "in",
+    "text": "in"
    },
    {
-    "value": "no",
-    "label": "no",
-    "text": "no"
-   },
-   {
-    "value": "go",
-    "label": "go",
-    "text": "go"
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "on",
   "correctAnswer": "on",
   "distractorRationales": {
-   "or": "D-FUNCTION-SWAP",
-   "no": "D-FUNCTION-SWAP",
-   "go": "D-FUNCTION-SWAP"
+   "under": "D-FUNCTION-SWAP",
+   "next to": "D-FUNCTION-SWAP",
+   "in": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "snow_on_roof",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "snow_on_roof",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -649,7 +689,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/snow_on_roof.png",
+  "imageUrl": "/images/prepositions/snow_on_roof.png",
+  "targetImage": "/images/prepositions/snow_on_roof.png",
+  "targetImagePath": "/images/prepositions/snow_on_roof.png",
+  "resolvedImageAssetKey": "snow_on_roof",
+  "imageAlt": "The snow is on the roof."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.under.v1",
@@ -675,22 +721,12 @@ export const questions = [
   "question": "Where is the dog?",
   "spokenPrompt": "Where is the dog?",
   "choices": [
-   "under the table",
-   "on the table",
    "in the table",
-   "next to the table"
+   "next to the table",
+   "under the table",
+   "on the table"
   ],
   "answerOptions": [
-   {
-    "value": "under the table",
-    "label": "under the table",
-    "text": "under the table"
-   },
-   {
-    "value": "on the table",
-    "label": "on the table",
-    "text": "on the table"
-   },
    {
     "value": "in the table",
     "label": "in the table",
@@ -700,14 +736,24 @@ export const questions = [
     "value": "next to the table",
     "label": "next to the table",
     "text": "next to the table"
+   },
+   {
+    "value": "under the table",
+    "label": "under the table",
+    "text": "under the table"
+   },
+   {
+    "value": "on the table",
+    "label": "on the table",
+    "text": "on the table"
    }
   ],
   "answer": "under the table",
   "correctAnswer": "under the table",
   "distractorRationales": {
-   "on the table": "D-FUNCTION-SWAP",
    "in the table": "D-FUNCTION-SWAP",
-   "next to the table": "D-FUNCTION-SWAP"
+   "next to the table": "D-FUNCTION-SWAP",
+   "on the table": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -719,6 +765,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog_under_table",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -734,6 +781,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/dog_under_table.png",
   "targetImage": "/images/prepositions/dog_under_table.png",
   "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "resolvedImageAssetKey": "dog_under_table",
   "imageAlt": "dog under table"
  },
  {
@@ -753,56 +801,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "under",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Roots grow ___ the soil.",
-  "question": "Roots grow ___ the soil.",
-  "spokenPrompt": "Roots grow ___ the soil.",
+  "prompt": "Where are the slippers?",
+  "question": "Where are the slippers?",
+  "spokenPrompt": "Where are the slippers?",
   "choices": [
-   "under",
-   "on",
-   "over",
-   "next to"
+   "next to the bed",
+   "under the bed",
+   "on the bed",
+   "behind the bed"
   ],
   "answerOptions": [
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "next to the bed",
+    "label": "next to the bed",
+    "text": "next to the bed"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "under the bed",
+    "label": "under the bed",
+    "text": "under the bed"
    },
    {
-    "value": "over",
-    "label": "over",
-    "text": "over"
+    "value": "on the bed",
+    "label": "on the bed",
+    "text": "on the bed"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "behind the bed",
+    "label": "behind the bed",
+    "text": "behind the bed"
    }
   ],
-  "answer": "under",
-  "correctAnswer": "under",
+  "answer": "under the bed",
+  "correctAnswer": "under the bed",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
-   "over": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP"
+   "on the bed": "D-FUNCTION-SWAP",
+   "behind the bed": "D-FUNCTION-SWAP",
+   "next to the bed": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "slippers_under_bed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "slippers_under_bed",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -813,7 +863,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/slippers_under_bed.png",
+  "imageUrl": "/images/prepositions/slippers_under_bed.png",
+  "targetImage": "/images/prepositions/slippers_under_bed.png",
+  "targetImagePath": "/images/prepositions/slippers_under_bed.png",
+  "resolvedImageAssetKey": "slippers_under_bed",
+  "imageAlt": "slippers under bed"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.under.v3",
@@ -835,16 +891,26 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The slippers sit ___ the bed, out of sight.",
-  "question": "The slippers sit ___ the bed, out of sight.",
-  "spokenPrompt": "The slippers sit ___ the bed, out of sight.",
+  "prompt": "The dog is ___ the table.",
+  "question": "The dog is ___ the table.",
+  "spokenPrompt": "The dog is … the table.",
   "choices": [
-   "under",
-   "on",
    "in",
-   "over"
+   "next to",
+   "under",
+   "on"
   ],
   "answerOptions": [
+   {
+    "value": "in",
+    "label": "in",
+    "text": "in"
+   },
+   {
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
    {
     "value": "under",
     "label": "under",
@@ -854,34 +920,26 @@ export const questions = [
     "value": "on",
     "label": "on",
     "text": "on"
-   },
-   {
-    "value": "in",
-    "label": "in",
-    "text": "in"
-   },
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
    }
   ],
   "answer": "under",
   "correctAnswer": "under",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
    "in": "D-FUNCTION-SWAP",
-   "over": "D-FUNCTION-SWAP"
+   "next to": "D-FUNCTION-SWAP",
+   "on": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "dog_under_table",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog_under_table",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -892,7 +950,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "over ties the er-chunk that slippers gifts under"
+  "notes": "",
+  "imagePath": "/images/prepositions/dog_under_table.png",
+  "imageUrl": "/images/prepositions/dog_under_table.png",
+  "targetImage": "/images/prepositions/dog_under_table.png",
+  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "resolvedImageAssetKey": "dog_under_table",
+  "imageAlt": "The dog is under the table."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.under.v4",
@@ -914,53 +978,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The slippers are ___ the bed.",
+  "question": "The slippers are ___ the bed.",
+  "spokenPrompt": "The slippers are … the bed.",
   "choices": [
-   "under",
-   "thunder",
-   "wonder",
-   "hunt"
+   "on",
+   "behind",
+   "next to",
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
    {
     "value": "under",
     "label": "under",
     "text": "under"
-   },
-   {
-    "value": "thunder",
-    "label": "thunder",
-    "text": "thunder"
-   },
-   {
-    "value": "wonder",
-    "label": "wonder",
-    "text": "wonder"
-   },
-   {
-    "value": "hunt",
-    "label": "hunt",
-    "text": "hunt"
    }
   ],
   "answer": "under",
   "correctAnswer": "under",
   "distractorRationales": {
-   "thunder": "D-FUNCTION-SWAP",
-   "wonder": "D-FUNCTION-SWAP",
-   "hunt": "D-FUNCTION-SWAP"
+   "on": "D-FUNCTION-SWAP",
+   "behind": "D-FUNCTION-SWAP",
+   "next to": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "slippers_under_bed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "slippers_under_bed",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -971,7 +1037,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/slippers_under_bed.png",
+  "imageUrl": "/images/prepositions/slippers_under_bed.png",
+  "targetImage": "/images/prepositions/slippers_under_bed.png",
+  "targetImagePath": "/images/prepositions/slippers_under_bed.png",
+  "resolvedImageAssetKey": "slippers_under_bed",
+  "imageAlt": "The slippers are under the bed."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.behind.v1",
@@ -1027,9 +1099,9 @@ export const questions = [
   "answer": "behind the tree",
   "correctAnswer": "behind the tree",
   "distractorRationales": {
-   "in front of the tree": "D-FUNCTION-SWAP",
    "above the tree": "D-FUNCTION-SWAP",
-   "in the tree": "D-FUNCTION-SWAP"
+   "in the tree": "D-FUNCTION-SWAP",
+   "in front of the tree": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1041,6 +1113,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1056,6 +1129,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/bear_behind_tree.png",
   "targetImage": "/images/prepositions/bear_behind_tree.png",
   "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "bear behind tree"
  },
  {
@@ -1075,56 +1149,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "behind",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The sun dropped ___ the barn.",
-  "question": "The sun dropped ___ the barn.",
-  "spokenPrompt": "The sun dropped ___ the barn.",
+  "prompt": "Where is the child?",
+  "question": "Where is the child?",
+  "spokenPrompt": "Where is the child?",
   "choices": [
-   "behind",
-   "in",
-   "on",
-   "between"
+   "above the curtain",
+   "next to the curtain",
+   "behind the curtain",
+   "in front of the curtain"
   ],
   "answerOptions": [
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "above the curtain",
+    "label": "above the curtain",
+    "text": "above the curtain"
    },
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "next to the curtain",
+    "label": "next to the curtain",
+    "text": "next to the curtain"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "behind the curtain",
+    "label": "behind the curtain",
+    "text": "behind the curtain"
    },
    {
-    "value": "between",
-    "label": "between",
-    "text": "between"
+    "value": "in front of the curtain",
+    "label": "in front of the curtain",
+    "text": "in front of the curtain"
    }
   ],
-  "answer": "behind",
-  "correctAnswer": "behind",
+  "answer": "behind the curtain",
+  "correctAnswer": "behind the curtain",
   "distractorRationales": {
-   "in": "D-FUNCTION-SWAP",
-   "on": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP"
+   "above the curtain": "D-FUNCTION-SWAP",
+   "next to the curtain": "D-FUNCTION-SWAP",
+   "in front of the curtain": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "child_behind_curtain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "child_behind_curtain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1135,7 +1211,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/child_behind_curtain.png",
+  "imageUrl": "/images/prepositions/child_behind_curtain.png",
+  "targetImage": "/images/prepositions/child_behind_curtain.png",
+  "targetImagePath": "/images/prepositions/child_behind_curtain.png",
+  "resolvedImageAssetKey": "child_behind_curtain",
+  "imageAlt": "child behind curtain"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.behind.v3",
@@ -1157,25 +1239,20 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Hide ___ the curtain so no one sees you.",
-  "question": "Hide ___ the curtain so no one sees you.",
-  "spokenPrompt": "Hide ___ the curtain so no one sees you.",
+  "prompt": "The bear is ___ the tree.",
+  "question": "The bear is ___ the tree.",
+  "spokenPrompt": "The bear is … the tree.",
   "choices": [
-   "behind",
-   "on",
+   "in front of",
    "above",
-   "next to"
+   "inside",
+   "behind"
   ],
   "answerOptions": [
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
-   },
-   {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "in front of",
+    "label": "in front of",
+    "text": "in front of"
    },
    {
     "value": "above",
@@ -1183,27 +1260,34 @@ export const questions = [
     "text": "above"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
    }
   ],
   "answer": "behind",
   "correctAnswer": "behind",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
    "above": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP"
+   "inside": "D-FUNCTION-SWAP",
+   "in front of": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,7 +1298,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "so no one sees you pins behind"
+  "notes": "",
+  "imagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageUrl": "/images/prepositions/bear_behind_tree.png",
+  "targetImage": "/images/prepositions/bear_behind_tree.png",
+  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "resolvedImageAssetKey": "bear_behind_tree",
+  "imageAlt": "The bear is behind the tree."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.behind.v4",
@@ -1236,53 +1326,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The child is ___ the curtain.",
+  "question": "The child is ___ the curtain.",
+  "spokenPrompt": "The child is … the curtain.",
   "choices": [
+   "next to",
    "behind",
-   "being",
-   "began",
-   "before"
+   "in front of",
+   "above"
   ],
   "answerOptions": [
+   {
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
    {
     "value": "behind",
     "label": "behind",
     "text": "behind"
    },
    {
-    "value": "being",
-    "label": "being",
-    "text": "being"
+    "value": "in front of",
+    "label": "in front of",
+    "text": "in front of"
    },
    {
-    "value": "began",
-    "label": "began",
-    "text": "began"
-   },
-   {
-    "value": "before",
-    "label": "before",
-    "text": "before"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    }
   ],
   "answer": "behind",
   "correctAnswer": "behind",
   "distractorRationales": {
-   "being": "D-FUNCTION-SWAP",
-   "began": "D-FUNCTION-SWAP",
-   "before": "D-FUNCTION-SWAP"
+   "in front of": "D-FUNCTION-SWAP",
+   "above": "D-FUNCTION-SWAP",
+   "next to": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "child_behind_curtain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "child_behind_curtain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1293,7 +1385,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "before is the classic when-word trap and ties the hi-chunk which gifts behind"
+  "notes": "",
+  "imagePath": "/images/prepositions/child_behind_curtain.png",
+  "imageUrl": "/images/prepositions/child_behind_curtain.png",
+  "targetImage": "/images/prepositions/child_behind_curtain.png",
+  "targetImagePath": "/images/prepositions/child_behind_curtain.png",
+  "resolvedImageAssetKey": "child_behind_curtain",
+  "imageAlt": "The child is behind the curtain."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.next_to.v1",
@@ -1319,22 +1417,12 @@ export const questions = [
   "question": "Where is the rabbit?",
   "spokenPrompt": "Where is the rabbit?",
   "choices": [
-   "next to the basket",
-   "in the basket",
    "under the basket",
-   "behind the basket"
+   "behind the basket",
+   "next to the basket",
+   "in the basket"
   ],
   "answerOptions": [
-   {
-    "value": "next to the basket",
-    "label": "next to the basket",
-    "text": "next to the basket"
-   },
-   {
-    "value": "in the basket",
-    "label": "in the basket",
-    "text": "in the basket"
-   },
    {
     "value": "under the basket",
     "label": "under the basket",
@@ -1344,6 +1432,16 @@ export const questions = [
     "value": "behind the basket",
     "label": "behind the basket",
     "text": "behind the basket"
+   },
+   {
+    "value": "next to the basket",
+    "label": "next to the basket",
+    "text": "next to the basket"
+   },
+   {
+    "value": "in the basket",
+    "label": "in the basket",
+    "text": "in the basket"
    }
   ],
   "answer": "next to the basket",
@@ -1363,6 +1461,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1378,6 +1477,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
   "targetImage": "/images/prepositions/rabbit_beside_basket.png",
   "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "resolvedImageAssetKey": "rabbit_beside_basket",
   "imageAlt": "rabbit beside basket"
  },
  {
@@ -1397,56 +1497,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "next_to",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Park your bike ___ mine, side by side.",
-  "question": "Park your bike ___ mine, side by side.",
-  "spokenPrompt": "Park your bike ___ mine, side by side.",
+  "prompt": "Where is the cup?",
+  "question": "Where is the cup?",
+  "spokenPrompt": "Where is the cup?",
   "choices": [
-   "next to",
-   "under",
-   "above",
-   "behind"
+   "under the plate",
+   "behind the plate",
+   "on the plate",
+   "next to the plate"
   ],
   "answerOptions": [
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "under the plate",
+    "label": "under the plate",
+    "text": "under the plate"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "behind the plate",
+    "label": "behind the plate",
+    "text": "behind the plate"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "on the plate",
+    "label": "on the plate",
+    "text": "on the plate"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "next to the plate",
+    "label": "next to the plate",
+    "text": "next to the plate"
    }
   ],
-  "answer": "next to",
-  "correctAnswer": "next to",
+  "answer": "next to the plate",
+  "correctAnswer": "next to the plate",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
-   "above": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "on the plate": "D-FUNCTION-SWAP",
+   "under the plate": "D-FUNCTION-SWAP",
+   "behind the plate": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "cup_next_to_plate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup_next_to_plate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,7 +1559,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "side by side pins next to"
+  "notes": "",
+  "imagePath": "/images/prepositions/cup_next_to_plate.png",
+  "imageUrl": "/images/prepositions/cup_next_to_plate.png",
+  "targetImage": "/images/prepositions/cup_next_to_plate.png",
+  "targetImagePath": "/images/prepositions/cup_next_to_plate.png",
+  "resolvedImageAssetKey": "cup_next_to_plate",
+  "imageAlt": "cup next to plate"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.next_to.v3",
@@ -1479,9 +1587,9 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "My desk is ___ the window, so I see the yard.",
-  "question": "My desk is ___ the window, so I see the yard.",
-  "spokenPrompt": "My desk is ___ the window, so I see the yard.",
+  "prompt": "The rabbit is ___ the basket.",
+  "question": "The rabbit is ___ the basket.",
+  "spokenPrompt": "The rabbit is … the basket.",
   "choices": [
    "next to",
    "under",
@@ -1517,15 +1625,17 @@ export const questions = [
    "behind": "D-FUNCTION-SWAP",
    "in": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "rabbit_beside_basket",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1536,7 +1646,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "resolvedImageAssetKey": "rabbit_beside_basket",
+  "imageAlt": "The rabbit is next to the basket."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.next_to.v4",
@@ -1558,53 +1674,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which words say where?",
-  "question": "Which words say where?",
-  "spokenPrompt": "Which words say where?",
+  "prompt": "The cup is ___ the plate.",
+  "question": "The cup is ___ the plate.",
+  "spokenPrompt": "The cup is … the plate.",
   "choices": [
-   "next to",
-   "not yet",
-   "nearly",
-   "never"
+   "under",
+   "behind",
+   "on",
+   "next to"
   ],
   "answerOptions": [
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   },
    {
     "value": "next to",
     "label": "next to",
     "text": "next to"
-   },
-   {
-    "value": "not yet",
-    "label": "not yet",
-    "text": "not yet"
-   },
-   {
-    "value": "nearly",
-    "label": "nearly",
-    "text": "nearly"
-   },
-   {
-    "value": "never",
-    "label": "never",
-    "text": "never"
    }
   ],
   "answer": "next to",
   "correctAnswer": "next to",
   "distractorRationales": {
-   "not yet": "D-FUNCTION-SWAP",
-   "nearly": "D-FUNCTION-SWAP",
-   "never": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP",
+   "on": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "cup_next_to_plate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup_next_to_plate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1615,7 +1733,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/cup_next_to_plate.png",
+  "imageUrl": "/images/prepositions/cup_next_to_plate.png",
+  "targetImage": "/images/prepositions/cup_next_to_plate.png",
+  "targetImagePath": "/images/prepositions/cup_next_to_plate.png",
+  "resolvedImageAssetKey": "cup_next_to_plate",
+  "imageAlt": "The cup is next to the plate."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.between.v1",
@@ -1685,6 +1809,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup_between_books",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1700,6 +1825,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/cup_between_books.png",
   "targetImage": "/images/prepositions/cup_between_books.png",
   "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "resolvedImageAssetKey": "cup_between_books",
   "imageAlt": "cup between books"
  },
  {
@@ -1719,56 +1845,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "between",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The net hangs ___ the posts, one on each side.",
-  "question": "The net hangs ___ the posts, one on each side.",
-  "spokenPrompt": "The net hangs ___ the posts, one on each side.",
+  "prompt": "Where is the teddy?",
+  "question": "Where is the teddy?",
+  "spokenPrompt": "Where is the teddy?",
   "choices": [
-   "between",
-   "on",
-   "under",
-   "behind"
+   "between the pillows",
+   "on the pillows",
+   "under the pillows",
+   "behind the pillows"
   ],
   "answerOptions": [
    {
-    "value": "between",
-    "label": "between",
-    "text": "between"
+    "value": "between the pillows",
+    "label": "between the pillows",
+    "text": "between the pillows"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "on the pillows",
+    "label": "on the pillows",
+    "text": "on the pillows"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "under the pillows",
+    "label": "under the pillows",
+    "text": "under the pillows"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "behind the pillows",
+    "label": "behind the pillows",
+    "text": "behind the pillows"
    }
   ],
-  "answer": "between",
-  "correctAnswer": "between",
+  "answer": "between the pillows",
+  "correctAnswer": "between the pillows",
   "distractorRationales": {
-   "on": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "under the pillows": "D-FUNCTION-SWAP",
+   "behind the pillows": "D-FUNCTION-SWAP",
+   "on the pillows": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "teddy_between_pillows",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "teddy_between_pillows",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1779,7 +1907,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "one on each side pins between; the word two would gift the key its tw-chunk"
+  "notes": "",
+  "imagePath": "/images/prepositions/teddy_between_pillows.png",
+  "imageUrl": "/images/prepositions/teddy_between_pillows.png",
+  "targetImage": "/images/prepositions/teddy_between_pillows.png",
+  "targetImagePath": "/images/prepositions/teddy_between_pillows.png",
+  "resolvedImageAssetKey": "teddy_between_pillows",
+  "imageAlt": "teddy between pillows"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.between.v3",
@@ -1801,25 +1935,25 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "I sat ___ Mum and Dad, one on each side.",
-  "question": "I sat ___ Mum and Dad, one on each side.",
-  "spokenPrompt": "I sat ___ Mum and Dad, one on each side.",
+  "prompt": "The cup is ___ the books.",
+  "question": "The cup is ___ the books.",
+  "spokenPrompt": "The cup is … the books.",
   "choices": [
+   "above",
    "between",
-   "under",
    "behind",
-   "above"
+   "in front of"
   ],
   "answerOptions": [
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
    {
     "value": "between",
     "label": "between",
     "text": "between"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
    },
    {
     "value": "behind",
@@ -1827,27 +1961,29 @@ export const questions = [
     "text": "behind"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "in front of",
+    "label": "in front of",
+    "text": "in front of"
    }
   ],
   "answer": "between",
   "correctAnswer": "between",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP",
+   "in front of": "D-FUNCTION-SWAP",
    "above": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "cup_between_books",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup_between_books",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1858,7 +1994,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/cup_between_books.png",
+  "imageUrl": "/images/prepositions/cup_between_books.png",
+  "targetImage": "/images/prepositions/cup_between_books.png",
+  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "resolvedImageAssetKey": "cup_between_books",
+  "imageAlt": "The cup is between the books."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.between.v4",
@@ -1880,53 +2022,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The teddy is ___ the pillows.",
+  "question": "The teddy is ___ the pillows.",
+  "spokenPrompt": "The teddy is … the pillows.",
   "choices": [
+   "behind",
    "between",
-   "because",
-   "before",
-   "begin"
+   "on",
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "between",
     "label": "between",
     "text": "between"
    },
    {
-    "value": "because",
-    "label": "because",
-    "text": "because"
+    "value": "on",
+    "label": "on",
+    "text": "on"
    },
    {
-    "value": "before",
-    "label": "before",
-    "text": "before"
-   },
-   {
-    "value": "begin",
-    "label": "begin",
-    "text": "begin"
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "between",
   "correctAnswer": "between",
   "distractorRationales": {
-   "because": "D-FUNCTION-SWAP",
-   "before": "D-FUNCTION-SWAP",
-   "begin": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP",
+   "on": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "teddy_between_pillows",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "teddy_between_pillows",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1937,7 +2081,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/teddy_between_pillows.png",
+  "imageUrl": "/images/prepositions/teddy_between_pillows.png",
+  "targetImage": "/images/prepositions/teddy_between_pillows.png",
+  "targetImagePath": "/images/prepositions/teddy_between_pillows.png",
+  "resolvedImageAssetKey": "teddy_between_pillows",
+  "imageAlt": "The teddy is between the pillows."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.in_front_of.v1",
@@ -1963,22 +2113,12 @@ export const questions = [
   "question": "Where is the tree?",
   "spokenPrompt": "Where is the tree?",
   "choices": [
-   "in front of the bear",
-   "behind the bear",
    "on the bear",
-   "under the bear"
+   "under the bear",
+   "in front of the bear",
+   "behind the bear"
   ],
   "answerOptions": [
-   {
-    "value": "in front of the bear",
-    "label": "in front of the bear",
-    "text": "in front of the bear"
-   },
-   {
-    "value": "behind the bear",
-    "label": "behind the bear",
-    "text": "behind the bear"
-   },
    {
     "value": "on the bear",
     "label": "on the bear",
@@ -1988,14 +2128,24 @@ export const questions = [
     "value": "under the bear",
     "label": "under the bear",
     "text": "under the bear"
+   },
+   {
+    "value": "in front of the bear",
+    "label": "in front of the bear",
+    "text": "in front of the bear"
+   },
+   {
+    "value": "behind the bear",
+    "label": "behind the bear",
+    "text": "behind the bear"
    }
   ],
   "answer": "in front of the bear",
   "correctAnswer": "in front of the bear",
   "distractorRationales": {
+   "under the bear": "D-FUNCTION-SWAP",
    "behind the bear": "D-FUNCTION-SWAP",
-   "on the bear": "D-FUNCTION-SWAP",
-   "under the bear": "D-FUNCTION-SWAP"
+   "on the bear": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2007,6 +2157,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2022,6 +2173,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/bear_behind_tree.png",
   "targetImage": "/images/prepositions/bear_behind_tree.png",
   "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "bear behind tree"
  },
  {
@@ -2041,56 +2193,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "in_front_of",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The queue formed ___ the gate before opening time.",
-  "question": "The queue formed ___ the gate before opening time.",
-  "spokenPrompt": "The queue formed ___ the gate before opening time.",
+  "prompt": "Where is the bike?",
+  "question": "Where is the bike?",
+  "spokenPrompt": "Where is the bike?",
   "choices": [
-   "in front of",
-   "behind",
-   "under",
-   "inside"
+   "inside the garage",
+   "in front of the garage",
+   "behind the garage",
+   "above the garage"
   ],
   "answerOptions": [
    {
-    "value": "in front of",
-    "label": "in front of",
-    "text": "in front of"
+    "value": "inside the garage",
+    "label": "inside the garage",
+    "text": "inside the garage"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "in front of the garage",
+    "label": "in front of the garage",
+    "text": "in front of the garage"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "behind the garage",
+    "label": "behind the garage",
+    "text": "behind the garage"
    },
    {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
+    "value": "above the garage",
+    "label": "above the garage",
+    "text": "above the garage"
    }
   ],
-  "answer": "in front of",
-  "correctAnswer": "in front of",
+  "answer": "in front of the garage",
+  "correctAnswer": "in front of the garage",
   "distractorRationales": {
-   "behind": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP",
-   "inside": "D-FUNCTION-SWAP"
+   "behind the garage": "D-FUNCTION-SWAP",
+   "above the garage": "D-FUNCTION-SWAP",
+   "inside the garage": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bike_in_front_of_garage",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bike_in_front_of_garage",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2101,7 +2255,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "imageUrl": "/images/prepositions/bike_in_front_of_garage.png",
+  "targetImage": "/images/prepositions/bike_in_front_of_garage.png",
+  "targetImagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "resolvedImageAssetKey": "bike_in_front_of_garage",
+  "imageAlt": "bike in front of garage"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.in_front_of.v3",
@@ -2123,26 +2283,16 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Stand ___ the mirror to see your costume.",
-  "question": "Stand ___ the mirror to see your costume.",
-  "spokenPrompt": "Stand ___ the mirror to see your costume.",
+  "prompt": "The tree is ___ the bear.",
+  "question": "The tree is ___ the bear.",
+  "spokenPrompt": "The tree is … the bear.",
   "choices": [
-   "in front of",
-   "behind",
    "under",
-   "next to"
+   "next to",
+   "in front of",
+   "behind"
   ],
   "answerOptions": [
-   {
-    "value": "in front of",
-    "label": "in front of",
-    "text": "in front of"
-   },
-   {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
-   },
    {
     "value": "under",
     "label": "under",
@@ -2152,24 +2302,36 @@ export const questions = [
     "value": "next to",
     "label": "next to",
     "text": "next to"
+   },
+   {
+    "value": "in front of",
+    "label": "in front of",
+    "text": "in front of"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
    }
   ],
   "answer": "in front of",
   "correctAnswer": "in front of",
   "distractorRationales": {
+   "next to": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP"
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2180,7 +2342,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "to see your costume pins in front of"
+  "notes": "",
+  "imagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageUrl": "/images/prepositions/bear_behind_tree.png",
+  "targetImage": "/images/prepositions/bear_behind_tree.png",
+  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "resolvedImageAssetKey": "bear_behind_tree",
+  "imageAlt": "The tree is in front of the bear."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.in_front_of.v4",
@@ -2202,53 +2370,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which words say where?",
-  "question": "Which words say where?",
-  "spokenPrompt": "Which words say where?",
+  "prompt": "The bike is ___ the garage.",
+  "question": "The bike is ___ the garage.",
+  "spokenPrompt": "The bike is … the garage.",
   "choices": [
-   "in front of",
-   "in a bit",
-   "first of all",
-   "for now"
+   "behind",
+   "above",
+   "inside",
+   "in front of"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
+   {
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
+   },
    {
     "value": "in front of",
     "label": "in front of",
     "text": "in front of"
-   },
-   {
-    "value": "in a bit",
-    "label": "in a bit",
-    "text": "in a bit"
-   },
-   {
-    "value": "first of all",
-    "label": "first of all",
-    "text": "first of all"
-   },
-   {
-    "value": "for now",
-    "label": "for now",
-    "text": "for now"
    }
   ],
   "answer": "in front of",
   "correctAnswer": "in front of",
   "distractorRationales": {
-   "in a bit": "D-FUNCTION-SWAP",
-   "first of all": "D-FUNCTION-SWAP",
-   "for now": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP",
+   "above": "D-FUNCTION-SWAP",
+   "inside": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bike_in_front_of_garage",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bike_in_front_of_garage",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2259,7 +2429,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "imageUrl": "/images/prepositions/bike_in_front_of_garage.png",
+  "targetImage": "/images/prepositions/bike_in_front_of_garage.png",
+  "targetImagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "resolvedImageAssetKey": "bike_in_front_of_garage",
+  "imageAlt": "The bike is in front of the garage."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.above.v1",
@@ -2315,9 +2491,9 @@ export const questions = [
   "answer": "above the tree",
   "correctAnswer": "above the tree",
   "distractorRationales": {
+   "next to the tree": "D-FUNCTION-SWAP",
    "under the tree": "D-FUNCTION-SWAP",
-   "in the tree": "D-FUNCTION-SWAP",
-   "next to the tree": "D-FUNCTION-SWAP"
+   "in the tree": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2329,6 +2505,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird_above_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2344,6 +2521,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/bird_above_tree.png",
   "targetImage": "/images/prepositions/bird_above_tree.png",
   "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "bird above tree"
  },
  {
@@ -2363,56 +2541,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "above",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The clock hangs ___ the door, too high to touch.",
-  "question": "The clock hangs ___ the door, too high to touch.",
-  "spokenPrompt": "The clock hangs ___ the door, too high to touch.",
+  "prompt": "Where is the clock?",
+  "question": "Where is the clock?",
+  "spokenPrompt": "Where is the clock?",
   "choices": [
-   "above",
-   "under",
-   "behind",
-   "in"
+   "behind the door",
+   "in the door",
+   "above the door",
+   "under the door"
   ],
   "answerOptions": [
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "behind the door",
+    "label": "behind the door",
+    "text": "behind the door"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "in the door",
+    "label": "in the door",
+    "text": "in the door"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "above the door",
+    "label": "above the door",
+    "text": "above the door"
    },
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "under the door",
+    "label": "under the door",
+    "text": "under the door"
    }
   ],
-  "answer": "above",
-  "correctAnswer": "above",
+  "answer": "above the door",
+  "correctAnswer": "above the door",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP",
-   "in": "D-FUNCTION-SWAP"
+   "under the door": "D-FUNCTION-SWAP",
+   "behind the door": "D-FUNCTION-SWAP",
+   "in the door": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock_above_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2423,7 +2603,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/clock_above_door.png",
+  "imageUrl": "/images/prepositions/clock_above_door.png",
+  "targetImage": "/images/prepositions/clock_above_door.png",
+  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "resolvedImageAssetKey": "clock_above_door",
+  "imageAlt": "clock above door"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.above.v3",
@@ -2445,21 +2631,16 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Stars shine far ___ the clouds.",
-  "question": "Stars shine far ___ the clouds.",
-  "spokenPrompt": "Stars shine far ___ the clouds.",
+  "prompt": "The bird is ___ the tree.",
+  "question": "The bird is ___ the tree.",
+  "spokenPrompt": "The bird is … the tree.",
   "choices": [
-   "above",
    "below",
    "between",
-   "behind"
+   "behind",
+   "above"
   ],
   "answerOptions": [
-   {
-    "value": "above",
-    "label": "above",
-    "text": "above"
-   },
    {
     "value": "below",
     "label": "below",
@@ -2474,24 +2655,31 @@ export const questions = [
     "value": "behind",
     "label": "behind",
     "text": "behind"
+   },
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
    }
   ],
   "answer": "above",
   "correctAnswer": "above",
   "distractorRationales": {
+   "behind": "D-FUNCTION-SWAP",
    "below": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "between": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird_above_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2502,7 +2690,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bird_above_tree.png",
+  "imageUrl": "/images/prepositions/bird_above_tree.png",
+  "targetImage": "/images/prepositions/bird_above_tree.png",
+  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "resolvedImageAssetKey": "bird_above_tree",
+  "imageAlt": "The bird is above the tree."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.above.v4",
@@ -2524,53 +2718,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The clock is ___ the door.",
+  "question": "The clock is ___ the door.",
+  "spokenPrompt": "The clock is … the door.",
   "choices": [
+   "next to",
    "above",
-   "about",
-   "again",
-   "aboard"
+   "under",
+   "behind"
   ],
   "answerOptions": [
+   {
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
    {
     "value": "above",
     "label": "above",
     "text": "above"
    },
    {
-    "value": "about",
-    "label": "about",
-    "text": "about"
+    "value": "under",
+    "label": "under",
+    "text": "under"
    },
    {
-    "value": "again",
-    "label": "again",
-    "text": "again"
-   },
-   {
-    "value": "aboard",
-    "label": "aboard",
-    "text": "aboard"
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
    }
   ],
   "answer": "above",
   "correctAnswer": "above",
   "distractorRationales": {
-   "about": "D-FUNCTION-SWAP",
-   "again": "D-FUNCTION-SWAP",
-   "aboard": "D-FUNCTION-SWAP"
+   "under": "D-FUNCTION-SWAP",
+   "behind": "D-FUNCTION-SWAP",
+   "next to": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock_above_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2581,7 +2777,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/clock_above_door.png",
+  "imageUrl": "/images/prepositions/clock_above_door.png",
+  "targetImage": "/images/prepositions/clock_above_door.png",
+  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "resolvedImageAssetKey": "clock_above_door",
+  "imageAlt": "The clock is above the door."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.below.v1",
@@ -2607,22 +2809,12 @@ export const questions = [
   "question": "Where is the tree?",
   "spokenPrompt": "Where is the tree?",
   "choices": [
-   "below the bird",
-   "above the bird",
    "behind the bird",
-   "next to the bird"
+   "next to the bird",
+   "below the bird",
+   "above the bird"
   ],
   "answerOptions": [
-   {
-    "value": "below the bird",
-    "label": "below the bird",
-    "text": "below the bird"
-   },
-   {
-    "value": "above the bird",
-    "label": "above the bird",
-    "text": "above the bird"
-   },
    {
     "value": "behind the bird",
     "label": "behind the bird",
@@ -2632,14 +2824,24 @@ export const questions = [
     "value": "next to the bird",
     "label": "next to the bird",
     "text": "next to the bird"
+   },
+   {
+    "value": "below the bird",
+    "label": "below the bird",
+    "text": "below the bird"
+   },
+   {
+    "value": "above the bird",
+    "label": "above the bird",
+    "text": "above the bird"
    }
   ],
   "answer": "below the bird",
   "correctAnswer": "below the bird",
   "distractorRationales": {
+   "next to the bird": "D-FUNCTION-SWAP",
    "above the bird": "D-FUNCTION-SWAP",
-   "behind the bird": "D-FUNCTION-SWAP",
-   "next to the bird": "D-FUNCTION-SWAP"
+   "behind the bird": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2651,6 +2853,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird_above_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2666,6 +2869,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/bird_above_tree.png",
   "targetImage": "/images/prepositions/bird_above_tree.png",
   "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "bird above tree"
  },
  {
@@ -2685,56 +2889,58 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "below",
-  "formatType": "PREPOSITION_TEXT_CHOICE",
-  "templateType": "PREPOSITION_TEXT_CHOICE",
+  "formatType": "PREPOSITION_SCENE_CHOICE",
+  "templateType": "PREPOSITION_SCENE_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Fish swim ___ the surface of the pond.",
-  "question": "Fish swim ___ the surface of the pond.",
-  "spokenPrompt": "Fish swim ___ the surface of the pond.",
+  "prompt": "Where is the fish?",
+  "question": "Where is the fish?",
+  "spokenPrompt": "Where is the fish?",
   "choices": [
-   "below",
-   "above",
-   "behind",
-   "beside"
+   "above the bridge",
+   "behind the bridge",
+   "on the bridge",
+   "below the bridge"
   ],
   "answerOptions": [
    {
-    "value": "below",
-    "label": "below",
-    "text": "below"
+    "value": "above the bridge",
+    "label": "above the bridge",
+    "text": "above the bridge"
    },
    {
-    "value": "above",
-    "label": "above",
-    "text": "above"
+    "value": "behind the bridge",
+    "label": "behind the bridge",
+    "text": "behind the bridge"
    },
    {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "on the bridge",
+    "label": "on the bridge",
+    "text": "on the bridge"
    },
    {
-    "value": "beside",
-    "label": "beside",
-    "text": "beside"
+    "value": "below the bridge",
+    "label": "below the bridge",
+    "text": "below the bridge"
    }
   ],
-  "answer": "below",
-  "correctAnswer": "below",
+  "answer": "below the bridge",
+  "correctAnswer": "below the bridge",
   "distractorRationales": {
-   "above": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP",
-   "beside": "D-FUNCTION-SWAP"
+   "above the bridge": "D-FUNCTION-SWAP",
+   "behind the bridge": "D-FUNCTION-SWAP",
+   "on the bridge": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "fish_below_bridge",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fish_below_bridge",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2745,7 +2951,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/fish_below_bridge.png",
+  "imageUrl": "/images/prepositions/fish_below_bridge.png",
+  "targetImage": "/images/prepositions/fish_below_bridge.png",
+  "targetImagePath": "/images/prepositions/fish_below_bridge.png",
+  "resolvedImageAssetKey": "fish_below_bridge",
+  "imageAlt": "fish below bridge"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.below.v3",
@@ -2767,14 +2979,14 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Write your name ___ the line at the bottom.",
-  "question": "Write your name ___ the line at the bottom.",
-  "spokenPrompt": "Write your name ___ the line at the bottom.",
+  "prompt": "The tree is ___ the bird.",
+  "question": "The tree is ___ the bird.",
+  "spokenPrompt": "The tree is … the bird.",
   "choices": [
    "below",
    "above",
    "behind",
-   "inside"
+   "next to"
   ],
   "answerOptions": [
    {
@@ -2793,27 +3005,29 @@ export const questions = [
     "text": "behind"
    },
    {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
    }
   ],
   "answer": "below",
   "correctAnswer": "below",
   "distractorRationales": {
+   "next to": "D-FUNCTION-SWAP",
    "above": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP",
-   "inside": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird_above_tree",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2824,7 +3038,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "at the bottom pins below; inside keeps the set distinct from below.v2"
+  "notes": "",
+  "imagePath": "/images/prepositions/bird_above_tree.png",
+  "imageUrl": "/images/prepositions/bird_above_tree.png",
+  "targetImage": "/images/prepositions/bird_above_tree.png",
+  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "resolvedImageAssetKey": "bird_above_tree",
+  "imageAlt": "The tree is below the bird."
  },
  {
   "id": "lp3.prepositions_of_place.l1.A.below.v4",
@@ -2846,53 +3066,55 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "Which word says where?",
-  "question": "Which word says where?",
-  "spokenPrompt": "Which word says where?",
+  "prompt": "The fish is ___ the bridge.",
+  "question": "The fish is ___ the bridge.",
+  "spokenPrompt": "The fish is … the bridge.",
   "choices": [
-   "below",
-   "belong",
-   "bellow",
-   "yellow"
+   "above",
+   "behind",
+   "on",
+   "below"
   ],
   "answerOptions": [
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "on",
+    "label": "on",
+    "text": "on"
+   },
    {
     "value": "below",
     "label": "below",
     "text": "below"
-   },
-   {
-    "value": "belong",
-    "label": "belong",
-    "text": "belong"
-   },
-   {
-    "value": "bellow",
-    "label": "bellow",
-    "text": "bellow"
-   },
-   {
-    "value": "yellow",
-    "label": "yellow",
-    "text": "yellow"
    }
   ],
   "answer": "below",
   "correctAnswer": "below",
   "distractorRationales": {
-   "belong": "D-FUNCTION-SWAP",
-   "bellow": "D-FUNCTION-SWAP",
-   "yellow": "D-FUNCTION-SWAP"
+   "above": "D-FUNCTION-SWAP",
+   "behind": "D-FUNCTION-SWAP",
+   "on": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
+  "targetWord": "fish_below_bridge",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fish_below_bridge",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2903,7 +3125,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/fish_below_bridge.png",
+  "imageUrl": "/images/prepositions/fish_below_bridge.png",
+  "targetImage": "/images/prepositions/fish_below_bridge.png",
+  "targetImagePath": "/images/prepositions/fish_below_bridge.png",
+  "resolvedImageAssetKey": "fish_below_bridge",
+  "imageAlt": "The fish is below the bridge."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.over.v1",
@@ -2927,20 +3155,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The plane flew ___ the town.",
   "question": "The plane flew ___ the town.",
-  "spokenPrompt": "Which where-word finishes the sentence? The plane flew hmm the town.",
+  "spokenPrompt": "Which where-word finishes the sentence? The plane flew … the town.",
   "sentence": "The plane flew ___ the town.",
   "choices": [
-   "over",
    "under",
    "between",
-   "behind"
+   "behind",
+   "over"
   ],
   "answerOptions": [
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
-   },
    {
     "value": "under",
     "label": "under",
@@ -2955,6 +3178,11 @@ export const questions = [
     "value": "behind",
     "label": "behind",
     "text": "behind"
+   },
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
    }
   ],
   "answer": "over",
@@ -2964,16 +3192,18 @@ export const questions = [
    "between": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The plane flew ___ the town.",
+  "targetWord": "plane_over_town",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plane_over_town",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2984,7 +3214,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/plane_over_town.png",
+  "imageUrl": "/images/prepositions/plane_over_town.png",
+  "targetImage": "/images/prepositions/plane_over_town.png",
+  "targetImagePath": "/images/prepositions/plane_over_town.png",
+  "resolvedImageAssetKey": "plane_over_town",
+  "imageAlt": "The plane flew over the town."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.over.v2",
@@ -3006,55 +3242,57 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "A rainbow arched ___ the valley.",
-  "question": "A rainbow arched ___ the valley.",
-  "spokenPrompt": "Which where-word finishes the sentence? A rainbow arched hmm the valley.",
-  "sentence": "A rainbow arched ___ the valley.",
+  "prompt": "The horse leapt ___ the gate.",
+  "question": "The horse leapt ___ the gate.",
+  "spokenPrompt": "Which where-word finishes the sentence? The horse leapt … the gate.",
+  "sentence": "The horse leapt ___ the gate.",
   "choices": [
-   "over",
-   "inside",
    "under",
-   "next to"
+   "past",
+   "over",
+   "through"
   ],
   "answerOptions": [
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
-   },
-   {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
-   },
    {
     "value": "under",
     "label": "under",
     "text": "under"
    },
    {
-    "value": "next to",
-    "label": "next to",
-    "text": "next to"
+    "value": "past",
+    "label": "past",
+    "text": "past"
+   },
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
    }
   ],
   "answer": "over",
   "correctAnswer": "over",
   "distractorRationales": {
-   "inside": "D-FUNCTION-SWAP",
+   "through": "D-FUNCTION-SWAP",
    "under": "D-FUNCTION-SWAP",
-   "next to": "D-FUNCTION-SWAP"
+   "past": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "A rainbow arched ___ the valley.",
+  "sentenceText": "The horse leapt ___ the gate.",
+  "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "horse_over_gate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3065,7 +3303,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/horse_over_gate.png",
+  "imageUrl": "/images/prepositions/horse_over_gate.png",
+  "targetImage": "/images/prepositions/horse_over_gate.png",
+  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "resolvedImageAssetKey": "horse_over_gate",
+  "imageAlt": "The horse leapt over the gate."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.over.v3",
@@ -3087,9 +3331,98 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
+  "prompt": "High in the sky, the plane passed ___ the town.",
+  "question": "High in the sky, the plane passed ___ the town.",
+  "spokenPrompt": "Which where-word fits exactly? High in the sky, the plane passed … the town.",
+  "sentence": "High in the sky, the plane passed ___ the town.",
+  "choices": [
+   "near",
+   "over",
+   "behind",
+   "through"
+  ],
+  "answerOptions": [
+   {
+    "value": "near",
+    "label": "near",
+    "text": "near"
+   },
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
+   }
+  ],
+  "answer": "over",
+  "correctAnswer": "over",
+  "distractorRationales": {
+   "behind": "D-PLAUSIBLE-UNSUPPORTED",
+   "through": "D-PLAUSIBLE-UNSUPPORTED",
+   "near": "D-PLAUSIBLE-UNSUPPORTED"
+  },
+  "mediaTier": "image-required",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "scannerExpected": false,
+  "sentenceText": "High in the sky, the plane passed ___ the town.",
+  "targetWord": "plane_over_town",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "requiredImageAssetKey": "plane_over_town",
+  "active": true,
+  "qaStatus": "approved",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "author": "claude-fable-5",
+   "wave": "",
+   "date": "2026-07-29",
+   "reviewedBy": [],
+   "signedOffBy": null
+  },
+  "notes": "The elevated picture and high-in-the-sky clue pin over.",
+  "imagePath": "/images/prepositions/plane_over_town.png",
+  "imageUrl": "/images/prepositions/plane_over_town.png",
+  "targetImage": "/images/prepositions/plane_over_town.png",
+  "targetImagePath": "/images/prepositions/plane_over_town.png",
+  "resolvedImageAssetKey": "plane_over_town",
+  "imageAlt": "High in the sky, the plane passed over the town."
+ },
+ {
+  "id": "lp3.prepositions_of_place.l2.A.over.v4",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "prepositions_of_place",
+  "assessmentSkillId": "prepositions_of_place",
+  "skillName": "Prepositions of Place",
+  "skill": "Prepositions of Place",
+  "level": 2,
+  "assessmentLevel": 2,
+  "difficulty": 2,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_2_phase_1",
+  "form": "A",
+  "itemType": "grammar_concept",
+  "itemKey": "over",
+  "formatType": "PREPOSITION_PRECISION",
+  "templateType": "PREPOSITION_PRECISION",
+  "questionType": "multiple_choice",
   "prompt": "The horse jumped ___ the locked gate.",
   "question": "The horse jumped ___ the locked gate.",
-  "spokenPrompt": "Which where-word fits exactly? The horse jumped hmm the locked gate.",
+  "spokenPrompt": "Which where-word fits exactly? The horse jumped … the locked gate.",
   "sentence": "The horse jumped ___ the locked gate.",
   "choices": [
    "over",
@@ -3122,20 +3455,22 @@ export const questions = [
   "answer": "over",
   "correctAnswer": "over",
   "distractorRationales": {
-   "through": "D-PLAUSIBLE-UNSUPPORTED",
    "under": "D-PLAUSIBLE-UNSUPPORTED",
-   "past": "D-PLAUSIBLE-UNSUPPORTED"
+   "past": "D-PLAUSIBLE-UNSUPPORTED",
+   "through": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The horse jumped ___ the locked gate.",
+  "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "horse_over_gate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3146,88 +3481,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "through and under are spatially possible for an OPEN gate — locked leaves only over"
- },
- {
-  "id": "lp3.prepositions_of_place.l2.A.over.v4",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "prepositions_of_place",
-  "assessmentSkillId": "prepositions_of_place",
-  "skillName": "Prepositions of Place",
-  "skill": "Prepositions of Place",
-  "level": 2,
-  "assessmentLevel": 2,
-  "difficulty": 2,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_2_phase_1",
-  "form": "A",
-  "itemType": "grammar_concept",
-  "itemKey": "over",
-  "formatType": "PREPOSITION_PRECISION",
-  "templateType": "PREPOSITION_PRECISION",
-  "questionType": "multiple_choice",
-  "prompt": "She leaned ___ the fence to reach the ball.",
-  "question": "She leaned ___ the fence to reach the ball.",
-  "spokenPrompt": "Which where-word fits exactly? She leaned hmm the fence to reach the ball.",
-  "sentence": "She leaned ___ the fence to reach the ball.",
-  "choices": [
-   "over",
-   "on",
-   "through",
-   "under"
-  ],
-  "answerOptions": [
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
-   },
-   {
-    "value": "on",
-    "label": "on",
-    "text": "on"
-   },
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
-   }
-  ],
-  "answer": "over",
-  "correctAnswer": "over",
-  "distractorRationales": {
-   "on": "D-PLAUSIBLE-UNSUPPORTED",
-   "through": "D-PLAUSIBLE-UNSUPPORTED",
-   "under": "D-PLAUSIBLE-UNSUPPORTED"
-  },
-  "mediaTier": "text",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": false,
-  "scannerExpected": false,
-  "sentenceText": "She leaned ___ the fence to reach the ball.",
-  "v3AuthoredMedia": {
-   "target": false,
-   "cards": false
-  },
-  "active": true,
-  "qaStatus": "approved",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "author": "claude-fable-5",
-   "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
-  },
-  "notes": "through a fence gap and under it are possible — leaning to REACH pins over"
+  "notes": "through and under are possible for an open gate; the locked gate and picture leave over.",
+  "imagePath": "/images/prepositions/horse_over_gate.png",
+  "imageUrl": "/images/prepositions/horse_over_gate.png",
+  "targetImage": "/images/prepositions/horse_over_gate.png",
+  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "resolvedImageAssetKey": "horse_over_gate",
+  "imageAlt": "The horse jumped over the locked gate."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.through.v1",
@@ -3251,15 +3511,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The train roared ___ the tunnel.",
   "question": "The train roared ___ the tunnel.",
-  "spokenPrompt": "Which where-word finishes the sentence? The train roared hmm the tunnel.",
+  "spokenPrompt": "Which where-word finishes the sentence? The train roared … the tunnel.",
   "sentence": "The train roared ___ the tunnel.",
   "choices": [
+   "behind",
    "through",
    "above",
-   "beside",
-   "behind"
+   "beside"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "through",
     "label": "through",
@@ -3274,11 +3539,6 @@ export const questions = [
     "value": "beside",
     "label": "beside",
     "text": "beside"
-   },
-   {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
    }
   ],
   "answer": "through",
@@ -3288,16 +3548,18 @@ export const questions = [
    "beside": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The train roared ___ the tunnel.",
+  "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3308,7 +3570,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/train_through_tunnel.png",
+  "imageUrl": "/images/prepositions/train_through_tunnel.png",
+  "targetImage": "/images/prepositions/train_through_tunnel.png",
+  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "resolvedImageAssetKey": "train_through_tunnel",
+  "imageAlt": "The train roared through the tunnel."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.through.v2",
@@ -3332,20 +3600,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Rain dripped ___ the crack in the tent.",
   "question": "Rain dripped ___ the crack in the tent.",
-  "spokenPrompt": "Which where-word finishes the sentence? Rain dripped hmm the crack in the tent.",
+  "spokenPrompt": "Which where-word finishes the sentence? Rain dripped … the crack in the tent.",
   "sentence": "Rain dripped ___ the crack in the tent.",
   "choices": [
-   "through",
    "under",
    "behind",
-   "over"
+   "over",
+   "through"
   ],
   "answerOptions": [
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
    {
     "value": "under",
     "label": "under",
@@ -3360,25 +3623,32 @@ export const questions = [
     "value": "over",
     "label": "over",
     "text": "over"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
    }
   ],
   "answer": "through",
   "correctAnswer": "through",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP",
-   "over": "D-FUNCTION-SWAP"
+   "over": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Rain dripped ___ the crack in the tent.",
+  "targetWord": "rain_through_tent_crack",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rain_through_tent_crack",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3389,7 +3659,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "imageUrl": "/images/prepositions/rain_through_tent_crack.png",
+  "targetImage": "/images/prepositions/rain_through_tent_crack.png",
+  "targetImagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "resolvedImageAssetKey": "rain_through_tent_crack",
+  "imageAlt": "Rain dripped through the crack in the tent."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.through.v3",
@@ -3411,55 +3687,57 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Wool goes ___ a needle's eye.",
-  "question": "Wool goes ___ a needle's eye.",
-  "spokenPrompt": "Which where-word fits exactly? Wool goes hmm a needle's eye.",
-  "sentence": "Wool goes ___ a needle's eye.",
+  "prompt": "The train entered one end and left the other: ___ the tunnel.",
+  "question": "The train entered one end and left the other: ___ the tunnel.",
+  "spokenPrompt": "Which where-word fits exactly? The train entered one end and left the other: … the tunnel.",
+  "sentence": "The train entered one end and left the other: ___ the tunnel.",
   "choices": [
+   "beside",
+   "behind",
    "through",
-   "around",
-   "over",
-   "under"
+   "above"
   ],
   "answerOptions": [
+   {
+    "value": "beside",
+    "label": "beside",
+    "text": "beside"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "through",
     "label": "through",
     "text": "through"
    },
    {
-    "value": "around",
-    "label": "around",
-    "text": "around"
-   },
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    }
   ],
   "answer": "through",
   "correctAnswer": "through",
   "distractorRationales": {
-   "around": "D-PLAUSIBLE-UNSUPPORTED",
-   "over": "D-PLAUSIBLE-UNSUPPORTED",
-   "under": "D-PLAUSIBLE-UNSUPPORTED"
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "beside": "D-PLAUSIBLE-UNSUPPORTED",
+   "behind": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "Wool goes ___ a needle's eye.",
+  "sentenceText": "The train entered one end and left the other: ___ the tunnel.",
+  "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3470,7 +3748,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "around the needle is possible — but sewing means through the eye; frame avoids the, whose th-chunk gifts through"
+  "notes": "Entering one end and leaving the other defines through.",
+  "imagePath": "/images/prepositions/train_through_tunnel.png",
+  "imageUrl": "/images/prepositions/train_through_tunnel.png",
+  "targetImage": "/images/prepositions/train_through_tunnel.png",
+  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "resolvedImageAssetKey": "train_through_tunnel",
+  "imageAlt": "The train entered one end and left the other: through the tunnel."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.through.v4",
@@ -3492,17 +3776,27 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "We cut ___ the park to save time.",
-  "question": "We cut ___ the park to save time.",
-  "spokenPrompt": "Which where-word fits exactly? We cut hmm the park to save time.",
-  "sentence": "We cut ___ the park to save time.",
+  "prompt": "The tent leaked because rain came ___ a small crack.",
+  "question": "The tent leaked because rain came ___ a small crack.",
+  "spokenPrompt": "Which where-word fits exactly? The tent leaked because rain came … a small crack.",
+  "sentence": "The tent leaked because rain came ___ a small crack.",
   "choices": [
+   "over",
+   "under",
    "through",
-   "around",
-   "past",
-   "near"
+   "around"
   ],
   "answerOptions": [
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
+   },
    {
     "value": "through",
     "label": "through",
@@ -3512,35 +3806,27 @@ export const questions = [
     "value": "around",
     "label": "around",
     "text": "around"
-   },
-   {
-    "value": "past",
-    "label": "past",
-    "text": "past"
-   },
-   {
-    "value": "near",
-    "label": "near",
-    "text": "near"
    }
   ],
   "answer": "through",
   "correctAnswer": "through",
   "distractorRationales": {
+   "under": "D-PLAUSIBLE-UNSUPPORTED",
    "around": "D-PLAUSIBLE-UNSUPPORTED",
-   "past": "D-PLAUSIBLE-UNSUPPORTED",
-   "near": "D-PLAUSIBLE-UNSUPPORTED"
+   "over": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We cut ___ the park to save time.",
+  "sentenceText": "The tent leaked because rain came ___ a small crack.",
+  "targetWord": "rain_through_tent_crack",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rain_through_tent_crack",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3551,7 +3837,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "around the park is the LONG way — cutting to save time means through"
+  "notes": "The visible crack is an opening that the rain passes through.",
+  "imagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "imageUrl": "/images/prepositions/rain_through_tent_crack.png",
+  "targetImage": "/images/prepositions/rain_through_tent_crack.png",
+  "targetImagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "resolvedImageAssetKey": "rain_through_tent_crack",
+  "imageAlt": "The tent leaked because rain came through a small crack."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.near.v1",
@@ -3573,22 +3865,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We live ___ the school, so we walk there.",
-  "question": "We live ___ the school, so we walk there.",
-  "spokenPrompt": "Which where-word finishes the sentence? We live hmm the school, so we walk there.",
-  "sentence": "We live ___ the school, so we walk there.",
+  "prompt": "Our house is ___ the school on the same short street.",
+  "question": "Our house is ___ the school on the same short street.",
+  "spokenPrompt": "Which where-word finishes the sentence? Our house is … the school on the same short street.",
+  "sentence": "Our house is ___ the school on the same short street.",
   "choices": [
-   "near",
    "inside",
    "above",
-   "behind"
+   "behind",
+   "near"
   ],
   "answerOptions": [
-   {
-    "value": "near",
-    "label": "near",
-    "text": "near"
-   },
    {
     "value": "inside",
     "label": "inside",
@@ -3603,6 +3890,11 @@ export const questions = [
     "value": "behind",
     "label": "behind",
     "text": "behind"
+   },
+   {
+    "value": "near",
+    "label": "near",
+    "text": "near"
    }
   ],
   "answer": "near",
@@ -3612,16 +3904,18 @@ export const questions = [
    "above": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We live ___ the school, so we walk there.",
+  "sentenceText": "Our house is ___ the school on the same short street.",
+  "targetWord": "house_near_school",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "house_near_school",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3632,7 +3926,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "The picture shows the house and school close together on one short street.",
+  "imagePath": "/images/prepositions/house_near_school.png",
+  "imageUrl": "/images/prepositions/house_near_school.png",
+  "targetImage": "/images/prepositions/house_near_school.png",
+  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "resolvedImageAssetKey": "house_near_school",
+  "imageAlt": "Our house is near the school on the same short street."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.near.v2",
@@ -3656,7 +3956,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Keep the bucket ___ the door for spills.",
   "question": "Keep the bucket ___ the door for spills.",
-  "spokenPrompt": "Which where-word finishes the sentence? Keep the bucket hmm the door for spills.",
+  "spokenPrompt": "Which where-word finishes the sentence? Keep the bucket … the door for spills.",
   "sentence": "Keep the bucket ___ the door for spills.",
   "choices": [
    "near",
@@ -3693,16 +3993,18 @@ export const questions = [
    "through": "D-FUNCTION-SWAP",
    "between": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Keep the bucket ___ the door for spills.",
+  "targetWord": "bucket_near_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bucket_near_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3713,7 +4015,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bucket_near_door.png",
+  "imageUrl": "/images/prepositions/bucket_near_door.png",
+  "targetImage": "/images/prepositions/bucket_near_door.png",
+  "targetImagePath": "/images/prepositions/bucket_near_door.png",
+  "resolvedImageAssetKey": "bucket_near_door",
+  "imageAlt": "Keep the bucket near the door for spills."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.near.v3",
@@ -3735,26 +4043,26 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Put the trolley ___ the till, not miles away.",
-  "question": "Put the trolley ___ the till, not miles away.",
-  "spokenPrompt": "Which where-word fits exactly? Put the trolley hmm the till, not miles away.",
-  "sentence": "Put the trolley ___ the till, not miles away.",
+  "prompt": "Home is a short walk away. Our house is ___ the school.",
+  "question": "Home is a short walk away. Our house is ___ the school.",
+  "spokenPrompt": "Which where-word fits exactly? Home is a short walk away. Our house is … the school.",
+  "sentence": "Home is a short walk away. Our house is ___ the school.",
   "choices": [
-   "near",
-   "opposite",
+   "inside",
+   "above",
    "behind",
-   "inside"
+   "near"
   ],
   "answerOptions": [
    {
-    "value": "near",
-    "label": "near",
-    "text": "near"
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
    },
    {
-    "value": "opposite",
-    "label": "opposite",
-    "text": "opposite"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    },
    {
     "value": "behind",
@@ -3762,28 +4070,30 @@ export const questions = [
     "text": "behind"
    },
    {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
+    "value": "near",
+    "label": "near",
+    "text": "near"
    }
   ],
   "answer": "near",
   "correctAnswer": "near",
   "distractorRationales": {
-   "opposite": "D-PLAUSIBLE-UNSUPPORTED",
-   "behind": "D-PLAUSIBLE-UNSUPPORTED",
-   "inside": "D-PLAUSIBLE-UNSUPPORTED"
+   "inside": "D-PLAUSIBLE-UNSUPPORTED",
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "behind": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "Put the trolley ___ the till, not miles away.",
+  "sentenceText": "Home is a short walk away. Our house is ___ the school.",
+  "targetWord": "house_near_school",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "house_near_school",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3794,7 +4104,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "opposite and behind are possible spots — not miles away pins near"
+  "notes": "The picture and short-walk clue establish near without allowing inside, above, or behind.",
+  "imagePath": "/images/prepositions/house_near_school.png",
+  "imageUrl": "/images/prepositions/house_near_school.png",
+  "targetImage": "/images/prepositions/house_near_school.png",
+  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "resolvedImageAssetKey": "house_near_school",
+  "imageAlt": "Home is a short walk away. Our house is near the school."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.near.v4",
@@ -3816,15 +4132,15 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "The nests sit ___ the pond, a short hop for the ducks.",
-  "question": "The nests sit ___ the pond, a short hop for the ducks.",
-  "spokenPrompt": "Which where-word fits exactly? The nests sit hmm the pond, a short hop for the ducks.",
-  "sentence": "The nests sit ___ the pond, a short hop for the ducks.",
+  "prompt": "Keep the bucket ___ the door so it is quick to reach.",
+  "question": "Keep the bucket ___ the door so it is quick to reach.",
+  "spokenPrompt": "Which where-word fits exactly? Keep the bucket … the door so it is quick to reach.",
+  "sentence": "Keep the bucket ___ the door so it is quick to reach.",
   "choices": [
    "near",
-   "in",
-   "over",
-   "under"
+   "opposite",
+   "above",
+   "between"
   ],
   "answerOptions": [
    {
@@ -3833,38 +4149,40 @@ export const questions = [
     "text": "near"
    },
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "opposite",
+    "label": "opposite",
+    "text": "opposite"
    },
    {
-    "value": "over",
-    "label": "over",
-    "text": "over"
+    "value": "above",
+    "label": "above",
+    "text": "above"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "between",
+    "label": "between",
+    "text": "between"
    }
   ],
   "answer": "near",
   "correctAnswer": "near",
   "distractorRationales": {
-   "in": "D-PLAUSIBLE-UNSUPPORTED",
-   "over": "D-PLAUSIBLE-UNSUPPORTED",
-   "under": "D-PLAUSIBLE-UNSUPPORTED"
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "between": "D-PLAUSIBLE-UNSUPPORTED",
+   "opposite": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The nests sit ___ the pond, a short hop for the ducks.",
+  "sentenceText": "Keep the bucket ___ the door so it is quick to reach.",
+  "targetWord": "bucket_near_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bucket_near_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3875,7 +4193,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "in the pond is possible for a duck nest — a short hop pins near, not in"
+  "notes": "Quick to reach and the small pictured gap pin near.",
+  "imagePath": "/images/prepositions/bucket_near_door.png",
+  "imageUrl": "/images/prepositions/bucket_near_door.png",
+  "targetImage": "/images/prepositions/bucket_near_door.png",
+  "targetImagePath": "/images/prepositions/bucket_near_door.png",
+  "resolvedImageAssetKey": "bucket_near_door",
+  "imageAlt": "Keep the bucket near the door so it is quick to reach."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.opposite.v1",
@@ -3899,15 +4223,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The bakery is ___ the bank, just across the road.",
   "question": "The bakery is ___ the bank, just across the road.",
-  "spokenPrompt": "Which where-word finishes the sentence? The bakery is hmm the bank, just across the road.",
+  "spokenPrompt": "Which where-word finishes the sentence? The bakery is … the bank, just across the road.",
   "sentence": "The bakery is ___ the bank, just across the road.",
   "choices": [
+   "through",
    "opposite",
    "inside",
-   "under",
-   "through"
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
+   },
    {
     "value": "opposite",
     "label": "opposite",
@@ -3922,11 +4251,6 @@ export const questions = [
     "value": "under",
     "label": "under",
     "text": "under"
-   },
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
    }
   ],
   "answer": "opposite",
@@ -3936,16 +4260,18 @@ export const questions = [
    "under": "D-FUNCTION-SWAP",
    "through": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The bakery is ___ the bank, just across the road.",
+  "targetWord": "bakery_opposite_bank",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bakery_opposite_bank",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3956,7 +4282,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "just across the road defines opposite"
+  "notes": "just across the road defines opposite",
+  "imagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "imageUrl": "/images/prepositions/bakery_opposite_bank.png",
+  "targetImage": "/images/prepositions/bakery_opposite_bank.png",
+  "targetImagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "resolvedImageAssetKey": "bakery_opposite_bank",
+  "imageAlt": "The bakery is opposite the bank, just across the road."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.opposite.v2",
@@ -3978,55 +4310,57 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Our team sat ___ theirs before the quiz.",
-  "question": "Our team sat ___ theirs before the quiz.",
-  "spokenPrompt": "Which where-word finishes the sentence? Our team sat hmm theirs before the quiz.",
-  "sentence": "Our team sat ___ theirs before the quiz.",
+  "prompt": "The two goals stand ___ each other.",
+  "question": "The two goals stand ___ each other.",
+  "spokenPrompt": "Which where-word finishes the sentence? The two goals stand … each other.",
+  "sentence": "The two goals stand ___ each other.",
   "choices": [
+   "over",
    "opposite",
-   "under",
-   "through",
-   "over"
+   "beside",
+   "near"
   ],
   "answerOptions": [
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
    {
     "value": "opposite",
     "label": "opposite",
     "text": "opposite"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "beside",
+    "label": "beside",
+    "text": "beside"
    },
    {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
+    "value": "near",
+    "label": "near",
+    "text": "near"
    }
   ],
   "answer": "opposite",
   "correctAnswer": "opposite",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
-   "through": "D-FUNCTION-SWAP",
+   "beside": "D-FUNCTION-SWAP",
+   "near": "D-FUNCTION-SWAP",
    "over": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "Our team sat ___ theirs before the quiz.",
+  "sentenceText": "The two goals stand ___ each other.",
+  "targetWord": "opposite_goals_pitch",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "opposite_goals_pitch",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4037,7 +4371,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "imageUrl": "/images/prepositions/opposite_goals_pitch.png",
+  "targetImage": "/images/prepositions/opposite_goals_pitch.png",
+  "targetImagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "resolvedImageAssetKey": "opposite_goals_pitch",
+  "imageAlt": "The two goals stand opposite each other."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.opposite.v3",
@@ -4059,10 +4399,10 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "She sat ___ me so we could talk face to face.",
-  "question": "She sat ___ me so we could talk face to face.",
-  "spokenPrompt": "Which where-word fits exactly? She sat hmm me so we could talk face to face.",
-  "sentence": "She sat ___ me so we could talk face to face.",
+  "prompt": "The bakery faces the bank across the road: ___ the bank.",
+  "question": "The bakery faces the bank across the road: ___ the bank.",
+  "spokenPrompt": "Which where-word fits exactly? The bakery faces the bank across the road: … the bank.",
+  "sentence": "The bakery faces the bank across the road: ___ the bank.",
   "choices": [
    "opposite",
    "beside",
@@ -4098,16 +4438,18 @@ export const questions = [
    "behind": "D-PLAUSIBLE-UNSUPPORTED",
    "near": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "She sat ___ me so we could talk face to face.",
+  "sentenceText": "The bakery faces the bank across the road: ___ the bank.",
+  "targetWord": "bakery_opposite_bank",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bakery_opposite_bank",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4118,7 +4460,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "beside and near both allow talking — face to face pins opposite"
+  "notes": "Facing across the road pins opposite; near alone does not express the facing relation.",
+  "imagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "imageUrl": "/images/prepositions/bakery_opposite_bank.png",
+  "targetImage": "/images/prepositions/bakery_opposite_bank.png",
+  "targetImagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "resolvedImageAssetKey": "bakery_opposite_bank",
+  "imageAlt": "The bakery faces the bank across the road: opposite the bank."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.opposite.v4",
@@ -4140,27 +4488,17 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "The two goals stand ___ each other on the pitch.",
-  "question": "The two goals stand ___ each other on the pitch.",
-  "spokenPrompt": "Which where-word fits exactly? The two goals stand hmm each other on the pitch.",
-  "sentence": "The two goals stand ___ each other on the pitch.",
+  "prompt": "The goals at the two ends stand ___ each other.",
+  "question": "The goals at the two ends stand ___ each other.",
+  "spokenPrompt": "Which where-word fits exactly? The goals at the two ends stand … each other.",
+  "sentence": "The goals at the two ends stand ___ each other.",
   "choices": [
-   "opposite",
-   "beside",
    "near",
-   "over"
+   "over",
+   "opposite",
+   "beside"
   ],
   "answerOptions": [
-   {
-    "value": "opposite",
-    "label": "opposite",
-    "text": "opposite"
-   },
-   {
-    "value": "beside",
-    "label": "beside",
-    "text": "beside"
-   },
    {
     "value": "near",
     "label": "near",
@@ -4170,25 +4508,37 @@ export const questions = [
     "value": "over",
     "label": "over",
     "text": "over"
+   },
+   {
+    "value": "opposite",
+    "label": "opposite",
+    "text": "opposite"
+   },
+   {
+    "value": "beside",
+    "label": "beside",
+    "text": "beside"
    }
   ],
   "answer": "opposite",
   "correctAnswer": "opposite",
   "distractorRationales": {
+   "over": "D-PLAUSIBLE-UNSUPPORTED",
    "beside": "D-PLAUSIBLE-UNSUPPORTED",
-   "near": "D-PLAUSIBLE-UNSUPPORTED",
-   "over": "D-PLAUSIBLE-UNSUPPORTED"
+   "near": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The two goals stand ___ each other on the pitch.",
+  "sentenceText": "The goals at the two ends stand ___ each other.",
+  "targetWord": "opposite_goals_pitch",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "opposite_goals_pitch",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4199,7 +4549,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "goals face each other end to end — beside would be the same end"
+  "notes": "goals face each other end to end — beside would be the same end",
+  "imagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "imageUrl": "/images/prepositions/opposite_goals_pitch.png",
+  "targetImage": "/images/prepositions/opposite_goals_pitch.png",
+  "targetImagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "resolvedImageAssetKey": "opposite_goals_pitch",
+  "imageAlt": "The goals at the two ends stand opposite each other."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.among.v1",
@@ -4223,20 +4579,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A red tulip grew ___ the yellow tulips.",
   "question": "A red tulip grew ___ the yellow tulips.",
-  "spokenPrompt": "Which where-word finishes the sentence? A red tulip grew hmm the yellow tulips.",
+  "spokenPrompt": "Which where-word finishes the sentence? A red tulip grew … the yellow tulips.",
   "sentence": "A red tulip grew ___ the yellow tulips.",
   "choices": [
-   "among",
    "between",
    "inside",
-   "above"
+   "above",
+   "among"
   ],
   "answerOptions": [
-   {
-    "value": "among",
-    "label": "among",
-    "text": "among"
-   },
    {
     "value": "between",
     "label": "between",
@@ -4251,25 +4602,32 @@ export const questions = [
     "value": "above",
     "label": "above",
     "text": "above"
+   },
+   {
+    "value": "among",
+    "label": "among",
+    "text": "among"
    }
   ],
   "answer": "among",
   "correctAnswer": "among",
   "distractorRationales": {
+   "above": "D-FUNCTION-SWAP",
    "between": "D-FUNCTION-SWAP",
-   "inside": "D-FUNCTION-SWAP",
-   "above": "D-FUNCTION-SWAP"
+   "inside": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A red tulip grew ___ the yellow tulips.",
+  "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4280,7 +4638,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "many yellow ones — among, not the two-thing between"
+  "notes": "many yellow ones — among, not the two-thing between",
+  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
+  "imageAlt": "A red tulip grew among the yellow tulips."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.among.v2",
@@ -4302,27 +4666,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The hen hid ___ the tall reeds.",
-  "question": "The hen hid ___ the tall reeds.",
-  "spokenPrompt": "Which where-word finishes the sentence? The hen hid hmm the tall reeds.",
-  "sentence": "The hen hid ___ the tall reeds.",
+  "prompt": "The deer stood ___ the trees.",
+  "question": "The deer stood ___ the trees.",
+  "spokenPrompt": "Which where-word finishes the sentence? The deer stood … the trees.",
+  "sentence": "The deer stood ___ the trees.",
   "choices": [
-   "among",
-   "between",
    "over",
-   "onto"
+   "onto",
+   "among",
+   "between"
   ],
   "answerOptions": [
-   {
-    "value": "among",
-    "label": "among",
-    "text": "among"
-   },
-   {
-    "value": "between",
-    "label": "between",
-    "text": "between"
-   },
    {
     "value": "over",
     "label": "over",
@@ -4332,6 +4686,16 @@ export const questions = [
     "value": "onto",
     "label": "onto",
     "text": "onto"
+   },
+   {
+    "value": "among",
+    "label": "among",
+    "text": "among"
+   },
+   {
+    "value": "between",
+    "label": "between",
+    "text": "between"
    }
   ],
   "answer": "among",
@@ -4341,16 +4705,18 @@ export const questions = [
    "over": "D-FUNCTION-SWAP",
    "onto": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The hen hid ___ the tall reeds.",
+  "sentenceText": "The deer stood ___ the trees.",
+  "targetWord": "deer_among_trees",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "deer_among_trees",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4361,7 +4727,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/deer_among_trees.png",
+  "imageUrl": "/images/prepositions/deer_among_trees.png",
+  "targetImage": "/images/prepositions/deer_among_trees.png",
+  "targetImagePath": "/images/prepositions/deer_among_trees.png",
+  "resolvedImageAssetKey": "deer_among_trees",
+  "imageAlt": "The deer stood among the trees."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.among.v3",
@@ -4383,17 +4755,22 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "The coin was lost ___ the pebbles.",
-  "question": "The coin was lost ___ the pebbles.",
-  "spokenPrompt": "Which where-word fits exactly? The coin was lost hmm the pebbles.",
-  "sentence": "The coin was lost ___ the pebbles.",
+  "prompt": "One red flower grows ___ many yellow flowers.",
+  "question": "One red flower grows ___ many yellow flowers.",
+  "spokenPrompt": "Which where-word fits exactly? One red flower grows … many yellow flowers.",
+  "sentence": "One red flower grows ___ many yellow flowers.",
   "choices": [
+   "behind",
    "among",
    "between",
-   "under",
-   "behind"
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "among",
     "label": "among",
@@ -4408,30 +4785,27 @@ export const questions = [
     "value": "under",
     "label": "under",
     "text": "under"
-   },
-   {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
    }
   ],
   "answer": "among",
   "correctAnswer": "among",
   "distractorRationales": {
+   "behind": "D-PLAUSIBLE-UNSUPPORTED",
    "between": "D-PLAUSIBLE-UNSUPPORTED",
-   "under": "D-PLAUSIBLE-UNSUPPORTED",
-   "behind": "D-PLAUSIBLE-UNSUPPORTED"
+   "under": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The coin was lost ___ the pebbles.",
+  "sentenceText": "One red flower grows ___ many yellow flowers.",
+  "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4442,7 +4816,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "under one pebble is possible — lost in MANY pins among; between needs exactly two"
+  "notes": "Many surrounding flowers require among; between describes a smaller two-sided relation.",
+  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
+  "imageAlt": "One red flower grows among many yellow flowers."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.among.v4",
@@ -4466,7 +4846,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "A deer stood ___ the trees, hard to spot.",
   "question": "A deer stood ___ the trees, hard to spot.",
-  "spokenPrompt": "Which where-word fits exactly? A deer stood hmm the trees, hard to spot.",
+  "spokenPrompt": "Which where-word fits exactly? A deer stood … the trees, hard to spot.",
   "sentence": "A deer stood ___ the trees, hard to spot.",
   "choices": [
    "among",
@@ -4503,16 +4883,18 @@ export const questions = [
    "behind": "D-PLAUSIBLE-UNSUPPORTED",
    "near": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A deer stood ___ the trees, hard to spot.",
+  "targetWord": "deer_among_trees",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "deer_among_trees",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4523,7 +4905,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "behind one tree is possible — hard to spot in a WOOD pins among"
+  "notes": "The deer is surrounded by several trees; behind would describe one tree.",
+  "imagePath": "/images/prepositions/deer_among_trees.png",
+  "imageUrl": "/images/prepositions/deer_among_trees.png",
+  "targetImage": "/images/prepositions/deer_among_trees.png",
+  "targetImagePath": "/images/prepositions/deer_among_trees.png",
+  "resolvedImageAssetKey": "deer_among_trees",
+  "imageAlt": "A deer stood among the trees, hard to spot."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.around.v1",
@@ -4547,15 +4935,20 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "The fence runs ___ the whole garden.",
   "question": "The fence runs ___ the whole garden.",
-  "spokenPrompt": "Which where-word finishes the sentence? The fence runs hmm the whole garden.",
+  "spokenPrompt": "Which where-word finishes the sentence? The fence runs … the whole garden.",
   "sentence": "The fence runs ___ the whole garden.",
   "choices": [
+   "over",
    "around",
    "across",
-   "through",
-   "over"
+   "through"
   ],
   "answerOptions": [
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
    {
     "value": "around",
     "label": "around",
@@ -4570,11 +4963,6 @@ export const questions = [
     "value": "through",
     "label": "through",
     "text": "through"
-   },
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
    }
   ],
   "answer": "around",
@@ -4584,16 +4972,18 @@ export const questions = [
    "through": "D-FUNCTION-SWAP",
    "over": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The fence runs ___ the whole garden.",
+  "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fence_around_garden",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4604,7 +4994,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the whole garden pins the ring shape of around"
+  "notes": "the whole garden pins the ring shape of around",
+  "imagePath": "/images/prepositions/fence_around_garden.png",
+  "imageUrl": "/images/prepositions/fence_around_garden.png",
+  "targetImage": "/images/prepositions/fence_around_garden.png",
+  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "resolvedImageAssetKey": "fence_around_garden",
+  "imageAlt": "The fence runs around the whole garden."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.around.v2",
@@ -4626,55 +5022,57 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "We joined hands and danced ___ the maypole.",
-  "question": "We joined hands and danced ___ the maypole.",
-  "spokenPrompt": "Which where-word finishes the sentence? We joined hands and danced hmm the maypole.",
-  "sentence": "We joined hands and danced ___ the maypole.",
+  "prompt": "The path bends ___ the puddle.",
+  "question": "The path bends ___ the puddle.",
+  "spokenPrompt": "Which where-word finishes the sentence? The path bends … the puddle.",
+  "sentence": "The path bends ___ the puddle.",
   "choices": [
-   "around",
-   "under",
    "through",
-   "onto"
+   "over",
+   "into",
+   "around"
   ],
   "answerOptions": [
-   {
-    "value": "around",
-    "label": "around",
-    "text": "around"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
-   },
    {
     "value": "through",
     "label": "through",
     "text": "through"
    },
    {
-    "value": "onto",
-    "label": "onto",
-    "text": "onto"
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
+   {
+    "value": "into",
+    "label": "into",
+    "text": "into"
+   },
+   {
+    "value": "around",
+    "label": "around",
+    "text": "around"
    }
   ],
   "answer": "around",
   "correctAnswer": "around",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
    "through": "D-FUNCTION-SWAP",
-   "onto": "D-FUNCTION-SWAP"
+   "over": "D-FUNCTION-SWAP",
+   "into": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We joined hands and danced ___ the maypole.",
+  "sentenceText": "The path bends ___ the puddle.",
+  "targetWord": "path_around_puddle",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "path_around_puddle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4685,7 +5083,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/path_around_puddle.png",
+  "imageUrl": "/images/prepositions/path_around_puddle.png",
+  "targetImage": "/images/prepositions/path_around_puddle.png",
+  "targetImagePath": "/images/prepositions/path_around_puddle.png",
+  "resolvedImageAssetKey": "path_around_puddle",
+  "imageAlt": "The path bends around the puddle."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.around.v3",
@@ -4709,25 +5113,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "We walked ___ the puddle to keep our shoes dry.",
   "question": "We walked ___ the puddle to keep our shoes dry.",
-  "spokenPrompt": "Which where-word fits exactly? We walked hmm the puddle to keep our shoes dry.",
+  "spokenPrompt": "Which where-word fits exactly? We walked … the puddle to keep our shoes dry.",
   "sentence": "We walked ___ the puddle to keep our shoes dry.",
   "choices": [
-   "around",
-   "through",
    "over",
-   "into"
+   "into",
+   "around",
+   "through"
   ],
   "answerOptions": [
-   {
-    "value": "around",
-    "label": "around",
-    "text": "around"
-   },
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
    {
     "value": "over",
     "label": "over",
@@ -4737,6 +5131,16 @@ export const questions = [
     "value": "into",
     "label": "into",
     "text": "into"
+   },
+   {
+    "value": "around",
+    "label": "around",
+    "text": "around"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
    }
   ],
   "answer": "around",
@@ -4746,16 +5150,18 @@ export const questions = [
    "over": "D-PLAUSIBLE-UNSUPPORTED",
    "into": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We walked ___ the puddle to keep our shoes dry.",
+  "targetWord": "path_around_puddle",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "path_around_puddle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4766,7 +5172,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "through gets you wet and over means a jump — walking dry pins around"
+  "notes": "through gets you wet and over means a jump — walking dry pins around",
+  "imagePath": "/images/prepositions/path_around_puddle.png",
+  "imageUrl": "/images/prepositions/path_around_puddle.png",
+  "targetImage": "/images/prepositions/path_around_puddle.png",
+  "targetImagePath": "/images/prepositions/path_around_puddle.png",
+  "resolvedImageAssetKey": "path_around_puddle",
+  "imageAlt": "We walked around the puddle to keep our shoes dry."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.around.v4",
@@ -4788,21 +5200,21 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "The ribbon wraps twice ___ the box.",
-  "question": "The ribbon wraps twice ___ the box.",
-  "spokenPrompt": "Which where-word fits exactly? The ribbon wraps twice hmm the box.",
-  "sentence": "The ribbon wraps twice ___ the box.",
+  "prompt": "The fence makes a complete ring ___ the garden.",
+  "question": "The fence makes a complete ring ___ the garden.",
+  "spokenPrompt": "Which where-word fits exactly? The fence makes a complete ring … the garden.",
+  "sentence": "The fence makes a complete ring ___ the garden.",
   "choices": [
-   "around",
+   "through",
    "over",
-   "under",
-   "past"
+   "around",
+   "across"
   ],
   "answerOptions": [
    {
-    "value": "around",
-    "label": "around",
-    "text": "around"
+    "value": "through",
+    "label": "through",
+    "text": "through"
    },
    {
     "value": "over",
@@ -4810,33 +5222,35 @@ export const questions = [
     "text": "over"
    },
    {
-    "value": "under",
-    "label": "under",
-    "text": "under"
+    "value": "around",
+    "label": "around",
+    "text": "around"
    },
    {
-    "value": "past",
-    "label": "past",
-    "text": "past"
+    "value": "across",
+    "label": "across",
+    "text": "across"
    }
   ],
   "answer": "around",
   "correctAnswer": "around",
   "distractorRationales": {
    "over": "D-PLAUSIBLE-UNSUPPORTED",
-   "under": "D-PLAUSIBLE-UNSUPPORTED",
-   "past": "D-PLAUSIBLE-UNSUPPORTED"
+   "across": "D-PLAUSIBLE-UNSUPPORTED",
+   "through": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The ribbon wraps twice ___ the box.",
+  "sentenceText": "The fence makes a complete ring ___ the garden.",
+  "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fence_around_garden",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4847,7 +5261,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "over and under describe one pass — wrapping twice pins around"
+  "notes": "A complete ring encloses the garden on all sides, which pins around.",
+  "imagePath": "/images/prepositions/fence_around_garden.png",
+  "imageUrl": "/images/prepositions/fence_around_garden.png",
+  "targetImage": "/images/prepositions/fence_around_garden.png",
+  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "resolvedImageAssetKey": "fence_around_garden",
+  "imageAlt": "The fence makes a complete ring around the garden."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.inside_outside.v1",
@@ -4871,20 +5291,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "It poured with rain, so we played ___ the house.",
   "question": "It poured with rain, so we played ___ the house.",
-  "spokenPrompt": "Which where-word finishes the sentence? It poured with rain, so we played hmm the house.",
+  "spokenPrompt": "Which where-word finishes the sentence? It poured with rain, so we played … the house.",
   "sentence": "It poured with rain, so we played ___ the house.",
   "choices": [
-   "inside",
    "outside",
    "above",
-   "under"
+   "under",
+   "inside"
   ],
   "answerOptions": [
-   {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
-   },
    {
     "value": "outside",
     "label": "outside",
@@ -4899,25 +5314,32 @@ export const questions = [
     "value": "under",
     "label": "under",
     "text": "under"
+   },
+   {
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
    }
   ],
   "answer": "inside",
   "correctAnswer": "inside",
   "distractorRationales": {
+   "under": "D-FUNCTION-SWAP",
    "outside": "D-FUNCTION-SWAP",
-   "above": "D-FUNCTION-SWAP",
-   "under": "D-FUNCTION-SWAP"
+   "above": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "It poured with rain, so we played ___ the house.",
+  "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4928,7 +5350,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rain pins inside"
+  "notes": "rain pins inside",
+  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "resolvedImageAssetKey": "children_inside_house_in_rain",
+  "imageAlt": "It poured with rain, so we played inside the house."
  },
  {
   "id": "lp3.prepositions_of_place.l2.B.inside_outside.v2",
@@ -4950,26 +5378,26 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The chicks stay ___ the coop at night, safe from foxes.",
-  "question": "The chicks stay ___ the coop at night, safe from foxes.",
-  "spokenPrompt": "Which where-word finishes the sentence? The chicks stay hmm the coop at night, safe from foxes.",
-  "sentence": "The chicks stay ___ the coop at night, safe from foxes.",
+  "prompt": "Leave the muddy boots ___ the door.",
+  "question": "Leave the muddy boots ___ the door.",
+  "spokenPrompt": "Which where-word finishes the sentence? Leave the muddy boots … the door.",
+  "sentence": "Leave the muddy boots ___ the door.",
   "choices": [
-   "inside",
    "outside",
+   "inside",
    "near",
    "behind"
   ],
   "answerOptions": [
    {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
-   },
-   {
     "value": "outside",
     "label": "outside",
     "text": "outside"
+   },
+   {
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
    },
    {
     "value": "near",
@@ -4982,23 +5410,25 @@ export const questions = [
     "text": "behind"
    }
   ],
-  "answer": "inside",
-  "correctAnswer": "inside",
+  "answer": "outside",
+  "correctAnswer": "outside",
   "distractorRationales": {
-   "outside": "D-FUNCTION-SWAP",
-   "near": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP",
+   "inside": "D-FUNCTION-SWAP",
+   "near": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The chicks stay ___ the coop at night, safe from foxes.",
+  "sentenceText": "Leave the muddy boots ___ the door.",
+  "targetWord": "muddy_boots_outside_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "muddy_boots_outside_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5009,7 +5439,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "imageUrl": "/images/prepositions/muddy_boots_outside_door.png",
+  "targetImage": "/images/prepositions/muddy_boots_outside_door.png",
+  "targetImagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "resolvedImageAssetKey": "muddy_boots_outside_door",
+  "imageAlt": "Leave the muddy boots outside the door."
  },
  {
   "id": "lp3.prepositions_of_place.l2.C.inside_outside.v3",
@@ -5033,20 +5469,15 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Leave your muddy boots ___ the door, then come in.",
   "question": "Leave your muddy boots ___ the door, then come in.",
-  "spokenPrompt": "Which where-word fits exactly? Leave your muddy boots hmm the door, then come in.",
+  "spokenPrompt": "Which where-word fits exactly? Leave your muddy boots … the door, then come in.",
   "sentence": "Leave your muddy boots ___ the door, then come in.",
   "choices": [
-   "outside",
    "inside",
    "beside",
-   "behind"
+   "behind",
+   "outside"
   ],
   "answerOptions": [
-   {
-    "value": "outside",
-    "label": "outside",
-    "text": "outside"
-   },
    {
     "value": "inside",
     "label": "inside",
@@ -5061,25 +5492,32 @@ export const questions = [
     "value": "behind",
     "label": "behind",
     "text": "behind"
+   },
+   {
+    "value": "outside",
+    "label": "outside",
+    "text": "outside"
    }
   ],
   "answer": "outside",
   "correctAnswer": "outside",
   "distractorRationales": {
+   "behind": "D-PLAUSIBLE-UNSUPPORTED",
    "inside": "D-PLAUSIBLE-UNSUPPORTED",
-   "beside": "D-PLAUSIBLE-UNSUPPORTED",
-   "behind": "D-PLAUSIBLE-UNSUPPORTED"
+   "beside": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Leave your muddy boots ___ the door, then come in.",
+  "targetWord": "muddy_boots_outside_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "muddy_boots_outside_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5090,7 +5528,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "beside and behind the door are possible spots — muddy boots before coming IN pins outside"
+  "notes": "Muddy boots stay outdoors before the child comes in, so outside is exact.",
+  "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "imageUrl": "/images/prepositions/muddy_boots_outside_door.png",
+  "targetImage": "/images/prepositions/muddy_boots_outside_door.png",
+  "targetImagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "resolvedImageAssetKey": "muddy_boots_outside_door",
+  "imageAlt": "Leave your muddy boots outside the door, then come in."
  },
  {
   "id": "lp3.prepositions_of_place.l2.A.inside_outside.v4",
@@ -5112,10 +5556,10 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "The pips are ___ the apple, so you cannot see them.",
-  "question": "The pips are ___ the apple, so you cannot see them.",
-  "spokenPrompt": "Which where-word fits exactly? The pips are hmm the apple, so you cannot see them.",
-  "sentence": "The pips are ___ the apple, so you cannot see them.",
+  "prompt": "Rain is falling outdoors, but the children are dry ___ the house.",
+  "question": "Rain is falling outdoors, but the children are dry ___ the house.",
+  "spokenPrompt": "Which where-word fits exactly? Rain is falling outdoors, but the children are dry … the house.",
+  "sentence": "Rain is falling outdoors, but the children are dry ___ the house.",
   "choices": [
    "inside",
    "outside",
@@ -5151,16 +5595,18 @@ export const questions = [
    "under": "D-PLAUSIBLE-UNSUPPORTED",
    "on": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The pips are ___ the apple, so you cannot see them.",
+  "sentenceText": "Rain is falling outdoors, but the children are dry ___ the house.",
+  "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5171,7 +5617,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cannot see them pins inside"
+  "notes": "Dry while rain falls outdoors and the enclosing walls pin inside.",
+  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "resolvedImageAssetKey": "children_inside_house_in_rain",
+  "imageAlt": "Rain is falling outdoors, but the children are dry inside the house."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.on.v5r",
@@ -5197,17 +5649,12 @@ export const questions = [
   "question": "Where is the chair?",
   "spokenPrompt": "Where is the chair?",
   "choices": [
-   "under the ball",
    "on the ball",
    "in the ball",
-   "behind the ball"
+   "behind the ball",
+   "under the ball"
   ],
   "answerOptions": [
-   {
-    "value": "under the ball",
-    "label": "under the ball",
-    "text": "under the ball"
-   },
    {
     "value": "on the ball",
     "label": "on the ball",
@@ -5222,14 +5669,19 @@ export const questions = [
     "value": "behind the ball",
     "label": "behind the ball",
     "text": "behind the ball"
+   },
+   {
+    "value": "under the ball",
+    "label": "under the ball",
+    "text": "under the ball"
    }
   ],
   "answer": "under the ball",
   "correctAnswer": "under the ball",
   "distractorRationales": {
-   "on the ball": "D-FUNCTION-SWAP",
    "in the ball": "D-FUNCTION-SWAP",
-   "behind the ball": "D-FUNCTION-SWAP"
+   "behind the ball": "D-FUNCTION-SWAP",
+   "on the ball": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5241,6 +5693,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "ball_on_chair",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5256,6 +5709,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/ball_on_chair.png",
   "targetImage": "/images/prepositions/ball_on_chair.png",
   "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "resolvedImageAssetKey": "ball_on_chair",
   "imageAlt": "ball on chair"
  },
  {
@@ -5312,9 +5766,9 @@ export const questions = [
   "answer": "next to the cup",
   "correctAnswer": "next to the cup",
   "distractorRationales": {
+   "above the cup": "D-FUNCTION-SWAP",
    "in the cup": "D-FUNCTION-SWAP",
-   "under the cup": "D-FUNCTION-SWAP",
-   "above the cup": "D-FUNCTION-SWAP"
+   "under the cup": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5326,6 +5780,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cup_between_books",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5341,6 +5796,7 @@ export const questions = [
   "imageUrl": "/images/prepositions/cup_between_books.png",
   "targetImage": "/images/prepositions/cup_between_books.png",
   "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "resolvedImageAssetKey": "cup_between_books",
   "imageAlt": "cup between books"
  },
  {
@@ -5363,16 +5819,21 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The letters wait ___ the postbox.",
-  "question": "The letters wait ___ the postbox.",
-  "spokenPrompt": "The letters wait ___ the postbox.",
+  "prompt": "Choose the word: the goat waits ___ the barn.",
+  "question": "Choose the word: the goat waits ___ the barn.",
+  "spokenPrompt": "Choose the word: the goat waits … the barn.",
   "choices": [
+   "behind",
    "in",
    "on",
-   "beside",
-   "behind"
+   "next to"
   ],
   "answerOptions": [
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "in",
     "label": "in",
@@ -5384,32 +5845,29 @@ export const questions = [
     "text": "on"
    },
    {
-    "value": "beside",
-    "label": "beside",
-    "text": "beside"
-   },
-   {
-    "value": "behind",
-    "label": "behind",
-    "text": "behind"
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
    }
   ],
   "answer": "in",
   "correctAnswer": "in",
   "distractorRationales": {
    "on": "D-FUNCTION-SWAP",
-   "beside": "D-FUNCTION-SWAP",
+   "next to": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
+  "targetWord": "goat_inside_barn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "goat_inside_barn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5420,7 +5878,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/goat_inside_barn.png",
+  "imageUrl": "/images/prepositions/goat_inside_barn.png",
+  "targetImage": "/images/prepositions/goat_inside_barn.png",
+  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "resolvedImageAssetKey": "goat_inside_barn",
+  "imageAlt": "Choose the word: the goat waits in the barn."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.under.v5r",
@@ -5442,16 +5906,26 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The cat cooled off ___ the shady bush.",
-  "question": "The cat cooled off ___ the shady bush.",
-  "spokenPrompt": "The cat cooled off ___ the shady bush.",
+  "prompt": "Choose the word: the dog rests ___ the table.",
+  "question": "Choose the word: the dog rests ___ the table.",
+  "spokenPrompt": "Choose the word: the dog rests … the table.",
   "choices": [
-   "under",
-   "on",
    "above",
-   "between"
+   "behind",
+   "under",
+   "on"
   ],
   "answerOptions": [
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
+   },
+   {
+    "value": "behind",
+    "label": "behind",
+    "text": "behind"
+   },
    {
     "value": "under",
     "label": "under",
@@ -5461,16 +5935,6 @@ export const questions = [
     "value": "on",
     "label": "on",
     "text": "on"
-   },
-   {
-    "value": "above",
-    "label": "above",
-    "text": "above"
-   },
-   {
-    "value": "between",
-    "label": "between",
-    "text": "between"
    }
   ],
   "answer": "under",
@@ -5478,17 +5942,19 @@ export const questions = [
   "distractorRationales": {
    "on": "D-FUNCTION-SWAP",
    "above": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
+  "targetWord": "dog_under_table",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog_under_table",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5499,7 +5965,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/dog_under_table.png",
+  "imageUrl": "/images/prepositions/dog_under_table.png",
+  "targetImage": "/images/prepositions/dog_under_table.png",
+  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "resolvedImageAssetKey": "dog_under_table",
+  "imageAlt": "Choose the word: the dog rests under the table."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.above.v5r",
@@ -5521,21 +5993,16 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The kite flew high ___ our heads.",
-  "question": "The kite flew high ___ our heads.",
-  "spokenPrompt": "The kite flew high ___ our heads.",
+  "prompt": "Choose the word: the clock hangs ___ the door.",
+  "question": "Choose the word: the clock hangs ___ the door.",
+  "spokenPrompt": "Choose the word: the clock hangs … the door.",
   "choices": [
-   "above",
    "under",
    "behind",
-   "beside"
+   "next to",
+   "above"
   ],
   "answerOptions": [
-   {
-    "value": "above",
-    "label": "above",
-    "text": "above"
-   },
    {
     "value": "under",
     "label": "under",
@@ -5547,27 +6014,34 @@ export const questions = [
     "text": "behind"
    },
    {
-    "value": "beside",
-    "label": "beside",
-    "text": "beside"
+    "value": "next to",
+    "label": "next to",
+    "text": "next to"
+   },
+   {
+    "value": "above",
+    "label": "above",
+    "text": "above"
    }
   ],
   "answer": "above",
   "correctAnswer": "above",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
    "behind": "D-FUNCTION-SWAP",
-   "beside": "D-FUNCTION-SWAP"
+   "next to": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
+  "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock_above_door",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5578,7 +6052,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/clock_above_door.png",
+  "imageUrl": "/images/prepositions/clock_above_door.png",
+  "targetImage": "/images/prepositions/clock_above_door.png",
+  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "resolvedImageAssetKey": "clock_above_door",
+  "imageAlt": "Choose the word: the clock hangs above the door."
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.next_to.v5r",
@@ -5600,9 +6080,9 @@ export const questions = [
   "formatType": "PREPOSITION_TEXT_CHOICE",
   "templateType": "PREPOSITION_TEXT_CHOICE",
   "questionType": "multiple_choice",
-  "prompt": "The salt sits ___ the pepper on the shelf.",
-  "question": "The salt sits ___ the pepper on the shelf.",
-  "spokenPrompt": "The salt sits ___ the pepper on the shelf.",
+  "prompt": "Choose the words: the rabbit sits ___ the basket.",
+  "question": "Choose the words: the rabbit sits ___ the basket.",
+  "spokenPrompt": "Choose the words: the rabbit sits … the basket.",
   "choices": [
    "next to",
    "under",
@@ -5638,15 +6118,17 @@ export const questions = [
    "above": "D-FUNCTION-SWAP",
    "inside": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
+  "targetWord": "rabbit_beside_basket",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5657,7 +6139,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "resolvedImageAssetKey": "rabbit_beside_basket",
+  "imageAlt": "Choose the words: the rabbit sits next to the basket."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.over.v5r",
@@ -5679,27 +6167,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The cat leapt ___ the sleeping dog.",
-  "question": "The cat leapt ___ the sleeping dog.",
-  "spokenPrompt": "Which where-word finishes the sentence? The cat leapt hmm the sleeping dog.",
-  "sentence": "The cat leapt ___ the sleeping dog.",
+  "prompt": "The horse is jumping ___ the gate.",
+  "question": "The horse is jumping ___ the gate.",
+  "spokenPrompt": "Which where-word finishes the sentence? The horse is jumping … the gate.",
+  "sentence": "The horse is jumping ___ the gate.",
   "choices": [
-   "over",
-   "under",
    "inside",
-   "between"
+   "between",
+   "over",
+   "under"
   ],
   "answerOptions": [
-   {
-    "value": "over",
-    "label": "over",
-    "text": "over"
-   },
-   {
-    "value": "under",
-    "label": "under",
-    "text": "under"
-   },
    {
     "value": "inside",
     "label": "inside",
@@ -5709,25 +6187,37 @@ export const questions = [
     "value": "between",
     "label": "between",
     "text": "between"
+   },
+   {
+    "value": "over",
+    "label": "over",
+    "text": "over"
+   },
+   {
+    "value": "under",
+    "label": "under",
+    "text": "under"
    }
   ],
   "answer": "over",
   "correctAnswer": "over",
   "distractorRationales": {
-   "under": "D-FUNCTION-SWAP",
    "inside": "D-FUNCTION-SWAP",
-   "between": "D-FUNCTION-SWAP"
+   "between": "D-FUNCTION-SWAP",
+   "under": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "The cat leapt ___ the sleeping dog.",
+  "sentenceText": "The horse is jumping ___ the gate.",
+  "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "horse_over_gate",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5738,7 +6228,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "The horse is visibly airborne above the gate.",
+  "imagePath": "/images/prepositions/horse_over_gate.png",
+  "imageUrl": "/images/prepositions/horse_over_gate.png",
+  "targetImage": "/images/prepositions/horse_over_gate.png",
+  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "resolvedImageAssetKey": "horse_over_gate",
+  "imageAlt": "The horse is jumping over the gate."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.through.v5r",
@@ -5760,22 +6256,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Wind whistled ___ the gap in the wall.",
-  "question": "Wind whistled ___ the gap in the wall.",
-  "spokenPrompt": "Which where-word finishes the sentence? Wind whistled hmm the gap in the wall.",
-  "sentence": "Wind whistled ___ the gap in the wall.",
+  "prompt": "The train is passing ___ the tunnel.",
+  "question": "The train is passing ___ the tunnel.",
+  "spokenPrompt": "Which where-word finishes the sentence? The train is passing … the tunnel.",
+  "sentence": "The train is passing ___ the tunnel.",
   "choices": [
-   "through",
    "over",
    "behind",
-   "onto"
+   "onto",
+   "through"
   ],
   "answerOptions": [
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
    {
     "value": "over",
     "label": "over",
@@ -5790,25 +6281,32 @@ export const questions = [
     "value": "onto",
     "label": "onto",
     "text": "onto"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
    }
   ],
   "answer": "through",
   "correctAnswer": "through",
   "distractorRationales": {
+   "onto": "D-FUNCTION-SWAP",
    "over": "D-FUNCTION-SWAP",
-   "behind": "D-FUNCTION-SWAP",
-   "onto": "D-FUNCTION-SWAP"
+   "behind": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "Wind whistled ___ the gap in the wall.",
+  "sentenceText": "The train is passing ___ the tunnel.",
+  "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5819,7 +6317,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "behind ties the in/wind overlap"
+  "notes": "The train enters the tunnel opening.",
+  "imagePath": "/images/prepositions/train_through_tunnel.png",
+  "imageUrl": "/images/prepositions/train_through_tunnel.png",
+  "targetImage": "/images/prepositions/train_through_tunnel.png",
+  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "resolvedImageAssetKey": "train_through_tunnel",
+  "imageAlt": "The train is passing through the tunnel."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.near.v5r",
@@ -5841,10 +6345,10 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Plant the herbs ___ the kitchen, handy for cooking.",
-  "question": "Plant the herbs ___ the kitchen, handy for cooking.",
-  "spokenPrompt": "Which where-word fits exactly? Plant the herbs hmm the kitchen, handy for cooking.",
-  "sentence": "Plant the herbs ___ the kitchen, handy for cooking.",
+  "prompt": "A short path joins home and school. They are ___ each other.",
+  "question": "A short path joins home and school. They are ___ each other.",
+  "spokenPrompt": "Which where-word fits exactly? A short path joins home and school. They are … each other.",
+  "sentence": "A short path joins home and school. They are ___ each other.",
   "choices": [
    "near",
    "inside",
@@ -5876,20 +6380,22 @@ export const questions = [
   "answer": "near",
   "correctAnswer": "near",
   "distractorRationales": {
-   "inside": "D-PLAUSIBLE-UNSUPPORTED",
    "opposite": "D-PLAUSIBLE-UNSUPPORTED",
-   "above": "D-PLAUSIBLE-UNSUPPORTED"
+   "above": "D-PLAUSIBLE-UNSUPPORTED",
+   "inside": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "Plant the herbs ___ the kitchen, handy for cooking.",
+  "sentenceText": "A short path joins home and school. They are ___ each other.",
+  "targetWord": "house_near_school",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "house_near_school",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5900,7 +6406,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "inside the kitchen is possible for pots — a garden bed HANDY for cooking pins near"
+  "notes": "The short path and small pictured gap pin near.",
+  "imagePath": "/images/prepositions/house_near_school.png",
+  "imageUrl": "/images/prepositions/house_near_school.png",
+  "targetImage": "/images/prepositions/house_near_school.png",
+  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "resolvedImageAssetKey": "house_near_school",
+  "imageAlt": "A short path joins home and school. They are near each other."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.among.v5r",
@@ -5922,17 +6434,22 @@ export const questions = [
   "formatType": "PREPOSITION_PRECISION",
   "templateType": "PREPOSITION_PRECISION",
   "questionType": "multiple_choice",
-  "prompt": "Mushrooms popped up ___ the fallen leaves.",
-  "question": "Mushrooms popped up ___ the fallen leaves.",
-  "spokenPrompt": "Which where-word fits exactly? Mushrooms popped up hmm the fallen leaves.",
-  "sentence": "Mushrooms popped up ___ the fallen leaves.",
+  "prompt": "The single red tulip stands ___ the yellow tulips.",
+  "question": "The single red tulip stands ___ the yellow tulips.",
+  "spokenPrompt": "Which where-word fits exactly? The single red tulip stands … the yellow tulips.",
+  "sentence": "The single red tulip stands ___ the yellow tulips.",
   "choices": [
+   "onto",
    "among",
    "between",
-   "under",
-   "onto"
+   "under"
   ],
   "answerOptions": [
+   {
+    "value": "onto",
+    "label": "onto",
+    "text": "onto"
+   },
    {
     "value": "among",
     "label": "among",
@@ -5947,30 +6464,27 @@ export const questions = [
     "value": "under",
     "label": "under",
     "text": "under"
-   },
-   {
-    "value": "onto",
-    "label": "onto",
-    "text": "onto"
    }
   ],
   "answer": "among",
   "correctAnswer": "among",
   "distractorRationales": {
-   "between": "D-PLAUSIBLE-UNSUPPORTED",
    "under": "D-PLAUSIBLE-UNSUPPORTED",
-   "onto": "D-PLAUSIBLE-UNSUPPORTED"
+   "onto": "D-PLAUSIBLE-UNSUPPORTED",
+   "between": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "Mushrooms popped up ___ the fallen leaves.",
+  "sentenceText": "The single red tulip stands ___ the yellow tulips.",
+  "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5981,7 +6495,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "Several yellow tulips surround the red one, which pins among.",
+  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
+  "imageAlt": "The single red tulip stands among the yellow tulips."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.around.v5r",
@@ -6003,27 +6523,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The moat runs ___ the castle.",
-  "question": "The moat runs ___ the castle.",
-  "spokenPrompt": "Which where-word finishes the sentence? The moat runs hmm the castle.",
-  "sentence": "The moat runs ___ the castle.",
+  "prompt": "The fence curves ___ the garden.",
+  "question": "The fence curves ___ the garden.",
+  "spokenPrompt": "Which where-word finishes the sentence? The fence curves … the garden.",
+  "sentence": "The fence curves ___ the garden.",
   "choices": [
-   "around",
-   "through",
    "onto",
-   "above"
+   "above",
+   "around",
+   "through"
   ],
   "answerOptions": [
-   {
-    "value": "around",
-    "label": "around",
-    "text": "around"
-   },
-   {
-    "value": "through",
-    "label": "through",
-    "text": "through"
-   },
    {
     "value": "onto",
     "label": "onto",
@@ -6033,6 +6543,16 @@ export const questions = [
     "value": "above",
     "label": "above",
     "text": "above"
+   },
+   {
+    "value": "around",
+    "label": "around",
+    "text": "around"
+   },
+   {
+    "value": "through",
+    "label": "through",
+    "text": "through"
    }
   ],
   "answer": "around",
@@ -6042,16 +6562,18 @@ export const questions = [
    "onto": "D-FUNCTION-SWAP",
    "above": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "The moat runs ___ the castle.",
+  "sentenceText": "The fence curves ___ the garden.",
+  "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fence_around_garden",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6062,7 +6584,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "The fence encloses the garden.",
+  "imagePath": "/images/prepositions/fence_around_garden.png",
+  "imageUrl": "/images/prepositions/fence_around_garden.png",
+  "targetImage": "/images/prepositions/fence_around_garden.png",
+  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "resolvedImageAssetKey": "fence_around_garden",
+  "imageAlt": "The fence curves around the garden."
  },
  {
   "id": "lp3.prepositions_of_place.l2.R.inside_outside.v5r",
@@ -6084,22 +6612,17 @@ export const questions = [
   "formatType": "PREPOSITION_SENTENCE_FIT",
   "templateType": "PREPOSITION_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "Keep the guinea pig ___ when it snows.",
-  "question": "Keep the guinea pig ___ when it snows.",
-  "spokenPrompt": "Which where-word finishes the sentence? Keep the guinea pig hmm when it snows.",
-  "sentence": "Keep the guinea pig ___ when it snows.",
+  "prompt": "The children stay dry ___ the house.",
+  "question": "The children stay dry ___ the house.",
+  "spokenPrompt": "Which where-word finishes the sentence? The children stay dry … the house.",
+  "sentence": "The children stay dry ___ the house.",
   "choices": [
-   "inside",
    "outside",
    "under",
-   "between"
+   "between",
+   "inside"
   ],
   "answerOptions": [
-   {
-    "value": "inside",
-    "label": "inside",
-    "text": "inside"
-   },
    {
     "value": "outside",
     "label": "outside",
@@ -6114,6 +6637,11 @@ export const questions = [
     "value": "between",
     "label": "between",
     "text": "between"
+   },
+   {
+    "value": "inside",
+    "label": "inside",
+    "text": "inside"
    }
   ],
   "answer": "inside",
@@ -6123,16 +6651,18 @@ export const questions = [
    "under": "D-FUNCTION-SWAP",
    "between": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "Keep the guinea pig ___ when it snows.",
+  "sentenceText": "The children stay dry ___ the house.",
+  "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6143,6 +6673,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "The house walls enclose the children while rain falls outdoors.",
+  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
+  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "resolvedImageAssetKey": "children_inside_house_in_rain",
+  "imageAlt": "The children stay dry inside the house."
  }
 ];

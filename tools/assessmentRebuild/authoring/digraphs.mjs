@@ -18,6 +18,9 @@ const ic = (u, lvl, ph, v, prompt, spoken, cards, keyWord, rationales, pos, note
   choices: cards.map(word => (word === keyWord ? K(word) : P(word, rationales[word]))),
   media: "image-required",
   pos,
+  // Matching the printed/spoken digraph pattern is the intended phonics
+  // construct, so a same-letter oracle is not an illicit shortcut here.
+  scannerExpected: true,
   note
 });
 

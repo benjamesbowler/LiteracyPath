@@ -93,7 +93,7 @@ export function AppSurface({ surface }) {
     logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
-    prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult,
+    prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, reviseLastAnswer,
     regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
     resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
     resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
@@ -1516,6 +1516,7 @@ export function AppSurface({ surface }) {
             letterItems={letterItems}
             endAssessment={saveLetterAssessmentPartialAndExit}
             recordLetterResult={recordLetterResult}
+            onPrevious={goToPreviousLetter}
             letterAssessment={letterAssessment}
             exportLetterAssessment={exportLetterAssessment}
             resetLetterAssessment={resetLetterAssessment}
@@ -1532,6 +1533,7 @@ export function AppSurface({ surface }) {
             patternItems={patternItems}
             endAssessment={savePatternAssessmentPartialAndExit}
             recordPatternResult={recordPatternResult}
+            onPrevious={goToPreviousPattern}
             patternAssessment={patternAssessment}
             exportPatternAssessment={exportPatternAssessment}
             resetPatternAssessment={resetPatternAssessment}
@@ -1567,6 +1569,7 @@ export function AppSurface({ surface }) {
             roundProgress={roundProgress}
             shouldShowImage={shouldShowImage}
             answerQuestion={answerQuestion}
+            reviseLastAnswer={reviseLastAnswer}
             speakText={speakText}
             message={message}
             endAssessment={endAssessment}

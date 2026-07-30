@@ -69,6 +69,8 @@ export const LEDA_RUNTIME_SUPPLEMENT_AUDIO = Object.freeze({
   "tonight": "/audio/production/en-US/supplemental/tonight-5a155bdd00.mp3",
   "track": "/audio/production/en-US/supplemental/track-57f06530e7.mp3",
   "twist": "/audio/production/en-US/supplemental/twist-65c78e5a10.mp3",
+  "hat": "/audio/production/en-US/supplemental/hat-7f6dd0af6f.mp3",
+  "sun": "/audio/production/en-US/supplemental/sun-986667ed8b.mp3",
   "what digraph makes the sh sound as in ship": "/audio/production/en-US/supplemental/what-digraph-makes-the-sh-sound-as-in-ship-2366d9d722.mp3",
   "what digraph makes the ch sound as in chip": "/audio/production/en-US/supplemental/what-digraph-makes-the-ch-sound-as-in-chip-3279c68c02.mp3",
   "what digraph makes the th sound as in think": "/audio/production/en-US/supplemental/what-digraph-makes-the-th-sound-as-in-think-19942842d6.mp3",

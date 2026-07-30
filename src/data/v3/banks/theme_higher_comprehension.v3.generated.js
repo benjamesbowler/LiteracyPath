@@ -27,17 +27,12 @@ export const questions = [
   "passage": "Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled like crisps. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his pocket money on a new copy. Ann was sad about the comic — but glad he had told the truth.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "owning up to a mistake is better than hiding it",
    "a comic was left out in the rain",
    "never lend anything to anyone",
-   "comics cost pocket money"
+   "comics cost pocket money",
+   "owning up to a mistake is better than hiding it"
   ],
   "answerOptions": [
-   {
-    "value": "owning up to a mistake is better than hiding it",
-    "label": "owning up to a mistake is better than hiding it",
-    "text": "owning up to a mistake is better than hiding it"
-   },
    {
     "value": "a comic was left out in the rain",
     "label": "a comic was left out in the rain",
@@ -52,6 +47,11 @@ export const questions = [
     "value": "comics cost pocket money",
     "label": "comics cost pocket money",
     "text": "comics cost pocket money"
+   },
+   {
+    "value": "owning up to a mistake is better than hiding it",
+    "label": "owning up to a mistake is better than hiding it",
+    "text": "owning up to a mistake is better than hiding it"
    }
   ],
   "answer": "owning up to a mistake is better than hiding it",
@@ -61,15 +61,16 @@ export const questions = [
    "never lend anything to anyone": "D-OPPOSITE",
    "comics cost pocket money": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,7 +81,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "resolvedImageAssetKey": "mistake",
+  "imageAlt": "Illustration for Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled like crisps. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his pocket money on a new copy. Ann was sad about the comic — but glad he had told the truth."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
@@ -108,22 +115,12 @@ export const questions = [
   "passage": "Bel's first batch of biscuits came out black as coal. She nearly threw her apron in the bin. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled like a hug.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "a mistake can teach you how to do better",
-   "the first biscuits burned black",
    "baking always goes wrong",
-   "ovens can be hot"
+   "ovens can be hot",
+   "a mistake can teach you how to do better",
+   "the first biscuits burned black"
   ],
   "answerOptions": [
-   {
-    "value": "a mistake can teach you how to do better",
-    "label": "a mistake can teach you how to do better",
-    "text": "a mistake can teach you how to do better"
-   },
-   {
-    "value": "the first biscuits burned black",
-    "label": "the first biscuits burned black",
-    "text": "the first biscuits burned black"
-   },
    {
     "value": "baking always goes wrong",
     "label": "baking always goes wrong",
@@ -133,6 +130,16 @@ export const questions = [
     "value": "ovens can be hot",
     "label": "ovens can be hot",
     "text": "ovens can be hot"
+   },
+   {
+    "value": "a mistake can teach you how to do better",
+    "label": "a mistake can teach you how to do better",
+    "text": "a mistake can teach you how to do better"
+   },
+   {
+    "value": "the first biscuits burned black",
+    "label": "the first biscuits burned black",
+    "text": "the first biscuits burned black"
    }
   ],
   "answer": "a mistake can teach you how to do better",
@@ -142,15 +149,16 @@ export const questions = [
    "baking always goes wrong": "D-OPPOSITE",
    "ovens can be hot": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -161,7 +169,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
+  "resolvedImageAssetKey": "mistake",
+  "imageAlt": "Illustration for Bel's first batch of biscuits came out black as coal. She nearly threw her apron in the bin. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled like a hug."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
@@ -189,12 +203,17 @@ export const questions = [
   "passage": "Kit snapped the blue crayon and quickly slid it back in the tin, broken ends together. All morning it bothered him like a stone in a shoe. At last he told Miss May. She smiled, taped the crayon, and said broken things mend easier than secrets.",
   "cell": "lesson_mistake_fixed",
   "choices": [
+   "tape can fix many things",
    "a secret mistake feels heavier than a told one",
    "a blue crayon got snapped",
-   "crayons should never be shared",
-   "tape can fix many things"
+   "crayons should never be shared"
   ],
   "answerOptions": [
+   {
+    "value": "tape can fix many things",
+    "label": "tape can fix many things",
+    "text": "tape can fix many things"
+   },
    {
     "value": "a secret mistake feels heavier than a told one",
     "label": "a secret mistake feels heavier than a told one",
@@ -209,11 +228,6 @@ export const questions = [
     "value": "crayons should never be shared",
     "label": "crayons should never be shared",
     "text": "crayons should never be shared"
-   },
-   {
-    "value": "tape can fix many things",
-    "label": "tape can fix many things",
-    "text": "tape can fix many things"
    }
   ],
   "answer": "a secret mistake feels heavier than a told one",
@@ -223,15 +237,16 @@ export const questions = [
    "crayons should never be shared": "D-OPPOSITE",
    "tape can fix many things": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -242,7 +257,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Kit snapped the blue crayon and quickly slid it back in the tin, broken ends together. All morning it bothered him like a stone in a shoe. At last he told Miss May. She smiled, taped the crayon, and said broken things mend easier than secrets."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
@@ -300,19 +321,20 @@ export const questions = [
   "answer": "do not judge someone before you know them",
   "correctAnswer": "do not judge someone before you know them",
   "distractorRationales": {
-   "Ravi's bag was heavy": "D-DETAIL-AS-MAIN",
    "always get off the bus early": "D-OPPOSITE",
-   "school gates are meeting places": "D-TOPIC-ADJACENT"
+   "school gates are meeting places": "D-TOPIC-ADJACENT",
+   "Ravi's bag was heavy": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -323,7 +345,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Ravi got off the bus one stop early to avoid sitting next to a new boy. The walk was long, his bag was heavy, and he still met the new boy at the school gate — who grinned and carried the bag the last stretch. The next day they sat together."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
@@ -351,17 +379,12 @@ export const questions = [
   "passage": "Lena bragged that her wobbly tooth would come out first, before Sam's. She wiggled it all day just to win. It came out at last — but it hurt, and there was no prize, only Sam saying 'well done' kindly. Lena wished she had let it happen in its own time.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "racing to be first can spoil the fun",
    "Lena's tooth was wobbly",
    "teeth should never come out",
-   "Sam said well done"
+   "Sam said well done",
+   "racing to be first can spoil the fun"
   ],
   "answerOptions": [
-   {
-    "value": "racing to be first can spoil the fun",
-    "label": "racing to be first can spoil the fun",
-    "text": "racing to be first can spoil the fun"
-   },
    {
     "value": "Lena's tooth was wobbly",
     "label": "Lena's tooth was wobbly",
@@ -376,6 +399,11 @@ export const questions = [
     "value": "Sam said well done",
     "label": "Sam said well done",
     "text": "Sam said well done"
+   },
+   {
+    "value": "racing to be first can spoil the fun",
+    "label": "racing to be first can spoil the fun",
+    "text": "racing to be first can spoil the fun"
    }
   ],
   "answer": "racing to be first can spoil the fun",
@@ -385,15 +413,16 @@ export const questions = [
    "teeth should never come out": "D-OPPOSITE",
    "Sam said well done": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -404,7 +433,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for Lena bragged that her wobbly tooth would come out first, before Sam's. She wiggled it all day just to win. It came out at last — but it hurt, and there was no prize, only Sam saying 'well done' kindly. Lena wished she had let it happen in its own time."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
@@ -432,22 +467,12 @@ export const questions = [
   "passage": "Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. The pet-shop lady explained: too much food is its own kind of unkindness. Min learned to feed a pinch, no more, and the water cleared.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "too much of a good thing can do harm",
-   "the tank water turned cloudy",
    "goldfish should not be fed",
-   "pet shops know about fish"
+   "pet shops know about fish",
+   "too much of a good thing can do harm",
+   "the tank water turned cloudy"
   ],
   "answerOptions": [
-   {
-    "value": "too much of a good thing can do harm",
-    "label": "too much of a good thing can do harm",
-    "text": "too much of a good thing can do harm"
-   },
-   {
-    "value": "the tank water turned cloudy",
-    "label": "the tank water turned cloudy",
-    "text": "the tank water turned cloudy"
-   },
    {
     "value": "goldfish should not be fed",
     "label": "goldfish should not be fed",
@@ -457,24 +482,35 @@ export const questions = [
     "value": "pet shops know about fish",
     "label": "pet shops know about fish",
     "text": "pet shops know about fish"
+   },
+   {
+    "value": "too much of a good thing can do harm",
+    "label": "too much of a good thing can do harm",
+    "text": "too much of a good thing can do harm"
+   },
+   {
+    "value": "the tank water turned cloudy",
+    "label": "the tank water turned cloudy",
+    "text": "the tank water turned cloudy"
    }
   ],
   "answer": "too much of a good thing can do harm",
   "correctAnswer": "too much of a good thing can do harm",
   "distractorRationales": {
-   "the tank water turned cloudy": "D-DETAIL-AS-MAIN",
    "goldfish should not be fed": "D-OPPOSITE",
-   "pet shops know about fish": "D-TOPIC-ADJACENT"
+   "pet shops know about fish": "D-TOPIC-ADJACENT",
+   "the tank water turned cloudy": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -485,7 +521,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
+  "resolvedImageAssetKey": "cloudy",
+  "imageAlt": "Illustration for Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. The pet-shop lady explained: too much food is its own kind of unkindness. Min learned to feed a pinch, no more, and the water cleared."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
@@ -513,12 +555,17 @@ export const questions = [
   "passage": "In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his cross little face — and understood without one word being said.",
   "cell": "lesson_mistake_fixed",
   "choices": [
+   "librarians point at corners",
    "your noise can spoil things for others",
    "Posy whispered a song",
-   "libraries should ban jokes",
-   "librarians point at corners"
+   "libraries should ban jokes"
   ],
   "answerOptions": [
+   {
+    "value": "librarians point at corners",
+    "label": "librarians point at corners",
+    "text": "librarians point at corners"
+   },
    {
     "value": "your noise can spoil things for others",
     "label": "your noise can spoil things for others",
@@ -533,29 +580,25 @@ export const questions = [
     "value": "libraries should ban jokes",
     "label": "libraries should ban jokes",
     "text": "libraries should ban jokes"
-   },
-   {
-    "value": "librarians point at corners",
-    "label": "librarians point at corners",
-    "text": "librarians point at corners"
    }
   ],
   "answer": "your noise can spoil things for others",
   "correctAnswer": "your noise can spoil things for others",
   "distractorRationales": {
+   "librarians point at corners": "D-TOPIC-ADJACENT",
    "Posy whispered a song": "D-DETAIL-AS-MAIN",
-   "libraries should ban jokes": "D-OPPOSITE",
-   "librarians point at corners": "D-TOPIC-ADJACENT"
+   "libraries should ban jokes": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -566,7 +609,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his cross little face — and understood without one word being said."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
@@ -624,19 +673,20 @@ export const questions = [
   "answer": "a promise matters even when it is hard to keep",
   "correctAnswer": "a promise matters even when it is hard to keep",
   "distractorRationales": {
+   "summer weeks can be hot": "D-TOPIC-ADJACENT",
    "the plum leaves curled up": "D-DETAIL-AS-MAIN",
-   "never help your neighbours": "D-OPPOSITE",
-   "summer weeks can be hot": "D-TOPIC-ADJACENT"
+   "never help your neighbours": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -647,7 +697,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "resolvedImageAssetKey": "leaves",
+  "imageAlt": "Illustration for Dara promised to water next-door's plum tree during the holiday, then forgot for a whole hot week. The leaves curled. She watered it every evening after that, twice on the hottest days, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
@@ -675,22 +731,12 @@ export const questions = [
   "passage": "Every wet morning, Iris carried her little brother's boots so he could climb the bus steps. One icy day, Iris slipped and her books flew everywhere. Before she could blink, her brother and three of his small friends were gathering pages from every puddle.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "kindness you give comes back to you",
-   "books flew into the puddles",
    "icy days are for staying home",
-   "little brothers are a nuisance"
+   "little brothers are a nuisance",
+   "kindness you give comes back to you",
+   "books flew into the puddles"
   ],
   "answerOptions": [
-   {
-    "value": "kindness you give comes back to you",
-    "label": "kindness you give comes back to you",
-    "text": "kindness you give comes back to you"
-   },
-   {
-    "value": "books flew into the puddles",
-    "label": "books flew into the puddles",
-    "text": "books flew into the puddles"
-   },
    {
     "value": "icy days are for staying home",
     "label": "icy days are for staying home",
@@ -700,6 +746,16 @@ export const questions = [
     "value": "little brothers are a nuisance",
     "label": "little brothers are a nuisance",
     "text": "little brothers are a nuisance"
+   },
+   {
+    "value": "kindness you give comes back to you",
+    "label": "kindness you give comes back to you",
+    "text": "kindness you give comes back to you"
+   },
+   {
+    "value": "books flew into the puddles",
+    "label": "books flew into the puddles",
+    "text": "books flew into the puddles"
    }
   ],
   "answer": "kindness you give comes back to you",
@@ -709,15 +765,16 @@ export const questions = [
    "icy days are for staying home": "D-TOPIC-ADJACENT",
    "little brothers are a nuisance": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -728,7 +785,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "resolvedImageAssetKey": "kindness",
+  "imageAlt": "Illustration for Every wet morning, Iris carried her little brother's boots so he could climb the bus steps. One icy day, Iris slipped and her books flew everywhere. Before she could blink, her brother and three of his small friends were gathering pages from every puddle."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
@@ -756,12 +819,17 @@ export const questions = [
   "passage": "The new girl ate lunch alone, so Bo moved his tray next to hers and shared his grapes. Weeks later, when Bo broke his arm and could not cut his food, a tray slid quietly next to his — and the new girl cut his dinner into pieces without being asked.",
   "cell": "lesson_kindness_returned",
   "choices": [
+   "broken arms make eating hard",
    "small kindnesses grow into friendship",
    "Bo shared his grapes",
-   "eat lunch alone if you can",
-   "broken arms make eating hard"
+   "eat lunch alone if you can"
   ],
   "answerOptions": [
+   {
+    "value": "broken arms make eating hard",
+    "label": "broken arms make eating hard",
+    "text": "broken arms make eating hard"
+   },
    {
     "value": "small kindnesses grow into friendship",
     "label": "small kindnesses grow into friendship",
@@ -776,11 +844,6 @@ export const questions = [
     "value": "eat lunch alone if you can",
     "label": "eat lunch alone if you can",
     "text": "eat lunch alone if you can"
-   },
-   {
-    "value": "broken arms make eating hard",
-    "label": "broken arms make eating hard",
-    "text": "broken arms make eating hard"
    }
   ],
   "answer": "small kindnesses grow into friendship",
@@ -790,15 +853,16 @@ export const questions = [
    "eat lunch alone if you can": "D-OPPOSITE",
    "broken arms make eating hard": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -809,7 +873,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "resolvedImageAssetKey": "quietly",
+  "imageAlt": "Illustration for The new girl ate lunch alone, so Bo moved his tray next to hers and shared his grapes. Weeks later, when Bo broke his arm and could not cut his food, a tray slid quietly next to his — and the new girl cut his dinner into pieces without being asked."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
@@ -837,17 +907,12 @@ export const questions = [
   "passage": "Grandpa Tan fixed umbrellas for the whole street and never took a penny. 'Rain falls on everyone,' he said. When his roof leaked in the big storm, half the street appeared at his door with ladders, buckets, and a hot dinner in a basket.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "a helper is never left to struggle alone",
    "Grandpa Tan fixed umbrellas",
    "keep your pennies for yourself",
-   "storms can break roofs"
+   "storms can break roofs",
+   "a helper is never left to struggle alone"
   ],
   "answerOptions": [
-   {
-    "value": "a helper is never left to struggle alone",
-    "label": "a helper is never left to struggle alone",
-    "text": "a helper is never left to struggle alone"
-   },
    {
     "value": "Grandpa Tan fixed umbrellas",
     "label": "Grandpa Tan fixed umbrellas",
@@ -862,6 +927,11 @@ export const questions = [
     "value": "storms can break roofs",
     "label": "storms can break roofs",
     "text": "storms can break roofs"
+   },
+   {
+    "value": "a helper is never left to struggle alone",
+    "label": "a helper is never left to struggle alone",
+    "text": "a helper is never left to struggle alone"
    }
   ],
   "answer": "a helper is never left to struggle alone",
@@ -871,15 +941,16 @@ export const questions = [
    "keep your pennies for yourself": "D-OPPOSITE",
    "storms can break roofs": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -890,7 +961,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "resolvedImageAssetKey": "story",
+  "imageAlt": "Illustration for Grandpa Tan fixed umbrellas for the whole street and never took a penny. 'Rain falls on everyone,' he said. When his roof leaked in the big storm, half the street appeared at his door with ladders, buckets, and a hot dinner in a basket."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
@@ -918,17 +995,12 @@ export const questions = [
   "passage": "At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two toffee apples — one for herself, and one for a dusty, grinning boy.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "sharing doubles a good moment",
    "a coin rolled under a table",
    "keep both toffee apples",
-   "fairs sell toffee apples"
+   "fairs sell toffee apples",
+   "sharing doubles a good moment"
   ],
   "answerOptions": [
-   {
-    "value": "sharing doubles a good moment",
-    "label": "sharing doubles a good moment",
-    "text": "sharing doubles a good moment"
-   },
    {
     "value": "a coin rolled under a table",
     "label": "a coin rolled under a table",
@@ -943,24 +1015,30 @@ export const questions = [
     "value": "fairs sell toffee apples",
     "label": "fairs sell toffee apples",
     "text": "fairs sell toffee apples"
+   },
+   {
+    "value": "sharing doubles a good moment",
+    "label": "sharing doubles a good moment",
+    "text": "sharing doubles a good moment"
    }
   ],
   "answer": "sharing doubles a good moment",
   "correctAnswer": "sharing doubles a good moment",
   "distractorRationales": {
-   "a coin rolled under a table": "D-DETAIL-AS-MAIN",
    "keep both toffee apples": "D-OPPOSITE",
-   "fairs sell toffee apples": "D-TOPIC-ADJACENT"
+   "fairs sell toffee apples": "D-TOPIC-ADJACENT",
+   "a coin rolled under a table": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -971,7 +1049,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
+  "resolvedImageAssetKey": "apples",
+  "imageAlt": "Illustration for At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two toffee apples — one for herself, and one for a dusty, grinning boy."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
@@ -999,22 +1083,12 @@ export const questions = [
   "passage": "Wren was the quietest singer in choir, so quiet her words were mostly shapes. Ana stood beside her every week and sang a little softer, so Wren could hear her own voice. At the concert, two voices rose together — and one of them had never sounded so brave.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "gentle support helps courage grow",
-   "Wren sang very quietly",
    "loud singers matter most",
-   "choirs give concerts"
+   "choirs give concerts",
+   "gentle support helps courage grow",
+   "Wren sang very quietly"
   ],
   "answerOptions": [
-   {
-    "value": "gentle support helps courage grow",
-    "label": "gentle support helps courage grow",
-    "text": "gentle support helps courage grow"
-   },
-   {
-    "value": "Wren sang very quietly",
-    "label": "Wren sang very quietly",
-    "text": "Wren sang very quietly"
-   },
    {
     "value": "loud singers matter most",
     "label": "loud singers matter most",
@@ -1024,6 +1098,16 @@ export const questions = [
     "value": "choirs give concerts",
     "label": "choirs give concerts",
     "text": "choirs give concerts"
+   },
+   {
+    "value": "gentle support helps courage grow",
+    "label": "gentle support helps courage grow",
+    "text": "gentle support helps courage grow"
+   },
+   {
+    "value": "Wren sang very quietly",
+    "label": "Wren sang very quietly",
+    "text": "Wren sang very quietly"
    }
   ],
   "answer": "gentle support helps courage grow",
@@ -1033,15 +1117,16 @@ export const questions = [
    "loud singers matter most": "D-OPPOSITE",
    "choirs give concerts": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1052,7 +1137,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Wren was the quietest singer in choir, so quiet her words were mostly shapes. Ana stood beside her every week and sang a little softer, so Wren could hear her own voice. At the concert, two voices rose together — and one of them had never sounded so brave."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
@@ -1110,19 +1201,20 @@ export const questions = [
   "answer": "helping without being asked opens hearts",
   "correctAnswer": "helping without being asked opens hearts",
   "distractorRationales": {
-   "a tractor sank in the mud": "D-DETAIL-AS-MAIN",
    "pride is always right": "D-OPPOSITE",
-   "orchards grow apples": "D-TOPIC-ADJACENT"
+   "orchards grow apples": "D-TOPIC-ADJACENT",
+   "a tractor sank in the mud": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1133,7 +1225,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for Old Mr Price's tractor sank in the mud, and he sat a long time, too proud to wave for help. The Okafor children saw anyway. They fetched planks, their mother, and a rope — and afterwards Mr Price's orchard gate, locked for years, stood open with a sign: APPLES, HELP YOURSELVES."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
@@ -1191,19 +1289,20 @@ export const questions = [
   "answer": "quiet good deeds are still seen",
   "correctAnswer": "quiet good deeds are still seen",
   "distractorRationales": {
+   "notes go in trays": "D-TOPIC-ADJACENT",
    "there was glass on the slide": "D-DETAIL-AS-MAIN",
-   "football matters more than safety": "D-OPPOSITE",
-   "notes go in trays": "D-TOPIC-ADJACENT"
+   "football matters more than safety": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,7 +1313,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
+  "resolvedImageAssetKey": "carefully",
+  "imageAlt": "Illustration for Jude found a splinter of glass on the slide and spent his whole break carefully clearing every piece, missing the football game. Nobody noticed — he thought. On Friday, a note appeared in his tray: 'Thank you from the little ones. You didn't know we saw.'"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
@@ -1242,17 +1347,12 @@ export const questions = [
   "passage": "One skipping rope, eleven children. Quarrels every break — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the queue sang the counting song, and break time stopped ending in tears.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "fair sharing lets everyone enjoy more",
    "eleven children wanted one rope",
    "the strongest should keep the rope",
-   "skipping has counting songs"
+   "skipping has counting songs",
+   "fair sharing lets everyone enjoy more"
   ],
   "answerOptions": [
-   {
-    "value": "fair sharing lets everyone enjoy more",
-    "label": "fair sharing lets everyone enjoy more",
-    "text": "fair sharing lets everyone enjoy more"
-   },
    {
     "value": "eleven children wanted one rope",
     "label": "eleven children wanted one rope",
@@ -1267,24 +1367,30 @@ export const questions = [
     "value": "skipping has counting songs",
     "label": "skipping has counting songs",
     "text": "skipping has counting songs"
+   },
+   {
+    "value": "fair sharing lets everyone enjoy more",
+    "label": "fair sharing lets everyone enjoy more",
+    "text": "fair sharing lets everyone enjoy more"
    }
   ],
   "answer": "fair sharing lets everyone enjoy more",
   "correctAnswer": "fair sharing lets everyone enjoy more",
   "distractorRationales": {
+   "skipping has counting songs": "D-TOPIC-ADJACENT",
    "eleven children wanted one rope": "D-DETAIL-AS-MAIN",
-   "the strongest should keep the rope": "D-OPPOSITE",
-   "skipping has counting songs": "D-TOPIC-ADJACENT"
+   "the strongest should keep the rope": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1295,7 +1401,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for One skipping rope, eleven children. Quarrels every break — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the queue sang the counting song, and break time stopped ending in tears."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
@@ -1323,16 +1435,21 @@ export const questions = [
   "passage": "Pip's sunflower seed sat in the soil doing nothing while Marco's shot up like a green rocket. Pip watered anyway, every day, even when it felt silly. In week five, a late little stem appeared — and by August, Pip's flower was the tallest in the whole garden.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "keep going even when nothing seems to happen",
+   "sunflowers grow in gardens",
+   "keep trying when progress is slow",
    "Marco's flower grew first",
-   "slow seeds never grow",
-   "sunflowers grow in gardens"
+   "slow seeds never grow"
   ],
   "answerOptions": [
    {
-    "value": "keep going even when nothing seems to happen",
-    "label": "keep going even when nothing seems to happen",
-    "text": "keep going even when nothing seems to happen"
+    "value": "sunflowers grow in gardens",
+    "label": "sunflowers grow in gardens",
+    "text": "sunflowers grow in gardens"
+   },
+   {
+    "value": "keep trying when progress is slow",
+    "label": "keep trying when progress is slow",
+    "text": "keep trying when progress is slow"
    },
    {
     "value": "Marco's flower grew first",
@@ -1343,29 +1460,25 @@ export const questions = [
     "value": "slow seeds never grow",
     "label": "slow seeds never grow",
     "text": "slow seeds never grow"
-   },
-   {
-    "value": "sunflowers grow in gardens",
-    "label": "sunflowers grow in gardens",
-    "text": "sunflowers grow in gardens"
    }
   ],
-  "answer": "keep going even when nothing seems to happen",
-  "correctAnswer": "keep going even when nothing seems to happen",
+  "answer": "keep trying when progress is slow",
+  "correctAnswer": "keep trying when progress is slow",
   "distractorRationales": {
-   "Marco's flower grew first": "D-DETAIL-AS-MAIN",
    "slow seeds never grow": "D-OPPOSITE",
-   "sunflowers grow in gardens": "D-TOPIC-ADJACENT"
+   "sunflowers grow in gardens": "D-TOPIC-ADJACENT",
+   "Marco's flower grew first": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1376,7 +1489,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "resolvedImageAssetKey": "sunflower",
+  "imageAlt": "Illustration for Pip's sunflower seed sat in the soil doing nothing while Marco's shot up like a green rocket. Pip watered anyway, every day, even when it felt silly. In week five, a late little stem appeared — and by August, Pip's flower was the tallest in the whole garden."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
@@ -1434,19 +1553,20 @@ export const questions = [
   "answer": "many small tries add up to a big win",
   "correctAnswer": "many small tries add up to a big win",
   "distractorRationales": {
-   "Ola wore winter gloves": "D-DETAIL-AS-MAIN",
    "give up after one autumn": "D-OPPOSITE",
-   "playgrounds have monkey bars": "D-TOPIC-ADJACENT"
+   "playgrounds have monkey bars": "D-TOPIC-ADJACENT",
+   "Ola wore winter gloves": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,7 +1577,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/monkey-monkeys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/monkey-monkeys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/monkey-monkeys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/monkey-monkeys-01.webp",
+  "resolvedImageAssetKey": "monkey",
+  "imageAlt": "Illustration for The monkey bars defeated Ola all autumn. Each break she got one bar farther before dropping. Winter gloves, spring blisters, a hundred small tries. On the last day of term she swung across the whole row — and the playground burst into cheering she never expected."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
@@ -1485,12 +1611,17 @@ export const questions = [
   "passage": "Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, in the bath queue. Crane one hundred sat perfectly on his windowsill before his birthday.",
   "cell": "lesson_effort_pays",
   "choices": [
+   "libraries have craft books",
    "big goals are finished one small step at a time",
    "his thumbs ached at fifty",
-   "one hundred is too many",
-   "libraries have craft books"
+   "one hundred is too many"
   ],
   "answerOptions": [
+   {
+    "value": "libraries have craft books",
+    "label": "libraries have craft books",
+    "text": "libraries have craft books"
+   },
    {
     "value": "big goals are finished one small step at a time",
     "label": "big goals are finished one small step at a time",
@@ -1505,29 +1636,25 @@ export const questions = [
     "value": "one hundred is too many",
     "label": "one hundred is too many",
     "text": "one hundred is too many"
-   },
-   {
-    "value": "libraries have craft books",
-    "label": "libraries have craft books",
-    "text": "libraries have craft books"
    }
   ],
   "answer": "big goals are finished one small step at a time",
   "correctAnswer": "big goals are finished one small step at a time",
   "distractorRationales": {
-   "his thumbs ached at fifty": "D-DETAIL-AS-MAIN",
    "one hundred is too many": "D-OPPOSITE",
-   "libraries have craft books": "D-TOPIC-ADJACENT"
+   "libraries have craft books": "D-TOPIC-ADJACENT",
+   "his thumbs ached at fifty": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1538,7 +1665,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/straight-crooked-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/straight-crooked-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/straight-crooked-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/straight-crooked-01.webp",
+  "resolvedImageAssetKey": "crooked",
+  "imageAlt": "Illustration for Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, in the bath queue. Crane one hundred sat perfectly on his windowsill before his birthday."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
@@ -1566,22 +1699,12 @@ export const questions = [
   "passage": "Nobody wanted goalkeeper, so quiet Emil took the gloves. He practised alone against the garage wall all season — thud, catch, thud, catch. In the last match, with the score level, Emil flew sideways and tipped the ball over the bar, and his name was the loudest word on the pitch.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "practice done quietly still shines in the end",
-   "Emil practised against a garage",
    "goalkeepers never matter",
-   "matches can end level"
+   "matches can end level",
+   "practice done quietly still shines in the end",
+   "Emil practised against a garage"
   ],
   "answerOptions": [
-   {
-    "value": "practice done quietly still shines in the end",
-    "label": "practice done quietly still shines in the end",
-    "text": "practice done quietly still shines in the end"
-   },
-   {
-    "value": "Emil practised against a garage",
-    "label": "Emil practised against a garage",
-    "text": "Emil practised against a garage"
-   },
    {
     "value": "goalkeepers never matter",
     "label": "goalkeepers never matter",
@@ -1591,6 +1714,16 @@ export const questions = [
     "value": "matches can end level",
     "label": "matches can end level",
     "text": "matches can end level"
+   },
+   {
+    "value": "practice done quietly still shines in the end",
+    "label": "practice done quietly still shines in the end",
+    "text": "practice done quietly still shines in the end"
+   },
+   {
+    "value": "Emil practised against a garage",
+    "label": "Emil practised against a garage",
+    "text": "Emil practised against a garage"
    }
   ],
   "answer": "practice done quietly still shines in the end",
@@ -1600,15 +1733,16 @@ export const questions = [
    "goalkeepers never matter": "D-OPPOSITE",
    "matches can end level": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1619,7 +1753,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "resolvedImageAssetKey": "practice",
+  "imageAlt": "Illustration for Nobody wanted goalkeeper, so quiet Emil took the gloves. He practised alone against the garage wall all season — thud, catch, thud, catch. In the last match, with the score level, Emil flew sideways and tipped the ball over the bar, and his name was the loudest word on the pitch."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
@@ -1647,12 +1787,17 @@ export const questions = [
   "passage": "The first snow would not stick, and Ceri checked the window a hundred times. Gran said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sledge waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill.",
   "cell": "lesson_effort_pays",
   "choices": [
+   "sledges go on hills",
    "use waiting time to get ready",
    "the first snow would not stick",
-   "watching the sky brings snow",
-   "sledges go on hills"
+   "watching the sky brings snow"
   ],
   "answerOptions": [
+   {
+    "value": "sledges go on hills",
+    "label": "sledges go on hills",
+    "text": "sledges go on hills"
+   },
    {
     "value": "use waiting time to get ready",
     "label": "use waiting time to get ready",
@@ -1667,29 +1812,25 @@ export const questions = [
     "value": "watching the sky brings snow",
     "label": "watching the sky brings snow",
     "text": "watching the sky brings snow"
-   },
-   {
-    "value": "sledges go on hills",
-    "label": "sledges go on hills",
-    "text": "sledges go on hills"
    }
   ],
   "answer": "use waiting time to get ready",
   "correctAnswer": "use waiting time to get ready",
   "distractorRationales": {
+   "sledges go on hills": "D-TOPIC-ADJACENT",
    "the first snow would not stick": "D-DETAIL-AS-MAIN",
-   "watching the sky brings snow": "D-OPPOSITE",
-   "sledges go on hills": "D-TOPIC-ADJACENT"
+   "watching the sky brings snow": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1700,7 +1841,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for The first snow would not stick, and Ceri checked the window a hundred times. Gran said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sledge waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
@@ -1728,22 +1875,12 @@ export const questions = [
   "passage": "The jigsaw's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's basket, and finally the turn-up of Grandad's trouser leg. The picture on the table was complete because one person would not stop looking.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "finishing takes one person who will not quit",
-   "the piece was in a trouser turn-up",
    "lost pieces stay lost",
-   "dogs sleep in baskets"
+   "dogs sleep in baskets",
+   "finishing takes one person who will not quit",
+   "the piece was in a trouser turn-up"
   ],
   "answerOptions": [
-   {
-    "value": "finishing takes one person who will not quit",
-    "label": "finishing takes one person who will not quit",
-    "text": "finishing takes one person who will not quit"
-   },
-   {
-    "value": "the piece was in a trouser turn-up",
-    "label": "the piece was in a trouser turn-up",
-    "text": "the piece was in a trouser turn-up"
-   },
    {
     "value": "lost pieces stay lost",
     "label": "lost pieces stay lost",
@@ -1753,6 +1890,16 @@ export const questions = [
     "value": "dogs sleep in baskets",
     "label": "dogs sleep in baskets",
     "text": "dogs sleep in baskets"
+   },
+   {
+    "value": "finishing takes one person who will not quit",
+    "label": "finishing takes one person who will not quit",
+    "text": "finishing takes one person who will not quit"
+   },
+   {
+    "value": "the piece was in a trouser turn-up",
+    "label": "the piece was in a trouser turn-up",
+    "text": "the piece was in a trouser turn-up"
    }
   ],
   "answer": "finishing takes one person who will not quit",
@@ -1762,15 +1909,16 @@ export const questions = [
    "lost pieces stay lost": "D-OPPOSITE",
    "dogs sleep in baskets": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1781,7 +1929,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "resolvedImageAssetKey": "story",
+  "imageAlt": "Illustration for The jigsaw's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's basket, and finally the turn-up of Grandad's trouser leg. The picture on the table was complete because one person would not stop looking."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
@@ -1809,17 +1963,12 @@ export const questions = [
   "passage": "Grandpa's watch ran five minutes slow, and he liked it that way — but the mending of it became Suvi's winter project. Springs, screws, a magnifying glass, three failed tries, one bent tool. When the watch finally ticked true, Grandpa wore it proudly... set five minutes slow again, for old times' sake.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "hard work is worth it even for small things",
    "the watch ran five minutes slow",
    "old watches cannot be fixed",
-   "winter is for projects"
+   "winter is for projects",
+   "hard work is worth it even for small things"
   ],
   "answerOptions": [
-   {
-    "value": "hard work is worth it even for small things",
-    "label": "hard work is worth it even for small things",
-    "text": "hard work is worth it even for small things"
-   },
    {
     "value": "the watch ran five minutes slow",
     "label": "the watch ran five minutes slow",
@@ -1834,6 +1983,11 @@ export const questions = [
     "value": "winter is for projects",
     "label": "winter is for projects",
     "text": "winter is for projects"
+   },
+   {
+    "value": "hard work is worth it even for small things",
+    "label": "hard work is worth it even for small things",
+    "text": "hard work is worth it even for small things"
    }
   ],
   "answer": "hard work is worth it even for small things",
@@ -1843,15 +1997,16 @@ export const questions = [
    "old watches cannot be fixed": "D-OPPOSITE",
    "winter is for projects": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1862,7 +2017,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/vocabulary/winter.png",
+  "imageUrl": "/images/vocabulary/winter.png",
+  "targetImage": "/images/vocabulary/winter.png",
+  "targetImagePath": "/images/vocabulary/winter.png",
+  "resolvedImageAssetKey": "winter",
+  "imageAlt": "Illustration for Grandpa's watch ran five minutes slow, and he liked it that way — but the mending of it became Suvi's winter project. Springs, screws, a magnifying glass, three failed tries, one bent tool. When the watch finally ticked true, Grandpa wore it proudly... set five minutes slow again, for old times' sake."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
@@ -1890,22 +2051,12 @@ export const questions = [
   "passage": "The school's litter-picking robot kept jamming, and Class 5 kept unjamming it — new wheels from a skateboard, a brush from the lost kit box, tape, more tape. The head teacher said buy a new one. Class 5 said their patched robot, wobbling proudly down the corridor, was already the best one in the world.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "caring for something makes it precious",
-   "the robot got skateboard wheels",
    "broken things belong in bins",
-   "schools have corridors"
+   "schools have corridors",
+   "caring for something makes it precious",
+   "the robot got skateboard wheels"
   ],
   "answerOptions": [
-   {
-    "value": "caring for something makes it precious",
-    "label": "caring for something makes it precious",
-    "text": "caring for something makes it precious"
-   },
-   {
-    "value": "the robot got skateboard wheels",
-    "label": "the robot got skateboard wheels",
-    "text": "the robot got skateboard wheels"
-   },
    {
     "value": "broken things belong in bins",
     "label": "broken things belong in bins",
@@ -1915,6 +2066,16 @@ export const questions = [
     "value": "schools have corridors",
     "label": "schools have corridors",
     "text": "schools have corridors"
+   },
+   {
+    "value": "caring for something makes it precious",
+    "label": "caring for something makes it precious",
+    "text": "caring for something makes it precious"
+   },
+   {
+    "value": "the robot got skateboard wheels",
+    "label": "the robot got skateboard wheels",
+    "text": "the robot got skateboard wheels"
    }
   ],
   "answer": "caring for something makes it precious",
@@ -1924,15 +2085,16 @@ export const questions = [
    "broken things belong in bins": "D-OPPOSITE",
    "schools have corridors": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1943,7 +2105,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/skateboard.webp",
+  "imageUrl": "/images/assessment/blends/skateboard.webp",
+  "targetImage": "/images/assessment/blends/skateboard.webp",
+  "targetImagePath": "/images/assessment/blends/skateboard.webp",
+  "resolvedImageAssetKey": "skateboard",
+  "imageAlt": "Illustration for The school's litter-picking robot kept jamming, and Class 5 kept unjamming it — new wheels from a skateboard, a brush from the lost kit box, tape, more tape. The head teacher said buy a new one. Class 5 said their patched robot, wobbling proudly down the corridor, was already the best one in the world."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
@@ -1971,22 +2139,12 @@ export const questions = [
   "passage": "Two ladders leaned on the orchard wall: Jo's new silver one and the old wooden one Jo's mum had climbed as a girl. Jo always chose the silver ladder — until the day it slid on wet grass and the wooden one, with its worn, deep-gripped rungs, carried her safely up to the highest apples. That autumn Jo oiled the old ladder's joints herself, and the silver one waited under a sheet.",
   "cell": "theme_among_rivals",
   "choices": [
-   "old things earn trust that shiny things have not",
-   "never buy anything new when something old still works",
    "picking apples is dangerous",
-   "a ladder slid on the wet grass"
+   "a ladder slid on the wet grass",
+   "old things earn trust that shiny things have not",
+   "never buy anything new when something old still works"
   ],
   "answerOptions": [
-   {
-    "value": "old things earn trust that shiny things have not",
-    "label": "old things earn trust that shiny things have not",
-    "text": "old things earn trust that shiny things have not"
-   },
-   {
-    "value": "never buy anything new when something old still works",
-    "label": "never buy anything new when something old still works",
-    "text": "never buy anything new when something old still works"
-   },
    {
     "value": "picking apples is dangerous",
     "label": "picking apples is dangerous",
@@ -1996,6 +2154,16 @@ export const questions = [
     "value": "a ladder slid on the wet grass",
     "label": "a ladder slid on the wet grass",
     "text": "a ladder slid on the wet grass"
+   },
+   {
+    "value": "old things earn trust that shiny things have not",
+    "label": "old things earn trust that shiny things have not",
+    "text": "old things earn trust that shiny things have not"
+   },
+   {
+    "value": "never buy anything new when something old still works",
+    "label": "never buy anything new when something old still works",
+    "text": "never buy anything new when something old still works"
    }
   ],
   "answer": "old things earn trust that shiny things have not",
@@ -2005,15 +2173,16 @@ export const questions = [
    "picking apples is dangerous": "D-TOPIC-ADJACENT",
    "a ladder slid on the wet grass": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2024,7 +2193,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust"
+  "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for Two ladders leaned on the orchard wall: Jo's new silver one and the old wooden one Jo's mum had climbed as a girl. Jo always chose the silver ladder — until the day it slid on wet grass and the wooden one, with its worn, deep-gripped rungs, carried her safely up to the highest apples. That autumn Jo oiled the old ladder's joints herself, and the silver one waited under a sheet."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
@@ -2052,17 +2227,12 @@ export const questions = [
   "passage": "Yusuf practised the trumpet loudly and often, and told everyone about the concert. His sister Amal practised the harp quietly behind a closed door, and told no one. At the concert Yusuf played brilliantly and bowed twice. Amal played one simple tune so beautifully that the hall forgot to clap for a moment. On the way home, Yusuf asked, for the first time, if she would teach him the quiet way of practising.",
   "cell": "theme_among_rivals",
   "choices": [
-   "quiet skill can speak louder than showing off",
    "trumpets are better than harps",
    "never tell anyone about a concert",
-   "the hall forgot to clap once"
+   "the hall forgot to clap once",
+   "quiet skill can speak louder than showing off"
   ],
   "answerOptions": [
-   {
-    "value": "quiet skill can speak louder than showing off",
-    "label": "quiet skill can speak louder than showing off",
-    "text": "quiet skill can speak louder than showing off"
-   },
    {
     "value": "trumpets are better than harps",
     "label": "trumpets are better than harps",
@@ -2077,6 +2247,11 @@ export const questions = [
     "value": "the hall forgot to clap once",
     "label": "the hall forgot to clap once",
     "text": "the hall forgot to clap once"
+   },
+   {
+    "value": "quiet skill can speak louder than showing off",
+    "label": "quiet skill can speak louder than showing off",
+    "text": "quiet skill can speak louder than showing off"
    }
   ],
   "answer": "quiet skill can speak louder than showing off",
@@ -2086,15 +2261,16 @@ export const questions = [
    "never tell anyone about a concert": "D-OPPOSITE",
    "the hall forgot to clap once": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +2281,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for Yusuf practised the trumpet loudly and often, and told everyone about the concert. His sister Amal practised the harp quietly behind a closed door, and told no one. At the concert Yusuf played brilliantly and bowed twice. Amal played one simple tune so beautifully that the hall forgot to clap for a moment. On the way home, Yusuf asked, for the first time, if she would teach him the quiet way of practising."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
@@ -2133,16 +2315,16 @@ export const questions = [
   "passage": "The night-light argument ran all week: Dad said seven-year-olds do not need one, and Milo said the dark had shapes in it. The compromise was a torch on the pillow, 'for emergencies'. Milo used it the first night, held it the second, and by Friday it lay under the bed, forgotten — because knowing he COULD switch it on had quietly shrunk every shape in the dark.",
   "cell": "theme_among_rivals",
   "choices": [
-   "courage grows when you know help is in reach",
+   "knowing help is near can build courage",
    "darkness is truly dangerous",
    "torches belong on pillows",
    "fathers are always right"
   ],
   "answerOptions": [
    {
-    "value": "courage grows when you know help is in reach",
-    "label": "courage grows when you know help is in reach",
-    "text": "courage grows when you know help is in reach"
+    "value": "knowing help is near can build courage",
+    "label": "knowing help is near can build courage",
+    "text": "knowing help is near can build courage"
    },
    {
     "value": "darkness is truly dangerous",
@@ -2160,22 +2342,23 @@ export const questions = [
     "text": "fathers are always right"
    }
   ],
-  "answer": "courage grows when you know help is in reach",
-  "correctAnswer": "courage grows when you know help is in reach",
+  "answer": "knowing help is near can build courage",
+  "correctAnswer": "knowing help is near can build courage",
   "distractorRationales": {
    "darkness is truly dangerous": "D-OPPOSITE",
    "torches belong on pillows": "D-DETAIL-AS-MAIN",
    "fathers are always right": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2186,7 +2369,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
+  "resolvedImageAssetKey": "quietly",
+  "imageAlt": "Illustration for The night-light argument ran all week: Dad said seven-year-olds do not need one, and Milo said the dark had shapes in it. The compromise was a torch on the pillow, 'for emergencies'. Milo used it the first night, held it the second, and by Friday it lay under the bed, forgotten — because knowing he COULD switch it on had quietly shrunk every shape in the dark."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
@@ -2214,17 +2403,12 @@ export const questions = [
   "passage": "Priya found the spelling list for Friday's test lying by the photocopier — every word, a day early. She looked at it a long moment, then posted it back under the staffroom door. Her score on Friday was seven out of ten, her ordinary score. But when Mr Field told the class someone had returned the list unread, Priya sat a little taller than any ten out of ten had ever made her sit.",
   "cell": "theme_among_rivals",
   "choices": [
-   "being honest feels better than winning unfairly",
    "always aim for ten out of ten",
    "spelling tests do not matter",
-   "a list lay by the photocopier"
+   "a list lay by the photocopier",
+   "being honest feels better than winning unfairly"
   ],
   "answerOptions": [
-   {
-    "value": "being honest feels better than winning unfairly",
-    "label": "being honest feels better than winning unfairly",
-    "text": "being honest feels better than winning unfairly"
-   },
    {
     "value": "always aim for ten out of ten",
     "label": "always aim for ten out of ten",
@@ -2239,24 +2423,30 @@ export const questions = [
     "value": "a list lay by the photocopier",
     "label": "a list lay by the photocopier",
     "text": "a list lay by the photocopier"
+   },
+   {
+    "value": "being honest feels better than winning unfairly",
+    "label": "being honest feels better than winning unfairly",
+    "text": "being honest feels better than winning unfairly"
    }
   ],
   "answer": "being honest feels better than winning unfairly",
   "correctAnswer": "being honest feels better than winning unfairly",
   "distractorRationales": {
+   "a list lay by the photocopier": "D-DETAIL-AS-MAIN",
    "always aim for ten out of ten": "D-PLAUSIBLE-UNSUPPORTED",
-   "spelling tests do not matter": "D-OPPOSITE",
-   "a list lay by the photocopier": "D-DETAIL-AS-MAIN"
+   "spelling tests do not matter": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2267,7 +2457,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for Priya found the spelling list for Friday's test lying by the photocopier — every word, a day early. She looked at it a long moment, then posted it back under the staffroom door. Her score on Friday was seven out of ten, her ordinary score. But when Mr Field told the class someone had returned the list unread, Priya sat a little taller than any ten out of ten had ever made her sit."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
@@ -2295,16 +2491,16 @@ export const questions = [
   "passage": "When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp.",
   "cell": "theme_among_rivals",
   "choices": [
-   "sometimes the kindest help is the smallest",
+   "small help can be the kindest help",
    "never touch anything outdoors",
    "storms knock down nests",
    "lamps can keep eggs warm"
   ],
   "answerOptions": [
    {
-    "value": "sometimes the kindest help is the smallest",
-    "label": "sometimes the kindest help is the smallest",
-    "text": "sometimes the kindest help is the smallest"
+    "value": "small help can be the kindest help",
+    "label": "small help can be the kindest help",
+    "text": "small help can be the kindest help"
    },
    {
     "value": "never touch anything outdoors",
@@ -2322,22 +2518,23 @@ export const questions = [
     "text": "lamps can keep eggs warm"
    }
   ],
-  "answer": "sometimes the kindest help is the smallest",
-  "correctAnswer": "sometimes the kindest help is the smallest",
+  "answer": "small help can be the kindest help",
+  "correctAnswer": "small help can be the kindest help",
   "distractorRationales": {
    "never touch anything outdoors": "D-OPPOSITE",
    "storms knock down nests": "D-DETAIL-AS-MAIN",
    "lamps can keep eggs warm": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2348,7 +2545,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'"
+  "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/kindest-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/kindest-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/kindest-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/kindest-01.webp",
+  "resolvedImageAssetKey": "kindest",
+  "imageAlt": "Illustration for When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
@@ -2376,12 +2579,17 @@ export const questions = [
   "passage": "The junior bake-off allowed one entry each. Zeke's jam roll collapsed an hour before judging, and he stood in the wreckage of sponge, out of time and out of hope. Nell looked at her own perfect lemon cake, then cut it in half, plated the halves separately, and told the judges the second entry was Zeke's idea as much as hers. They did not win. Neither of them ever called it a loss.",
   "cell": "theme_among_rivals",
   "choices": [
+   "a jam roll collapsed before judging",
    "friendship can matter more than prizes",
    "never enter a bake-off",
-   "lemon cakes beat jam rolls",
-   "a jam roll collapsed before judging"
+   "lemon cakes beat jam rolls"
   ],
   "answerOptions": [
+   {
+    "value": "a jam roll collapsed before judging",
+    "label": "a jam roll collapsed before judging",
+    "text": "a jam roll collapsed before judging"
+   },
    {
     "value": "friendship can matter more than prizes",
     "label": "friendship can matter more than prizes",
@@ -2396,29 +2604,25 @@ export const questions = [
     "value": "lemon cakes beat jam rolls",
     "label": "lemon cakes beat jam rolls",
     "text": "lemon cakes beat jam rolls"
-   },
-   {
-    "value": "a jam roll collapsed before judging",
-    "label": "a jam roll collapsed before judging",
-    "text": "a jam roll collapsed before judging"
    }
   ],
   "answer": "friendship can matter more than prizes",
   "correctAnswer": "friendship can matter more than prizes",
   "distractorRationales": {
+   "a jam roll collapsed before judging": "D-DETAIL-AS-MAIN",
    "never enter a bake-off": "D-OPPOSITE",
-   "lemon cakes beat jam rolls": "D-TOPIC-ADJACENT",
-   "a jam roll collapsed before judging": "D-DETAIL-AS-MAIN"
+   "lemon cakes beat jam rolls": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2429,7 +2633,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for The junior bake-off allowed one entry each. Zeke's jam roll collapsed an hour before judging, and he stood in the wreckage of sponge, out of time and out of hope. Nell looked at her own perfect lemon cake, then cut it in half, plated the halves separately, and told the judges the second entry was Zeke's idea as much as hers. They did not win. Neither of them ever called it a loss."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
@@ -2457,16 +2667,16 @@ export const questions = [
   "passage": "Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs Adjei came down, and everyone waited for the telling-off. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, the stairwell heard whisper-games, and the third floor heard nothing at all.",
   "cell": "theme_among_rivals",
   "choices": [
-   "a gentle answer teaches more than an angry one",
+   "gentle words teach better than anger",
    "echoes live in stairwells",
    "games should be banned indoors",
    "third floors are grumpy"
   ],
   "answerOptions": [
    {
-    "value": "a gentle answer teaches more than an angry one",
-    "label": "a gentle answer teaches more than an angry one",
-    "text": "a gentle answer teaches more than an angry one"
+    "value": "gentle words teach better than anger",
+    "label": "gentle words teach better than anger",
+    "text": "gentle words teach better than anger"
    },
    {
     "value": "echoes live in stairwells",
@@ -2484,22 +2694,23 @@ export const questions = [
     "text": "third floors are grumpy"
    }
   ],
-  "answer": "a gentle answer teaches more than an angry one",
-  "correctAnswer": "a gentle answer teaches more than an angry one",
+  "answer": "gentle words teach better than anger",
+  "correctAnswer": "gentle words teach better than anger",
   "distractorRationales": {
-   "echoes live in stairwells": "D-DETAIL-AS-MAIN",
    "games should be banned indoors": "D-OPPOSITE",
-   "third floors are grumpy": "D-PLAUSIBLE-UNSUPPORTED"
+   "third floors are grumpy": "D-PLAUSIBLE-UNSUPPORTED",
+   "echoes live in stairwells": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2510,7 +2721,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/whisper-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/whisper-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/whisper-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/whisper-01.webp",
+  "resolvedImageAssetKey": "whisper",
+  "imageAlt": "Illustration for Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs Adjei came down, and everyone waited for the telling-off. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, the stairwell heard whisper-games, and the third floor heard nothing at all."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
@@ -2538,16 +2755,21 @@ export const questions = [
   "passage": "The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came round again, nineteen hands remembered his good grace and went up with his.",
   "cell": "theme_among_rivals",
   "choices": [
-   "losing well today can win friends tomorrow",
+   "the vote was nineteen to one",
+   "lose well now; gain friends later",
    "parties are better than nets",
-   "never vote against the class",
-   "the vote was nineteen to one"
+   "never vote against the class"
   ],
   "answerOptions": [
    {
-    "value": "losing well today can win friends tomorrow",
-    "label": "losing well today can win friends tomorrow",
-    "text": "losing well today can win friends tomorrow"
+    "value": "the vote was nineteen to one",
+    "label": "the vote was nineteen to one",
+    "text": "the vote was nineteen to one"
+   },
+   {
+    "value": "lose well now; gain friends later",
+    "label": "lose well now; gain friends later",
+    "text": "lose well now; gain friends later"
    },
    {
     "value": "parties are better than nets",
@@ -2558,29 +2780,25 @@ export const questions = [
     "value": "never vote against the class",
     "label": "never vote against the class",
     "text": "never vote against the class"
-   },
-   {
-    "value": "the vote was nineteen to one",
-    "label": "the vote was nineteen to one",
-    "text": "the vote was nineteen to one"
    }
   ],
-  "answer": "losing well today can win friends tomorrow",
-  "correctAnswer": "losing well today can win friends tomorrow",
+  "answer": "lose well now; gain friends later",
+  "correctAnswer": "lose well now; gain friends later",
   "distractorRationales": {
-   "parties are better than nets": "D-TOPIC-ADJACENT",
    "never vote against the class": "D-OPPOSITE",
-   "the vote was nineteen to one": "D-DETAIL-AS-MAIN"
+   "the vote was nineteen to one": "D-DETAIL-AS-MAIN",
+   "parties are better than nets": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,7 +2809,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came round again, nineteen hands remembered his good grace and went up with his."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
@@ -2619,12 +2843,17 @@ export const questions = [
   "passage": "Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone goes quiet quickly. She chalked VIEWINGS, FREE on the pavement. Neighbours queued past bedtime, gasping in turn, and Sana found that the comet grew more amazing every time someone new cried out at it.",
   "cell": "theme_vs_plot",
   "choices": [
+   "a girl owned a telescope",
    "wonders grow when they are shared",
    "Sana chalked a sign and neighbours queued",
-   "a comet passed during one week",
-   "a girl owned a telescope"
+   "a comet passed during one week"
   ],
   "answerOptions": [
+   {
+    "value": "a girl owned a telescope",
+    "label": "a girl owned a telescope",
+    "text": "a girl owned a telescope"
+   },
    {
     "value": "wonders grow when they are shared",
     "label": "wonders grow when they are shared",
@@ -2639,29 +2868,25 @@ export const questions = [
     "value": "a comet passed during one week",
     "label": "a comet passed during one week",
     "text": "a comet passed during one week"
-   },
-   {
-    "value": "a girl owned a telescope",
-    "label": "a girl owned a telescope",
-    "text": "a girl owned a telescope"
    }
   ],
   "answer": "wonders grow when they are shared",
   "correctAnswer": "wonders grow when they are shared",
   "distractorRationales": {
+   "a girl owned a telescope": "D-DETAIL-AS-MAIN",
    "Sana chalked a sign and neighbours queued": "D-DETAIL-AS-MAIN",
-   "a comet passed during one week": "D-DETAIL-AS-MAIN",
-   "a girl owned a telescope": "D-DETAIL-AS-MAIN"
+   "a comet passed during one week": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2672,7 +2897,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "theme vs three plot restatements — the defining discrimination"
+  "notes": "theme vs three plot restatements — the defining discrimination",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "resolvedImageAssetKey": "quickly",
+  "imageAlt": "Illustration for Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone goes quiet quickly. She chalked VIEWINGS, FREE on the pavement. Neighbours queued past bedtime, gasping in turn, and Sana found that the comet grew more amazing every time someone new cried out at it."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
@@ -2700,22 +2931,12 @@ export const questions = [
   "passage": "The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding.",
   "cell": "theme_vs_plot",
   "choices": [
-   "wrong turns can open doors plans never would",
-   "a driver stopped a street early",
    "the museum was free on Thursdays",
-   "Marisol saw whale bones"
+   "Marisol saw whale bones",
+   "wrong turns can lead to good discoveries",
+   "a driver stopped a street early"
   ],
   "answerOptions": [
-   {
-    "value": "wrong turns can open doors plans never would",
-    "label": "wrong turns can open doors plans never would",
-    "text": "wrong turns can open doors plans never would"
-   },
-   {
-    "value": "a driver stopped a street early",
-    "label": "a driver stopped a street early",
-    "text": "a driver stopped a street early"
-   },
    {
     "value": "the museum was free on Thursdays",
     "label": "the museum was free on Thursdays",
@@ -2725,24 +2946,35 @@ export const questions = [
     "value": "Marisol saw whale bones",
     "label": "Marisol saw whale bones",
     "text": "Marisol saw whale bones"
+   },
+   {
+    "value": "wrong turns can lead to good discoveries",
+    "label": "wrong turns can lead to good discoveries",
+    "text": "wrong turns can lead to good discoveries"
+   },
+   {
+    "value": "a driver stopped a street early",
+    "label": "a driver stopped a street early",
+    "text": "a driver stopped a street early"
    }
   ],
-  "answer": "wrong turns can open doors plans never would",
-  "correctAnswer": "wrong turns can open doors plans never would",
+  "answer": "wrong turns can lead to good discoveries",
+  "correctAnswer": "wrong turns can lead to good discoveries",
   "distractorRationales": {
    "a driver stopped a street early": "D-DETAIL-AS-MAIN",
    "the museum was free on Thursdays": "D-DETAIL-AS-MAIN",
    "Marisol saw whale bones": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2753,7 +2985,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/theme.webp",
+  "imageUrl": "/images/assessment/long-vowels/theme.webp",
+  "targetImage": "/images/assessment/long-vowels/theme.webp",
+  "targetImagePath": "/images/assessment/long-vowels/theme.webp",
+  "resolvedImageAssetKey": "theme",
+  "imageAlt": "Illustration for The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
@@ -2781,22 +3019,12 @@ export const questions = [
   "passage": "Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But breaking Gran's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, what he would save up to mend. Gran kept the taped-together teapot on the shelf. The letter she kept in her purse, for years.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a true apology names the wrong and mends it",
-   "Tom broke his gran's teapot",
    "the teapot was taped back together",
-   "Gran kept a letter in her purse"
+   "Gran kept a letter in her purse",
+   "a true apology names the wrong and mends it",
+   "Tom broke his gran's teapot"
   ],
   "answerOptions": [
-   {
-    "value": "a true apology names the wrong and mends it",
-    "label": "a true apology names the wrong and mends it",
-    "text": "a true apology names the wrong and mends it"
-   },
-   {
-    "value": "Tom broke his gran's teapot",
-    "label": "Tom broke his gran's teapot",
-    "text": "Tom broke his gran's teapot"
-   },
    {
     "value": "the teapot was taped back together",
     "label": "the teapot was taped back together",
@@ -2806,24 +3034,35 @@ export const questions = [
     "value": "Gran kept a letter in her purse",
     "label": "Gran kept a letter in her purse",
     "text": "Gran kept a letter in her purse"
+   },
+   {
+    "value": "a true apology names the wrong and mends it",
+    "label": "a true apology names the wrong and mends it",
+    "text": "a true apology names the wrong and mends it"
+   },
+   {
+    "value": "Tom broke his gran's teapot",
+    "label": "Tom broke his gran's teapot",
+    "text": "Tom broke his gran's teapot"
    }
   ],
   "answer": "a true apology names the wrong and mends it",
   "correctAnswer": "a true apology names the wrong and mends it",
   "distractorRationales": {
+   "Gran kept a letter in her purse": "D-DETAIL-AS-MAIN",
    "Tom broke his gran's teapot": "D-DETAIL-AS-MAIN",
-   "the teapot was taped back together": "D-DETAIL-AS-MAIN",
-   "Gran kept a letter in her purse": "D-DETAIL-AS-MAIN"
+   "the teapot was taped back together": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2834,7 +3073,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/careless-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/careless-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/careless-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/careless-01.webp",
+  "resolvedImageAssetKey": "careless",
+  "imageAlt": "Illustration for Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But breaking Gran's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, what he would save up to mend. Gran kept the taped-together teapot on the shelf. The letter she kept in her purse, for years."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
@@ -2862,22 +3107,12 @@ export const questions = [
   "passage": "The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbourmaster read the list's last page aloud — four thousand names — and the whole quay stood silent, understanding at last what steady, unseen work had been holding their sea-road open.",
   "cell": "theme_vs_plot",
   "choices": [
-   "steady unseen work holds the world together",
-   "a keeper wrote down ships' names",
    "the harbourmaster read a list aloud",
-   "the keeper retired after forty years"
+   "the keeper retired after forty years",
+   "steady unseen work holds the world together",
+   "a keeper wrote down ships' names"
   ],
   "answerOptions": [
-   {
-    "value": "steady unseen work holds the world together",
-    "label": "steady unseen work holds the world together",
-    "text": "steady unseen work holds the world together"
-   },
-   {
-    "value": "a keeper wrote down ships' names",
-    "label": "a keeper wrote down ships' names",
-    "text": "a keeper wrote down ships' names"
-   },
    {
     "value": "the harbourmaster read a list aloud",
     "label": "the harbourmaster read a list aloud",
@@ -2887,6 +3122,16 @@ export const questions = [
     "value": "the keeper retired after forty years",
     "label": "the keeper retired after forty years",
     "text": "the keeper retired after forty years"
+   },
+   {
+    "value": "steady unseen work holds the world together",
+    "label": "steady unseen work holds the world together",
+    "text": "steady unseen work holds the world together"
+   },
+   {
+    "value": "a keeper wrote down ships' names",
+    "label": "a keeper wrote down ships' names",
+    "text": "a keeper wrote down ships' names"
    }
   ],
   "answer": "steady unseen work holds the world together",
@@ -2896,15 +3141,16 @@ export const questions = [
    "the harbourmaster read a list aloud": "D-DETAIL-AS-MAIN",
    "the keeper retired after forty years": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2915,7 +3161,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbourmaster read the list's last page aloud — four thousand names — and the whole quay stood silent, understanding at last what steady, unseen work had been holding their sea-road open."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
@@ -2943,17 +3195,12 @@ export const questions = [
   "passage": "At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river.",
   "cell": "theme_vs_plot",
   "choices": [
-   "what is built to last beats what is built to impress",
    "a great wind blew at the festival",
    "big lanterns tore one by one",
-   "one lantern crossed the line"
+   "one lantern crossed the line",
+   "what is built to last beats what is built to impress"
   ],
   "answerOptions": [
-   {
-    "value": "what is built to last beats what is built to impress",
-    "label": "what is built to last beats what is built to impress",
-    "text": "what is built to last beats what is built to impress"
-   },
    {
     "value": "a great wind blew at the festival",
     "label": "a great wind blew at the festival",
@@ -2968,6 +3215,11 @@ export const questions = [
     "value": "one lantern crossed the line",
     "label": "one lantern crossed the line",
     "text": "one lantern crossed the line"
+   },
+   {
+    "value": "what is built to last beats what is built to impress",
+    "label": "what is built to last beats what is built to impress",
+    "text": "what is built to last beats what is built to impress"
    }
   ],
   "answer": "what is built to last beats what is built to impress",
@@ -2977,15 +3229,16 @@ export const questions = [
    "big lanterns tore one by one": "D-DETAIL-AS-MAIN",
    "one lantern crossed the line": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2996,7 +3249,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
+  "resolvedImageAssetKey": "biggest",
+  "imageAlt": "Illustration for At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
@@ -3024,17 +3283,12 @@ export const questions = [
   "passage": "Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how.",
   "cell": "theme_vs_plot",
   "choices": [
-   "grabbing the most can leave you knowing the least",
    "one goldfish ate the others' flakes",
    "the family forgot to feed the fish",
-   "two fish ate water-weed"
+   "two fish ate water-weed",
+   "grabbing the most can leave you knowing the least"
   ],
   "answerOptions": [
-   {
-    "value": "grabbing the most can leave you knowing the least",
-    "label": "grabbing the most can leave you knowing the least",
-    "text": "grabbing the most can leave you knowing the least"
-   },
    {
     "value": "one goldfish ate the others' flakes",
     "label": "one goldfish ate the others' flakes",
@@ -3049,6 +3303,11 @@ export const questions = [
     "value": "two fish ate water-weed",
     "label": "two fish ate water-weed",
     "text": "two fish ate water-weed"
+   },
+   {
+    "value": "grabbing the most can leave you knowing the least",
+    "label": "grabbing the most can leave you knowing the least",
+    "text": "grabbing the most can leave you knowing the least"
    }
   ],
   "answer": "grabbing the most can leave you knowing the least",
@@ -3058,15 +3317,16 @@ export const questions = [
    "the family forgot to feed the fish": "D-DETAIL-AS-MAIN",
    "two fish ate water-weed": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3077,7 +3337,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "resolvedImageAssetKey": "family",
+  "imageAlt": "Illustration for Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
@@ -3105,17 +3371,12 @@ export const questions = [
   "passage": "Mud season ruined every shoe in the village school, and the cloakroom filled with squelching and complaints. Little Ede said nothing. Each break, she simply lined the worst boots by the radiator and turned them as they dried. Nobody knew for weeks. When the head finally caught her at it and asked why, Ede shrugged: warm boots made people kinder all afternoon, and she liked the school kinder.",
   "cell": "theme_vs_plot",
   "choices": [
-   "small quiet care can change a whole place",
    "mud season ruined the shoes",
    "boots were dried by a radiator",
-   "the head caught Ede one day"
+   "the head caught Ede one day",
+   "small quiet care can change a whole place"
   ],
   "answerOptions": [
-   {
-    "value": "small quiet care can change a whole place",
-    "label": "small quiet care can change a whole place",
-    "text": "small quiet care can change a whole place"
-   },
    {
     "value": "mud season ruined the shoes",
     "label": "mud season ruined the shoes",
@@ -3130,6 +3391,11 @@ export const questions = [
     "value": "the head caught Ede one day",
     "label": "the head caught Ede one day",
     "text": "the head caught Ede one day"
+   },
+   {
+    "value": "small quiet care can change a whole place",
+    "label": "small quiet care can change a whole place",
+    "text": "small quiet care can change a whole place"
    }
   ],
   "answer": "small quiet care can change a whole place",
@@ -3139,15 +3405,16 @@ export const questions = [
    "boots were dried by a radiator": "D-DETAIL-AS-MAIN",
    "the head caught Ede one day": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3158,7 +3425,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/school.webp",
+  "imageUrl": "/images/assessment/generated/concepts/school.webp",
+  "targetImage": "/images/assessment/generated/concepts/school.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
+  "resolvedImageAssetKey": "school",
+  "imageAlt": "Illustration for Mud season ruined every shoe in the village school, and the cloakroom filled with squelching and complaints. Little Ede said nothing. Each break, she simply lined the worst boots by the radiator and turned them as they dried. Nobody knew for weeks. When the head finally caught her at it and asked why, Ede shrugged: warm boots made people kinder all afternoon, and she liked the school kinder."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
@@ -3186,16 +3459,16 @@ export const questions = [
   "passage": "The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together.",
   "cell": "theme_vs_plot",
   "choices": [
-   "walls that keep trouble out keep friendship out too",
+   "blocking trouble can also block friendship",
    "twins drew a chalk line in the attic",
    "the attic became very tidy",
    "the chalk was washed away"
   ],
   "answerOptions": [
    {
-    "value": "walls that keep trouble out keep friendship out too",
-    "label": "walls that keep trouble out keep friendship out too",
-    "text": "walls that keep trouble out keep friendship out too"
+    "value": "blocking trouble can also block friendship",
+    "label": "blocking trouble can also block friendship",
+    "text": "blocking trouble can also block friendship"
    },
    {
     "value": "twins drew a chalk line in the attic",
@@ -3213,22 +3486,23 @@ export const questions = [
     "text": "the chalk was washed away"
    }
   ],
-  "answer": "walls that keep trouble out keep friendship out too",
-  "correctAnswer": "walls that keep trouble out keep friendship out too",
+  "answer": "blocking trouble can also block friendship",
+  "correctAnswer": "blocking trouble can also block friendship",
   "distractorRationales": {
+   "the chalk was washed away": "D-DETAIL-AS-MAIN",
    "twins drew a chalk line in the attic": "D-DETAIL-AS-MAIN",
-   "the attic became very tidy": "D-DETAIL-AS-MAIN",
-   "the chalk was washed away": "D-DETAIL-AS-MAIN"
+   "the attic became very tidy": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3239,7 +3513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
@@ -3297,19 +3577,20 @@ export const questions = [
   "answer": "Ines keeps practising her times tables that will not stick, until one day they do",
   "correctAnswer": "Ines keeps practising her times tables that will not stick, until one day they do",
   "distractorRationales": {
-   "Ines plants a sunflower seed in a pot on her own windowsill at home": "D-TOPIC-ADJACENT",
    "Ines gives up learning the violin after one single squeaky week of lessons": "D-OPPOSITE",
-   "Ines waters her plant once and forgets it": "D-OPPOSITE"
+   "Ines waters her plant once and forgets it": "D-OPPOSITE",
+   "Ines plants a sunflower seed in a pot on her own windowsill at home": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3320,7 +3601,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap"
+  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
+  "resolvedImageAssetKey": "sunflower",
+  "imageAlt": "Illustration for Remember Pip, who watered a seed that showed nothing for five weeks and grew the garden's tallest sunflower? Keep Pip's lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
@@ -3348,12 +3635,17 @@ export const questions = [
   "passage": "Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
+   "Cam saves his pocket money for weeks to buy a brand-new comic",
    "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
    "Cam reads comics carefully indoors",
-   "Cam hides the mug he broke behind the cereal boxes where nobody looks",
-   "Cam saves his pocket money for weeks to buy a brand-new comic"
+   "Cam hides the mug he broke behind the cereal boxes where nobody looks"
   ],
   "answerOptions": [
+   {
+    "value": "Cam saves his pocket money for weeks to buy a brand-new comic",
+    "label": "Cam saves his pocket money for weeks to buy a brand-new comic",
+    "text": "Cam saves his pocket money for weeks to buy a brand-new comic"
+   },
    {
     "value": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
     "label": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
@@ -3368,11 +3660,6 @@ export const questions = [
     "value": "Cam hides the mug he broke behind the cereal boxes where nobody looks",
     "label": "Cam hides the mug he broke behind the cereal boxes where nobody looks",
     "text": "Cam hides the mug he broke behind the cereal boxes where nobody looks"
-   },
-   {
-    "value": "Cam saves his pocket money for weeks to buy a brand-new comic",
-    "label": "Cam saves his pocket money for weeks to buy a brand-new comic",
-    "text": "Cam saves his pocket money for weeks to buy a brand-new comic"
    }
   ],
   "answer": "Cam scratches Dad's bike and leaves a note owning up before Dad sees",
@@ -3382,15 +3669,16 @@ export const questions = [
    "Cam hides the mug he broke behind the cereal boxes where nobody looks": "D-OPPOSITE",
    "Cam saves his pocket money for weeks to buy a brand-new comic": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3401,7 +3689,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
@@ -3429,16 +3723,16 @@ export const questions = [
   "passage": "Remember Etta and the fallen nest: her grandmother taught her to 'help small, not big', wedging the nest back and letting the mother bird do the rest. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search",
+   "Ray stays with a lost toddler and calls a guard",
    "Ray builds every bird in the garden a wooden house",
    "Ray carries a fallen chick home to raise it himself in a shoebox by his bed",
    "Ray watches an egg hatch on television"
   ],
   "answerOptions": [
    {
-    "value": "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search",
-    "label": "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search",
-    "text": "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search"
+    "value": "Ray stays with a lost toddler and calls a guard",
+    "label": "Ray stays with a lost toddler and calls a guard",
+    "text": "Ray stays with a lost toddler and calls a guard"
    },
    {
     "value": "Ray builds every bird in the garden a wooden house",
@@ -3456,22 +3750,23 @@ export const questions = [
     "text": "Ray watches an egg hatch on television"
    }
   ],
-  "answer": "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search",
-  "correctAnswer": "Seeing a lost toddler, Ray stays beside him and calls a guard instead of carrying him off to search",
+  "answer": "Ray stays with a lost toddler and calls a guard",
+  "correctAnswer": "Ray stays with a lost toddler and calls a guard",
   "distractorRationales": {
-   "Ray builds every bird in the garden a wooden house": "D-TOPIC-ADJACENT",
    "Ray carries a fallen chick home to raise it himself in a shoebox by his bed": "D-OPPOSITE",
-   "Ray watches an egg hatch on television": "D-TOPIC-ADJACENT"
+   "Ray watches an egg hatch on television": "D-TOPIC-ADJACENT",
+   "Ray builds every bird in the garden a wooden house": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3482,7 +3777,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Etta and the fallen nest: her grandmother taught her to 'help small, not big', wedging the nest back and letting the mother bird do the rest. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
@@ -3510,12 +3811,17 @@ export const questions = [
   "passage": "Remember the lighthouse keeper's list — forty years of steady, unseen work that kept the sea-road open. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
+   "a keeper who paints his lighthouse red",
    "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
    "a singer who performs on television so that millions can applaud her name",
-   "a sailor who names his boat after a lighthouse",
-   "a keeper who paints his lighthouse red"
+   "a sailor who names his boat after a lighthouse"
   ],
   "answerOptions": [
+   {
+    "value": "a keeper who paints his lighthouse red",
+    "label": "a keeper who paints his lighthouse red",
+    "text": "a keeper who paints his lighthouse red"
+   },
    {
     "value": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
     "label": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
@@ -3530,11 +3836,6 @@ export const questions = [
     "value": "a sailor who names his boat after a lighthouse",
     "label": "a sailor who names his boat after a lighthouse",
     "text": "a sailor who names his boat after a lighthouse"
-   },
-   {
-    "value": "a keeper who paints his lighthouse red",
-    "label": "a keeper who paints his lighthouse red",
-    "text": "a keeper who paints his lighthouse red"
    }
   ],
   "answer": "the caretaker who salts the school steps before anyone arrives, every icy morning, unthanked",
@@ -3544,15 +3845,16 @@ export const questions = [
    "a sailor who names his boat after a lighthouse": "D-TOPIC-ADJACENT",
    "a keeper who paints his lighthouse red": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +3865,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember the lighthouse keeper's list — forty years of steady, unseen work that kept the sea-road open. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
@@ -3591,22 +3899,12 @@ export const questions = [
   "passage": "Remember Nell at the bake-off, who cut her perfect cake in half so her friend still had an entry, and never called it a loss. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-   "Vic bakes a lemon cake for the fair",
    "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
-   "Vic enters two contests in one day"
+   "Vic enters two contests in one day",
+   "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
+   "Vic bakes a lemon cake for the fair"
   ],
   "answerOptions": [
-   {
-    "value": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-    "label": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
-    "text": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together"
-   },
-   {
-    "value": "Vic bakes a lemon cake for the fair",
-    "label": "Vic bakes a lemon cake for the fair",
-    "text": "Vic bakes a lemon cake for the fair"
-   },
    {
     "value": "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
     "label": "On sports day, Vic guards his bag of sweets so that nobody else gets a single one",
@@ -3616,6 +3914,16 @@ export const questions = [
     "value": "Vic enters two contests in one day",
     "label": "Vic enters two contests in one day",
     "text": "Vic enters two contests in one day"
+   },
+   {
+    "value": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
+    "label": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
+    "text": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together"
+   },
+   {
+    "value": "Vic bakes a lemon cake for the fair",
+    "label": "Vic bakes a lemon cake for the fair",
+    "text": "Vic bakes a lemon cake for the fair"
    }
   ],
   "answer": "On sports day, Vic stops mid-race to pull up a fallen runner, finishing last together",
@@ -3625,15 +3933,16 @@ export const questions = [
    "On sports day, Vic guards his bag of sweets so that nobody else gets a single one": "D-OPPOSITE",
    "Vic enters two contests in one day": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3644,7 +3953,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Nell at the bake-off, who cut her perfect cake in half so her friend still had an entry, and never called it a loss. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
@@ -3672,16 +3987,21 @@ export const questions = [
   "passage": "Remember Amaya's little lantern, built low and snug around its flame, still burning when the grand paper palaces had torn. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Jo writes three sure sentences in the story contest while others start epics they never finish",
+   "Jo enters the festival every single year",
+   "Jo writes three strong sentences instead of an unfinished epic",
    "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
-   "Jo carries a lantern on the camping trip",
-   "Jo enters the festival every single year"
+   "Jo carries a lantern on the camping trip"
   ],
   "answerOptions": [
    {
-    "value": "Jo writes three sure sentences in the story contest while others start epics they never finish",
-    "label": "Jo writes three sure sentences in the story contest while others start epics they never finish",
-    "text": "Jo writes three sure sentences in the story contest while others start epics they never finish"
+    "value": "Jo enters the festival every single year",
+    "label": "Jo enters the festival every single year",
+    "text": "Jo enters the festival every single year"
+   },
+   {
+    "value": "Jo writes three strong sentences instead of an unfinished epic",
+    "label": "Jo writes three strong sentences instead of an unfinished epic",
+    "text": "Jo writes three strong sentences instead of an unfinished epic"
    },
    {
     "value": "Jo starts building the biggest, grandest sandcastle the beach has ever seen",
@@ -3692,29 +4012,25 @@ export const questions = [
     "value": "Jo carries a lantern on the camping trip",
     "label": "Jo carries a lantern on the camping trip",
     "text": "Jo carries a lantern on the camping trip"
-   },
-   {
-    "value": "Jo enters the festival every single year",
-    "label": "Jo enters the festival every single year",
-    "text": "Jo enters the festival every single year"
    }
   ],
-  "answer": "Jo writes three sure sentences in the story contest while others start epics they never finish",
-  "correctAnswer": "Jo writes three sure sentences in the story contest while others start epics they never finish",
+  "answer": "Jo writes three strong sentences instead of an unfinished epic",
+  "correctAnswer": "Jo writes three strong sentences instead of an unfinished epic",
   "distractorRationales": {
    "Jo starts building the biggest, grandest sandcastle the beach has ever seen": "D-OPPOSITE",
    "Jo carries a lantern on the camping trip": "D-TOPIC-ADJACENT",
    "Jo enters the festival every single year": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3725,7 +4041,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Amaya's little lantern, built low and snug around its flame, still burning when the grand paper palaces had torn. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
@@ -3753,22 +4075,12 @@ export const questions = [
   "passage": "Remember Priya and the spelling list she posted back under the staffroom door unread, and how seven honest marks felt taller than ten unfair ones. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Dev's ball lands over the line; he calls it out himself, though no one saw",
-   "Dev studies spelling every Thursday night",
    "Dev peeks at his sister's cards when she leaves the room, and wins the game",
-   "Dev posts a letter for his teacher"
+   "Dev posts a letter for his teacher",
+   "Dev's ball lands over the line; he calls it out himself, though no one saw",
+   "Dev studies spelling every Thursday night"
   ],
   "answerOptions": [
-   {
-    "value": "Dev's ball lands over the line; he calls it out himself, though no one saw",
-    "label": "Dev's ball lands over the line; he calls it out himself, though no one saw",
-    "text": "Dev's ball lands over the line; he calls it out himself, though no one saw"
-   },
-   {
-    "value": "Dev studies spelling every Thursday night",
-    "label": "Dev studies spelling every Thursday night",
-    "text": "Dev studies spelling every Thursday night"
-   },
    {
     "value": "Dev peeks at his sister's cards when she leaves the room, and wins the game",
     "label": "Dev peeks at his sister's cards when she leaves the room, and wins the game",
@@ -3778,6 +4090,16 @@ export const questions = [
     "value": "Dev posts a letter for his teacher",
     "label": "Dev posts a letter for his teacher",
     "text": "Dev posts a letter for his teacher"
+   },
+   {
+    "value": "Dev's ball lands over the line; he calls it out himself, though no one saw",
+    "label": "Dev's ball lands over the line; he calls it out himself, though no one saw",
+    "text": "Dev's ball lands over the line; he calls it out himself, though no one saw"
+   },
+   {
+    "value": "Dev studies spelling every Thursday night",
+    "label": "Dev studies spelling every Thursday night",
+    "text": "Dev studies spelling every Thursday night"
    }
   ],
   "answer": "Dev's ball lands over the line; he calls it out himself, though no one saw",
@@ -3787,15 +4109,16 @@ export const questions = [
    "Dev peeks at his sister's cards when she leaves the room, and wins the game": "D-OPPOSITE",
    "Dev posts a letter for his teacher": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3806,7 +4129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Priya and the spelling list she posted back under the staffroom door unread, and how seven honest marks felt taller than ten unfair ones. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
@@ -3834,17 +4163,12 @@ export const questions = [
   "passage": "Remember the twins' chalk line — how a wall that kept out mess and quarrels kept out company too, until washing it away was the happiest chore in the house. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in",
    "Mia chalks a hopscotch grid on the path",
    "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one",
-   "Mia tidies the attic every Sunday"
+   "Mia tidies the attic every Sunday",
+   "Mia opens the blocked den and welcomes her brother back"
   ],
   "answerOptions": [
-   {
-    "value": "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in",
-    "label": "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in",
-    "text": "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in"
-   },
    {
     "value": "Mia chalks a hopscotch grid on the path",
     "label": "Mia chalks a hopscotch grid on the path",
@@ -3859,24 +4183,30 @@ export const questions = [
     "value": "Mia tidies the attic every Sunday",
     "label": "Mia tidies the attic every Sunday",
     "text": "Mia tidies the attic every Sunday"
+   },
+   {
+    "value": "Mia opens the blocked den and welcomes her brother back",
+    "label": "Mia opens the blocked den and welcomes her brother back",
+    "text": "Mia opens the blocked den and welcomes her brother back"
    }
   ],
-  "answer": "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in",
-  "correctAnswer": "After a falling-out, Mia unblocks the den doorway she nailed shut and invites her brother back in",
+  "answer": "Mia opens the blocked den and welcomes her brother back",
+  "correctAnswer": "Mia opens the blocked den and welcomes her brother back",
   "distractorRationales": {
-   "Mia chalks a hopscotch grid on the path": "D-TOPIC-ADJACENT",
    "After a quarrel, Mia labels every pencil she owns so nobody can ever borrow one": "D-OPPOSITE",
-   "Mia tidies the attic every Sunday": "D-TOPIC-ADJACENT"
+   "Mia tidies the attic every Sunday": "D-TOPIC-ADJACENT",
+   "Mia chalks a hopscotch grid on the path": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3887,7 +4217,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember the twins' chalk line — how a wall that kept out mess and quarrels kept out company too, until washing it away was the happiest chore in the house. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r",
@@ -3915,22 +4251,12 @@ export const questions = [
   "passage": "Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one.",
   "cell": "lesson_mistake_fixed",
   "choices": [
-   "copying steals your own chance to learn",
-   "Zia got three answers wrong",
    "homework is a waste of time",
-   "teachers use whiteboards"
+   "teachers use whiteboards",
+   "copying steals your own chance to learn",
+   "Zia got three answers wrong"
   ],
   "answerOptions": [
-   {
-    "value": "copying steals your own chance to learn",
-    "label": "copying steals your own chance to learn",
-    "text": "copying steals your own chance to learn"
-   },
-   {
-    "value": "Zia got three answers wrong",
-    "label": "Zia got three answers wrong",
-    "text": "Zia got three answers wrong"
-   },
    {
     "value": "homework is a waste of time",
     "label": "homework is a waste of time",
@@ -3940,24 +4266,35 @@ export const questions = [
     "value": "teachers use whiteboards",
     "label": "teachers use whiteboards",
     "text": "teachers use whiteboards"
+   },
+   {
+    "value": "copying steals your own chance to learn",
+    "label": "copying steals your own chance to learn",
+    "text": "copying steals your own chance to learn"
+   },
+   {
+    "value": "Zia got three answers wrong",
+    "label": "Zia got three answers wrong",
+    "text": "Zia got three answers wrong"
    }
   ],
   "answer": "copying steals your own chance to learn",
   "correctAnswer": "copying steals your own chance to learn",
   "distractorRationales": {
-   "Zia got three answers wrong": "D-DETAIL-AS-MAIN",
    "homework is a waste of time": "D-OPPOSITE",
-   "teachers use whiteboards": "D-TOPIC-ADJACENT"
+   "teachers use whiteboards": "D-TOPIC-ADJACENT",
+   "Zia got three answers wrong": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3968,7 +4305,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "resolvedImageAssetKey": "slowly",
+  "imageAlt": "Illustration for Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r",
@@ -3996,17 +4339,12 @@ export const questions = [
   "passage": "On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "neighbourly kindness circles back around",
    "a windscreen had frost on it",
    "bins should stay by the road",
-   "winter mornings are cold"
+   "winter mornings are cold",
+   "neighbourly kindness circles back around"
   ],
   "answerOptions": [
-   {
-    "value": "neighbourly kindness circles back around",
-    "label": "neighbourly kindness circles back around",
-    "text": "neighbourly kindness circles back around"
-   },
    {
     "value": "a windscreen had frost on it",
     "label": "a windscreen had frost on it",
@@ -4021,24 +4359,30 @@ export const questions = [
     "value": "winter mornings are cold",
     "label": "winter mornings are cold",
     "text": "winter mornings are cold"
+   },
+   {
+    "value": "neighbourly kindness circles back around",
+    "label": "neighbourly kindness circles back around",
+    "text": "neighbourly kindness circles back around"
    }
   ],
   "answer": "neighbourly kindness circles back around",
   "correctAnswer": "neighbourly kindness circles back around",
   "distractorRationales": {
-   "a windscreen had frost on it": "D-DETAIL-AS-MAIN",
    "bins should stay by the road": "D-TOPIC-ADJACENT",
-   "winter mornings are cold": "D-DETAIL-AS-MAIN"
+   "winter mornings are cold": "D-DETAIL-AS-MAIN",
+   "a windscreen had frost on it": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4049,7 +4393,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "resolvedImageAssetKey": "kindness",
+  "imageAlt": "Illustration for On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r",
@@ -4107,19 +4457,20 @@ export const questions = [
   "answer": "step-by-step effort builds real skill",
   "correctAnswer": "step-by-step effort builds real skill",
   "distractorRationales": {
+   "beaches have buoys": "D-TOPIC-ADJACENT",
    "Rosa touched the yellow buoy": "D-DETAIL-AS-MAIN",
-   "stay out of the sea in June": "D-OPPOSITE",
-   "beaches have buoys": "D-TOPIC-ADJACENT"
+   "stay out of the sea in June": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4130,7 +4481,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "resolvedImageAssetKey": "story",
+  "imageAlt": "Illustration for Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practised floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every metre of it hers."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r",
@@ -4158,12 +4515,17 @@ export const questions = [
   "passage": "Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at football, and at last the words themselves. 'Took you long enough,' said Ollie — and shoved up to make room.",
   "cell": "lesson_mistake_fixed",
   "choices": [
+   "football happens at lunch",
    "a wrong can be mended, even slowly",
    "Ollie's glasses were taped",
-   "teasing makes people laugh",
-   "football happens at lunch"
+   "teasing makes people laugh"
   ],
   "answerOptions": [
+   {
+    "value": "football happens at lunch",
+    "label": "football happens at lunch",
+    "text": "football happens at lunch"
+   },
    {
     "value": "a wrong can be mended, even slowly",
     "label": "a wrong can be mended, even slowly",
@@ -4178,29 +4540,25 @@ export const questions = [
     "value": "teasing makes people laugh",
     "label": "teasing makes people laugh",
     "text": "teasing makes people laugh"
-   },
-   {
-    "value": "football happens at lunch",
-    "label": "football happens at lunch",
-    "text": "football happens at lunch"
    }
   ],
   "answer": "a wrong can be mended, even slowly",
   "correctAnswer": "a wrong can be mended, even slowly",
   "distractorRationales": {
-   "Ollie's glasses were taped": "D-DETAIL-AS-MAIN",
    "teasing makes people laugh": "D-OPPOSITE",
-   "football happens at lunch": "D-TOPIC-ADJACENT"
+   "football happens at lunch": "D-TOPIC-ADJACENT",
+   "Ollie's glasses were taped": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4211,7 +4569,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "impossible",
+  "imageAlt": "Illustration for Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at football, and at last the words themselves. 'Took you long enough,' said Ollie — and shoved up to make room."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
@@ -4239,22 +4603,12 @@ export const questions = [
   "passage": "The lunch queue crush always squeezed out little Yani, last and smallest. Big Aron noticed, and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after his accident, the corridor crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "protection given is remembered and returned",
-   "the lunch queue had a crush",
    "small children should queue elsewhere",
-   "corridors get crowded"
+   "corridors get crowded",
+   "protection given is remembered and returned",
+   "the lunch queue had a crush"
   ],
   "answerOptions": [
-   {
-    "value": "protection given is remembered and returned",
-    "label": "protection given is remembered and returned",
-    "text": "protection given is remembered and returned"
-   },
-   {
-    "value": "the lunch queue had a crush",
-    "label": "the lunch queue had a crush",
-    "text": "the lunch queue had a crush"
-   },
    {
     "value": "small children should queue elsewhere",
     "label": "small children should queue elsewhere",
@@ -4264,24 +4618,35 @@ export const questions = [
     "value": "corridors get crowded",
     "label": "corridors get crowded",
     "text": "corridors get crowded"
+   },
+   {
+    "value": "protection given is remembered and returned",
+    "label": "protection given is remembered and returned",
+    "text": "protection given is remembered and returned"
+   },
+   {
+    "value": "the lunch queue had a crush",
+    "label": "the lunch queue had a crush",
+    "text": "the lunch queue had a crush"
    }
   ],
   "answer": "protection given is remembered and returned",
   "correctAnswer": "protection given is remembered and returned",
   "distractorRationales": {
+   "corridors get crowded": "D-TOPIC-ADJACENT",
    "the lunch queue had a crush": "D-DETAIL-AS-MAIN",
-   "small children should queue elsewhere": "D-OPPOSITE",
-   "corridors get crowded": "D-TOPIC-ADJACENT"
+   "small children should queue elsewhere": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4292,7 +4657,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
+  "resolvedImageAssetKey": "smallest",
+  "imageAlt": "Illustration for The lunch queue crush always squeezed out little Yani, last and smallest. Big Aron noticed, and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after his accident, the corridor crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
@@ -4320,17 +4691,12 @@ export const questions = [
   "passage": "The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practised in the shed, ten minutes a day, no more, no matter what. By the spring concert, the screech had worn away like a rough edge, and the shed concerts had quietly become rather good.",
   "cell": "lesson_effort_pays",
   "choices": [
-   "a little practice every day wears problems smooth",
    "the dog left the room",
    "recorders are hopeless instruments",
-   "sheds are for practising"
+   "sheds are for practising",
+   "a little practice every day wears problems smooth"
   ],
   "answerOptions": [
-   {
-    "value": "a little practice every day wears problems smooth",
-    "label": "a little practice every day wears problems smooth",
-    "text": "a little practice every day wears problems smooth"
-   },
    {
     "value": "the dog left the room",
     "label": "the dog left the room",
@@ -4345,6 +4711,11 @@ export const questions = [
     "value": "sheds are for practising",
     "label": "sheds are for practising",
     "text": "sheds are for practising"
+   },
+   {
+    "value": "a little practice every day wears problems smooth",
+    "label": "a little practice every day wears problems smooth",
+    "text": "a little practice every day wears problems smooth"
    }
   ],
   "answer": "a little practice every day wears problems smooth",
@@ -4354,15 +4725,16 @@ export const questions = [
    "recorders are hopeless instruments": "D-OPPOSITE",
    "sheds are for practising": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4373,7 +4745,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+  "resolvedImageAssetKey": "practice",
+  "imageAlt": "Illustration for The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practised in the shed, ten minutes a day, no more, no matter what. By the spring concert, the screech had worn away like a rough edge, and the shed concerts had quietly become rather good."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
@@ -4431,19 +4809,20 @@ export const questions = [
   "answer": "confessing is quicker and lighter than hiding",
   "correctAnswer": "confessing is quicker and lighter than hiding",
   "distractorRationales": {
+   "secrets keep you company": "D-OPPOSITE",
    "the globe got a dent": "D-DETAIL-AS-MAIN",
-   "globes should be bolted down": "D-TOPIC-ADJACENT",
-   "secrets keep you company": "D-OPPOSITE"
+   "globes should be bolted down": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,7 +4833,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
+  "resolvedImageAssetKey": "story",
+  "imageAlt": "Illustration for Nobody saw Wolf knock the class globe off its stand — but Wolf saw the dent, and Wolf knew. The secret felt like a marble in his shoe. When he finally told Mr Otieno, the telling took ten seconds, the gluing five minutes, and the marble was gone by lunch."
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
@@ -4482,16 +4867,21 @@ export const questions = [
   "passage": "Half Moon Lane flooded, and the corner shop stood in brown water. Mrs Vo had given credit, sweets, and kind words for twenty years. By noon, without one phone call, the lane filled with neighbours in wellies, carrying and mopping — and by evening the shop's OPEN sign was the driest thing on the street.",
   "cell": "lesson_kindness_returned",
   "choices": [
-   "twenty years of kindness can be repaid in a day",
+   "floods happen on lanes",
+   "long kindness may be repaid quickly",
    "a foot of water entered the shop",
-   "shops should not give credit",
-   "floods happen on lanes"
+   "shops should not give credit"
   ],
   "answerOptions": [
    {
-    "value": "twenty years of kindness can be repaid in a day",
-    "label": "twenty years of kindness can be repaid in a day",
-    "text": "twenty years of kindness can be repaid in a day"
+    "value": "floods happen on lanes",
+    "label": "floods happen on lanes",
+    "text": "floods happen on lanes"
+   },
+   {
+    "value": "long kindness may be repaid quickly",
+    "label": "long kindness may be repaid quickly",
+    "text": "long kindness may be repaid quickly"
    },
    {
     "value": "a foot of water entered the shop",
@@ -4502,29 +4892,25 @@ export const questions = [
     "value": "shops should not give credit",
     "label": "shops should not give credit",
     "text": "shops should not give credit"
-   },
-   {
-    "value": "floods happen on lanes",
-    "label": "floods happen on lanes",
-    "text": "floods happen on lanes"
    }
   ],
-  "answer": "twenty years of kindness can be repaid in a day",
-  "correctAnswer": "twenty years of kindness can be repaid in a day",
+  "answer": "long kindness may be repaid quickly",
+  "correctAnswer": "long kindness may be repaid quickly",
   "distractorRationales": {
    "a foot of water entered the shop": "D-DETAIL-AS-MAIN",
    "shops should not give credit": "D-OPPOSITE",
    "floods happen on lanes": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v12",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4535,7 +4921,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/kindness-01.webp",
+  "resolvedImageAssetKey": "kindness",
+  "imageAlt": "Illustration for Half Moon Lane flooded, and the corner shop stood in brown water. Mrs Vo had given credit, sweets, and kind words for twenty years. By noon, without one phone call, the lane filled with neighbours in wellies, carrying and mopping — and by evening the shop's OPEN sign was the driest thing on the street."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r",
@@ -4563,17 +4955,12 @@ export const questions = [
   "passage": "The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more.",
   "cell": "theme_among_rivals",
   "choices": [
-   "lifting others can beat winning alone",
    "chess clubs need two classrooms",
    "never let anyone win",
-   "beginners ruin clubs"
+   "beginners ruin clubs",
+   "lifting others can beat winning alone"
   ],
   "answerOptions": [
-   {
-    "value": "lifting others can beat winning alone",
-    "label": "lifting others can beat winning alone",
-    "text": "lifting others can beat winning alone"
-   },
    {
     "value": "chess clubs need two classrooms",
     "label": "chess clubs need two classrooms",
@@ -4588,6 +4975,11 @@ export const questions = [
     "value": "beginners ruin clubs",
     "label": "beginners ruin clubs",
     "text": "beginners ruin clubs"
+   },
+   {
+    "value": "lifting others can beat winning alone",
+    "label": "lifting others can beat winning alone",
+    "text": "lifting others can beat winning alone"
    }
   ],
   "answer": "lifting others can beat winning alone",
@@ -4597,15 +4989,16 @@ export const questions = [
    "never let anyone win": "D-OPPOSITE",
    "beginners ruin clubs": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4616,7 +5009,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/possible-impossible-01.webp",
+  "resolvedImageAssetKey": "possible",
+  "imageAlt": "Illustration for The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r",
@@ -4674,19 +5073,20 @@ export const questions = [
   "answer": "there is hidden wisdom in ways that look untidy",
   "correctAnswer": "there is hidden wisdom in ways that look untidy",
   "distractorRationales": {
+   "pumpkins wander paths": "D-DETAIL-AS-MAIN",
    "blight took the street's tomatoes": "D-DETAIL-AS-MAIN",
-   "neat rows are always wrong": "D-OPPOSITE",
-   "pumpkins wander paths": "D-DETAIL-AS-MAIN"
+   "neat rows are always wrong": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4697,7 +5097,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+  "resolvedImageAssetKey": "straight",
+  "imageAlt": "Illustration for Papa's garden was chaos — beans in with roses, pumpkins wandering the path — and next door's garden was ruler-straight rows. Next door teased; Papa just picked. When blight took the whole street's tomatoes, it hopped easily down next door's tidy tomato rows but got lost in Papa's jumble, where marigolds and garlic broke its path. That autumn, next door's rows had two new residents: marigolds, and a little wandering pumpkin."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r",
@@ -4725,12 +5131,17 @@ export const questions = [
   "passage": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
   "cell": "theme_vs_plot",
   "choices": [
+   "the horse bowed on the night",
    "working as one can join people for good",
    "a play needed a horse costume",
-   "rehearsals went badly at first",
-   "the horse bowed on the night"
+   "rehearsals went badly at first"
   ],
   "answerOptions": [
+   {
+    "value": "the horse bowed on the night",
+    "label": "the horse bowed on the night",
+    "text": "the horse bowed on the night"
+   },
    {
     "value": "working as one can join people for good",
     "label": "working as one can join people for good",
@@ -4745,29 +5156,25 @@ export const questions = [
     "value": "rehearsals went badly at first",
     "label": "rehearsals went badly at first",
     "text": "rehearsals went badly at first"
-   },
-   {
-    "value": "the horse bowed on the night",
-    "label": "the horse bowed on the night",
-    "text": "the horse bowed on the night"
    }
   ],
   "answer": "working as one can join people for good",
   "correctAnswer": "working as one can join people for good",
   "distractorRationales": {
-   "a play needed a horse costume": "D-DETAIL-AS-MAIN",
    "rehearsals went badly at first": "D-DETAIL-AS-MAIN",
-   "the horse bowed on the night": "D-DETAIL-AS-MAIN"
+   "the horse bowed on the night": "D-DETAIL-AS-MAIN",
+   "a play needed a horse costume": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,7 +5185,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/children.webp",
+  "imageUrl": "/images/assessment/generated/concepts/children.webp",
+  "targetImage": "/images/assessment/generated/concepts/children.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
+  "resolvedImageAssetKey": "children",
+  "imageAlt": "Illustration for The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r",
@@ -4806,22 +5219,12 @@ export const questions = [
   "passage": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been.",
   "cell": "theme_vs_plot",
   "choices": [
-   "a life spent giving is its own treasure",
-   "a box held a trowel and seeds",
    "the family expected jewellery",
-   "a tree blossomed in spring"
+   "a tree blossomed in spring",
+   "a life spent giving is its own treasure",
+   "a box held a trowel and seeds"
   ],
   "answerOptions": [
-   {
-    "value": "a life spent giving is its own treasure",
-    "label": "a life spent giving is its own treasure",
-    "text": "a life spent giving is its own treasure"
-   },
-   {
-    "value": "a box held a trowel and seeds",
-    "label": "a box held a trowel and seeds",
-    "text": "a box held a trowel and seeds"
-   },
    {
     "value": "the family expected jewellery",
     "label": "the family expected jewellery",
@@ -4831,24 +5234,35 @@ export const questions = [
     "value": "a tree blossomed in spring",
     "label": "a tree blossomed in spring",
     "text": "a tree blossomed in spring"
+   },
+   {
+    "value": "a life spent giving is its own treasure",
+    "label": "a life spent giving is its own treasure",
+    "text": "a life spent giving is its own treasure"
+   },
+   {
+    "value": "a box held a trowel and seeds",
+    "label": "a box held a trowel and seeds",
+    "text": "a box held a trowel and seeds"
    }
   ],
   "answer": "a life spent giving is its own treasure",
   "correctAnswer": "a life spent giving is its own treasure",
   "distractorRationales": {
-   "a box held a trowel and seeds": "D-DETAIL-AS-MAIN",
    "the family expected jewellery": "D-DETAIL-AS-MAIN",
-   "a tree blossomed in spring": "D-DETAIL-AS-MAIN"
+   "a tree blossomed in spring": "D-DETAIL-AS-MAIN",
+   "a box held a trowel and seeds": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4859,7 +5273,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "resolvedImageAssetKey": "family",
+  "imageAlt": "Illustration for Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
@@ -4887,17 +5307,12 @@ export const questions = [
   "passage": "Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "Tess tells the librarian TODAY about the juice she spilled on page nine",
    "Tess polishes the class globe till it shines",
    "Tess quietly slides the juice-stained book to the very bottom of the returns pile",
-   "Tess reads with juice far away from books"
+   "Tess reads with juice far away from books",
+   "Tess tells the librarian TODAY about the juice she spilled on page nine"
   ],
   "answerOptions": [
-   {
-    "value": "Tess tells the librarian TODAY about the juice she spilled on page nine",
-    "label": "Tess tells the librarian TODAY about the juice she spilled on page nine",
-    "text": "Tess tells the librarian TODAY about the juice she spilled on page nine"
-   },
    {
     "value": "Tess polishes the class globe till it shines",
     "label": "Tess polishes the class globe till it shines",
@@ -4912,6 +5327,11 @@ export const questions = [
     "value": "Tess reads with juice far away from books",
     "label": "Tess reads with juice far away from books",
     "text": "Tess reads with juice far away from books"
+   },
+   {
+    "value": "Tess tells the librarian TODAY about the juice she spilled on page nine",
+    "label": "Tess tells the librarian TODAY about the juice she spilled on page nine",
+    "text": "Tess tells the librarian TODAY about the juice she spilled on page nine"
    }
   ],
   "answer": "Tess tells the librarian TODAY about the juice she spilled on page nine",
@@ -4921,15 +5341,16 @@ export const questions = [
    "Tess quietly slides the juice-stained book to the very bottom of the returns pile": "D-OPPOSITE",
    "Tess reads with juice far away from books": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4940,7 +5361,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
@@ -4998,19 +5425,20 @@ export const questions = [
   "answer": "Ojas sharpens the class pencil pot every morning before anyone notices",
   "correctAnswer": "Ojas sharpens the class pencil pot every morning before anyone notices",
   "distractorRationales": {
+   "Ojas buys new boots for himself": "D-TOPIC-ADJACENT",
    "Ojas wins the school kindness certificate on stage": "D-TOPIC-ADJACENT",
-   "Ojas dries his own boots by the radiator and leaves everyone else's dripping": "D-OPPOSITE",
-   "Ojas buys new boots for himself": "D-TOPIC-ADJACENT"
+   "Ojas dries his own boots by the radiator and leaves everyone else's dripping": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +5449,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember Ede drying the village school's boots by the radiator — small quiet care that made a whole school kinder. Keep that lesson in mind."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
@@ -5049,12 +5483,17 @@ export const questions = [
   "passage": "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
   "cell": "theme_among_rivals",
   "choices": [
+   "libraries need cushions",
    "listening shows you what talking drowns out",
    "a sponsored silence raised money",
-   "talking is always wrong",
-   "libraries need cushions"
+   "talking is always wrong"
   ],
   "answerOptions": [
+   {
+    "value": "libraries need cushions",
+    "label": "libraries need cushions",
+    "text": "libraries need cushions"
+   },
    {
     "value": "listening shows you what talking drowns out",
     "label": "listening shows you what talking drowns out",
@@ -5069,29 +5508,25 @@ export const questions = [
     "value": "talking is always wrong",
     "label": "talking is always wrong",
     "text": "talking is always wrong"
-   },
-   {
-    "value": "libraries need cushions",
-    "label": "libraries need cushions",
-    "text": "libraries need cushions"
    }
   ],
   "answer": "listening shows you what talking drowns out",
   "correctAnswer": "listening shows you what talking drowns out",
   "distractorRationales": {
-   "a sponsored silence raised money": "D-DETAIL-AS-MAIN",
    "talking is always wrong": "D-OPPOSITE",
-   "libraries need cushions": "D-TOPIC-ADJACENT"
+   "libraries need cushions": "D-TOPIC-ADJACENT",
+   "a sponsored silence raised money": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5102,7 +5537,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/lonely-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/lonely-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/lonely-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/lonely-01.webp",
+  "resolvedImageAssetKey": "lonely",
+  "imageAlt": "Illustration for The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did."
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
@@ -5130,22 +5571,12 @@ export const questions = [
   "passage": "Remember the little lantern that finished alone because it was built for the wind, not for the judges. Keep that lesson in mind.",
   "cell": "apply_theme",
   "choices": [
-   "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle",
-   "Bea spends every evening decorating her project with gold ribbon and glitter",
    "Bea enters the lantern festival next year",
-   "Bea judges the fair with the teachers"
+   "Bea judges the fair with the teachers",
+   "Bea makes a small volcano that works every time",
+   "Bea spends every evening decorating her project with gold ribbon and glitter"
   ],
   "answerOptions": [
-   {
-    "value": "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle",
-    "label": "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle",
-    "text": "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle"
-   },
-   {
-    "value": "Bea spends every evening decorating her project with gold ribbon and glitter",
-    "label": "Bea spends every evening decorating her project with gold ribbon and glitter",
-    "text": "Bea spends every evening decorating her project with gold ribbon and glitter"
-   },
    {
     "value": "Bea enters the lantern festival next year",
     "label": "Bea enters the lantern festival next year",
@@ -5155,24 +5586,35 @@ export const questions = [
     "value": "Bea judges the fair with the teachers",
     "label": "Bea judges the fair with the teachers",
     "text": "Bea judges the fair with the teachers"
+   },
+   {
+    "value": "Bea makes a small volcano that works every time",
+    "label": "Bea makes a small volcano that works every time",
+    "text": "Bea makes a small volcano that works every time"
+   },
+   {
+    "value": "Bea spends every evening decorating her project with gold ribbon and glitter",
+    "label": "Bea spends every evening decorating her project with gold ribbon and glitter",
+    "text": "Bea spends every evening decorating her project with gold ribbon and glitter"
    }
   ],
-  "answer": "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle",
-  "correctAnswer": "For the science fair, Bea builds a small volcano that erupts every time, while showier ones fizzle",
+  "answer": "Bea makes a small volcano that works every time",
+  "correctAnswer": "Bea makes a small volcano that works every time",
   "distractorRationales": {
-   "Bea spends every evening decorating her project with gold ribbon and glitter": "D-OPPOSITE",
    "Bea enters the lantern festival next year": "D-TOPIC-ADJACENT",
-   "Bea judges the fair with the teachers": "D-TOPIC-ADJACENT"
+   "Bea judges the fair with the teachers": "D-TOPIC-ADJACENT",
+   "Bea spends every evening decorating her project with gold ribbon and glitter": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5183,6 +5625,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+  "resolvedImageAssetKey": "remember",
+  "imageAlt": "Illustration for Remember the little lantern that finished alone because it was built for the wind, not for the judges. Keep that lesson in mind."
  }
 ];

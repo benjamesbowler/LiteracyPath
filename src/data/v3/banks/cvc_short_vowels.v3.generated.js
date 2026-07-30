@@ -25,17 +25,12 @@ export const questions = [
   "question": "Complete: c_t",
   "spokenPrompt": "cat. Which vowel finishes the word cat?",
   "choices": [
-   "a",
    "o",
    "u",
-   "e"
+   "e",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "o",
     "label": "o",
@@ -50,6 +45,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "a",
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,11 +81,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "c-o-t and c-u-t are real words — the cat image pins the target",
-  "imagePath": "/images/child-mode/cvc/cat.png",
-  "imageUrl": "/images/child-mode/cvc/cat.png",
-  "targetImage": "/images/child-mode/cvc/cat.png",
-  "targetImagePath": "/images/child-mode/cvc/cat.png",
-  "imageAlt": "cat"
+  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "resolvedImageAssetKey": "cat",
+  "imageAlt": "Complete: c_t"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_a.v2",
@@ -110,22 +112,12 @@ export const questions = [
   "question": "Complete: h_t",
   "spokenPrompt": "hat. Which vowel finishes the word hat?",
   "choices": [
-   "a",
-   "o",
    "u",
-   "i"
+   "i",
+   "a",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "u",
     "label": "u",
@@ -135,14 +127,24 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
+   "i": "D-VOWEL",
    "o": "D-VOWEL",
-   "u": "D-VOWEL",
-   "i": "D-VOWEL"
+   "u": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -165,11 +168,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/hat.png",
-  "imageUrl": "/images/child-mode/cvc/hat.png",
-  "targetImage": "/images/child-mode/cvc/hat.png",
-  "targetImagePath": "/images/child-mode/cvc/hat.png",
-  "imageAlt": "hat"
+  "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "resolvedImageAssetKey": "hat",
+  "imageAlt": "Complete: h_t"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_a.v3",
@@ -195,12 +199,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "pot",
    "pan",
    "pin",
-   "pen",
-   "pot"
+   "pen"
   ],
   "answerOptions": [
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
    {
     "value": "pan",
     "label": "pan",
@@ -215,11 +224,6 @@ export const questions = [
     "value": "pen",
     "label": "pen",
     "text": "pen"
-   },
-   {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
    }
   ],
   "answer": "pan",
@@ -239,6 +243,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pan",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -250,11 +255,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/pan.png",
-  "imageUrl": "/images/child-mode/cvc/pan.png",
-  "targetImage": "/images/child-mode/cvc/pan.png",
-  "targetImagePath": "/images/child-mode/cvc/pan.png",
-  "imageAlt": "pan"
+  "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "resolvedImageAssetKey": "pan",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_a.v4",
@@ -310,9 +316,9 @@ export const questions = [
   "answer": "bat",
   "correctAnswer": "bat",
   "distractorRationales": {
-   "bit": "D-VOWEL",
    "bet": "D-VOWEL",
-   "but": "D-VOWEL"
+   "but": "D-VOWEL",
+   "bit": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -324,6 +330,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -335,11 +342,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/bat.png",
-  "imageUrl": "/images/child-mode/cvc/bat.png",
-  "targetImage": "/images/child-mode/cvc/bat.png",
-  "targetImagePath": "/images/child-mode/cvc/bat.png",
-  "imageAlt": "bat"
+  "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/bat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
+  "resolvedImageAssetKey": "bat",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_a.v5",
@@ -365,17 +373,12 @@ export const questions = [
   "question": "Which word has the short a sound?",
   "spokenPrompt": "Which word has the short a sound? Listen: a.",
   "choices": [
-   "cat",
    "cake",
    "pen",
-   "pig"
+   "pig",
+   "cat"
   ],
   "answerOptions": [
-   {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
-   },
    {
     "value": "cake",
     "label": "cake",
@@ -390,24 +393,30 @@ export const questions = [
     "value": "pig",
     "label": "pig",
     "text": "pig"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
   "answer": "cat",
   "correctAnswer": "cat",
   "distractorRationales": {
-   "cake": "D-PATTERN-TRAP",
    "pen": "D-VOWEL",
-   "pig": "D-VOWEL"
+   "pig": "D-VOWEL",
+   "cake": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_a-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -418,7 +427,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cake has the letter a but the long sound — the honest discrimination and the letter-scanner tie"
+  "notes": "cake has the letter a but the long sound — the honest discrimination and the letter-scanner tie",
+  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "resolvedImageAssetKey": "cat",
+  "imageAlt": "Which word has the short a sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_a.v6",
@@ -444,22 +459,12 @@ export const questions = [
   "question": "Which word has the short a sound?",
   "spokenPrompt": "Which word has the short a sound? Listen: a.",
   "choices": [
-   "pan",
-   "rain",
    "nut",
-   "dog"
+   "dog",
+   "pan",
+   "rain"
   ],
   "answerOptions": [
-   {
-    "value": "pan",
-    "label": "pan",
-    "text": "pan"
-   },
-   {
-    "value": "rain",
-    "label": "rain",
-    "text": "rain"
-   },
    {
     "value": "nut",
     "label": "nut",
@@ -469,24 +474,35 @@ export const questions = [
     "value": "dog",
     "label": "dog",
     "text": "dog"
+   },
+   {
+    "value": "pan",
+    "label": "pan",
+    "text": "pan"
+   },
+   {
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
    }
   ],
   "answer": "pan",
   "correctAnswer": "pan",
   "distractorRationales": {
-   "rain": "D-PATTERN-TRAP",
    "nut": "D-VOWEL",
-   "dog": "D-VOWEL"
+   "dog": "D-VOWEL",
+   "rain": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_a-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -497,7 +513,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
+  "resolvedImageAssetKey": "pan",
+  "imageAlt": "Which word has the short a sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_a.v1",
@@ -523,22 +545,12 @@ export const questions = [
   "question": "Complete: fl_g",
   "spokenPrompt": "flag. Which vowel finishes the word flag?",
   "choices": [
-   "a",
-   "o",
    "u",
-   "e"
+   "e",
+   "a",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "u",
     "label": "u",
@@ -548,14 +560,24 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "a",
   "correctAnswer": "a",
   "distractorRationales": {
-   "o": "D-VOWEL",
    "u": "D-VOWEL",
-   "e": "D-VOWEL"
+   "e": "D-VOWEL",
+   "o": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -567,6 +589,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -582,7 +605,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Complete: fl_g"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_a.v2",
@@ -608,17 +632,12 @@ export const questions = [
   "question": "Complete: h_nd",
   "spokenPrompt": "hand. Which vowel finishes the word hand?",
   "choices": [
-   "a",
    "e",
    "o",
-   "u"
+   "u",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "e",
     "label": "e",
@@ -633,6 +652,11 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "a",
@@ -652,6 +676,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -667,7 +692,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
-  "imageAlt": "hand"
+  "resolvedImageAssetKey": "hand",
+  "imageAlt": "Complete: h_nd"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_a.v3",
@@ -723,9 +749,9 @@ export const questions = [
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
-   "crib": "D-VOWEL",
    "cub": "D-VOWEL",
-   "cab": "D-DEVELOPMENTAL"
+   "cab": "D-DEVELOPMENTAL",
+   "crib": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -737,6 +763,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crab",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -752,7 +779,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crab.webp",
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
-  "imageAlt": "crab"
+  "resolvedImageAssetKey": "crab",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_a.v4",
@@ -778,17 +806,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "jam",
    "gem",
    "jab",
-   "yam"
+   "yam",
+   "jam"
   ],
   "answerOptions": [
-   {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
-   },
    {
     "value": "gem",
     "label": "gem",
@@ -803,6 +826,11 @@ export const questions = [
     "value": "yam",
     "label": "yam",
     "text": "yam"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
    }
   ],
   "answer": "jam",
@@ -822,6 +850,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "jam",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -833,11 +862,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/jam.png",
-  "imageUrl": "/images/child-mode/initial-sounds/jam.png",
-  "targetImage": "/images/child-mode/initial-sounds/jam.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/jam.png",
-  "imageAlt": "jam"
+  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_a.v5",
@@ -891,6 +921,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flag",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -906,7 +937,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flag.webp",
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
-  "imageAlt": "flag"
+  "resolvedImageAssetKey": "flag",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_a.v6",
@@ -960,6 +992,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "crab",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -975,7 +1008,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/crab.webp",
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
-  "imageAlt": "crab"
+  "resolvedImageAssetKey": "crab",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_e.v1",
@@ -1001,12 +1035,17 @@ export const questions = [
   "question": "Complete: b_d",
   "spokenPrompt": "bed. Which vowel finishes the word bed?",
   "choices": [
+   "i",
    "e",
    "a",
-   "u",
-   "i"
+   "u"
   ],
   "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
    {
     "value": "e",
     "label": "e",
@@ -1021,11 +1060,6 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
-   },
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
    }
   ],
   "answer": "e",
@@ -1045,6 +1079,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bed",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1056,11 +1091,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "b-a-d and b-u-d are real words — the bed image pins the target",
-  "imagePath": "/images/child-mode/cvc/bed.png",
-  "imageUrl": "/images/child-mode/cvc/bed.png",
-  "targetImage": "/images/child-mode/cvc/bed.png",
-  "targetImagePath": "/images/child-mode/cvc/bed.png",
-  "imageAlt": "bed"
+  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "resolvedImageAssetKey": "bed",
+  "imageAlt": "Complete: b_d"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_e.v2",
@@ -1116,9 +1152,9 @@ export const questions = [
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "i": "D-VOWEL",
    "u": "D-VOWEL",
-   "o": "D-VOWEL",
-   "i": "D-VOWEL"
+   "o": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1130,6 +1166,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "net",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1141,11 +1178,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageUrl": "/images/child-mode/initial-sounds/net.png",
-  "targetImage": "/images/child-mode/initial-sounds/net.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageAlt": "net"
+  "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "resolvedImageAssetKey": "net",
+  "imageAlt": "Complete: n_t"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_e.v3",
@@ -1171,17 +1209,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "pen",
    "pan",
    "pin",
-   "pat"
+   "pat",
+   "pen"
   ],
   "answerOptions": [
-   {
-    "value": "pen",
-    "label": "pen",
-    "text": "pen"
-   },
    {
     "value": "pan",
     "label": "pan",
@@ -1196,6 +1229,11 @@ export const questions = [
     "value": "pat",
     "label": "pat",
     "text": "pat"
+   },
+   {
+    "value": "pen",
+    "label": "pen",
+    "text": "pen"
    }
   ],
   "answer": "pen",
@@ -1215,6 +1253,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pen",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1226,11 +1265,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/pen.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-  "targetImage": "/images/child-mode/initial-sounds/pen.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pen.png",
-  "imageAlt": "pen"
+  "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
+  "resolvedImageAssetKey": "pen",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_e.v4",
@@ -1256,22 +1296,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "net",
-   "nut",
    "not",
-   "nap"
+   "nap",
+   "net",
+   "nut"
   ],
   "answerOptions": [
-   {
-    "value": "net",
-    "label": "net",
-    "text": "net"
-   },
-   {
-    "value": "nut",
-    "label": "nut",
-    "text": "nut"
-   },
    {
     "value": "not",
     "label": "not",
@@ -1281,14 +1311,24 @@ export const questions = [
     "value": "nap",
     "label": "nap",
     "text": "nap"
+   },
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
+   },
+   {
+    "value": "nut",
+    "label": "nut",
+    "text": "nut"
    }
   ],
   "answer": "net",
   "correctAnswer": "net",
   "distractorRationales": {
-   "nut": "D-VOWEL",
    "not": "D-VOWEL",
-   "nap": "D-VOWEL"
+   "nap": "D-VOWEL",
+   "nut": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1300,6 +1340,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "net",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1311,11 +1352,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageUrl": "/images/child-mode/initial-sounds/net.png",
-  "targetImage": "/images/child-mode/initial-sounds/net.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/net.png",
-  "imageAlt": "net"
+  "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+  "resolvedImageAssetKey": "net",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_e.v5",
@@ -1341,12 +1383,17 @@ export const questions = [
   "question": "Which word has the short e sound?",
   "spokenPrompt": "Which word has the short e sound? Listen: e.",
   "choices": [
+   "bug",
    "bed",
    "bee",
-   "bag",
-   "bug"
+   "bag"
   ],
   "answerOptions": [
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
+   },
    {
     "value": "bed",
     "label": "bed",
@@ -1361,29 +1408,25 @@ export const questions = [
     "value": "bag",
     "label": "bag",
     "text": "bag"
-   },
-   {
-    "value": "bug",
-    "label": "bug",
-    "text": "bug"
    }
   ],
   "answer": "bed",
   "correctAnswer": "bed",
   "distractorRationales": {
-   "bee": "D-PATTERN-TRAP",
    "bag": "D-VOWEL",
-   "bug": "D-VOWEL"
+   "bug": "D-VOWEL",
+   "bee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_e-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1394,7 +1437,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "resolvedImageAssetKey": "bed",
+  "imageAlt": "Which word has the short e sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_e.v6",
@@ -1450,19 +1499,20 @@ export const questions = [
   "answer": "ten",
   "correctAnswer": "ten",
   "distractorRationales": {
-   "tree": "D-PATTERN-TRAP",
    "tap": "D-VOWEL",
-   "top": "D-VOWEL"
+   "top": "D-VOWEL",
+   "tree": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_e-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1473,7 +1523,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "resolvedImageAssetKey": "ten",
+  "imageAlt": "Which word has the short e sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_e.v1",
@@ -1529,9 +1585,9 @@ export const questions = [
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "u": "D-VOWEL",
-   "i": "D-VOWEL"
+   "i": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1543,6 +1599,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nest",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1558,7 +1615,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/nest.webp",
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
-  "imageAlt": "nest"
+  "resolvedImageAssetKey": "nest",
+  "imageAlt": "Complete: n_st"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_e.v2",
@@ -1628,6 +1686,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "desk",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1643,7 +1702,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/desk.webp",
   "targetImage": "/images/assessment/blends/desk.webp",
   "targetImagePath": "/images/assessment/blends/desk.webp",
-  "imageAlt": "desk"
+  "resolvedImageAssetKey": "desk",
+  "imageAlt": "Complete: d_sk"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_e.v3",
@@ -1669,12 +1729,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "ten",
    "tent",
    "tint",
-   "hunt",
-   "ten"
+   "hunt"
   ],
   "answerOptions": [
+   {
+    "value": "ten",
+    "label": "ten",
+    "text": "ten"
+   },
    {
     "value": "tent",
     "label": "tent",
@@ -1689,19 +1754,14 @@ export const questions = [
     "value": "hunt",
     "label": "hunt",
     "text": "hunt"
-   },
-   {
-    "value": "ten",
-    "label": "ten",
-    "text": "ten"
    }
   ],
   "answer": "tent",
   "correctAnswer": "tent",
   "distractorRationales": {
-   "tint": "D-VOWEL",
    "hunt": "D-VOWEL",
-   "ten": "D-DEVELOPMENTAL"
+   "ten": "D-DEVELOPMENTAL",
+   "tint": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1713,6 +1773,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tent",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1728,7 +1789,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/tent.webp",
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
-  "imageAlt": "tent"
+  "resolvedImageAssetKey": "tent",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_e.v4",
@@ -1754,12 +1816,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "sell",
    "shell",
    "shall",
-   "hill",
-   "sell"
+   "hill"
   ],
   "answerOptions": [
+   {
+    "value": "sell",
+    "label": "sell",
+    "text": "sell"
+   },
    {
     "value": "shell",
     "label": "shell",
@@ -1774,11 +1841,6 @@ export const questions = [
     "value": "hill",
     "label": "hill",
     "text": "hill"
-   },
-   {
-    "value": "sell",
-    "label": "sell",
-    "text": "sell"
    }
   ],
   "answer": "shell",
@@ -1798,6 +1860,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "shell",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1813,7 +1876,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/shell.webp",
   "targetImage": "/images/assessment/digraphs/shell.webp",
   "targetImagePath": "/images/assessment/digraphs/shell.webp",
-  "imageAlt": "shell"
+  "resolvedImageAssetKey": "shell",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_e.v5",
@@ -1867,6 +1931,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nest",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1882,7 +1947,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/nest.webp",
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
-  "imageAlt": "nest"
+  "resolvedImageAssetKey": "nest",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_e.v6",
@@ -1936,6 +2002,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "vest",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1951,7 +2018,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/vest.png",
   "targetImage": "/images/child-mode/initial-sounds/vest.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vest.png",
-  "imageAlt": "vest"
+  "resolvedImageAssetKey": "vest",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_i.v1",
@@ -1977,17 +2045,12 @@ export const questions = [
   "question": "Complete: p_g",
   "spokenPrompt": "pig. Which vowel finishes the word pig?",
   "choices": [
-   "i",
    "e",
    "a",
-   "u"
+   "u",
+   "i"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
    {
     "value": "e",
     "label": "e",
@@ -2002,6 +2065,11 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
    }
   ],
   "answer": "i",
@@ -2021,6 +2089,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pig",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2032,11 +2101,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pig.png",
-  "targetImage": "/images/child-mode/initial-sounds/pig.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageAlt": "pig"
+  "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "resolvedImageAssetKey": "pig",
+  "imageAlt": "Complete: p_g"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_i.v2",
@@ -2062,22 +2132,12 @@ export const questions = [
   "question": "Complete: p_n",
   "spokenPrompt": "pin. Which vowel finishes the word pin?",
   "choices": [
-   "i",
-   "a",
    "e",
-   "o"
+   "o",
+   "i",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "e",
     "label": "e",
@@ -2087,14 +2147,24 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
+   "o": "D-VOWEL",
    "a": "D-VOWEL",
-   "e": "D-VOWEL",
-   "o": "D-VOWEL"
+   "e": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2106,6 +2176,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2117,11 +2188,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "p-a-n and p-e-n are real words — the pin image pins the target",
-  "imagePath": "/images/child-mode/initial-sounds/pin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pin.png",
-  "targetImage": "/images/child-mode/initial-sounds/pin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pin.png",
-  "imageAlt": "pin"
+  "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "resolvedImageAssetKey": "pin",
+  "imageAlt": "Complete: p_n"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_i.v3",
@@ -2147,12 +2219,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "pit",
    "pig",
    "peg",
-   "pug",
-   "pit"
+   "pug"
   ],
   "answerOptions": [
+   {
+    "value": "pit",
+    "label": "pit",
+    "text": "pit"
+   },
    {
     "value": "pig",
     "label": "pig",
@@ -2167,11 +2244,6 @@ export const questions = [
     "value": "pug",
     "label": "pug",
     "text": "pug"
-   },
-   {
-    "value": "pit",
-    "label": "pit",
-    "text": "pit"
    }
   ],
   "answer": "pig",
@@ -2191,6 +2263,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pig",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2202,11 +2275,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "pit ties the pi/picture overlap so the key cannot be scanned out",
-  "imagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pig.png",
-  "targetImage": "/images/child-mode/initial-sounds/pig.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
-  "imageAlt": "pig"
+  "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "resolvedImageAssetKey": "pig",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_i.v4",
@@ -2262,9 +2336,9 @@ export const questions = [
   "answer": "fin",
   "correctAnswer": "fin",
   "distractorRationales": {
-   "fan": "D-VOWEL",
    "fun": "D-VOWEL",
-   "ten": "D-ONSET"
+   "ten": "D-ONSET",
+   "fan": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2276,6 +2350,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2287,11 +2362,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fin.png",
-  "targetImage": "/images/child-mode/initial-sounds/fin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fin.png",
-  "imageAlt": "fin"
+  "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "resolvedImageAssetKey": "fin",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_i.v5",
@@ -2317,17 +2393,12 @@ export const questions = [
   "question": "Which word has the short i sound?",
   "spokenPrompt": "Which word has the short i sound? Listen: i.",
   "choices": [
-   "pin",
    "pine",
    "pen",
-   "pot"
+   "pot",
+   "pin"
   ],
   "answerOptions": [
-   {
-    "value": "pin",
-    "label": "pin",
-    "text": "pin"
-   },
    {
     "value": "pine",
     "label": "pine",
@@ -2342,24 +2413,30 @@ export const questions = [
     "value": "pot",
     "label": "pot",
     "text": "pot"
+   },
+   {
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
    }
   ],
   "answer": "pin",
   "correctAnswer": "pin",
   "distractorRationales": {
-   "pine": "D-PATTERN-TRAP",
    "pen": "D-VOWEL",
-   "pot": "D-VOWEL"
+   "pot": "D-VOWEL",
+   "pine": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_i-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2370,7 +2447,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "pine is one silent e away — the short/long discrimination"
+  "notes": "pine is one silent e away — the short/long discrimination",
+  "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "resolvedImageAssetKey": "pin",
+  "imageAlt": "Which word has the short i sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_i.v6",
@@ -2396,22 +2479,12 @@ export const questions = [
   "question": "Which word has the short i sound?",
   "spokenPrompt": "Which word has the short i sound? Listen: i.",
   "choices": [
-   "big",
-   "bike",
    "bag",
-   "bed"
+   "bed",
+   "big",
+   "bike"
   ],
   "answerOptions": [
-   {
-    "value": "big",
-    "label": "big",
-    "text": "big"
-   },
-   {
-    "value": "bike",
-    "label": "bike",
-    "text": "bike"
-   },
    {
     "value": "bag",
     "label": "bag",
@@ -2421,24 +2494,35 @@ export const questions = [
     "value": "bed",
     "label": "bed",
     "text": "bed"
+   },
+   {
+    "value": "big",
+    "label": "big",
+    "text": "big"
+   },
+   {
+    "value": "bike",
+    "label": "bike",
+    "text": "bike"
    }
   ],
   "answer": "big",
   "correctAnswer": "big",
   "distractorRationales": {
-   "bike": "D-PATTERN-TRAP",
    "bag": "D-VOWEL",
-   "bed": "D-VOWEL"
+   "bed": "D-VOWEL",
+   "bike": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_i-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2449,7 +2533,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/big.webp",
+  "imageUrl": "/images/assessment/hfw/big.webp",
+  "targetImage": "/images/assessment/hfw/big.webp",
+  "targetImagePath": "/images/assessment/hfw/big.webp",
+  "resolvedImageAssetKey": "big",
+  "imageAlt": "Which word has the short i sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_i.v1",
@@ -2475,22 +2565,12 @@ export const questions = [
   "question": "Complete: br_ck",
   "spokenPrompt": "brick. Which vowel finishes the word brick?",
   "choices": [
-   "i",
-   "a",
    "o",
-   "u"
+   "u",
+   "i",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "i",
-    "label": "i",
-    "text": "i"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "o",
     "label": "o",
@@ -2500,14 +2580,24 @@ export const questions = [
     "value": "u",
     "label": "u",
     "text": "u"
+   },
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "i",
   "correctAnswer": "i",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "o": "D-VOWEL",
-   "u": "D-VOWEL"
+   "u": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2519,6 +2609,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brick",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2534,7 +2625,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brick.webp",
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
-  "imageAlt": "brick"
+  "resolvedImageAssetKey": "brick",
+  "imageAlt": "Complete: br_ck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_i.v2",
@@ -2560,12 +2652,17 @@ export const questions = [
   "question": "Complete: g_ft",
   "spokenPrompt": "gift. Which vowel finishes the word gift?",
   "choices": [
+   "o",
    "i",
    "a",
-   "e",
-   "o"
+   "e"
   ],
   "answerOptions": [
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
    {
     "value": "i",
     "label": "i",
@@ -2580,11 +2677,6 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
    }
   ],
   "answer": "i",
@@ -2604,6 +2696,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "gift",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,7 +2712,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/gift.webp",
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
-  "imageAlt": "gift"
+  "resolvedImageAssetKey": "gift",
+  "imageAlt": "Complete: g_ft"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_i.v3",
@@ -2645,22 +2739,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "swim",
-   "swam",
    "swum",
-   "win"
+   "win",
+   "swim",
+   "swam"
   ],
   "answerOptions": [
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
-   },
-   {
-    "value": "swam",
-    "label": "swam",
-    "text": "swam"
-   },
    {
     "value": "swum",
     "label": "swum",
@@ -2670,14 +2754,24 @@ export const questions = [
     "value": "win",
     "label": "win",
     "text": "win"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "swam",
+    "label": "swam",
+    "text": "swam"
    }
   ],
   "answer": "swim",
   "correctAnswer": "swim",
   "distractorRationales": {
-   "swam": "D-VOWEL",
    "swum": "D-VOWEL",
-   "win": "D-RIME-NEAR"
+   "win": "D-RIME-NEAR",
+   "swam": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2689,6 +2783,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "swim",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2704,7 +2799,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/swim.webp",
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
-  "imageAlt": "swim"
+  "resolvedImageAssetKey": "swim",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_i.v4",
@@ -2730,17 +2826,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "fish",
    "fresh",
    "flash",
-   "wish"
+   "wish",
+   "fish"
   ],
   "answerOptions": [
-   {
-    "value": "fish",
-    "label": "fish",
-    "text": "fish"
-   },
    {
     "value": "fresh",
     "label": "fresh",
@@ -2755,6 +2846,11 @@ export const questions = [
     "value": "wish",
     "label": "wish",
     "text": "wish"
+   },
+   {
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
    }
   ],
   "answer": "fish",
@@ -2774,6 +2870,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fish",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2789,7 +2886,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/fish.webp",
   "targetImage": "/images/assessment/digraphs/fish.webp",
   "targetImagePath": "/images/assessment/digraphs/fish.webp",
-  "imageAlt": "fish"
+  "resolvedImageAssetKey": "fish",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_i.v5",
@@ -2843,6 +2941,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "swim",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2858,7 +2957,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/swim.webp",
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
-  "imageAlt": "swim"
+  "resolvedImageAssetKey": "swim",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_i.v6",
@@ -2911,6 +3011,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fish",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2926,7 +3027,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/fish.webp",
   "targetImage": "/images/assessment/digraphs/fish.webp",
   "targetImagePath": "/images/assessment/digraphs/fish.webp",
-  "imageAlt": "fish"
+  "resolvedImageAssetKey": "fish",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_o.v1",
@@ -2952,12 +3054,17 @@ export const questions = [
   "question": "Complete: d_g",
   "spokenPrompt": "dog. Which vowel finishes the word dog?",
   "choices": [
+   "a",
    "o",
    "u",
-   "i",
-   "a"
+   "i"
   ],
   "answerOptions": [
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
+   },
    {
     "value": "o",
     "label": "o",
@@ -2972,19 +3079,14 @@ export const questions = [
     "value": "i",
     "label": "i",
     "text": "i"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
+   "a": "D-VOWEL",
    "u": "D-VOWEL",
-   "i": "D-VOWEL",
-   "a": "D-VOWEL"
+   "i": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2996,6 +3098,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "dog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3007,11 +3110,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "d-u-g and d-i-g are real words — the dog image pins the target",
-  "imagePath": "/images/child-mode/cvc/dog.png",
-  "imageUrl": "/images/child-mode/cvc/dog.png",
-  "targetImage": "/images/child-mode/cvc/dog.png",
-  "targetImagePath": "/images/child-mode/cvc/dog.png",
-  "imageAlt": "dog"
+  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "resolvedImageAssetKey": "dog",
+  "imageAlt": "Complete: d_g"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_o.v2",
@@ -3081,6 +3185,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pot",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3092,11 +3197,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/pot.png",
-  "imageUrl": "/images/child-mode/cvc/pot.png",
-  "targetImage": "/images/child-mode/cvc/pot.png",
-  "targetImagePath": "/images/child-mode/cvc/pot.png",
-  "imageAlt": "pot"
+  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "resolvedImageAssetKey": "pot",
+  "imageAlt": "Complete: p_t"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_o.v3",
@@ -3122,17 +3228,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "pot",
    "pat",
    "pit",
-   "pet"
+   "pet",
+   "pot"
   ],
   "answerOptions": [
-   {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
-   },
    {
     "value": "pat",
     "label": "pat",
@@ -3147,14 +3248,19 @@ export const questions = [
     "value": "pet",
     "label": "pet",
     "text": "pet"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
    }
   ],
   "answer": "pot",
   "correctAnswer": "pot",
   "distractorRationales": {
+   "pet": "D-VOWEL",
    "pat": "D-VOWEL",
-   "pit": "D-VOWEL",
-   "pet": "D-VOWEL"
+   "pit": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3166,6 +3272,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pot",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3177,11 +3284,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/pot.png",
-  "imageUrl": "/images/child-mode/cvc/pot.png",
-  "targetImage": "/images/child-mode/cvc/pot.png",
-  "targetImagePath": "/images/child-mode/cvc/pot.png",
-  "imageAlt": "pot"
+  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "resolvedImageAssetKey": "pot",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_o.v4",
@@ -3207,22 +3315,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "log",
-   "leg",
    "lag",
-   "lug"
+   "lug",
+   "log",
+   "leg"
   ],
   "answerOptions": [
-   {
-    "value": "log",
-    "label": "log",
-    "text": "log"
-   },
-   {
-    "value": "leg",
-    "label": "leg",
-    "text": "leg"
-   },
    {
     "value": "lag",
     "label": "lag",
@@ -3232,6 +3330,16 @@ export const questions = [
     "value": "lug",
     "label": "lug",
     "text": "lug"
+   },
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   },
+   {
+    "value": "leg",
+    "label": "leg",
+    "text": "leg"
    }
   ],
   "answer": "log",
@@ -3251,6 +3359,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "log",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3262,11 +3371,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/log.png",
-  "imageUrl": "/images/child-mode/cvc/log.png",
-  "targetImage": "/images/child-mode/cvc/log.png",
-  "targetImagePath": "/images/child-mode/cvc/log.png",
-  "imageAlt": "log"
+  "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "resolvedImageAssetKey": "log",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_o.v5",
@@ -3292,12 +3402,17 @@ export const questions = [
   "question": "Which word has the short o sound?",
   "spokenPrompt": "Which word has the short o sound? Listen: o.",
   "choices": [
+   "dug",
    "dog",
    "bone",
-   "dig",
-   "dug"
+   "dig"
   ],
   "answerOptions": [
+   {
+    "value": "dug",
+    "label": "dug",
+    "text": "dug"
+   },
    {
     "value": "dog",
     "label": "dog",
@@ -3312,11 +3427,6 @@ export const questions = [
     "value": "dig",
     "label": "dig",
     "text": "dig"
-   },
-   {
-    "value": "dug",
-    "label": "dug",
-    "text": "dug"
    }
   ],
   "answer": "dog",
@@ -3326,15 +3436,16 @@ export const questions = [
    "dig": "D-VOWEL",
    "dug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_o-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3345,7 +3456,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "resolvedImageAssetKey": "dog",
+  "imageAlt": "Which word has the short o sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_o.v6",
@@ -3405,15 +3522,16 @@ export const questions = [
    "pat": "D-VOWEL",
    "pet": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_o-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3424,7 +3542,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
+  "resolvedImageAssetKey": "pot",
+  "imageAlt": "Which word has the short o sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_o.v1",
@@ -3494,6 +3618,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3509,7 +3634,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/sock.webp",
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "imageAlt": "sock"
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "Complete: s_ck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_o.v2",
@@ -3535,22 +3661,12 @@ export const questions = [
   "question": "Complete: cl_ck",
   "spokenPrompt": "clock. Which vowel finishes the word clock?",
   "choices": [
-   "o",
-   "a",
    "u",
-   "e"
+   "e",
+   "o",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "u",
     "label": "u",
@@ -3560,14 +3676,24 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "o",
   "correctAnswer": "o",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "u": "D-VOWEL",
-   "e": "D-VOWEL"
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3579,6 +3705,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "clock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3594,7 +3721,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/clock.webp",
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "imageAlt": "clock"
+  "resolvedImageAssetKey": "clock",
+  "imageAlt": "Complete: cl_ck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_o.v3",
@@ -3620,17 +3748,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "sock",
    "sack",
    "sick",
-   "snack"
+   "snack",
+   "sock"
   ],
   "answerOptions": [
-   {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
-   },
    {
     "value": "sack",
     "label": "sack",
@@ -3645,6 +3768,11 @@ export const questions = [
     "value": "snack",
     "label": "snack",
     "text": "snack"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
    }
   ],
   "answer": "sock",
@@ -3664,6 +3792,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3679,7 +3808,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/sock.webp",
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "imageAlt": "sock"
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_o.v4",
@@ -3705,12 +3835,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "frown",
    "frog",
    "flag",
-   "fog",
-   "frown"
+   "fog"
   ],
   "answerOptions": [
+   {
+    "value": "frown",
+    "label": "frown",
+    "text": "frown"
+   },
    {
     "value": "frog",
     "label": "frog",
@@ -3725,19 +3860,14 @@ export const questions = [
     "value": "fog",
     "label": "fog",
     "text": "fog"
-   },
-   {
-    "value": "frown",
-    "label": "frown",
-    "text": "frown"
    }
   ],
   "answer": "frog",
   "correctAnswer": "frog",
   "distractorRationales": {
+   "frown": "D-PATTERN-TRAP",
    "flag": "D-VOWEL",
-   "fog": "D-DEVELOPMENTAL",
-   "frown": "D-PATTERN-TRAP"
+   "fog": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3749,6 +3879,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "frog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3764,7 +3895,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/frog.webp",
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
-  "imageAlt": "frog"
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_o.v5",
@@ -3818,6 +3950,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "frog",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3833,7 +3966,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/frog.webp",
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
-  "imageAlt": "frog"
+  "resolvedImageAssetKey": "frog",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_o.v6",
@@ -3886,6 +4020,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sock",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3901,7 +4036,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/sock.webp",
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "imageAlt": "sock"
+  "resolvedImageAssetKey": "sock",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_u.v1",
@@ -3927,17 +4063,12 @@ export const questions = [
   "question": "Complete: b_g",
   "spokenPrompt": "bug. Which vowel finishes the word bug?",
   "choices": [
-   "u",
    "a",
    "i",
-   "o"
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "a",
     "label": "a",
@@ -3952,6 +4083,11 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "u",
@@ -3971,6 +4107,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3982,11 +4119,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "b-a-g and b-i-g are real words — the bug image pins the target",
-  "imagePath": "/images/child-mode/cvc/bug.png",
-  "imageUrl": "/images/child-mode/cvc/bug.png",
-  "targetImage": "/images/child-mode/cvc/bug.png",
-  "targetImagePath": "/images/child-mode/cvc/bug.png",
-  "imageAlt": "bug"
+  "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "resolvedImageAssetKey": "bug",
+  "imageAlt": "Complete: b_g"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_u.v2",
@@ -4012,22 +4150,12 @@ export const questions = [
   "question": "Complete: s_n",
   "spokenPrompt": "sun. Which vowel finishes the word sun?",
   "choices": [
-   "u",
-   "o",
    "i",
-   "a"
+   "a",
+   "u",
+   "o"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
-   {
-    "value": "o",
-    "label": "o",
-    "text": "o"
-   },
    {
     "value": "i",
     "label": "i",
@@ -4037,14 +4165,24 @@ export const questions = [
     "value": "a",
     "label": "a",
     "text": "a"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "o",
+    "label": "o",
+    "text": "o"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
+   "a": "D-VOWEL",
    "o": "D-VOWEL",
-   "i": "D-VOWEL",
-   "a": "D-VOWEL"
+   "i": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4056,6 +4194,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sun",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4067,11 +4206,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/sun.png",
-  "imageUrl": "/images/child-mode/cvc/sun.png",
-  "targetImage": "/images/child-mode/cvc/sun.png",
-  "targetImagePath": "/images/child-mode/cvc/sun.png",
-  "imageAlt": "sun"
+  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "resolvedImageAssetKey": "sun",
+  "imageAlt": "Complete: s_n"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_u.v3",
@@ -4097,12 +4237,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "bog",
    "bug",
    "bag",
-   "big",
-   "bog"
+   "big"
   ],
   "answerOptions": [
+   {
+    "value": "bog",
+    "label": "bog",
+    "text": "bog"
+   },
    {
     "value": "bug",
     "label": "bug",
@@ -4117,11 +4262,6 @@ export const questions = [
     "value": "big",
     "label": "big",
     "text": "big"
-   },
-   {
-    "value": "bog",
-    "label": "bog",
-    "text": "bog"
    }
   ],
   "answer": "bug",
@@ -4141,6 +4281,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4152,11 +4293,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/bug.png",
-  "imageUrl": "/images/child-mode/cvc/bug.png",
-  "targetImage": "/images/child-mode/cvc/bug.png",
-  "targetImagePath": "/images/child-mode/cvc/bug.png",
-  "imageAlt": "bug"
+  "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "resolvedImageAssetKey": "bug",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_u.v4",
@@ -4212,9 +4354,9 @@ export const questions = [
   "answer": "nut",
   "correctAnswer": "nut",
   "distractorRationales": {
-   "net": "D-VOWEL",
    "not": "D-VOWEL",
-   "mat": "D-RIME-NEAR"
+   "mat": "D-RIME-NEAR",
+   "net": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4226,6 +4368,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nut",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4241,7 +4384,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/nut.png",
   "targetImage": "/images/child-mode/initial-sounds/nut.png",
   "targetImagePath": "/images/child-mode/initial-sounds/nut.png",
-  "imageAlt": "nut"
+  "resolvedImageAssetKey": "nut",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_u.v5",
@@ -4267,17 +4411,12 @@ export const questions = [
   "question": "Which word has the short u sound?",
   "spokenPrompt": "Which word has the short u sound? Listen: u.",
   "choices": [
-   "bug",
    "cube",
    "bag",
-   "big"
+   "big",
+   "bug"
   ],
   "answerOptions": [
-   {
-    "value": "bug",
-    "label": "bug",
-    "text": "bug"
-   },
    {
     "value": "cube",
     "label": "cube",
@@ -4292,24 +4431,30 @@ export const questions = [
     "value": "big",
     "label": "big",
     "text": "big"
+   },
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
    }
   ],
   "answer": "bug",
   "correctAnswer": "bug",
   "distractorRationales": {
-   "cube": "D-PATTERN-TRAP",
    "bag": "D-VOWEL",
-   "big": "D-VOWEL"
+   "big": "D-VOWEL",
+   "cube": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_u-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4320,7 +4465,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+  "resolvedImageAssetKey": "bug",
+  "imageAlt": "Which word has the short u sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_u.v6",
@@ -4346,22 +4497,12 @@ export const questions = [
   "question": "Which word has the short u sound?",
   "spokenPrompt": "Which word has the short u sound? Listen: u.",
   "choices": [
-   "mud",
-   "moon",
    "mad",
-   "mid"
+   "mid",
+   "mud",
+   "moon"
   ],
   "answerOptions": [
-   {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
-   },
-   {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
-   },
    {
     "value": "mad",
     "label": "mad",
@@ -4371,24 +4512,35 @@ export const questions = [
     "value": "mid",
     "label": "mid",
     "text": "mid"
+   },
+   {
+    "value": "mud",
+    "label": "mud",
+    "text": "mud"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    }
   ],
   "answer": "mud",
   "correctAnswer": "mud",
   "distractorRationales": {
-   "moon": "D-PATTERN-TRAP",
    "mad": "D-VOWEL",
-   "mid": "D-VOWEL"
+   "mid": "D-VOWEL",
+   "moon": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_u-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4399,7 +4551,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/mud.png",
+  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
+  "targetImage": "/images/child-mode/initial-sounds/mud.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
+  "resolvedImageAssetKey": "mud",
+  "imageAlt": "Which word has the short u sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_u.v1",
@@ -4425,22 +4583,12 @@ export const questions = [
   "question": "Complete: dr_m",
   "spokenPrompt": "drum. Which vowel finishes the word drum?",
   "choices": [
-   "u",
-   "a",
    "i",
-   "o"
+   "o",
+   "u",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "i",
     "label": "i",
@@ -4450,14 +4598,24 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "i": "D-VOWEL",
-   "o": "D-VOWEL"
+   "o": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4469,6 +4627,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "drum",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4484,7 +4643,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/drum.webp",
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
-  "imageAlt": "drum"
+  "resolvedImageAssetKey": "drum",
+  "imageAlt": "Complete: dr_m"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_u.v2",
@@ -4510,17 +4670,12 @@ export const questions = [
   "question": "Complete: tr_ck",
   "spokenPrompt": "truck. Which vowel finishes the word truck?",
   "choices": [
-   "u",
    "a",
    "i",
-   "e"
+   "e",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "a",
     "label": "a",
@@ -4535,6 +4690,11 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "u",
@@ -4554,6 +4714,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "truck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4569,7 +4730,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/truck.webp",
   "targetImage": "/images/assessment/digraphs/truck.webp",
   "targetImagePath": "/images/assessment/digraphs/truck.webp",
-  "imageAlt": "truck"
+  "resolvedImageAssetKey": "truck",
+  "imageAlt": "Complete: tr_ck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_u.v3",
@@ -4625,9 +4787,9 @@ export const questions = [
   "answer": "duck",
   "correctAnswer": "duck",
   "distractorRationales": {
-   "deck": "D-VOWEL",
    "dock": "D-VOWEL",
-   "desk": "D-PATTERN-TRAP"
+   "desk": "D-PATTERN-TRAP",
+   "deck": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4639,6 +4801,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "duck",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4654,7 +4817,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/duck.webp",
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "imageAlt": "duck"
+  "resolvedImageAssetKey": "duck",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_u.v4",
@@ -4680,17 +4844,12 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
-   "brush",
    "fresh",
    "bush",
-   "crush"
+   "crush",
+   "brush"
   ],
   "answerOptions": [
-   {
-    "value": "brush",
-    "label": "brush",
-    "text": "brush"
-   },
    {
     "value": "fresh",
     "label": "fresh",
@@ -4705,6 +4864,11 @@ export const questions = [
     "value": "crush",
     "label": "crush",
     "text": "crush"
+   },
+   {
+    "value": "brush",
+    "label": "brush",
+    "text": "brush"
    }
   ],
   "answer": "brush",
@@ -4724,6 +4888,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brush",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4739,7 +4904,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brush.webp",
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "imageAlt": "brush"
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_u.v5",
@@ -4793,6 +4959,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "drum",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4808,7 +4975,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/drum.webp",
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
-  "imageAlt": "drum"
+  "resolvedImageAssetKey": "drum",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_u.v6",
@@ -4862,6 +5030,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "brush",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4877,7 +5046,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/brush.webp",
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "imageAlt": "brush"
+  "resolvedImageAssetKey": "brush",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v7r",
@@ -4903,22 +5073,12 @@ export const questions = [
   "question": "Complete: h_t",
   "spokenPrompt": "hut. Which vowel finishes the word hut?",
   "choices": [
-   "u",
-   "a",
    "o",
-   "e"
+   "e",
+   "u",
+   "a"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
-   {
-    "value": "a",
-    "label": "a",
-    "text": "a"
-   },
    {
     "value": "o",
     "label": "o",
@@ -4928,14 +5088,24 @@ export const questions = [
     "value": "e",
     "label": "e",
     "text": "e"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
+   },
+   {
+    "value": "a",
+    "label": "a",
+    "text": "a"
    }
   ],
   "answer": "u",
   "correctAnswer": "u",
   "distractorRationales": {
-   "a": "D-VOWEL",
    "o": "D-VOWEL",
-   "e": "D-VOWEL"
+   "e": "D-VOWEL",
+   "a": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4947,6 +5117,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hut",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4958,11 +5129,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "h-a-t and h-o-t are real words — the hut image pins the target",
-  "imagePath": "/images/child-mode/initial-sounds/hut.png",
-  "imageUrl": "/images/child-mode/initial-sounds/hut.png",
-  "targetImage": "/images/child-mode/initial-sounds/hut.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/hut.png",
-  "imageAlt": "hut"
+  "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
+  "resolvedImageAssetKey": "hut",
+  "imageAlt": "Complete: h_t"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v8r",
@@ -4988,17 +5160,12 @@ export const questions = [
   "question": "Complete: m_g",
   "spokenPrompt": "mug. Which vowel finishes the word mug?",
   "choices": [
-   "u",
    "a",
    "i",
-   "o"
+   "o",
+   "u"
   ],
   "answerOptions": [
-   {
-    "value": "u",
-    "label": "u",
-    "text": "u"
-   },
    {
     "value": "a",
     "label": "a",
@@ -5013,6 +5180,11 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "u",
+    "label": "u",
+    "text": "u"
    }
   ],
   "answer": "u",
@@ -5032,6 +5204,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "mug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5043,11 +5216,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/cvc/mug.png",
-  "imageUrl": "/images/child-mode/cvc/mug.png",
-  "targetImage": "/images/child-mode/cvc/mug.png",
-  "targetImagePath": "/images/child-mode/cvc/mug.png",
-  "imageAlt": "mug"
+  "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+  "resolvedImageAssetKey": "mug",
+  "imageAlt": "Complete: m_g"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_a.v7r",
@@ -5103,9 +5277,9 @@ export const questions = [
   "answer": "hat",
   "correctAnswer": "hat",
   "distractorRationales": {
-   "hot": "D-VOWEL",
    "hut": "D-VOWEL",
-   "hit": "D-VOWEL"
+   "hit": "D-VOWEL",
+   "hot": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5117,6 +5291,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "hat",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5128,11 +5303,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the full hat/hot/hut/hit vowel square",
-  "imagePath": "/images/child-mode/cvc/hat.png",
-  "imageUrl": "/images/child-mode/cvc/hat.png",
-  "targetImage": "/images/child-mode/cvc/hat.png",
-  "targetImagePath": "/images/child-mode/cvc/hat.png",
-  "imageAlt": "hat"
+  "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "resolvedImageAssetKey": "hat",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_i.v7r",
@@ -5158,12 +5334,17 @@ export const questions = [
   "question": "Which word goes with the picture?",
   "spokenPrompt": "Which word goes with the picture?",
   "choices": [
+   "pit",
    "pin",
    "pan",
-   "pen",
-   "pit"
+   "pen"
   ],
   "answerOptions": [
+   {
+    "value": "pit",
+    "label": "pit",
+    "text": "pit"
+   },
    {
     "value": "pin",
     "label": "pin",
@@ -5178,19 +5359,14 @@ export const questions = [
     "value": "pen",
     "label": "pen",
     "text": "pen"
-   },
-   {
-    "value": "pit",
-    "label": "pit",
-    "text": "pit"
    }
   ],
   "answer": "pin",
   "correctAnswer": "pin",
   "distractorRationales": {
-   "pan": "D-VOWEL",
    "pen": "D-VOWEL",
-   "pit": "D-VOWEL"
+   "pit": "D-VOWEL",
+   "pan": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5202,6 +5378,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "pin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5213,11 +5390,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/pin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/pin.png",
-  "targetImage": "/images/child-mode/initial-sounds/pin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/pin.png",
-  "imageAlt": "pin"
+  "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
+  "resolvedImageAssetKey": "pin",
+  "imageAlt": "Which word goes with the picture?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_a.v8r",
@@ -5243,22 +5421,12 @@ export const questions = [
   "question": "Which word has the short a sound?",
   "spokenPrompt": "Which word has the short a sound? Listen: a.",
   "choices": [
-   "jam",
-   "game",
    "jet",
-   "jug"
+   "jug",
+   "jam",
+   "game"
   ],
   "answerOptions": [
-   {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
-   },
-   {
-    "value": "game",
-    "label": "game",
-    "text": "game"
-   },
    {
     "value": "jet",
     "label": "jet",
@@ -5268,6 +5436,16 @@ export const questions = [
     "value": "jug",
     "label": "jug",
     "text": "jug"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
+   },
+   {
+    "value": "game",
+    "label": "game",
+    "text": "game"
    }
   ],
   "answer": "jam",
@@ -5277,15 +5455,16 @@ export const questions = [
    "jet": "D-VOWEL",
    "jug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_a-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5296,7 +5475,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "Which word has the short a sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_o.v7r",
@@ -5322,17 +5507,12 @@ export const questions = [
   "question": "Which word has the short o sound?",
   "spokenPrompt": "Which word has the short o sound? Listen: o.",
   "choices": [
-   "hot",
    "home",
    "hat",
-   "hut"
+   "hut",
+   "hot"
   ],
   "answerOptions": [
-   {
-    "value": "hot",
-    "label": "hot",
-    "text": "hot"
-   },
    {
     "value": "home",
     "label": "home",
@@ -5347,6 +5527,11 @@ export const questions = [
     "value": "hut",
     "label": "hut",
     "text": "hut"
+   },
+   {
+    "value": "hot",
+    "label": "hot",
+    "text": "hot"
    }
   ],
   "answer": "hot",
@@ -5356,15 +5541,16 @@ export const questions = [
    "hat": "D-VOWEL",
    "hut": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cvc_short_vowels-short_o-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5375,7 +5561,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
+  "resolvedImageAssetKey": "hot",
+  "imageAlt": "Which word has the short o sound?"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_e.v7r",
@@ -5401,17 +5593,12 @@ export const questions = [
   "question": "Complete: sl_d",
   "spokenPrompt": "sled. Which vowel finishes the word sled?",
   "choices": [
-   "e",
    "a",
    "i",
-   "o"
+   "o",
+   "e"
   ],
   "answerOptions": [
-   {
-    "value": "e",
-    "label": "e",
-    "text": "e"
-   },
    {
     "value": "a",
     "label": "a",
@@ -5426,14 +5613,19 @@ export const questions = [
     "value": "o",
     "label": "o",
     "text": "o"
+   },
+   {
+    "value": "e",
+    "label": "e",
+    "text": "e"
    }
   ],
   "answer": "e",
   "correctAnswer": "e",
   "distractorRationales": {
+   "o": "D-VOWEL",
    "a": "D-VOWEL",
-   "i": "D-VOWEL",
-   "o": "D-VOWEL"
+   "i": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -5445,6 +5637,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sled",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5460,7 +5653,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/sled.webp",
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
-  "imageAlt": "sled"
+  "resolvedImageAssetKey": "sled",
+  "imageAlt": "Complete: sl_d"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_u.v7r",
@@ -5514,6 +5708,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "plug",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5529,7 +5724,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/plug.webp",
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
-  "imageAlt": "plug"
+  "resolvedImageAssetKey": "plug",
+  "imageAlt": "Put the sounds in order to build the picture's word."
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_i.v8r",
@@ -5599,6 +5795,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5610,11 +5807,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fin.png",
-  "targetImage": "/images/child-mode/initial-sounds/fin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fin.png",
-  "imageAlt": "fin"
+  "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
+  "resolvedImageAssetKey": "fin",
+  "imageAlt": "Complete: f_n"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_u.v8r",
@@ -5684,6 +5882,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "cut",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5695,10 +5894,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/cut.png",
-  "imageUrl": "/images/child-mode/initial-sounds/cut.png",
-  "targetImage": "/images/child-mode/initial-sounds/cut.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/cut.png",
-  "imageAlt": "cut"
+  "imagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
+  "resolvedImageAssetKey": "cut",
+  "imageAlt": "Which word goes with the picture?"
  }
 ];

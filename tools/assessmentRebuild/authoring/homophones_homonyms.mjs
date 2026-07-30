@@ -131,7 +131,7 @@ export default {
     hcc("blue_blew", 1, 2, 3, "The wind ___ my hat into the pond!",
       ["blew", "blue", "blows", "grew"], [HOM, FS, SEM],
       "blows misses the story's past tense; grew is absurd"),
-    hcc("blue_blew", 1, 2, 4, "Milo wore his ___ scarf, the color of the sea.",
+    hcc("blue_blew", 1, 2, 4, "Milo wore his ___ scarf, blue like the sea.",
       ["blue", "blew", "loud", "tall"], [HOM, SEM, SEM],
       "the color of the sea pins blue — loud and tall parse and contradict it"),
 
@@ -232,7 +232,7 @@ export default {
       ["maid", "made", "mad", "map"], [HOM, VN, VN]),
 
     // ================= NonGating homonym exposure =================
-    hm("homonym_bat", 2, 1, 1, "A bat can be an animal or a thing for hitting. Which sentence uses bat as the ANIMAL?",
+    hm("homonym_bat", 2, 1, 1, "Which sentence uses bat to mean the animal?",
       ["The bat slept upside down in the cave.",
        "Ben swung the bat at the ball.",
        "The bat cracked when it hit the post.",

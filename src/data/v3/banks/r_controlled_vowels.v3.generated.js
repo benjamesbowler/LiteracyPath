@@ -25,17 +25,12 @@ export const questions = [
   "question": "Finish: c__",
   "spokenPrompt": "car. Which letters finish the word car?",
   "choices": [
-   "ar",
    "or",
    "er",
-   "ir"
+   "ir",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "or",
     "label": "or",
@@ -50,6 +45,11 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "ar",
@@ -69,6 +69,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "car",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,11 +81,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "cor, cer and cir are non-words",
-  "imagePath": "/images/child-mode/initial-sounds/car.png",
-  "imageUrl": "/images/child-mode/initial-sounds/car.png",
-  "targetImage": "/images/child-mode/initial-sounds/car.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/car.png",
-  "imageAlt": "car"
+  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "resolvedImageAssetKey": "car",
+  "imageAlt": "Finish: c__"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ar.v2",
@@ -110,22 +112,12 @@ export const questions = [
   "question": "Finish: st__",
   "spokenPrompt": "star. Which letters finish the word star?",
   "choices": [
-   "ar",
-   "or",
    "ir",
-   "ur"
+   "ur",
+   "ar",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -135,6 +127,16 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "ar",
@@ -154,6 +156,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "star",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -165,11 +168,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "stir is real — the star image pins the target",
-  "imagePath": "/images/child-mode/blends/star.png",
-  "imageUrl": "/images/child-mode/blends/star.png",
-  "targetImage": "/images/child-mode/blends/star.png",
-  "targetImagePath": "/images/child-mode/blends/star.png",
-  "imageAlt": "star"
+  "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
+  "resolvedImageAssetKey": "star",
+  "imageAlt": "Finish: st__"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ar.v3",
@@ -195,12 +199,17 @@ export const questions = [
   "question": "Finish: f__m",
   "spokenPrompt": "farm. Which letters finish the word farm?",
   "choices": [
+   "er",
    "ar",
    "or",
-   "ir",
-   "er"
+   "ir"
   ],
   "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
    {
     "value": "ar",
     "label": "ar",
@@ -215,11 +224,6 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
-   },
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
    }
   ],
   "answer": "ar",
@@ -239,6 +243,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "farm",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -254,7 +259,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/farm.png",
   "targetImage": "/images/child-mode/initial-sounds/farm.png",
   "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
-  "imageAlt": "farm"
+  "resolvedImageAssetKey": "farm",
+  "imageAlt": "Finish: f__m"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ar.v4",
@@ -310,9 +316,9 @@ export const questions = [
   "answer": "ar",
   "correctAnswer": "ar",
   "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "er": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -324,6 +330,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "shark",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -339,7 +346,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/shark.webp",
   "targetImage": "/images/assessment/digraphs/shark.webp",
   "targetImagePath": "/images/assessment/digraphs/shark.webp",
-  "imageAlt": "shark"
+  "resolvedImageAssetKey": "shark",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ar.v5",
@@ -365,17 +373,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "yarn. Which letters make the r sound in yarn?",
   "choices": [
-   "ar",
    "or",
    "ir",
-   "er"
+   "er",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "or",
     "label": "or",
@@ -390,6 +393,11 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "ar",
@@ -409,6 +417,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "yarn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -424,7 +433,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/yarn.png",
   "targetImage": "/images/child-mode/initial-sounds/yarn.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
-  "imageAlt": "yarn"
+  "resolvedImageAssetKey": "yarn",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ar.v6",
@@ -450,22 +460,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "park. Which letters make the r sound in park?",
   "choices": [
-   "ar",
-   "or",
    "ur",
-   "ir"
+   "ir",
+   "ar",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -475,14 +475,24 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "ar",
   "correctAnswer": "ar",
   "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP",
-   "ir": "D-PATTERN-TRAP"
+   "ur": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -494,6 +504,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "park",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -509,7 +520,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/park.png",
   "targetImage": "/images/child-mode/initial-sounds/park.png",
   "targetImagePath": "/images/child-mode/initial-sounds/park.png",
-  "imageAlt": "park"
+  "resolvedImageAssetKey": "park",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ar.v1",
@@ -535,22 +547,12 @@ export const questions = [
   "question": "Finish: sc__f",
   "spokenPrompt": "scarf. Which letters finish the word scarf?",
   "choices": [
-   "ar",
-   "or",
    "er",
-   "ur"
+   "ur",
+   "ar",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "er",
     "label": "er",
@@ -560,6 +562,16 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "ar",
@@ -579,6 +591,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "scarf",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -594,7 +607,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/scarf.webp",
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
-  "imageAlt": "scarf"
+  "resolvedImageAssetKey": "scarf",
+  "imageAlt": "Finish: sc__f"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ar.v2",
@@ -620,17 +634,12 @@ export const questions = [
   "question": "Finish: sh__p",
   "spokenPrompt": "sharp. Which letters finish the word sharp?",
   "choices": [
-   "ar",
    "or",
    "ir",
-   "ur"
+   "ur",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "or",
     "label": "or",
@@ -645,6 +654,11 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "ar",
@@ -654,16 +668,17 @@ export const questions = [
    "ir": "D-PATTERN-TRAP",
    "ur": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sharp",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "sharp",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -674,7 +689,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "shorp, shirp and shurp are non-words"
+  "notes": "shorp, shirp and shurp are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "resolvedImageAssetKey": "sharp",
+  "imageAlt": "Finish: sh__p"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ar.v3",
@@ -744,6 +765,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "barn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -759,7 +781,8 @@ export const questions = [
   "imageUrl": "/images/vocabulary/barn.png",
   "targetImage": "/images/vocabulary/barn.png",
   "targetImagePath": "/images/vocabulary/barn.png",
-  "imageAlt": "barn"
+  "resolvedImageAssetKey": "barn",
+  "imageAlt": "Finish: b__n"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ar.v4",
@@ -785,17 +808,12 @@ export const questions = [
   "question": "Which word has the ar (as in car) sound?",
   "spokenPrompt": "Which word has the ar (as in car) sound?",
   "choices": [
-   "shark",
    "shirt",
    "care",
-   "pin"
+   "pin",
+   "shark"
   ],
   "answerOptions": [
-   {
-    "value": "shark",
-    "label": "shark",
-    "text": "shark"
-   },
    {
     "value": "shirt",
     "label": "shirt",
@@ -810,24 +828,30 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
+   },
+   {
+    "value": "shark",
+    "label": "shark",
+    "text": "shark"
    }
   ],
   "answer": "shark",
   "correctAnswer": "shark",
   "distractorRationales": {
-   "shirt": "D-PATTERN-TRAP",
    "care": "D-PATTERN-TRAP",
-   "pin": "D-VOWEL"
+   "pin": "D-VOWEL",
+   "shirt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ar-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -838,7 +862,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "care has the ar letters without the sound and out-chunks the key; shirt is the /ɜr/ neighbour"
+  "notes": "care has the ar letters without the sound and out-chunks the key; shirt is the /ɜr/ neighbour",
+  "imagePath": "/images/assessment/digraphs/shark.webp",
+  "imageUrl": "/images/assessment/digraphs/shark.webp",
+  "targetImage": "/images/assessment/digraphs/shark.webp",
+  "targetImagePath": "/images/assessment/digraphs/shark.webp",
+  "resolvedImageAssetKey": "shark",
+  "imageAlt": "Which word has the ar (as in car) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ar.v5",
@@ -898,15 +928,16 @@ export const questions = [
    "fin": "D-VOWEL",
    "fun": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ar-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -917,7 +948,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "an all-f panel — only the vowel work is left"
+  "notes": "an all-f panel — only the vowel work is left",
+  "imagePath": "/images/child-mode/initial-sounds/farm.png",
+  "imageUrl": "/images/child-mode/initial-sounds/farm.png",
+  "targetImage": "/images/child-mode/initial-sounds/farm.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
+  "resolvedImageAssetKey": "farm",
+  "imageAlt": "Which word has the ar (as in car) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ar.v6",
@@ -943,12 +980,17 @@ export const questions = [
   "question": "Which word has the ar (as in car) sound?",
   "spokenPrompt": "Which word has the ar (as in car) sound?",
   "choices": [
+   "hen",
    "yard",
    "warm",
-   "win",
-   "hen"
+   "win"
   ],
   "answerOptions": [
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
+   },
    {
     "value": "yard",
     "label": "yard",
@@ -963,29 +1005,25 @@ export const questions = [
     "value": "win",
     "label": "win",
     "text": "win"
-   },
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
    }
   ],
   "answer": "yard",
   "correctAnswer": "yard",
   "distractorRationales": {
-   "warm": "D-PATTERN-TRAP",
    "win": "D-VOWEL",
-   "hen": "D-VOWEL"
+   "hen": "D-VOWEL",
+   "warm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ar-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -996,7 +1034,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "warm has ar without the sound; win ties the in-chunk"
+  "notes": "warm has ar without the sound; win ties the in-chunk",
+  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "resolvedImageAssetKey": "car",
+  "imageAlt": "Which word has the ar (as in car) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.or.v1",
@@ -1022,12 +1066,17 @@ export const questions = [
   "question": "Finish: c__n",
   "spokenPrompt": "corn. Which letters finish the word corn?",
   "choices": [
+   "ur",
    "or",
    "ar",
-   "er",
-   "ur"
+   "er"
   ],
   "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
    {
     "value": "or",
     "label": "or",
@@ -1042,19 +1091,14 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
-   },
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "ar": "D-VOWEL",
    "er": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "ur": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1066,6 +1110,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "corn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1077,11 +1122,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "carn, cern and curn are non-words",
-  "imagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-  "targetImage": "/images/child-mode/initial-sounds/corn.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageAlt": "corn"
+  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "resolvedImageAssetKey": "corn",
+  "imageAlt": "Finish: c__n"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.or.v2",
@@ -1137,9 +1183,9 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "ar": "D-VOWEL",
    "ir": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "er": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1151,6 +1197,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fork",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1162,11 +1209,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "fark, firk and ferk are non-words",
-  "imagePath": "/images/child-mode/initial-sounds/fork.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fork.png",
-  "targetImage": "/images/child-mode/initial-sounds/fork.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fork.png",
-  "imageAlt": "fork"
+  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "resolvedImageAssetKey": "fork",
+  "imageAlt": "Finish: f__k"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.or.v3",
@@ -1192,17 +1240,12 @@ export const questions = [
   "question": "Finish: st__m",
   "spokenPrompt": "storm. Which letters finish the word storm?",
   "choices": [
-   "or",
    "ar",
    "er",
-   "ir"
+   "ir",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ar",
     "label": "ar",
@@ -1217,14 +1260,19 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "ar": "D-VOWEL",
    "er": "D-PATTERN-TRAP",
-   "ir": "D-PATTERN-TRAP"
+   "ir": "D-PATTERN-TRAP",
+   "ar": "D-VOWEL"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1236,6 +1284,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "storm",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1251,7 +1300,8 @@ export const questions = [
   "imageUrl": "/images/objects/storm.png",
   "targetImage": "/images/objects/storm.png",
   "targetImagePath": "/images/objects/storm.png",
-  "imageAlt": "storm"
+  "resolvedImageAssetKey": "storm",
+  "imageAlt": "Finish: st__m"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.or.v4",
@@ -1277,22 +1327,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "corn. Which letters make the r sound in corn?",
   "choices": [
-   "or",
-   "ar",
    "er",
-   "ir"
+   "ir",
+   "or",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "er",
     "label": "er",
@@ -1302,6 +1342,16 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "or",
@@ -1321,6 +1371,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "corn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1332,11 +1383,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-  "targetImage": "/images/child-mode/initial-sounds/corn.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/corn.png",
-  "imageAlt": "corn"
+  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "resolvedImageAssetKey": "corn",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.or.v5",
@@ -1362,12 +1414,17 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "fork. Which letters make the r sound in fork?",
   "choices": [
+   "er",
    "or",
    "ar",
-   "ur",
-   "er"
+   "ur"
   ],
   "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
    {
     "value": "or",
     "label": "or",
@@ -1382,19 +1439,14 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
-   },
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "ur": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -1406,6 +1458,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fork",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1417,11 +1470,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": "/images/child-mode/initial-sounds/fork.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fork.png",
-  "targetImage": "/images/child-mode/initial-sounds/fork.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fork.png",
-  "imageAlt": "fork"
+  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
+  "resolvedImageAssetKey": "fork",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.or.v6",
@@ -1491,6 +1545,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "horn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1502,11 +1557,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": "/images/objects/horn.png",
-  "imageUrl": "/images/objects/horn.png",
-  "targetImage": "/images/objects/horn.png",
-  "targetImagePath": "/images/objects/horn.png",
-  "imageAlt": "horn"
+  "imagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "resolvedImageAssetKey": "horn",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.or.v1",
@@ -1562,20 +1618,21 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
    "ar": "D-VOWEL",
-   "ir": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "short",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-or-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1586,7 +1643,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "shirt is real — the spoken word and sentence-free frame pin short via the sh__t stem's only sensible completion being pinned by audio; shart, shirt and shurt traps stay honest because the target is spoken"
+  "notes": "shirt is real — the spoken word and sentence-free frame pin short via the sh__t stem's only sensible completion being pinned by audio; shart, shirt and shurt traps stay honest because the target is spoken",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: sh__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.or.v2",
@@ -1612,12 +1675,17 @@ export const questions = [
   "question": "Finish: sp__t",
   "spokenPrompt": "sport. Which letters finish the word sport?",
   "choices": [
+   "ir",
    "or",
    "ar",
-   "er",
-   "ir"
+   "er"
   ],
   "answerOptions": [
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
    {
     "value": "or",
     "label": "or",
@@ -1632,30 +1700,26 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
-   },
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
+   "ir": "D-PATTERN-TRAP",
    "ar": "D-VOWEL",
-   "er": "D-PATTERN-TRAP",
-   "ir": "D-PATTERN-TRAP"
+   "er": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sport",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-or-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1666,7 +1730,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "spart, spert and spirt are non-words"
+  "notes": "spart, spert and spirt are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: sp__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.or.v3",
@@ -1692,22 +1762,12 @@ export const questions = [
   "question": "Finish: f__t",
   "spokenPrompt": "fort. Which letters finish the word fort?",
   "choices": [
-   "or",
-   "ar",
    "er",
-   "ur"
+   "ur",
+   "or",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "er",
     "label": "er",
@@ -1717,25 +1777,36 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
    "ar": "D-VOWEL",
-   "er": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "er": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "fort",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fort",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1746,7 +1817,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "fart is crude and stays out; fert and furt are non-words — ar is excluded from this set"
+  "notes": "fart is crude and stays out; fert and furt are non-words — ar is excluded from this set",
+  "imagePath": "/images/assessment/generated/concepts/fort.webp",
+  "imageUrl": "/images/assessment/generated/concepts/fort.webp",
+  "targetImage": "/images/assessment/generated/concepts/fort.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/fort.webp",
+  "resolvedImageAssetKey": "fort",
+  "imageAlt": "Finish: f__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.or.v4",
@@ -1772,12 +1849,17 @@ export const questions = [
   "question": "Which word has the or (as in corn) sound?",
   "spokenPrompt": "Which word has the or (as in corn) sound?",
   "choices": [
+   "bug",
    "storm",
    "star",
-   "pin",
-   "bug"
+   "pin"
   ],
   "answerOptions": [
+   {
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
+   },
    {
     "value": "storm",
     "label": "storm",
@@ -1792,11 +1874,6 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
-   },
-   {
-    "value": "bug",
-    "label": "bug",
-    "text": "bug"
    }
   ],
   "answer": "storm",
@@ -1806,15 +1883,16 @@ export const questions = [
    "pin": "D-VOWEL",
    "bug": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-or-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1825,7 +1903,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/objects/storm.png",
+  "imageUrl": "/images/objects/storm.png",
+  "targetImage": "/images/objects/storm.png",
+  "targetImagePath": "/images/objects/storm.png",
+  "resolvedImageAssetKey": "storm",
+  "imageAlt": "Which word has the or (as in corn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.or.v5",
@@ -1851,22 +1935,12 @@ export const questions = [
   "question": "Which word has the or (as in corn) sound?",
   "spokenPrompt": "Which word has the or (as in corn) sound?",
   "choices": [
-   "sport",
-   "word",
    "hard",
-   "pin"
+   "pin",
+   "sport",
+   "word"
   ],
   "answerOptions": [
-   {
-    "value": "sport",
-    "label": "sport",
-    "text": "sport"
-   },
-   {
-    "value": "word",
-    "label": "word",
-    "text": "word"
-   },
    {
     "value": "hard",
     "label": "hard",
@@ -1876,24 +1950,35 @@ export const questions = [
     "value": "pin",
     "label": "pin",
     "text": "pin"
+   },
+   {
+    "value": "sport",
+    "label": "sport",
+    "text": "sport"
+   },
+   {
+    "value": "word",
+    "label": "word",
+    "text": "word"
    }
   ],
   "answer": "sport",
   "correctAnswer": "sport",
   "distractorRationales": {
-   "word": "D-PATTERN-TRAP",
    "hard": "D-PATTERN-TRAP",
-   "pin": "D-VOWEL"
+   "pin": "D-VOWEL",
+   "word": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-or-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1904,7 +1989,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn"
+  "notes": "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn",
+  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "resolvedImageAssetKey": "corn",
+  "imageAlt": "Which word has the or (as in corn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.or.v6",
@@ -1930,17 +2021,12 @@ export const questions = [
   "question": "Which word has the or (as in corn) sound?",
   "spokenPrompt": "Which word has the or (as in corn) sound?",
   "choices": [
-   "north",
    "worm",
    "win",
-   "net"
+   "net",
+   "north"
   ],
   "answerOptions": [
-   {
-    "value": "north",
-    "label": "north",
-    "text": "north"
-   },
    {
     "value": "worm",
     "label": "worm",
@@ -1955,6 +2041,11 @@ export const questions = [
     "value": "net",
     "label": "net",
     "text": "net"
+   },
+   {
+    "value": "north",
+    "label": "north",
+    "text": "north"
    }
   ],
   "answer": "north",
@@ -1964,15 +2055,16 @@ export const questions = [
    "win": "D-VOWEL",
    "net": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-or-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1983,7 +2075,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "worm has or with the /ɜr/ sound; win ties the in-chunk"
+  "notes": "worm has or with the /ɜr/ sound; win ties the in-chunk",
+  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
+  "resolvedImageAssetKey": "corn",
+  "imageAlt": "Which word has the or (as in corn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.er.v1",
@@ -2009,17 +2107,12 @@ export const questions = [
   "question": "Finish: h__",
   "spokenPrompt": "her. Which letters finish the word her?",
   "choices": [
-   "er",
    "or",
    "ar",
-   "oa"
+   "oa",
+   "er"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
    {
     "value": "or",
     "label": "or",
@@ -2034,6 +2127,11 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
    }
   ],
   "answer": "er",
@@ -2053,6 +2151,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "her",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2068,7 +2167,8 @@ export const questions = [
   "imageUrl": "/images/assessment/hfw/her.webp",
   "targetImage": "/images/assessment/hfw/her.webp",
   "targetImagePath": "/images/assessment/hfw/her.webp",
-  "imageAlt": "her"
+  "resolvedImageAssetKey": "her",
+  "imageAlt": "Finish: h__"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.er.v2",
@@ -2094,22 +2194,12 @@ export const questions = [
   "question": "Finish: f__n",
   "spokenPrompt": "fern. Which letters finish the word fern?",
   "choices": [
-   "er",
-   "ir",
    "ur",
-   "ar"
+   "ar",
+   "er",
+   "ir"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -2119,6 +2209,16 @@ export const questions = [
     "value": "ar",
     "label": "ar",
     "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
    }
   ],
   "answer": "er",
@@ -2128,16 +2228,17 @@ export const questions = [
    "ur": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "fern",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "fern",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2148,7 +2249,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "firn, furn and farn are non-words — the full three-way choice"
+  "notes": "firn, furn and farn are non-words — the full three-way choice",
+  "imagePath": "/images/assessment/generated/concepts/fern.webp",
+  "imageUrl": "/images/assessment/generated/concepts/fern.webp",
+  "targetImage": "/images/assessment/generated/concepts/fern.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/fern.webp",
+  "resolvedImageAssetKey": "fern",
+  "imageAlt": "Finish: f__n"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.er.v3",
@@ -2174,12 +2281,17 @@ export const questions = [
   "question": "Finish: h__d",
   "spokenPrompt": "herd. Which letters finish the word herd?",
   "choices": [
+   "or",
    "er",
    "ir",
-   "ur",
-   "or"
+   "ur"
   ],
   "answerOptions": [
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
+   },
    {
     "value": "er",
     "label": "er",
@@ -2194,11 +2306,6 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
    }
   ],
   "answer": "er",
@@ -2208,16 +2315,17 @@ export const questions = [
    "ur": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "herd",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "herd",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2228,7 +2336,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "hird, hurd and hord are non-words"
+  "notes": "hird, hurd and hord are non-words",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "resolvedImageAssetKey": "herd",
+  "imageAlt": "Finish: h__d"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.er.v4",
@@ -2284,9 +2398,9 @@ export const questions = [
   "answer": "er",
   "correctAnswer": "er",
   "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "or": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "or": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -2298,6 +2412,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "tiger",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2309,11 +2424,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the unstressed final er — tiger, not a CVC word",
-  "imagePath": "/images/child-mode/initial-sounds/tiger.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tiger.png",
-  "targetImage": "/images/child-mode/initial-sounds/tiger.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tiger.png",
-  "imageAlt": "tiger"
+  "imagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
+  "resolvedImageAssetKey": "tiger",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.er.v5",
@@ -2339,17 +2455,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "flower. Which letters make the r sound in flower?",
   "choices": [
-   "er",
    "ar",
    "or",
-   "ir"
+   "ir",
+   "er"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
    {
     "value": "ar",
     "label": "ar",
@@ -2364,6 +2475,11 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
    }
   ],
   "answer": "er",
@@ -2383,6 +2499,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "flower",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2398,7 +2515,8 @@ export const questions = [
   "imageUrl": "/images/assessment/blends/flower.webp",
   "targetImage": "/images/assessment/blends/flower.webp",
   "targetImagePath": "/images/assessment/blends/flower.webp",
-  "imageAlt": "flower"
+  "resolvedImageAssetKey": "flower",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.er.v6",
@@ -2424,22 +2542,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "spider. Which letters make the r sound in spider?",
   "choices": [
-   "er",
-   "or",
    "ar",
-   "ur"
+   "ur",
+   "er",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ar",
     "label": "ar",
@@ -2449,14 +2557,24 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "er",
   "correctAnswer": "er",
   "distractorRationales": {
+   "ur": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP",
-   "ar": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP"
+   "ar": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -2468,6 +2586,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "spider",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2483,7 +2602,8 @@ export const questions = [
   "imageUrl": "/images/objects/spider.png",
   "targetImage": "/images/objects/spider.png",
   "targetImagePath": "/images/objects/spider.png",
-  "imageAlt": "spider"
+  "resolvedImageAssetKey": "spider",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.er.v1",
@@ -2509,22 +2629,12 @@ export const questions = [
   "question": "Finish: h__ (she did it — it belongs to ___)",
   "spokenPrompt": "her. Which letters finish the word her?",
   "choices": [
-   "er",
-   "ir",
    "ur",
-   "or"
+   "or",
+   "er",
+   "ir"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -2534,6 +2644,16 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
    }
   ],
   "answer": "er",
@@ -2553,6 +2673,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "her",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2568,7 +2689,8 @@ export const questions = [
   "imageUrl": "/images/assessment/hfw/her.webp",
   "targetImage": "/images/assessment/hfw/her.webp",
   "targetImagePath": "/images/assessment/hfw/her.webp",
-  "imageAlt": "her"
+  "resolvedImageAssetKey": "her",
+  "imageAlt": "Finish: h__ (she did it — it belongs to er)"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.er.v2",
@@ -2594,17 +2716,12 @@ export const questions = [
   "question": "Finish: lett__",
   "spokenPrompt": "letter. Which letters finish the word letter?",
   "choices": [
-   "er",
    "ir",
    "ur",
-   "ar"
+   "ar",
+   "er"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -2619,6 +2736,11 @@ export const questions = [
     "value": "ar",
     "label": "ar",
     "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
    }
   ],
   "answer": "er",
@@ -2628,16 +2750,17 @@ export const questions = [
    "ur": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "letter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "letter",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2648,7 +2771,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "letter's double t locks the spelling family; lettir, lettur and lettar are non-words"
+  "notes": "letter's double t locks the spelling family; lettir, lettur and lettar are non-words",
+  "imagePath": "/images/assessment/generated/concepts/letter.webp",
+  "imageUrl": "/images/assessment/generated/concepts/letter.webp",
+  "targetImage": "/images/assessment/generated/concepts/letter.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
+  "resolvedImageAssetKey": "letter",
+  "imageAlt": "Finish: lett__"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.er.v3",
@@ -2718,6 +2847,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "winter",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2733,7 +2863,8 @@ export const questions = [
   "imageUrl": "/images/vocabulary/winter.png",
   "targetImage": "/images/vocabulary/winter.png",
   "targetImagePath": "/images/vocabulary/winter.png",
-  "imageAlt": "winter"
+  "resolvedImageAssetKey": "winter",
+  "imageAlt": "Finish: wint__"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.er.v4",
@@ -2759,17 +2890,12 @@ export const questions = [
   "question": "Which word has the er (as in her) sound?",
   "spokenPrompt": "Which word has the er (as in her) sound?",
   "choices": [
-   "fern",
    "here",
    "fork",
-   "fox"
+   "fox",
+   "fern"
   ],
   "answerOptions": [
-   {
-    "value": "fern",
-    "label": "fern",
-    "text": "fern"
-   },
    {
     "value": "here",
     "label": "here",
@@ -2784,24 +2910,30 @@ export const questions = [
     "value": "fox",
     "label": "fox",
     "text": "fox"
+   },
+   {
+    "value": "fern",
+    "label": "fern",
+    "text": "fern"
    }
   ],
   "answer": "fern",
   "correctAnswer": "fern",
   "distractorRationales": {
-   "here": "D-PATTERN-TRAP",
    "fork": "D-PATTERN-TRAP",
-   "fox": "D-VOWEL"
+   "fox": "D-VOWEL",
+   "here": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-er-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2812,7 +2944,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "here carries the her letters without the sound and out-chunks the key; er=ir=ur share one sound, so siblings stay out"
+  "notes": "here carries the her letters without the sound and out-chunks the key; er=ir=ur share one sound, so siblings stay out",
+  "imagePath": "/images/assessment/generated/concepts/fern.webp",
+  "imageUrl": "/images/assessment/generated/concepts/fern.webp",
+  "targetImage": "/images/assessment/generated/concepts/fern.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/fern.webp",
+  "resolvedImageAssetKey": "fern",
+  "imageAlt": "Which word has the er (as in her) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.er.v5",
@@ -2872,15 +3010,16 @@ export const questions = [
    "hard": "D-PATTERN-TRAP",
    "hop": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-er-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2891,7 +3030,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "herd and here both carry the her letters — the scanner ties"
+  "notes": "herd and here both carry the her letters — the scanner ties",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
+  "resolvedImageAssetKey": "herd",
+  "imageAlt": "Which word has the er (as in her) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.er.v6",
@@ -2917,12 +3062,17 @@ export const questions = [
   "question": "Which word has the er (as in her) sound?",
   "spokenPrompt": "Which word has the er (as in her) sound?",
   "choices": [
+   "cart",
    "letter",
    "very",
-   "corn",
-   "cart"
+   "corn"
   ],
   "answerOptions": [
+   {
+    "value": "cart",
+    "label": "cart",
+    "text": "cart"
+   },
    {
     "value": "letter",
     "label": "letter",
@@ -2937,29 +3087,25 @@ export const questions = [
     "value": "corn",
     "label": "corn",
     "text": "corn"
-   },
-   {
-    "value": "cart",
-    "label": "cart",
-    "text": "cart"
    }
   ],
   "answer": "letter",
   "correctAnswer": "letter",
   "distractorRationales": {
-   "very": "D-PATTERN-TRAP",
    "corn": "D-PATTERN-TRAP",
-   "cart": "D-PATTERN-TRAP"
+   "cart": "D-PATTERN-TRAP",
+   "very": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-er-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2970,7 +3116,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "very has er letters with the short sound"
+  "notes": "very has er letters with the short sound",
+  "imagePath": "/images/assessment/generated/concepts/letter.webp",
+  "imageUrl": "/images/assessment/generated/concepts/letter.webp",
+  "targetImage": "/images/assessment/generated/concepts/letter.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
+  "resolvedImageAssetKey": "letter",
+  "imageAlt": "Which word has the er (as in her) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ir.v1",
@@ -2996,12 +3148,17 @@ export const questions = [
   "question": "Finish: b__d",
   "spokenPrompt": "bird. Which letters finish the word bird?",
   "choices": [
+   "ar",
    "ir",
    "er",
-   "ur",
-   "ar"
+   "ur"
   ],
   "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
    {
     "value": "ir",
     "label": "ir",
@@ -3016,11 +3173,6 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
    }
   ],
   "answer": "ir",
@@ -3040,6 +3192,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3051,11 +3204,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "berd and burd are non-words; bard is real but the bird image pins the target",
-  "imagePath": "/images/child-mode/initial-sounds/bird.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bird.png",
-  "targetImage": "/images/child-mode/initial-sounds/bird.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bird.png",
-  "imageAlt": "bird"
+  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "resolvedImageAssetKey": "bird",
+  "imageAlt": "Finish: b__d"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ir.v2",
@@ -3125,6 +3279,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "girl",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3140,7 +3295,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/girl.png",
   "targetImage": "/images/child-mode/initial-sounds/girl.png",
   "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
-  "imageAlt": "girl"
+  "resolvedImageAssetKey": "girl",
+  "imageAlt": "Finish: g__l"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ir.v3",
@@ -3166,17 +3322,12 @@ export const questions = [
   "question": "Finish: sh__t",
   "spokenPrompt": "shirt. Which letters finish the word shirt?",
   "choices": [
-   "ir",
    "ur",
    "er",
-   "or"
+   "or",
+   "ir"
   ],
   "answerOptions": [
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -3191,6 +3342,11 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
    }
   ],
   "answer": "ir",
@@ -3210,6 +3366,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "shirt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3225,7 +3382,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/shirt.webp",
   "targetImage": "/images/assessment/digraphs/shirt.webp",
   "targetImagePath": "/images/assessment/digraphs/shirt.webp",
-  "imageAlt": "shirt"
+  "resolvedImageAssetKey": "shirt",
+  "imageAlt": "Finish: sh__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ir.v4",
@@ -3251,22 +3409,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "bird. Which letters make the r sound in bird?",
   "choices": [
-   "ir",
-   "ar",
    "or",
-   "er"
+   "er",
+   "ir",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "or",
     "label": "or",
@@ -3276,14 +3424,24 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "ir",
   "correctAnswer": "ir",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "or": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "or": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3295,6 +3453,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "bird",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3306,11 +3465,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": "/images/child-mode/initial-sounds/bird.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bird.png",
-  "targetImage": "/images/child-mode/initial-sounds/bird.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bird.png",
-  "imageAlt": "bird"
+  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "resolvedImageAssetKey": "bird",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ir.v5",
@@ -3336,12 +3496,17 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "girl. Which letters make the r sound in girl?",
   "choices": [
+   "ur",
    "ir",
    "or",
-   "ar",
-   "ur"
+   "ar"
   ],
   "answerOptions": [
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
    {
     "value": "ir",
     "label": "ir",
@@ -3356,11 +3521,6 @@ export const questions = [
     "value": "ar",
     "label": "ar",
     "text": "ar"
-   },
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
    }
   ],
   "answer": "ir",
@@ -3380,6 +3540,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "girl",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3395,7 +3556,8 @@ export const questions = [
   "imageUrl": "/images/child-mode/initial-sounds/girl.png",
   "targetImage": "/images/child-mode/initial-sounds/girl.png",
   "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
-  "imageAlt": "girl"
+  "resolvedImageAssetKey": "girl",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ir.v6",
@@ -3451,9 +3613,9 @@ export const questions = [
   "answer": "ir",
   "correctAnswer": "ir",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "or": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "or": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -3465,6 +3627,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "shirt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3480,7 +3643,8 @@ export const questions = [
   "imageUrl": "/images/assessment/digraphs/shirt.webp",
   "targetImage": "/images/assessment/digraphs/shirt.webp",
   "targetImagePath": "/images/assessment/digraphs/shirt.webp",
-  "imageAlt": "shirt"
+  "resolvedImageAssetKey": "shirt",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ir.v1",
@@ -3540,16 +3704,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3560,7 +3725,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "furst, ferst and forst are non-words — the pure three-way plus or"
+  "notes": "furst, ferst and forst are non-words — the pure three-way plus or",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: f__st"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ir.v2",
@@ -3586,12 +3757,17 @@ export const questions = [
   "question": "Finish: th__d",
   "spokenPrompt": "third. Which letters finish the word third?",
   "choices": [
+   "ar",
    "ir",
    "ur",
-   "er",
-   "ar"
+   "er"
   ],
   "answerOptions": [
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
    {
     "value": "ir",
     "label": "ir",
@@ -3606,11 +3782,6 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
    }
   ],
   "answer": "ir",
@@ -3620,16 +3791,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "third",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "third",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3640,7 +3812,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "thurd, therd and thard are non-words"
+  "notes": "thurd, therd and thard are non-words",
+  "imagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/third-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/third-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
+  "resolvedImageAssetKey": "third",
+  "imageAlt": "Finish: th__d"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ir.v3",
@@ -3666,22 +3844,12 @@ export const questions = [
   "question": "Finish: d__t",
   "spokenPrompt": "dirt. Which letters finish the word dirt?",
   "choices": [
-   "ir",
-   "er",
    "ur",
-   "oa"
+   "oa",
+   "ir",
+   "er"
   ],
   "answerOptions": [
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -3691,6 +3859,16 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
    }
   ],
   "answer": "ir",
@@ -3700,16 +3878,17 @@ export const questions = [
    "ur": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "dirt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3720,7 +3899,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "dert and durt are non-words; dart is real, so ar stays out and oa fills the vowel slot"
+  "notes": "dert and durt are non-words; dart is real, so ar stays out and oa fills the vowel slot",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: d__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ir.v4",
@@ -3746,12 +3931,17 @@ export const questions = [
   "question": "Which word has the ir (as in bird) sound?",
   "spokenPrompt": "Which word has the ir (as in bird) sound?",
   "choices": [
+   "log",
    "girl",
    "fire",
-   "gate",
-   "log"
+   "gate"
   ],
   "answerOptions": [
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   },
    {
     "value": "girl",
     "label": "girl",
@@ -3766,29 +3956,25 @@ export const questions = [
     "value": "gate",
     "label": "gate",
     "text": "gate"
-   },
-   {
-    "value": "log",
-    "label": "log",
-    "text": "log"
    }
   ],
   "answer": "girl",
   "correctAnswer": "girl",
   "distractorRationales": {
-   "fire": "D-PATTERN-TRAP",
    "gate": "D-VOWEL",
-   "log": "D-VOWEL"
+   "log": "D-VOWEL",
+   "fire": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3799,7 +3985,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "fire has the ir letters with a different sound — the tie and the trap"
+  "notes": "fire has the ir letters with a different sound — the tie and the trap",
+  "imagePath": "/images/child-mode/initial-sounds/girl.png",
+  "imageUrl": "/images/child-mode/initial-sounds/girl.png",
+  "targetImage": "/images/child-mode/initial-sounds/girl.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
+  "resolvedImageAssetKey": "girl",
+  "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ir.v5",
@@ -3825,22 +4017,12 @@ export const questions = [
   "question": "Which word has the ir (as in bird) sound?",
   "spokenPrompt": "Which word has the ir (as in bird) sound?",
   "choices": [
-   "shirt",
-   "fire",
    "shark",
-   "ship"
+   "ship",
+   "shirt",
+   "fire"
   ],
   "answerOptions": [
-   {
-    "value": "shirt",
-    "label": "shirt",
-    "text": "shirt"
-   },
-   {
-    "value": "fire",
-    "label": "fire",
-    "text": "fire"
-   },
    {
     "value": "shark",
     "label": "shark",
@@ -3850,6 +4032,16 @@ export const questions = [
     "value": "ship",
     "label": "ship",
     "text": "ship"
+   },
+   {
+    "value": "shirt",
+    "label": "shirt",
+    "text": "shirt"
+   },
+   {
+    "value": "fire",
+    "label": "fire",
+    "text": "fire"
    }
   ],
   "answer": "shirt",
@@ -3859,15 +4051,16 @@ export const questions = [
    "shark": "D-PATTERN-TRAP",
    "ship": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3878,7 +4071,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "fire ties the ir letters; shark carries the ar contrast"
+  "notes": "fire ties the ir letters; shark carries the ar contrast",
+  "imagePath": "/images/assessment/digraphs/shirt.webp",
+  "imageUrl": "/images/assessment/digraphs/shirt.webp",
+  "targetImage": "/images/assessment/digraphs/shirt.webp",
+  "targetImagePath": "/images/assessment/digraphs/shirt.webp",
+  "resolvedImageAssetKey": "shirt",
+  "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ir.v6",
@@ -3904,17 +4103,12 @@ export const questions = [
   "question": "Which word has the ir (as in bird) sound?",
   "spokenPrompt": "Which word has the ir (as in bird) sound?",
   "choices": [
-   "dirt",
    "dart",
    "tin",
-   "dig"
+   "dig",
+   "dirt"
   ],
   "answerOptions": [
-   {
-    "value": "dirt",
-    "label": "dirt",
-    "text": "dirt"
-   },
    {
     "value": "dart",
     "label": "dart",
@@ -3929,24 +4123,30 @@ export const questions = [
     "value": "dig",
     "label": "dig",
     "text": "dig"
+   },
+   {
+    "value": "dirt",
+    "label": "dirt",
+    "text": "dirt"
    }
   ],
   "answer": "dirt",
   "correctAnswer": "dirt",
   "distractorRationales": {
-   "dart": "D-PATTERN-TRAP",
    "tin": "D-VOWEL",
-   "dig": "D-VOWEL"
+   "dig": "D-VOWEL",
+   "dart": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3957,7 +4157,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "tin ties the in-chunk of the prompt"
+  "notes": "tin ties the in-chunk of the prompt",
+  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "resolvedImageAssetKey": "bird",
+  "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ur.v1",
@@ -3983,17 +4189,12 @@ export const questions = [
   "question": "Finish: h__t",
   "spokenPrompt": "hurt. Which letters finish the word hurt?",
   "choices": [
-   "ur",
    "ir",
    "er",
-   "or"
+   "or",
+   "ur"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -4008,6 +4209,11 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
    }
   ],
   "answer": "ur",
@@ -4017,16 +4223,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "hurt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4037,7 +4244,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "hirt and hert are non-words; hort too"
+  "notes": "hirt and hert are non-words; hort too",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: h__t"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ur.v2",
@@ -4063,22 +4276,12 @@ export const questions = [
   "question": "Finish: n__se",
   "spokenPrompt": "nurse. Which letters finish the word nurse?",
   "choices": [
-   "ur",
-   "er",
    "ir",
-   "or"
+   "or",
+   "ur",
+   "er"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -4088,6 +4291,16 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
    }
   ],
   "answer": "ur",
@@ -4097,16 +4310,17 @@ export const questions = [
    "ir": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "nurse",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nurse",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4117,7 +4331,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "nerse, nirse and norse are not child words"
+  "notes": "nerse, nirse and norse are not child words",
+  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "resolvedImageAssetKey": "nurse",
+  "imageAlt": "Finish: n__se"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ur.v3",
@@ -4143,12 +4363,17 @@ export const questions = [
   "question": "Finish: b__n",
   "spokenPrompt": "burn. Which letters finish the word burn?",
   "choices": [
+   "oa",
    "ur",
    "ir",
-   "er",
-   "oa"
+   "er"
   ],
   "answerOptions": [
+   {
+    "value": "oa",
+    "label": "oa",
+    "text": "oa"
+   },
    {
     "value": "ur",
     "label": "ur",
@@ -4163,11 +4388,6 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
-   },
-   {
-    "value": "oa",
-    "label": "oa",
-    "text": "oa"
    }
   ],
   "answer": "ur",
@@ -4177,16 +4397,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "burn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "burn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4197,7 +4418,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "birn and bern are non-words; born is real, so or stays out and oa fills the slot"
+  "notes": "birn and bern are non-words; born is real, so or stays out and oa fills the slot",
+  "imagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/burn/burn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/burn/burn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
+  "resolvedImageAssetKey": "burn",
+  "imageAlt": "Finish: b__n"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ur.v4",
@@ -4253,9 +4480,9 @@ export const questions = [
   "answer": "ur",
   "correctAnswer": "ur",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "or": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "or": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4267,6 +4494,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "purse",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4282,7 +4510,8 @@ export const questions = [
   "imageUrl": "/images/objects/purse.png",
   "targetImage": "/images/objects/purse.png",
   "targetImagePath": "/images/objects/purse.png",
-  "imageAlt": "purse"
+  "resolvedImageAssetKey": "purse",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ur.v5",
@@ -4308,17 +4537,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "surf. Which letters make the r sound in surf?",
   "choices": [
-   "ur",
    "or",
    "ar",
-   "ir"
+   "ir",
+   "ur"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
    {
     "value": "or",
     "label": "or",
@@ -4333,6 +4557,11 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
    }
   ],
   "answer": "ur",
@@ -4352,6 +4581,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "surf",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4367,7 +4597,8 @@ export const questions = [
   "imageUrl": "/images/objects/surf.png",
   "targetImage": "/images/objects/surf.png",
   "targetImagePath": "/images/objects/surf.png",
-  "imageAlt": "surf"
+  "resolvedImageAssetKey": "surf",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ur.v6",
@@ -4393,22 +4624,12 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "turtle. Which letters make the r sound in turtle?",
   "choices": [
-   "ur",
-   "ar",
    "or",
-   "er"
+   "er",
+   "ur",
+   "ar"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
    {
     "value": "or",
     "label": "or",
@@ -4418,14 +4639,24 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
    }
   ],
   "answer": "ur",
   "correctAnswer": "ur",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP",
-   "or": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "or": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -4437,6 +4668,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "turtle",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4452,7 +4684,8 @@ export const questions = [
   "imageUrl": "/images/objects/turtle.png",
   "targetImage": "/images/objects/turtle.png",
   "targetImagePath": "/images/objects/turtle.png",
-  "imageAlt": "turtle"
+  "resolvedImageAssetKey": "turtle",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ur.v1",
@@ -4478,22 +4711,12 @@ export const questions = [
   "question": "Finish: c__l",
   "spokenPrompt": "curl. Which letters finish the word curl?",
   "choices": [
-   "ur",
-   "ir",
    "er",
-   "ar"
+   "ar",
+   "ur",
+   "ir"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
    {
     "value": "er",
     "label": "er",
@@ -4503,6 +4726,16 @@ export const questions = [
     "value": "ar",
     "label": "ar",
     "text": "ar"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
    }
   ],
   "answer": "ur",
@@ -4512,16 +4745,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "curl",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4532,7 +4766,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "cirl, cerl and carl are non-words for this age"
+  "notes": "cirl, cerl and carl are non-words for this age",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: c__l"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ur.v2",
@@ -4558,17 +4798,12 @@ export const questions = [
   "question": "Finish: t__nip",
   "spokenPrompt": "turnip. Which letters finish the word turnip?",
   "choices": [
-   "ur",
    "ir",
    "er",
-   "or"
+   "or",
+   "ur"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -4583,6 +4818,11 @@ export const questions = [
     "value": "or",
     "label": "or",
     "text": "or"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
    }
   ],
   "answer": "ur",
@@ -4592,16 +4832,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "turnip",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4612,7 +4853,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "tirnip, ternip and tornip are non-words"
+  "notes": "tirnip, ternip and tornip are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: t__nip"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ur.v3",
@@ -4672,16 +4919,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "burst",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4692,7 +4940,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "birst, berst and boast-adjacent strings are non-words in this frame"
+  "notes": "birst, berst and boast-adjacent strings are non-words in this frame",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: b__st"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ur.v4",
@@ -4718,17 +4972,12 @@ export const questions = [
   "question": "Which word has the ur (as in turn) sound?",
   "spokenPrompt": "Which word has the ur (as in turn) sound?",
   "choices": [
-   "surf",
    "your",
    "barn",
-   "bin"
+   "bin",
+   "surf"
   ],
   "answerOptions": [
-   {
-    "value": "surf",
-    "label": "surf",
-    "text": "surf"
-   },
    {
     "value": "your",
     "label": "your",
@@ -4743,24 +4992,30 @@ export const questions = [
     "value": "bin",
     "label": "bin",
     "text": "bin"
+   },
+   {
+    "value": "surf",
+    "label": "surf",
+    "text": "surf"
    }
   ],
   "answer": "surf",
   "correctAnswer": "surf",
   "distractorRationales": {
-   "your": "D-PATTERN-TRAP",
    "barn": "D-PATTERN-TRAP",
-   "bin": "D-VOWEL"
+   "bin": "D-VOWEL",
+   "your": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4771,7 +5026,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "burn-type keys stay out (turn contains urn); your has ur without the sound; bin ties the in-chunk"
+  "notes": "burn-type keys stay out (turn contains urn); your has ur without the sound; bin ties the in-chunk",
+  "imagePath": "/images/objects/surf.png",
+  "imageUrl": "/images/objects/surf.png",
+  "targetImage": "/images/objects/surf.png",
+  "targetImagePath": "/images/objects/surf.png",
+  "resolvedImageAssetKey": "surf",
+  "imageAlt": "Which word has the ur (as in turn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ur.v5",
@@ -4831,15 +5092,16 @@ export const questions = [
    "cart": "D-PATTERN-TRAP",
    "pin": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4850,7 +5112,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/turn/turn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/turn/turn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
+  "resolvedImageAssetKey": "turn",
+  "imageAlt": "Which word has the ur (as in turn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ur.v6",
@@ -4876,12 +5144,17 @@ export const questions = [
   "question": "Which word has the ur (as in turn) sound?",
   "spokenPrompt": "Which word has the ur (as in turn) sound?",
   "choices": [
+   "nut",
    "nurse",
    "north",
-   "win",
-   "nut"
+   "win"
   ],
   "answerOptions": [
+   {
+    "value": "nut",
+    "label": "nut",
+    "text": "nut"
+   },
    {
     "value": "nurse",
     "label": "nurse",
@@ -4896,29 +5169,25 @@ export const questions = [
     "value": "win",
     "label": "win",
     "text": "win"
-   },
-   {
-    "value": "nut",
-    "label": "nut",
-    "text": "nut"
    }
   ],
   "answer": "nurse",
   "correctAnswer": "nurse",
   "distractorRationales": {
-   "north": "D-PATTERN-TRAP",
    "win": "D-VOWEL",
-   "nut": "D-VOWEL"
+   "nut": "D-VOWEL",
+   "north": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4929,7 +5198,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "win ties the in-chunk"
+  "notes": "win ties the in-chunk",
+  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "resolvedImageAssetKey": "nurse",
+  "imageAlt": "Which word has the ur (as in turn) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v7r",
@@ -4955,22 +5230,12 @@ export const questions = [
   "question": "Finish: j__",
   "spokenPrompt": "jar. Which letters finish the word jar?",
   "choices": [
-   "ar",
-   "or",
    "ir",
-   "er"
+   "er",
+   "ar",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "ar",
-    "label": "ar",
-    "text": "ar"
-   },
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -4980,25 +5245,36 @@ export const questions = [
     "value": "er",
     "label": "er",
     "text": "er"
+   },
+   {
+    "value": "ar",
+    "label": "ar",
+    "text": "ar"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "ar",
   "correctAnswer": "ar",
   "distractorRationales": {
+   "er": "D-PATTERN-TRAP",
    "or": "D-VOWEL",
-   "ir": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "jar",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ar-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5009,7 +5285,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "jor, jir and jer are non-words"
+  "notes": "jor, jir and jer are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: j__"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.or.v7r",
@@ -5035,17 +5317,12 @@ export const questions = [
   "question": "Finish: h__n",
   "spokenPrompt": "horn. Which letters finish the word horn?",
   "choices": [
-   "or",
    "ar",
    "er",
-   "ir"
+   "ir",
+   "or"
   ],
   "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   },
    {
     "value": "ar",
     "label": "ar",
@@ -5060,6 +5337,11 @@ export const questions = [
     "value": "ir",
     "label": "ir",
     "text": "ir"
+   },
+   {
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "or",
@@ -5079,6 +5361,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "horn",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5090,11 +5373,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "harn, hern and hirn are non-words",
-  "imagePath": "/images/objects/horn.png",
-  "imageUrl": "/images/objects/horn.png",
-  "targetImage": "/images/objects/horn.png",
-  "targetImagePath": "/images/objects/horn.png",
-  "imageAlt": "horn"
+  "imagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
+  "resolvedImageAssetKey": "horn",
+  "imageAlt": "Finish: h__n"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v8r",
@@ -5164,6 +5448,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "car",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5175,11 +5460,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": "/images/child-mode/initial-sounds/car.png",
-  "imageUrl": "/images/child-mode/initial-sounds/car.png",
-  "targetImage": "/images/child-mode/initial-sounds/car.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/car.png",
-  "imageAlt": "car"
+  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
+  "resolvedImageAssetKey": "car",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.or.v8r",
@@ -5205,12 +5491,17 @@ export const questions = [
   "question": "Which letters make the sound you hear in this picture's word?",
   "spokenPrompt": "storm. Which letters make the r sound in storm?",
   "choices": [
+   "er",
    "or",
    "ar",
-   "ur",
-   "er"
+   "ur"
   ],
   "answerOptions": [
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
    {
     "value": "or",
     "label": "or",
@@ -5225,19 +5516,14 @@ export const questions = [
     "value": "ur",
     "label": "ur",
     "text": "ur"
-   },
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
    }
   ],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {
-   "ar": "D-PATTERN-TRAP",
    "ur": "D-PATTERN-TRAP",
-   "er": "D-PATTERN-TRAP"
+   "er": "D-PATTERN-TRAP",
+   "ar": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -5249,6 +5535,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "storm",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5264,7 +5551,8 @@ export const questions = [
   "imageUrl": "/images/objects/storm.png",
   "targetImage": "/images/objects/storm.png",
   "targetImagePath": "/images/objects/storm.png",
-  "imageAlt": "storm"
+  "resolvedImageAssetKey": "storm",
+  "imageAlt": "Which letters make the sound you hear in this picture's word?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ir.v7r",
@@ -5290,17 +5578,12 @@ export const questions = [
   "question": "Finish: fir__",
   "spokenPrompt": "first. Which letters finish the word first?",
   "choices": [
-   "st",
    "nd",
    "th",
-   "ft"
+   "ft",
+   "st"
   ],
   "answerOptions": [
-   {
-    "value": "st",
-    "label": "st",
-    "text": "st"
-   },
    {
     "value": "nd",
     "label": "nd",
@@ -5315,6 +5598,11 @@ export const questions = [
     "value": "ft",
     "label": "ft",
     "text": "ft"
+   },
+   {
+    "value": "st",
+    "label": "st",
+    "text": "st"
    }
   ],
   "answer": "st",
@@ -5324,16 +5612,17 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5344,7 +5633,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "firnd, firth and firft are non-words — first is the unique real completion"
+  "notes": "firnd, firth and firft are non-words — first is the unique real completion",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: fir__"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ur.v7r",
@@ -5404,16 +5699,17 @@ export const questions = [
    "s": "D-PATTERN-TRAP",
    "ss": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "nurse",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "nurse",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5424,7 +5720,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "nurce, nurs and nurss are rival spellings — developmental traps"
+  "notes": "nurce, nurs and nurss are rival spellings — developmental traps",
+  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
+  "resolvedImageAssetKey": "nurse",
+  "imageAlt": "Finish: nur__"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ir.v8r",
@@ -5450,12 +5752,17 @@ export const questions = [
   "question": "Which word has the ir (as in bird) sound?",
   "spokenPrompt": "Which word has the ir (as in bird) sound?",
   "choices": [
+   "fan",
    "first",
    "fire",
-   "fort",
-   "fan"
+   "fort"
   ],
   "answerOptions": [
+   {
+    "value": "fan",
+    "label": "fan",
+    "text": "fan"
+   },
    {
     "value": "first",
     "label": "first",
@@ -5470,29 +5777,25 @@ export const questions = [
     "value": "fort",
     "label": "fort",
     "text": "fort"
-   },
-   {
-    "value": "fan",
-    "label": "fan",
-    "text": "fan"
    }
   ],
   "answer": "first",
   "correctAnswer": "first",
   "distractorRationales": {
+   "fan": "D-VOWEL",
    "fire": "D-PATTERN-TRAP",
-   "fort": "D-PATTERN-TRAP",
-   "fan": "D-VOWEL"
+   "fort": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ir-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5503,7 +5806,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
+  "resolvedImageAssetKey": "bird",
+  "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ar.v8r",
@@ -5529,22 +5838,12 @@ export const questions = [
   "question": "Which word has the ar (as in car) sound?",
   "spokenPrompt": "Which word has the ar (as in car) sound?",
   "choices": [
-   "yarn",
-   "warm",
    "win",
-   "yak"
+   "yak",
+   "yarn",
+   "warm"
   ],
   "answerOptions": [
-   {
-    "value": "yarn",
-    "label": "yarn",
-    "text": "yarn"
-   },
-   {
-    "value": "warm",
-    "label": "warm",
-    "text": "warm"
-   },
    {
     "value": "win",
     "label": "win",
@@ -5554,24 +5853,35 @@ export const questions = [
     "value": "yak",
     "label": "yak",
     "text": "yak"
+   },
+   {
+    "value": "yarn",
+    "label": "yarn",
+    "text": "yarn"
+   },
+   {
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
    }
   ],
   "answer": "yarn",
   "correctAnswer": "yarn",
   "distractorRationales": {
+   "yak": "D-VOWEL",
    "warm": "D-PATTERN-TRAP",
-   "win": "D-VOWEL",
-   "yak": "D-VOWEL"
+   "win": "D-VOWEL"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ar-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5582,7 +5892,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/yarn.png",
+  "imageUrl": "/images/child-mode/initial-sounds/yarn.png",
+  "targetImage": "/images/child-mode/initial-sounds/yarn.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
+  "resolvedImageAssetKey": "yarn",
+  "imageAlt": "Which word has the ar (as in car) sound?"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.er.v7r",
@@ -5608,22 +5924,12 @@ export const questions = [
   "question": "Finish: sist__",
   "spokenPrompt": "sister. Which letters finish the word sister?",
   "choices": [
-   "er",
-   "ir",
    "ur",
-   "ar"
+   "ar",
+   "er",
+   "ir"
   ],
   "answerOptions": [
-   {
-    "value": "er",
-    "label": "er",
-    "text": "er"
-   },
-   {
-    "value": "ir",
-    "label": "ir",
-    "text": "ir"
-   },
    {
     "value": "ur",
     "label": "ur",
@@ -5633,25 +5939,36 @@ export const questions = [
     "value": "ar",
     "label": "ar",
     "text": "ar"
+   },
+   {
+    "value": "er",
+    "label": "er",
+    "text": "er"
+   },
+   {
+    "value": "ir",
+    "label": "ir",
+    "text": "ir"
    }
   ],
   "answer": "er",
   "correctAnswer": "er",
   "distractorRationales": {
+   "ar": "D-PATTERN-TRAP",
    "ir": "D-PATTERN-TRAP",
-   "ur": "D-PATTERN-TRAP",
-   "ar": "D-PATTERN-TRAP"
+   "ur": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "sister",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-er-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5662,7 +5979,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sistir, sistur and sistar are non-words"
+  "notes": "sistir, sistur and sistar are non-words",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: sist__"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ur.v8r",
@@ -5688,17 +6011,12 @@ export const questions = [
   "question": "Finish: f__",
   "spokenPrompt": "fur. Which letters finish the word fur?",
   "choices": [
-   "ur",
    "ir",
    "er",
-   "oa"
+   "oa",
+   "ur"
   ],
   "answerOptions": [
-   {
-    "value": "ur",
-    "label": "ur",
-    "text": "ur"
-   },
    {
     "value": "ir",
     "label": "ir",
@@ -5713,6 +6031,11 @@ export const questions = [
     "value": "oa",
     "label": "oa",
     "text": "oa"
+   },
+   {
+    "value": "ur",
+    "label": "ur",
+    "text": "ur"
    }
   ],
   "answer": "ur",
@@ -5722,16 +6045,17 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "fur",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "r_controlled_vowels-ur-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5742,6 +6066,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word"
+  "notes": "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
+  "resolvedImageAssetKey": "finish",
+  "imageAlt": "Finish: f__"
  }
 ];

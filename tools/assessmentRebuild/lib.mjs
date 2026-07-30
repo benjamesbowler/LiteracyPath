@@ -20,7 +20,8 @@ export const RATIONALE_CODES = new Set([
   "D-ONSET", "D-RIME-NEAR", "D-VOWEL", "D-PATTERN-TRAP", "D-POSITION", "D-VISUAL-NEIGHBOR",
   "D-FUNCTION-SWAP", "D-HOMOPHONE", "D-MORPH-LITERAL", "D-DEVELOPMENTAL", "D-SEMANTIC",
   "D-DETAIL-AS-MAIN", "D-TOPIC-ADJACENT", "D-SEQUENCE-SWAP", "D-CAUSE-REVERSE",
-  "D-PLAUSIBLE-UNSUPPORTED", "D-OPPOSITE"
+  "D-PLAUSIBLE-UNSUPPORTED", "D-OPPOSITE",
+  "D-SEQUENCE-START", "D-SEQUENCE-END", "D-SEQUENCE-REVERSE"
 ]);
 
 // ---------------------------------------------------------------------------
@@ -50,7 +51,9 @@ export function jaccard(a, b) {
 export const CLOSED_SET_FORMATS = new Set([
   "LONG_VOWEL_SILENT_E_PATTERN", "DIGRAPH_COMPLETE_WORD", "BLEND_COMPLETE_WORD",
   "MISSING_VOWEL_CVC", "LISTEN_CHOOSE_VOWEL", "R_CONTROLLED_PATTERN",
-  "PICTURE_AUDIO_TO_PATTERN", "LONG_VOWEL_TEAM_COMPLETE", "PLURAL_TEXT_CHOICE"
+  "PICTURE_AUDIO_TO_PATTERN", "LONG_VOWEL_TEAM_COMPLETE", "PLURAL_TEXT_CHOICE",
+  "PREPOSITION_SCENE_CHOICE", "PREPOSITION_TEXT_CHOICE",
+  "PREPOSITION_SENTENCE_FIT", "PREPOSITION_PRECISION"
 ]);
 
 // Chance a pure guesser answers an item correctly. Choice formats: 1/N.
@@ -99,16 +102,83 @@ export function promptAnswerSignature(item) {
 //   "image-required"|"audio-required"), retention?, nonGating?, dband?, note? }
 const FORM_BY_VARIANT = { 1: "A", 2: "B", 3: "C", 4: "A", 5: "B", 6: "C", 7: "A", 8: "B", 9: "C" };
 
+function stableChoiceOffset(value, length) {
+  if (length < 2) return 0;
+  let hash = 2166136261;
+  for (const char of String(value || "")) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0) % length;
+}
+
+function rotate(values, offset) {
+  if (!values.length || !offset) return [...values];
+  return [...values.slice(offset), ...values.slice(0, offset)];
+}
+
+const SUPPORT_IMAGE_STOPWORDS = new Set([
+  "a", "an", "and", "are", "as", "at", "be", "because", "been", "best",
+  "but", "by", "can", "choose", "complete", "correct", "did", "do", "does",
+  "for", "from", "had", "has", "have", "he", "her", "here", "him", "his",
+  "how", "i", "image", "in", "into", "is", "it", "its", "listen", "match",
+  "matches", "my", "of", "on", "one", "or", "our", "out", "pick", "picture",
+  "pictures", "said", "says", "sentence", "she", "so", "start", "than", "that",
+  "the", "their", "them", "then", "there", "these", "they", "this", "those",
+  "three", "to", "two", "up", "was", "we", "were", "what", "when", "where",
+  "which", "who", "why", "will", "with", "word", "words", "you", "your"
+]);
+
+function semanticSupportImageCandidates(raw, answer) {
+  const content = [
+    raw.imgAlt,
+    raw.supportImageAlt,
+    raw.prompt,
+    raw.sentence,
+    raw.passage,
+    answer
+  ].filter(Boolean).join(" ");
+  const contentWords = (content.toLowerCase().match(/[a-z]+/g) || [])
+    .filter(word => word.length >= 2 && !SUPPORT_IMAGE_STOPWORDS.has(word))
+    .sort((a, b) => b.length - a.length);
+  return [...new Set([
+    raw.target,
+    answer,
+    raw.u,
+    ...contentWords
+  ].filter(Boolean))];
+}
+
+export function normalizeSpokenCloze(text) {
+  return String(text || "")
+    .replace(/\s*(?:_{3,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
+    .replace(/\s+/g, " ")
+    .replace(/\s+([?.!,;:])/g, "$1")
+    .trim();
+}
+
 export function expandItem(raw, blueprint, imageResolver) {
   const skillId = blueprint.skillId;
   const level = raw.lvl >= 2 ? 2 : 1;
   const key = raw.choices.find(c => c.k);
   const form = raw.retention ? "R" : (raw.form || FORM_BY_VARIANT[raw.v] || "A");
   const id = `lp3.${skillId}.l${level}.${form}.${raw.u}.v${raw.v}${raw.retention ? "r" : ""}`;
-  const choices = raw.choices.map(c => c.t);
+  const choiceRows = rotate(raw.choices, stableChoiceOffset(id, raw.choices.length));
+  const choices = choiceRows.map(c => c.t);
   const answer = key ? key.t : "";
   const phase = raw.ph || 1;
   const targetWord = raw.target || (raw.img ? raw.img : undefined);
+  const hasChoiceImages =
+    (Array.isArray(raw.cards) && raw.cards.length > 0)
+    || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
+  const isComprehensionItem = String(raw.fmt || "").toUpperCase() === "COMPREHENSION";
+  const supportImageKey = raw.img || raw.supportImg || (
+    hasChoiceImages
+      ? ""
+      : isComprehensionItem
+        ? `${skillId}-l${level}-${raw.u}-v${raw.v}`
+        : `${skillId}-${raw.u}-v${raw.v}`
+  );
 
   const item = {
     id,
@@ -132,7 +202,7 @@ export function expandItem(raw, blueprint, imageResolver) {
     questionType: raw.questionType || (raw.cards ? "visual_card_choice" : "multiple_choice"),
     prompt: raw.prompt,
     question: raw.prompt,
-    spokenPrompt: raw.spoken || raw.prompt,
+    spokenPrompt: normalizeSpokenCloze(raw.spoken || raw.prompt),
     sentence: raw.sentence,
     passage: raw.passage,
     cell: raw.cell,
@@ -142,8 +212,11 @@ export function expandItem(raw, blueprint, imageResolver) {
       : choices.map(text => ({ value: text, label: text, text })),
     answer,
     correctAnswer: answer,
-    distractorRationales: Object.fromEntries(raw.choices.filter(c => !c.k).map(c => [c.t, c.r])),
-    mediaTier: raw.media || (raw.cards ? "image-required" : "text"),
+    distractorRationales: Object.fromEntries(choiceRows.filter(c => !c.k).map(c => [c.t, c.r])),
+    // Product law: every assessment question has meaningful visual support.
+    // Image-card items satisfy it through their answer cards; every other
+    // item receives an authored or deterministic support-image requirement.
+    mediaTier: "image-required",
     phonicsPosition: raw.pos,
     hadPTD: Boolean(raw.hadPTD || raw.choices.some(c => c.r === "D-PATTERN-TRAP")),
     crossPatternGroup: raw.cross || undefined,
@@ -158,7 +231,8 @@ export function expandItem(raw, blueprint, imageResolver) {
     // Which media the AUTHOR declared. The runtime loader strips any
     // enrichment-added target media beyond this, so unapproved manifest paths
     // can never ride in on a v3 item (media QA stays fail-closed).
-    v3AuthoredMedia: { target: Boolean(raw.img), cards: Boolean(raw.cards) },
+    v3AuthoredMedia: { target: Boolean(supportImageKey), cards: hasChoiceImages },
+    requiredImageAssetKey: supportImageKey || undefined,
     active: true,
     qaStatus: "approved",
     source: V3_SOURCE,
@@ -167,7 +241,11 @@ export function expandItem(raw, blueprint, imageResolver) {
   };
 
   if (raw.cards && imageResolver) {
-    const cards = raw.cards.map(word => {
+    const orderedCardWords = [
+      ...choiceRows.map(choice => choice.t).filter(word => raw.cards.includes(word)),
+      ...raw.cards.filter(word => !choiceRows.some(choice => choice.t === word))
+    ];
+    const cards = orderedCardWords.map(word => {
       const image = imageResolver(word, skillId);
       return {
         id: `${id}_card_${word}`,
@@ -182,13 +260,48 @@ export function expandItem(raw, blueprint, imageResolver) {
     item.imageCards = cards;
     item.answerOptions = cards.map(card => ({ value: card.value, label: card.label, text: card.label }));
   }
-  if (raw.img && imageResolver) {
-    const image = imageResolver(raw.img, skillId);
-    item.imagePath = image;
-    item.imageUrl = image;
-    item.targetImage = image;
-    item.targetImagePath = image;
-    item.imageAlt = raw.imgAlt || raw.img;
+  if (raw.sequenceCards && imageResolver) {
+    item.sequenceCards = raw.sequenceCards.map((card, index) => {
+      const image = imageResolver(card.img, skillId);
+      return {
+        id: `${id}_sequence_${index + 1}`,
+        value: card.value,
+        label: card.label,
+        image,
+        imagePath: image,
+        alt: card.alt || card.label
+      };
+    });
+    item.correctSequence = raw.correctSequence;
+  }
+  if (supportImageKey && imageResolver) {
+    let resolvedImageAssetKey = supportImageKey;
+    let image = imageResolver(supportImageKey, skillId);
+    // Most banks can reuse an approved word/scene illustration already in the
+    // repository when a question-specific key has not been drawn yet. Spatial
+    // questions are deliberately excluded: a generic noun picture cannot
+    // prove "under", "between", "near", or another relationship.
+    if (!image && skillId !== "prepositions_of_place") {
+      for (const candidate of semanticSupportImageCandidates(raw, answer)) {
+        image = imageResolver(candidate, skillId);
+        if (image) {
+          resolvedImageAssetKey = candidate;
+          break;
+        }
+      }
+    }
+    if (image) {
+      item.imagePath = image;
+      item.imageUrl = image;
+      item.targetImage = image;
+      item.targetImagePath = image;
+      item.resolvedImageAssetKey = resolvedImageAssetKey;
+    }
+    item.imageAlt = raw.imgAlt || raw.supportImageAlt || (
+      isComprehensionItem
+        ? `Illustration for ${raw.passage || raw.prompt}`
+        : String(raw.prompt || supportImageKey).replace("___", answer)
+    );
   }
   return item;
 }
@@ -196,13 +309,43 @@ export function expandItem(raw, blueprint, imageResolver) {
 export function expandBank(source, blueprint, imageResolver) {
   const named = { ...blueprint, skillName: source.skillName || blueprint.skillId };
   const resolver = imageResolver || source.imageResolver;
-  return source.items.map(raw => expandItem(raw, named, resolver));
+  const items = source.items.map(raw => expandItem(raw, named, resolver));
+
+  // Balance key positions inside each independently delivered level/form
+  // bucket. Runtime shuffling still applies, but the authored bank itself must
+  // never teach a child that one screen position is usually correct.
+  for (const level of [1, 2]) {
+    for (const form of ["A", "B", "C", "R"]) {
+      const bucket = items.filter(item => (
+        item.level === level
+        && item.form === form
+        && item.choices.length === 4
+      ));
+      const start = stableChoiceOffset(`${blueprint.skillId}:${level}:${form}`, 4);
+      bucket.forEach((item, index) => {
+        const desiredPosition = (start + index) % 4;
+        const currentPosition = item.choices.findIndex(choice => norm(choice) === norm(item.answer));
+        if (currentPosition < 0 || currentPosition === desiredPosition) return;
+        const offset = (currentPosition - desiredPosition + item.choices.length) % item.choices.length;
+        item.choices = rotate(item.choices, offset);
+        if (Array.isArray(item.answerOptions)) item.answerOptions = rotate(item.answerOptions, offset);
+        if (Array.isArray(item.imageCards)) item.imageCards = rotate(item.imageCards, offset);
+      });
+    }
+  }
+
+  return items;
 }
 
 // ---------------------------------------------------------------------------
 // Lints (AUTHORING_STANDARDS §1–§4). Each returns [{code, itemId, message}].
 // ---------------------------------------------------------------------------
-export function lintBank(items, blueprint, { knownWords = new Set(), approvedDevErrors = new Set(), imageWords = new Set() } = {}) {
+export function lintBank(items, blueprint, {
+  knownWords = new Set(),
+  approvedDevErrors = new Set(),
+  imageWords = new Set(),
+  phonics = {}
+} = {}) {
   const issues = [];
   const push = (code, itemId, message) => issues.push({ code, itemId, message });
   const seenIds = new Set();
@@ -256,11 +399,18 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     if (item.choices.length === 4 && distractors.some(d => !(item.distractorRationales || {})[d])) {
       push("L-DIST", item.id, "distractor missing rationale code");
     }
+    // A distractor must be real, plausible, and rationale-coded. Requiring two
+    // *different* codes per item is not an integrity rule: many sound, grammar,
+    // spatial, and comprehension questions intentionally present three
+    // alternatives from the same misconception family. Format-specific laws
+    // below check the distinctions that actually matter.
 
     // L-GRAM — broken frames that shipped in the old bank
     const promptText = `${item.prompt} ${item.sentence || ""}`;
     if (/\ba ([aeiou])/i.test(promptText)) push("L-GRAM", item.id, `article error: "a ${promptText.match(/\ba ([aeiou])\w*/i)?.[1]}..."`);
-    if (/\bword means\b|\bprecise word means\b/i.test(promptText)) push("L-GRAM", item.id, "broken 'word means' frame");
+    if (/\b(?:choose|pick) the precise word means\b/i.test(promptText)) {
+      push("L-GRAM", item.id, "broken 'precise word means' frame");
+    }
     if (/\s{2,}/.test(item.prompt)) push("L-GRAM", item.id, "double space in prompt");
     if ((item.sentence || "").includes("___") === false && /HFW_SENTENCE|SENTENCE_FIT|SPELLING_CONTEXT|CONTEXT_CLOZE|PRECISION|WORD_IN_SENTENCE/.test(item.formatType) && !/___/.test(promptText) && !item.passage) {
       push("L-GRAM", item.id, "cloze format without a ___ blank");
@@ -269,10 +419,25 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     // L-READ
     const promptWords = item.prompt.split(/\s+/).filter(Boolean).length;
     const passageWords = (item.passage || "").split(/\s+/).filter(Boolean).length;
-    if (item.level === 1 && promptWords > 14) push("L-READ", item.id, `L1 prompt ${promptWords} words`);
-    if (item.level === 2 && promptWords > 18) push("L-READ", item.id, `L2 prompt ${promptWords} words`);
+    const sentenceWords = (item.sentence || "").split(/\s+/).filter(Boolean).length;
+    if (item.level === 1 && promptWords > 12) push("L-READ", item.id, `L1 prompt ${promptWords} words`);
+    if (item.level === 2 && promptWords > 16) push("L-READ", item.id, `L2 prompt ${promptWords} words`);
+    if (item.level === 1 && sentenceWords > 9) push("L-READ", item.id, `L1 sentence ${sentenceWords} words`);
+    if (item.level === 2 && sentenceWords > 12) push("L-READ", item.id, `L2 sentence ${sentenceWords} words`);
     if (item.level === 1 && passageWords > 60) push("L-READ", item.id, `L1 passage ${passageWords} words`);
-    if (item.level === 2 && passageWords > 112) push("L-READ", item.id, `L2 passage ${passageWords} words`);
+    if (item.level === 2 && passageWords > 110) push("L-READ", item.id, `L2 passage ${passageWords} words`);
+
+    // L-LEX — when a blueprint unit has an approved pronunciation list, a
+    // target word must be explicitly present in that list.
+    const approvedPatternWords = phonics[item.itemKey];
+    const targetWord = norm(item.targetWord || "");
+    if (
+      Array.isArray(approvedPatternWords)
+      && targetWord
+      && !approvedPatternWords.map(norm).includes(targetWord)
+    ) {
+      push("L-LEX", item.id, `"${targetWord}" is not approved for pattern ${item.itemKey}`);
+    }
 
     // L-REALWORD for single-word choice formats
     if (wordChoiceFormats.has(item.formatType) && knownWords.size) {
@@ -295,6 +460,14 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
         }
       }
     }
+    if (item.sequenceCards) {
+      for (const card of item.sequenceCards) {
+        if (!card.image) push("L-MEDIA", item.id, `no sequence image asset for "${card.value}"`);
+        else if (!fs.existsSync(path.join(ROOT, "public", card.image.replace(/^\//, "")))) {
+          push("L-MEDIA", item.id, `sequence image file missing for "${card.value}": ${card.image}`);
+        }
+      }
+    }
     if (item.imagePath && !fs.existsSync(path.join(ROOT, "public", item.imagePath.replace(/^\//, "")))) {
       push("L-MEDIA", item.id, `target image missing: ${item.imagePath}`);
     }
@@ -302,7 +475,12 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     // defect, not a vacuous pass. (The old lint only checked images that were
     // present, so a bank expanded without a resolver sailed through with
     // image-less picture items — caught by the live browser critic.)
-    if (item.mediaTier === "image-required" && !item.imagePath && !(item.imageCards || []).length) {
+    if (
+      item.mediaTier === "image-required"
+      && !item.imagePath
+      && !(item.imageCards || []).length
+      && !(item.sequenceCards || []).length
+    ) {
       push("L-MEDIA", item.id, "image-required item has no resolved imagePath or imageCards");
     }
 
@@ -359,6 +537,37 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     }
   }
 
+  // O-5: key positions must be balanced inside every independently delivered
+  // level/form bucket. Runtime shuffling remains belt-and-braces; authored
+  // banks must not rely on it to hide an all-first answer pattern.
+  for (const level of [1, 2]) {
+    for (const form of ["A", "B", "C", "R"]) {
+      const bucket = items.filter(item => (
+        item.level === level
+        && item.form === form
+        && item.choices.length === 4
+      ));
+      if (bucket.length < 4) continue;
+      const positions = [0, 0, 0, 0];
+      for (const item of bucket) {
+        const position = item.choices.findIndex(choice => norm(choice) === norm(item.answer));
+        if (position >= 0) positions[position] += 1;
+      }
+      const maxShare = Math.max(...positions) / bucket.length;
+      // Four answer positions cannot satisfy a literal 35% ceiling in small
+      // buckets such as five retention items (the best possible split is
+      // 2/1/1/1 = 40%). Require the mathematically best attainable ceiling.
+      const attainableCeiling = Math.max(0.35, Math.ceil(bucket.length / 4) / bucket.length);
+      if (maxShare > attainableCeiling) {
+        issues.push({
+          code: "L-KEY-BALANCE",
+          itemId: `${blueprint.skillId}.l${level}.${form}`,
+          message: `key positions ${positions.join("/")} exceed the 35% cap`
+        });
+      }
+    }
+  }
+
   return issues;
 }
 
@@ -366,8 +575,13 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
 // Simulations (MASTERY_SYSTEM §9) — run against built bank + skillStatusPolicy.
 // Selection model mirrors the runtime ladder: unseen-first, unit-coverage-first.
 // ---------------------------------------------------------------------------
-export function composeSitting(bank, { level, seen, sittingSize, unitEvidence }) {
-  const pool = bank.filter(i => i.level === level && !i.retentionOnly && !seen.has(i.id));
+export function composeSitting(bank, { level, phase = null, seen, sittingSize, unitEvidence }) {
+  const pool = bank.filter(i =>
+    i.level === level
+    && (phase == null || i.phase === phase)
+    && !i.retentionOnly
+    && !seen.has(i.id)
+  );
   const byNeed = [...pool].sort((a, b) => (unitEvidence.get(a.itemKey) || 0) - (unitEvidence.get(b.itemKey) || 0));
   const chosen = [];
   const usedUnits = new Map();
@@ -397,34 +611,56 @@ export async function simulate(bank, blueprint, { policy, answerFn, maxSittings 
   const ledger = [];
   const seen = new Set();
   const repeats = [];
+  const shortSittings = [];
   const seenSignatures = new Set();
   let sittings = 0;
+  const levelSittings = { 1: 0, 2: 0 };
   const nowFor = () => T0 + (sittings + 6) * DAY; // stays inside the 90-day window
 
   for (const level of [1, 2]) {
-    for (let s = 0; s < maxSittings; s++) {
-      const status = policy.computeSkillStatus(ledger, blueprint, { now: nowFor() });
-      const levelRow = level === 1 ? status.level1 : status.level2;
-      if (levelRow.passed) break;
-      const unitEvidence = new Map();
-      for (const attempt of ledger) unitEvidence.set(attempt.itemKey, (unitEvidence.get(attempt.itemKey) || 0) + 1);
-      const sitting = composeSitting(bank, { level, seen, sittingSize: blueprint.sitting, unitEvidence });
-      if (!sitting.length) break;
-      sittings++;
-      for (const item of sitting) {
-        if (seen.has(item.id)) repeats.push(item.id);
-        const signature = promptAnswerSignature(item) + "||" + optionSetSignature(item);
-        if (seenSignatures.has(signature)) repeats.push(`sig:${item.id}`);
-        seenSignatures.add(signature);
-        seen.add(item.id);
-        const correct = answerFn(item);
-        ledger.push({
-          itemId: item.id, itemKey: item.itemKey, itemType: item.itemType,
-          level: item.level, formatType: item.formatType,
-          isCorrect: correct, responseState: correct ? "correct" : "incorrect",
-          mode: "formal", sittingId: `sim-${level}-${s}`,
-          timestamp: T0 + sittings * DAY
+    for (const phase of [1, 2]) {
+      for (let s = 0; s < maxSittings; s++) {
+        const status = policy.computeSkillStatus(ledger, blueprint, { now: nowFor() });
+        const levelRow = level === 1 ? status.level1 : status.level2;
+        if (levelRow.phases[phase].passed) break;
+        const unitEvidence = new Map();
+        for (const attempt of ledger) unitEvidence.set(attempt.itemKey, (unitEvidence.get(attempt.itemKey) || 0) + 1);
+        const sitting = composeSitting(bank, {
+          level,
+          phase,
+          seen,
+          sittingSize: blueprint.sitting,
+          unitEvidence
         });
+        if (!sitting.length) break;
+        if (sitting.length < blueprint.sitting) {
+          shortSittings.push({
+            level,
+            phase,
+            sittingIndex: s,
+            actualSize: sitting.length,
+            requiredSize: blueprint.sitting
+          });
+        }
+        sittings++;
+        levelSittings[level] += 1;
+        for (const item of sitting) {
+          if (seen.has(item.id)) repeats.push(item.id);
+          const signature = promptAnswerSignature(item) + "||" + optionSetSignature(item);
+          if (seenSignatures.has(signature)) repeats.push(`sig:${item.id}`);
+          seenSignatures.add(signature);
+          seen.add(item.id);
+          const correct = answerFn(item);
+          ledger.push({
+            itemId: item.id, itemKey: item.itemKey, itemType: item.itemType,
+            level: item.level, phase: item.phase, formatType: item.formatType,
+            isCorrect: correct, responseState: correct ? "correct" : "incorrect",
+            mode: "formal", sittingId: `sim-${level}-${phase}-${s}`,
+            sittingCompleted: true,
+            sittingPlannedSize: sitting.length,
+            timestamp: T0 + sittings * DAY
+          });
+        }
       }
     }
   }
@@ -437,15 +673,108 @@ export async function simulate(bank, blueprint, { policy, answerFn, maxSittings 
     const correct = (retentionAnswerFn || answerFn)(item);
     ledger.push({
       itemId: item.id, itemKey: item.itemKey, itemType: item.itemType,
-      level: item.level, formatType: item.formatType,
+      level: item.level, phase: item.phase, formatType: item.formatType,
       isCorrect: correct, responseState: correct ? "correct" : "incorrect",
       mode: "retention", sittingId: "sim-retention",
+      sittingCompleted: true,
+      sittingPlannedSize: retentionSet.length,
       timestamp: T0 + (sittings + 4) * DAY
     });
   }
 
   const final = policy.computeSkillStatus(ledger, blueprint, { now: T0 + (sittings + 6) * DAY });
-  return { final, sittings, repeats, ledgerSize: ledger.length };
+  return { final, sittings, levelSittings, repeats, shortSittings, ledgerSize: ledger.length, ledger };
+}
+
+export async function simulateRegression(bank, blueprint, { policy }) {
+  const DAY = 24 * 60 * 60 * 1000;
+  const perfect = await simulate(bank, blueprint, { policy, answerFn: () => true });
+  // Begin the regression scenario immediately after the four formal phases.
+  // The perfect-path simulation also includes a later retention check; keeping
+  // that future record here would make the chronology impossible when we append
+  // a new Phase 2 result and would falsely mark the old retention as premature.
+  const ledger = perfect.ledger.filter(row => row.mode !== "retention");
+  const lastTimestamp = Math.max(...ledger.map(row => Number(row.timestamp || 0)));
+  const representatives = composeSitting(bank, {
+    level: 2,
+    phase: 2,
+    seen: new Set(),
+    sittingSize: blueprint.sitting,
+    unitEvidence: new Map()
+  });
+  for (let index = 0; index < representatives.length; index++) {
+    const item = representatives[index];
+    const correct = index < Math.floor(representatives.length * 0.3);
+    ledger.push({
+      itemId: item.id,
+      itemKey: item.itemKey,
+      itemType: item.itemType,
+      level: 2,
+      phase: 2,
+      formatType: item.formatType,
+      isCorrect: correct,
+      responseState: correct ? "correct" : "incorrect",
+      mode: "formal",
+      sittingId: "sim-regression-fail",
+      sittingCompleted: true,
+      sittingPlannedSize: representatives.length,
+      timestamp: lastTimestamp + DAY
+    });
+  }
+  const afterFailure = policy.computeSkillStatus(ledger, blueprint, { now: lastTimestamp + 2 * DAY });
+
+  for (const item of representatives) {
+    ledger.push({
+      itemId: `${item.id}:clean`,
+      itemKey: item.itemKey,
+      itemType: item.itemType,
+      level: 2,
+      phase: 2,
+      formatType: item.formatType,
+      isCorrect: true,
+      responseState: "correct",
+      mode: "formal",
+      sittingId: "sim-regression-clean",
+      sittingCompleted: true,
+      sittingPlannedSize: representatives.length,
+      timestamp: lastTimestamp + 2 * DAY
+    });
+  }
+  const afterClean = policy.computeSkillStatus(ledger, blueprint, { now: lastTimestamp + 3 * DAY });
+
+  const retentionPool = bank.filter(item => item.retentionOnly).slice(0, 8);
+  for (let index = 0; index < retentionPool.length; index++) {
+    const item = retentionPool[index];
+    const correct = index < 4;
+    ledger.push({
+      itemId: `${item.id}:failed-retention`,
+      itemKey: item.itemKey,
+      itemType: item.itemType,
+      level: item.level,
+      phase: item.phase,
+      formatType: item.formatType,
+      isCorrect: correct,
+      responseState: correct ? "correct" : "incorrect",
+      mode: "retention",
+      sittingId: "sim-regression-retention-fail",
+      sittingCompleted: true,
+      sittingPlannedSize: retentionPool.length,
+      timestamp: lastTimestamp + 4 * DAY
+    });
+  }
+  const afterRetentionFailure = policy.computeSkillStatus(ledger, blueprint, { now: lastTimestamp + 5 * DAY });
+
+  return {
+    afterFailure,
+    afterClean,
+    afterRetentionFailure,
+    pass: Boolean(
+      afterFailure?.needsReview
+      && !afterClean?.needsReview
+      && afterRetentionFailure?.needsReview
+      && afterRetentionFailure?.status !== "secure"
+    )
+  };
 }
 
 // Leak oracle for SIM-SCANNER (AUTHORING_STANDARDS §6).
@@ -554,8 +883,29 @@ export function buildImageIndex() {
       if (!/\.(webp|png|svg|jpg|jpeg)$/i.test(entry.name)) continue;
       const stem = entry.name.replace(/\.[a-z]+$/i, "").toLowerCase();
       const rel = path.relative(path.join(ROOT, "public"), full).split(path.sep).join("/");
-      const existing = index.get(stem);
-      if (!existing || rank(rel) < rank(existing)) index.set(stem, rel);
+      const add = key => {
+        if (!key) return;
+        const existing = index.get(key);
+        if (!existing || rank(rel) < rank(existing)) index.set(key, rel);
+      };
+      add(stem);
+
+      // Curated assessment variants are intentionally numbered so the same
+      // concept can appear in several forms. The authoring bank asks for the
+      // concept ("swing"), not a filename variant ("swing-03").
+      const numberedBase = stem.replace(/-\d+$/, "");
+      if (numberedBase !== stem) add(numberedBase);
+
+      // Relationship, homophone and plural art is stored as paired concepts
+      // such as cold-chilly-01 or banana-bananas-01. Either named concept can
+      // legitimately reuse that approved illustration as visual support.
+      if (
+        /^images\/assessment\/language\/variants\/(?:antonyms-synonyms|homophones-homonyms|plurals)\//.test(rel)
+      ) {
+        for (const token of numberedBase.split("-")) {
+          if (token.length >= 2) add(token);
+        }
+      }
     }
   };
   const imagesRoot = path.join(ROOT, "public", "images");

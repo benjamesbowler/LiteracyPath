@@ -27,12 +27,17 @@ export const questions = [
   "passage": "By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favourite programme.",
   "cell": "definition_clue",
   "choices": [
+   "quite angry",
    "very sleepy",
    "very hungry",
-   "wide awake",
-   "quite angry"
+   "wide awake"
   ],
   "answerOptions": [
+   {
+    "value": "quite angry",
+    "label": "quite angry",
+    "text": "quite angry"
+   },
    {
     "value": "very sleepy",
     "label": "very sleepy",
@@ -47,30 +52,26 @@ export const questions = [
     "value": "wide awake",
     "label": "wide awake",
     "text": "wide awake"
-   },
-   {
-    "value": "quite angry",
-    "label": "quite angry",
-    "text": "quite angry"
    }
   ],
   "answer": "very sleepy",
   "correctAnswer": "very sleepy",
   "distractorRationales": {
-   "very hungry": "D-PLAUSIBLE-UNSUPPORTED",
    "wide awake": "D-OPPOSITE",
-   "quite angry": "D-PLAUSIBLE-UNSUPPORTED"
+   "quite angry": "D-PLAUSIBLE-UNSUPPORTED",
+   "very hungry": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "drowsy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -81,7 +82,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+  "resolvedImageAssetKey": "sleepy",
+  "imageAlt": "Illustration for By eight o'clock Tara was drowsy — so sleepy that her eyes kept sliding shut in the middle of her favourite programme."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v2",
@@ -143,16 +150,17 @@ export const questions = [
    "impossible to break": "D-OPPOSITE",
    "full of flowers": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "fragile",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -163,7 +171,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "resolvedImageAssetKey": "fragile",
+  "imageAlt": "Illustration for The vase was fragile, which means it could break very easily, so Mum carried it across the room with two careful hands."
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v3",
@@ -191,17 +205,12 @@ export const questions = [
   "passage": "Our new tent is sturdy — strongly made and hard to knock over. Even the wild wind on the hilltop could not flatten it.",
   "cell": "definition_clue",
   "choices": [
-   "strong and well made",
    "bright and colourful",
    "weak and floppy",
-   "brand new"
+   "brand new",
+   "strong and well made"
   ],
   "answerOptions": [
-   {
-    "value": "strong and well made",
-    "label": "strong and well made",
-    "text": "strong and well made"
-   },
    {
     "value": "bright and colourful",
     "label": "bright and colourful",
@@ -216,25 +225,31 @@ export const questions = [
     "value": "brand new",
     "label": "brand new",
     "text": "brand new"
+   },
+   {
+    "value": "strong and well made",
+    "label": "strong and well made",
+    "text": "strong and well made"
    }
   ],
   "answer": "strong and well made",
   "correctAnswer": "strong and well made",
   "distractorRationales": {
-   "bright and colourful": "D-PLAUSIBLE-UNSUPPORTED",
    "weak and floppy": "D-OPPOSITE",
-   "brand new": "D-TOPIC-ADJACENT"
+   "brand new": "D-TOPIC-ADJACENT",
+   "bright and colourful": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "sturdy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -245,7 +260,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/strong-fragile-01.webp",
+  "resolvedImageAssetKey": "strong",
+  "imageAlt": "Illustration for Our new tent is sturdy — strongly made and hard to knock over. Even the wild wind on the hilltop could not flatten it."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v4",
@@ -273,22 +294,12 @@ export const questions = [
   "passage": "A murmur is a soft, low sound of voices. From the top of the stairs, Lila could hear the murmur of the grown-ups talking downstairs.",
   "cell": "definition_clue",
   "choices": [
-   "a soft sound of talking",
-   "a loud crash",
    "a kind of stair",
-   "a bright light"
+   "a bright light",
+   "a soft sound of talking",
+   "a loud crash"
   ],
   "answerOptions": [
-   {
-    "value": "a soft sound of talking",
-    "label": "a soft sound of talking",
-    "text": "a soft sound of talking"
-   },
-   {
-    "value": "a loud crash",
-    "label": "a loud crash",
-    "text": "a loud crash"
-   },
    {
     "value": "a kind of stair",
     "label": "a kind of stair",
@@ -298,6 +309,16 @@ export const questions = [
     "value": "a bright light",
     "label": "a bright light",
     "text": "a bright light"
+   },
+   {
+    "value": "a soft sound of talking",
+    "label": "a soft sound of talking",
+    "text": "a soft sound of talking"
+   },
+   {
+    "value": "a loud crash",
+    "label": "a loud crash",
+    "text": "a loud crash"
    }
   ],
   "answer": "a soft sound of talking",
@@ -307,16 +328,17 @@ export const questions = [
    "a kind of stair": "D-TOPIC-ADJACENT",
    "a bright light": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "murmur",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -327,7 +349,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/could.webp",
+  "imageUrl": "/images/assessment/hfw/could.webp",
+  "targetImage": "/images/assessment/hfw/could.webp",
+  "targetImagePath": "/images/assessment/hfw/could.webp",
+  "resolvedImageAssetKey": "could",
+  "imageAlt": "Illustration for A murmur is a soft, low sound of voices. From the top of the stairs, Lila could hear the murmur of the grown-ups talking downstairs."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v5",
@@ -355,12 +383,17 @@ export const questions = [
   "passage": "The path was covered in jagged stones — sharp, pointy ones with rough edges — so everyone kept their shoes on all the way to the waterfall.",
   "cell": "definition_clue",
   "choices": [
+   "small and light",
    "sharp and rough at the edges",
    "smooth and round",
-   "wet and shiny",
-   "small and light"
+   "wet and shiny"
   ],
   "answerOptions": [
+   {
+    "value": "small and light",
+    "label": "small and light",
+    "text": "small and light"
+   },
    {
     "value": "sharp and rough at the edges",
     "label": "sharp and rough at the edges",
@@ -375,11 +408,6 @@ export const questions = [
     "value": "wet and shiny",
     "label": "wet and shiny",
     "text": "wet and shiny"
-   },
-   {
-    "value": "small and light",
-    "label": "small and light",
-    "text": "small and light"
    }
   ],
   "answer": "sharp and rough at the edges",
@@ -389,16 +417,17 @@ export const questions = [
    "wet and shiny": "D-PLAUSIBLE-UNSUPPORTED",
    "small and light": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "jagged",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -409,7 +438,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
+  "resolvedImageAssetKey": "sharp",
+  "imageAlt": "Illustration for The path was covered in jagged stones — sharp, pointy ones with rough edges — so everyone kept their shoes on all the way to the waterfall."
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v6",
@@ -471,16 +506,17 @@ export const questions = [
    "covered in leaves": "D-TOPIC-ADJACENT",
    "very long": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "hollow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -491,7 +527,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "resolvedImageAssetKey": "family",
+  "imageAlt": "Illustration for Hollow means empty inside. The old log by the fence was hollow, and a whole family of mice had moved into the space within it."
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v7",
@@ -519,17 +561,12 @@ export const questions = [
   "passage": "The lane was chilly that morning — cold enough to make your fingers ache — so Pip pulled his sleeves down over his hands.",
   "cell": "definition_clue",
   "choices": [
-   "uncomfortably cold",
    "nice and warm",
    "very narrow",
-   "too dark"
+   "too dark",
+   "uncomfortably cold"
   ],
   "answerOptions": [
-   {
-    "value": "uncomfortably cold",
-    "label": "uncomfortably cold",
-    "text": "uncomfortably cold"
-   },
    {
     "value": "nice and warm",
     "label": "nice and warm",
@@ -544,6 +581,11 @@ export const questions = [
     "value": "too dark",
     "label": "too dark",
     "text": "too dark"
+   },
+   {
+    "value": "uncomfortably cold",
+    "label": "uncomfortably cold",
+    "text": "uncomfortably cold"
    }
   ],
   "answer": "uncomfortably cold",
@@ -553,16 +595,17 @@ export const questions = [
    "very narrow": "D-TOPIC-ADJACENT",
    "too dark": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "chilly",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -573,7 +616,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
+  "resolvedImageAssetKey": "chilly",
+  "imageAlt": "Illustration for The lane was chilly that morning — cold enough to make your fingers ache — so Pip pulled his sleeves down over his hands."
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v8",
@@ -601,22 +650,12 @@ export const questions = [
   "passage": "To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by tea time it was good as new.",
   "cell": "definition_clue",
   "choices": [
-   "to fix something",
-   "to throw something away",
    "to paint something",
-   "to hide something"
+   "to hide something",
+   "to fix something",
+   "to throw something away"
   ],
   "answerOptions": [
-   {
-    "value": "to fix something",
-    "label": "to fix something",
-    "text": "to fix something"
-   },
-   {
-    "value": "to throw something away",
-    "label": "to throw something away",
-    "text": "to throw something away"
-   },
    {
     "value": "to paint something",
     "label": "to paint something",
@@ -626,25 +665,36 @@ export const questions = [
     "value": "to hide something",
     "label": "to hide something",
     "text": "to hide something"
+   },
+   {
+    "value": "to fix something",
+    "label": "to fix something",
+    "text": "to fix something"
+   },
+   {
+    "value": "to throw something away",
+    "label": "to throw something away",
+    "text": "to throw something away"
    }
   ],
   "answer": "to fix something",
   "correctAnswer": "to fix something",
   "distractorRationales": {
-   "to throw something away": "D-OPPOSITE",
    "to paint something": "D-PLAUSIBLE-UNSUPPORTED",
-   "to hide something": "D-PLAUSIBLE-UNSUPPORTED"
+   "to hide something": "D-PLAUSIBLE-UNSUPPORTED",
+   "to throw something away": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "mend",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -655,7 +705,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/green.webp",
+  "imageUrl": "/images/assessment/blends/green.webp",
+  "targetImage": "/images/assessment/blends/green.webp",
+  "targetImagePath": "/images/assessment/blends/green.webp",
+  "resolvedImageAssetKey": "green",
+  "imageAlt": "Illustration for To mend something is to fix it. Grandpa mended the torn net with a needle and green string, and by tea time it was good as new."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v1",
@@ -717,16 +773,17 @@ export const questions = [
    "a kind of basket": "D-TOPIC-ADJACENT",
    "a long walk": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "feast",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -737,7 +794,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "empty",
+  "imageAlt": "Illustration for The picnic was a real feast: sandwiches, sausage rolls, two kinds of cake, a bowl of cherries, and a jug of cold lemonade that never seemed to empty."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v2",
@@ -765,17 +828,12 @@ export const questions = [
   "passage": "Milo's desk was full of clutter — old wrappers, dried-up pens, a single glove, broken crayons, and three notes from last term he never took home.",
   "cell": "example_clue",
   "choices": [
-   "a mess of things not needed",
    "a neat row of books",
    "a set of school rules",
-   "a kind of desk"
+   "a kind of desk",
+   "a mess of things not needed"
   ],
   "answerOptions": [
-   {
-    "value": "a mess of things not needed",
-    "label": "a mess of things not needed",
-    "text": "a mess of things not needed"
-   },
    {
     "value": "a neat row of books",
     "label": "a neat row of books",
@@ -790,6 +848,11 @@ export const questions = [
     "value": "a kind of desk",
     "label": "a kind of desk",
     "text": "a kind of desk"
+   },
+   {
+    "value": "a mess of things not needed",
+    "label": "a mess of things not needed",
+    "text": "a mess of things not needed"
    }
   ],
   "answer": "a mess of things not needed",
@@ -799,16 +862,17 @@ export const questions = [
    "a set of school rules": "D-PLAUSIBLE-UNSUPPORTED",
    "a kind of desk": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "clutter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -819,7 +883,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/desk.webp",
+  "imageUrl": "/images/assessment/blends/desk.webp",
+  "targetImage": "/images/assessment/blends/desk.webp",
+  "targetImagePath": "/images/assessment/blends/desk.webp",
+  "resolvedImageAssetKey": "desk",
+  "imageAlt": "Illustration for Milo's desk was full of clutter — old wrappers, dried-up pens, a single glove, broken crayons, and three notes from last term he never took home."
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v3",
@@ -847,12 +917,17 @@ export const questions = [
   "passage": "Enormous things filled the museum hall: a whale skeleton longer than a bus, a boulder taller than Dad, and a footprint big enough for Nia to sit inside.",
   "cell": "example_clue",
   "choices": [
+   "made of stone",
    "very, very big",
    "very old",
-   "tiny and light",
-   "made of stone"
+   "tiny and light"
   ],
   "answerOptions": [
+   {
+    "value": "made of stone",
+    "label": "made of stone",
+    "text": "made of stone"
+   },
    {
     "value": "very, very big",
     "label": "very, very big",
@@ -867,11 +942,6 @@ export const questions = [
     "value": "tiny and light",
     "label": "tiny and light",
     "text": "tiny and light"
-   },
-   {
-    "value": "made of stone",
-    "label": "made of stone",
-    "text": "made of stone"
    }
   ],
   "answer": "very, very big",
@@ -881,16 +951,17 @@ export const questions = [
    "tiny and light": "D-OPPOSITE",
    "made of stone": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "enormous",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -901,7 +972,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "filled",
+  "imageAlt": "Illustration for Enormous things filled the museum hall: a whale skeleton longer than a bus, a boulder taller than Dad, and a footprint big enough for Nia to sit inside."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v4",
@@ -929,12 +1006,17 @@ export const questions = [
   "passage": "Everything about the morning was gleaming: the polished trumpet, the wet road after rain, the foil stars on the classroom window, and Dad's freshly washed car.",
   "cell": "example_clue",
   "choices": [
+   "very expensive",
    "shining brightly",
    "dull and dirty",
-   "out of tune",
-   "very expensive"
+   "out of tune"
   ],
   "answerOptions": [
+   {
+    "value": "very expensive",
+    "label": "very expensive",
+    "text": "very expensive"
+   },
    {
     "value": "shining brightly",
     "label": "shining brightly",
@@ -949,30 +1031,26 @@ export const questions = [
     "value": "out of tune",
     "label": "out of tune",
     "text": "out of tune"
-   },
-   {
-    "value": "very expensive",
-    "label": "very expensive",
-    "text": "very expensive"
    }
   ],
   "answer": "shining brightly",
   "correctAnswer": "shining brightly",
   "distractorRationales": {
-   "dull and dirty": "D-OPPOSITE",
    "out of tune": "D-PLAUSIBLE-UNSUPPORTED",
-   "very expensive": "D-PLAUSIBLE-UNSUPPORTED"
+   "very expensive": "D-PLAUSIBLE-UNSUPPORTED",
+   "dull and dirty": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "gleaming",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -983,7 +1061,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/brightly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/brightly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/brightly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/brightly-01.webp",
+  "resolvedImageAssetKey": "brightly",
+  "imageAlt": "Illustration for Everything about the morning was gleaming: the polished trumpet, the wet road after rain, the foil stars on the classroom window, and Dad's freshly washed car."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v5",
@@ -1045,16 +1129,17 @@ export const questions = [
    "green and leafy": "D-TOPIC-ADJACENT",
    "very hungry": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "timid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1065,7 +1150,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
+  "resolvedImageAssetKey": "leaves",
+  "imageAlt": "Illustration for Timid creatures live in the hedge: the mouse that bolts at a footstep, the wren that hides deep in the leaves, and the rabbit that thumps once and vanishes down its hole."
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v6",
@@ -1093,22 +1184,12 @@ export const questions = [
   "passage": "Swift things flashed past the window all journey: racing motorbikes, a hawk stooping after a sparrow, and express trains that were gone almost before you saw them.",
   "cell": "example_clue",
   "choices": [
-   "very fast",
-   "very slow",
    "very loud",
-   "far away"
+   "far away",
+   "very fast",
+   "very slow"
   ],
   "answerOptions": [
-   {
-    "value": "very fast",
-    "label": "very fast",
-    "text": "very fast"
-   },
-   {
-    "value": "very slow",
-    "label": "very slow",
-    "text": "very slow"
-   },
    {
     "value": "very loud",
     "label": "very loud",
@@ -1118,25 +1199,36 @@ export const questions = [
     "value": "far away",
     "label": "far away",
     "text": "far away"
+   },
+   {
+    "value": "very fast",
+    "label": "very fast",
+    "text": "very fast"
+   },
+   {
+    "value": "very slow",
+    "label": "very slow",
+    "text": "very slow"
    }
   ],
   "answer": "very fast",
   "correctAnswer": "very fast",
   "distractorRationales": {
-   "very slow": "D-OPPOSITE",
    "very loud": "D-PLAUSIBLE-UNSUPPORTED",
-   "far away": "D-TOPIC-ADJACENT"
+   "far away": "D-TOPIC-ADJACENT",
+   "very slow": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "swift",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1147,7 +1239,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
+  "resolvedImageAssetKey": "window",
+  "imageAlt": "Illustration for Swift things flashed past the window all journey: racing motorbikes, a hawk stooping after a sparrow, and express trains that were gone almost before you saw them."
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v7",
@@ -1175,22 +1273,12 @@ export const questions = [
   "passage": "Ancient things filled Great-Uncle Ho's shelf: a coin worn smooth by a thousand years of thumbs, a map of countries that no longer exist, and a cracked pot older than the town itself.",
   "cell": "example_clue",
   "choices": [
-   "very old",
-   "brand new",
    "very valuable",
-   "made of clay"
+   "made of clay",
+   "very old",
+   "brand new"
   ],
   "answerOptions": [
-   {
-    "value": "very old",
-    "label": "very old",
-    "text": "very old"
-   },
-   {
-    "value": "brand new",
-    "label": "brand new",
-    "text": "brand new"
-   },
    {
     "value": "very valuable",
     "label": "very valuable",
@@ -1200,25 +1288,36 @@ export const questions = [
     "value": "made of clay",
     "label": "made of clay",
     "text": "made of clay"
+   },
+   {
+    "value": "very old",
+    "label": "very old",
+    "text": "very old"
+   },
+   {
+    "value": "brand new",
+    "label": "brand new",
+    "text": "brand new"
    }
   ],
   "answer": "very old",
   "correctAnswer": "very old",
   "distractorRationales": {
+   "made of clay": "D-TOPIC-ADJACENT",
    "brand new": "D-OPPOSITE",
-   "very valuable": "D-PLAUSIBLE-UNSUPPORTED",
-   "made of clay": "D-TOPIC-ADJACENT"
+   "very valuable": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "ancient",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1229,7 +1328,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/old-ancient-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/old-ancient-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/old-ancient-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/old-ancient-01.webp",
+  "resolvedImageAssetKey": "ancient",
+  "imageAlt": "Illustration for Ancient things filled Great-Uncle Ho's shelf: a coin worn smooth by a thousand years of thumbs, a map of countries that no longer exist, and a cracked pot older than the town itself."
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v8",
@@ -1257,12 +1362,17 @@ export const questions = [
   "passage": "All the soggy things went by the radiator: Ken's socks after the puddle, the towel from swimming, and the newspaper that had spent the night on the wet step.",
   "cell": "example_clue",
   "choices": [
+   "torn to bits",
    "wet through",
    "dry and crisp",
-   "warm and cosy",
-   "torn to bits"
+   "warm and cosy"
   ],
   "answerOptions": [
+   {
+    "value": "torn to bits",
+    "label": "torn to bits",
+    "text": "torn to bits"
+   },
    {
     "value": "wet through",
     "label": "wet through",
@@ -1277,30 +1387,26 @@ export const questions = [
     "value": "warm and cosy",
     "label": "warm and cosy",
     "text": "warm and cosy"
-   },
-   {
-    "value": "torn to bits",
-    "label": "torn to bits",
-    "text": "torn to bits"
    }
   ],
   "answer": "wet through",
   "correctAnswer": "wet through",
   "distractorRationales": {
+   "torn to bits": "D-PLAUSIBLE-UNSUPPORTED",
    "dry and crisp": "D-OPPOSITE",
-   "warm and cosy": "D-TOPIC-ADJACENT",
-   "torn to bits": "D-PLAUSIBLE-UNSUPPORTED"
+   "warm and cosy": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "soggy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1311,7 +1417,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
+  "resolvedImageAssetKey": "newspaper",
+  "imageAlt": "Illustration for All the soggy things went by the radiator: Ken's socks after the puddle, the towel from swimming, and the newspaper that had spent the night on the wet step."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v1",
@@ -1339,17 +1451,12 @@ export const questions = [
   "passage": "The hungry puppy did not chew politely. He gobbled his whole dinner in four huge mouthfuls and then licked the empty bowl across the floor.",
   "cell": "action_clue",
   "choices": [
-   "ate very fast",
    "buried in the garden",
    "ate very slowly",
-   "sniffed carefully"
+   "sniffed carefully",
+   "ate very fast"
   ],
   "answerOptions": [
-   {
-    "value": "ate very fast",
-    "label": "ate very fast",
-    "text": "ate very fast"
-   },
    {
     "value": "buried in the garden",
     "label": "buried in the garden",
@@ -1364,6 +1471,11 @@ export const questions = [
     "value": "sniffed carefully",
     "label": "sniffed carefully",
     "text": "sniffed carefully"
+   },
+   {
+    "value": "ate very fast",
+    "label": "ate very fast",
+    "text": "ate very fast"
    }
   ],
   "answer": "ate very fast",
@@ -1373,16 +1485,17 @@ export const questions = [
    "ate very slowly": "D-OPPOSITE",
    "sniffed carefully": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "gobbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1393,7 +1506,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
+  "resolvedImageAssetKey": "puppy",
+  "imageAlt": "Illustration for The hungry puppy did not chew politely. He gobbled his whole dinner in four huge mouthfuls and then licked the empty bowl across the floor."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v2",
@@ -1421,22 +1540,12 @@ export const questions = [
   "passage": "The swans glided across the lake. Their bodies slid along smooth as paper boats, without one splash, while their feet paddled secretly below.",
   "cell": "action_clue",
   "choices": [
-   "moved smoothly along",
-   "splashed noisily",
    "sank slowly",
-   "flew high up"
+   "flew high up",
+   "moved smoothly along",
+   "splashed noisily"
   ],
   "answerOptions": [
-   {
-    "value": "moved smoothly along",
-    "label": "moved smoothly along",
-    "text": "moved smoothly along"
-   },
-   {
-    "value": "splashed noisily",
-    "label": "splashed noisily",
-    "text": "splashed noisily"
-   },
    {
     "value": "sank slowly",
     "label": "sank slowly",
@@ -1446,25 +1555,36 @@ export const questions = [
     "value": "flew high up",
     "label": "flew high up",
     "text": "flew high up"
+   },
+   {
+    "value": "moved smoothly along",
+    "label": "moved smoothly along",
+    "text": "moved smoothly along"
+   },
+   {
+    "value": "splashed noisily",
+    "label": "splashed noisily",
+    "text": "splashed noisily"
    }
   ],
   "answer": "moved smoothly along",
   "correctAnswer": "moved smoothly along",
   "distractorRationales": {
+   "flew high up": "D-TOPIC-ADJACENT",
    "splashed noisily": "D-OPPOSITE",
-   "sank slowly": "D-PLAUSIBLE-UNSUPPORTED",
-   "flew high up": "D-TOPIC-ADJACENT"
+   "sank slowly": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "glided",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1475,7 +1595,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/splash.webp",
+  "imageUrl": "/images/assessment/blends/splash.webp",
+  "targetImage": "/images/assessment/blends/splash.webp",
+  "targetImagePath": "/images/assessment/blends/splash.webp",
+  "resolvedImageAssetKey": "splash",
+  "imageAlt": "Illustration for The swans glided across the lake. Their bodies slid along smooth as paper boats, without one splash, while their feet paddled secretly below."
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v3",
@@ -1503,17 +1629,12 @@ export const questions = [
   "passage": "The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point.",
   "cell": "action_clue",
   "choices": [
-   "ran with quick little steps",
    "slept in the sun",
    "crawled very slowly",
-   "dug a deep hole"
+   "dug a deep hole",
+   "ran with quick little steps"
   ],
   "answerOptions": [
-   {
-    "value": "ran with quick little steps",
-    "label": "ran with quick little steps",
-    "text": "ran with quick little steps"
-   },
    {
     "value": "slept in the sun",
     "label": "slept in the sun",
@@ -1528,6 +1649,11 @@ export const questions = [
     "value": "dug a deep hole",
     "label": "dug a deep hole",
     "text": "dug a deep hole"
+   },
+   {
+    "value": "ran with quick little steps",
+    "label": "ran with quick little steps",
+    "text": "ran with quick little steps"
    }
   ],
   "answer": "ran with quick little steps",
@@ -1537,16 +1663,17 @@ export const questions = [
    "crawled very slowly": "D-OPPOSITE",
    "dug a deep hole": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "scampered",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1557,7 +1684,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v4",
@@ -1615,20 +1748,21 @@ export const questions = [
   "answer": "begged with all his heart",
   "correctAnswer": "begged with all his heart",
   "distractorRationales": {
-   "shouted angrily": "D-PLAUSIBLE-UNSUPPORTED",
    "whispered a secret": "D-PLAUSIBLE-UNSUPPORTED",
-   "gave up quietly": "D-OPPOSITE"
+   "gave up quietly": "D-OPPOSITE",
+   "shouted angrily": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "pleaded",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1639,7 +1773,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for 'Please, please, PLEASE can we keep him?' Sol pleaded, hands pressed together, following Mum from room to room with enormous hopeful eyes."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v5",
@@ -1667,17 +1807,12 @@ export const questions = [
   "passage": "Thunder boomed, and Pepper the cat trembled under the bed — her whole small body shaking like a leaf in the wind until the storm rolled away.",
   "cell": "action_clue",
   "choices": [
-   "shook with fear",
    "purred happily",
    "stretched out flat",
-   "fell fast asleep"
+   "fell fast asleep",
+   "shook with fear"
   ],
   "answerOptions": [
-   {
-    "value": "shook with fear",
-    "label": "shook with fear",
-    "text": "shook with fear"
-   },
    {
     "value": "purred happily",
     "label": "purred happily",
@@ -1692,25 +1827,31 @@ export const questions = [
     "value": "fell fast asleep",
     "label": "fell fast asleep",
     "text": "fell fast asleep"
+   },
+   {
+    "value": "shook with fear",
+    "label": "shook with fear",
+    "text": "shook with fear"
    }
   ],
   "answer": "shook with fear",
   "correctAnswer": "shook with fear",
   "distractorRationales": {
-   "purred happily": "D-OPPOSITE",
    "stretched out flat": "D-PLAUSIBLE-UNSUPPORTED",
-   "fell fast asleep": "D-OPPOSITE"
+   "fell fast asleep": "D-OPPOSITE",
+   "purred happily": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "trembled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1721,7 +1862,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/thunder.webp",
+  "imageUrl": "/images/assessment/digraphs/thunder.webp",
+  "targetImage": "/images/assessment/digraphs/thunder.webp",
+  "targetImagePath": "/images/assessment/digraphs/thunder.webp",
+  "resolvedImageAssetKey": "thunder",
+  "imageAlt": "Illustration for Thunder boomed, and Pepper the cat trembled under the bed — her whole small body shaking like a leaf in the wind until the storm rolled away."
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v6",
@@ -1779,20 +1926,21 @@ export const questions = [
   "answer": "complained in a low voice",
   "correctAnswer": "complained in a low voice",
   "distractorRationales": {
-   "sang a cheerful song": "D-OPPOSITE",
    "climbed very fast": "D-PLAUSIBLE-UNSUPPORTED",
-   "waved at neighbours": "D-PLAUSIBLE-UNSUPPORTED"
+   "waved at neighbours": "D-PLAUSIBLE-UNSUPPORTED",
+   "sang a cheerful song": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "grumbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1803,7 +1951,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
+  "resolvedImageAssetKey": "weather",
+  "imageAlt": "Illustration for Grandpa grumbled all the way up the hill — a low, cross mutter about his knees, the weather, and whoever had invented hills in the first place."
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v7",
@@ -1831,12 +1985,17 @@ export const questions = [
   "passage": "One by one the soap bubbles drifted over the wall — floating wherever the breeze carried them, in no hurry to be anywhere at all.",
   "cell": "action_clue",
   "choices": [
+   "turned to rain",
    "floated slowly along",
    "popped at once",
-   "shot up like rockets",
-   "turned to rain"
+   "shot up like rockets"
   ],
   "answerOptions": [
+   {
+    "value": "turned to rain",
+    "label": "turned to rain",
+    "text": "turned to rain"
+   },
    {
     "value": "floated slowly along",
     "label": "floated slowly along",
@@ -1851,30 +2010,26 @@ export const questions = [
     "value": "shot up like rockets",
     "label": "shot up like rockets",
     "text": "shot up like rockets"
-   },
-   {
-    "value": "turned to rain",
-    "label": "turned to rain",
-    "text": "turned to rain"
    }
   ],
   "answer": "floated slowly along",
   "correctAnswer": "floated slowly along",
   "distractorRationales": {
+   "turned to rain": "D-PLAUSIBLE-UNSUPPORTED",
    "popped at once": "D-PLAUSIBLE-UNSUPPORTED",
-   "shot up like rockets": "D-OPPOSITE",
-   "turned to rain": "D-PLAUSIBLE-UNSUPPORTED"
+   "shot up like rockets": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "drifted",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1885,7 +2040,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
+  "resolvedImageAssetKey": "slowly",
+  "imageAlt": "Illustration for One by one the soap bubbles drifted over the wall — floating wherever the breeze carried them, in no hurry to be anywhere at all."
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v8",
@@ -1947,16 +2108,17 @@ export const questions = [
    "cried loudly": "D-PLAUSIBLE-UNSUPPORTED",
    "reached and grabbed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "gazed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1967,7 +2129,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+  "resolvedImageAssetKey": "silver",
+  "imageAlt": "Illustration for Baby Yara gazed at the mobile above her cot — eyes wide, mouth open, watching the slow silver fish go round and round for a whole quiet hour."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v1",
@@ -2025,20 +2193,21 @@ export const questions = [
   "answer": "blindingly bright",
   "correctAnswer": "blindingly bright",
   "distractorRationales": {
+   "over too quickly": "D-TOPIC-ADJACENT",
    "disappointingly small": "D-OPPOSITE",
-   "dangerously loud": "D-PLAUSIBLE-UNSUPPORTED",
-   "over too quickly": "D-TOPIC-ADJACENT"
+   "dangerously loud": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "dazzling",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2049,7 +2218,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/show-display-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/show-display-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/show-display-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/show-display-01.webp",
+  "resolvedImageAssetKey": "display",
+  "imageAlt": "Illustration for The fireworks were dazzling. The display was so bright that people shielded their eyes, and so brilliant that even the streetlights seemed dim afterwards."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v2",
@@ -2077,12 +2252,17 @@ export const questions = [
   "passage": "After the mountain walk, the hikers were weary. Exhausted, worn out, done in — they dropped their packs at the hut door and nobody spoke for ten minutes.",
   "cell": "synonym_clue",
   "choices": [
+   "lost on the path",
    "completely tired out",
    "full of energy",
-   "very thirsty",
-   "lost on the path"
+   "very thirsty"
   ],
   "answerOptions": [
+   {
+    "value": "lost on the path",
+    "label": "lost on the path",
+    "text": "lost on the path"
+   },
    {
     "value": "completely tired out",
     "label": "completely tired out",
@@ -2097,30 +2277,26 @@ export const questions = [
     "value": "very thirsty",
     "label": "very thirsty",
     "text": "very thirsty"
-   },
-   {
-    "value": "lost on the path",
-    "label": "lost on the path",
-    "text": "lost on the path"
    }
   ],
   "answer": "completely tired out",
   "correctAnswer": "completely tired out",
   "distractorRationales": {
+   "lost on the path": "D-PLAUSIBLE-UNSUPPORTED",
    "full of energy": "D-OPPOSITE",
-   "very thirsty": "D-PLAUSIBLE-UNSUPPORTED",
-   "lost on the path": "D-PLAUSIBLE-UNSUPPORTED"
+   "very thirsty": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "weary",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2131,7 +2307,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
+  "resolvedImageAssetKey": "mountain",
+  "imageAlt": "Illustration for After the mountain walk, the hikers were weary. Exhausted, worn out, done in — they dropped their packs at the hut door and nobody spoke for ten minutes."
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v3",
@@ -2159,22 +2341,12 @@ export const questions = [
   "passage": "A strange commotion filled the yard — such an uproar, such a racket of clanging and squawking, that three teachers hurried out to see what the fuss could be.",
   "cell": "synonym_clue",
   "choices": [
-   "a noisy disturbance",
-   "a peaceful hush",
    "a kind of bird",
-   "a school lesson"
+   "a school lesson",
+   "a noisy disturbance",
+   "a peaceful hush"
   ],
   "answerOptions": [
-   {
-    "value": "a noisy disturbance",
-    "label": "a noisy disturbance",
-    "text": "a noisy disturbance"
-   },
-   {
-    "value": "a peaceful hush",
-    "label": "a peaceful hush",
-    "text": "a peaceful hush"
-   },
    {
     "value": "a kind of bird",
     "label": "a kind of bird",
@@ -2184,25 +2356,36 @@ export const questions = [
     "value": "a school lesson",
     "label": "a school lesson",
     "text": "a school lesson"
+   },
+   {
+    "value": "a noisy disturbance",
+    "label": "a noisy disturbance",
+    "text": "a noisy disturbance"
+   },
+   {
+    "value": "a peaceful hush",
+    "label": "a peaceful hush",
+    "text": "a peaceful hush"
    }
   ],
   "answer": "a noisy disturbance",
   "correctAnswer": "a noisy disturbance",
   "distractorRationales": {
+   "a school lesson": "D-TOPIC-ADJACENT",
    "a peaceful hush": "D-OPPOSITE",
-   "a kind of bird": "D-PLAUSIBLE-UNSUPPORTED",
-   "a school lesson": "D-TOPIC-ADJACENT"
+   "a kind of bird": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "commotion",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2213,7 +2396,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
+  "resolvedImageAssetKey": "filled",
+  "imageAlt": "Illustration for A strange commotion filled the yard — such an uproar, such a racket of clanging and squawking, that three teachers hurried out to see what the fuss could be."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v4",
@@ -2241,12 +2430,17 @@ export const questions = [
   "passage": "Caught in the downpour without a coat, Priya arrived drenched — soaked to the skin, wet through, dripping a little lake onto the doormat.",
   "cell": "synonym_clue",
   "choices": [
+   "out of breath",
    "completely soaked",
    "perfectly dry",
-   "very late",
-   "out of breath"
+   "very late"
   ],
   "answerOptions": [
+   {
+    "value": "out of breath",
+    "label": "out of breath",
+    "text": "out of breath"
+   },
    {
     "value": "completely soaked",
     "label": "completely soaked",
@@ -2261,11 +2455,6 @@ export const questions = [
     "value": "very late",
     "label": "very late",
     "text": "very late"
-   },
-   {
-    "value": "out of breath",
-    "label": "out of breath",
-    "text": "out of breath"
    }
   ],
   "answer": "completely soaked",
@@ -2275,16 +2464,17 @@ export const questions = [
    "very late": "D-PLAUSIBLE-UNSUPPORTED",
    "out of breath": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "drenched",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2295,7 +2485,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/drenched.webp",
+  "imageUrl": "/images/assessment/generated/concepts/drenched.webp",
+  "targetImage": "/images/assessment/generated/concepts/drenched.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/drenched.webp",
+  "resolvedImageAssetKey": "drenched",
+  "imageAlt": "Illustration for Caught in the downpour without a coat, Priya arrived drenched — soaked to the skin, wet through, dripping a little lake onto the doormat."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v5",
@@ -2323,22 +2519,12 @@ export const questions = [
   "passage": "The mouse nibbled the cheese — tiny bite after tiny bite, nothing like the dog, who would have swallowed it whole in one gulp.",
   "cell": "synonym_clue",
   "choices": [
-   "ate with small bites",
-   "swallowed in one go",
    "pushed away",
-   "sniffed and left"
+   "sniffed and left",
+   "ate with small bites",
+   "swallowed in one go"
   ],
   "answerOptions": [
-   {
-    "value": "ate with small bites",
-    "label": "ate with small bites",
-    "text": "ate with small bites"
-   },
-   {
-    "value": "swallowed in one go",
-    "label": "swallowed in one go",
-    "text": "swallowed in one go"
-   },
    {
     "value": "pushed away",
     "label": "pushed away",
@@ -2348,25 +2534,36 @@ export const questions = [
     "value": "sniffed and left",
     "label": "sniffed and left",
     "text": "sniffed and left"
+   },
+   {
+    "value": "ate with small bites",
+    "label": "ate with small bites",
+    "text": "ate with small bites"
+   },
+   {
+    "value": "swallowed in one go",
+    "label": "swallowed in one go",
+    "text": "swallowed in one go"
    }
   ],
   "answer": "ate with small bites",
   "correctAnswer": "ate with small bites",
   "distractorRationales": {
-   "swallowed in one go": "D-OPPOSITE",
    "pushed away": "D-PLAUSIBLE-UNSUPPORTED",
-   "sniffed and left": "D-PLAUSIBLE-UNSUPPORTED"
+   "sniffed and left": "D-PLAUSIBLE-UNSUPPORTED",
+   "swallowed in one go": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "nibbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2377,7 +2574,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/cheese.webp",
+  "imageUrl": "/images/assessment/digraphs/cheese.webp",
+  "targetImage": "/images/assessment/digraphs/cheese.webp",
+  "targetImagePath": "/images/assessment/digraphs/cheese.webp",
+  "resolvedImageAssetKey": "cheese",
+  "imageAlt": "Illustration for The mouse nibbled the cheese — tiny bite after tiny bite, nothing like the dog, who would have swallowed it whole in one gulp."
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v6",
@@ -2405,17 +2608,12 @@ export const questions = [
   "passage": "The baker kept his kitchen spotless. Not a crumb on the counters, not a smudge on the steel — so perfectly clean that the health inspector once asked for his secret.",
   "cell": "synonym_clue",
   "choices": [
-   "perfectly clean",
    "covered in flour",
    "very small",
-   "closed on Sundays"
+   "closed on Sundays",
+   "perfectly clean"
   ],
   "answerOptions": [
-   {
-    "value": "perfectly clean",
-    "label": "perfectly clean",
-    "text": "perfectly clean"
-   },
    {
     "value": "covered in flour",
     "label": "covered in flour",
@@ -2430,6 +2628,11 @@ export const questions = [
     "value": "closed on Sundays",
     "label": "closed on Sundays",
     "text": "closed on Sundays"
+   },
+   {
+    "value": "perfectly clean",
+    "label": "perfectly clean",
+    "text": "perfectly clean"
    }
   ],
   "answer": "perfectly clean",
@@ -2439,16 +2642,17 @@ export const questions = [
    "very small": "D-PLAUSIBLE-UNSUPPORTED",
    "closed on Sundays": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "spotless",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2459,7 +2663,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/spotless-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/spotless-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/spotless-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/spotless-01.webp",
+  "resolvedImageAssetKey": "spotless",
+  "imageAlt": "Illustration for The baker kept his kitchen spotless. Not a crumb on the counters, not a smudge on the steel — so perfectly clean that the health inspector once asked for his secret."
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v7",
@@ -2487,22 +2697,12 @@ export const questions = [
   "passage": "The kestrel soared over the cliff — rising higher and higher on the warm air, climbing without a single wing-beat until it was only a speck.",
   "cell": "synonym_clue",
   "choices": [
-   "flew high upward",
-   "dived to the ground",
    "built a nest",
-   "called loudly"
+   "called loudly",
+   "flew high upward",
+   "dived to the ground"
   ],
   "answerOptions": [
-   {
-    "value": "flew high upward",
-    "label": "flew high upward",
-    "text": "flew high upward"
-   },
-   {
-    "value": "dived to the ground",
-    "label": "dived to the ground",
-    "text": "dived to the ground"
-   },
    {
     "value": "built a nest",
     "label": "built a nest",
@@ -2512,6 +2712,16 @@ export const questions = [
     "value": "called loudly",
     "label": "called loudly",
     "text": "called loudly"
+   },
+   {
+    "value": "flew high upward",
+    "label": "flew high upward",
+    "text": "flew high upward"
+   },
+   {
+    "value": "dived to the ground",
+    "label": "dived to the ground",
+    "text": "dived to the ground"
    }
   ],
   "answer": "flew high upward",
@@ -2521,16 +2731,17 @@ export const questions = [
    "built a nest": "D-TOPIC-ADJACENT",
    "called loudly": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "soared",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2541,7 +2752,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/cliff-cliffs-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/cliff-cliffs-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/cliff-cliffs-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/cliff-cliffs-01.webp",
+  "resolvedImageAssetKey": "cliff",
+  "imageAlt": "Illustration for The kestrel soared over the cliff — rising higher and higher on the warm air, climbing without a single wing-beat until it was only a speck."
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v8",
@@ -2569,17 +2786,12 @@ export const questions = [
   "passage": "The soup was bitter — sharp and sour on the tongue, nothing like the sweet tomato soup from the tin — and Jonah's whole face folded up at the first spoonful.",
   "cell": "synonym_clue",
   "choices": [
-   "sharp and unpleasant to taste",
    "sweet as honey",
    "too hot to eat",
-   "thick and lumpy"
+   "thick and lumpy",
+   "sharp and unpleasant to taste"
   ],
   "answerOptions": [
-   {
-    "value": "sharp and unpleasant to taste",
-    "label": "sharp and unpleasant to taste",
-    "text": "sharp and unpleasant to taste"
-   },
    {
     "value": "sweet as honey",
     "label": "sweet as honey",
@@ -2594,6 +2806,11 @@ export const questions = [
     "value": "thick and lumpy",
     "label": "thick and lumpy",
     "text": "thick and lumpy"
+   },
+   {
+    "value": "sharp and unpleasant to taste",
+    "label": "sharp and unpleasant to taste",
+    "text": "sharp and unpleasant to taste"
    }
   ],
   "answer": "sharp and unpleasant to taste",
@@ -2603,16 +2820,17 @@ export const questions = [
    "too hot to eat": "D-PLAUSIBLE-UNSUPPORTED",
    "thick and lumpy": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "bitter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2623,7 +2841,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
+  "resolvedImageAssetKey": "tomato",
+  "imageAlt": "Illustration for The soup was bitter — sharp and sour on the tongue, nothing like the sweet tomato soup from the tin — and Jonah's whole face folded up at the first spoonful."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
@@ -2651,17 +2875,12 @@ export const questions = [
   "passage": "Unlike her sister, who charged into every new place shouting hello, Faye was bashful, hanging back by the door until someone gently waved her in.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "shy around new people",
    "loud and confident",
    "angry at her sister",
-   "tired of visiting"
+   "tired of visiting",
+   "shy around new people"
   ],
   "answerOptions": [
-   {
-    "value": "shy around new people",
-    "label": "shy around new people",
-    "text": "shy around new people"
-   },
    {
     "value": "loud and confident",
     "label": "loud and confident",
@@ -2676,6 +2895,11 @@ export const questions = [
     "value": "tired of visiting",
     "label": "tired of visiting",
     "text": "tired of visiting"
+   },
+   {
+    "value": "shy around new people",
+    "label": "shy around new people",
+    "text": "shy around new people"
    }
   ],
   "answer": "shy around new people",
@@ -2685,16 +2909,17 @@ export const questions = [
    "angry at her sister": "D-PLAUSIBLE-UNSUPPORTED",
    "tired of visiting": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "bashful",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2705,7 +2930,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for Unlike her sister, who charged into every new place shouting hello, Faye was bashful, hanging back by the door until someone gently waved her in."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
@@ -2763,20 +2994,21 @@ export const questions = [
   "answer": "shaky and likely to break",
   "correctAnswer": "shaky and likely to break",
   "distractorRationales": {
+   "too high to cross": "D-TOPIC-ADJACENT",
    "solid and safe": "D-OPPOSITE",
-   "newly painted": "D-PLAUSIBLE-UNSUPPORTED",
-   "too high to cross": "D-TOPIC-ADJACENT"
+   "newly painted": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "rickety",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2787,7 +3019,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/objects/storm.png",
+  "imageUrl": "/images/objects/storm.png",
+  "targetImage": "/images/objects/storm.png",
+  "targetImagePath": "/images/objects/storm.png",
+  "resolvedImageAssetKey": "storm",
+  "imageAlt": "Illustration for The new bridge stood firm in any storm, but the old rope bridge was rickety — it wobbled and creaked at every single step, and two planks were missing."
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
@@ -2849,16 +3087,17 @@ export const questions = [
    "dark green": "D-PLAUSIBLE-UNSUPPORTED",
    "freshly swept": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "bare",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2869,7 +3108,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/bare-bear-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/bare-bear-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/bare-bear-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/bare-bear-01.webp",
+  "resolvedImageAssetKey": "bare",
+  "imageAlt": "Illustration for While the town square buzzed all evening, the side streets were bare — no stalls, no lanterns, not a single person — as if the party had gathered every soul into one place."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
@@ -2927,20 +3172,21 @@ export const questions = [
   "answer": "uncomfortably cold",
   "correctAnswer": "uncomfortably cold",
   "distractorRationales": {
-   "cosily warm": "D-OPPOSITE",
    "strangely quiet": "D-PLAUSIBLE-UNSUPPORTED",
-   "very tidy": "D-PLAUSIBLE-UNSUPPORTED"
+   "very tidy": "D-PLAUSIBLE-UNSUPPORTED",
+   "cosily warm": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "nippy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -2951,7 +3197,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
+  "resolvedImageAssetKey": "teacher",
+  "imageAlt": "Illustration for Everyone expected the head teacher's office to be warm, but it was nippy in there — so much so that she kept a blanket on her chair while the corridor outside stayed toasty."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
@@ -2979,12 +3231,17 @@ export const questions = [
   "passage": "Dad walks at a stroll on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level.",
   "cell": "antonym_contrast_clue",
   "choices": [
+   "lost and confused",
    "fast and energetic",
    "slow and lazy",
-   "quiet and careful",
-   "lost and confused"
+   "quiet and careful"
   ],
   "answerOptions": [
+   {
+    "value": "lost and confused",
+    "label": "lost and confused",
+    "text": "lost and confused"
+   },
    {
     "value": "fast and energetic",
     "label": "fast and energetic",
@@ -2999,30 +3256,26 @@ export const questions = [
     "value": "quiet and careful",
     "label": "quiet and careful",
     "text": "quiet and careful"
-   },
-   {
-    "value": "lost and confused",
-    "label": "lost and confused",
-    "text": "lost and confused"
    }
   ],
   "answer": "fast and energetic",
   "correctAnswer": "fast and energetic",
   "distractorRationales": {
-   "slow and lazy": "D-OPPOSITE",
    "quiet and careful": "D-PLAUSIBLE-UNSUPPORTED",
-   "lost and confused": "D-PLAUSIBLE-UNSUPPORTED"
+   "lost and confused": "D-PLAUSIBLE-UNSUPPORTED",
+   "slow and lazy": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "brisk",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3033,7 +3286,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
+  "resolvedImageAssetKey": "stroll",
+  "imageAlt": "Illustration for Dad walks at a stroll on Sundays, but on school mornings his pace is brisk — quick enough that Ida has to trot every few steps just to stay level."
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
@@ -3061,12 +3320,17 @@ export const questions = [
   "passage": "The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter, so that only her own collar caught the words.",
   "cell": "antonym_contrast_clue",
   "choices": [
+   "stay silent",
    "speak low and unclearly",
    "shout to the whole hall",
-   "sing in tune",
-   "stay silent"
+   "sing in tune"
   ],
   "answerOptions": [
+   {
+    "value": "stay silent",
+    "label": "stay silent",
+    "text": "stay silent"
+   },
    {
     "value": "speak low and unclearly",
     "label": "speak low and unclearly",
@@ -3081,30 +3345,26 @@ export const questions = [
     "value": "sing in tune",
     "label": "sing in tune",
     "text": "sing in tune"
-   },
-   {
-    "value": "stay silent",
-    "label": "stay silent",
-    "text": "stay silent"
    }
   ],
   "answer": "speak low and unclearly",
   "correctAnswer": "speak low and unclearly",
   "distractorRationales": {
-   "shout to the whole hall": "D-OPPOSITE",
    "sing in tune": "D-PLAUSIBLE-UNSUPPORTED",
-   "stay silent": "D-TOPIC-ADJACENT"
+   "stay silent": "D-TOPIC-ADJACENT",
+   "shout to the whole hall": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "mutter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3115,7 +3375,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/could.webp",
+  "imageUrl": "/images/assessment/hfw/could.webp",
+  "targetImage": "/images/assessment/hfw/could.webp",
+  "targetImagePath": "/images/assessment/hfw/could.webp",
+  "resolvedImageAssetKey": "could",
+  "imageAlt": "Illustration for The twins could not have sounded more different: Ade spoke up clearly for the whole hall to hear, while Bola preferred to mutter, so that only her own collar caught the words."
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
@@ -3143,12 +3409,17 @@ export const questions = [
   "passage": "By day the harbour was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea.",
   "cell": "antonym_contrast_clue",
   "choices": [
+   "closed for winter",
    "full of activity",
    "silent and still",
-   "deep under water",
-   "closed for winter"
+   "deep under water"
   ],
   "answerOptions": [
+   {
+    "value": "closed for winter",
+    "label": "closed for winter",
+    "text": "closed for winter"
+   },
    {
     "value": "full of activity",
     "label": "full of activity",
@@ -3163,30 +3434,26 @@ export const questions = [
     "value": "deep under water",
     "label": "deep under water",
     "text": "deep under water"
-   },
-   {
-    "value": "closed for winter",
-    "label": "closed for winter",
-    "text": "closed for winter"
    }
   ],
   "answer": "full of activity",
   "correctAnswer": "full of activity",
   "distractorRationales": {
+   "closed for winter": "D-PLAUSIBLE-UNSUPPORTED",
    "silent and still": "D-OPPOSITE",
-   "deep under water": "D-PLAUSIBLE-UNSUPPORTED",
-   "closed for winter": "D-PLAUSIBLE-UNSUPPORTED"
+   "deep under water": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "lively",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3197,7 +3464,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
+  "resolvedImageAssetKey": "engine",
+  "imageAlt": "Illustration for By day the harbour was lively, but at midnight it fell still: not one engine, not one voice, only rope against mast and the slow breathing of the sea."
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
@@ -3225,22 +3498,12 @@ export const questions = [
   "passage": "Instead of the sharp midday light, the lamp gave only a dim glow — so faint that Noor had to hold her book almost against the bulb to read at all.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "giving very little light",
-   "blindingly bright",
    "warm to touch",
-   "newly bought"
+   "newly bought",
+   "giving very little light",
+   "blindingly bright"
   ],
   "answerOptions": [
-   {
-    "value": "giving very little light",
-    "label": "giving very little light",
-    "text": "giving very little light"
-   },
-   {
-    "value": "blindingly bright",
-    "label": "blindingly bright",
-    "text": "blindingly bright"
-   },
    {
     "value": "warm to touch",
     "label": "warm to touch",
@@ -3250,6 +3513,16 @@ export const questions = [
     "value": "newly bought",
     "label": "newly bought",
     "text": "newly bought"
+   },
+   {
+    "value": "giving very little light",
+    "label": "giving very little light",
+    "text": "giving very little light"
+   },
+   {
+    "value": "blindingly bright",
+    "label": "blindingly bright",
+    "text": "blindingly bright"
    }
   ],
   "answer": "giving very little light",
@@ -3259,16 +3532,17 @@ export const questions = [
    "warm to touch": "D-PLAUSIBLE-UNSUPPORTED",
    "newly bought": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "dim",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3279,7 +3553,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/little.webp",
+  "imageUrl": "/images/assessment/hfw/little.webp",
+  "targetImage": "/images/assessment/hfw/little.webp",
+  "targetImagePath": "/images/assessment/hfw/little.webp",
+  "resolvedImageAssetKey": "little",
+  "imageAlt": "Illustration for Instead of the sharp midday light, the lamp gave only a dim glow — so faint that Noor had to hold her book almost against the bulb to read at all."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v1",
@@ -3307,22 +3587,12 @@ export const questions = [
   "passage": "When the magician clapped, the coin seemed to vanish. One moment it flashed between his fingers; the next his hands were empty, and the children searched the stage floor for a coin that simply was not there.",
   "cell": "inference_clue",
   "choices": [
-   "disappear completely",
-   "grow much bigger",
    "shine more brightly",
-   "stay in plain sight"
+   "stay in plain sight",
+   "disappear completely",
+   "grow much bigger"
   ],
   "answerOptions": [
-   {
-    "value": "disappear completely",
-    "label": "disappear completely",
-    "text": "disappear completely"
-   },
-   {
-    "value": "grow much bigger",
-    "label": "grow much bigger",
-    "text": "grow much bigger"
-   },
    {
     "value": "shine more brightly",
     "label": "shine more brightly",
@@ -3332,6 +3602,16 @@ export const questions = [
     "value": "stay in plain sight",
     "label": "stay in plain sight",
     "text": "stay in plain sight"
+   },
+   {
+    "value": "disappear completely",
+    "label": "disappear completely",
+    "text": "disappear completely"
+   },
+   {
+    "value": "grow much bigger",
+    "label": "grow much bigger",
+    "text": "grow much bigger"
    }
   ],
   "answer": "disappear completely",
@@ -3341,16 +3621,17 @@ export const questions = [
    "shine more brightly": "D-TOPIC-ADJACENT",
    "stay in plain sight": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "vanish",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v1",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3361,7 +3642,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
+  "resolvedImageAssetKey": "disappear",
+  "imageAlt": "Illustration for When the magician clapped, the coin seemed to vanish. One moment it flashed between his fingers; the next his hands were empty, and the children searched the stage floor for a coin that simply was not there."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v2",
@@ -3389,17 +3676,12 @@ export const questions = [
   "passage": "The bear's winter slumber lasted for months. Snow piled over the den mouth, storms came and went, and still nothing inside stirred until the first warm week of spring.",
   "cell": "inference_clue",
   "choices": [
-   "a long deep sleep",
    "a hunting trip",
    "a loud growl",
-   "a morning walk"
+   "a morning walk",
+   "a long deep sleep"
   ],
   "answerOptions": [
-   {
-    "value": "a long deep sleep",
-    "label": "a long deep sleep",
-    "text": "a long deep sleep"
-   },
    {
     "value": "a hunting trip",
     "label": "a hunting trip",
@@ -3414,6 +3696,11 @@ export const questions = [
     "value": "a morning walk",
     "label": "a morning walk",
     "text": "a morning walk"
+   },
+   {
+    "value": "a long deep sleep",
+    "label": "a long deep sleep",
+    "text": "a long deep sleep"
    }
   ],
   "answer": "a long deep sleep",
@@ -3423,16 +3710,17 @@ export const questions = [
    "a loud growl": "D-PLAUSIBLE-UNSUPPORTED",
    "a morning walk": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "slumber",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v2",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3443,7 +3731,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/vocabulary/winter.png",
+  "imageUrl": "/images/vocabulary/winter.png",
+  "targetImage": "/images/vocabulary/winter.png",
+  "targetImagePath": "/images/vocabulary/winter.png",
+  "resolvedImageAssetKey": "winter",
+  "imageAlt": "Illustration for The bear's winter slumber lasted for months. Snow piled over the den mouth, storms came and went, and still nothing inside stirred until the first warm week of spring."
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v3",
@@ -3471,22 +3765,12 @@ export const questions = [
   "passage": "One whiff of the scent drifting from the kitchen told Omar everything: cinnamon, warm sugar, a promise of apples. His homework could wait.",
   "cell": "inference_clue",
   "choices": [
-   "a smell in the air",
-   "a loud timer",
    "a kind of pie",
-   "a cold draught"
+   "a cold draught",
+   "a smell in the air",
+   "a loud timer"
   ],
   "answerOptions": [
-   {
-    "value": "a smell in the air",
-    "label": "a smell in the air",
-    "text": "a smell in the air"
-   },
-   {
-    "value": "a loud timer",
-    "label": "a loud timer",
-    "text": "a loud timer"
-   },
    {
     "value": "a kind of pie",
     "label": "a kind of pie",
@@ -3496,6 +3780,16 @@ export const questions = [
     "value": "a cold draught",
     "label": "a cold draught",
     "text": "a cold draught"
+   },
+   {
+    "value": "a smell in the air",
+    "label": "a smell in the air",
+    "text": "a smell in the air"
+   },
+   {
+    "value": "a loud timer",
+    "label": "a loud timer",
+    "text": "a loud timer"
    }
   ],
   "answer": "a smell in the air",
@@ -3505,16 +3799,17 @@ export const questions = [
    "a kind of pie": "D-TOPIC-ADJACENT",
    "a cold draught": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "scent",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v3",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3525,7 +3820,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/cent-sent-scent-01.webp",
+  "resolvedImageAssetKey": "scent",
+  "imageAlt": "Illustration for One whiff of the scent drifting from the kitchen told Omar everything: cinnamon, warm sugar, a promise of apples. His homework could wait."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v4",
@@ -3553,17 +3854,12 @@ export const questions = [
   "passage": "The path was steep and the day was hot, but the view from the top repaid every step: the whole valley lay below them like a green map, and nobody regretted the climb.",
   "cell": "inference_clue",
   "choices": [
-   "made the effort worth it",
    "cost extra money",
    "ruined completely",
-   "measured exactly"
+   "measured exactly",
+   "made the effort worth it"
   ],
   "answerOptions": [
-   {
-    "value": "made the effort worth it",
-    "label": "made the effort worth it",
-    "text": "made the effort worth it"
-   },
    {
     "value": "cost extra money",
     "label": "cost extra money",
@@ -3578,25 +3874,31 @@ export const questions = [
     "value": "measured exactly",
     "label": "measured exactly",
     "text": "measured exactly"
+   },
+   {
+    "value": "made the effort worth it",
+    "label": "made the effort worth it",
+    "text": "made the effort worth it"
    }
   ],
   "answer": "made the effort worth it",
   "correctAnswer": "made the effort worth it",
   "distractorRationales": {
-   "cost extra money": "D-PLAUSIBLE-UNSUPPORTED",
    "ruined completely": "D-OPPOSITE",
-   "measured exactly": "D-PLAUSIBLE-UNSUPPORTED"
+   "measured exactly": "D-PLAUSIBLE-UNSUPPORTED",
+   "cost extra money": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "repaid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v4",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3607,7 +3909,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/every.webp",
+  "imageUrl": "/images/assessment/hfw/every.webp",
+  "targetImage": "/images/assessment/hfw/every.webp",
+  "targetImagePath": "/images/assessment/hfw/every.webp",
+  "resolvedImageAssetKey": "every",
+  "imageAlt": "Illustration for The path was steep and the day was hot, but the view from the top repaid every step: the whole valley lay below them like a green map, and nobody regretted the climb."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v5",
@@ -3669,16 +3977,17 @@ export const questions = [
    "walked away": "D-OPPOSITE",
    "listened carefully": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "peered",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v5",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3689,7 +3998,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/initial-sounds/under.png",
+  "imageUrl": "/images/child-mode/initial-sounds/under.png",
+  "targetImage": "/images/child-mode/initial-sounds/under.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
+  "resolvedImageAssetKey": "under",
+  "imageAlt": "Illustration for Dev peered through the keyhole, then through the gap under the door, then through the frosted glass — anything for a glimpse of the birthday preparations he was strictly banned from seeing."
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v6",
@@ -3717,17 +4032,12 @@ export const questions = [
   "passage": "The old rowing boat bobbed by the jetty — up with each small wave, down again after it, gentle as a cork, never drifting from its rope.",
   "cell": "inference_clue",
   "choices": [
-   "floated up and down",
    "sank to the bottom",
    "sped across the lake",
-   "leaked at the seams"
+   "leaked at the seams",
+   "floated up and down"
   ],
   "answerOptions": [
-   {
-    "value": "floated up and down",
-    "label": "floated up and down",
-    "text": "floated up and down"
-   },
    {
     "value": "sank to the bottom",
     "label": "sank to the bottom",
@@ -3742,25 +4052,31 @@ export const questions = [
     "value": "leaked at the seams",
     "label": "leaked at the seams",
     "text": "leaked at the seams"
+   },
+   {
+    "value": "floated up and down",
+    "label": "floated up and down",
+    "text": "floated up and down"
    }
   ],
   "answer": "floated up and down",
   "correctAnswer": "floated up and down",
   "distractorRationales": {
-   "sank to the bottom": "D-OPPOSITE",
    "sped across the lake": "D-PLAUSIBLE-UNSUPPORTED",
-   "leaked at the seams": "D-TOPIC-ADJACENT"
+   "leaked at the seams": "D-TOPIC-ADJACENT",
+   "sank to the bottom": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "bobbed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v6",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3771,7 +4087,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/gentle.webp",
+  "imageUrl": "/images/assessment/generated/concepts/gentle.webp",
+  "targetImage": "/images/assessment/generated/concepts/gentle.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/gentle.webp",
+  "resolvedImageAssetKey": "gentle",
+  "imageAlt": "Illustration for The old rowing boat bobbed by the jetty — up with each small wave, down again after it, gentle as a cork, never drifting from its rope."
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v7",
@@ -3829,20 +4151,21 @@ export const questions = [
   "answer": "covered a hole to fix it",
   "correctAnswer": "covered a hole to fix it",
   "distractorRationales": {
+   "folded and put away": "D-PLAUSIBLE-UNSUPPORTED",
    "cut a bigger hole": "D-OPPOSITE",
-   "washed in hot water": "D-PLAUSIBLE-UNSUPPORTED",
-   "folded and put away": "D-PLAUSIBLE-UNSUPPORTED"
+   "washed in hot water": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "patched",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v7",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3853,7 +4176,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/square.webp",
+  "imageUrl": "/images/assessment/blends/square.webp",
+  "targetImage": "/images/assessment/blends/square.webp",
+  "targetImagePath": "/images/assessment/blends/square.webp",
+  "resolvedImageAssetKey": "square",
+  "imageAlt": "Illustration for Roz patched the knee of her jeans with a square of star-print cloth. The hole disappeared under the stars, the stitches held through every playtime, and the jeans lasted the whole year after all."
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v8",
@@ -3881,12 +4210,17 @@ export const questions = [
   "passage": "At the first drops, everyone dashed for the bandstand — coats over heads, pushchairs bumping, ice creams abandoned — and reached its roof just as the sky truly opened.",
   "cell": "inference_clue",
   "choices": [
+   "queued politely",
    "ran very quickly",
    "strolled slowly",
-   "danced in circles",
-   "queued politely"
+   "danced in circles"
   ],
   "answerOptions": [
+   {
+    "value": "queued politely",
+    "label": "queued politely",
+    "text": "queued politely"
+   },
    {
     "value": "ran very quickly",
     "label": "ran very quickly",
@@ -3901,30 +4235,26 @@ export const questions = [
     "value": "danced in circles",
     "label": "danced in circles",
     "text": "danced in circles"
-   },
-   {
-    "value": "queued politely",
-    "label": "queued politely",
-    "text": "queued politely"
    }
   ],
   "answer": "ran very quickly",
   "correctAnswer": "ran very quickly",
   "distractorRationales": {
+   "queued politely": "D-PLAUSIBLE-UNSUPPORTED",
    "strolled slowly": "D-OPPOSITE",
-   "danced in circles": "D-PLAUSIBLE-UNSUPPORTED",
-   "queued politely": "D-PLAUSIBLE-UNSUPPORTED"
+   "danced in circles": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "dashed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v8",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3935,7 +4265,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
+  "resolvedImageAssetKey": "quickly",
+  "imageAlt": "Illustration for At the first drops, everyone dashed for the bandstand — coats over heads, pushchairs bumping, ice creams abandoned — and reached its roof just as the sky truly opened."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v9r",
@@ -3997,16 +4333,17 @@ export const questions = [
    "bored and restless": "D-PLAUSIBLE-UNSUPPORTED",
    "half asleep": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "snug",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4017,7 +4354,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
+  "resolvedImageAssetKey": "comfortable",
+  "imageAlt": "Illustration for Snug means warm, comfortable and safe. Inside her blanket nest with a book and the rain outside, Mia felt perfectly snug."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v10r",
@@ -4045,12 +4388,17 @@ export const questions = [
   "passage": "A faint sound is one so quiet you can barely hear it. From two gardens away came the faint tinkle of a wind chime.",
   "cell": "definition_clue",
   "choices": [
+   "far too slow",
    "very quiet",
    "booming loud",
-   "out of tune",
-   "far too slow"
+   "out of tune"
   ],
   "answerOptions": [
+   {
+    "value": "far too slow",
+    "label": "far too slow",
+    "text": "far too slow"
+   },
    {
     "value": "very quiet",
     "label": "very quiet",
@@ -4065,30 +4413,26 @@ export const questions = [
     "value": "out of tune",
     "label": "out of tune",
     "text": "out of tune"
-   },
-   {
-    "value": "far too slow",
-    "label": "far too slow",
-    "text": "far too slow"
    }
   ],
   "answer": "very quiet",
   "correctAnswer": "very quiet",
   "distractorRationales": {
+   "far too slow": "D-PLAUSIBLE-UNSUPPORTED",
    "booming loud": "D-OPPOSITE",
-   "out of tune": "D-PLAUSIBLE-UNSUPPORTED",
-   "far too slow": "D-PLAUSIBLE-UNSUPPORTED"
+   "out of tune": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "faint",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4099,7 +4443,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
+  "resolvedImageAssetKey": "hear",
+  "imageAlt": "Illustration for A faint sound is one so quiet you can barely hear it. From two gardens away came the faint tinkle of a wind chime."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v9r",
@@ -4127,22 +4477,12 @@ export const questions = [
   "passage": "Gigantic things filled Theo's dinosaur book: legs like tree trunks, teeth as long as rulers, and one footprint that could have held his whole paddling pool.",
   "cell": "example_clue",
   "choices": [
-   "huge beyond belief",
-   "tiny and neat",
    "scaly and green",
-   "very fierce"
+   "very fierce",
+   "huge beyond belief",
+   "tiny and neat"
   ],
   "answerOptions": [
-   {
-    "value": "huge beyond belief",
-    "label": "huge beyond belief",
-    "text": "huge beyond belief"
-   },
-   {
-    "value": "tiny and neat",
-    "label": "tiny and neat",
-    "text": "tiny and neat"
-   },
    {
     "value": "scaly and green",
     "label": "scaly and green",
@@ -4152,25 +4492,36 @@ export const questions = [
     "value": "very fierce",
     "label": "very fierce",
     "text": "very fierce"
+   },
+   {
+    "value": "huge beyond belief",
+    "label": "huge beyond belief",
+    "text": "huge beyond belief"
+   },
+   {
+    "value": "tiny and neat",
+    "label": "tiny and neat",
+    "text": "tiny and neat"
    }
   ],
   "answer": "huge beyond belief",
   "correctAnswer": "huge beyond belief",
   "distractorRationales": {
-   "tiny and neat": "D-OPPOSITE",
    "scaly and green": "D-TOPIC-ADJACENT",
-   "very fierce": "D-PLAUSIBLE-UNSUPPORTED"
+   "very fierce": "D-PLAUSIBLE-UNSUPPORTED",
+   "tiny and neat": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "gigantic",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4181,7 +4532,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
+  "resolvedImageAssetKey": "dinosaur",
+  "imageAlt": "Illustration for Gigantic things filled Theo's dinosaur book: legs like tree trunks, teeth as long as rulers, and one footprint that could have held his whole paddling pool."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v10r",
@@ -4209,17 +4566,12 @@ export const questions = [
   "passage": "Everything delicate went on the top shelf: the paper lanterns, Gran's thin china cups, the sugar swan from the wedding, and the model ship made of matchsticks.",
   "cell": "example_clue",
   "choices": [
-   "easily damaged",
    "tough as old boots",
    "very expensive",
-   "high up"
+   "high up",
+   "easily damaged"
   ],
   "answerOptions": [
-   {
-    "value": "easily damaged",
-    "label": "easily damaged",
-    "text": "easily damaged"
-   },
    {
     "value": "tough as old boots",
     "label": "tough as old boots",
@@ -4234,25 +4586,31 @@ export const questions = [
     "value": "high up",
     "label": "high up",
     "text": "high up"
+   },
+   {
+    "value": "easily damaged",
+    "label": "easily damaged",
+    "text": "easily damaged"
    }
   ],
   "answer": "easily damaged",
   "correctAnswer": "easily damaged",
   "distractorRationales": {
-   "tough as old boots": "D-OPPOSITE",
    "very expensive": "D-PLAUSIBLE-UNSUPPORTED",
-   "high up": "D-TOPIC-ADJACENT"
+   "high up": "D-TOPIC-ADJACENT",
+   "tough as old boots": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "delicate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4263,7 +4621,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/shelf.webp",
+  "imageUrl": "/images/assessment/blends/shelf.webp",
+  "targetImage": "/images/assessment/blends/shelf.webp",
+  "targetImagePath": "/images/assessment/blends/shelf.webp",
+  "resolvedImageAssetKey": "shelf",
+  "imageAlt": "Illustration for Everything delicate went on the top shelf: the paper lanterns, Gran's thin china cups, the sugar swan from the wedding, and the model ship made of matchsticks."
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v9r",
@@ -4325,16 +4689,17 @@ export const questions = [
    "very hungry": "D-PLAUSIBLE-UNSUPPORTED",
    "fast asleep": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "grumpy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4345,7 +4710,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+  "resolvedImageAssetKey": "question",
+  "imageAlt": "Illustration for All through dinner Uncle Ray was grumpy — he frowned at the peas, sighed at the weather, and answered every question with a single flat word."
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v10r",
@@ -4373,12 +4744,17 @@ export const questions = [
   "passage": "The lizard darted across the hot stone path — there one blink, gone the next — and vanished under the rosemary bush before anyone could crouch for a look.",
   "cell": "action_clue",
   "choices": [
+   "hissed a warning",
    "moved suddenly and fast",
    "slept in the sun",
-   "changed its colour",
-   "hissed a warning"
+   "changed its colour"
   ],
   "answerOptions": [
+   {
+    "value": "hissed a warning",
+    "label": "hissed a warning",
+    "text": "hissed a warning"
+   },
    {
     "value": "moved suddenly and fast",
     "label": "moved suddenly and fast",
@@ -4393,11 +4769,6 @@ export const questions = [
     "value": "changed its colour",
     "label": "changed its colour",
     "text": "changed its colour"
-   },
-   {
-    "value": "hissed a warning",
-    "label": "hissed a warning",
-    "text": "hissed a warning"
    }
   ],
   "answer": "moved suddenly and fast",
@@ -4407,16 +4778,17 @@ export const questions = [
    "changed its colour": "D-TOPIC-ADJACENT",
    "hissed a warning": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "darted",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-action_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4427,7 +4799,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The lizard darted across the hot stone path — there one blink, gone the next — and vanished under the rosemary bush before anyone could crouch for a look."
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v11r",
@@ -4455,22 +4833,12 @@ export const questions = [
   "passage": "Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than every other neighbour put together.",
   "cell": "definition_clue",
   "choices": [
-   "old in age",
-   "very young",
    "new to the street",
-   "tall and thin"
+   "tall and thin",
+   "old in age",
+   "very young"
   ],
   "answerOptions": [
-   {
-    "value": "old in age",
-    "label": "old in age",
-    "text": "old in age"
-   },
-   {
-    "value": "very young",
-    "label": "very young",
-    "text": "very young"
-   },
    {
     "value": "new to the street",
     "label": "new to the street",
@@ -4480,25 +4848,36 @@ export const questions = [
     "value": "tall and thin",
     "label": "tall and thin",
     "text": "tall and thin"
+   },
+   {
+    "value": "old in age",
+    "label": "old in age",
+    "text": "old in age"
+   },
+   {
+    "value": "very young",
+    "label": "very young",
+    "text": "very young"
    }
   ],
   "answer": "old in age",
   "correctAnswer": "old in age",
   "distractorRationales": {
-   "very young": "D-OPPOSITE",
    "new to the street": "D-PLAUSIBLE-UNSUPPORTED",
-   "tall and thin": "D-PLAUSIBLE-UNSUPPORTED"
+   "tall and thin": "D-PLAUSIBLE-UNSUPPORTED",
+   "very young": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "elderly",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-definition_clue-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4509,7 +4888,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
+  "resolvedImageAssetKey": "together",
+  "imageAlt": "Illustration for Elderly means old, especially for a person. The elderly man at number nine has lived on our street longer than every other neighbour put together."
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v11r",
@@ -4537,17 +4922,12 @@ export const questions = [
   "passage": "The junk drawer was a jumble: rubber bands round old keys, a torch tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
   "cell": "example_clue",
   "choices": [
-   "a muddle of mixed-up things",
    "a tidy line",
    "a locked box",
-   "a shopping list"
+   "a shopping list",
+   "a muddle of mixed-up things"
   ],
   "answerOptions": [
-   {
-    "value": "a muddle of mixed-up things",
-    "label": "a muddle of mixed-up things",
-    "text": "a muddle of mixed-up things"
-   },
    {
     "value": "a tidy line",
     "label": "a tidy line",
@@ -4562,25 +4942,31 @@ export const questions = [
     "value": "a shopping list",
     "label": "a shopping list",
     "text": "a shopping list"
+   },
+   {
+    "value": "a muddle of mixed-up things",
+    "label": "a muddle of mixed-up things",
+    "text": "a muddle of mixed-up things"
    }
   ],
   "answer": "a muddle of mixed-up things",
   "correctAnswer": "a muddle of mixed-up things",
   "distractorRationales": {
+   "a shopping list": "D-PLAUSIBLE-UNSUPPORTED",
    "a tidy line": "D-OPPOSITE",
-   "a locked box": "D-PLAUSIBLE-UNSUPPORTED",
-   "a shopping list": "D-PLAUSIBLE-UNSUPPORTED"
+   "a locked box": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "jumble",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l1-example_clue-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4591,7 +4977,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/vocabulary/bicycle.png",
+  "imageUrl": "/images/vocabulary/bicycle.png",
+  "targetImage": "/images/vocabulary/bicycle.png",
+  "targetImagePath": "/images/vocabulary/bicycle.png",
+  "resolvedImageAssetKey": "bicycle",
+  "imageAlt": "Illustration for The junk drawer was a jumble: rubber bands round old keys, a torch tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v9r",
@@ -4619,12 +5011,17 @@ export const questions = [
   "passage": "The stray kitten was famished — starving, truly hollow-bellied — and it emptied the saucer of food before Ella had even stood back up.",
   "cell": "synonym_clue",
   "choices": [
+   "afraid of people",
    "extremely hungry",
    "completely full",
-   "soft and fluffy",
-   "afraid of people"
+   "soft and fluffy"
   ],
   "answerOptions": [
+   {
+    "value": "afraid of people",
+    "label": "afraid of people",
+    "text": "afraid of people"
+   },
    {
     "value": "extremely hungry",
     "label": "extremely hungry",
@@ -4639,11 +5036,6 @@ export const questions = [
     "value": "soft and fluffy",
     "label": "soft and fluffy",
     "text": "soft and fluffy"
-   },
-   {
-    "value": "afraid of people",
-    "label": "afraid of people",
-    "text": "afraid of people"
    }
   ],
   "answer": "extremely hungry",
@@ -4653,16 +5045,17 @@ export const questions = [
    "soft and fluffy": "D-PLAUSIBLE-UNSUPPORTED",
    "afraid of people": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "famished",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4673,7 +5066,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/before.webp",
+  "imageUrl": "/images/assessment/hfw/before.webp",
+  "targetImage": "/images/assessment/hfw/before.webp",
+  "targetImagePath": "/images/assessment/hfw/before.webp",
+  "resolvedImageAssetKey": "before",
+  "imageAlt": "Illustration for The stray kitten was famished — starving, truly hollow-bellied — and it emptied the saucer of food before Ella had even stood back up."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v10r",
@@ -4701,22 +5100,12 @@ export const questions = [
   "passage": "The riddle baffled the whole family. It puzzled Dad, confused Gran, and stumped even Priya, who does the crossword in pen.",
   "cell": "synonym_clue",
   "choices": [
-   "completely puzzled",
-   "bored quickly",
    "made everyone laugh",
-   "was solved at once"
+   "was solved at once",
+   "completely puzzled",
+   "bored quickly"
   ],
   "answerOptions": [
-   {
-    "value": "completely puzzled",
-    "label": "completely puzzled",
-    "text": "completely puzzled"
-   },
-   {
-    "value": "bored quickly",
-    "label": "bored quickly",
-    "text": "bored quickly"
-   },
    {
     "value": "made everyone laugh",
     "label": "made everyone laugh",
@@ -4726,6 +5115,16 @@ export const questions = [
     "value": "was solved at once",
     "label": "was solved at once",
     "text": "was solved at once"
+   },
+   {
+    "value": "completely puzzled",
+    "label": "completely puzzled",
+    "text": "completely puzzled"
+   },
+   {
+    "value": "bored quickly",
+    "label": "bored quickly",
+    "text": "bored quickly"
    }
   ],
   "answer": "completely puzzled",
@@ -4735,16 +5134,17 @@ export const questions = [
    "made everyone laugh": "D-PLAUSIBLE-UNSUPPORTED",
    "was solved at once": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "baffled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4755,7 +5155,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
+  "resolvedImageAssetKey": "family",
+  "imageAlt": "Illustration for The riddle baffled the whole family. It puzzled Dad, confused Gran, and stumped even Priya, who does the crossword in pen."
  },
  {
   "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v9r",
@@ -4783,17 +5189,12 @@ export const questions = [
   "passage": "Most days the sea slapped the rocks in fury, but this morning it was placid — flat, quiet water without one white wave from the beach to the buoy.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "calm and peaceful",
    "wild and stormy",
    "deep and cold",
-   "full of boats"
+   "full of boats",
+   "calm and peaceful"
   ],
   "answerOptions": [
-   {
-    "value": "calm and peaceful",
-    "label": "calm and peaceful",
-    "text": "calm and peaceful"
-   },
    {
     "value": "wild and stormy",
     "label": "wild and stormy",
@@ -4808,6 +5209,11 @@ export const questions = [
     "value": "full of boats",
     "label": "full of boats",
     "text": "full of boats"
+   },
+   {
+    "value": "calm and peaceful",
+    "label": "calm and peaceful",
+    "text": "calm and peaceful"
    }
   ],
   "answer": "calm and peaceful",
@@ -4817,16 +5223,17 @@ export const questions = [
    "deep and cold": "D-PLAUSIBLE-UNSUPPORTED",
    "full of boats": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "placid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4837,7 +5244,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
+  "resolvedImageAssetKey": "morning",
+  "imageAlt": "Illustration for Most days the sea slapped the rocks in fury, but this morning it was placid — flat, quiet water without one white wave from the beach to the buoy."
  },
  {
   "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v10r",
@@ -4899,16 +5312,17 @@ export const questions = [
    "written in ink": "D-PLAUSIBLE-UNSUPPORTED",
    "missing a piece": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "cunning",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-antonym_contrast_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4919,7 +5333,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/adjectives/simple-01.webp",
+  "imageUrl": "/images/assessment/language/variants/adjectives/simple-01.webp",
+  "targetImage": "/images/assessment/language/variants/adjectives/simple-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/adjectives/simple-01.webp",
+  "resolvedImageAssetKey": "simple",
+  "imageAlt": "Illustration for The first clue was simple enough for anyone, but the last was so cunning that even the puzzle club's champion chewed her pencil over it until the bell."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v9r",
@@ -4947,12 +5367,17 @@ export const questions = [
   "passage": "The parcel was so cumbersome that Jai had to carry it with both arms wrapped right around, walking sideways through doorways and resting at every corner.",
   "cell": "inference_clue",
   "choices": [
+   "full of books",
    "big and awkward to carry",
    "light as a feather",
-   "tied with ribbon",
-   "full of books"
+   "tied with ribbon"
   ],
   "answerOptions": [
+   {
+    "value": "full of books",
+    "label": "full of books",
+    "text": "full of books"
+   },
    {
     "value": "big and awkward to carry",
     "label": "big and awkward to carry",
@@ -4967,30 +5392,26 @@ export const questions = [
     "value": "tied with ribbon",
     "label": "tied with ribbon",
     "text": "tied with ribbon"
-   },
-   {
-    "value": "full of books",
-    "label": "full of books",
-    "text": "full of books"
    }
   ],
   "answer": "big and awkward to carry",
   "correctAnswer": "big and awkward to carry",
   "distractorRationales": {
-   "light as a feather": "D-OPPOSITE",
    "tied with ribbon": "D-TOPIC-ADJACENT",
-   "full of books": "D-PLAUSIBLE-UNSUPPORTED"
+   "full of books": "D-PLAUSIBLE-UNSUPPORTED",
+   "light as a feather": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "cumbersome",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v9",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5001,7 +5422,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/around.webp",
+  "imageUrl": "/images/assessment/hfw/around.webp",
+  "targetImage": "/images/assessment/hfw/around.webp",
+  "targetImagePath": "/images/assessment/hfw/around.webp",
+  "resolvedImageAssetKey": "around",
+  "imageAlt": "Illustration for The parcel was so cumbersome that Jai had to carry it with both arms wrapped right around, walking sideways through doorways and resting at every corner."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v10r",
@@ -5029,22 +5456,12 @@ export const questions = [
   "passage": "One sniff of the milk made Asha wince and hold the bottle at arm's length. It had turned rancid days ago, somewhere at the warm back of the van.",
   "cell": "inference_clue",
   "choices": [
-   "gone bad and smelly",
-   "fresh and creamy",
    "frozen solid",
-   "watered down"
+   "watered down",
+   "gone bad and smelly",
+   "fresh and creamy"
   ],
   "answerOptions": [
-   {
-    "value": "gone bad and smelly",
-    "label": "gone bad and smelly",
-    "text": "gone bad and smelly"
-   },
-   {
-    "value": "fresh and creamy",
-    "label": "fresh and creamy",
-    "text": "fresh and creamy"
-   },
    {
     "value": "frozen solid",
     "label": "frozen solid",
@@ -5054,25 +5471,36 @@ export const questions = [
     "value": "watered down",
     "label": "watered down",
     "text": "watered down"
+   },
+   {
+    "value": "gone bad and smelly",
+    "label": "gone bad and smelly",
+    "text": "gone bad and smelly"
+   },
+   {
+    "value": "fresh and creamy",
+    "label": "fresh and creamy",
+    "text": "fresh and creamy"
    }
   ],
   "answer": "gone bad and smelly",
   "correctAnswer": "gone bad and smelly",
   "distractorRationales": {
-   "fresh and creamy": "D-OPPOSITE",
    "frozen solid": "D-PLAUSIBLE-UNSUPPORTED",
-   "watered down": "D-PLAUSIBLE-UNSUPPORTED"
+   "watered down": "D-PLAUSIBLE-UNSUPPORTED",
+   "fresh and creamy": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "rancid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v10",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5083,7 +5511,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/blends/milk.webp",
+  "imageUrl": "/images/assessment/blends/milk.webp",
+  "targetImage": "/images/assessment/blends/milk.webp",
+  "targetImagePath": "/images/assessment/blends/milk.webp",
+  "resolvedImageAssetKey": "milk",
+  "imageAlt": "Illustration for One sniff of the milk made Asha wince and hold the bottle at arm's length. It had turned rancid days ago, somewhere at the warm back of the van."
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v11r",
@@ -5111,17 +5545,12 @@ export const questions = [
   "passage": "Loyal to the end, the old sheepdog shadowed Farmer Bell everywhere — faithful through rain, market days, and even trips to the vet.",
   "cell": "synonym_clue",
   "choices": [
-   "always faithful",
    "quick to run off",
    "afraid of sheep",
-   "very old"
+   "very old",
+   "always faithful"
   ],
   "answerOptions": [
-   {
-    "value": "always faithful",
-    "label": "always faithful",
-    "text": "always faithful"
-   },
    {
     "value": "quick to run off",
     "label": "quick to run off",
@@ -5136,6 +5565,11 @@ export const questions = [
     "value": "very old",
     "label": "very old",
     "text": "very old"
+   },
+   {
+    "value": "always faithful",
+    "label": "always faithful",
+    "text": "always faithful"
    }
   ],
   "answer": "always faithful",
@@ -5145,16 +5579,17 @@ export const questions = [
    "afraid of sheep": "D-PLAUSIBLE-UNSUPPORTED",
    "very old": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "loyal",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-synonym_clue-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5165,7 +5600,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+  "resolvedImageAssetKey": "bell",
+  "imageAlt": "Illustration for Loyal to the end, the old sheepdog shadowed Farmer Bell everywhere — faithful through rain, market days, and even trips to the vet."
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v11r",
@@ -5223,20 +5664,21 @@ export const questions = [
   "answer": "smiled hugely",
   "correctAnswer": "smiled hugely",
   "distractorRationales": {
+   "left the room": "D-PLAUSIBLE-UNSUPPORTED",
    "burst into tears": "D-PLAUSIBLE-UNSUPPORTED",
-   "frowned crossly": "D-OPPOSITE",
-   "left the room": "D-PLAUSIBLE-UNSUPPORTED"
+   "frowned crossly": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "scannerExpected": true,
   "targetWord": "beamed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "requiredImageAssetKey": "context_clues-l2-inference_clue-v11",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5247,6 +5689,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/silent.webp",
+  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
+  "targetImage": "/images/assessment/generated/concepts/silent.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
+  "resolvedImageAssetKey": "silent",
+  "imageAlt": "Illustration for The classroom fell silent as the results were read, and when her name came last — first place — Zainab beamed, a smile so wide it seemed to light the room."
  }
 ];

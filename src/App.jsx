@@ -824,7 +824,7 @@ export default function App() {
   const {
     answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
-    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue,
+    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, reviseLastAnswer,
     shouldShowImage, speakText,
   } = createAssessmentRoundController({
     allQuestionsRef, answerHistory, answerHistoryRef, answerInFlightRef,
@@ -1589,6 +1589,10 @@ export default function App() {
     beginManualAssessmentAttempt(patternAssessmentAttemptRef, "advanced_phonics_patterns");
   }
 
+  function goToPreviousPattern() {
+    setPatternIndex(previous => Math.max(0, previous - 1));
+  }
+
   async function recordLetterResult(nameOutcome, soundOutcome) {
     return runManualAssessmentSave(letterAssessmentSaveInFlightRef, async () => {
       const current =
@@ -1620,6 +1624,10 @@ export default function App() {
     setLetterAssessment([]);
     letterAssessmentArchivedRef.current = false;
     beginManualAssessmentAttempt(letterAssessmentAttemptRef, "el_letter_assessment");
+  }
+
+  function goToPreviousLetter() {
+    setLetterIndex(previous => Math.max(0, previous - 1));
   }
 
   async function archiveLetterAssessment(nextAssessment, { allowPartial = false } = {}) {
@@ -2901,7 +2909,7 @@ export default function App() {
       logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
       message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
       openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
-      prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult,
+      prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, reviseLastAnswer,
       regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
       resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
       resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,

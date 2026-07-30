@@ -38,6 +38,11 @@ import {
 } from "./hfwAssessmentFormatConfig.js";
 import { isHfwSpellingQuestionCandidate } from "./isHfwSpellingQuestion.js";
 import { benchmarkWindowLabel } from "./elBenchmarkReportScope.js";
+import {
+  assessmentAttemptsToSkillLedger,
+  computeSkillStatus,
+  SKILL_STATUS_IDS
+} from "../policy/skillStatusPolicy.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -2261,11 +2266,31 @@ export function buildSkillsCheckReportModel({
       ? rawEvidence.filter(evidence => evidence.sourceRecordId === latestAttempt.attemptId)
       : [];
     const currentScorable = attemptHasScorableResult(latestAttempt?.raw || null, currentEvidence);
-    const currentStatus = scoredAssessmentStatus(
-      latestAttempt?.raw || null,
-      currentEvidence,
-      now
+    const skillAttempts = attempts.filter(attempt => (
+      normalizeReportingKey(attempt.skillId) === row.skillId
+    ));
+    const policyStatus = computeSkillStatus(
+      assessmentAttemptsToSkillLedger(skillAttempts, row.skillId),
+      row.skillId,
+      { now }
     );
+    const currentStatus = policyStatus
+      ? reportingStatus(
+          policyStatus.status === SKILL_STATUS_IDS.SECURE && !policyStatus.needsReview
+            ? REPORTING_STATUS_IDS.SECURE
+            : policyStatus.status === SKILL_STATUS_IDS.NOT_STARTED
+              ? REPORTING_STATUS_IDS.NOT_CHECKED
+              : policyStatus.needsReview
+                ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+                : policyStatus.status === SKILL_STATUS_IDS.IN_PROGRESS
+                  ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+                  : REPORTING_STATUS_IDS.DEVELOPING
+        )
+      : scoredAssessmentStatus(
+          latestAttempt?.raw || null,
+          currentEvidence,
+          now
+        );
     const currentAccuracy = currentScorable ? finiteNumber(latestAttempt?.accuracy) : null;
     const lifetimeAccuracy = row.lifetimeTotalQuestions
       ? Math.round((row.lifetimeCorrectCount / row.lifetimeTotalQuestions) * 100)
@@ -2303,6 +2328,7 @@ export function buildSkillsCheckReportModel({
       currentStatus,
       status: currentStatus,
       statusLabel: currentStatus.label,
+      skillStatus: policyStatus,
       latestAttempt
     };
   });
