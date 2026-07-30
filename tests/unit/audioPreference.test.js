@@ -8,12 +8,12 @@ import {
   getApprovedPhonicsPatternAudioPath
 } from "../../src/data/approvedPhonicsPatternAudio.js";
 
-// The gold-audio resolver should upgrade a known curriculum word from the old
-// /audio/child-mode/words/ path to the clean-human recording.
-test("known words upgrade to the clean-human recording", () => {
+// The gold-audio resolver should upgrade a known curriculum word from every
+// superseded child-mode path to the installed Leda production recording.
+test("known words upgrade to the Leda production recording", () => {
   for (const w of ["cat", "dog", "sun", "pig"]) {
     const resolved = getPreferredAudioPath(w, `/audio/child-mode/words/${w}.mp3`);
-    assert.equal(resolved, `/audio/child-mode/clean-human/words/${w}.mp3`);
+    assert.match(resolved, new RegExp(`^/audio/production/en-US/isolated_word/${w}-`));
   }
 });
 

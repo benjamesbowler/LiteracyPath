@@ -127,8 +127,16 @@ export function selectStudentRailItems(
   return available.filter(item => reducedIds.has(item.id) || item.id === active);
 }
 
-export function speakStudentRailLabel() {
-  // Browser speech was the final synthetic-voice escape hatch. It is
-  // deliberately disabled until each destination has a reviewed recording.
-  return false;
+export function speakStudentRailLabel(text = "", browserWindow = globalThis.window) {
+  const audioPath = getLedaInstructionAudioPath(text);
+  if (!audioPath || !browserWindow?.Audio) return false;
+  try {
+    const audio = new browserWindow.Audio(audioPath);
+    const playback = audio.play();
+    playback?.catch?.(() => {});
+    return true;
+  } catch {
+    return false;
+  }
 }
+import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";

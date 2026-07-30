@@ -1,10 +1,15 @@
 import { hfwApprovedWordsBySkill } from "./hfwApprovedCoverageWords.js";
+import {
+  EXTENDED_HFW_WORDS,
+  EXTENDED_HFW_WORDS_BY_SKILL
+} from "./extendedHighFrequencyWords.js";
 
 const normalizeWord = value =>
   String(value || "")
     .toLowerCase()
     .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/[’]/g, "'")
+    .replace(/[^a-z0-9']+/g, " ")
     .trim();
 
 // The approved workbook is the active HFW curriculum source of truth. Keep
@@ -16,12 +21,20 @@ export const HFW_WORDS_51_75 = [...hfwApprovedWordsBySkill.hfw_51_75];
 export const HFW_WORDS_76_100 = [...hfwApprovedWordsBySkill.hfw_76_100];
 
 export const HFW_WORDS_51_100 = [...new Set([...HFW_WORDS_51_75, ...HFW_WORDS_76_100])];
+export const ASSESSED_HFW_WORDS = [
+  ...HFW_WORDS_1_25,
+  ...HFW_WORDS_26_50,
+  ...HFW_WORDS_51_75,
+  ...HFW_WORDS_76_100
+].map(normalizeWord);
+export const ASSESSED_HFW_WORD_SET = new Set(ASSESSED_HFW_WORDS);
 
 export const HFW_WORD_BANDS = {
   hfw_1_25: HFW_WORDS_1_25,
   hfw_26_50: HFW_WORDS_26_50,
   hfw_51_75: HFW_WORDS_51_75,
-  hfw_76_100: HFW_WORDS_76_100
+  hfw_76_100: HFW_WORDS_76_100,
+  ...EXTENDED_HFW_WORDS_BY_SKILL
 };
 
 export const HFW_WORD_BAND_SETS = Object.fromEntries(
@@ -32,14 +45,20 @@ export const HFW_WORD_BAND_SETS = Object.fromEntries(
 );
 
 export const ALL_HFW_WORDS = [...new Set(Object.values(HFW_WORDS_1_25)
-  .concat(HFW_WORDS_26_50, HFW_WORDS_51_75, HFW_WORDS_76_100)
+  .concat(HFW_WORDS_26_50, HFW_WORDS_51_75, HFW_WORDS_76_100, EXTENDED_HFW_WORDS)
   .map(normalizeWord)
-  .filter(Boolean))].sort();
+  .filter(Boolean))];
 
 export const ALL_HFW_WORD_SET = new Set(ALL_HFW_WORDS);
 
 export function normalizeHfwSkillId(value = "") {
   const text = String(value || "").toLowerCase().replace(/_/g, "-");
+  const rangeText = text.replace(/[^a-z0-9]+/g, "-");
+  const range = rangeText.match(/(?:hfw|high-frequency-words?)-?(\d{1,4})-(\d{1,4})/);
+  if (range) {
+    const candidate = `hfw_${range[1]}_${range[2]}`;
+    if (HFW_WORD_BANDS[candidate]) return candidate;
+  }
   if (text.includes("1-25")) return "hfw_1_25";
   if (text.includes("26-50") || text.includes("25-50")) return "hfw_26_50";
   if (text.includes("51-75") || text.includes("50-75")) return "hfw_51_75";

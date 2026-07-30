@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
 import { CVC_SOUND_DELAY, getLetterSoundCue, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
   if (wordIndex === 0) return letter;
@@ -71,7 +72,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     timersRef.current.push(wordTimer);
 
     const praiseTimer = setTimeout(() => {
-      playCue("/audio/child-mode/phrases/great-job.mp3", "Great job");
+      playCue(getLedaInstructionAudioPath("Great job"), "Great job");
       setBlendyExpression("cheering");
     }, currentWord.letters.length * CVC_SOUND_DELAY + 1000);
     timersRef.current.push(praiseTimer);
@@ -106,7 +107,7 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     }
 
     setWobbleTile(tile.id);
-    setTimeout(() => playCue("/audio/child-mode/phrases/try-again.mp3", "Try again"), 460);
+    setTimeout(() => playCue(getLedaInstructionAudioPath("Try again"), "Try again"), 460);
     setTimeout(() => setWobbleTile(""), 520);
   }, [currentWord, family, filledLetters.length, playCue]);
 

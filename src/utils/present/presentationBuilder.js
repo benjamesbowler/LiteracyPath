@@ -28,9 +28,9 @@
 //   data-teacher   - the articulation tip renders as a quiet bottom strip
 import { elSkillsBlockCycles, LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
-import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
+import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
 import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
@@ -796,8 +796,7 @@ function goalsSlide(cycle, world) {
 function poemSlide(cycle, world) {
   const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   if (!poem) return "";
-  const narration = `/audio/learn-games/poems/v2/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
-  const audio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
+  const audio = getLedaInstructionAudioPath(poem.lines.join("\n"));
   const pics = (poem.findWords || []).map(word => {
     const asset = getChildWordAsset(word) || {};
     return asset.image ? `<img src="${esc(assetUrl(asset.image))}" alt="${esc(word)}" data-hide-on-error="self"/>` : "";

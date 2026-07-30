@@ -1,4 +1,5 @@
 import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
+import { getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 
 const INTERNAL_GENERATED_LICENSE = "Internal generated/commissioned asset; no third-party licence recorded";
 
@@ -9,6 +10,14 @@ function metadataForPath(filePath = "", mediaType = "") {
       license: INTERNAL_GENERATED_LICENSE,
       reviewStatus: "approved by human listening review",
       pronunciationVariant: mediaType === "audio" ? "General American; isolated phoneme or reviewed phonics pattern" : "n/a"
+    };
+  }
+  if (filePath.includes("/audio/production/en-US/")) {
+    return {
+      source: "Google Cloud Text-to-Speech Chirp 3 HD Leda production pack",
+      license: INTERNAL_GENERATED_LICENSE,
+      reviewStatus: "approved production language clip",
+      pronunciationVariant: mediaType === "audio" ? "General American; exact-context Leda recording" : "n/a"
     };
   }
   if (filePath.includes("/clean-human/")) {
@@ -64,12 +73,16 @@ export function getAssessmentMediaSourceMetadata(filePath = "", mediaType = "") 
 }
 
 function wiring(mediaType, target, filePath, questionIds) {
+  const resolvedFilePath = mediaType === "audio" &&
+    !/^\/audio\/(?:phonemes\/|production\/en-US\/pattern\/)/i.test(filePath)
+    ? getLedaWordAudioPath(target) || filePath
+    : filePath;
   return Object.freeze({
     mediaType,
     target,
-    filePath,
+    filePath: resolvedFilePath,
     questionIds: Object.freeze(questionIds),
-    ...metadataForPath(filePath, mediaType)
+    ...metadataForPath(resolvedFilePath, mediaType)
   });
 }
 
@@ -165,7 +178,10 @@ export const assessmentHfwAudioWiring = Object.freeze(Object.fromEntries([
   ["made", "/audio/child-mode/clean-human/hfw/made.mp3"],
   ["may", "/audio/child-mode/clean-human/hfw/may.mp3"],
   ["part", "/audio/child-mode/clean-human/hfw/part.mp3"]
-]));
+].map(([targetWord, filePath]) => [
+  targetWord,
+  getLedaWordAudioPath(targetWord) || filePath
+])));
 
 const existingLegacyVocabularyAudioWords = new Set([
   "brave", "build", "close", "drive", "fall", "fly", "glue", "hide", "huge", "pink", "play", "zip"
@@ -289,7 +305,10 @@ export function getAssessmentMediaWiring(questionId = "") {
 }
 
 export function getAssessmentHfwAudioWiring(targetWord = "") {
-  return assessmentHfwAudioWiring[String(targetWord || "").toLowerCase().trim()] || "";
+  const normalizedTarget = String(targetWord || "").toLowerCase().trim();
+  return getLedaWordAudioPath(normalizedTarget) ||
+    assessmentHfwAudioWiring[normalizedTarget] ||
+    "";
 }
 
 export function getAssessmentMediaWaiver(questionId = "") {

@@ -1,6 +1,4 @@
 import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentPathKey, getAssessmentPathLabel, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getItemMasteryStateKeyForValues, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
-import { AUDIO_CHOICE_KEYS } from "../data/generated/audioChoiceKeys.generated.js";
-import { getGeneratedAudioKey } from "../utils/audioManifestKey.js";
 import { supabase } from "../supabaseClient";
 import { skillTree } from "../skillTree";
 import { questionUsesFailedAssessmentMedia } from "../policy/assessmentMediaEvidence.js";
@@ -23,6 +21,10 @@ import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
 import { preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 
 export function createAssessmentRoundController(context) {
   const {
@@ -2021,16 +2023,6 @@ export function createAssessmentRoundController(context) {
     return `The correct answer is "${answer}". Review the skill and try the next one.`;
   }
 
-  function normalizeAudioText(text) {
-    return String(text || "")
-      .normalize("NFKC")
-      .replace(/[“”]/g, "\"")
-      .replace(/[‘’]/g, "'")
-      .replace(/\s+/g, " ")
-      .trim()
-      .toLowerCase();
-  }
-
   function speakWithBrowser(text) {
     if (!speakWithBrowserFallback(text, { rate: 0.85, pitch: 1 })) {
       console.warn("Browser speech synthesis is unavailable.");
@@ -2052,7 +2044,10 @@ export function createAssessmentRoundController(context) {
         audioPath
       });
     }
-    const preferredAudioPath = audioPath || "";
+    const ledaAudioPath = options.audioRole === "target_word"
+      ? getLedaWordAudioPath(text)
+      : getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
+    const preferredAudioPath = ledaAudioPath || audioPath || "";
 
     if (requireApprovedAudio && !preferredAudioPath) return;
 
@@ -2071,35 +2066,7 @@ export function createAssessmentRoundController(context) {
       }
     }
 
-    const normalizedText = normalizeAudioText(text);
-    const audioKey = await getGeneratedAudioKey(normalizedText);
-
     if (requireApprovedAudio) return;
-
-    if (audioKey) {
-      const audioPaths = AUDIO_CHOICE_KEYS.has(audioKey)
-        ? [`/audio/choices/${audioKey}.mp3`]
-        : [];
-
-      try {
-        for (const audioPath of audioPaths) {
-          if (!audioPath) continue;
-          try {
-            if (window.speechSynthesis) {
-              window.speechSynthesis.cancel();
-            }
-
-            const audio = new Audio(audioPath);
-            await audio.play();
-            return;
-          } catch {
-            // Try the next known manifest path before falling back to browser speech.
-          }
-        }
-      } catch (error) {
-        console.warn("Local audio unavailable.", error);
-      }
-    }
 
     if (allowBrowserFallback) {
       speakWithBrowser(text);

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
 import { buildStoryQuestResumeHistory } from "../utils/storyQuestProgress.js";
+import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -35,7 +36,8 @@ function StoryQuestImage({ src, title }) {
 
 function getStoryQuestPageAudioUrl(page) {
   if (!page || page.narrationNeedsRebuild) return "";
-  return page.audioUrl || "";
+  const pageText = Array.isArray(page.text) ? page.text.join(" ") : page.text;
+  return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
 }
 
 export function StoryQuestPlayer({

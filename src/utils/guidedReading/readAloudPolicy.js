@@ -1,3 +1,8 @@
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../../data/ledaProductionAudio.js";
+
 export const guidedReadingReadAloudPolicy = {
   teacher_preview: true,
   teacher_assessment_only: true,
@@ -8,7 +13,12 @@ export const guidedReadingReadAloudPolicy = {
 
 export function getGuidedReadingPageAudioPath(page = {}) {
   if (page.narrationNeedsRebuild) return "";
-  return page.pageAudioPath || page.pageAudio || page.audio || "";
+  const pageText = Array.isArray(page.text) ? page.text.join(" ") : page.text;
+  return getLedaInstructionAudioPath(pageText)
+    || page.pageAudioPath
+    || page.pageAudio
+    || page.audio
+    || "";
 }
 
 export function getGuidedReadingBookAudioPath(book = {}) {
@@ -24,6 +34,10 @@ export function getReadAloudMode(book = {}, page = {}) {
   if (getGuidedReadingBookAudioPath(book) || getGuidedReadingPageAudioPath(page)) return "human_audio";
   if ((page.words || []).some(word => word.audioPath)) return "word_sequence";
   return "none";
+}
+
+export function getGuidedReadingWordProductionAudioPath(word = {}) {
+  return getLedaWordAudioPath(word?.text || word);
 }
 
 export function getGuidedReadingReadAloudState(book = {}, page = {}, context = "guided_support") {

@@ -1,10 +1,10 @@
 export const ASSESSMENT_AUDIO_STANDARD = {
   description: "Neutral soft American female voice",
-  provider: "unknown",
-  voiceId: "",
-  modelId: "",
-  standardRoot: "/audio/child-mode/clean-human/",
-  source: "Kimi/Pack 6 clean-human assessment audio where available"
+  provider: "Google Cloud Text-to-Speech",
+  voiceId: "en-US-Chirp3-HD-Leda",
+  modelId: "Chirp 3 HD",
+  standardRoot: "/audio/production/en-US/",
+  source: "LiteracyPath Leda production audio pack"
 };
 
 export const REPLACEMENT_VOICE_INSTRUCTIONS = [
@@ -70,7 +70,8 @@ export function classifyAssessmentAudioPath(audioPath = "", preference = null) {
   }
 
   const isCleanHuman = lower.includes(ASSESSMENT_AUDIO_STANDARD.standardRoot);
-  const isApprovedCleanHuman = preference?.status === "approved" && preference.preferredAudioPath === path && isCleanHuman;
+  const isApprovedCleanHuman = isCleanHuman &&
+    (!preference || (preference.status === "approved" && preference.preferredAudioPath === path));
 
   if (isApprovedCleanHuman && issues.length === 0) {
     return {

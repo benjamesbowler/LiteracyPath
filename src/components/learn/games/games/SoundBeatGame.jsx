@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Ps1ArcadeGame from "./Ps1ArcadeGame.jsx";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
+import { getLedaWordAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 // First-run onboarding: one intro card per device, dismissed forever after.
 // Storage may be denied (private mode) — then the card shows again next
@@ -71,7 +72,7 @@ export default function SoundBeatGame({ onEngineReady, isSoundEnabled = true, ..
   useEffect(() => {
     if (!showOnboarding || !isSoundEnabled) return undefined;
     const timer = window.setTimeout(() => {
-      playCueAudio("/audio/child-mode/clean-human/phrases/tap.mp3", { volume: 0.88 });
+      playCueAudio(getLedaWordAudioPath("tap"), { volume: 0.88 });
     }, 180);
     return () => {
       window.clearTimeout(timer);

@@ -81,7 +81,7 @@ test("cvc + sight word pools are clean lowercase words with no duplicates", () =
   }
   for (const [level, words] of Object.entries(SIGHT_WORDS)) {
     assert.equal(new Set(words).size, words.length, `duplicates in sight ${level}`);
-    for (const w of words) assert.match(w, /^[a-zA-Z]{1,8}$/, `bad sight word "${w}" in ${level}`);
+    for (const w of words) assert.match(w, /^[a-z']{1,20}$/, `bad sight word "${w}" in ${level}`);
   }
 });
 

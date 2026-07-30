@@ -48,6 +48,10 @@ import {
   TEACHER_PRINT_TARGETS
 } from "../utils/teacherPrintTarget.js";
 import { getPreferredPhonemeAudioPath } from "../data/phonemeAudioBank.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -82,8 +86,11 @@ const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
   "theme_higher_comprehension"
 ]);
 
-function getApprovedAudioPath(_text = "", audioPath = "") {
-  return audioPath || "";
+function getApprovedAudioPath(text = "", audioPath = "") {
+  return getLedaInstructionAudioPath(text)
+    || getLedaWordAudioPath(text)
+    || audioPath
+    || "";
 }
 
 function getShortVowelLetter(value = "") {

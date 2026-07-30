@@ -10,9 +10,13 @@ import {
 import { classifyStudentCodeRecovery } from "../policy/studentLoginRecovery.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 import { CHILD_COPY } from "../copy/childCopy.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 
-// Recorded child-voice prompts (public/audio/ui/voice). Missing clips stay
-// silent and the picture-first UI remains usable; browser TTS is never used.
+// Recorded Leda prompts only. Missing clips stay silent and the picture-first
+// UI remains usable; browser TTS is never used.
 const VOICE_LINES = {
   "class-code": CHILD_COPY.signIn.missingCode,
   "who-are-you": CHILD_COPY.signIn.whoAreYou,
@@ -23,8 +27,9 @@ const VOICE_LINES = {
 };
 
 function speakLine(key, options = {}) {
-  if (!VOICE_LINES[key]) return false;
-  const src = `/audio/ui/voice/${key}.mp3`;
+  const text = VOICE_LINES[key];
+  if (!text) return false;
+  const src = getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
   if (!AUDIO_FILE_PATHS.has(src)) return false;
   playCueAudio(src, { volume: options.volume ?? 0.9 });
   return true;

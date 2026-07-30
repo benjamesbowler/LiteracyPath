@@ -9,7 +9,7 @@ test("blocklisted words resolve to NO audio, everywhere", () => {
   for (const word of KNOWN_BAD_WORD_AUDIO) {
     assert.equal(wordAudioPath(word), "", `${word} must not resolve to a recording`);
   }
-  assert.ok(hasKnownBadWordAudio("AM"), "case-insensitive");
+  assert.equal(KNOWN_BAD_WORD_AUDIO.size, 0, "all formerly blocked words now have Leda replacements");
   assert.equal(hasKnownBadWordAudio("cat"), false);
 });
 

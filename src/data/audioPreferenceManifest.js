@@ -9,6 +9,10 @@ import {
   DEFERRED_ATOMIC_SOUND_KEYS,
   getPreferredPhonemeAudioPath
 } from "./phonemeAudioBank.js";
+import {
+  getLedaWordAudioPath,
+  isLedaProductionAudioPath
+} from "./ledaProductionAudio.js";
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")
@@ -612,6 +616,8 @@ export function getAudioPreferenceForPath(audioPath) {
 }
 
 export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
+  const ledaAudioPath = getLedaWordAudioPath(keyOrText);
+  if (ledaAudioPath) return ledaAudioPath;
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
   if (!preference) return fallbackPath || "";
@@ -625,6 +631,14 @@ export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
+  if (
+    fallbackPath &&
+    /^\/audio\/(?:phonemes\/|production\/en-US\/pattern\/)/i.test(fallbackPath)
+  ) {
+    return fallbackPath;
+  }
+  const ledaAudioPath = getLedaWordAudioPath(keyOrText);
+  if (ledaAudioPath) return ledaAudioPath;
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
   if (preference) {
@@ -638,6 +652,7 @@ export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function isApprovedAudioPath(audioPath) {
+  if (isLedaProductionAudioPath(audioPath)) return true;
   const preference = getAudioPreferenceForPath(audioPath);
   return Boolean(preference?.status === "approved" && preference.preferredAudioPath === audioPath);
 }

@@ -3,6 +3,10 @@ import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordA
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { phonemeAudioCandidates } from "../data/phonemeAudioBank.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 
 // Only paths that really exist - the host serves the app shell for missing
 // files, which used to stall playback chains and leave games silent.
@@ -32,15 +36,10 @@ function slugify(value) {
 }
 
 function wordAudioCandidates(slug) {
-  if (!slug || hasKnownBadWordAudio(slug)) return [];
-  return [
-    `/audio/child-mode/clean-human/words/${slug}.mp3`,
-    `/audio/child-mode/words/${slug}.mp3`,
-    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
-    `/audio/child-mode/hfw/${slug}.mp3`,
-    `/guided-reading/audio/words/${slug}.mp3`,
-    `/audio/vocabulary/${slug}.mp3`
-  ];
+  if (!slug) return [];
+  const ledaPath = getLedaWordAudioPath(slug);
+  if (hasKnownBadWordAudio(slug) && !ledaPath) return [];
+  return [ledaPath];
 }
 
 function getHowl(src) {
@@ -186,13 +185,13 @@ export async function speakWord(word, options = {}) {
 export function hasRecordedSpeech(text) {
   const value = String(text || "").trim();
   if (!value) return false;
-  if (hasKnownBadWordAudio(value)) return false; // only defective recordings exist
-  const slug = slugify(value);
-  if (/^[a-z]+$/i.test(value)) return existingAudioPaths(wordAudioCandidates(slug)).length > 0;
+  if (hasKnownBadWordAudio(value) && !getLedaWordAudioPath(value)) return false;
+  if (/^[a-z]+$/i.test(value)) {
+    const slug = slugify(value);
+    return existingAudioPaths(wordAudioCandidates(slug)).length > 0;
+  }
   return existingAudioPaths([
-    `/audio/learn-games/instructions/${slug}.mp3`,
-    `/audio/learn-games/sentences/${slug}.mp3`,
-    `/audio/child-mode/phrases/${slug}.mp3`
+    getLedaInstructionAudioPath(value)
   ]).length > 0;
 }
 
@@ -204,11 +203,8 @@ export async function speak(text, options = {}) {
     speakWord(value, options);
     return;
   }
-  const slug = slugify(value);
   const played = await playFirstAvailable([
-    `/audio/learn-games/instructions/${slug}.mp3`,
-    `/audio/learn-games/sentences/${slug}.mp3`,
-    `/audio/child-mode/phrases/${slug}.mp3`
+    getLedaInstructionAudioPath(value)
   ]);
   if (played) return;
   speakWithBrowser(value, options);

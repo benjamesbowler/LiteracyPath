@@ -27,6 +27,10 @@ import {
   getPreferredPhonemeAudioPath,
   phonemeAudioCandidates
 } from "../data/phonemeAudioBank.js";
+import {
+  getLedaProductionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 import { QUEST_STOPS } from "../data/questSequence.js";
 
 // The blends the trail actually teaches (st, bl, sw…). ONLY these may fall
@@ -73,20 +77,14 @@ export function hasGraphemeAudio(grapheme) {
 export function letterNameSrc(letter) {
   const l = String(letter || "").toLowerCase().trim();
   if (l.length !== 1 || !/[a-z]/.test(l)) return "";
-  return firstExisting([`/audio/letter-names/${l}.mp3`]);
+  return firstExisting([getLedaProductionAudioPath(l, ["letter_name"])]);
 }
 
 export function wordSrc(word) {
   const slug = String(word || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  if (!slug || hasKnownBadWordAudio(slug)) return "";
-  return firstExisting([
-    `/audio/child-mode/clean-human/words/${slug}.mp3`,
-    `/audio/child-mode/words/${slug}.mp3`,
-    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
-    `/audio/child-mode/hfw/${slug}.mp3`,
-    `/guided-reading/audio/words/${slug}.mp3`,
-    `/audio/vocabulary/${slug}.mp3`
-  ]);
+  const ledaPath = getLedaWordAudioPath(word);
+  if (!slug || (hasKnownBadWordAudio(slug) && !ledaPath)) return "";
+  return firstExisting([ledaPath]);
 }
 
 export function hasWordAudio(word) {

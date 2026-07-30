@@ -1,7 +1,8 @@
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
+import { getLedaInstructionAudioPath } from "./ledaProductionAudio.js";
 
-const instructionAudioPath = "/audio/child-mode/phrases/listen-and-find.mp3";
+const instructionAudioPath = getLedaInstructionAudioPath("Listen and find");
 
 function normalize(value) {
   return String(value || "").toLowerCase().trim();

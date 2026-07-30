@@ -6,6 +6,7 @@ import {
   lexiconMediaRows
 } from "../../src/content/lexicon/lexiconMediaIndex.generated.js";
 import { masterWordLexicon } from "../../src/content/lexicon/masterWordLexicon.js";
+import { getApprovedAudioPath } from "../../src/data/audioPreferenceManifest.js";
 
 test("browser lexicon media projection exactly matches build-time media entries", () => {
   const expected = masterWordLexicon
@@ -13,9 +14,10 @@ test("browser lexicon media projection exactly matches build-time media entries"
     .map(entry => [
       entry.lowercaseWord,
       entry.imageUrl || "",
-      entry.audioUrl || "",
+      getApprovedAudioPath(entry.lowercaseWord, entry.audioUrl || ""),
       entry.source || "existing-media"
     ])
+    .filter(([, imageUrl, audioUrl]) => imageUrl || audioUrl)
     .sort((left, right) => left[0].localeCompare(right[0]));
   assert.deepEqual(lexiconMediaRows, expected);
 });

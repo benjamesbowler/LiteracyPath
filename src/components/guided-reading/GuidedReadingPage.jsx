@@ -24,6 +24,7 @@ import {
 } from "../../data/deletedMediaManifest.js";
 import {
   getGuidedReadingBookAudioPath,
+  getGuidedReadingWordProductionAudioPath,
   getGuidedReadingBookSyncPath,
   getGuidedReadingReadAloudState,
   getGuidedReadingPageAudioPath
@@ -1383,15 +1384,9 @@ export function GuidedReadingPage({
     if (!guidedReadingWordSlug) return [];
 
     return [
-      selectedBook?.id ? `/guided-reading/audio/words/${selectedBook.id}-${guidedReadingWordSlug}.mp3` : "",
-      word?.audioPath,
-      `/audio/child-mode/clean-human/words/${guidedReadingWordSlug}.mp3`,
-      `/audio/child-mode/clean-human/hfw/${guidedReadingWordSlug}.mp3`,
-      `/audio/child-mode/words/${guidedReadingWordSlug}.mp3`,
-      `/audio/child-mode/hfw/${guidedReadingWordSlug}.mp3`,
-      `/guided-reading/audio/words/${guidedReadingWordSlug}.mp3`
+      getGuidedReadingWordProductionAudioPath(word)
     ].filter(Boolean).filter(audioPath =>
-      String(audioPath).includes("/words/") || String(audioPath).includes("/hfw/")
+      String(audioPath).includes("/audio/production/en-US/")
     );
   }
 

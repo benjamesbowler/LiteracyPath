@@ -4,6 +4,7 @@ import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import { playCueAudio, playCueSequence, stopCueAudio } from "../../../../../utils/audio/cuePlayer";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
+import { getLedaInstructionAudioPath } from "../../../../../data/ledaProductionAudio.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 // Tuned 2026-07-10: 90%/22 demanded pixel-perfect stroke tips and frustrated
@@ -14,9 +15,9 @@ const THRESHOLD = 26;
 const STROKE_COMPLETION_PERCENT = 72;
 const TOTAL_TRACE_SAMPLES = 200;
 const MIN_SAMPLES_PER_STROKE = 24;
-const WATCH_ME_FIRST_AUDIO = "/audio/child-mode/phrases/watch-me-first.mp3";
-const START_AT_TOP_AUDIO = "/audio/child-mode/phrases/start-at-the-top.mp3";
-const NOW_YOU_TRY_AUDIO = "/audio/child-mode/phrases/now-you-try.mp3";
+const WATCH_ME_FIRST_AUDIO = getLedaInstructionAudioPath("Watch me first");
+const START_AT_TOP_AUDIO = getLedaInstructionAudioPath("Start at the top");
+const NOW_YOU_TRY_AUDIO = getLedaInstructionAudioPath("Now you try");
 const DEMO_VOICE_MIN_MS = 3400;
 
 function splitTraceSubpaths(tracePath = "") {
@@ -90,7 +91,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const [demoStrokeProgress, setDemoStrokeProgress] = useState(0);
   const [demoMarker, setDemoMarker] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
-  const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3");
+  const { play: playTraceDone } = usePhonicsAudio(getLedaInstructionAudioPath("Amazing work"));
   const reduceMotion = useReducedMotion();
   const tracePath = lesson.traceSVG;
 

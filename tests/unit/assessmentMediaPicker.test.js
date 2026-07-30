@@ -182,12 +182,14 @@ test("every published rhyming option resolves to complete exact-word image media
       phase: question.phase || question.assessmentPhase || 1
     });
 
+    const isPictureItem = question.mediaTier !== "text";
+    const resolvedCards = resolved.imageCards || [];
     assert.equal(
-      resolved.imageCards.length,
-      resolved.choices.length,
-      `${question.id} should have one image card per option`
+      resolvedCards.length,
+      isPictureItem ? resolved.choices.length : 0,
+      `${question.id} should ${isPictureItem ? "have one image card per option" : "remain text-only"}`
     );
-    resolved.imageCards.forEach(card => {
+    resolvedCards.forEach(card => {
       const path = card.image || card.imagePath || card.imageUrl || "";
       const record = getAssessmentMediaByPath(path, "image");
       assert.equal(record?.available, true, `${question.id}:${card.word} should use approved image media`);

@@ -181,7 +181,8 @@ function isVisualCardMediaQuestion(question = {}) {
     question.imageCards.length > 0 &&
     (
       String(question.questionType || "").toLowerCase() === "visual_card_choice" ||
-      format === "RHYMING_PICTURE"
+      format === "RHYMING_PICTURE" ||
+      (/RHYME|RHYMING/.test(format) && /PICTURE/.test(format))
     );
 }
 

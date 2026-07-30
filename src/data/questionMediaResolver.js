@@ -1,4 +1,5 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
+import { getLedaInstructionAudioPath } from "./ledaProductionAudio.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
 import {
@@ -55,6 +56,16 @@ function normalizeSkillId(value = "") {
 
 function firstPath(...paths) {
   return paths.find(Boolean) || "";
+}
+
+function inferLegacyAudioText(filePath = "") {
+  const fileName = String(filePath || "").split("/").pop() || "";
+  return fileName
+    .replace(/\.[a-z0-9]+$/i, "")
+    .replace(/-kimi\d(?:-\d)?$/i, "")
+    .replace(/-\d{6,}$/i, "")
+    .replace(/[-_]+/g, " ")
+    .trim();
 }
 
 function withoutAudioPathFields(value) {
@@ -391,6 +402,9 @@ function alignAnswerOptionImagesToImageCards(answerOptions = [], imageCards = []
 
 function shouldBuildImageCards(question = {}, skillId = "") {
   if (question.imageCards?.length) return false;
+  // V3 banks deliberately use text-only items at higher levels. Do not turn
+  // those back into picture questions merely because generic word art exists.
+  if (question.mediaTier === "text" || question.v3AuthoredMedia?.cards === false) return false;
   if (!["rhyming", "initial_sounds"].includes(skillId)) return false;
   const choices = question.choices || question.answerOptions || [];
   return Array.isArray(choices) && choices.length > 0;
@@ -403,21 +417,36 @@ function isHfwSentenceSkill(skillId = "") {
 export function enrichQuestionWithExistingMedia(question = {}) {
   const releaseWiring = getAssessmentMediaWiring(question.id);
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
-  const normalizeAudioFields = value => {
+  const normalizeAudioFields = (value, inheritedText = "") => {
     if (!value || typeof value !== "object") return value;
     const normalized = { ...value };
+    const spokenText = normalizeWord(
+      value.audioText ||
+      value.targetWord ||
+      value.word ||
+      value.value ||
+      value.label ||
+      value.text ||
+      inheritedText
+    );
     for (const field of ["audio", "audioUrl", "audioPath"]) {
       if (!normalized[field]) continue;
-      const replacement = resolveLegacyAssessmentAudioPath(normalized[field]);
+      const replacement =
+        getApprovedAudioPath(spokenText, normalized[field]) ||
+        getApprovedAudioPath(inferLegacyAudioText(normalized[field]), normalized[field]) ||
+        getLedaInstructionAudioPath(inferLegacyAudioText(normalized[field])) ||
+        resolveLegacyAssessmentAudioPath(normalized[field]);
       if (replacement) normalized[field] = replacement;
       else delete normalized[field];
     }
     if (normalized.media && typeof normalized.media === "object") {
-      normalized.media = normalizeAudioFields(normalized.media);
+      normalized.media = normalizeAudioFields(normalized.media, spokenText);
     }
     for (const field of ["answerOptions", "imageCards"]) {
       if (Array.isArray(normalized[field])) {
-        normalized[field] = normalized[field].map(normalizeAudioFields);
+        normalized[field] = normalized[field].map(item =>
+          normalizeAudioFields(item, spokenText)
+        );
       }
     }
     return normalized;
@@ -430,9 +459,10 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     // from text and isolated target-word audio would disclose the answer.
     const suppressAudio = value?.noAudio === true
       || (isHfwSentenceSkill(skillId) && value?.disableAudio === true);
+    const questionSpokenText = inferTargetWord(value);
     const wiredQuestion = suppressAudio
-      ? withoutAudioPathFields(normalizeAudioFields(value))
-      : normalizeAudioFields(value);
+      ? withoutAudioPathFields(normalizeAudioFields(value, questionSpokenText))
+      : normalizeAudioFields(value, questionSpokenText);
     if (!releaseWiring.length) return wiredQuestion;
     wiredQuestion.assessmentMediaWiringApplied = true;
     for (const entry of releaseWiring) {
@@ -518,6 +548,19 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     skillId: question.skillId || skillId
   };
   const suppressAudio = question.disableAudio === true || question.noAudio === true;
+  const exactPromptAudio = suppressAudio
+    ? ""
+    : getLedaInstructionAudioPath(
+        question.spokenPrompt || question.audioText || question.prompt || question.question || ""
+      );
+  if (
+    exactPromptAudio &&
+    !firstPath(enriched.audioPath, enriched.audioUrl, enriched.audio)
+  ) {
+    enriched.audio = exactPromptAudio;
+    enriched.audioUrl = exactPromptAudio;
+    enriched.audioPath = exactPromptAudio;
+  }
 
   if (targetAsset) {
     enriched.targetWord = enriched.targetWord || targetWord;

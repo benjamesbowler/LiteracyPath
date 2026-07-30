@@ -16,6 +16,7 @@ import { playStarChime, playCelebrationFanfare } from "../../utils/audio/gameSfx
 import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { trailEventForStop } from "../../utils/questHub.js";
 import { availableSparks } from "../../utils/questProgress.js";
+import { getLedaInstructionAudioPath } from "../../data/ledaProductionAudio.js";
 
 function useCeremonyPixelArt({ chapterId, world, cast, creature }) {
   const [art, setArt] = useState({ beastieSheet: "", friends: [] });
@@ -144,7 +145,7 @@ export default function RewardScreen({
     // Existing recorded child voice; never substitute browser TTS if it fails.
     // The visual reward symbols and arrow action remain the fallback.
     if (stars > 0) timers.push(setTimeout(
-      () => playCueAudio("/audio/ui/voice/great-job.mp3", { volume: 0.9 }),
+      () => playCueAudio(getLedaInstructionAudioPath("Great job"), { volume: 0.9 }),
       stars >= 2 ? 1550 : 420
     ));
     return () => {
