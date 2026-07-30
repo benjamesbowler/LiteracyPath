@@ -524,7 +524,6 @@ export function ElSkillsQuest({
   const answerLockRef = useRef(false);
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
-  const [mapWorldId, setMapWorldId] = useState(null);
   const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
 
@@ -724,7 +723,10 @@ export function ElSkillsQuest({
   // render share the same region/stops/points). Orientation picks the art,
   // stop coordinates, landmark labels, and coordinate space together.
   const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
-  const activeWorldId = mapWorldId || homeWorldId;
+  // The map follows the curriculum automatically. A child starts in Meadow
+  // and reaches Dino and Moonwood by completing the preceding stops; lands
+  // and completed cycles are not a level-selection menu.
+  const activeWorldId = homeWorldId;
   const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
   // Memoised so its reference is stable across renders - otherwise the avatar
   // tween effect re-ran on EVERY render and could snap mid-animation (a glitch).
@@ -842,18 +844,14 @@ export function ElSkillsQuest({
         {(() => {
           return (
             <div className="sbq-adventure" data-pal-world={region.id} data-child-choices="">
-              <div className="sbq-world-tabs" role="tablist" aria-label="Choose a land">
+              <div className="sbq-world-tabs sbq-world-progress" aria-label="Your journey">
                 {WORLD_REGIONS.map(world => (
-                  <button
+                  <span
                     key={world.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={world.id === region.id}
                     className={world.id === region.id ? "active" : ""}
-                    onClick={() => setMapWorldId(world.id)}
                   >
                     {world.name}
-                  </button>
+                  </span>
                 ))}
               </div>
               <div className="sbq-mapwrap">
@@ -886,14 +884,15 @@ export function ElSkillsQuest({
                       const cycleProgress = progress.cycles?.[cycle.id];
                       const isRecommended = cycle.id === recommendedCycle?.id;
                       const [x, y] = mapPoints[index] || [50, 50];
+                      const Tag = isRecommended ? "button" : "span";
                       return (
-                        <button
+                        <Tag
                           key={cycle.id}
-                          type="button"
+                          {...(isRecommended ? { type: "button" } : { role: "img", "aria-disabled": "true" })}
                           ref={el => { stopRefs.current[cycle.id] = el; }}
                           className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
                           style={{ left: `${x}%`, top: `${y}%` }}
-                          onClick={() => { if (panRef.current.moved) return; openCycle(cycle); }}
+                          onClick={isRecommended ? () => { if (panRef.current.moved) return; openCycle(cycle); } : undefined}
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                           data-child-primary={isRecommended ? "" : undefined}
                           data-child-emphasis={isRecommended ? "primary" : "choice"}
@@ -919,7 +918,7 @@ export function ElSkillsQuest({
                             )}
                             {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
                           </span>
-                        </button>
+                        </Tag>
                       );
                     })}
                     {/* The traveler: glides along the route via the rAF tween (it sets left/top). */}
@@ -1001,7 +1000,7 @@ export function ElSkillsQuest({
                   setSessionStations({});
                 }}
               >
-                Choose a cycle
+                Back to your path
               </button>
             )}
           </div>

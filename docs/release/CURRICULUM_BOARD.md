@@ -7,8 +7,8 @@ Canonical release standard: `2026.07.24-a1.4`
 
 ## Current truth
 
-- Skills ready: **30/30**
-- Skills blocked: **0/30**
+- Skills ready: **28/30**
+- Skills blocked: **2/30**
 - A READY row means the canonical question-count, balance, media,
   accessibility, and live runtime-selectability dimensions pass.
 - “Student exposure today” is counted from the real student bank loader after
@@ -29,10 +29,10 @@ Canonical release standard: `2026.07.24-a1.4`
 | High-Frequency Words 51-75 | READY | Literacy curriculum + media QA | 150 | 148 | 148 today (L1 73; L2 75) | sha256:2be19e1d1e85 | All canonical release dimensions pass. | None |
 | High-Frequency Words 76-100 | READY | Literacy curriculum + media QA | 148 | 144 | 144 today (L1 70; L2 74) | sha256:95d083463de9 | All canonical release dimensions pass. | None |
 | Blends | READY | Phonics curriculum + media QA | 253 | 97 | 97 today (L1 47; L2 50) | sha256:318b21a4799d | All canonical release dimensions pass. | None |
-| Digraphs | READY | Phonics curriculum + media QA | 252 | 120 | 120 today (L1 60; L2 60) | sha256:faebe50b8669 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
+| Digraphs | BLOCKED | Phonics curriculum + media QA | 252 | 120 | 0 — blocked from children | sha256:e3b0c44298fc | Required media is missing or incorrectly wired. | 1 excluded; review 2026-10-23 |
 | Long Vowels and Silent E | READY | Phonics curriculum + media QA | 226 | 104 | 104 today (L1 50; L2 54) | sha256:7ceda9ae4f27 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
 | Vowel Teams | READY | Phonics curriculum + media QA | 141 | 141 | 141 today (L1 56; L2 85) | sha256:37526c9d6223 | All canonical release dimensions pass. | None |
-| R-Controlled Vowels | READY | Phonics curriculum + media QA | 128 | 128 | 128 today (L1 47; L2 81) | sha256:b36797e95bcb | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
+| R-Controlled Vowels | BLOCKED | Phonics curriculum + media QA | 128 | 122 | 0 — blocked from children | sha256:e3b0c44298fc | Required media is missing or incorrectly wired. | 5 excluded; review 2026-10-23 |
 | Nouns | READY | Curriculum + media QA | 398 | 146 | 146 today (L1 70; L2 76) | sha256:0e54affb9633 | All canonical release dimensions pass. | None |
 | Verbs | READY | Curriculum + media QA | 420 | 111 | 111 today (L1 51; L2 60) | sha256:6a590d5fd250 | All canonical release dimensions pass. | None |
 | Adjectives | READY | Curriculum + media QA | 384 | 110 | 110 today (L1 46; L2 64) | sha256:43210b12d289 | All canonical release dimensions pass. | None |

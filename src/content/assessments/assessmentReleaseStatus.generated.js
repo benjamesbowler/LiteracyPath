@@ -426,18 +426,20 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "digraphs",
     "skillName": "Digraphs",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
       "questionCount": "pass",
       "balance": "pass",
-      "media": "pass",
+      "media": "fail",
       "accessibility": "pass",
-      "runtimeSelectability": "pass"
+      "runtimeSelectability": "blocked"
     },
-    "reasons": [],
+    "reasons": [
+      "Required media is missing or incorrectly wired."
+    ],
     "authoredQuestions": 252,
     "approvedQuestions": 120,
-    "runtimeSelectableQuestions": 120,
+    "runtimeSelectableQuestions": 0,
     "releaseEligibleQuestions": 120,
     "unapprovedAudioQuestions": 2,
     "publicationMode": "audited-id-set",
@@ -461,8 +463,8 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "accessibilityIssueCount": 0,
     "missingRequiredImages": 0,
-    "missingRequiredAudio": 0,
-    "wiringDefects": 0
+    "missingRequiredAudio": 1,
+    "wiringDefects": 3
   },
   {
     "skillId": "long_vowels_silent_e",
@@ -552,19 +554,21 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "r_controlled_vowels",
     "skillName": "R-Controlled Vowels",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
       "questionCount": "pass",
       "balance": "pass",
-      "media": "pass",
+      "media": "fail",
       "accessibility": "pass",
-      "runtimeSelectability": "pass"
+      "runtimeSelectability": "blocked"
     },
-    "reasons": [],
+    "reasons": [
+      "Required media is missing or incorrectly wired."
+    ],
     "authoredQuestions": 128,
-    "approvedQuestions": 128,
-    "runtimeSelectableQuestions": 128,
-    "releaseEligibleQuestions": 128,
+    "approvedQuestions": 122,
+    "runtimeSelectableQuestions": 0,
+    "releaseEligibleQuestions": 122,
     "unapprovedAudioQuestions": 1,
     "publicationMode": "audited-id-set",
     "levels": {
@@ -577,9 +581,9 @@ export const assessmentReleaseStatus = Object.freeze([
         "balancePass": true
       },
       "2": {
-        "eligibleQuestionCount": 81,
-        "uniqueTargetCount": 40,
-        "maximumTargetShare": 0.07407407407407407,
+        "eligibleQuestionCount": 75,
+        "uniqueTargetCount": 37,
+        "maximumTargetShare": 0.08,
         "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
@@ -587,7 +591,7 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "accessibilityIssueCount": 0,
     "missingRequiredImages": 0,
-    "missingRequiredAudio": 0,
+    "missingRequiredAudio": 6,
     "wiringDefects": 0
   },
   {

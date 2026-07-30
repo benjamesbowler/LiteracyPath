@@ -67,10 +67,7 @@ test("approved compact-cue blends are available as safe pattern defaults", () =>
     getApprovedPhonicsPatternAudioPath("sp"),
     "/audio/production/en-US/pattern/sp-as-in-spoon-57a7bc4f6a.mp3"
   );
-  assert.equal(
-    getApprovedPhonicsPatternAudioPath("nk"),
-    "/audio/production/en-US/pattern/nk-as-in-pink-3f08d8864f.mp3"
-  );
+  assert.equal(getApprovedPhonicsPatternAudioPath("nk"), "");
   assert.equal(
     getApprovedPhonicsPatternAudioPath("nd"),
     "/audio/production/en-US/pattern/nd-as-in-hand-3c5e09aa3b.mp3"

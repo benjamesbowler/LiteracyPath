@@ -11,8 +11,8 @@ export const curriculumReleaseBoard = Object.freeze({
     "live student bank loader",
     "review-dated media exclusion register"
   ],
-  "readySkills": 30,
-  "blockedSkills": 0,
+  "readySkills": 28,
+  "blockedSkills": 2,
   "rows": [
     {
       "skillId": "initial_sounds",
@@ -397,22 +397,24 @@ export const curriculumReleaseBoard = Object.freeze({
       "skillId": "digraphs",
       "skillName": "Digraphs",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "READY",
-      "releaseReady": true,
-      "reasons": [],
+      "gateStatus": "BLOCKED",
+      "releaseReady": false,
+      "reasons": [
+        "Required media is missing or incorrectly wired."
+      ],
       "owner": "Phonics curriculum + media QA",
       "authoredQuestions": 252,
       "approvedQuestions": 120,
       "releaseEligibleQuestions": 120,
       "unapprovedAudioQuestions": 2,
       "missingRequiredImages": 0,
-      "missingRequiredAudio": 0,
-      "wiringDefects": 0,
+      "missingRequiredAudio": 1,
+      "wiringDefects": 3,
       "studentExposure": {
-        "count": 120,
-        "fingerprint": "faebe50b8669be4e0463cecd85630c4977355c78e72d1bfda36a1624445f6620",
-        "level1": 60,
-        "level2": 60
+        "count": 0,
+        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "level1": 0,
+        "level2": 0
       },
       "waiver": {
         "entryCount": 1,
@@ -430,9 +432,9 @@ export const curriculumReleaseBoard = Object.freeze({
       "dimensions": {
         "questionCount": "pass",
         "balance": "pass",
-        "media": "pass",
+        "media": "fail",
         "accessibility": "pass",
-        "runtimeSelectability": "pass"
+        "runtimeSelectability": "blocked"
       }
     },
     {
@@ -517,22 +519,24 @@ export const curriculumReleaseBoard = Object.freeze({
       "skillId": "r_controlled_vowels",
       "skillName": "R-Controlled Vowels",
       "standardVersion": "2026.07.24-a1.4",
-      "gateStatus": "READY",
-      "releaseReady": true,
-      "reasons": [],
+      "gateStatus": "BLOCKED",
+      "releaseReady": false,
+      "reasons": [
+        "Required media is missing or incorrectly wired."
+      ],
       "owner": "Phonics curriculum + media QA",
       "authoredQuestions": 128,
-      "approvedQuestions": 128,
-      "releaseEligibleQuestions": 128,
+      "approvedQuestions": 122,
+      "releaseEligibleQuestions": 122,
       "unapprovedAudioQuestions": 1,
       "missingRequiredImages": 0,
-      "missingRequiredAudio": 0,
+      "missingRequiredAudio": 6,
       "wiringDefects": 0,
       "studentExposure": {
-        "count": 128,
-        "fingerprint": "b36797e95bcb142268af848b5e46ad95bca0e32cfe79d64e5fd347d83e44d3d7",
-        "level1": 47,
-        "level2": 81
+        "count": 0,
+        "fingerprint": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "level1": 0,
+        "level2": 0
       },
       "waiver": {
         "entryCount": 1,
@@ -550,9 +554,9 @@ export const curriculumReleaseBoard = Object.freeze({
       "dimensions": {
         "questionCount": "pass",
         "balance": "pass",
-        "media": "pass",
+        "media": "fail",
         "accessibility": "pass",
-        "runtimeSelectability": "pass"
+        "runtimeSelectability": "blocked"
       }
     },
     {

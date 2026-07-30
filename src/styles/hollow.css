@@ -101,7 +101,7 @@
 }
 .hollow-stage > * { flex: 1; min-width: 0; }
 
-/* Panels (My Pal / Beasties / Market): parchment, fill the stage, internal
+/* Panels (My Guide / Beasties / Market): parchment, fill the stage, internal
    scroll only as a small-screen safety net. */
 .hollow-panel {
   display: flex;
@@ -374,6 +374,56 @@
 .hollow-gear.worn em { color: var(--hw-green); }
 .hollow-gear.preview { background: #FFFDF4; border-style: dashed; }
 
+.hollow-guide-kicker,
+.hollow-guide-balance,
+.hollow-guide-notice { margin: 0; font-weight: 800; }
+.hollow-guide-kicker { color: var(--hw-green); }
+.hollow-guide-balance { color: var(--hw-ink-soft); font-size: .82rem; }
+.hollow-change-guide {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--hw-green);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+.hollow-guide-notice { text-align: center; color: var(--hw-green); }
+.hollow-guide-picker {
+  position: absolute;
+  inset: 18px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--hw-line);
+  border-radius: 22px;
+  background: rgba(255, 251, 240, .98);
+  box-shadow: 0 24px 60px rgba(24, 18, 8, .34);
+}
+.hollow-guide-picker > header { display: flex; justify-content: space-between; gap: 20px; }
+.hollow-guide-picker h2, .hollow-guide-picker p { margin: 0; }
+.hollow-guide-picker > header > button {
+  width: 36px; height: 36px; border: 0; border-radius: 50%; background: #efe5d1;
+  color: var(--hw-ink); font-size: 1.4rem; cursor: pointer;
+}
+.hollow-guide-picker > div {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+.hollow-guide-picker > div > button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  min-width: 0; min-height: 0; padding: 10px; border: 2px solid var(--hw-line); border-radius: 16px;
+  background: #fff; color: var(--hw-ink); cursor: pointer;
+}
+.hollow-guide-picker > div > button.active { border-color: var(--hw-green); background: #eaf6ee; }
+.hollow-guide-picker img { width: min(100%, 120px); min-height: 0; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+.hollow-guide-picker span, .hollow-guide-picker em { font-size: .75rem; font-style: normal; text-align: center; }
+
 /* ── Beasties ── */
 .hollow-welcome-egg {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -389,6 +439,29 @@
 .hollow-beastie-grid {
   flex: 1; min-height: 0; align-content: start;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;
+}
+
+.hollow-beastie-nook {
+  position: absolute;
+  left: 70px;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: calc(100% - 260px);
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 16px;
+  background: rgba(18, 25, 32, .68);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.hollow-beastie-nook-label { font-size: .72rem; font-weight: 900; white-space: nowrap; }
+.hollow-beastie-nook-row { display: flex; gap: 6px; min-width: 0; }
+.hollow-beastie-nook-row button {
+  display: grid; justify-items: center; gap: 1px; width: 62px; padding: 2px;
+  border: 0; background: transparent; color: #fff; font-size: .62rem; font-weight: 900; cursor: pointer;
 }
 .hollow-beastie {
   position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -477,6 +550,58 @@
   background: #fff; font-weight: 700; font-size: 0.78rem; color: var(--hw-ink);
 }
 .hollow-earn-chip strong { display: inline-flex; align-items: center; gap: 3px; color: #855A0B; }
+.hollow-market-pages { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.hollow-market-pages button {
+  width: 34px; height: 28px; border: 0; border-radius: 999px;
+  background: var(--hw-night); color: #fff; font-weight: 900; cursor: pointer;
+}
+.hollow-market-pages button:disabled { opacity: .3; cursor: default; }
+.hollow-market-pages span { color: var(--hw-ink-soft); font-size: .78rem; font-weight: 900; }
+
+/* When the Hollow is hosted by the child glass shell, it becomes the shell's
+   bounded content instead of opening a second fixed viewport. */
+.kg-stage .hollow-page {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.kg-stage .hollow-topbar {
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 7px 14px;
+}
+.kg-stage .hollow-title { font-size: 1.15rem; }
+.kg-stage .hollow-tabs { flex-wrap: nowrap; gap: 6px; }
+.kg-stage .hollow-tab { padding: 7px 12px; font-size: .85rem; }
+.kg-stage .hollow-wallet-coins,
+.kg-stage .hollow-wallet-berries { padding: 5px 10px; font-size: .9rem; }
+.kg-stage .hollow-panel { position: relative; padding: 12px 16px; overflow: hidden; }
+.kg-stage .hollow-pal-row { flex-wrap: nowrap; }
+.kg-stage .hollow-pal-stage { flex-basis: 280px; padding: 10px; gap: 4px; }
+.kg-stage .hollow-pal-figure { width: min(205px, 31vh); }
+.kg-stage .hollow-gear-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+}
+.kg-stage .hollow-gear { min-height: 0; padding: 8px; }
+.kg-stage .hollow-beastie-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+}
+.kg-stage .hollow-beastie { min-height: 0; padding: 7px; }
+.kg-stage .hollow-shelf { overflow: hidden; }
+.kg-stage .hollow-market-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  height: 100%;
+}
+.kg-stage .hollow-ware { min-height: 0; padding: 8px; }
+.kg-stage .hollow-room-hint { left: auto; right: 86px; transform: none; }
 
 /* ── Hatch reveal ── */
 .hollow-hatch-overlay {

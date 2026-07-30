@@ -25,6 +25,7 @@ import { PhonicsLearnPage } from "./components/PhonicsLearnPage.jsx";
 import QuestRoot from "./components/quest/QuestRoot.jsx";
 import { StudentAdventureMapPage } from "./components/StudentAdventureMapPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
@@ -85,6 +86,21 @@ function ReadingLibrarySurface() {
   );
 }
 
+function PreviewShell({ active, children }) {
+  return (
+    <StudentGlassShell
+      active={active}
+      onGrownUps={() => markDestination("grown-ups")}
+      onHome={() => markDestination("student-home")}
+      onNavigate={markDestination}
+      scopeKey={PREVIEW_SCOPE}
+      studentName="Aaron"
+    >
+      {children}
+    </StudentGlassShell>
+  );
+}
+
 function Surface() {
   switch (SURFACE_ID) {
     case "student-login":
@@ -96,9 +112,9 @@ function Surface() {
         />
       );
     case "phonics":
-      return <PhonicsLearnPage initialIsland="letters" progressScopeKey={PREVIEW_SCOPE} />;
+      return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland="letters" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "arcade":
-      return <PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} />;
+      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     // Both of these are the phase-C front doors now, which is what a child
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.
@@ -133,11 +149,11 @@ function Surface() {
         />
       );
     case "story-quests":
-      return <LearnAreaPage progressScopeKey={PREVIEW_SCOPE} />;
+      return <PreviewShell active="stories"><div className="student-surface-frame student-surface-story"><LearnAreaPage progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "reading-library":
-      return <ReadingLibrarySurface />;
+      return <PreviewShell active="books"><ReadingLibrarySurface /></PreviewShell>;
     case "my-hollow":
-      return <HollowPage studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} />;
+      return <PreviewShell active="hollow"><div className="student-surface-frame student-surface-rewards"><HollowPage studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "student-home":
     default:
       return <StudentHomeSurface />;

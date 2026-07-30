@@ -10,14 +10,14 @@ import {
 } from "../../src/utils/guidedReading/decodingSupport.js";
 
 test("multi-sound words follow whole word, sounds, reread, then restart", () => {
-  const whole = getNextDecodingSupportStep({ word: "ship" });
-  const sounds = getNextDecodingSupportStep({ word: "ship", previousStage: whole.stage });
-  const reread = getNextDecodingSupportStep({ word: "ship", previousStage: sounds.stage });
-  const restart = getNextDecodingSupportStep({ word: "ship", previousStage: reread.stage });
+  const whole = getNextDecodingSupportStep({ word: "cat" });
+  const sounds = getNextDecodingSupportStep({ word: "cat", previousStage: whole.stage });
+  const reread = getNextDecodingSupportStep({ word: "cat", previousStage: sounds.stage });
+  const restart = getNextDecodingSupportStep({ word: "cat", previousStage: reread.stage });
 
   assert.equal(whole.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
   assert.equal(sounds.stage, DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES);
-  assert.deepEqual(sounds.segments, ["sh", "i", "p"]);
+  assert.deepEqual(sounds.segments, ["c", "a", "t"]);
   assert.equal(sounds.hasCompletePhonemeAudio, true);
   assert.equal(sounds.phonemeAudioPaths.length, 3);
   assert.ok(sounds.phonemeAudioPaths.every(path => path.startsWith("/audio/")));

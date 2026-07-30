@@ -2,6 +2,7 @@ import { Howl, Howler } from "howler";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+import { phonemeAudioCandidates } from "../data/phonemeAudioBank.js";
 
 // Only paths that really exist - the host serves the app shell for missing
 // files, which used to stall playback chains and leave games silent.
@@ -149,13 +150,7 @@ export async function speakPhoneme(letter, options = {}) {
   // short /a/ after a child catches "ai" teaches the wrong sound. Try every
   // recorded gold-voice grapheme folder, then stay silent if none exists.
   if (normalized.length > 1) {
-    const played = await playFirstAvailable([
-      `/audio/phonemes/${normalized}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/silent_e/${normalized}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/r_controlled/${normalized}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/vowel_teams/${normalized}.mp3`
-    ]);
+    const played = await playFirstAvailable(phonemeAudioCandidates(normalized));
     if (played) return;
     speakWithBrowser(normalized, options);
     return;
@@ -163,14 +158,7 @@ export async function speakPhoneme(letter, options = {}) {
 
   // Priority: clean pure-phoneme recordings (no letter names, no "short A"
   // labels) > legacy grapheme recordings. Missing clips stay silent.
-  const candidates = [];
-  if (VOWELS.has(normalizedLetter)) {
-    // No legacy fallback here: the old short-vowel recordings say the label
-    // "short A" instead of the sound, which teaches the wrong thing.
-    candidates.push(`/audio/phonemes/short_${normalizedLetter}.mp3`);
-  } else {
-    candidates.push(`/audio/phonemes/${normalizedLetter}.mp3`);
-  }
+  const candidates = phonemeAudioCandidates(normalizedLetter);
   if (cue?.src && !cue.src.startsWith("generated:")) {
     candidates.push(cue.src);
   }

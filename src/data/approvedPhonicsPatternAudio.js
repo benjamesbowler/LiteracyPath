@@ -275,13 +275,6 @@ export const approvedPhonicsPatternAudio = Object.freeze([
     audioPath: "/audio/production/en-US/pattern/nd-as-in-hand-3c5e09aa3b.mp3"
   },
   {
-    clipId: "lp_pattern_3f08d8864f",
-    pattern: "nk",
-    anchor: "pink",
-    phoneme: "/əŋk/",
-    audioPath: "/audio/production/en-US/pattern/nk-as-in-pink-3f08d8864f.mp3"
-  },
-  {
     clipId: "lp_pattern_93e741e5c5",
     pattern: "rk",
     anchor: "park",

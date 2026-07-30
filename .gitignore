@@ -15,6 +15,7 @@ node_modules
 .cache/
 playwright-report/
 test-results/
+outputs/
 docs/release/artifacts/
 dist
 dist-quest-offline

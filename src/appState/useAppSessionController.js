@@ -698,10 +698,14 @@ export function useAppSessionController(context) {
     const { parse } = await loadTeacherRouteRuntime();
     if (!isRestoreCurrent()) return;
     const teacherRoute = parse(window.location.hash);
+    const isFreshLoginRestore = freshLoginResetPendingRef.current;
     // Route hydration owns its class read. Starting a second, unawaited read
     // here made two valid restorations supersede one another; the older caller
     // then received an artificial empty list and rejected an owned deep link.
-    if (!teacherRoute) loadClasses();
+    // An explicit sign-in is different: it always begins at the class entry
+    // gate, so a stale route from the previous session must not restore a
+    // class before the teacher has chosen it.
+    if (!teacherRoute || isFreshLoginRestore) loadClasses();
 
     const saved = localStorage.getItem(restoreProfileStorageKey);
 
@@ -713,12 +717,18 @@ export function useAppSessionController(context) {
           ? teacherRoute.classId || null
           : savedClassId;
 
-        const isFreshLoginRestore = freshLoginResetPendingRef.current;
         if (isFreshLoginRestore) {
           freshLoginResetPendingRef.current = false;
           resetSelectedStudentOnLogin({ navigate: false });
           applyRestoredAppView(APP_VIEWS.SELECT);
           setSelectedClassId(null);
+          if (!isAdminRoutePath(window.location.pathname)) {
+            window.history.replaceState(
+              window.history.state,
+              "",
+              teacherIntentHash({ appView: APP_VIEWS.SELECT })
+            );
+          }
           setAssessmentMode("mastery");
           setCurrentSkillIndex(0);
           setRoundAnswers([]);
@@ -735,12 +745,6 @@ export function useAppSessionController(context) {
           setAnswerHistory([]);
           answerHistoryRef.current = [];
           setItemMastery({});
-          if (teacherRoute) {
-            await hydrateTeacherRouteContext(teacherRoute);
-            if (!isRestoreCurrent()) return;
-          } else {
-            loadStudents();
-          }
           if (!isRestoreCurrent()) return;
           profileLoadedTeacherIdRef.current = restoreTeacherId;
           setProfileLoaded(true);
@@ -895,7 +899,14 @@ export function useAppSessionController(context) {
       freshLoginResetPendingRef.current = false;
       resetSelectedStudentOnLogin({ navigate: false });
       applyRestoredAppView(APP_VIEWS.SELECT);
-      if (teacherRoute) {
+      if (isFreshLoginRestore && !isAdminRoutePath(window.location.pathname)) {
+        window.history.replaceState(
+          window.history.state,
+          "",
+          teacherIntentHash({ appView: APP_VIEWS.SELECT })
+        );
+      }
+      if (teacherRoute && !isFreshLoginRestore) {
         await hydrateTeacherRouteContext(teacherRoute);
         if (!isRestoreCurrent()) return;
       } else {

@@ -7,9 +7,8 @@ import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWordAudio.js";
-import { getApprovedPhonicsPatternAudioPath } from "../../data/approvedPhonicsPatternAudio.js";
+import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
 
-const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
 
 // Graphemes that make the SAME phoneme in this curriculum. A sound-based round
@@ -78,22 +77,7 @@ function firstExisting(paths) {
 // Spoken cue for a grapheme: pure phoneme recordings first, then the
 // grapheme bank (digraphs etc.), with the spelling text as speech fallback.
 export function graphemeAudioPath(spelling) {
-  const clean = String(spelling || "").toLowerCase();
-  if (!clean) return "";
-  const reviewedPatternAudio = getApprovedPhonicsPatternAudioPath(clean);
-  if (clean.length === 1 && VOWELS.has(clean)) {
-    return firstExisting([
-      reviewedPatternAudio,
-      `/audio/phonemes/short_${clean}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/short_vowels/short_${clean}.mp3`
-    ]);
-  }
-  return firstExisting([
-    reviewedPatternAudio,
-    `/audio/phonemes/${clean}.mp3`,
-    `/audio/child-mode/clean-human/graphemes/consonants/${clean}.mp3`,
-    `/audio/child-mode/clean-human/graphemes/digraphs_blends/${clean}.mp3`
-  ]);
+  return getPreferredPhonemeAudioPath(spelling);
 }
 
 export function wordAudioPath(word) {

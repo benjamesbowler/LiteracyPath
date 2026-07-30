@@ -45,33 +45,10 @@ test("reduced-choice mode keeps the three reading foundations plus the active pl
   assert.equal(selectStudentRailItems(nav).length, 7);
 });
 
-test("tap-to-hear uses one child-paced utterance with the exact destination label", () => {
-  const spoken = [];
-  let cancelled = 0;
-  class MockUtterance {
-    constructor(text) {
-      this.text = text;
-    }
-  }
-  const browser = {
-    SpeechSynthesisUtterance: MockUtterance,
-    speechSynthesis: {
-      cancel() {
-        cancelled += 1;
-      },
-      speak(utterance) {
-        spoken.push(utterance);
-      }
-    }
-  };
-
-  assert.equal(speakStudentRailLabel("Adventure Map", browser), true);
-  assert.equal(cancelled, 1);
-  assert.equal(spoken[0].text, "Adventure Map");
-  assert.equal(spoken[0].lang, "en-GB");
-  assert.equal(spoken[0].rate, 0.88);
-  assert.equal(speakStudentRailLabel("", browser), false);
-  assert.equal(speakStudentRailLabel("Books", {}), false);
+test("tap-to-hear never falls back to browser speech", () => {
+  assert.equal(speakStudentRailLabel("Adventure Map"), false);
+  assert.equal(speakStudentRailLabel("Books"), false);
+  assert.equal(speakStudentRailLabel(""), false);
 });
 
 test("teacher reduced-choice setting persists while child profile saves cannot overwrite it", async () => {

@@ -47,6 +47,7 @@ import {
   printTeacherDocument,
   TEACHER_PRINT_TARGETS
 } from "../utils/teacherPrintTarget.js";
+import { getPreferredPhonemeAudioPath } from "../data/phonemeAudioBank.js";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -85,21 +86,6 @@ function getApprovedAudioPath(_text = "", audioPath = "") {
   return audioPath || "";
 }
 
-const SHORT_VOWEL_AUDIO_PATHS = {
-  a: "/audio/student-mode/clean-human/graphemes/short_vowels/short_a.mp3",
-  e: "/audio/student-mode/clean-human/graphemes/short_vowels/short_e.mp3",
-  i: "/audio/student-mode/clean-human/graphemes/short_vowels/short_i.mp3",
-  o: "/audio/student-mode/clean-human/graphemes/short_vowels/short_o.mp3",
-  u: "/audio/student-mode/clean-human/graphemes/short_vowels/short_u.mp3"
-};
-
-const CONSONANT_AUDIO_PATHS = Object.fromEntries(
-  "bcdfghjklmnpqrstvwxyz".split("").map(letter => [
-    letter,
-    `/audio/student-mode/clean-human/graphemes/consonants/${letter}.mp3`
-  ])
-);
-
 function getShortVowelLetter(value = "") {
   return String(value || "")
     .trim()
@@ -109,15 +95,8 @@ function getShortVowelLetter(value = "") {
 
 function getPhonemeAudioPath(value = "", fallbackPath = "") {
   const shortVowel = getShortVowelLetter(value);
-  if (shortVowel) return SHORT_VOWEL_AUDIO_PATHS[shortVowel] || fallbackPath || "";
-
-  const normalized = String(value || "").trim().toLowerCase();
-  if (CONSONANT_AUDIO_PATHS[normalized]) return CONSONANT_AUDIO_PATHS[normalized];
-  if (/^(ch|ck|ff|ft|ll|mp|nd|ng|ph|sh|sk|ss|st|th|wh)$/.test(normalized)) {
-    return `/audio/student-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`;
-  }
-
-  return fallbackPath || "";
+  const normalized = shortVowel || String(value || "").trim().toLowerCase();
+  return getPreferredPhonemeAudioPath(normalized) || fallbackPath || "";
 }
 
 function normalizeSoundTile(tile) {

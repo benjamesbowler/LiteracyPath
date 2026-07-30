@@ -10,6 +10,7 @@ import {
 } from "../../src/components/elQuest/elQuestEngine.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { isKnownBadAudioPath, KNOWN_BAD_AUDIO_PATHS } from "../../src/data/knownBadWordAudio.js";
+import { DEFERRED_ATOMIC_SOUND_KEYS } from "../../src/data/phonemeAudioBank.js";
 
 const cycle1 = elSkillsBlockCycles.find(c => c.id === "cycle-1");
 
@@ -22,9 +23,10 @@ test("graphemeAudioPath never returns a blocklisted clip; resolves when unblocke
     // While the whole letter bank is blocked (awaiting the human re-record),
     // "" is the correct answer. The moment the blocklist is emptied after
     // import, every letter must resolve to a real mp3 again.
-    if (KNOWN_BAD_AUDIO_PATHS.size === 0) {
+    if (KNOWN_BAD_AUDIO_PATHS.size === 0 && !DEFERRED_ATOMIC_SOUND_KEYS.includes(g)) {
       assert.ok(path && path.endsWith(".mp3"), `expected an mp3 for "${g}" once unblocked, got "${path}"`);
     }
+    if (DEFERRED_ATOMIC_SOUND_KEYS.includes(g)) assert.equal(path, "");
   }
 });
 

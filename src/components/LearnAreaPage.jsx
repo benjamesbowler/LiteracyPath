@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import {
   isStoryQuestTeacherPreviewScope,
@@ -47,6 +47,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   const [activeQuestId, setActiveQuestId] = useState("");
   const [selectedQuestId, setSelectedQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
+  const [storyPage, setStoryPage] = useState(0);
   const [questProgress, setQuestProgress] = useState(() => (
     teacherPreview ? {} : loadStoryQuestProgress(progressScopeKey)
   ));
@@ -84,6 +85,14 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     })
     .slice(0, 3), [questProgress]);
   const selectedLevelQuests = questGroups.find(level => level.key === selectedLevelKey)?.quests || [];
+  const selectedLevel = questGroups.find(level => level.key === selectedLevelKey) || questGroups[0];
+  const storyPageSize = 6;
+  const storyPageCount = Math.max(1, Math.ceil(selectedLevelQuests.length / storyPageSize));
+  const safeStoryPage = Math.min(storyPage, storyPageCount - 1);
+  const visibleLevelQuests = selectedLevelQuests.slice(
+    safeStoryPage * storyPageSize,
+    (safeStoryPage + 1) * storyPageSize
+  );
   const primaryQuest = continueQuests[0]
     || selectedLevelQuests.find(quest => !questProgress[quest.id]?.completed)
     || selectedLevelQuests[0]
@@ -98,11 +107,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     activeQuest && !activeQuestProgress.completed
       ? activeQuestProgress
       : {};
-
-  useLayoutEffect(() => {
-    if (!activeQuestId || typeof window === "undefined") return;
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [activeQuestId]);
 
   useEffect(() => {
     if (teacherPreview) return;
@@ -136,9 +140,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   }, [activeQuestId, updateQuestProgress]);
 
   function startQuest(questId) {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }
     setSelectedQuestId(questId);
     updateQuestProgress(questId, {});
     setActiveQuestId(questId);
@@ -146,11 +147,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
   function jumpToLevel(levelKey) {
     setSelectedLevelKey(levelKey);
-    if (typeof document === "undefined") return;
-    document.getElementById(`story-quest-level-${levelKey}`)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+    setStoryPage(0);
   }
 
   if (activeQuest) {
@@ -257,18 +254,17 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
         <div className="story-quest-body" data-child-choices="">
         <div className="learn-story-level-list">
-          {questGroups.map(level => (
-            <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>
+            <section className="learn-story-level-section" id={`story-quest-level-${selectedLevel.key}`} key={selectedLevel.key}>
               <div className="learn-story-level-header">
                 <div>
-                  <h2>{level.heading}</h2>
-                  <p>{level.subheading}</p>
+                  <h2>{selectedLevel.heading}</h2>
+                  <p>{selectedLevel.subheading}</p>
                 </div>
-                <span>{level.quests.length} quest{level.quests.length === 1 ? "" : "s"}</span>
+                <span>{selectedLevel.quests.length} quest{selectedLevel.quests.length === 1 ? "" : "s"}</span>
               </div>
 
               <div className="learn-story-level-grid">
-                {level.quests.map(quest => {
+                {visibleLevelQuests.map(quest => {
                   const progress = questProgress[quest.id] || {};
                   const status = progress.completed
                     ? "Completed"
@@ -315,8 +311,14 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                   );
                 })}
               </div>
+              {storyPageCount > 1 && (
+                <nav className="story-quest-pages" aria-label={`Level ${selectedLevel.key} pages`}>
+                  <button type="button" disabled={safeStoryPage === 0} onClick={() => setStoryPage(page => Math.max(0, page - 1))}>← Previous</button>
+                  <span>{safeStoryPage + 1} of {storyPageCount}</span>
+                  <button type="button" disabled={safeStoryPage === storyPageCount - 1} onClick={() => setStoryPage(page => Math.min(storyPageCount - 1, page + 1))}>Next →</button>
+                </nav>
+              )}
             </section>
-          ))}
         </div>
         </div>
       </section>

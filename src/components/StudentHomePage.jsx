@@ -313,7 +313,7 @@ export function StudentHomePage({
   const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
-  const [pickingCompanion, setPickingCompanion] = useState(false);
+  const [guideChoiceReady, setGuideChoiceReady] = useState(() => Boolean(getCompanion(progressScopeKey)));
   const [speechStatus, setSpeechStatus] = useState("");
   // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
   // lands, treasury/ledger are empty and the wallet shows the welcome-gift
@@ -337,11 +337,22 @@ export function StudentHomePage({
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      setCompanionState(getCompanion(progressScopeKey));
+      setGuideChoiceReady(true);
       setHydrationTick(tick => tick + 1);
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
   }, [progressScopeKey]);
+
+  // A returning child's profile may arrive from the cloud after Home mounts.
+  // Waiting for that read prevents the first-choice panel flashing on every
+  // login. Offline/new children still reach it after a short bounded wait.
+  useEffect(() => {
+    if (companion || guideChoiceReady) return undefined;
+    const timer = window.setTimeout(() => setGuideChoiceReady(true), 3500);
+    return () => window.clearTimeout(timer);
+  }, [companion, guideChoiceReady]);
 
   useEffect(() => {
     const stepKind = status.uncelebratedStep;
@@ -558,9 +569,9 @@ export function StudentHomePage({
             className="kg-home-menu-item"
             type="button"
             role="menuitem"
-            onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}
+            onClick={() => { setAccountOpen(false); onOpenRewards?.(); }}
           >
-            <PersonIcon />Change companion
+            <PersonIcon />My Little Literacy Guide
           </button>
           <button
             className="kg-home-menu-item"
@@ -586,11 +597,11 @@ export function StudentHomePage({
         </div>
       )}
 
-      {(pickingCompanion || !companion) && (
-        <div className="companion-picker" role="dialog" aria-label="Choose your companion">
+      {guideChoiceReady && !companion && (
+        <div className="companion-picker" role="dialog" aria-label="Choose your Little Literacy Guide">
           <div className="companion-picker-card">
-            <h2>{companion ? "Change your companion" : "Choose your companion!"}</h2>
-            <p>Your companion learns with you every day.</p>
+            <h2>Choose your Little Literacy Guide</h2>
+            <p>Pick a character from one of your books. Your guide stays with you every day.</p>
             <div className="companion-grid">
               {COMPANIONS.map(item => (
                 <button
@@ -600,7 +611,6 @@ export function StudentHomePage({
                   onClick={() => {
                     setCompanion(progressScopeKey, item.id);
                     setCompanionState(item);
-                    setPickingCompanion(false);
                   }}
                 >
                   <img src={item.image} alt="" loading="lazy" onError={placeholderOnError} />
@@ -609,11 +619,6 @@ export function StudentHomePage({
                 </button>
               ))}
             </div>
-            {companion && (
-              <button className="text-button" type="button" onClick={() => setPickingCompanion(false)}>
-                Keep {companion.name}
-              </button>
-            )}
           </div>
         </div>
       )}
@@ -738,8 +743,16 @@ export function StudentHomePage({
                 </button>
               </div>
             </div>
-            <span className="kg-sprite kg-home-hero-pal" aria-hidden="true">
-              <img className="kg-bob" src={world.point} alt="" onError={hideOnError} />
+            <span className="kg-home-guide" aria-label={companion ? `${companion.name}, your Little Literacy Guide` : "Choose your Little Literacy Guide"}>
+              <span className="kg-home-guide-photo">
+                {companion
+                  ? <img src={companion.image} alt="" onError={hideOnError} />
+                  : <PersonIcon />}
+              </span>
+              <span className="kg-home-guide-name kg-glass-dark">
+                <small>My Little Literacy Guide</small>
+                <strong>{companion?.name || "Choose a guide"}</strong>
+              </span>
             </span>
           </div>
         </section>

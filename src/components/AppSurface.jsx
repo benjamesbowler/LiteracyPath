@@ -549,7 +549,14 @@ export function AppSurface({ surface }) {
   const effectiveAssessmentFullscreen = isFocusedAssessment && assessmentFullscreen;
   const isStudentMode = sessionMode === "student";
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
-  const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isStudentSurfaceView && learnFullscreen);
+  const isTeacherClassEntry = !isStudentMode
+    && !selectedClassId
+    && [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD].includes(appView);
+  const isFocusedShell = isStudentMode
+    || isTeacherClassEntry
+    || appView === APP_VIEWS.STUDENT_LOGIN
+    || isFocusedAssessment
+    || (isStudentSurfaceView && learnFullscreen);
   // A teacher previewing a student surface (Student Page, Guided Reading, Story
   // Quests, Phonics, Adventure, Hollow) needs the student-facing CSS scope so the
   // images/logos are constrained — without it they render at natural size and
@@ -577,6 +584,7 @@ export function AppSurface({ surface }) {
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
     appView === APP_VIEWS.EL_BENCHMARK ? "el-benchmark-app" : "",
     appView === APP_VIEWS.STUDENT_LOGIN ? "student-login-app-shell" : "",
+    isTeacherClassEntry ? "teacher-class-entry-app no-sidebar" : "",
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
@@ -747,16 +755,11 @@ export function AppSurface({ surface }) {
     if (!STUDENT_TAB_BAR.some(tab => tab.id === tabId)) return;
     studentTabActions[tabId]?.();
   };
-  // Wraps a menu sub-page in the child shell (fixed 1194x834 stage, glass
-  // header, five-tab bottom bar). Fullscreen mode still strips it — a student
-  // who asked for fullscreen asked for the content, not the menu.
-  //
-  // contentScrolls: these screens predate the fixed canvas and were written to
-  // own a scrolling viewport. Clipping them to 664px of content height would
-  // DELETE their lower half rather than restyle it, so they scroll inside the
-  // content area until their own phase rebuilds them to the canvas.
-  const withStudentRail = (activeId, content) => {
-    if (!isStudentMode || studentArcadeOpen || learnFullscreen) return content;
+  // Child routes share one fluid, viewport-sized stage. Scrolling is an
+  // explicit exception rather than the legacy default: the child experience
+  // must fit the screen at laptop and tablet sizes.
+  const withStudentRail = (activeId, content, { contentScrolls = false } = {}) => {
+    if (!isStudentMode || learnFullscreen) return content;
     return (
       <StudentGlassShell
         studentName={studentName}
@@ -768,7 +771,7 @@ export function AppSurface({ surface }) {
         // page. Sending a grown-up there is deliberate: a one-tap sign-out in
         // the header of every screen is a button a five-year-old will press.
         onGrownUps={goStudentHome}
-        contentScrolls
+        contentScrolls={contentScrolls}
       >
         {content}
       </StudentGlassShell>
@@ -817,7 +820,10 @@ export function AppSurface({ surface }) {
           studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
           cycleId={teacherCycleId}
           onChangeCycle={changeTeacherCycle}
-          onChangeClass={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
+          onChangeClass={() => {
+            selectTeacherClass("");
+            goToTeacherIntent(APP_VIEWS.SELECT);
+          }}
           onPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
           onAssess={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
         />
@@ -913,15 +919,16 @@ export function AppSurface({ surface }) {
 
       {appView === APP_VIEWS.STUDENT_REWARDS && nameSaved && (
         <PageBoundary resetKey={`student-rewards-${studentId}`}>
-          <div className="student-surface-frame student-surface-rewards">
-            {renderLearnFullscreenButton()}
-            <Suspense fallback={<LazyPageFallback label="Loading your Hollow..." />}>
-              <HollowPage
-                studentName={studentName}
-                progressScopeKey={childProgressScopeKey}
-              />
-            </Suspense>
-          </div>
+          {withStudentRail("hollow", (
+            <div className="student-surface-frame student-surface-rewards">
+              <Suspense fallback={<LazyPageFallback label="Loading your Hollow..." />}>
+                <HollowPage
+                  studentName={studentName}
+                  progressScopeKey={childProgressScopeKey}
+                />
+              </Suspense>
+            </div>
+          ))}
         </PageBoundary>
       )}
 
@@ -1023,6 +1030,9 @@ export function AppSurface({ surface }) {
               loadingClasses={loadingClasses}
               loadClasses={loadClasses}
               selectedClassId={selectedClassId}
+              createClass={createClass}
+              newClassName={newClassName}
+              setNewClassName={setNewClassName}
               studentList={studentList}
               studentListReadState={studentListReadState}
               loadingStudents={loadingStudents}
@@ -1030,6 +1040,7 @@ export function AppSurface({ surface }) {
               loadClassDashboard={loadClassDashboard}
               classDashboard={classDashboard}
               classDashboardReadState={classDashboardReadState}
+              onSelectClass={selectTeacherClass}
               onLoadStudent={async (id, name) => {
                 const loadPromise = loadSelectedClassStudent(id, name);
                 if (!selectedClassStudent(id)) return;

@@ -466,6 +466,20 @@ function getGuidedReadingLevelBooks(type, level) {
   );
 }
 
+function getGuidedReadingSeries(type) {
+  const normalizedType = normalizeGuidedReadingType(type);
+  const groups = new Map();
+  getRuntimeGuidedReadingBooks()
+    .filter(book => normalizeGuidedReadingType(book.type) === normalizedType)
+    .forEach(book => {
+      const id = book.seriesId || `${normalizedType}-more`;
+      const title = book.seriesTitle || (normalizedType === "fiction" ? "More stories" : "More non-fiction");
+      if (!groups.has(id)) groups.set(id, { id, title, books: [] });
+      groups.get(id).books.push(book);
+    });
+  return [...groups.values()];
+}
+
 export function GuidedReadingPage({
   initialBookId = "",
   studentId,
@@ -483,6 +497,8 @@ export function GuidedReadingPage({
   const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
+  const [selectedLibrarySeries, setSelectedLibrarySeries] = useState("");
+  const [libraryPage, setLibraryPage] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
@@ -1676,17 +1692,28 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && (selectedLibraryType || selectedLibraryLevel) && (
+      {!readerOpen && (selectedLibraryType || selectedLibraryLevel || selectedLibrarySeries) && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
         {selectedLibraryType && (
           <>
             <button
-              className={!selectedLibraryLevel ? "active" : ""}
-              onClick={() => setSelectedLibraryLevel("")}
+              className={!selectedLibraryLevel && !selectedLibrarySeries ? "active" : ""}
+              onClick={() => {
+                setSelectedLibraryType("");
+                setSelectedLibraryLevel("");
+                setSelectedLibrarySeries("");
+                setLibraryPage(0);
+              }}
               type="button"
             >
               {formatGuidedReadingType(selectedLibraryType)}
             </button>
+          </>
+        )}
+        {selectedLibrarySeries && (
+          <>
+            <span>/</span>
+            <strong>{getGuidedReadingSeries(selectedLibraryType).find(item => item.id === selectedLibrarySeries)?.title}</strong>
           </>
         )}
         {selectedLibraryLevel && (
@@ -1698,7 +1725,7 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && completedLibraryBooks.length > 0 && (
+      {!readerOpen && !isStudentMode && completedLibraryBooks.length > 0 && (
         <section className="guided-completed-strip" aria-label="Books already read">
           <span>Already read</span>
           <div>
@@ -1717,131 +1744,123 @@ export function GuidedReadingPage({
           <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
         )}
         {isStudentMode && (() => {
-          const shelfBooks = getRuntimeGuidedReadingBooks();
-          const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
-          const shelfLevels = [...new Set(shelfBooks.map(book => book.level).filter(Boolean))].sort();
-          const continueBooks = shelfBooks.filter(book => { const p = prog(book); return !p.completed && (p.completedPages > 0 || p.lastReadAt); }).slice(0, 6);
           const booksRead = countBooksRead(guidedReadingRecords);
-          const goalTarget = [5, 10, 20, 30, 50, 75, 100].find(target => booksRead < target) || (Math.floor(booksRead / 50) * 50 + 50);
-          const goalRemaining = Math.max(0, goalTarget - booksRead);
-          const goalPercent = Math.max(0, Math.min(100, Math.round((booksRead / goalTarget) * 100)));
-          const alreadyRead = shelfBooks.filter(book => prog(book).completed).slice(0, 12);
-          const filteredBooks = selectedLibraryLevel ? shelfBooks.filter(book => book.level === selectedLibraryLevel) : null;
-          const primaryPlacement = selectedLibraryLevel
-            ? "filtered"
-            : continueBooks.length
-              ? "continue"
-              : recommendedBooks.length
-                ? "recommended"
-                : alreadyRead.length
-                  ? "already"
-                  : "all";
-          const primaryBook = primaryPlacement === "filtered"
-            ? filteredBooks?.[0]
-            : primaryPlacement === "continue"
-              ? continueBooks[0]
-              : primaryPlacement === "recommended"
-                ? recommendedBooks[0]?.book
-                : primaryPlacement === "already"
-                  ? alreadyRead[0]
-                  : shelfBooks[0];
-          const renderCard = (book, placement) => {
-            const isPrimary = placement === primaryPlacement && book.id === primaryBook?.id;
-            return (
-            <button
-              className={`guided-shelf-card${isPrimary ? " is-primary" : ""}`}
-              key={book.id}
-              type="button"
-              onClick={() => changeBook(book.id)}
-              data-child-primary={isPrimary ? "" : undefined}
-              data-child-emphasis={isPrimary ? "primary" : "choice"}
-            >
-              <span className="guided-shelf-card-cover"><GuidedBookCover book={book} /></span>
-              <span className="guided-shelf-card-tag">Level {book.level}</span>
-              <span className="guided-shelf-card-title">{book.title}</span>
-              {isPrimary && <span className="guided-shelf-card-next" data-child-emphasis-cue="">{prog(book).completed ? "Read again" : prog(book).completedPages > 0 ? "Continue next" : "Start next"}</span>}
-              {isPrimary && (
-                <ChildRecommendationExplanation
-                  className="guided-shelf-card-reason"
-                  surface="guided-reading"
-                  reason={primaryPlacement === "continue"
-                    ? "You already started this book, so it is ready to continue."
-                    : primaryPlacement === "recommended"
-                      ? "This book matches what you are practising now."
-                      : primaryPlacement === "already"
-                        ? "You know this book, so it is a good one to read again."
-                        : "This is the first book in your chosen set."}
-                />
-              )}
-            </button>
-            );
+          const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+          const selectedSeries = getGuidedReadingSeries(selectedLibraryType)
+            .find(item => item.id === selectedLibrarySeries);
+          const orderedBooks = [...(selectedSeries?.books || [])].sort((a, b) => {
+            const aProgress = prog(a);
+            const bProgress = prog(b);
+            const rank = progress => progress.completed ? 2 : progress.completedPages > 0 ? 0 : 1;
+            return rank(aProgress) - rank(bProgress);
+          });
+          const pageSize = 8;
+          const pageCount = Math.max(1, Math.ceil(orderedBooks.length / pageSize));
+          const safePage = Math.min(libraryPage, pageCount - 1);
+          const visibleBooks = orderedBooks.slice(safePage * pageSize, (safePage + 1) * pageSize);
+          const seriesGroups = selectedLibraryType ? getGuidedReadingSeries(selectedLibraryType) : [];
+          const openType = type => {
+            setSelectedLibraryType(type);
+            setSelectedLibrarySeries("");
+            setLibraryPage(0);
           };
           return (
             <>
-            <div className="guided-library-header">
-              <div className="guided-child-library-heading">
-                <h1 className="guided-library-logo" data-child-title="">
-                  <span className="child-surface-title-text">Reading library</span>
-                  <img src="/images/comic/reading-library-logo.webp" alt="" />
-                </h1>
-                <p data-child-instruction="">Choose a book. Your best match is first.</p>
+              <div className="guided-library-header">
+                <div className="guided-child-library-heading">
+                  <h1 className="guided-library-logo" data-child-title="">
+                    <span className="child-surface-title-text">Reading library</span>
+                    <img src="/images/comic/reading-library-logo.webp" alt="" />
+                  </h1>
+                  <p data-child-instruction="">
+                    {!selectedLibraryType
+                      ? "Choose fiction or non-fiction."
+                      : !selectedLibrarySeries
+                        ? "Choose a series."
+                        : "Choose a book."}
+                  </p>
+                </div>
+                <div className="guided-library-progress" data-child-progress="">
+                  <strong>{booksRead}</strong><span>books read</span>
+                </div>
               </div>
-              <div className="guided-filter-chips" role="tablist" aria-label="Book levels">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={!selectedLibraryLevel}
-                  className={!selectedLibraryLevel ? "active" : ""}
-                  onClick={() => setSelectedLibraryLevel("")}
-                >
-                  All
-                </button>
-                {shelfLevels.map(level => (
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={selectedLibraryLevel === level}
-                    key={level}
-                    className={selectedLibraryLevel === level ? "active" : ""}
-                    onClick={() => setSelectedLibraryLevel(level)}
-                  >
-                    Level {level}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="guided-shelf-layout" data-child-choices="">
-              <div className="guided-shelf-main">
-                {filteredBooks ? (
-                  <div className="guided-shelf"><div className="guided-shelf-row wrap">{filteredBooks.map(book => renderCard(book, "filtered"))}</div></div>
-                ) : (
-                  <>
-                    {continueBooks.length > 0 && (
-                      <div className="guided-shelf"><h3 className="guided-shelf-head continue">Continue Reading</h3><div className="guided-shelf-row">{continueBooks.map(book => renderCard(book, "continue"))}</div></div>
-                    )}
-                    {recommendedBooks.length > 0 && (
-                      <div className="guided-shelf"><h3 className="guided-shelf-head recommend">Recommended</h3><div className="guided-shelf-row">{recommendedBooks.map(item => renderCard(item.book, "recommended"))}</div></div>
-                    )}
-                    {alreadyRead.length > 0 && (
-                      <div className="guided-shelf"><h3 className="guided-shelf-head already">Already Read</h3><div className="guided-shelf-row">{alreadyRead.map(book => renderCard(book, "already"))}</div></div>
-                    )}
-                    {continueBooks.length === 0 && recommendedBooks.length === 0 && alreadyRead.length === 0 && (
-                      <div className="guided-shelf"><h3 className="guided-shelf-head">Choose a book</h3><div className="guided-shelf-row">{shelfBooks.slice(0, 8).map(book => renderCard(book, "all"))}</div></div>
-                    )}
-                  </>
-                )}
-              </div>
-              <aside className="guided-goal-panel" aria-label="Reading goal" data-child-progress="">
-                <h3>Reading Goal</h3>
-                <div className="guided-goal-stat"><strong>{booksRead}</strong><span>of {goalTarget} books</span></div>
-                <div className="guided-goal-bar"><span style={{ width: `${goalPercent}%` }} /></div>
-                <p className="guided-goal-note">
-                  {goalRemaining > 0
-                    ? `Read ${goalRemaining} more to reach ${goalTarget}!`
-                    : "Goal complete — amazing reading!"}
-                </p>
-              </aside>
-            </div>
+
+              {!selectedLibraryType && (
+                <div className="guided-child-category-grid" data-child-choices="">
+                  {typeCards.map((card, index) => (
+                    <button
+                      key={card.type}
+                      type="button"
+                      className={`guided-child-category ${card.type}`}
+                      onClick={() => openType(card.type)}
+                      data-child-primary={index === 0 ? "" : undefined}
+                      data-child-emphasis={index === 0 ? "primary" : "choice"}
+                    >
+                      <span>{card.type === "fiction" ? "Story books" : "True books"}</span>
+                      <strong>{card.label}</strong>
+                      <em>{card.count} books · {getGuidedReadingSeries(card.type).length} groups</em>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {selectedLibraryType && !selectedLibrarySeries && (
+                <div className="guided-series-grid" data-child-choices="">
+                  {seriesGroups.map((series, index) => {
+                    const completed = series.books.filter(book => prog(book).completed).length;
+                    return (
+                      <button
+                        key={series.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedLibrarySeries(series.id);
+                          setLibraryPage(0);
+                        }}
+                        data-child-primary={index === 0 ? "" : undefined}
+                        data-child-emphasis={index === 0 ? "primary" : "choice"}
+                      >
+                        <span className="guided-series-cover"><GuidedBookCover book={series.books[0]} /></span>
+                        <span>
+                          <strong>{series.title}</strong>
+                          <em>{series.books.length} books</em>
+                          <small>{completed}/{series.books.length} read</small>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {selectedSeries && (
+                <>
+                  <div className="guided-child-book-grid" data-child-choices="">
+                    {visibleBooks.map((book, index) => {
+                      const progress = prog(book);
+                      return (
+                        <button
+                          key={book.id}
+                          type="button"
+                          onClick={() => changeBook(book.id)}
+                          data-child-primary={index === 0 ? "" : undefined}
+                          data-child-emphasis={index === 0 ? "primary" : "choice"}
+                        >
+                          {progress.completed && <span className="guided-child-read-tick" aria-label="Already read">✓</span>}
+                          <span className="guided-shelf-card-cover"><GuidedBookCover book={book} /></span>
+                          <strong>{book.title}</strong>
+                          <small>Level {book.level}{progress.completedPages > 0 && !progress.completed ? ` · ${progress.completedPages}/${book.pages.length} pages` : ""}</small>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {pageCount > 1 && (
+                    <nav className="guided-library-pages" aria-label={`${selectedSeries.title} pages`}>
+                      <button type="button" disabled={safePage === 0} onClick={() => setLibraryPage(page => Math.max(0, page - 1))}>← Previous</button>
+                      <span>{safePage + 1} of {pageCount}</span>
+                      <button type="button" disabled={safePage === pageCount - 1} onClick={() => setLibraryPage(page => Math.min(pageCount - 1, page + 1))}>Next →</button>
+                    </nav>
+                  )}
+                </>
+              )}
             </>
           );
         })()}

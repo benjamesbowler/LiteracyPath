@@ -172,10 +172,10 @@ export function PhonicsLearnTab({
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
-          <h1 data-child-title="">Letters, Sounds, Words</h1>
-          <p data-child-instruction="">{nextStepText}</p>
+          <h2>Letters, Sounds, Words</h2>
+          <p>{nextStepText}</p>
         </div>
-        <div className="phonics-practice-stats" aria-label="Quest totals" data-child-progress="">
+        <div className="phonics-practice-stats" aria-label="Quest totals">
           <span><strong>{completedLettersCount} of 26</strong> letters</span>
           <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>
         </div>

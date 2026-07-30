@@ -14,8 +14,11 @@ async function source(relativePath) {
 
 test("gold voice policy stays recorded-only across shared phonics and login audio", async () => {
   assert.equal(speakWithBrowser("never synthesize this"), false);
-  for (const digraph of ["sh", "ch", "th", "wh", "ck", "ng"]) {
+  for (const digraph of ["wh", "ck", "ng"]) {
     assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${digraph}.mp3`), true, `${digraph} needs recorded reinforcement`);
+  }
+  for (const deferred of ["sh", "ch", "th"]) {
+    assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${deferred}.mp3`), false, `${deferred} must not revive deleted audio`);
   }
   assert.equal(hasPhonicsAudioSource("/audio/ui/voice/great-job.mp3"), true);
   assert.equal(hasPhonicsAudioSource("/audio/child-mode/clean-human/phrases/tap.mp3"), true);
@@ -147,7 +150,8 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(safari, /fieldGuideReplayBox/);
   assert.match(safari, /speakPhoneme\(value\)/);
   assert.match(soundBeat, /\/audio\/child-mode\/clean-human\/phrases\/tap\.mp3/);
-  assert.match(learnGamesAudio, /graphemes\/vowel_teams\/\$\{normalized\}\.mp3/);
+  assert.match(learnGamesAudio, /phonemeAudioCandidates\(normalized\)/);
+  assert.doesNotMatch(learnGamesAudio, /clean-human\/graphemes/);
   assert.match(learnGamesAudio, /if \(played\) return;\s*speakWithBrowser\(normalized, options\);\s*return;/);
   assert.match(learnGamesAudio, /existingAudioPaths\(wordAudioCandidates\(slug\)\)\.length > 0/);
   assert.match(reward, /\/audio\/ui\/voice\/great-job\.mp3/);

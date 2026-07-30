@@ -5,6 +5,10 @@ import { kimiHighQualityMediaStyleAudioTasks } from "./generated/kimiHighQuality
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
 import { approvedPhonicsPatternAudio } from "./approvedPhonicsPatternAudio.js";
+import {
+  DEFERRED_ATOMIC_SOUND_KEYS,
+  getPreferredPhonemeAudioPath
+} from "./phonemeAudioBank.js";
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")
@@ -26,10 +30,6 @@ function phraseAudioPath(phrase) {
 
 function cleanHumanInstructionAudioPath(file) {
   return `/audio/child-mode/clean-human/instructions/${file}.mp3`;
-}
-
-function cleanHumanGraphemeAudioPath(group, file) {
-  return `/audio/child-mode/clean-human/graphemes/${group}/${file}.mp3`;
 }
 
 function cleanHumanMorphologyAudioPath(file) {
@@ -349,7 +349,9 @@ export const audioPreferenceManifest = Object.fromEntries([
       })
     ];
   }),
-  ...approvedLowerSkillGraphemeAudio.map(item => {
+  ...approvedLowerSkillGraphemeAudio
+    .filter(item => !DEFERRED_ATOMIC_SOUND_KEYS.includes(normalizeAudioPreferenceKey(item.key)))
+    .map(item => {
     const key = normalizeAudioPreferenceKey(item.key);
     return [
       key,
@@ -357,12 +359,12 @@ export const audioPreferenceManifest = Object.fromEntries([
         key,
         word: item.text,
         category: "graphemes",
-        fallbackPath: cleanHumanGraphemeAudioPath(item.group, item.file),
+        fallbackPath: getPreferredPhonemeAudioPath(item.key),
         source: "Kimi Agent Clean Child Audio Prompts",
         notes: "Approved clean lower-skill grapheme or sound option audio."
       })
     ];
-  }),
+    }),
   ...approvedPhonicsPatternAudio.map(item => {
     const key = normalizeAudioPreferenceKey(
       ["pattern", item.pattern, item.anchor].filter(Boolean).join(":")

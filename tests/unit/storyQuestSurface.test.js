@@ -250,7 +250,8 @@ test("Story Quest teacher-preview copy reports exposure, not mastery or future p
   assert.match(playerSource, /story words seen/);
   assert.match(learnAreaSource, /story words seen/);
   assert.match(playerSource, /<h1>\{quest\.title\}<\/h1>/);
-  assert.match(learnAreaSource, /<h2>\{level\.heading\}<\/h2>/);
+  assert.match(learnAreaSource, /<h2>\{selectedLevel\.heading\}<\/h2>/);
+  assert.match(learnAreaSource, /const visibleLevelQuests = selectedLevelQuests\.slice/);
   assert.match(learnAreaSource, /<button[\s\S]*?aria-label=\{`\$\{teacherPreview \? "Preview"/);
 });
 

@@ -127,18 +127,8 @@ export function selectStudentRailItems(
   return available.filter(item => reducedIds.has(item.id) || item.id === active);
 }
 
-export function speakStudentRailLabel(label, browser = globalThis) {
-  const text = String(label || "").trim();
-  const speech = browser?.speechSynthesis;
-  const Utterance = browser?.SpeechSynthesisUtterance;
-  if (!text || !speech?.speak || typeof Utterance !== "function") return false;
-
-  const utterance = new Utterance(text);
-  utterance.lang = "en-GB";
-  utterance.rate = 0.88;
-  utterance.pitch = 1;
-  utterance.volume = 0.9;
-  speech.cancel?.();
-  speech.speak(utterance);
-  return true;
+export function speakStudentRailLabel() {
+  // Browser speech was the final synthetic-voice escape hatch. It is
+  // deliberately disabled until each destination has a reviewed recording.
+  return false;
 }

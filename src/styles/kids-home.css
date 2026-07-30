@@ -115,28 +115,63 @@
   border-radius: 22px;
 }
 
-/* The companion. OUTER wrapper owns the layout, INNER <img> owns the bob —
-   kgBob animates transform and would silently overwrite any transform used
-   here (kids-glass.css, rule 3). Nothing on this wrapper may become a
-   transform. */
-.kg-stage .kg-home-hero-pal.kg-sprite {
-  position: static;
-  width: 250px;
-  height: 196px;
-  margin: 0;
+/* The child's saved book character, framed as a portrait because the source
+   art is intentionally a complete storybook plate rather than a transparent
+   cut-out. This replaces the world-dependent rabbit/mascot: Home now shows the
+   same Little Literacy Guide named in the header and dressed in My Hollow. */
+.kg-stage .kg-home-guide {
+  width: 226px;
   justify-self: end;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: #fff;
 }
 
-/* The pal is a cut-out standing IN the scene, so it gets the spec's sprite
-   drop-shadow (My Hollow uses the same technique on its decorations). Soft and
-   diffuse — the system has no hard offset shadows and must not gain one — but
-   without it the pal reads as pasted on rather than standing there. */
-.kg-stage .kg-home-hero-pal > img {
+.kg-stage .kg-home-guide-photo {
+  width: 156px;
+  height: 156px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  border-radius: 42px;
+  background: rgba(255, 250, 235, 0.92);
+  box-shadow:
+    0 18px 34px -18px rgba(16, 43, 36, 0.72),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+.kg-stage .kg-home-guide-photo img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
-  filter: drop-shadow(0 14px 16px rgba(20, 45, 38, 0.42));
+  display: block;
+  object-fit: cover;
+}
+
+.kg-stage .kg-home-guide-photo svg {
+  width: 68px;
+  height: 68px;
+}
+
+.kg-stage .kg-home-guide-name {
+  display: grid;
+  justify-items: center;
+  padding: 5px 13px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--kg-radius-chip);
+}
+
+.kg-stage .kg-home-guide-name small {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.kg-stage .kg-home-guide-name strong {
+  font-family: var(--kg-font-display);
+  font-size: 19px;
+  line-height: 1.05;
 }
 
 /* ── b. The rest of today ────────────────────────────────────────────────── */
