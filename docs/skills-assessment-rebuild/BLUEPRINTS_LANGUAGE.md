@@ -42,11 +42,11 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Units (word-shaped, curated).** L1 (9): `in on under behind next_to between in_front_of above below`… exactly the 9 concrete spatial words a K-1 child needs (drop the 55-key sprawl). L2 (7): `over through near opposite among around inside_outside_contrast`. Family **D-small**.
 
-**Formats.** L1: `PREPOSITION_SCENE_CHOICE` — ONE drawn scene, question about the relation ("Where is the cat? — in the box / on the box / under the box / behind the box"; options differ ONLY by preposition, `D-FUNCTION-SWAP` ×3 by construction). L2: `PREPOSITION_SENTENCE_FIT` (cloze with 4 prepositions) + `PREPOSITION_PRECISION` (two are spatially possible, one is exact — distractor note must defend why the key is uniquely right, C-1 pressure is highest here: no more `underneath` vs `under`).
+**Formats.** L1: `PREPOSITION_SCENE_CHOICE` — ONE drawn scene, question about the relation ("Where is the cat? — in the box / on the box / under the box / behind the box"; options differ ONLY by preposition, `D-FUNCTION-SWAP` ×3 by construction) + `PREPOSITION_TEXT_CHOICE` (class recognition "Which word says where?" and world-knowledge mini-frames; scene-less relations reuse the INVERSE of an existing scene — bird_above_tree answers "Where is the tree?" for below — so every relation gets real art with zero new assets). L2: `PREPOSITION_SENTENCE_FIT` (cloze with 4 prepositions) + `PREPOSITION_PRECISION` (two are spatially possible, one is exact — distractor note must defend why the key is uniquely right, C-1 pressure is highest here: no more `underneath` vs `under`).
 
 **Craft notes.** The 19 malformed "Choose the precise word means…" prompts die. `prepositionClozeScenes.js` scene inventory is reusable raw material. Every L1 item's four options are the same scene-relation family; a child who knows the WORD, not the picture convention, answers.
 
-**Bank.** L1: 9 × 3 = 27 + R 12; L2: 7 × 4 = 28 + R 12. Total 79.
+**Bank.** L1: 9 × 4 = 36; L2: 7 × 4 = 28; + R 12. Total 76. (4 variants/unit at both levels: the D-small mastery rule needs 4 attempts per unit, so 3 variants would force a repeat — same fix as final_sounds/blends.)
 
 ---
 

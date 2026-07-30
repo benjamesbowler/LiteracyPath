@@ -504,5 +504,47 @@ export const assessmentRebuildStatusBySkillId = {
   },
   "generatedAt": "2026-07-30T03:25:09.478Z",
   "commit": "5a174b72"
+ },
+ "adjectives": {
+  "skillId": "adjectives",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 60,
+   "level1": 24,
+   "level2": 24,
+   "retention": 12
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T03:48:37.472Z",
+  "commit": "5a174b72"
+ },
+ "prepositions_of_place": {
+  "skillId": "prepositions_of_place",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 76,
+   "level1": 36,
+   "level2": 28,
+   "retention": 12
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T03:49:35.334Z",
+  "commit": "5a174b72"
  }
 };

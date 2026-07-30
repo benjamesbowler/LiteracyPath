@@ -53,7 +53,9 @@ const V3_BANK_IMPORTS = {
   hfw_51_75: () => import("./banks/hfw_51_75.v3.generated.js"),
   hfw_76_100: () => import("./banks/hfw_76_100.v3.generated.js"),
   nouns: () => import("./banks/nouns.v3.generated.js"),
-  verbs: () => import("./banks/verbs.v3.generated.js")
+  verbs: () => import("./banks/verbs.v3.generated.js"),
+  adjectives: () => import("./banks/adjectives.v3.generated.js"),
+  prepositions_of_place: () => import("./banks/prepositions_of_place.v3.generated.js")
 };
 
 const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];

@@ -191,7 +191,9 @@ export const sourceFileByBankName = {
   v3_hfw_51_75: "src/data/v3/banks/hfw_51_75.v3.generated.js",
   v3_hfw_76_100: "src/data/v3/banks/hfw_76_100.v3.generated.js",
   v3_nouns: "src/data/v3/banks/nouns.v3.generated.js",
-  v3_verbs: "src/data/v3/banks/verbs.v3.generated.js"
+  v3_verbs: "src/data/v3/banks/verbs.v3.generated.js",
+  v3_adjectives: "src/data/v3/banks/adjectives.v3.generated.js",
+  v3_prepositions_of_place: "src/data/v3/banks/prepositions_of_place.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(
