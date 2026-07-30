@@ -48,7 +48,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Formats.** Text tier: `BLEND_COMPLETE_WORD` (__og + image → bl/cl/fr/gr), `BLEND_IMAGE_CHOICE` (which picture starts with /bl/ — spoken-ready), new `BLEND_ODD_ONE_OUT` (L2: flag, flip, frog, fog — which does not start with a blend). Audio tier: segmentation (`BLEND_SOUNDS`) upgrades.
 
-**Bank.** L1: 12 × 3 = 36 + R 16. L2: 12 × 3 = 36 + R 16. Words: real, decodable, imageable (blue, clock, flag, plum, sled, brush, crab, drum, frog, green, star, swim seed L1 — extend in-lexicon).
+**Bank.** L1: 12 × 4 = 48 + R. L2: 12 × 4 = 48 + R. (4 variants per unit: D-small needs 4 no-repeat attempts — the digraphs/final_sounds arithmetic.) Words: real, decodable, imageable (blue, clock, flag, plum, sled, brush, crab, drum, frog, green, star, swim seed L1 — extend in-lexicon).
 
 **Distractors.** `D-ONSET` single-consonant reduction (fog for frog — THE blend error, mandatory), `D-PATTERN-TRAP` other blend sharing a letter (fl for fr), `D-RIME-NEAR`.
 

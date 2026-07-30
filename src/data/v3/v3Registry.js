@@ -43,7 +43,9 @@ const V3_BANK_IMPORTS = {
   initial_sounds: () => import("./banks/initial_sounds.v3.generated.js"),
   final_sounds: () => import("./banks/final_sounds.v3.generated.js"),
   rhyming: () => import("./banks/rhyming.v3.generated.js"),
-  cvc_short_vowels: () => import("./banks/cvc_short_vowels.v3.generated.js")
+  cvc_short_vowels: () => import("./banks/cvc_short_vowels.v3.generated.js"),
+  short_vowel_discrimination: () => import("./banks/short_vowel_discrimination.v3.generated.js"),
+  blends: () => import("./banks/blends.v3.generated.js")
 };
 
 const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];

@@ -1,7 +1,44 @@
 {
- "generatedAt": "2026-07-29T23:37:48.830Z",
+ "generatedAt": "2026-07-30T00:03:32.323Z",
  "commit": "06531805",
  "results": [
+  {
+   "skillId": "blends",
+   "counts": {
+    "total": 106,
+    "level1": 48,
+    "level2": 48,
+    "retention": 10
+   },
+   "gates": {
+    "G1_structure": true,
+    "G2_originality": true,
+    "G3_answer_integrity": true,
+    "G4_mastery_logic": true,
+    "G5_no_repeats": true,
+    "G7_human_signoff": "pending-ben"
+   },
+   "detail": {
+    "lint": [],
+    "sims": {
+     "pass": {
+      "status": "secure",
+      "sittings": 10,
+      "repeats": 0
+     },
+     "guess": {
+      "trials": 300,
+      "passes": 0
+     },
+     "scanner": {
+      "finalStatus": "in_progress",
+      "leakyItems": 0,
+      "leakShare": 0
+     }
+    }
+   },
+   "ready": true
+  },
   {
    "skillId": "cause_effect",
    "counts": {
@@ -478,6 +515,43 @@
       "finalStatus": "in_progress",
       "leakyItems": 9,
       "leakShare": 0.140625
+     }
+    }
+   },
+   "ready": true
+  },
+  {
+   "skillId": "short_vowel_discrimination",
+   "counts": {
+    "total": 70,
+    "level1": 30,
+    "level2": 30,
+    "retention": 10
+   },
+   "gates": {
+    "G1_structure": true,
+    "G2_originality": true,
+    "G3_answer_integrity": true,
+    "G4_mastery_logic": true,
+    "G5_no_repeats": true,
+    "G7_human_signoff": "pending-ben"
+   },
+   "detail": {
+    "lint": [],
+    "sims": {
+     "pass": {
+      "status": "secure",
+      "sittings": 4,
+      "repeats": 0
+     },
+     "guess": {
+      "trials": 300,
+      "passes": 0
+     },
+     "scanner": {
+      "finalStatus": "in_progress",
+      "leakyItems": 0,
+      "leakShare": 0
      }
     }
    },

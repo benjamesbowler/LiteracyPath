@@ -212,7 +212,9 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       1: ["BLEND_IMAGE_CHOICE", "BLEND_COMPLETE_WORD", "MPD"],
       2: ["BLEND_COMPLETE_WORD", "MPD"]
     },
-    variantsPerUnit: { 1: 3, 2: 3 },
+    // 4 variants (not 3): same D-small no-repeat arithmetic as final_sounds
+    // and digraphs — 4 attempts over a 3-item pool forces a repeat.
+    variantsPerUnit: { 1: 4, 2: 4 },
     passBudgetSittings: 5
   }),
   bp("digraphs", {

@@ -68,7 +68,11 @@ export function optionSetSignature(item) {
   return (item.choices || []).map(c => norm(c.text ?? c)).sort().join("|");
 }
 export function promptAnswerSignature(item) {
-  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.answer)}`;
+  // targetWord distinguishes image-pinned items whose printed prompt is
+  // deliberately generic (LISTEN_CHOOSE_VOWEL never prints the word): two
+  // items with the same prompt and answer but different pictured targets are
+  // different questions, not duplicates.
+  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}`;
 }
 
 // ---------------------------------------------------------------------------
