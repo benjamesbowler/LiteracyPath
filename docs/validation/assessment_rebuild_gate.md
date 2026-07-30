@@ -1,4 +1,4 @@
-# Assessment rebuild gate — 2026-07-30T00:03:32.323Z @ 06531805
+# Assessment rebuild gate — 2026-07-30T00:29:36.625Z @ 06531805
 
 | Skill | Ready | G1 | G2 | G3 | G4 | G5 | Items | Sittings to Secure |
 |---|---|---|---|---|---|---|---|---|
@@ -13,10 +13,12 @@
 | key_details | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 71 | 4 |
 | long_vowels_silent_e | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 68 | 5 |
 | main_idea | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 4 |
+| r_controlled_vowels | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 70 | 5 |
 | rhyming | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 145 | 12 |
 | sentence_comprehension | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 72 | 4 |
 | sequencing | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 4 |
 | short_vowel_discrimination | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 70 | 4 |
 | theme_higher_comprehension | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 4 |
+| vowel_teams | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 90 | 5 |
 
 G7 human sign-off: pending Ben on every skill until recorded in item provenance.

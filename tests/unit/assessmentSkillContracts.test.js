@@ -62,9 +62,11 @@ test("published digraph and vowel-team regression items contain no blocked effec
     assert.equal(isQuestionBlockedByMediaQa(question), false, `digraphs:${question.id}`);
   }
 
-  // vowel_teams is still on the legacy bank until its rebuild wave lands.
-  const vowelTeamQuestion = (await loadAssessmentSkillBank("vowel_teams"))
-    .find(item => item.id === "vowel_teams_l2_variety_06_igh_light");
-  assert.ok(vowelTeamQuestion, "vowel_teams:vowel_teams_l2_variety_06_igh_light");
-  assert.equal(isQuestionBlockedByMediaQa(vowelTeamQuestion), false, "vowel_teams legacy regression item");
+  // vowel_teams ships the v3 rebuild bank too (wave W6) — assert the media
+  // guarantee over EVERY published vowel_teams item, mirroring digraphs.
+  const vowelTeamQuestions = await loadAssessmentSkillBank("vowel_teams");
+  assert.ok(vowelTeamQuestions.length >= 60, "vowel_teams published bank present");
+  for (const question of vowelTeamQuestions) {
+    assert.equal(isQuestionBlockedByMediaQa(question), false, `vowel_teams:${question.id}`);
+  }
 });
