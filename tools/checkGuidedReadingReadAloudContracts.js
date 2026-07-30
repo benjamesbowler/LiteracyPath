@@ -21,6 +21,10 @@ const bookWithFullAudio = {
   ...bookWithPageAudio,
   fullBookAudio: "/guided-reading/sample/full-book.mp3"
 };
+const bookWithProductionFullAudio = {
+  ...bookWithPageAudio,
+  fullBookAudio: "/audio/production/en-US/guided_page/sample-full-book.mp3"
+};
 
 if (guidedReadingReadAloudPolicy.independent_reading_hidden !== false) {
   failures.push("Independent reading should not enable read-aloud by default.");
@@ -37,8 +41,14 @@ if (getGuidedReadingReadAloudState(bookWithPageAudio, bookWithPageAudio.pages[0]
 if (getGuidedReadingPageAudioPath(bookWithPageAudio.pages[0]) !== "/guided-reading/sample/page-001.mp3") {
   failures.push("Page audio path resolver failed.");
 }
-if (getGuidedReadingBookAudioPath(bookWithFullAudio) !== "/guided-reading/sample/full-book.mp3") {
-  failures.push("Book audio path resolver failed.");
+if (getGuidedReadingBookAudioPath(bookWithFullAudio) !== "") {
+  failures.push("Deleted legacy full-book audio should not override replacement page narration.");
+}
+if (
+  getGuidedReadingBookAudioPath(bookWithProductionFullAudio)
+  !== "/audio/production/en-US/guided_page/sample-full-book.mp3"
+) {
+  failures.push("Current production book audio path resolver failed.");
 }
 
 if (failures.length) {

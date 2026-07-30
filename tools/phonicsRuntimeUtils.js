@@ -60,6 +60,7 @@ import {
   getRuntimeSourceIssues,
   sourceFileByBankName
 } from "../src/data/sourceOfTruthRegistry.js";
+import { getV3RuntimeEligibilityIssues } from "../src/data/v3/v3Registry.js";
 import { getHfwRuntimeEligibilityIssues, isRuntimeEligibleHfwQuestion } from "../src/data/hfwRuntimeEligibility.js";
 import {
   getBlendsRuntimeEligibilityIssues,
@@ -82,6 +83,10 @@ import {
   isRuntimeEligibleEarlySkillQuestion,
   normalizeEarlySkillId
 } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+import {
+  getPublishedV3SkillIds,
+  loadPublishedV3QuestionPool
+} from "./v3AssessmentQuestionPool.js";
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -337,6 +342,8 @@ function keepRuntimeQuestion(question = {}) {
   if (isAssessmentMediaReleaseExcluded(question.id)) return false;
   if (getRuntimeSourceIssues(question).length > 0) return false;
   const skillId = getCanonicalAssessmentSkillId(question);
+  const v3Issues = getV3RuntimeEligibilityIssues(question, skillId);
+  if (v3Issues) return v3Issues.length === 0;
   if (!isLevelOneContentQualityAllowed(question)) return false;
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
   return question._source === "skillLevelGapQuestions" ||
@@ -523,7 +530,8 @@ function applyAssessmentPhaseMetadata(questions = []) {
 }
 
 export function loadCoreQuestionPool() {
-  const pool = questionBanks.flatMap(([source, bank]) =>
+  const publishedV3SkillIds = new Set(getPublishedV3SkillIds());
+  const legacyPool = questionBanks.flatMap(([source, bank]) =>
     bank.map((question, index) => ({
       ...enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
       _source: source,
@@ -531,6 +539,35 @@ export function loadCoreQuestionPool() {
       _sourceIndex: index
     }))
   );
+  const pool = [
+    ...legacyPool.filter(question => {
+      const skillId = String(question.assessmentSkillId || getCoreSkillId(question) || "");
+      const normalizedSkillId = ({
+        long_vowels: "long_vowels_silent_e",
+        r_controlled: "r_controlled_vowels",
+        prepositions: "prepositions_of_place",
+        prefix_suffix: "prefixes_suffixes",
+        homophones: "homophones_homonyms",
+        theme: "theme_higher_comprehension"
+      })[skillId] || skillId;
+      return !publishedV3SkillIds.has(normalizedSkillId);
+    }),
+    ...loadPublishedV3QuestionPool().map(question => {
+      const enriched = enrichQuestionWithExistingMedia(
+        enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+      );
+      if (enriched.v3AuthoredMedia && !enriched.v3AuthoredMedia.target) {
+        const withoutUnapprovedTargetImage = { ...enriched };
+        delete withoutUnapprovedTargetImage.imagePath;
+        delete withoutUnapprovedTargetImage.imageUrl;
+        delete withoutUnapprovedTargetImage.targetImage;
+        delete withoutUnapprovedTargetImage.targetImagePath;
+        delete withoutUnapprovedTargetImage.image;
+        return withoutUnapprovedTargetImage;
+      }
+      return enriched;
+    })
+  ];
   return applyAssessmentPhaseMetadata(pool).filter(keepRuntimeQuestion);
 }
 
@@ -596,6 +633,11 @@ export function questionFilterReason(question = {}) {
   const sourceIssues = getRuntimeSourceIssues(question);
   if (sourceIssues.length) return `source not approved: ${sourceIssues.join("; ")}`;
   const skillId = getCoreSkillId(question);
+  const assessmentSkillId = String(question.assessmentSkillId || skillId || "");
+  const v3Issues = getV3RuntimeEligibilityIssues(question, assessmentSkillId);
+  if (v3Issues) {
+    return v3Issues.length ? `v3 runtime ineligible: ${v3Issues.join("; ")}` : "";
+  }
   if (skillId) {
     const routeIssue = getQuestionRoutingIssue(question, skillId);
     if (routeIssue) return `wrong skill/template: ${routeIssue}`;

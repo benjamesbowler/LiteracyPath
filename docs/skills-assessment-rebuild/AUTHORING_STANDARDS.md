@@ -64,6 +64,16 @@ Verified context for why these exist: in the current published bank, Main Idea's
 ## 3. Correctness rules (one defensible key)
 
 - **C-1** The key must be uniquely correct under a literal reading. Adversarial check at review: try to argue each distractor as correct; any semi-defensible distractor is replaced. (Current counter-example, Prepositions: `underneath` keyed against distractor `under` for "directly under something" — indefensible.)
+- **C-1a Child interpretation wins.** A distinction that is technically
+  recoverable by an adult is still ambiguous if a five- or six-year-old can
+  answer the printed or spoken wording literally. Never put bare `d` beside
+  `nd`, one `l` beside `ll`, or a second noun/preposition that truthfully fits
+  the scene or sentence. Scanner resistance never outranks one defensible key.
+- **C-1b A grammatical sentence is not enough.** Cloze distractors may be
+  grammatical only when the surrounding words or required image make them
+  clearly false. Frames such as “Both ___ lost a tooth” cannot offer two
+  plausible plural people words; location frames cannot rely on an
+  unillustrated imagined scene.
 - **C-2** No construct leakage: an item may only require its own skill. Long Vowels items must not require vowel-team knowledge (the current L2 tests `ai/ay` inside "Long Vowels and Silent E" — moved to Vowel Teams by the blueprints); grammar items must not hinge on reading stamina; comprehension keys must not hinge on one vocabulary word unless the skill is Context Clues.
 - **C-3** Every phonics/word mapping is validated against a **human-approved pronunciation lexicon** (new file `content/lexicon/approvedPhonics.json`, seeded from the blueprint word lists, each entry `{word, pattern, dialectNote?}` reviewed by Ben once). Lint `L-LEX` fails any item whose target word→pattern mapping is not in the lexicon. This is what makes `apple → a_e`-class errors impossible to publish.
 - **C-4** Prompts pass a grammar/wording lint `L-GRAM`: article agreement ("a adjective" — 30 published Adjectives prompts currently fail this), no truncated frames ("Choose the precise word means…" — 19 published Prepositions prompts), no meta-language at L1 where the standards require child words ("which word names a thing", not "which word is a noun"), explicit ordinals for sequencing.

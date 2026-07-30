@@ -3201,15 +3201,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "___ I leave the table?",
-  "question": "___ I leave the table?",
-  "spokenPrompt": "Which word finishes the sentence? … I leave the table?",
-  "sentence": "___ I leave the table?",
+  "prompt": "There is a chance it ___ rain.",
+  "question": "There is a chance it ___ rain.",
+  "spokenPrompt": "Which word finishes the sentence? There is a chance it … rain.",
+  "sentence": "There is a chance it ___ rain.",
   "choices": [
    "may",
-   "can",
-   "do",
-   "will"
+   "did",
+   "has",
+   "was"
   ],
   "answerOptions": [
    {
@@ -3218,34 +3218,34 @@ export const questions = [
     "text": "may"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "did",
+    "label": "did",
+    "text": "did"
    },
    {
-    "value": "do",
-    "label": "do",
-    "text": "do"
+    "value": "has",
+    "label": "has",
+    "text": "has"
    },
    {
-    "value": "will",
-    "label": "will",
-    "text": "will"
+    "value": "was",
+    "label": "was",
+    "text": "was"
    }
   ],
   "answer": "may",
   "correctAnswer": "may",
   "distractorRationales": {
-   "will": "D-FUNCTION-SWAP",
-   "can": "D-FUNCTION-SWAP",
-   "do": "D-FUNCTION-SWAP"
+   "was": "D-FUNCTION-SWAP",
+   "did": "D-FUNCTION-SWAP",
+   "has": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "___ I leave the table?",
+  "sentenceText": "There is a chance it ___ rain.",
   "targetWord": "may",
   "v3AuthoredMedia": {
    "target": true,
@@ -3262,13 +3262,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "can is polite-form's rival — both parse, may is the asking word",
+  "notes": "chance pins may as possibility; the distractors do not complete the frame",
   "imagePath": "/images/assessment/hfw/may.webp",
   "imageUrl": "/images/assessment/hfw/may.webp",
   "targetImage": "/images/assessment/hfw/may.webp",
   "targetImagePath": "/images/assessment/hfw/may.webp",
   "resolvedImageAssetKey": "may",
-  "imageAlt": "may I leave the table?"
+  "imageAlt": "There is a chance it may rain."
  },
  {
   "id": "lp3.hfw_76_100.l1.B.may.v2",
@@ -3466,10 +3466,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "That bike is ___, not yours.",
-  "question": "That bike is ___, not yours.",
-  "spokenPrompt": "Which word finishes the sentence? That bike is …, not yours.",
-  "sentence": "That bike is ___, not yours.",
+  "prompt": "This is ___ bike, not yours.",
+  "question": "This is ___ bike, not yours.",
+  "spokenPrompt": "Which word finishes the sentence? This is … bike, not yours.",
+  "sentence": "This is ___ bike, not yours.",
   "choices": [
    "your",
    "my",
@@ -3510,7 +3510,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "That bike is ___, not yours.",
+  "sentenceText": "This is ___ bike, not yours.",
   "targetWord": "my",
   "v3AuthoredMedia": {
    "target": true,
@@ -3527,13 +3527,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "that bike is my — mine is the right form; the frame makes my the slip-key... my IS the key: 'my, not yours' parses as elliptical",
+  "notes": "my is the only possessive form that can sit before bike",
   "imagePath": "/images/assessment/hfw/my.webp",
   "imageUrl": "/images/assessment/hfw/my.webp",
   "targetImage": "/images/assessment/hfw/my.webp",
   "targetImagePath": "/images/assessment/hfw/my.webp",
   "resolvedImageAssetKey": "my",
-  "imageAlt": "That bike is my, not yours."
+  "imageAlt": "This is my bike, not yours."
  },
  {
   "id": "lp3.hfw_76_100.l1.B.my.v2",
@@ -6442,7 +6442,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "who/how — the doc's mutual-neighbour pair, both parse as questions",
+  "notes": "who asks for the person; how, what, and when ask for different information",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
   "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",

@@ -374,16 +374,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Two … sat on the wall.",
   "sentence": "Two ___ sat on the wall.",
   "choices": [
-   "hens",
+   "cup",
    "hen",
    "cats",
    "cat"
   ],
   "answerOptions": [
    {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    },
    {
     "value": "hen",
@@ -405,7 +405,7 @@ export const questions = [
   "correctAnswer": "cats",
   "distractorRationales": {
    "cat": "D-FUNCTION-SWAP",
-   "hens": "D-SEMANTIC",
+   "cup": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -463,7 +463,7 @@ export const questions = [
   "sentence": "The three ___ wag their tails.",
   "choices": [
    "dog",
-   "cups",
+   "hat",
    "cup",
    "dogs"
   ],
@@ -474,9 +474,9 @@ export const questions = [
     "text": "dog"
    },
    {
-    "value": "cups",
-    "label": "cups",
-    "text": "cups"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "cup",
@@ -494,7 +494,7 @@ export const questions = [
   "distractorRationales": {
    "cup": "D-SEMANTIC",
    "dog": "D-FUNCTION-SWAP",
-   "cups": "D-SEMANTIC"
+   "hat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -550,21 +550,21 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Both … lay open on the desk.",
   "sentence": "Both ___ lay open on the desk.",
   "choices": [
-   "hats",
    "hat",
+   "desk",
    "books",
    "book"
   ],
   "answerOptions": [
    {
-    "value": "hats",
-    "label": "hats",
-    "text": "hats"
-   },
-   {
     "value": "hat",
     "label": "hat",
     "text": "hat"
+   },
+   {
+    "value": "desk",
+    "label": "desk",
+    "text": "desk"
    },
    {
     "value": "books",
@@ -580,8 +580,8 @@ export const questions = [
   "answer": "books",
   "correctAnswer": "books",
   "distractorRationales": {
-   "hats": "D-SEMANTIC",
    "hat": "D-SEMANTIC",
+   "desk": "D-SEMANTIC",
    "book": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -639,7 +639,7 @@ export const questions = [
   "sentence": "Six ___ shine over the barn.",
   "choices": [
    "star",
-   "dogs",
+   "hat",
    "dog",
    "stars"
   ],
@@ -650,9 +650,9 @@ export const questions = [
     "text": "star"
    },
    {
-    "value": "dogs",
-    "label": "dogs",
-    "text": "dogs"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "dog",
@@ -668,7 +668,7 @@ export const questions = [
   "answer": "stars",
   "correctAnswer": "stars",
   "distractorRationales": {
-   "dogs": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "dog": "D-SEMANTIC",
    "star": "D-FUNCTION-SWAP"
   },
@@ -1074,16 +1074,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? I see one … by the door.",
   "sentence": "I see one ___ by the door.",
   "choices": [
-   "cup",
+   "hats",
    "hen",
    "hens",
    "cups"
   ],
   "answerOptions": [
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "hats",
+    "label": "hats",
+    "text": "hats"
    },
    {
     "value": "hen",
@@ -1105,7 +1105,7 @@ export const questions = [
   "correctAnswer": "hen",
   "distractorRationales": {
    "cups": "D-SEMANTIC",
-   "cup": "D-SEMANTIC",
+   "hats": "D-SEMANTIC",
    "hens": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -1165,7 +1165,7 @@ export const questions = [
    "book",
    "stars",
    "star",
-   "books"
+   "hat"
   ],
   "answerOptions": [
    {
@@ -1184,16 +1184,16 @@ export const questions = [
     "text": "star"
    },
    {
-    "value": "books",
-    "label": "books",
-    "text": "books"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "stars",
   "correctAnswer": "stars",
   "distractorRationales": {
    "star": "D-FUNCTION-SWAP",
-   "books": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "book": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -1245,21 +1245,21 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "One ___ floats on the pond.",
-  "question": "One ___ floats on the pond.",
-  "spokenPrompt": "Which word finishes the sentence? One … floats on the pond.",
-  "sentence": "One ___ floats on the pond.",
+  "prompt": "One ___ quacks as it floats on the pond.",
+  "question": "One ___ quacks as it floats on the pond.",
+  "spokenPrompt": "Which word finishes the sentence? One … quacks as it floats on the pond.",
+  "sentence": "One ___ quacks as it floats on the pond.",
   "choices": [
-   "frog",
+   "hats",
    "duck",
    "ducks",
    "frogs"
   ],
   "answerOptions": [
    {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
+    "value": "hats",
+    "label": "hats",
+    "text": "hats"
    },
    {
     "value": "duck",
@@ -1282,14 +1282,14 @@ export const questions = [
   "distractorRationales": {
    "ducks": "D-FUNCTION-SWAP",
    "frogs": "D-SEMANTIC",
-   "frog": "D-SEMANTIC"
+   "hats": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "One ___ floats on the pond.",
+  "sentenceText": "One ___ quacks as it floats on the pond.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1311,7 +1311,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
   "resolvedImageAssetKey": "duck",
-  "imageAlt": "One duck floats on the pond."
+  "imageAlt": "One duck quacks as it floats on the pond."
  },
  {
   "id": "lp3.plurals.l1.B.plural_concept.v8",
@@ -1338,16 +1338,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Lots of … hop in the grass.",
   "sentence": "Lots of ___ hop in the grass.",
   "choices": [
-   "hens",
+   "fish",
    "hen",
    "frogs",
    "frog"
   ],
   "answerOptions": [
    {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
    },
    {
     "value": "hen",
@@ -1369,7 +1369,7 @@ export const questions = [
   "correctAnswer": "frogs",
   "distractorRationales": {
    "frog": "D-FUNCTION-SWAP",
-   "hens": "D-SEMANTIC",
+   "fish": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -1688,7 +1688,7 @@ export const questions = [
   "sentence": "We packed six ___ for the trip.",
   "choices": [
    "box",
-   "hens",
+   "hat",
    "hen",
    "boxes"
   ],
@@ -1699,9 +1699,9 @@ export const questions = [
     "text": "box"
    },
    {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "hen",
@@ -1718,7 +1718,7 @@ export const questions = [
   "correctAnswer": "boxes",
   "distractorRationales": {
    "box": "D-FUNCTION-SWAP",
-   "hens": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -1770,15 +1770,15 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ dried by the sink.",
-  "question": "The ___ dried by the sink.",
-  "spokenPrompt": "Which word finishes the sentence? The … dried by the sink.",
-  "sentence": "The ___ dried by the sink.",
+  "prompt": "The ___ from dinner included plates and bowls.",
+  "question": "The ___ from dinner included plates and bowls.",
+  "spokenPrompt": "Which word finishes the sentence? The … from dinner included plates and bowls.",
+  "sentence": "The ___ from dinner included plates and bowls.",
   "choices": [
    "dishes",
    "dish",
-   "cups",
-   "cup"
+   "cup",
+   "hat"
   ],
   "answerOptions": [
    {
@@ -1792,29 +1792,29 @@ export const questions = [
     "text": "dish"
    },
    {
-    "value": "cups",
-    "label": "cups",
-    "text": "cups"
-   },
-   {
     "value": "cup",
     "label": "cup",
     "text": "cup"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "dishes",
   "correctAnswer": "dishes",
   "distractorRationales": {
    "dish": "D-FUNCTION-SWAP",
-   "cups": "D-SEMANTIC",
-   "cup": "D-SEMANTIC"
+   "cup": "D-SEMANTIC",
+   "hat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The ___ dried by the sink.",
+  "sentenceText": "The ___ from dinner included plates and bowls.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1836,7 +1836,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
   "resolvedImageAssetKey": "dishes",
-  "imageAlt": "The dishes dried by the sink."
+  "imageAlt": "The dishes from dinner included plates and bowls."
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_es.v6",
@@ -1864,7 +1864,7 @@ export const questions = [
   "sentence": "Three ___ chugged up the hill.",
   "choices": [
    "bus",
-   "cats",
+   "hat",
    "cat",
    "buses"
   ],
@@ -1875,9 +1875,9 @@ export const questions = [
     "text": "bus"
    },
    {
-    "value": "cats",
-    "label": "cats",
-    "text": "cats"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "cat",
@@ -1894,7 +1894,7 @@ export const questions = [
   "correctAnswer": "buses",
   "distractorRationales": {
    "bus": "D-FUNCTION-SWAP",
-   "cats": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "cat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -1953,8 +1953,8 @@ export const questions = [
   "choices": [
    "brushes",
    "brush",
-   "foxes",
-   "fox"
+   "fox",
+   "hat"
   ],
   "answerOptions": [
    {
@@ -1968,22 +1968,22 @@ export const questions = [
     "text": "brush"
    },
    {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
-   },
-   {
     "value": "fox",
     "label": "fox",
     "text": "fox"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "brushes",
   "correctAnswer": "brushes",
   "distractorRationales": {
    "brush": "D-FUNCTION-SWAP",
-   "foxes": "D-SEMANTIC",
-   "fox": "D-SEMANTIC"
+   "fox": "D-SEMANTIC",
+   "hat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2042,7 +2042,7 @@ export const questions = [
    "hat",
    "foxes",
    "fox",
-   "hats"
+   "cup"
   ],
   "answerOptions": [
    {
@@ -2061,9 +2061,9 @@ export const questions = [
     "text": "fox"
    },
    {
-    "value": "hats",
-    "label": "hats",
-    "text": "hats"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    }
   ],
   "answer": "foxes",
@@ -2071,7 +2071,7 @@ export const questions = [
   "distractorRationales": {
    "hat": "D-SEMANTIC",
    "fox": "D-FUNCTION-SWAP",
-   "hats": "D-SEMANTIC"
+   "cup": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2122,21 +2122,21 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "The ___ giggled in their cots.",
-  "question": "The ___ giggled in their cots.",
-  "spokenPrompt": "Which word finishes the sentence? The … giggled in their cots.",
-  "sentence": "The ___ giggled in their cots.",
+  "prompt": "The newborn ___ giggled in their cots.",
+  "question": "The newborn ___ giggled in their cots.",
+  "spokenPrompt": "Which word finishes the sentence? The newborn … giggled in their cots.",
+  "sentence": "The newborn ___ giggled in their cots.",
   "choices": [
-   "lady",
+   "city",
    "babies",
    "baby",
-   "ladies"
+   "lady"
   ],
   "answerOptions": [
    {
-    "value": "lady",
-    "label": "lady",
-    "text": "lady"
+    "value": "city",
+    "label": "city",
+    "text": "city"
    },
    {
     "value": "babies",
@@ -2149,24 +2149,24 @@ export const questions = [
     "text": "baby"
    },
    {
-    "value": "ladies",
-    "label": "ladies",
-    "text": "ladies"
+    "value": "lady",
+    "label": "lady",
+    "text": "lady"
    }
   ],
   "answer": "babies",
   "correctAnswer": "babies",
   "distractorRationales": {
-   "lady": "D-SEMANTIC",
+   "city": "D-SEMANTIC",
    "baby": "D-FUNCTION-SWAP",
-   "ladies": "D-SEMANTIC"
+   "lady": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The ___ giggled in their cots.",
+  "sentenceText": "The newborn ___ giggled in their cots.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2188,7 +2188,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
   "resolvedImageAssetKey": "babies",
-  "imageAlt": "The babies giggled in their cots."
+  "imageAlt": "The newborn babies giggled in their cots."
  },
  {
   "id": "lp3.plurals.l2.B.plural_y_to_ies.v2",
@@ -2217,7 +2217,7 @@ export const questions = [
   "choices": [
    "ladies",
    "lady",
-   "cities",
+   "hat",
    "city"
   ],
   "answerOptions": [
@@ -2232,9 +2232,9 @@ export const questions = [
     "text": "lady"
    },
    {
-    "value": "cities",
-    "label": "cities",
-    "text": "cities"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "city",
@@ -2246,7 +2246,7 @@ export const questions = [
   "correctAnswer": "ladies",
   "distractorRationales": {
    "lady": "D-FUNCTION-SWAP",
-   "cities": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "city": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -2298,13 +2298,13 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "We hung lights for both ___.",
-  "question": "We hung lights for both ___.",
-  "spokenPrompt": "Which word finishes the sentence? We hung lights for both ….",
-  "sentence": "We hung lights for both ___.",
+  "prompt": "We hung balloons for both birthday ___.",
+  "question": "We hung balloons for both birthday ___.",
+  "spokenPrompt": "Which word finishes the sentence? We hung balloons for both birthday ….",
+  "sentence": "We hung balloons for both birthday ___.",
   "choices": [
    "party",
-   "cities",
+   "hat",
    "city",
    "parties"
   ],
@@ -2315,9 +2315,9 @@ export const questions = [
     "text": "party"
    },
    {
-    "value": "cities",
-    "label": "cities",
-    "text": "cities"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "city",
@@ -2335,14 +2335,14 @@ export const questions = [
   "distractorRationales": {
    "city": "D-SEMANTIC",
    "party": "D-FUNCTION-SWAP",
-   "cities": "D-SEMANTIC"
+   "hat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We hung lights for both ___.",
+  "sentenceText": "We hung balloons for both birthday ___.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2364,7 +2364,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/party-parties-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/party-parties-01.webp",
   "resolvedImageAssetKey": "parties",
-  "imageAlt": "We hung lights for both parties."
+  "imageAlt": "We hung balloons for both birthday parties."
  },
  {
   "id": "lp3.plurals.l2.A.plural_y_to_ies.v4",
@@ -2650,7 +2650,7 @@ export const questions = [
   "sentence": "The ___ marched in the band.",
   "choices": [
    "man",
-   "women",
+   "tooth",
    "woman",
    "men"
   ],
@@ -2661,9 +2661,9 @@ export const questions = [
     "text": "man"
    },
    {
-    "value": "women",
-    "label": "women",
-    "text": "women"
+    "value": "tooth",
+    "label": "tooth",
+    "text": "tooth"
    },
    {
     "value": "woman",
@@ -2680,7 +2680,7 @@ export const questions = [
   "correctAnswer": "men",
   "distractorRationales": {
    "man": "D-FUNCTION-SWAP",
-   "women": "D-SEMANTIC",
+   "tooth": "D-SEMANTIC",
    "woman": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -2737,16 +2737,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Both six-year-old … lost a milk tooth today.",
   "sentence": "Both six-year-old ___ lost a milk tooth today.",
   "choices": [
-   "women",
+   "hat",
    "woman",
    "children",
    "child"
   ],
   "answerOptions": [
    {
-    "value": "women",
-    "label": "women",
-    "text": "women"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "woman",
@@ -2768,7 +2768,7 @@ export const questions = [
   "correctAnswer": "children",
   "distractorRationales": {
    "child": "D-FUNCTION-SWAP",
-   "women": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "woman": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -3346,7 +3346,7 @@ export const questions = [
   "sentence": "The chef laid five ___ by the plates.",
   "choices": [
    "knife",
-   "shelves",
+   "hat",
    "shelf",
    "knives"
   ],
@@ -3357,9 +3357,9 @@ export const questions = [
     "text": "knife"
    },
    {
-    "value": "shelves",
-    "label": "shelves",
-    "text": "shelves"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "shelf",
@@ -3376,7 +3376,7 @@ export const questions = [
   "correctAnswer": "knives",
   "distractorRationales": {
    "knife": "D-FUNCTION-SWAP",
-   "shelves": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "shelf": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -3686,14 +3686,14 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "All the ___ were fast asleep.",
-  "question": "All the ___ were fast asleep.",
-  "spokenPrompt": "Which word finishes the sentence? All the … were fast asleep.",
-  "sentence": "All the ___ were fast asleep.",
+  "prompt": "All the newborn ___ slept in the dog bed.",
+  "question": "All the newborn ___ slept in the dog bed.",
+  "spokenPrompt": "Which word finishes the sentence? All the newborn … slept in the dog bed.",
+  "sentence": "All the newborn ___ slept in the dog bed.",
   "choices": [
    "puppy",
-   "geese",
    "goose",
+   "plate",
    "puppies"
   ],
   "answerOptions": [
@@ -3703,14 +3703,14 @@ export const questions = [
     "text": "puppy"
    },
    {
-    "value": "geese",
-    "label": "geese",
-    "text": "geese"
-   },
-   {
     "value": "goose",
     "label": "goose",
     "text": "goose"
+   },
+   {
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
    },
    {
     "value": "puppies",
@@ -3722,15 +3722,15 @@ export const questions = [
   "correctAnswer": "puppies",
   "distractorRationales": {
    "puppy": "D-FUNCTION-SWAP",
-   "geese": "D-SEMANTIC",
-   "goose": "D-SEMANTIC"
+   "goose": "D-SEMANTIC",
+   "plate": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "All the ___ were fast asleep.",
+  "sentenceText": "All the newborn ___ slept in the dog bed.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3752,7 +3752,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
   "resolvedImageAssetKey": "puppies",
-  "imageAlt": "All the puppies were fast asleep."
+  "imageAlt": "All the newborn puppies slept in the dog bed."
  },
  {
   "id": "lp3.plurals.l2.B.plural_in_sentence.v2",
@@ -3780,7 +3780,7 @@ export const questions = [
   "sentence": "One ___ was left on the plate.",
   "choices": [
    "loaves",
-   "loaf",
+   "berries",
    "peach",
    "peaches"
   ],
@@ -3791,9 +3791,9 @@ export const questions = [
     "text": "loaves"
    },
    {
-    "value": "loaf",
-    "label": "loaf",
-    "text": "loaf"
+    "value": "berries",
+    "label": "berries",
+    "text": "berries"
    },
    {
     "value": "peach",
@@ -3811,7 +3811,7 @@ export const questions = [
   "distractorRationales": {
    "peaches": "D-FUNCTION-SWAP",
    "loaves": "D-SEMANTIC",
-   "loaf": "D-SEMANTIC"
+   "berries": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3867,16 +3867,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Two … of bread sat in the basket.",
   "sentence": "Two ___ of bread sat in the basket.",
   "choices": [
-   "slice",
+   "basket",
    "loaves",
    "loaf",
-   "slices"
+   "plate"
   ],
   "answerOptions": [
    {
-    "value": "slice",
-    "label": "slice",
-    "text": "slice"
+    "value": "basket",
+    "label": "basket",
+    "text": "basket"
    },
    {
     "value": "loaves",
@@ -3889,17 +3889,17 @@ export const questions = [
     "text": "loaf"
    },
    {
-    "value": "slices",
-    "label": "slices",
-    "text": "slices"
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
    }
   ],
   "answer": "loaves",
   "correctAnswer": "loaves",
   "distractorRationales": {
    "loaf": "D-FUNCTION-SWAP",
-   "slices": "D-SEMANTIC",
-   "slice": "D-SEMANTIC"
+   "plate": "D-SEMANTIC",
+   "basket": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4127,7 +4127,7 @@ export const questions = [
   "spokenPrompt": "Which fits: One … is barking?",
   "choices": [
    "cats",
-   "cat",
+   "hats",
    "dog",
    "dogs"
   ],
@@ -4138,9 +4138,9 @@ export const questions = [
     "text": "cats"
    },
    {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
+    "value": "hats",
+    "label": "hats",
+    "text": "hats"
    },
    {
     "value": "dog",
@@ -4157,7 +4157,7 @@ export const questions = [
   "correctAnswer": "dog",
   "distractorRationales": {
    "cats": "D-SEMANTIC",
-   "cat": "D-SEMANTIC",
+   "hats": "D-SEMANTIC",
    "dogs": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -4300,21 +4300,21 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Ten … bark at the gate.",
   "sentence": "Ten ___ bark at the gate.",
   "choices": [
-   "hats",
-   "hat",
+   "moon",
+   "star",
    "dogs",
    "dog"
   ],
   "answerOptions": [
    {
-    "value": "hats",
-    "label": "hats",
-    "text": "hats"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
+    "value": "star",
+    "label": "star",
+    "text": "star"
    },
    {
     "value": "dogs",
@@ -4330,9 +4330,9 @@ export const questions = [
   "answer": "dogs",
   "correctAnswer": "dogs",
   "distractorRationales": {
-   "hat": "D-SEMANTIC",
+   "star": "D-SEMANTIC",
    "dog": "D-FUNCTION-SWAP",
-   "hats": "D-SEMANTIC"
+   "moon": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4355,7 +4355,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "gate gifts at to hats and hat — tied distractors, key clean",
+  "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
   "imageUrl": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
   "targetImage": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
@@ -4389,8 +4389,8 @@ export const questions = [
   "sentence": "Four ___ played near the barn.",
   "choices": [
    "fox",
-   "cups",
-   "cup",
+   "book",
+   "sun",
    "foxes"
   ],
   "answerOptions": [
@@ -4400,14 +4400,14 @@ export const questions = [
     "text": "fox"
    },
    {
-    "value": "cups",
-    "label": "cups",
-    "text": "cups"
+    "value": "book",
+    "label": "book",
+    "text": "book"
    },
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
     "value": "foxes",
@@ -4418,8 +4418,8 @@ export const questions = [
   "answer": "foxes",
   "correctAnswer": "foxes",
   "distractorRationales": {
-   "cups": "D-SEMANTIC",
-   "cup": "D-SEMANTIC",
+   "book": "D-SEMANTIC",
+   "sun": "D-SEMANTIC",
    "fox": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -4563,16 +4563,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Just one … purred by the fire.",
   "sentence": "Just one ___ purred by the fire.",
   "choices": [
-   "frog",
+   "hens",
    "cat",
    "cats",
    "frogs"
   ],
   "answerOptions": [
    {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
+    "value": "hens",
+    "label": "hens",
+    "text": "hens"
    },
    {
     "value": "cat",
@@ -4595,7 +4595,7 @@ export const questions = [
   "distractorRationales": {
    "cats": "D-FUNCTION-SWAP",
    "frogs": "D-SEMANTIC",
-   "frog": "D-SEMANTIC"
+   "hens": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -4740,7 +4740,7 @@ export const questions = [
   "choices": [
    "ladies",
    "lady",
-   "ponies",
+   "hat",
    "pony"
   ],
   "answerOptions": [
@@ -4755,9 +4755,9 @@ export const questions = [
     "text": "lady"
    },
    {
-    "value": "ponies",
-    "label": "ponies",
-    "text": "ponies"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "pony",
@@ -4769,7 +4769,7 @@ export const questions = [
   "correctAnswer": "ladies",
   "distractorRationales": {
    "lady": "D-FUNCTION-SWAP",
-   "ponies": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "pony": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -4907,21 +4907,21 @@ export const questions = [
   "formatType": "PLURAL_SPELLING_CONTEXT",
   "templateType": "PLURAL_SPELLING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Two white ___ nibbled the cheese.",
-  "question": "Two white ___ nibbled the cheese.",
-  "spokenPrompt": "Which word finishes the sentence? Two white … nibbled the cheese.",
-  "sentence": "Two white ___ nibbled the cheese.",
+  "prompt": "Two white ___ squeaked and nibbled the cheese.",
+  "question": "Two white ___ squeaked and nibbled the cheese.",
+  "spokenPrompt": "Which word finishes the sentence? Two white … squeaked and nibbled the cheese.",
+  "sentence": "Two white ___ squeaked and nibbled the cheese.",
   "choices": [
-   "men",
+   "hat",
    "man",
    "mice",
    "mouse"
   ],
   "answerOptions": [
    {
-    "value": "men",
-    "label": "men",
-    "text": "men"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "man",
@@ -4943,7 +4943,7 @@ export const questions = [
   "correctAnswer": "mice",
   "distractorRationales": {
    "mouse": "D-FUNCTION-SWAP",
-   "men": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "man": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
@@ -4951,7 +4951,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "sentenceText": "Two white ___ nibbled the cheese.",
+  "sentenceText": "Two white ___ squeaked and nibbled the cheese.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -4973,7 +4973,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
   "resolvedImageAssetKey": "mice",
-  "imageAlt": "Two white mice nibbled the cheese."
+  "imageAlt": "Two white mice squeaked and nibbled the cheese."
  },
  {
   "id": "lp3.plurals.l2.R.plural_irregular.v8r",
@@ -5088,8 +5088,8 @@ export const questions = [
   "choices": [
    "loaves",
    "loaf",
-   "halves",
-   "half"
+   "knife",
+   "plate"
   ],
   "answerOptions": [
    {
@@ -5103,21 +5103,21 @@ export const questions = [
     "text": "loaf"
    },
    {
-    "value": "halves",
-    "label": "halves",
-    "text": "halves"
+    "value": "knife",
+    "label": "knife",
+    "text": "knife"
    },
    {
-    "value": "half",
-    "label": "half",
-    "text": "half"
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
    }
   ],
   "answer": "loaves",
   "correctAnswer": "loaves",
   "distractorRationales": {
-   "halves": "D-SEMANTIC",
-   "half": "D-SEMANTIC",
+   "knife": "D-SEMANTIC",
+   "plate": "D-SEMANTIC",
    "loaf": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -5177,7 +5177,7 @@ export const questions = [
    "goose",
    "chicks",
    "chick",
-   "geese"
+   "hat"
   ],
   "answerOptions": [
    {
@@ -5196,16 +5196,16 @@ export const questions = [
     "text": "chick"
    },
    {
-    "value": "geese",
-    "label": "geese",
-    "text": "geese"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "chicks",
   "correctAnswer": "chicks",
   "distractorRationales": {
    "chick": "D-FUNCTION-SWAP",
-   "geese": "D-SEMANTIC",
+   "hat": "D-SEMANTIC",
    "goose": "D-SEMANTIC"
   },
   "mediaTier": "image-required",

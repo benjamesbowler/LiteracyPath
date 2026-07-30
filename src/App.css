@@ -11341,6 +11341,31 @@ select:focus {
   text-align: center;
 }
 
+.assessment-feedback {
+  width: min(560px, calc(100% - 24px));
+  min-height: 0;
+  margin: clamp(20px, 9vh, 80px) auto;
+  padding: clamp(20px, 4vw, 34px);
+  text-align: center;
+}
+
+.assessment-feedback h2 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.assessment-feedback > p:not(.feedback-auto-advance) {
+  margin: 10px 0 4px;
+  font-size: clamp(17px, 2.1vw, 22px);
+  line-height: 1.4;
+}
+
+.assessment-feedback .feedback-auto-advance {
+  margin-top: 14px;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+}
+
 .checkpoint-decision-shell {
   align-items: center;
   justify-content: center;

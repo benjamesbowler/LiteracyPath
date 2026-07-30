@@ -15,6 +15,7 @@ const TEACHING_CYCLES = teacherCycleOptions();
 
 export function TeacherContextBar({
   className = "",
+  classCode = "",
   schoolName = "",
   studentCount = null,
   cycleId = "",
@@ -55,6 +56,18 @@ export function TeacherContextBar({
         </span>
         {detailParts.length > 0 && (
           <span className="tcb-detail">{detailParts.join(" · ")}</span>
+        )}
+        {classCode && (
+          <button
+            type="button"
+            className="tcb-class-code"
+            aria-label={`Copy student sign-in code ${classCode}`}
+            title="Copy student sign-in code"
+            onClick={() => navigator.clipboard?.writeText?.(classCode)}
+          >
+            <span>Student sign-in code</span>
+            <strong>{classCode}</strong>
+          </button>
         )}
       </div>
 

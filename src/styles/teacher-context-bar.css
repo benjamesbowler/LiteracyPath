@@ -64,6 +64,34 @@
   color: var(--lp-color-text-muted);
 }
 
+.tcb-class-code {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  margin-top: 3px;
+  padding: 3px 7px;
+  border: 1px solid color-mix(in srgb, var(--lp-color-primary) 28%, transparent);
+  border-radius: 7px;
+  background: var(--lp-color-surface-subtle);
+  color: var(--lp-color-text-muted);
+  font: inherit;
+  font-size: 10px;
+  line-height: 1.2;
+  cursor: copy;
+}
+
+.tcb-class-code strong {
+  color: var(--lp-color-primary);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.tcb-class-code:hover {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
 .tcb-divider {
   width: 1px;
   align-self: stretch;

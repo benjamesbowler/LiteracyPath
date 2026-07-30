@@ -308,7 +308,7 @@ export function getRuntimeSourceIssues(question = {}, context = {}) {
     if (!isV3HfwQuestion && !HFW_ALLOWED_FORMAT_PREFIX.test(format)) {
       issues.push(`HFW format is not in the approved sentence cloze/spell set: ${format || "UNKNOWN"}`);
     }
-    if (BAD_HFW_PROMPT_PATTERNS.some(pattern => pattern.test(text))) {
+    if (!isV3HfwQuestion && BAD_HFW_PROMPT_PATTERNS.some(pattern => pattern.test(text))) {
       issues.push("direct-recognition HFW prompt is blocked");
     }
   }

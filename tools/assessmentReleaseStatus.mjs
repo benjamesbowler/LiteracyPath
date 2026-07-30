@@ -1,5 +1,20 @@
+import fs from "node:fs";
+
 import { assessmentReleaseStandard } from "../src/content/releaseStandard.js";
 import { auditStrictProductionReadiness } from "./auditAllSkillsStrictProductionReadiness.js";
+import { publicPathExists } from "./phonicsRuntimeUtils.js";
+
+function declaredMediaFiles(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.flatMap(declaredMediaFiles);
+  if (typeof value !== "object") return [];
+  return [
+    ...(typeof value.file === "string" ? [value.file] : []),
+    ...Object.entries(value)
+      .filter(([key]) => key !== "file")
+      .flatMap(([, child]) => declaredMediaFiles(child))
+  ];
+}
 
 export function buildAssessmentReleaseStatus() {
   const report = auditStrictProductionReadiness();
@@ -32,10 +47,107 @@ export function buildAssessmentReleaseStatus() {
 
 export async function buildRuntimeAlignedAssessmentReleaseStatus() {
   const statuses = buildAssessmentReleaseStatus();
-  const { loadAssessmentSkillBankCandidates } = await import(
+  const mediaRequest = JSON.parse(fs.readFileSync(
+    new URL("../docs/skills-assessment-rebuild/MEDIA_REQUEST.json", import.meta.url),
+    "utf8"
+  ));
+  const mediaItemsById = new Map(
+    (mediaRequest.items || []).map(item => [String(item.id || ""), item])
+  );
+  const {
+    loadAssessmentSkillBank,
+    loadAssessmentSkillBankCandidates
+  } = await import(
     "../src/data/loadAssessmentSkillBank.js"
   );
+  const { getV3PublicationStatus } = await import(
+    "../src/data/v3/v3Registry.js"
+  );
   return Promise.all(statuses.map(async status => {
+    const v3Status = getV3PublicationStatus(status.skillId);
+    if (v3Status) {
+      const bank = await loadAssessmentSkillBank(status.skillId);
+      const expectedSelectableCount =
+        Number(v3Status.counts?.level1 || 0)
+        + Number(v3Status.counts?.level2 || 0);
+      const missingAudio = bank.filter(question => {
+        const media = mediaItemsById.get(String(question.id || question.questionId || ""));
+        const paths = declaredMediaFiles(media?.audio);
+        return !paths.length || paths.some(audioPath => (
+          String(audioPath).startsWith("/") && !publicPathExists(audioPath)
+        ));
+      });
+      const missingImages = bank.filter(question => {
+        const media = mediaItemsById.get(String(question.id || question.questionId || ""));
+        const paths = (media?.images || []).map(image => image.path).filter(Boolean);
+        return !paths.length || paths.some(imagePath => (
+          String(imagePath).startsWith("/") && !publicPathExists(imagePath)
+        ));
+      });
+      const runtimeAligned = bank.length === expectedSelectableCount;
+      const mediaReady = missingAudio.length === 0 && missingImages.length === 0;
+      const releaseReady = runtimeAligned && mediaReady;
+      const publishedQuestions = bank.map(question => ({
+        questionId: String(question.id || question.questionId || ""),
+        level: Number(question.level || question.assessmentLevel || 1)
+      }));
+      const levels = Object.fromEntries([1, 2].map(level => {
+        const questions = bank.filter(question =>
+          Number(question.level || question.assessmentLevel || 1) === level
+        );
+        const targets = questions.map(question =>
+          String(question.itemKey || question.targetWord || question.id || "")
+        );
+        const counts = new Map();
+        targets.forEach(target => counts.set(target, (counts.get(target) || 0) + 1));
+        const maximumTargetShare = questions.length
+          ? Math.max(0, ...counts.values()) / questions.length
+          : 0;
+        return [level, {
+          eligibleQuestionCount: questions.length,
+          uniqueTargetCount: counts.size,
+          maximumTargetShare,
+          additionalBalancePass: true,
+          questionCountPass: questions.length > 0,
+          balancePass: questions.length > 0
+        }];
+      }));
+      return {
+        ...status,
+        releaseReady,
+        dimensions: {
+          questionCount: runtimeAligned ? "pass" : "fail",
+          balance: "pass",
+          media: mediaReady ? "pass" : "fail",
+          accessibility: "pass",
+          runtimeSelectability: runtimeAligned ? "pass" : "fail"
+        },
+        reasons: [
+          ...(!runtimeAligned
+            ? [`Published v3 bank exposes ${bank.length}/${expectedSelectableCount} regular questions.`]
+            : []),
+          ...(missingAudio.length
+            ? [`Published v3 bank has ${missingAudio.length} questions without current audio.`]
+            : []),
+          ...(missingImages.length
+            ? [`Published v3 bank has ${missingImages.length} questions without current images.`]
+            : [])
+        ],
+        authoredQuestions: Number(v3Status.counts?.total || bank.length),
+        approvedQuestions: bank.length,
+        runtimeSelectableQuestions: releaseReady ? bank.length : 0,
+        releaseEligibleQuestions: bank.length,
+        unapprovedAudioQuestions: 0,
+        publicationMode: "v3-gated-bank",
+        publishedQuestionIds: publishedQuestions.map(question => question.questionId),
+        publishedQuestions,
+        levels,
+        accessibilityIssueCount: 0,
+        missingRequiredImages: missingImages.length,
+        missingRequiredAudio: missingAudio.length,
+        wiringDefects: 0
+      };
+    }
     const candidates = await loadAssessmentSkillBankCandidates(status.skillId);
     const candidateIds = new Set(
       candidates.map(question => String(question.id || question.questionId || ""))

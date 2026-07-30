@@ -14,7 +14,7 @@ import {
   summarizeGuidedReadingRecord,
   summarizeGuidedReadingRecords
 } from "../../data/guidedReadingBooks";
-import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
+import { enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
 // The runtime library (retired books and pages removed, teacher level
 // overrides applied) moved to its own module on 2026-07-29 so the child's Books
@@ -45,6 +45,8 @@ import { CHILD_COPY } from "../../copy/childCopy.js";
 import { progressPhrase, TEACHER_COPY } from "../../copy/teacherCopy.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
+const GUIDED_READING_NARRATION_RATE = 0.88;
+const GUIDED_READING_WORD_RATE = 0.9;
 
 function withGuidedReadingMediaVersion(src = "") {
   if (!src || !src.startsWith("/guided-reading/")) return src;
@@ -286,7 +288,7 @@ function tokenizeReadingText(text = "") {
   let wordIndex = -1;
 
   return tokens.map((token, index) => {
-    if (/^[A-Za-z0-9'-]+$/.test(token)) {
+    if (/^[A-Za-z0-9'-]+$/.test(token) && /[A-Za-z0-9]/.test(token)) {
       wordIndex += 1;
       return { token, index, type: "word", wordIndex };
     }
@@ -544,7 +546,6 @@ export function GuidedReadingPage({
   const summary = summarizeGuidedReadingRecord(record);
   const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
-  const pageAnalysis = page ? analyzeGuidedReadingPage(page) : null;
   const readAloudState = selectedBook && page
     ? getGuidedReadingReadAloudState(selectedBook, page, "guided_support")
     : getGuidedReadingReadAloudState({}, {}, "guided_support");
@@ -1165,7 +1166,7 @@ export function GuidedReadingPage({
     setIsReadAloudLoading(true);
     try {
       const audio = new Audio(currentPageAudioPath);
-      audio.playbackRate = 0.92;
+      audio.playbackRate = GUIDED_READING_NARRATION_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
       setIsReadAloudPaused(false);
@@ -1219,7 +1220,7 @@ export function GuidedReadingPage({
     setIsReadAloudLoading(true);
     try {
       const audio = new Audio(audioPath);
-      audio.playbackRate = 0.92; // narration pacing: slightly slower for young readers
+      audio.playbackRate = GUIDED_READING_NARRATION_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
       setIsWholeBookReading(true);
@@ -1268,7 +1269,7 @@ export function GuidedReadingPage({
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
         const audio = new Audio(fullBookAudioPath);
-        audio.playbackRate = 0.92;
+        audio.playbackRate = GUIDED_READING_NARRATION_RATE;
         audio.volume = applyLearnerAudioIntensity(1);
         const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
         let pageCues = [];
@@ -1434,7 +1435,7 @@ export function GuidedReadingPage({
       stopWordSupportAudio();
       const audio = new Audio(resolvedAudioPath);
       wordSupportAudioRef.current = audio;
-      audio.playbackRate = 0.92;
+      audio.playbackRate = GUIDED_READING_WORD_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
       audio.onended = () => {
         if (wordSupportAudioRef.current === audio) wordSupportAudioRef.current = null;
@@ -1545,8 +1546,8 @@ export function GuidedReadingPage({
     saveDecodingSupportUse(step, wordIndex, false);
   }
 
-  function handleWordClick(wordIndex, event) {
-    const word = (page.words || [])[wordIndex] || (pageAnalysis?.words?.[wordIndex] ? { text: pageAnalysis.words[wordIndex] } : null);
+  function handleWordClick(displayedWord, wordIndex, event) {
+    const word = displayedWord ? { text: displayedWord } : null;
     if (!word) return;
 
     if (lineFocusEnabled) {
@@ -2236,10 +2237,10 @@ export function GuidedReadingPage({
                               aria-label={isWordAudioLoading ? `Loading support for ${item.token}` : `${readingMode === "marking" ? "Mark" : "Get reading help for"} ${item.token}`}
                               className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard audio-feedback-playing" : ""} ${isWordAudioLoading ? "audio-feedback-loading" : ""}`}
                               key={`word-${group.sentenceIndex}-${item.index}-${item.wordIndex}`}
-                              onClick={event => handleWordClick(item.wordIndex, event)}
+                              onClick={event => handleWordClick(item.token, item.wordIndex, event)}
                               onContextMenu={event => {
                                 event.preventDefault();
-                                playWordAudio((page.words || [])[item.wordIndex] || { text: item.token }, item.wordIndex);
+                                playWordAudio({ text: item.token }, item.wordIndex);
                               }}
                               title={readingMode === "marking" ? "Mark word. Alt-click for the reading-help ladder or right-click to hear the whole word." : "Tap again for the next reading-help step."}
                               type="button"

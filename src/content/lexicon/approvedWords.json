@@ -1127,7 +1127,13 @@
       "van",
       "man",
       "can",
-      "nap"
+      "nap",
+      "bat",
+      "bad",
+      "crab",
+      "flag",
+      "hand",
+      "ram"
     ],
     "short_e": [
       "bed",
@@ -1141,7 +1147,17 @@
       "web",
       "wet",
       "jet",
-      "fed"
+      "fed",
+      "bell",
+      "belt",
+      "desk",
+      "nest",
+      "pen",
+      "shell",
+      "sled",
+      "tent",
+      "vest",
+      "vet"
     ],
     "short_i": [
       "pig",
@@ -1158,7 +1174,12 @@
       "dig",
       "zip",
       "six",
-      "tin"
+      "tin",
+      "brick",
+      "fish",
+      "gift",
+      "sit",
+      "swim"
     ],
     "short_o": [
       "pot",
@@ -1174,7 +1195,12 @@
       "pop",
       "hog",
       "rob",
-      "cod"
+      "cod",
+      "clock",
+      "dock",
+      "fox",
+      "frog",
+      "sock"
     ],
     "short_u": [
       "sun",
@@ -1190,7 +1216,14 @@
       "mug",
       "nut",
       "pup",
-      "tug"
+      "tug",
+      "brush",
+      "drum",
+      "duck",
+      "dug",
+      "hut",
+      "plug",
+      "truck"
     ],
     "ch": [
       "chair",

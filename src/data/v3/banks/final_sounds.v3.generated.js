@@ -23,7 +23,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: we__",
   "question": "Complete: we__",
-  "spokenPrompt": "web. web ends with a sound. Which ending finishes the word web?",
+  "spokenPrompt": "web. Which ending sound finishes the word web?",
   "choices": [
    "b",
    "p",
@@ -318,7 +318,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: tu__",
   "question": "Complete: tu__",
-  "spokenPrompt": "tub. tub ends with a sound. Which ending finishes the word tub?",
+  "spokenPrompt": "tub. Which ending sound finishes the word tub?",
   "choices": [
    "m",
    "b",
@@ -406,7 +406,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: brea__",
   "question": "Complete: brea__",
-  "spokenPrompt": "bread. bread ends with a sound. Which ending finishes the word bread?",
+  "spokenPrompt": "bread. Which ending sound finishes the word bread?",
   "choices": [
    "b",
    "g",
@@ -701,7 +701,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: roa__",
   "question": "Complete: roa__",
-  "spokenPrompt": "road. road ends with a sound. Which ending finishes the word road?",
+  "spokenPrompt": "road. Which ending sound finishes the word road?",
   "choices": [
    "t",
    "b",
@@ -789,7 +789,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: fla__",
   "question": "Complete: fla__",
-  "spokenPrompt": "flag. flag ends with a sound. Which ending finishes the word flag?",
+  "spokenPrompt": "flag. Which ending sound finishes the word flag?",
   "choices": [
    "g",
    "c",
@@ -1084,7 +1084,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: fro__",
   "question": "Complete: fro__",
-  "spokenPrompt": "frog. frog ends with a sound. Which ending finishes the word frog?",
+  "spokenPrompt": "frog. Which ending sound finishes the word frog?",
   "choices": [
    "j",
    "g",
@@ -1172,7 +1172,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: whee__",
   "question": "Complete: whee__",
-  "spokenPrompt": "wheel. wheel ends with a sound. Which ending finishes the word wheel?",
+  "spokenPrompt": "wheel. Which ending sound finishes the word wheel?",
   "choices": [
    "w",
    "i",
@@ -1467,7 +1467,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: whirlpoo__",
   "question": "Complete: whirlpoo__",
-  "spokenPrompt": "whirlpool. whirlpool ends with a sound. Which ending finishes the word whirlpool?",
+  "spokenPrompt": "whirlpool. Which ending sound finishes the word whirlpool?",
   "choices": [
    "r",
    "w",
@@ -1555,7 +1555,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: dru__",
   "question": "Complete: dru__",
-  "spokenPrompt": "drum. drum ends with a sound. Which ending finishes the word drum?",
+  "spokenPrompt": "drum. Which ending sound finishes the word drum?",
   "choices": [
    "m",
    "n",
@@ -1850,7 +1850,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ja__",
   "question": "Complete: ja__",
-  "spokenPrompt": "jam. jam ends with a sound. Which ending finishes the word jam?",
+  "spokenPrompt": "jam. Which ending sound finishes the word jam?",
   "choices": [
    "v",
    "m",
@@ -1938,7 +1938,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: te__",
   "question": "Complete: te__",
-  "spokenPrompt": "ten. ten ends with a sound. Which ending finishes the word ten?",
+  "spokenPrompt": "ten. Which ending sound finishes the word ten?",
   "choices": [
    "t",
    "u",
@@ -2233,7 +2233,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: fi__",
   "question": "Complete: fi__",
-  "spokenPrompt": "fin. fin ends with a sound. Which ending finishes the word fin?",
+  "spokenPrompt": "fin. Which ending sound finishes the word fin?",
   "choices": [
    "m",
    "f",
@@ -2321,7 +2321,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: shee__",
   "question": "Complete: shee__",
-  "spokenPrompt": "sheep. sheep ends with a sound. Which ending finishes the word sheep?",
+  "spokenPrompt": "sheep. Which ending sound finishes the word sheep?",
   "choices": [
    "p",
    "b",
@@ -2616,7 +2616,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: slee__",
   "question": "Complete: slee__",
-  "spokenPrompt": "sleep. sleep ends with a sound. Which ending finishes the word sleep?",
+  "spokenPrompt": "sleep. Which ending sound finishes the word sleep?",
   "choices": [
    "m",
    "p",
@@ -2704,7 +2704,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ne__",
   "question": "Complete: ne__",
-  "spokenPrompt": "net. net ends with a sound. Which ending finishes the word net?",
+  "spokenPrompt": "net. Which ending sound finishes the word net?",
   "choices": [
    "n",
    "f",
@@ -2999,7 +2999,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: boa__",
   "question": "Complete: boa__",
-  "spokenPrompt": "boat. boat ends with a sound. Which ending finishes the word boat?",
+  "spokenPrompt": "boat. Which ending sound finishes the word boat?",
   "choices": [
    "d",
    "b",
@@ -3087,7 +3087,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: fi__",
   "question": "Complete: fi__",
-  "spokenPrompt": "fish. fish ends with a sound. Which ending finishes the word fish?",
+  "spokenPrompt": "fish. Which two ending letters finish the word fish?",
   "choices": [
    "f",
    "sh",
@@ -3173,9 +3173,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like wish?",
-  "question": "Which one ends like wish?",
-  "spokenPrompt": "wish. Which one ends with the same sound as wish?",
+  "prompt": "Which one ends with the same two letters as wish?",
+  "question": "Which one ends with the same two letters as wish?",
+  "spokenPrompt": "wish. Which one ends with the same two letters as wish?",
   "choices": [
    "fish",
    "whisk",
@@ -3294,7 +3294,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: bru__",
   "question": "Complete: bru__",
-  "spokenPrompt": "brush. brush ends with a sound. Which ending finishes the word brush?",
+  "spokenPrompt": "brush. Which two ending letters finish the word brush?",
   "choices": [
    "ch",
    "th",
@@ -3382,7 +3382,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: spla__",
   "question": "Complete: spla__",
-  "spokenPrompt": "splash. splash ends with a sound. Which ending finishes the word splash?",
+  "spokenPrompt": "splash. Which two ending letters finish the word splash?",
   "choices": [
    "s",
    "ck",
@@ -3470,7 +3470,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: mo__",
   "question": "Complete: mo__",
-  "spokenPrompt": "moth. moth ends with a sound. Which ending finishes the word moth?",
+  "spokenPrompt": "moth. Which two ending letters finish the word moth?",
   "choices": [
    "sh",
    "f",
@@ -3556,14 +3556,14 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like bath?",
-  "question": "Which one ends like bath?",
-  "spokenPrompt": "bath. Which one ends with the same sound as bath?",
+  "prompt": "Which one ends with the same two letters as bath?",
+  "question": "Which one ends with the same two letters as bath?",
+  "spokenPrompt": "bath. Which one ends with the same two letters as bath?",
   "choices": [
    "toe",
    "moth",
    "boat",
-   "dish"
+   "ring"
   ],
   "answerOptions": [
    {
@@ -3582,9 +3582,9 @@ export const questions = [
     "text": "boat"
    },
    {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
    }
   ],
   "answer": "moth",
@@ -3592,7 +3592,7 @@ export const questions = [
   "distractorRationales": {
    "toe": "D-DEVELOPMENTAL",
    "boat": "D-POSITION",
-   "dish": "D-PATTERN-TRAP"
+   "ring": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -3645,13 +3645,13 @@ export const questions = [
     "imageAlt": "boat"
    },
    {
-    "id": "lp3.final_sounds.l2.B.th.v2_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
+    "id": "lp3.final_sounds.l2.B.th.v2_card_ring",
+    "word": "ring",
+    "value": "ring",
+    "label": "ring",
+    "image": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
+    "imageAlt": "ring"
    }
   ]
  },
@@ -3677,7 +3677,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ba__",
   "question": "Complete: ba__",
-  "spokenPrompt": "bath. bath ends with a sound. Which ending finishes the word bath?",
+  "spokenPrompt": "bath. Which two ending letters finish the word bath?",
   "choices": [
    "th",
    "f",
@@ -3765,7 +3765,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: clo__",
   "question": "Complete: clo__",
-  "spokenPrompt": "cloth. cloth ends with a sound. Which ending finishes the word cloth?",
+  "spokenPrompt": "cloth. Which two ending letters finish the word cloth?",
   "choices": [
    "th",
    "ch",
@@ -3853,12 +3853,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: be__",
   "question": "Complete: be__",
-  "spokenPrompt": "bell. bell ends with a sound. Which ending finishes the word bell?",
+  "spokenPrompt": "bell. Which two ending letters finish the word bell?",
   "choices": [
    "b",
    "ll",
-   "l",
-   "le"
+   "sh",
+   "ng"
   ],
   "answerOptions": [
    {
@@ -3872,22 +3872,22 @@ export const questions = [
     "text": "ll"
    },
    {
-    "value": "l",
-    "label": "l",
-    "text": "l"
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
    },
    {
-    "value": "le",
-    "label": "le",
-    "text": "le"
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
    }
   ],
   "answer": "ll",
   "correctAnswer": "ll",
   "distractorRationales": {
    "b": "D-POSITION",
-   "l": "D-DEVELOPMENTAL",
-   "le": "D-PATTERN-TRAP"
+   "sh": "D-PATTERN-TRAP",
+   "ng": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -3911,7 +3911,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "be+l, be+le, be+b are non-words; image pins the target",
+  "notes": "No one-l option: l and ll are the same final sound, so l would be defensible.",
   "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
   "imageUrl": "/images/assessment/rhyming/variants/ell/bell-02.webp",
   "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
@@ -3941,12 +3941,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Which word ends with the same letters as shell?",
   "question": "Which word ends with the same letters as shell?",
-  "spokenPrompt": "shell. Which word ends like shell?",
+  "spokenPrompt": "shell. Which word ends with the same two letters as shell?",
   "choices": [
    "shed",
-   "melt",
+   "moth",
    "hill",
-   "wheel"
+   "yellow"
   ],
   "answerOptions": [
    {
@@ -3955,9 +3955,9 @@ export const questions = [
     "text": "shed"
    },
    {
-    "value": "melt",
-    "label": "melt",
-    "text": "melt"
+    "value": "moth",
+    "label": "moth",
+    "text": "moth"
    },
    {
     "value": "hill",
@@ -3965,16 +3965,16 @@ export const questions = [
     "text": "hill"
    },
    {
-    "value": "wheel",
-    "label": "wheel",
-    "text": "wheel"
+    "value": "yellow",
+    "label": "yellow",
+    "text": "yellow"
    }
   ],
   "answer": "hill",
   "correctAnswer": "hill",
   "distractorRationales": {
-   "melt": "D-PATTERN-TRAP",
-   "wheel": "D-DEVELOPMENTAL",
+   "moth": "D-RIME-NEAR",
+   "yellow": "D-PATTERN-TRAP",
    "shed": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -3999,7 +3999,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "print framing: wheel ends one l — wrong letters, same sound, honestly framed; shed starts like the anchor",
+  "notes": "yellow contains ll internally but does not end in ll; no distractor ends in a single l.",
   "imagePath": "/images/assessment/digraphs/shell.webp",
   "imageUrl": "/images/assessment/digraphs/shell.webp",
   "targetImage": "/images/assessment/digraphs/shell.webp",
@@ -4029,12 +4029,12 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: hi__",
   "question": "Complete: hi__",
-  "spokenPrompt": "hill. hill ends with a sound. Which ending finishes the word hill?",
+  "spokenPrompt": "hill. Which two ending letters finish the word hill?",
   "choices": [
    "h",
    "ll",
-   "l",
-   "le"
+   "sh",
+   "ng"
   ],
   "answerOptions": [
    {
@@ -4048,22 +4048,22 @@ export const questions = [
     "text": "ll"
    },
    {
-    "value": "l",
-    "label": "l",
-    "text": "l"
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
    },
    {
-    "value": "le",
-    "label": "le",
-    "text": "le"
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
    }
   ],
   "answer": "ll",
   "correctAnswer": "ll",
   "distractorRationales": {
    "h": "D-POSITION",
-   "l": "D-DEVELOPMENTAL",
-   "le": "D-PATTERN-TRAP"
+   "sh": "D-PATTERN-TRAP",
+   "ng": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -4087,7 +4087,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "hi+l/le/h are non-words",
+  "notes": "No one-l option because it would share the same final sound.",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
   "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
@@ -4117,18 +4117,18 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: sma__",
   "question": "Complete: sma__",
-  "spokenPrompt": "small. small ends with a sound. Which ending finishes the word small?",
+  "spokenPrompt": "small. Which two ending letters finish the word small?",
   "choices": [
-   "le",
+   "ng",
    "s",
    "ll",
-   "l"
+   "sh"
   ],
   "answerOptions": [
    {
-    "value": "le",
-    "label": "le",
-    "text": "le"
+    "value": "ng",
+    "label": "ng",
+    "text": "ng"
    },
    {
     "value": "s",
@@ -4141,16 +4141,16 @@ export const questions = [
     "text": "ll"
    },
    {
-    "value": "l",
-    "label": "l",
-    "text": "l"
+    "value": "sh",
+    "label": "sh",
+    "text": "sh"
    }
   ],
   "answer": "ll",
   "correctAnswer": "ll",
   "distractorRationales": {
-   "l": "D-DEVELOPMENTAL",
-   "le": "D-PATTERN-TRAP",
+   "sh": "D-PATTERN-TRAP",
+   "ng": "D-PATTERN-TRAP",
    "s": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -4175,7 +4175,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sma+l/le/s are non-words",
+  "notes": "No one-l option because it would share the same final sound.",
   "imagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
   "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
   "targetImage": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
@@ -4205,7 +4205,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ri__",
   "question": "Complete: ri__",
-  "spokenPrompt": "ring. ring ends with a sound. Which ending finishes the word ring?",
+  "spokenPrompt": "ring. Which two ending letters finish the word ring?",
   "choices": [
    "n",
    "nk",
@@ -4291,9 +4291,9 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like song?",
-  "question": "Which one ends like song?",
-  "spokenPrompt": "song. Which one ends with the same sound as song?",
+  "prompt": "Which one ends with the same two letters as song?",
+  "question": "Which one ends with the same two letters as song?",
+  "spokenPrompt": "song. Which one ends with the same two letters as song?",
   "choices": [
    "pin",
    "sock",
@@ -4412,18 +4412,18 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ki__",
   "question": "Complete: ki__",
-  "spokenPrompt": "king. king ends with a sound. Which ending finishes the word king?",
+  "spokenPrompt": "king. Which two ending letters finish the word king?",
   "choices": [
-   "g",
+   "th",
    "k",
    "ng",
    "n"
   ],
   "answerOptions": [
    {
-    "value": "g",
-    "label": "g",
-    "text": "g"
+    "value": "th",
+    "label": "th",
+    "text": "th"
    },
    {
     "value": "k",
@@ -4444,7 +4444,7 @@ export const questions = [
   "answer": "ng",
   "correctAnswer": "ng",
   "distractorRationales": {
-   "g": "D-DEVELOPMENTAL",
+   "th": "D-DEVELOPMENTAL",
    "k": "D-POSITION",
    "n": "D-DEVELOPMENTAL"
   },
@@ -4500,7 +4500,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: swi__",
   "question": "Complete: swi__",
-  "spokenPrompt": "swing. swing ends with a sound. Which ending finishes the word swing?",
+  "spokenPrompt": "swing. Which two ending letters finish the word swing?",
   "choices": [
    "ng",
    "n",
@@ -4588,7 +4588,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ha__",
   "question": "Complete: ha__",
-  "spokenPrompt": "hand. hand ends with a sound. Which ending finishes the word hand?",
+  "spokenPrompt": "hand. Which two ending letters finish the word hand?",
   "choices": [
    "h",
    "nd",
@@ -4674,12 +4674,12 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like hand?",
-  "question": "Which word ends like hand?",
-  "spokenPrompt": "hand. Which word ends like hand?",
+  "prompt": "Which word ends with the same letters as hand?",
+  "question": "Which word ends with the same letters as hand?",
+  "spokenPrompt": "hand. Which word ends with the same two letters as hand?",
   "choices": [
    "pond",
-   "pot",
+   "candle",
    "nut",
    "hen"
   ],
@@ -4690,9 +4690,9 @@ export const questions = [
     "text": "pond"
    },
    {
-    "value": "pot",
-    "label": "pot",
-    "text": "pot"
+    "value": "candle",
+    "label": "candle",
+    "text": "candle"
    },
    {
     "value": "nut",
@@ -4708,13 +4708,13 @@ export const questions = [
   "answer": "pond",
   "correctAnswer": "pond",
   "distractorRationales": {
-   "pot": "D-RIME-NEAR",
+   "candle": "D-PATTERN-TRAP",
    "nut": "D-RIME-NEAR",
    "hen": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
-  "hadPTD": false,
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
@@ -4734,13 +4734,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "pond and hen both tie the one/ends letter overlap; hen starts like the anchor",
+  "notes": "candle contains nd internally but ends in le; no distractor ends in bare d.",
   "imagePath": "/images/assessment/blends/hand.webp",
   "imageUrl": "/images/assessment/blends/hand.webp",
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Which word ends like hand?"
+  "imageAlt": "Which word ends with the same letters as hand?"
  },
  {
   "id": "lp3.final_sounds.l2.C.nd.v3",
@@ -4764,7 +4764,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: po__",
   "question": "Complete: po__",
-  "spokenPrompt": "pond. pond ends with a sound. Which ending finishes the word pond?",
+  "spokenPrompt": "pond. Which two ending letters finish the word pond?",
   "choices": [
    "nt",
    "n",
@@ -4852,23 +4852,23 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: wi__",
   "question": "Complete: wi__",
-  "spokenPrompt": "wind. wind ends with a sound. Which ending finishes the word wind?",
+  "spokenPrompt": "wind. Which two ending letters finish the word wind?",
   "choices": [
-   "m",
-   "d",
+   "mp",
+   "w",
    "nd",
    "nt"
   ],
   "answerOptions": [
    {
-    "value": "m",
-    "label": "m",
-    "text": "m"
+    "value": "mp",
+    "label": "mp",
+    "text": "mp"
    },
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
+    "value": "w",
+    "label": "w",
+    "text": "w"
    },
    {
     "value": "nd",
@@ -4884,8 +4884,8 @@ export const questions = [
   "answer": "nd",
   "correctAnswer": "nd",
   "distractorRationales": {
-   "m": "D-VISUAL-NEIGHBOR",
-   "d": "D-DEVELOPMENTAL",
+   "mp": "D-PATTERN-TRAP",
+   "w": "D-POSITION",
    "nt": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -4910,7 +4910,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wi+nt/m/d are non-words (win, wing, wig all stay out of the set)",
+  "notes": "No bare-d option: hand and wind do end in /d/, so d would be defensible under sound wording.",
   "imagePath": "/images/assessment/generated/concepts/wind.webp",
   "imageUrl": "/images/assessment/generated/concepts/wind.webp",
   "targetImage": "/images/assessment/generated/concepts/wind.webp",
@@ -4940,7 +4940,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: dri__",
   "question": "Complete: dri__",
-  "spokenPrompt": "drink. drink ends with a sound. Which ending finishes the word drink?",
+  "spokenPrompt": "drink. Which two ending letters finish the word drink?",
   "choices": [
    "ng",
    "nt",
@@ -5026,20 +5026,20 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like tank?",
-  "question": "Which word ends like tank?",
-  "spokenPrompt": "tank. Which word ends like tank?",
+  "prompt": "Which word ends with the same letters as tank?",
+  "question": "Which word ends with the same letters as tank?",
+  "spokenPrompt": "tank. Which word ends with the same two letters as tank?",
   "choices": [
-   "rock",
-   "drink",
    "ring",
+   "drink",
+   "monkey",
    "tap"
   ],
   "answerOptions": [
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
    },
    {
     "value": "drink",
@@ -5047,9 +5047,9 @@ export const questions = [
     "text": "drink"
    },
    {
-    "value": "ring",
-    "label": "ring",
-    "text": "ring"
+    "value": "monkey",
+    "label": "monkey",
+    "text": "monkey"
    },
    {
     "value": "tap",
@@ -5061,8 +5061,8 @@ export const questions = [
   "correctAnswer": "drink",
   "distractorRationales": {
    "tap": "D-POSITION",
-   "rock": "D-RIME-NEAR",
-   "ring": "D-PATTERN-TRAP"
+   "ring": "D-RIME-NEAR",
+   "monkey": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -5086,13 +5086,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "drink shares tank's nk and tap shares its ta — scanning ties; ring is the ng neighbour; rock ends bare /k/",
+  "notes": "monkey contains nk internally but ends in ey; no distractor ends in bare /k/.",
   "imagePath": "/images/objects/drink.png",
   "imageUrl": "/images/objects/drink.png",
   "targetImage": "/images/objects/drink.png",
   "targetImagePath": "/images/objects/drink.png",
   "resolvedImageAssetKey": "drink",
-  "imageAlt": "Which word ends like tank?"
+  "imageAlt": "Which word ends with the same letters as tank?"
  },
  {
   "id": "lp3.final_sounds.l2.C.nk.v3",
@@ -5116,7 +5116,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: tru__",
   "question": "Complete: tru__",
-  "spokenPrompt": "trunk. trunk ends with a sound. Which ending finishes the word trunk?",
+  "spokenPrompt": "trunk. Which two ending letters finish the word trunk?",
   "choices": [
    "nk",
    "ng",
@@ -5204,7 +5204,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: bli__",
   "question": "Complete: bli__",
-  "spokenPrompt": "blink. blink ends with a sound. Which ending finishes the word blink?",
+  "spokenPrompt": "blink. Which two ending letters finish the word blink?",
   "choices": [
    "nk",
    "nt",
@@ -5292,7 +5292,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ne__",
   "question": "Complete: ne__",
-  "spokenPrompt": "nest. nest ends with a sound. Which ending finishes the word nest?",
+  "spokenPrompt": "nest. Which two ending letters finish the word nest?",
   "choices": [
    "n",
    "st",
@@ -5378,12 +5378,12 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like list?",
-  "question": "Which one ends like list?",
-  "spokenPrompt": "list. Which one ends with the same sound as list?",
+  "prompt": "Which one ends with the same two letters as list?",
+  "question": "Which one ends with the same two letters as list?",
+  "spokenPrompt": "list. Which one ends with the same two letters as list?",
   "choices": [
    "dish",
-   "vet",
+   "lemon",
    "nest",
    "desk"
   ],
@@ -5394,9 +5394,9 @@ export const questions = [
     "text": "dish"
    },
    {
-    "value": "vet",
-    "label": "vet",
-    "text": "vet"
+    "value": "lemon",
+    "label": "lemon",
+    "text": "lemon"
    },
    {
     "value": "nest",
@@ -5413,7 +5413,7 @@ export const questions = [
   "correctAnswer": "nest",
   "distractorRationales": {
    "dish": "D-PATTERN-TRAP",
-   "vet": "D-DEVELOPMENTAL",
+   "lemon": "D-RIME-NEAR",
    "desk": "D-PATTERN-TRAP"
   },
   "mediaTier": "image-required",
@@ -5437,7 +5437,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "anchor avoids rhyming the key (vest/nest est-chunk would leak); dish ties the list is-overlap; vet drops the cluster",
+  "notes": "No distractor ends in bare t; desk and dish provide neighboring endings.",
   "imageCards": [
    {
     "id": "lp3.final_sounds.l2.B.st.v2_card_dish",
@@ -5449,13 +5449,13 @@ export const questions = [
     "imageAlt": "dish"
    },
    {
-    "id": "lp3.final_sounds.l2.B.st.v2_card_vet",
-    "word": "vet",
-    "value": "vet",
-    "label": "vet",
-    "image": "/images/child-mode/initial-sounds/vet.png",
-    "imagePath": "/images/child-mode/initial-sounds/vet.png",
-    "imageAlt": "vet"
+    "id": "lp3.final_sounds.l2.B.st.v2_card_lemon",
+    "word": "lemon",
+    "value": "lemon",
+    "label": "lemon",
+    "image": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+    "imagePath": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+    "imageAlt": "lemon"
    },
    {
     "id": "lp3.final_sounds.l2.B.st.v2_card_nest",
@@ -5499,7 +5499,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ve__",
   "question": "Complete: ve__",
-  "spokenPrompt": "vest. vest ends with a sound. Which ending finishes the word vest?",
+  "spokenPrompt": "vest. Which two ending letters finish the word vest?",
   "choices": [
    "v",
    "st",
@@ -5587,7 +5587,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: li__",
   "question": "Complete: li__",
-  "spokenPrompt": "list. list ends with a sound. Which ending finishes the word list?",
+  "spokenPrompt": "list. Which two ending letters finish the word list?",
   "choices": [
    "ss",
    "l",
@@ -5675,7 +5675,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: de__",
   "question": "Complete: de__",
-  "spokenPrompt": "desk. desk ends with a sound. Which ending finishes the word desk?",
+  "spokenPrompt": "desk. Which two ending letters finish the word desk?",
   "choices": [
    "st",
    "ck",
@@ -5761,25 +5761,25 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like desk?",
-  "question": "Which word ends like desk?",
-  "spokenPrompt": "desk. Which word ends like desk?",
+  "prompt": "Which word ends with the same letters as desk?",
+  "question": "Which word ends with the same letters as desk?",
+  "spokenPrompt": "desk. Which word ends with the same two letters as desk?",
   "choices": [
+   "basket",
    "nest",
-   "duck",
    "dish",
    "mask"
   ],
   "answerOptions": [
    {
+    "value": "basket",
+    "label": "basket",
+    "text": "basket"
+   },
+   {
     "value": "nest",
     "label": "nest",
     "text": "nest"
-   },
-   {
-    "value": "duck",
-    "label": "duck",
-    "text": "duck"
    },
    {
     "value": "dish",
@@ -5795,8 +5795,8 @@ export const questions = [
   "answer": "mask",
   "correctAnswer": "mask",
   "distractorRationales": {
-   "nest": "D-PATTERN-TRAP",
-   "duck": "D-RIME-NEAR",
+   "basket": "D-PATTERN-TRAP",
+   "nest": "D-RIME-NEAR",
    "dish": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -5821,13 +5821,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "mask shares desk's sk and nest shares its es — scanning ties; dish starts like the anchor; duck ends bare /k/",
+  "notes": "basket contains sk internally but ends in et; no distractor ends in bare /k/.",
   "imagePath": "/images/assessment/blends/desk.webp",
   "imageUrl": "/images/assessment/blends/desk.webp",
   "targetImage": "/images/assessment/blends/desk.webp",
   "targetImagePath": "/images/assessment/blends/desk.webp",
   "resolvedImageAssetKey": "desk",
-  "imageAlt": "Which word ends like desk?"
+  "imageAlt": "Which word ends with the same letters as desk?"
  },
  {
   "id": "lp3.final_sounds.l2.C.sk.v3",
@@ -5851,7 +5851,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ma__",
   "question": "Complete: ma__",
-  "spokenPrompt": "mask. mask ends with a sound. Which ending finishes the word mask?",
+  "spokenPrompt": "mask. Which two ending letters finish the word mask?",
   "choices": [
    "ng",
    "f",
@@ -5939,7 +5939,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: tu__",
   "question": "Complete: tu__",
-  "spokenPrompt": "tusk. tusk ends with a sound. Which ending finishes the word tusk?",
+  "spokenPrompt": "tusk. Which two ending letters finish the word tusk?",
   "choices": [
    "sk",
    "st",
@@ -6027,7 +6027,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: gi__",
   "question": "Complete: gi__",
-  "spokenPrompt": "gift. gift ends with a sound. Which ending finishes the word gift?",
+  "spokenPrompt": "gift. Which two ending letters finish the word gift?",
   "choices": [
    "g",
    "ft",
@@ -6113,13 +6113,13 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like raft?",
-  "question": "Which word ends like raft?",
-  "spokenPrompt": "raft. Which word ends like raft?",
+  "prompt": "Which word ends with the same letters as raft?",
+  "question": "Which word ends with the same letters as raft?",
+  "spokenPrompt": "raft. Which word ends with the same two letters as raft?",
   "choices": [
    "gift",
-   "rat",
-   "hat",
+   "after",
+   "rain",
    "mask"
   ],
   "answerOptions": [
@@ -6129,14 +6129,14 @@ export const questions = [
     "text": "gift"
    },
    {
-    "value": "rat",
-    "label": "rat",
-    "text": "rat"
+    "value": "after",
+    "label": "after",
+    "text": "after"
    },
    {
-    "value": "hat",
-    "label": "hat",
-    "text": "hat"
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
    },
    {
     "value": "mask",
@@ -6147,9 +6147,9 @@ export const questions = [
   "answer": "gift",
   "correctAnswer": "gift",
   "distractorRationales": {
-   "rat": "D-POSITION",
-   "hat": "D-RIME-NEAR",
-   "mask": "D-PATTERN-TRAP"
+   "after": "D-PATTERN-TRAP",
+   "rain": "D-POSITION",
+   "mask": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -6173,13 +6173,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "gift shares raft's ft and rat shares its ra — scanning ties; rat starts like the anchor and drops the cluster",
+  "notes": "after contains ft internally but ends in er; no distractor ends in bare t.",
   "imagePath": "/images/assessment/generated/concepts/raft.webp",
   "imageUrl": "/images/assessment/generated/concepts/raft.webp",
   "targetImage": "/images/assessment/generated/concepts/raft.webp",
   "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
   "resolvedImageAssetKey": "raft",
-  "imageAlt": "Which word ends like raft?"
+  "imageAlt": "Which word ends with the same letters as raft?"
  },
  {
   "id": "lp3.final_sounds.l2.C.ft.v3",
@@ -6203,7 +6203,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: le__",
   "question": "Complete: le__",
-  "spokenPrompt": "left. left ends with a sound. Which ending finishes the word left?",
+  "spokenPrompt": "left. Which two ending letters finish the word left?",
   "choices": [
    "sk",
    "mp",
@@ -6291,7 +6291,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ra__",
   "question": "Complete: ra__",
-  "spokenPrompt": "raft. raft ends with a sound. Which ending finishes the word raft?",
+  "spokenPrompt": "raft. Which two ending letters finish the word raft?",
   "choices": [
    "nd",
    "r",
@@ -6379,7 +6379,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: me__",
   "question": "Complete: me__",
-  "spokenPrompt": "melt. melt ends with a sound. Which ending finishes the word melt?",
+  "spokenPrompt": "melt. Which two ending letters finish the word melt?",
   "choices": [
    "ft",
    "sk",
@@ -6465,20 +6465,20 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like belt?",
-  "question": "Which word ends like belt?",
-  "spokenPrompt": "belt. Which word ends like belt?",
+  "prompt": "Which word ends with the same letters as belt?",
+  "question": "Which word ends with the same letters as belt?",
+  "spokenPrompt": "belt. Which word ends with the same two letters as belt?",
   "choices": [
-   "nest",
+   "ring",
    "melt",
-   "bell",
-   "bat"
+   "salty",
+   "book"
   ],
   "answerOptions": [
    {
-    "value": "nest",
-    "label": "nest",
-    "text": "nest"
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
    },
    {
     "value": "melt",
@@ -6486,22 +6486,22 @@ export const questions = [
     "text": "melt"
    },
    {
-    "value": "bell",
-    "label": "bell",
-    "text": "bell"
+    "value": "salty",
+    "label": "salty",
+    "text": "salty"
    },
    {
-    "value": "bat",
-    "label": "bat",
-    "text": "bat"
+    "value": "book",
+    "label": "book",
+    "text": "book"
    }
   ],
   "answer": "melt",
   "correctAnswer": "melt",
   "distractorRationales": {
-   "nest": "D-PATTERN-TRAP",
-   "bell": "D-RIME-NEAR",
-   "bat": "D-POSITION"
+   "ring": "D-RIME-NEAR",
+   "salty": "D-PATTERN-TRAP",
+   "book": "D-POSITION"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -6525,13 +6525,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "melt shares belt's lt and bell shares its bel — scanning ties; bell drops the t; bat starts like the anchor",
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
   "imagePath": "/images/assessment/blends/belt.webp",
   "imageUrl": "/images/assessment/blends/belt.webp",
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
   "resolvedImageAssetKey": "belt",
-  "imageAlt": "Which word ends like belt?"
+  "imageAlt": "Which word ends with the same letters as belt?"
  },
  {
   "id": "lp3.final_sounds.l2.C.lt.v3",
@@ -6555,7 +6555,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: sa__",
   "question": "Complete: sa__",
-  "spokenPrompt": "salt. salt ends with a sound. Which ending finishes the word salt?",
+  "spokenPrompt": "salt. Which two ending letters finish the word salt?",
   "choices": [
    "lt",
    "ft",
@@ -6643,7 +6643,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: fe__",
   "question": "Complete: fe__",
-  "spokenPrompt": "felt. felt ends with a sound. Which ending finishes the word felt?",
+  "spokenPrompt": "felt. Which two ending letters finish the word felt?",
   "choices": [
    "lt",
    "sk",
@@ -6907,7 +6907,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: gu__",
   "question": "Complete: gu__",
-  "spokenPrompt": "gum. gum ends with a sound. Which ending finishes the word gum?",
+  "spokenPrompt": "gum. Which ending sound finishes the word gum?",
   "choices": [
    "d",
    "w",
@@ -6995,7 +6995,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: ma__",
   "question": "Complete: ma__",
-  "spokenPrompt": "mat. mat ends with a sound. Which ending finishes the word mat?",
+  "spokenPrompt": "mat. Which ending sound finishes the word mat?",
   "choices": [
    "t",
    "d",
@@ -7202,7 +7202,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: di__",
   "question": "Complete: di__",
-  "spokenPrompt": "dish. dish ends with a sound. Which ending finishes the word dish?",
+  "spokenPrompt": "dish. Which two ending letters finish the word dish?",
   "choices": [
    "sh",
    "ch",
@@ -7290,7 +7290,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: sti__",
   "question": "Complete: sti__",
-  "spokenPrompt": "sting. sting ends with a sound. Which ending finishes the word sting?",
+  "spokenPrompt": "sting. Which two ending letters finish the word sting?",
   "choices": [
    "s",
    "ng",
@@ -7378,7 +7378,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: twi__",
   "question": "Complete: twi__",
-  "spokenPrompt": "twist. twist ends with a sound. Which ending finishes the word twist?",
+  "spokenPrompt": "twist. Which two ending letters finish the word twist?",
   "choices": [
    "ss",
    "f",
@@ -7464,20 +7464,20 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like melt?",
-  "question": "Which word ends like melt?",
-  "spokenPrompt": "melt. Which word ends like melt?",
+  "prompt": "Which word ends with the same letters as melt?",
+  "question": "Which word ends with the same letters as melt?",
+  "spokenPrompt": "melt. Which word ends with the same two letters as melt?",
   "choices": [
-   "mask",
+   "salty",
    "moth",
-   "bell",
+   "ring",
    "salt"
   ],
   "answerOptions": [
    {
-    "value": "mask",
-    "label": "mask",
-    "text": "mask"
+    "value": "salty",
+    "label": "salty",
+    "text": "salty"
    },
    {
     "value": "moth",
@@ -7485,9 +7485,9 @@ export const questions = [
     "text": "moth"
    },
    {
-    "value": "bell",
-    "label": "bell",
-    "text": "bell"
+    "value": "ring",
+    "label": "ring",
+    "text": "ring"
    },
    {
     "value": "salt",
@@ -7498,9 +7498,9 @@ export const questions = [
   "answer": "salt",
   "correctAnswer": "salt",
   "distractorRationales": {
-   "mask": "D-PATTERN-TRAP",
+   "salty": "D-PATTERN-TRAP",
    "moth": "D-POSITION",
-   "bell": "D-RIME-NEAR"
+   "ring": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -7524,13 +7524,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "salt shares melt's lt and bell shares its el — scanning ties; moth starts like the anchor",
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
   "imagePath": "/images/assessment/generated/concepts/salt.webp",
   "imageUrl": "/images/assessment/generated/concepts/salt.webp",
   "targetImage": "/images/assessment/generated/concepts/salt.webp",
   "targetImagePath": "/images/assessment/generated/concepts/salt.webp",
   "resolvedImageAssetKey": "salt",
-  "imageAlt": "Which word ends like melt?"
+  "imageAlt": "Which word ends with the same letters as melt?"
  },
  {
   "id": "lp3.final_sounds.l2.R.nk.v5r",
@@ -7554,7 +7554,7 @@ export const questions = [
   "questionType": "multiple_choice",
   "prompt": "Complete: thi__",
   "question": "Complete: thi__",
-  "spokenPrompt": "think. think ends with a sound. Which ending finishes the word think?",
+  "spokenPrompt": "think. Which two ending letters finish the word think?",
   "choices": [
    "nk",
    "nt",

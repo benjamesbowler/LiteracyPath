@@ -92,7 +92,7 @@ for (const file of authoringFiles) {
     detail.lint = lintIssues;
     gates.G1_structure = !lintIssues.some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA"].includes(i.code));
     gates.G2_originality = !lintIssues.some(i => i.code.startsWith("L-UNIQ"));
-    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE"].includes(i.code));
+    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE", "L-AMBIG"].includes(i.code));
 
     // G4 — mastery logic sims
     const perfect = await simulate(items, blueprint, { policy, answerFn: () => true });

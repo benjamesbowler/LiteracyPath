@@ -818,6 +818,11 @@ export function AppSurface({ surface }) {
       {!isFocusedShell && !isStudentMode && (
         <TeacherContextBar
           className={getSelectedClassName(classList, selectedClassId)}
+          classCode={
+            classList.find(row => row.id === selectedClassId)?.access_code
+            || classList.find(row => row.id === selectedClassId)?.accessCode
+            || ""
+          }
           schoolName={teacherSchoolName || ""}
           studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
           cycleId={teacherCycleId}

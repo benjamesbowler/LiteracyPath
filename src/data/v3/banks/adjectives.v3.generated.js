@@ -3152,10 +3152,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The lemonade was ___ enough to make us wince.",
-  "question": "The lemonade was ___ enough to make us wince.",
-  "spokenPrompt": "Which describing word finishes the sentence? The lemonade was … enough to make us wince.",
-  "sentence": "The lemonade was ___ enough to make us wince.",
+  "prompt": "The lemonade was ___ and made our mouths pucker.",
+  "question": "The lemonade was ___ and made our mouths pucker.",
+  "spokenPrompt": "Which describing word finishes the sentence? The lemonade was … and made our mouths pucker.",
+  "sentence": "The lemonade was ___ and made our mouths pucker.",
   "choices": [
    "sour",
    "sweet",
@@ -3196,7 +3196,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The lemonade was ___ enough to make us wince.",
+  "sentenceText": "The lemonade was ___ and made our mouths pucker.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3213,12 +3213,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "The lemonade was sour enough to make us wince."
+  "imagePath": "/images/assessment/hfw/made.webp",
+  "imageUrl": "/images/assessment/hfw/made.webp",
+  "targetImage": "/images/assessment/hfw/made.webp",
+  "targetImagePath": "/images/assessment/hfw/made.webp",
+  "resolvedImageAssetKey": "made",
+  "imageAlt": "The lemonade was sour and made our mouths pucker."
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v3",
@@ -3240,10 +3240,10 @@ export const questions = [
   "formatType": "GRAMMAR_SENTENCE_FIT",
   "templateType": "GRAMMAR_SENTENCE_FIT",
   "questionType": "multiple_choice",
-  "prompt": "The old stairs were ___ under our feet.",
-  "question": "The old stairs were ___ under our feet.",
-  "spokenPrompt": "Which describing word finishes the sentence? The old stairs were … under our feet.",
-  "sentence": "The old stairs were ___ under our feet.",
+  "prompt": "The old stairs were ___ and groaned under our feet.",
+  "question": "The old stairs were ___ and groaned under our feet.",
+  "spokenPrompt": "Which describing word finishes the sentence? The old stairs were … and groaned under our feet.",
+  "sentence": "The old stairs were ___ and groaned under our feet.",
   "choices": [
    "creaky",
    "quiet",
@@ -3284,7 +3284,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The old stairs were ___ under our feet.",
+  "sentenceText": "The old stairs were ___ and groaned under our feet.",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3306,7 +3306,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/under.png",
   "targetImagePath": "/images/child-mode/initial-sounds/under.png",
   "resolvedImageAssetKey": "under",
-  "imageAlt": "The old stairs were creaky under our feet."
+  "imageAlt": "The old stairs were creaky and groaned under our feet."
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v4",

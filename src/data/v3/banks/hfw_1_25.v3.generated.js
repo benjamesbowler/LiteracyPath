@@ -286,21 +286,21 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "We have jam ___ bread.",
-  "question": "We have jam ___ bread.",
-  "spokenPrompt": "Which word finishes the sentence? We have jam … bread.",
-  "sentence": "We have jam ___ bread.",
+  "prompt": "We have both jam ___ bread.",
+  "question": "We have both jam ___ bread.",
+  "spokenPrompt": "Which word finishes the sentence? We have both jam … bread.",
+  "sentence": "We have both jam ___ bread.",
   "choices": [
-   "in",
+   "at",
    "and",
-   "with",
-   "on"
+   "but",
+   "or"
   ],
   "answerOptions": [
    {
-    "value": "in",
-    "label": "in",
-    "text": "in"
+    "value": "at",
+    "label": "at",
+    "text": "at"
    },
    {
     "value": "and",
@@ -308,29 +308,29 @@ export const questions = [
     "text": "and"
    },
    {
-    "value": "with",
-    "label": "with",
-    "text": "with"
+    "value": "but",
+    "label": "but",
+    "text": "but"
    },
    {
-    "value": "on",
-    "label": "on",
-    "text": "on"
+    "value": "or",
+    "label": "or",
+    "text": "or"
    }
   ],
   "answer": "and",
   "correctAnswer": "and",
   "distractorRationales": {
-   "in": "D-FUNCTION-SWAP",
-   "with": "D-FUNCTION-SWAP",
-   "on": "D-FUNCTION-SWAP"
+   "at": "D-FUNCTION-SWAP",
+   "but": "D-FUNCTION-SWAP",
+   "or": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We have jam ___ bread.",
+  "sentenceText": "We have both jam ___ bread.",
   "targetWord": "and",
   "v3AuthoredMedia": {
    "target": true,
@@ -347,13 +347,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "every option parses — jam with bread, jam on bread, jam in bread",
+  "notes": "both ... and pins the joining word; no distractor produces a defensible sentence",
   "imagePath": "/images/assessment/hfw/and.webp",
   "imageUrl": "/images/assessment/hfw/and.webp",
   "targetImage": "/images/assessment/hfw/and.webp",
   "targetImagePath": "/images/assessment/hfw/and.webp",
   "resolvedImageAssetKey": "and",
-  "imageAlt": "We have jam and bread."
+  "imageAlt": "We have both jam and bread."
  },
  {
   "id": "lp3.hfw_1_25.l1.B.and.v2",
@@ -375,15 +375,15 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "She has a cat ___ a dog.",
-  "question": "She has a cat ___ a dog.",
-  "spokenPrompt": "Which word finishes the sentence? She has a cat … a dog.",
-  "sentence": "She has a cat ___ a dog.",
+  "prompt": "She has both a cat ___ a dog.",
+  "question": "She has both a cat ___ a dog.",
+  "spokenPrompt": "Which word finishes the sentence? She has both a cat … a dog.",
+  "sentence": "She has both a cat ___ a dog.",
   "choices": [
    "for",
-   "as",
+   "at",
    "and",
-   "with"
+   "but"
   ],
   "answerOptions": [
    {
@@ -392,9 +392,9 @@ export const questions = [
     "text": "for"
    },
    {
-    "value": "as",
-    "label": "as",
-    "text": "as"
+    "value": "at",
+    "label": "at",
+    "text": "at"
    },
    {
     "value": "and",
@@ -402,24 +402,24 @@ export const questions = [
     "text": "and"
    },
    {
-    "value": "with",
-    "label": "with",
-    "text": "with"
+    "value": "but",
+    "label": "but",
+    "text": "but"
    }
   ],
   "answer": "and",
   "correctAnswer": "and",
   "distractorRationales": {
-   "with": "D-FUNCTION-SWAP",
+   "but": "D-FUNCTION-SWAP",
    "for": "D-FUNCTION-SWAP",
-   "as": "D-FUNCTION-SWAP"
+   "at": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "She has a cat ___ a dog.",
+  "sentenceText": "She has both a cat ___ a dog.",
   "targetWord": "and",
   "v3AuthoredMedia": {
    "target": true,
@@ -442,7 +442,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/and.webp",
   "targetImagePath": "/images/assessment/hfw/and.webp",
   "resolvedImageAssetKey": "and",
-  "imageAlt": "She has a cat and a dog."
+  "imageAlt": "She has both a cat and a dog."
  },
  {
   "id": "lp3.hfw_1_25.l1.C.and.v3",
@@ -1611,26 +1611,26 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "This gift is ___ you.",
-  "question": "This gift is ___ you.",
-  "spokenPrompt": "Which word finishes the sentence? This gift is … you.",
-  "sentence": "This gift is ___ you.",
+  "prompt": "I made this gift ___ you.",
+  "question": "I made this gift ___ you.",
+  "spokenPrompt": "Which word finishes the sentence? I made this gift … you.",
+  "sentence": "I made this gift ___ you.",
   "choices": [
-   "with",
-   "to",
+   "his",
+   "be",
    "for",
-   "from"
+   "was"
   ],
   "answerOptions": [
    {
-    "value": "with",
-    "label": "with",
-    "text": "with"
+    "value": "his",
+    "label": "his",
+    "text": "his"
    },
    {
-    "value": "to",
-    "label": "to",
-    "text": "to"
+    "value": "be",
+    "label": "be",
+    "text": "be"
    },
    {
     "value": "for",
@@ -1638,24 +1638,24 @@ export const questions = [
     "text": "for"
    },
    {
-    "value": "from",
-    "label": "from",
-    "text": "from"
+    "value": "was",
+    "label": "was",
+    "text": "was"
    }
   ],
   "answer": "for",
   "correctAnswer": "for",
   "distractorRationales": {
-   "from": "D-VISUAL-NEIGHBOR",
-   "with": "D-FUNCTION-SWAP",
-   "to": "D-FUNCTION-SWAP"
+   "was": "D-VISUAL-NEIGHBOR",
+   "his": "D-FUNCTION-SWAP",
+   "be": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "This gift is ___ you.",
+  "sentenceText": "I made this gift ___ you.",
   "targetWord": "for",
   "v3AuthoredMedia": {
    "target": true,
@@ -1672,13 +1672,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "from is the classic for-confusion and parses perfectly",
+  "notes": "the frame now has one defensible completion",
   "imagePath": "/images/assessment/hfw/for.webp",
   "imageUrl": "/images/assessment/hfw/for.webp",
   "targetImage": "/images/assessment/hfw/for.webp",
   "targetImagePath": "/images/assessment/hfw/for.webp",
   "resolvedImageAssetKey": "for",
-  "imageAlt": "This gift is for you."
+  "imageAlt": "I made this gift for you."
  },
  {
   "id": "lp3.hfw_1_25.l1.B.for.v2",
@@ -1700,31 +1700,31 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "We ran ___ the bus.",
-  "question": "We ran ___ the bus.",
-  "spokenPrompt": "Which word finishes the sentence? We ran … the bus.",
-  "sentence": "We ran ___ the bus.",
+  "prompt": "We cheered ___ our team.",
+  "question": "We cheered ___ our team.",
+  "spokenPrompt": "Which word finishes the sentence? We cheered … our team.",
+  "sentence": "We cheered ___ our team.",
   "choices": [
-   "from",
+   "are",
+   "this",
    "at",
-   "of",
    "for"
   ],
   "answerOptions": [
    {
-    "value": "from",
-    "label": "from",
-    "text": "from"
+    "value": "are",
+    "label": "are",
+    "text": "are"
+   },
+   {
+    "value": "this",
+    "label": "this",
+    "text": "this"
    },
    {
     "value": "at",
     "label": "at",
     "text": "at"
-   },
-   {
-    "value": "of",
-    "label": "of",
-    "text": "of"
    },
    {
     "value": "for",
@@ -1735,16 +1735,16 @@ export const questions = [
   "answer": "for",
   "correctAnswer": "for",
   "distractorRationales": {
-   "of": "D-VISUAL-NEIGHBOR",
-   "from": "D-VISUAL-NEIGHBOR",
-   "at": "D-DEVELOPMENTAL"
+   "at": "D-VISUAL-NEIGHBOR",
+   "are": "D-VISUAL-NEIGHBOR",
+   "this": "D-DEVELOPMENTAL"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "We ran ___ the bus.",
+  "sentenceText": "We cheered ___ our team.",
   "targetWord": "for",
   "v3AuthoredMedia": {
    "target": true,
@@ -1767,7 +1767,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/for.webp",
   "targetImagePath": "/images/assessment/hfw/for.webp",
   "resolvedImageAssetKey": "for",
-  "imageAlt": "We ran for the bus."
+  "imageAlt": "We cheered for our team."
  },
  {
   "id": "lp3.hfw_1_25.l1.C.for.v3",
@@ -1876,10 +1876,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The card is ___ Gran.",
-  "question": "The card is ___ Gran.",
-  "spokenPrompt": "Which word finishes the sentence? The card is … Gran.",
-  "sentence": "The card is ___ Gran.",
+  "prompt": "Gran sent the card ___ her house.",
+  "question": "Gran sent the card ___ her house.",
+  "spokenPrompt": "Which word finishes the sentence? Gran sent the card … her house.",
+  "sentence": "Gran sent the card ___ her house.",
   "choices": [
    "for",
    "with",
@@ -1920,7 +1920,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The card is ___ Gran.",
+  "sentenceText": "Gran sent the card ___ her house.",
   "targetWord": "from",
   "v3AuthoredMedia": {
    "target": true,
@@ -1943,7 +1943,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/from.webp",
   "targetImagePath": "/images/assessment/hfw/from.webp",
   "resolvedImageAssetKey": "from",
-  "imageAlt": "The card is from Gran."
+  "imageAlt": "Gran sent the card from her house."
  },
  {
   "id": "lp3.hfw_1_25.l1.B.from.v2",
@@ -1965,10 +1965,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "He ran back ___ the park.",
-  "question": "He ran back ___ the park.",
-  "spokenPrompt": "Which word finishes the sentence? He ran back … the park.",
-  "sentence": "He ran back ___ the park.",
+  "prompt": "He came home ___ the park.",
+  "question": "He came home ___ the park.",
+  "spokenPrompt": "Which word finishes the sentence? He came home … the park.",
+  "sentence": "He came home ___ the park.",
   "choices": [
    "from",
    "to",
@@ -2009,7 +2009,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "He ran back ___ the park.",
+  "sentenceText": "He came home ___ the park.",
   "targetWord": "from",
   "v3AuthoredMedia": {
    "target": true,
@@ -2032,7 +2032,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/from.webp",
   "targetImagePath": "/images/assessment/hfw/from.webp",
   "resolvedImageAssetKey": "from",
-  "imageAlt": "He ran back from the park."
+  "imageAlt": "He came home from the park."
  },
  {
   "id": "lp3.hfw_1_25.l1.C.from.v3",
@@ -2941,16 +2941,16 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Mom and … bake buns.",
   "sentence": "Mom and ___ bake buns.",
   "choices": [
-   "he",
+   "me",
    "they",
    "you",
    "I"
   ],
   "answerOptions": [
    {
-    "value": "he",
-    "label": "he",
-    "text": "he"
+    "value": "me",
+    "label": "me",
+    "text": "me"
    },
    {
     "value": "they",
@@ -2971,7 +2971,7 @@ export const questions = [
   "answer": "I",
   "correctAnswer": "I",
   "distractorRationales": {
-   "he": "D-FUNCTION-SWAP",
+   "me": "D-FUNCTION-SWAP",
    "they": "D-FUNCTION-SWAP",
    "you": "D-FUNCTION-SWAP"
   },
@@ -2997,7 +2997,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "every pronoun parses — only the pairing with Mom picks I",
+  "notes": "only I forms the standard compound subject",
   "imagePath": "/images/assessment/hfw/i.webp",
   "imageUrl": "/images/assessment/hfw/i.webp",
   "targetImage": "/images/assessment/hfw/i.webp",
@@ -3025,10 +3025,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "May ___ have a go?",
-  "question": "May ___ have a go?",
-  "spokenPrompt": "Which word finishes the sentence? May … have a go?",
-  "sentence": "May ___ have a go?",
+  "prompt": "___ am ready for my turn.",
+  "question": "___ am ready for my turn.",
+  "spokenPrompt": "Which word finishes the sentence? … am ready for my turn.",
+  "sentence": "___ am ready for my turn.",
   "choices": [
    "I",
    "you",
@@ -3069,7 +3069,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "May ___ have a go?",
+  "sentenceText": "___ am ready for my turn.",
   "targetWord": "i",
   "v3AuthoredMedia": {
    "target": true,
@@ -3092,7 +3092,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/i.webp",
   "targetImagePath": "/images/assessment/hfw/i.webp",
   "resolvedImageAssetKey": "i",
-  "imageAlt": "May I have a go?"
+  "imageAlt": "I am ready for my turn."
  },
  {
   "id": "lp3.hfw_1_25.l1.C.i.v3",
@@ -5851,10 +5851,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The cat ___ on the bed.",
-  "question": "The cat ___ on the bed.",
-  "spokenPrompt": "Which word finishes the sentence? The cat … on the bed.",
-  "sentence": "The cat ___ on the bed.",
+  "prompt": "Yesterday the cat ___ on the bed.",
+  "question": "Yesterday the cat ___ on the bed.",
+  "spokenPrompt": "Which word finishes the sentence? Yesterday the cat … on the bed.",
+  "sentence": "Yesterday the cat ___ on the bed.",
   "choices": [
    "saw",
    "has",
@@ -5895,7 +5895,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The cat ___ on the bed.",
+  "sentenceText": "Yesterday the cat ___ on the bed.",
   "targetWord": "was",
   "v3AuthoredMedia": {
    "target": true,
@@ -5912,13 +5912,13 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the blueprint exemplar — saw is the reversal error and every verb parses",
+  "notes": "yesterday pins the past-tense form",
   "imagePath": "/images/assessment/hfw/was.webp",
   "imageUrl": "/images/assessment/hfw/was.webp",
   "targetImage": "/images/assessment/hfw/was.webp",
   "targetImagePath": "/images/assessment/hfw/was.webp",
   "resolvedImageAssetKey": "was",
-  "imageAlt": "The cat was on the bed."
+  "imageAlt": "Yesterday the cat was on the bed."
  },
  {
   "id": "lp3.hfw_1_25.l1.B.was.v2",
@@ -5940,10 +5940,10 @@ export const questions = [
   "formatType": "HFW_SENTENCE_CLOZE",
   "templateType": "HFW_SENTENCE_CLOZE",
   "questionType": "multiple_choice",
-  "prompt": "The milk ___ cold.",
-  "question": "The milk ___ cold.",
-  "spokenPrompt": "Which word finishes the sentence? The milk … cold.",
-  "sentence": "The milk ___ cold.",
+  "prompt": "Yesterday the milk ___ cold.",
+  "question": "Yesterday the milk ___ cold.",
+  "spokenPrompt": "Which word finishes the sentence? Yesterday the milk … cold.",
+  "sentence": "Yesterday the milk ___ cold.",
   "choices": [
    "is",
    "be",
@@ -5984,7 +5984,7 @@ export const questions = [
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "sentenceText": "The milk ___ cold.",
+  "sentenceText": "Yesterday the milk ___ cold.",
   "targetWord": "was",
   "v3AuthoredMedia": {
    "target": true,
@@ -6007,7 +6007,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/was.webp",
   "targetImagePath": "/images/assessment/hfw/was.webp",
   "resolvedImageAssetKey": "was",
-  "imageAlt": "The milk was cold."
+  "imageAlt": "Yesterday the milk was cold."
  },
  {
   "id": "lp3.hfw_1_25.l1.C.was.v3",

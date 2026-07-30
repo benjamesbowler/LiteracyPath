@@ -451,6 +451,68 @@ export function lintBank(items, blueprint, {
       }
     }
 
+    // L-AMBIG — a young learner must never be offered a partial ending that is
+    // also literally true. L2 Final Sounds measures two-letter endings. For
+    // example, "hand" does end in /d/ and "shell" does end in /l/, so bare d
+    // and one-l distractors create a second defensible answer even though the
+    // authored key is nd/ll.
+    if (item.skillId === "final_sounds" && item.level === 2 && item.itemKey.length > 1) {
+      const ending = norm(item.itemKey);
+      const properSuffixes = Array.from(
+        { length: ending.length - 1 },
+        (_, index) => ending.slice(index + 1)
+      ).filter(Boolean);
+      const partialEndingChoices = distractors.filter(choice => {
+        const value = norm(choice).replace(/[^a-z]/g, "");
+        if (!value) return false;
+        if (item.formatType === "ENDING_SOUND") return properSuffixes.includes(value);
+        return properSuffixes.some(suffix => value.endsWith(suffix));
+      });
+      if (partialEndingChoices.length) {
+        push(
+          "L-AMBIG",
+          item.id,
+          `partial ending distractor(s) also fit the anchor: ${partialEndingChoices.join(", ")}`
+        );
+      }
+      if (!/\btwo\b.*\b(?:letter|letters)\b/i.test(item.spokenPrompt || "")) {
+        push("L-AMBIG", item.id, "L2 final-pattern audio must explicitly ask for two ending letters");
+      }
+    }
+    if (/\b(?:every option parses|every pronoun parses|every verb parses|both parse|parses perfectly|slip-key|validly wrong)\b/i.test(item.notes || "")) {
+      push("L-AMBIG", item.id, "author note admits that a distractor is also defensible");
+    }
+
+    // Number words should leave exactly one number-compatible answer in a
+    // plurals item. Semantic hints such as "on the wall" are not strong enough
+    // to make cats uniquely better than hens for a five-year-old.
+    if (
+      item.skillId === "plurals"
+      && ["PLURAL_SPELLING_CONTEXT", "PLURAL_TEXT_CHOICE"].includes(item.formatType)
+    ) {
+      const sentence = norm(item.sentence || item.prompt);
+      const pluralSignal = /\b(?:two|three|four|five|six|ten|both|many|lots of|all(?: the)?)\b/.test(sentence);
+      const singularSignal = /\b(?:one|just one|a single)\b/.test(sentence);
+      const irregularPlurals = new Set(["children", "feet", "geese", "men", "mice", "people", "teeth", "women"]);
+      const singularEndsInS = new Set(["bus"]);
+      const isPluralNoun = value => {
+        const word = norm(value);
+        return irregularPlurals.has(word) || (word.endsWith("s") && !singularEndsInS.has(word));
+      };
+      const compatible = pluralSignal
+        ? item.choices.filter(isPluralNoun)
+        : singularSignal
+          ? item.choices.filter(choice => !isPluralNoun(choice))
+          : [];
+      if ((pluralSignal || singularSignal) && compatible.length !== 1) {
+        push(
+          "L-AMBIG",
+          item.id,
+          `${compatible.length} choices match the sentence's singular/plural signal: ${compatible.join(", ")}`
+        );
+      }
+    }
+
     // Image formats must only use words with real image assets
     if (item.imageCards) {
       for (const card of item.imageCards) {

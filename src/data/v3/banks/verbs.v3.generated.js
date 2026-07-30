@@ -956,7 +956,7 @@ export const questions = [
   "choices": [
    "brick",
    "shell",
-   "coat",
+   "moon",
    "press"
   ],
   "answerOptions": [
@@ -971,9 +971,9 @@ export const questions = [
     "text": "shell"
    },
    {
-    "value": "coat",
-    "label": "coat",
-    "text": "coat"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
     "value": "press",
@@ -986,7 +986,7 @@ export const questions = [
   "distractorRationales": {
    "brick": "D-FUNCTION-SWAP",
    "shell": "D-FUNCTION-SWAP",
-   "coat": "D-FUNCTION-SWAP"
+   "moon": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1028,13 +1028,13 @@ export const questions = [
     "imageAlt": "shell"
    },
    {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_coat",
-    "word": "coat",
-    "value": "coat",
-    "label": "coat",
-    "image": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-    "imageAlt": "coat"
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
    },
    {
     "id": "lp3.verbs.l1.B.verb_action_object.v2_card_press",
@@ -1446,21 +1446,21 @@ export const questions = [
   "question": "Which one shows a doing word — something you do to things?",
   "spokenPrompt": "Which one shows a doing word — something you do to things?",
   "choices": [
-   "pan",
-   "jam",
+   "lid",
+   "moon",
    "stir",
    "pot"
   ],
   "answerOptions": [
    {
-    "value": "pan",
-    "label": "pan",
-    "text": "pan"
+    "value": "lid",
+    "label": "lid",
+    "text": "lid"
    },
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
     "value": "stir",
@@ -1476,9 +1476,9 @@ export const questions = [
   "answer": "stir",
   "correctAnswer": "stir",
   "distractorRationales": {
-   "jam": "D-FUNCTION-SWAP",
+   "moon": "D-FUNCTION-SWAP",
    "pot": "D-FUNCTION-SWAP",
-   "pan": "D-FUNCTION-SWAP"
+   "lid": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -1502,22 +1502,22 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pan",
-    "word": "pan",
-    "value": "pan",
-    "label": "pan",
-    "image": "/images/assessment/rhyming/variants/an/pan-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
-    "imageAlt": "pan"
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_lid",
+    "word": "lid",
+    "value": "lid",
+    "label": "lid",
+    "image": "/images/child-mode/initial-sounds/lid.png",
+    "imagePath": "/images/child-mode/initial-sounds/lid.png",
+    "imageAlt": "lid"
    },
    {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imageAlt": "jam"
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
    },
    {
     "id": "lp3.verbs.l1.A.verb_action_object.v7_card_stir",
@@ -1563,16 +1563,16 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "log",
+   "rug",
    "lift",
-   "box",
-   "belt"
+   "apple",
+   "moon"
   ],
   "answerOptions": [
    {
-    "value": "log",
-    "label": "log",
-    "text": "log"
+    "value": "rug",
+    "label": "rug",
+    "text": "rug"
    },
    {
     "value": "lift",
@@ -1580,22 +1580,22 @@ export const questions = [
     "text": "lift"
    },
    {
-    "value": "box",
-    "label": "box",
-    "text": "box"
+    "value": "apple",
+    "label": "apple",
+    "text": "apple"
    },
    {
-    "value": "belt",
-    "label": "belt",
-    "text": "belt"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    }
   ],
   "answer": "lift",
   "correctAnswer": "lift",
   "distractorRationales": {
-   "log": "D-FUNCTION-SWAP",
-   "box": "D-FUNCTION-SWAP",
-   "belt": "D-FUNCTION-SWAP"
+   "rug": "D-FUNCTION-SWAP",
+   "apple": "D-FUNCTION-SWAP",
+   "moon": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2002,8 +2002,8 @@ export const questions = [
   "choices": [
    "sing",
    "song",
-   "ring",
-   "drum"
+   "sun",
+   "hat"
   ],
   "answerOptions": [
    {
@@ -2017,22 +2017,22 @@ export const questions = [
     "text": "song"
    },
    {
-    "value": "ring",
-    "label": "ring",
-    "text": "ring"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "sing",
   "correctAnswer": "sing",
   "distractorRationales": {
-   "drum": "D-FUNCTION-SWAP",
+   "hat": "D-FUNCTION-SWAP",
    "song": "D-FUNCTION-SWAP",
-   "ring": "D-FUNCTION-SWAP"
+   "sun": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2054,7 +2054,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "ring the thing ties the ing/doing overlap",
+  "notes": "",
   "imagePath": "/images/assessment/generated/concepts/sing.webp",
   "imageUrl": "/images/assessment/generated/concepts/sing.webp",
   "targetImage": "/images/assessment/generated/concepts/sing.webp",
@@ -2087,8 +2087,8 @@ export const questions = [
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
    "soap",
-   "sink",
    "tub",
+   "hat",
    "wash"
   ],
   "answerOptions": [
@@ -2098,14 +2098,14 @@ export const questions = [
     "text": "soap"
    },
    {
-    "value": "sink",
-    "label": "sink",
-    "text": "sink"
-   },
-   {
     "value": "tub",
     "label": "tub",
     "text": "tub"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
     "value": "wash",
@@ -2116,9 +2116,9 @@ export const questions = [
   "answer": "wash",
   "correctAnswer": "wash",
   "distractorRationales": {
-   "tub": "D-FUNCTION-SWAP",
+   "hat": "D-FUNCTION-SWAP",
    "soap": "D-FUNCTION-SWAP",
-   "sink": "D-FUNCTION-SWAP"
+   "tub": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -2261,7 +2261,7 @@ export const questions = [
    "jug",
    "drink",
    "cup",
-   "pin"
+   "hat"
   ],
   "answerOptions": [
    {
@@ -2280,15 +2280,15 @@ export const questions = [
     "text": "cup"
    },
    {
-    "value": "pin",
-    "label": "pin",
-    "text": "pin"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    }
   ],
   "answer": "drink",
   "correctAnswer": "drink",
   "distractorRationales": {
-   "pin": "D-FUNCTION-SWAP",
+   "hat": "D-FUNCTION-SWAP",
    "jug": "D-FUNCTION-SWAP",
    "cup": "D-FUNCTION-SWAP"
   },
@@ -2341,13 +2341,13 @@ export const questions = [
     "imageAlt": "cup"
    },
    {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_pin",
-    "word": "pin",
-    "value": "pin",
-    "label": "pin",
-    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "imageAlt": "pin"
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_hat",
+    "word": "hat",
+    "value": "hat",
+    "label": "hat",
+    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imageAlt": "hat"
    }
   ]
  },
@@ -2377,7 +2377,7 @@ export const questions = [
   "choices": [
    "brush",
    "teeth",
-   "comb",
+   "soap",
    "hair"
   ],
   "answerOptions": [
@@ -2392,9 +2392,9 @@ export const questions = [
     "text": "teeth"
    },
    {
-    "value": "comb",
-    "label": "comb",
-    "text": "comb"
+    "value": "soap",
+    "label": "soap",
+    "text": "soap"
    },
    {
     "value": "hair",
@@ -2406,7 +2406,7 @@ export const questions = [
   "correctAnswer": "brush",
   "distractorRationales": {
    "teeth": "D-FUNCTION-SWAP",
-   "comb": "D-FUNCTION-SWAP",
+   "soap": "D-FUNCTION-SWAP",
    "hair": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
@@ -2429,7 +2429,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "brush zero-derives, but among three body/tool nouns the doing reading is the only fit for the frame",
+  "notes": "no second action word competes with brush",
   "imagePath": "/images/assessment/digraphs/brush.webp",
   "imageUrl": "/images/assessment/digraphs/brush.webp",
   "targetImage": "/images/assessment/digraphs/brush.webp",
@@ -3508,7 +3508,7 @@ export const questions = [
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
    "rope",
-   "climb",
+   "climbed",
    "hill",
    "boots"
   ],
@@ -3519,9 +3519,9 @@ export const questions = [
     "text": "rope"
    },
    {
-    "value": "climb",
-    "label": "climb",
-    "text": "climb"
+    "value": "climbed",
+    "label": "climbed",
+    "text": "climbed"
    },
    {
     "value": "hill",
@@ -3534,8 +3534,8 @@ export const questions = [
     "text": "boots"
    }
   ],
-  "answer": "climb",
-  "correctAnswer": "climb",
+  "answer": "climbed",
+  "correctAnswer": "climbed",
   "distractorRationales": {
    "hill": "D-FUNCTION-SWAP",
    "boots": "D-FUNCTION-SWAP",
@@ -3594,7 +3594,7 @@ export const questions = [
   "spokenPrompt": "Which word is a doing word, not a naming word?",
   "choices": [
    "floor",
-   "sweep",
+   "swept",
    "broom",
    "dust"
   ],
@@ -3605,9 +3605,9 @@ export const questions = [
     "text": "floor"
    },
    {
-    "value": "sweep",
-    "label": "sweep",
-    "text": "sweep"
+    "value": "swept",
+    "label": "swept",
+    "text": "swept"
    },
    {
     "value": "broom",
@@ -3620,8 +3620,8 @@ export const questions = [
     "text": "dust"
    }
   ],
-  "answer": "sweep",
-  "correctAnswer": "sweep",
+  "answer": "swept",
+  "correctAnswer": "swept",
   "distractorRationales": {
    "floor": "D-FUNCTION-SWAP",
    "broom": "D-FUNCTION-SWAP",
@@ -3769,7 +3769,7 @@ export const questions = [
   "choices": [
    "wall",
    "colour",
-   "paint",
+   "painted",
    "painter"
   ],
   "answerOptions": [
@@ -3784,9 +3784,9 @@ export const questions = [
     "text": "colour"
    },
    {
-    "value": "paint",
-    "label": "paint",
-    "text": "paint"
+    "value": "painted",
+    "label": "painted",
+    "text": "painted"
    },
    {
     "value": "painter",
@@ -3794,8 +3794,8 @@ export const questions = [
     "text": "painter"
    }
   ],
-  "answer": "paint",
-  "correctAnswer": "paint",
+  "answer": "painted",
+  "correctAnswer": "painted",
   "distractorRationales": {
    "wall": "D-FUNCTION-SWAP",
    "colour": "D-FUNCTION-SWAP",
@@ -3821,7 +3821,7 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "paint zero-derives, but painter/wall/colour name — the frame asks which one DOES",
+  "notes": "the past-tense form is unambiguously the action",
   "imagePath": "/images/assessment/hfw/not.webp",
   "imageUrl": "/images/assessment/hfw/not.webp",
   "targetImage": "/images/assessment/hfw/not.webp",
@@ -5104,26 +5104,26 @@ export const questions = [
   "question": "Which word is a doing word?",
   "spokenPrompt": "Which word is a doing word?",
   "choices": [
-   "gift",
-   "bow",
-   "card",
+   "hat",
+   "cup",
+   "sun",
    "wrap"
   ],
   "answerOptions": [
    {
-    "value": "gift",
-    "label": "gift",
-    "text": "gift"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
-    "value": "bow",
-    "label": "bow",
-    "text": "bow"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    },
    {
-    "value": "card",
-    "label": "card",
-    "text": "card"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
     "value": "wrap",
@@ -5134,9 +5134,9 @@ export const questions = [
   "answer": "wrap",
   "correctAnswer": "wrap",
   "distractorRationales": {
-   "bow": "D-FUNCTION-SWAP",
-   "card": "D-FUNCTION-SWAP",
-   "gift": "D-FUNCTION-SWAP"
+   "cup": "D-FUNCTION-SWAP",
+   "sun": "D-FUNCTION-SWAP",
+   "hat": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,

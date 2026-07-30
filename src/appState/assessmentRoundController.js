@@ -2013,53 +2013,79 @@ export function createAssessmentRoundController(context) {
   function getTeachingTip(question, choice, isCorrect) {
     const skill = normalize(question.skill);
     const answer = String(getQuestionAnswer(question) || "");
-
-    if (isCorrect) return "Good job. You used the skill correctly.";
+    const targetWord = String(
+      question.targetWord
+      || question.anchorWord
+      || question.word
+      || question.audioText
+      || ""
+    ).trim();
 
     if (isFixSentenceQuestion(question)) {
-      return `The corrected sentence is "${answer}". Check the capital letter, word order, and ending punctuation.`;
+      return isCorrect
+        ? `"${answer}" has the right capital letter, word order, and punctuation.`
+        : `The corrected sentence is "${answer}". Check the capital letter, word order, and ending punctuation.`;
     }
 
     if (skill.includes("initial")) {
+      if (isCorrect) {
+        return targetWord
+          ? `${targetWord} starts with "${answer}".`
+          : `"${answer}" is the first sound.`;
+      }
       return `The correct answer is "${answer}". Listen to the first sound in the word.`;
     }
 
     if (skill.includes("final")) {
+      if (isCorrect) {
+        return targetWord
+          ? `${targetWord} ends with "${answer}".`
+          : `"${answer}" is the ending.`;
+      }
       return `The correct answer is "${answer}". Listen to the last sound in the word.`;
     }
 
     if (skill.includes("rhym")) {
+      if (isCorrect) return `"${answer}" has the matching rhyme ending.`;
       return `The correct answer is "${answer}". Rhyming words have the same ending sound.`;
     }
 
     if (skill.includes("short vowel") || skill.includes("cvc")) {
+      if (isCorrect) return `"${answer}" has the matching middle vowel sound.`;
       return `The correct answer is "${answer}". Listen carefully to the vowel sound in the middle of the word.`;
     }
 
     if (skill.includes("high-frequency")) {
+      if (isCorrect) return `"${answer}" is the word that completes the sentence.`;
       return `The correct answer is "${answer}". This is a high-frequency word. These words appear often when we read.`;
     }
 
     if (skill.includes("blend")) {
+      if (isCorrect) return `"${answer}" has the matching consonant blend.`;
       return `The correct answer is "${answer}". A blend has two consonant sounds together, like bl, st, or cr.`;
     }
 
     if (skill.includes("digraph")) {
+      if (isCorrect) return `"${answer}" uses the matching two-letter sound.`;
       return `The correct answer is "${answer}". A digraph is two letters making one sound, like sh, ch, th, or wh.`;
     }
 
     if (skill.includes("preposition")) {
+      if (isCorrect) return `"${answer}" matches where the object is in the picture.`;
       return `The correct answer is "${answer}". A preposition tells where something is.`;
     }
 
     if (skill.includes("plural")) {
+      if (isCorrect) return `"${answer}" matches how many the sentence or picture shows.`;
       return `The correct answer is "${answer}". A plural means more than one.`;
     }
 
     if (skill.includes("comprehension") || skill.includes("details") || skill.includes("main idea") || skill.includes("inference")) {
+      if (isCorrect) return `The passage details support "${answer}".`;
       return `The correct answer is "${answer}". Look back at the passage and use the details to help you.`;
     }
 
+    if (isCorrect) return `"${answer}" fits the question.`;
     return `The correct answer is "${answer}". Review the skill and try the next one.`;
   }
 

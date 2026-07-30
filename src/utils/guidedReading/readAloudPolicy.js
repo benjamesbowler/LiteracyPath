@@ -1,7 +1,11 @@
 import {
-  getLedaInstructionAudioPath,
-  getLedaWordAudioPath
+  getLedaProductionAudioPath,
+  getLedaWordAudioPath,
+  isLedaProductionAudioPath,
+  normalizeLedaAudioText
 } from "../../data/ledaProductionAudio.js";
+import { GUIDED_READING_LEDA_GAPS } from "../../data/generated/guidedReadingLedaGaps.generated.js";
+import { GUIDED_READING_NARRATION_PROVENANCE } from "../../data/generated/guidedReadingNarrationProvenance.generated.js";
 
 export const guidedReadingReadAloudPolicy = {
   teacher_preview: true,
@@ -11,11 +15,25 @@ export const guidedReadingReadAloudPolicy = {
   independent_reading_allowed: false
 };
 
+function readablePageText(page = {}) {
+  return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
+}
+
+function readableWordText(value = "") {
+  return String(value || "")
+    .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9%]+$/g, "")
+    .trim();
+}
+
 export function getGuidedReadingPageAudioPath(page = {}) {
+  const pageText = readablePageText(page);
+  const normalizedPageText = normalizeLedaAudioText(pageText);
+  const currentLedaAudio = GUIDED_READING_NARRATION_PROVENANCE.exactPageAudioByText?.[pageText]
+    || GUIDED_READING_LEDA_GAPS.guided_page?.[normalizedPageText]
+    || getLedaProductionAudioPath(pageText, ["supplemental", "guided_page"]);
+  if (currentLedaAudio) return currentLedaAudio;
   if (page.narrationNeedsRebuild) return "";
-  const pageText = Array.isArray(page.text) ? page.text.join(" ") : page.text;
-  return getLedaInstructionAudioPath(pageText)
-    || page.pageAudioPath
+  return page.pageAudioPath
     || page.pageAudio
     || page.audio
     || "";
@@ -23,7 +41,11 @@ export function getGuidedReadingPageAudioPath(page = {}) {
 
 export function getGuidedReadingBookAudioPath(book = {}) {
   if ((book.pages || []).some(page => page.narrationNeedsRebuild)) return "";
-  return book.bookAudioPath || book.fullBookAudio || book.audio?.fullBook || "";
+  const audioPath = book.bookAudioPath || book.fullBookAudio || book.audio?.fullBook || "";
+
+  // Removed legacy whole-book narration must not hide the replacement
+  // page-by-page Leda narration.
+  return isLedaProductionAudioPath(audioPath) ? audioPath : "";
 }
 
 export function getGuidedReadingBookSyncPath(book = {}) {
@@ -32,12 +54,19 @@ export function getGuidedReadingBookSyncPath(book = {}) {
 
 export function getReadAloudMode(book = {}, page = {}) {
   if (getGuidedReadingBookAudioPath(book) || getGuidedReadingPageAudioPath(page)) return "human_audio";
-  if ((page.words || []).some(word => word.audioPath)) return "word_sequence";
+  if ((page.words || []).some(word => getGuidedReadingWordProductionAudioPath(word))) {
+    return "word_sequence";
+  }
   return "none";
 }
 
 export function getGuidedReadingWordProductionAudioPath(word = {}) {
-  return getLedaWordAudioPath(word?.text || word);
+  const rawText = String(word?.text || word || "");
+  const readableText = readableWordText(rawText);
+  return GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(rawText)]
+    || getLedaWordAudioPath(rawText)
+    || GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(readableText)]
+    || getLedaWordAudioPath(readableText);
 }
 
 export function getGuidedReadingReadAloudState(book = {}, page = {}, context = "guided_support") {

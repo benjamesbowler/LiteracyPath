@@ -522,6 +522,12 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       audioWiredQuestion.targetImageUrl,
       audioWiredQuestion.targetImage
     );
+    // Published v3 HFW banks carry authored, gate-checked image pairings.
+    // The legacy exact-pair register predates those banks and must not strip
+    // their required visuals after the v3 gate has accepted them.
+    if (question.source === "skills_rebuild_v3_2026_08") {
+      return applyReleaseWiring(audioWiredQuestion);
+    }
     const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
     if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingApproved(pairing))) {
       return applyReleaseWiring(stripHfwQuestionImageFields({
