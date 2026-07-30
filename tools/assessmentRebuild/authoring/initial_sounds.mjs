@@ -58,7 +58,6 @@ const ps = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "", frame 
 // Rationale orders below follow the letter arrays: [onset-nb, visual-nb, position/free].
 const ONV = ["D-ONSET", "D-VISUAL-NEIGHBOR", "D-POSITION"];
 const VOW = ["D-VOWEL", "D-VOWEL", "D-POSITION"];
-const VVV = ["D-VOWEL", "D-VOWEL", "D-VOWEL"];
 
 export default {
   skillId: "initial_sounds",
