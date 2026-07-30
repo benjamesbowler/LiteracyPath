@@ -372,7 +372,9 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       1: ["PREPOSITION_SCENE_CHOICE", "PREPOSITION_TEXT_CHOICE"],
       2: ["PREPOSITION_SENTENCE_FIT", "PREPOSITION_PRECISION"]
     },
-    variantsPerUnit: { 1: 3, 2: 4 },
+    // 4 L1 variants (not 3): D-small's 4 no-repeat attempts need a 4-item pool
+    // (the final_sounds/blends/digraphs arithmetic).
+    variantsPerUnit: { 1: 4, 2: 4 },
     passBudgetSittings: 5
   }),
   bp("plurals", {
@@ -445,11 +447,15 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["to_two_too", "there_their", "right_write", "new_knew"], 2: ["hour_our", "flower_flour", "would_wood", "made_maid"] }
     },
     nonGatingUnits: ["homonym_bat", "homonym_ring"],
+    // Both formats at both levels: D-small demands 2 formats per unit, and a
+    // one-format level can never satisfy it. Meaning-choice stays the L1
+    // centre and cloze the L2 centre, but each level carries the other as its
+    // second evidence format. 4 variants: the D-small no-repeat arithmetic.
     formatsByLevel: {
-      1: ["HOMOPHONE_MEANING"],
-      2: ["HOMOPHONE_CONTEXT_CLOZE"]
+      1: ["HOMOPHONE_MEANING", "HOMOPHONE_CONTEXT_CLOZE"],
+      2: ["HOMOPHONE_CONTEXT_CLOZE", "HOMOPHONE_MEANING"]
     },
-    variantsPerUnit: { 1: 3, 2: 3 },
+    variantsPerUnit: { 1: 4, 2: 4 },
     passBudgetSittings: 4
   }),
 

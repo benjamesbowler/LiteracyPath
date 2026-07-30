@@ -462,5 +462,47 @@ export const assessmentRebuildStatusBySkillId = {
   },
   "generatedAt": "2026-07-30T02:12:19.613Z",
   "commit": "06531805"
+ },
+ "nouns": {
+  "skillId": "nouns",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 60,
+   "level1": 24,
+   "level2": 24,
+   "retention": 12
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T03:24:37.461Z",
+  "commit": "5a174b72"
+ },
+ "verbs": {
+  "skillId": "verbs",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 58,
+   "level1": 24,
+   "level2": 24,
+   "retention": 10
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T03:25:09.478Z",
+  "commit": "5a174b72"
  }
 };
