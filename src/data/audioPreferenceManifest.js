@@ -4,6 +4,15 @@ import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPrefe
 import { kimiHighQualityMediaStyleAudioTasks } from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
+import { approvedPhonicsPatternAudio } from "./approvedPhonicsPatternAudio.js";
+import {
+  DEFERRED_ATOMIC_SOUND_KEYS,
+  getPreferredPhonemeAudioPath
+} from "./phonemeAudioBank.js";
+import {
+  getLedaWordAudioPath,
+  isLedaProductionAudioPath
+} from "./ledaProductionAudio.js";
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")
@@ -25,10 +34,6 @@ function phraseAudioPath(phrase) {
 
 function cleanHumanInstructionAudioPath(file) {
   return `/audio/child-mode/clean-human/instructions/${file}.mp3`;
-}
-
-function cleanHumanGraphemeAudioPath(group, file) {
-  return `/audio/child-mode/clean-human/graphemes/${group}/${file}.mp3`;
 }
 
 function cleanHumanMorphologyAudioPath(file) {
@@ -348,7 +353,9 @@ export const audioPreferenceManifest = Object.fromEntries([
       })
     ];
   }),
-  ...approvedLowerSkillGraphemeAudio.map(item => {
+  ...approvedLowerSkillGraphemeAudio
+    .filter(item => !DEFERRED_ATOMIC_SOUND_KEYS.includes(normalizeAudioPreferenceKey(item.key)))
+    .map(item => {
     const key = normalizeAudioPreferenceKey(item.key);
     return [
       key,
@@ -356,9 +363,27 @@ export const audioPreferenceManifest = Object.fromEntries([
         key,
         word: item.text,
         category: "graphemes",
-        fallbackPath: cleanHumanGraphemeAudioPath(item.group, item.file),
+        fallbackPath: getPreferredPhonemeAudioPath(item.key),
         source: "Kimi Agent Clean Child Audio Prompts",
         notes: "Approved clean lower-skill grapheme or sound option audio."
+      })
+    ];
+    }),
+  ...approvedPhonicsPatternAudio.map(item => {
+    const key = normalizeAudioPreferenceKey(
+      ["pattern", item.pattern, item.anchor].filter(Boolean).join(":")
+    );
+    return [
+      key,
+      approvedPreference({
+        key,
+        word: item.anchor
+          ? `${item.pattern} as in ${item.anchor}`
+          : item.pattern,
+        category: "phonics_patterns",
+        fallbackPath: item.audioPath,
+        source: "Google Cloud Text-to-Speech Chirp 3 HD Leda",
+        notes: `Approved by human listening review on 2026-07-29 (${item.clipId}).`
       })
     ];
   }),
@@ -591,6 +616,8 @@ export function getAudioPreferenceForPath(audioPath) {
 }
 
 export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
+  const ledaAudioPath = getLedaWordAudioPath(keyOrText);
+  if (ledaAudioPath) return ledaAudioPath;
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
   if (!preference) return fallbackPath || "";
@@ -604,6 +631,14 @@ export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
+  if (
+    fallbackPath &&
+    /^\/audio\/(?:phonemes\/|production\/en-US\/pattern\/)/i.test(fallbackPath)
+  ) {
+    return fallbackPath;
+  }
+  const ledaAudioPath = getLedaWordAudioPath(keyOrText);
+  if (ledaAudioPath) return ledaAudioPath;
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
   if (preference) {
@@ -617,6 +652,7 @@ export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function isApprovedAudioPath(audioPath) {
+  if (isLedaProductionAudioPath(audioPath)) return true;
   const preference = getAudioPreferenceForPath(audioPath);
   return Boolean(preference?.status === "approved" && preference.preferredAudioPath === audioPath);
 }
