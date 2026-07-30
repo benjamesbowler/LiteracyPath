@@ -128,10 +128,11 @@ export default function CreatureCreator({
         ))}
       </div>
 
-      <div className="q-reel">
+      <div className={`q-reel q-reel--${tab}`}>
         {tab === "body" && CREATURE_BODIES.filter(body => FLAGSHIP_BOOK_CHARACTER_IDS.includes(body.id)).map(body => (
           <Option
             key={body.id}
+            featured
             label={`${body.label} · ${body.series}`}
             cost={0}
             balance={sparkBalance}
@@ -244,7 +245,7 @@ export default function CreatureCreator({
   );
 }
 
-function Option({ label, cost, balance, locked, selected, onPick, children }) {
+function Option({ label, cost, balance, locked, selected, featured = false, onPick, children }) {
   const affordance = locked
     ? lockedItemAffordance({
       cost,
@@ -257,7 +258,7 @@ function Option({ label, cost, balance, locked, selected, onPick, children }) {
   return (
     <button
       type="button"
-      className={`q-option${selected ? " is-on" : ""}${locked ? " is-locked" : ""}`}
+      className={`q-option${featured ? " is-featured" : ""}${selected ? " is-on" : ""}${locked ? " is-locked" : ""}`}
       aria-pressed={selected}
       aria-label={locked ? `${label}. ${lockedCopy}` : label}
       data-locked-item={locked ? "quest-creature" : undefined}

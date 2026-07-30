@@ -190,8 +190,7 @@ export default function RewardScreen({
       className={`q-reward${overlay ? " q-reward-overlay" : " q-screen"}${reducedMotion ? " q-reward-reduced-motion" : ""}`}
       ref={dialogRef}
       data-event={event.mode}
-      aria-modal={overlay ? "true" : undefined}
-      role={overlay ? "dialog" : undefined}
+      role={overlay ? "document" : undefined}
       aria-label={`${stop.name} reward`}
       onKeyDown={containFocus}
     >

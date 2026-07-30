@@ -31,7 +31,10 @@ import {
   promptLevelForMode,
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
-import { createQuestPixelRuntime } from "./questPixelRuntime.js";
+import {
+  createQuestPixelRuntime,
+  QUEST_BOOK_WORLD_ART_URLS
+} from "./questPixelRuntime.js";
 import {
   availableSparks,
   questRewardBonuses,
@@ -640,6 +643,7 @@ export default function QuestPixelWorld({
             // the audio set. This also avoids caching the same URL once as an
             // absolute resource entry and again as a root-relative manifest entry.
             ...uniqueVisualAssetEntries.map(entry => entry.name),
+            ...QUEST_BOOK_WORLD_ART_URLS,
             ...QUEST_PIXEL_SFX_URLS
           ];
           const assetRequests = uniqueVisualAssetEntries.length;

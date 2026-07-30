@@ -60,11 +60,17 @@ export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 })
 
 const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
-const BOOK_WORLD_BACKGROUNDS = Object.freeze({
+export const QUEST_BOOK_WORLD_BACKGROUNDS = Object.freeze({
   meadow: "/game-assets/sound-seekers/worlds/meadow-pals-trail-v2.webp",
   dino: "/game-assets/sound-seekers/worlds/dino-pals-trail-v2.webp",
   moonwood: "/game-assets/sound-seekers/worlds/moonwood-trail-v2.webp"
 });
+export const QUEST_BOOK_WORLD_ART_URLS = Object.freeze([
+  ...Object.values(QUEST_BOOK_WORLD_BACKGROUNDS),
+  "/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp",
+  "/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp",
+  "/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp"
+]);
 const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
   Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])
 ));
@@ -833,7 +839,7 @@ const PIXEL_LOWERCASE_GLYPHS = Object.freeze({
 function addPixelLowercaseGlyph(scene, value, y) {
   const rows = PIXEL_LOWERCASE_GLYPHS[String(value).toLowerCase()];
   if (!rows) return null;
-  const pixel = 2;
+  const pixel = 3;
   const width = rows[0].length * pixel;
   const height = rows.length * pixel;
   const glyph = scene.add.graphics();
@@ -1071,14 +1077,14 @@ function addChoiceArt(scene, container, item, index) {
     labelPlate.fillStyle(palette.edge, 0.94).fillRoundedRect(-(badgeWidth / 2), labelY - 8, badgeWidth, 16, 4);
     labelPlate.fillStyle(0xf4e6bd, 1).fillRoundedRect(-(badgeWidth / 2) + 2, labelY - 6, badgeWidth - 4, 12, 3);
   }
-  const pixelGlyph = embeddedLabel && rawLabel.length === 1
+  const pixelGlyph = embeddedLabel && rawLabel.length === 1 && !/[a-z]/i.test(rawLabel)
     ? addPixelLowercaseGlyph(scene, rawLabel, labelY)
     : null;
   const labelStyle = {
     color: "#2d2730",
     fontFamily: embeddedLabel ? "Verdana, Arial, sans-serif" : "Arial Black, Arial, sans-serif",
-    fontSize: rawLabel.length > 4 ? "9px" : rawLabel.length > 2 ? "11px" : singleRune ? "17px" : separateRune ? "13px" : embeddedLabel ? "13px" : "15px",
-    fontStyle: embeddedLabel ? "normal" : "bold",
+    fontSize: rawLabel.length > 4 ? "11px" : rawLabel.length > 2 ? "13px" : singleRune ? "19px" : separateRune ? "15px" : embeddedLabel ? "22px" : "18px",
+    fontStyle: "bold",
     align: "center",
     padding: { left: 2, right: 2, top: singleRune ? 3 : 0, bottom: singleRune ? 3 : 1 },
     resolution: 2,
@@ -1184,7 +1190,7 @@ class QuestPixelScene extends Phaser.Scene {
       });
     });
     const world = this.model.section.world;
-    const bookWorldBackground = BOOK_WORLD_BACKGROUNDS[world];
+    const bookWorldBackground = QUEST_BOOK_WORLD_BACKGROUNDS[world];
     if (bookWorldBackground) {
       this.load.image("book-world-background", bookWorldBackground);
     }
@@ -4194,7 +4200,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.playerShadow = addPixelShadow(this, start.x, start.y + 5, 27, 7);
     this.player = this.physics.add.sprite(start.x, start.y, "pixel-beastie", 0)
       .setOrigin(0.5, 0.78)
-      .setScale(0.74)
+      .setScale(0.86)
       .setDepth(start.y + 2);
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
@@ -4653,8 +4659,8 @@ class QuestPixelScene extends Phaser.Scene {
         }
       }
       const objectScale = movingSortLane
-        ? 0.62
-        : String(item.label ?? item.value ?? "").length > 4 ? 0.94 : 0.84;
+        ? 0.72
+        : String(item.label ?? item.value ?? "").length > 4 ? 1 : 1.05;
       container.setScale(objectScale);
       if (!this.model.reducedMotion) {
         this.tweens.add({ targets: visual.glow, alpha: { from: 0.1, to: 0.36 }, scale: { from: 0.92, to: 1.12 }, duration: 800 + (index * 70), yoyo: true, repeat: -1 });

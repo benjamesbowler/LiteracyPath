@@ -63,7 +63,7 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   Object.freeze({
     id: "sound-seekers-creator",
     url: "/preview/quest-preview.html?scope=a11y-routes&reset=1&sound=0",
-    dialogName: "Make your creature"
+    dialogName: "Choose your book character"
   }),
   Object.freeze({
     id: "arcade-game",

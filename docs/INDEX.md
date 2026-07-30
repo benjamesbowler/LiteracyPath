@@ -145,6 +145,7 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-31 | [SOUND_SEEKERS_RELEASE_BIBLE](SOUND_SEEKERS_RELEASE_BIBLE.md) | Five-lens browser release pass completed: 40 stops and 106 encounter loops played, phone and desktop visuals inspected, four-way controls and child-facing legibility repaired, and the local software ship gate cleared while external child, teacher, device, assistive-technology and professional media certification remains open |
 | 2026-07-29 | [KIDS_EXPERIENCE_SHIP_PASS_2026-07-29](KIDS_EXPERIENCE_SHIP_PASS_2026-07-29.md) | Child hubs made full-width and one-screen; map made forward-only Meadow→Dino→Moonwood; persistent book-character Little Literacy Guide, structured library, teacher class-entry gate and Beastie nook shipped |
 | 2026-07-29 | [KIDS_REDESIGN_PLAN_2026-07-29](KIDS_REDESIGN_PLAN_2026-07-29.md) | Kids-side redesign accepted (7 screens, liquid glass, rail→bottom tabs, fixed 1194×834 stage); prototype in `mockups/design-handoff-kids-side/`; six-phase plan |
 | 2026-07-29 | [rounded_atomic_v23](assets/rounded_atomic_v23_2026-07-29.md) | V22 reconciled at 4 Yes, 4 Needs edit and 5 No; A, NG, T and Y were installed to eight runtime files, while the remaining nine sounds received new natural sources, physically extended pure sounds or rounded tails |

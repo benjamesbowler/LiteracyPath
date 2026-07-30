@@ -1042,7 +1042,7 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(runtime, /setStrokeStyle\(2, 0xfff0a2/, "touch movement gives no visible acknowledgement");
   assert.match(runtime, /facingX < 0 \? "left" : "right"/, "horizontal animation mapping is reversed");
   assert.match(runtime, /questPixelCameraZoom\(/, "pixel scale still enlarges the low-resolution kit without a framing contract");
-  assert.match(runtime, /\.setScale\(0\.74\)/, "the custom Beastie no longer shares the authored cast's on-screen silhouette scale");
+  assert.match(runtime, /\.setScale\(0\.86\)/, "the custom book character is too small to read clearly against the illustrated worlds");
   assert.match(runtime, /zoomTo\(zoom, 260, "Sine\.easeInOut", true\)/, "task camera changes still snap between scales");
   assert.match(runtime, /cameraTargetZoom/, "answer staging ignores the destination view while the camera is moving");
   assert.match(runtime, /choiceInside\.has\(choice\.id\)/, "standing on a choice can retrigger it every frame");
@@ -1879,6 +1879,8 @@ test("book-world play exposes direct four-way movement on touch and keyboard", (
   assert.match(runtime, /meadow-pals-trail-v2\.webp/, "Meadow does not use the illustrated book-world map");
   assert.match(runtime, /dino-pals-trail-v2\.webp/, "Dino Land does not use the illustrated book-world map");
   assert.match(runtime, /moonwood-trail-v2\.webp/, "Moonwood does not use the illustrated book-world map");
+  assert.match(runtime, /QUEST_BOOK_WORLD_ART_URLS/, "the illustrated worlds have no shared offline manifest");
+  assert.match(pixel, /\.\.\.QUEST_BOOK_WORLD_ART_URLS/, "book-world art is not warmed for offline play");
   for (const direction of ["left", "right", "up", "down"]) {
     assert.match(runtime, new RegExp(`directionInput\\.${direction}`), `${direction} is missing from held movement`);
   }

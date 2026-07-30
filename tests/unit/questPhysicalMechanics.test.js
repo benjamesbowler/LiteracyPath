@@ -95,6 +95,27 @@ test("no physical sound-to-letter stage asks a child to replay missing audio", (
   }
 });
 
+test("multi-letter endings are described as letters, not as one ending sound", () => {
+  for (const stop of QUEST_STOPS) {
+    const section = buildTrailSection(stop.id, { seed: stop.index });
+    for (const encounter of section.encounters) {
+      encounter.beats.forEach((beat, beatIndex) => {
+        if (beat?.cue?.kind !== "word" || beat.cuePosition !== "ending") return;
+        const task = buildPhysicalTask(section, encounter, beat, beatIndex);
+        task.stages.forEach(stage => {
+          const correct = stage.items.find(item => item.correct)?.value;
+          if (String(correct || "").length <= 1 || !stage.prompt.startsWith("Find the")) return;
+          assert.match(
+            stage.prompt,
+            /ending letters/,
+            `${stop.id} asks for "${correct}" as though it were one ending sound`
+          );
+        });
+      });
+    }
+  }
+});
+
 test("unrecorded advanced graphemes use audible example-word cues instead of disappearing", () => {
   for (const [stopId, target] of [["s32", "aw"], ["s32", "ore"], ["s34", "are"], ["s35", "ear"], ["s36", "ure"], ["s39", "le"], ["s40", "tion"]]) {
     const section = buildTrailSection(stopId, { seed: Number(stopId.slice(1)), targets: [target] });
@@ -109,7 +130,7 @@ test("unrecorded advanced graphemes use audible example-word cues instead of dis
     assert.ok(fallback && wordLed, `${target} has no audible physical fallback`);
     assert.ok(hasWordAudio(fallback.beat.cue.word), `${target} fallback word is silent`);
     assert.equal(wordLed.audioCue.value, fallback.beat.cue.word);
-    assert.match(wordLed.prompt, /Find the (first|middle|ending) sound in/);
+    assert.match(wordLed.prompt, /Find the (first|middle|ending) (sound|letters) in/);
   }
 });
 

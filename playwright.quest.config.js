@@ -13,7 +13,11 @@ export default defineConfig({
     command: "npm run dev -- --host 127.0.0.1 --port 5190",
     url: "http://127.0.0.1:5190/preview/quest.html",
     reuseExistingServer: true,
-    timeout: 60_000
+    timeout: 60_000,
+    env: {
+      VITE_SUPABASE_URL: "http://127.0.0.1:5190",
+      VITE_SUPABASE_ANON_KEY: "quest-browser-test-key"
+    }
   },
   reporter: "line"
 });

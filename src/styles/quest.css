@@ -1230,7 +1230,7 @@
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
-.q-creator-stage { display: grid; place-items: center; min-height: 250px; }
+.q-creator-stage { display: grid; place-items: center; min-height: 224px; }
 
 .q-tabs { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 6px; }
 
@@ -1256,6 +1256,13 @@
   min-height: 120px;
 }
 
+.q-reel--body {
+  justify-content: center;
+  gap: 18px;
+  min-height: 150px;
+  padding-top: 16px;
+}
+
 .q-option {
   position: relative;
   display: grid;
@@ -1268,6 +1275,43 @@
   border-radius: 18px;
   background: rgba(255, 255, 255, .08);
   color: #fff;
+}
+
+.q-option.is-featured {
+  width: 172px;
+  min-height: 132px;
+  padding: 10px 12px 12px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .11);
+}
+.q-option.is-featured .q-option-art { height: 84px; }
+.q-option.is-featured .q-book-character-portrait {
+  width: 82px;
+  height: 82px;
+  border: 3px solid rgba(255, 255, 255, .72);
+  box-shadow: 0 9px 24px rgba(5, 4, 18, .3);
+}
+.q-option.is-featured .q-option-label {
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+@media (max-width: 680px) {
+  .q-creator .q-reel--body {
+    gap: 8px;
+    padding-inline: 0;
+  }
+  .q-creator .q-option.is-featured {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 6px;
+  }
+  .q-option.is-featured .q-book-character-portrait {
+    width: 70px;
+    height: 70px;
+  }
+  .q-option.is-featured .q-option-label { font-size: 12px; }
 }
 
 .q-option.is-on { border-color: #ffd166; background: rgba(255, 209, 102, .18); }
@@ -3380,14 +3424,33 @@
 .q-chapter-tabs small { font-size: 10px; opacity: .75; }
 
 .q-map-v2-land { position: relative; min-height: 440px; overflow: hidden; background: #8eb778; isolation: isolate; }
-.q-map-v2[data-chapter="river-gardens"] .q-map-v2-land { background: #5f9b8b; }
-.q-map-v2[data-chapter="fossil-canyon"] .q-map-v2-land { background: #a96f49; }
-.q-map-v2[data-chapter="forge-settlement"] .q-map-v2-land { background: #514d55; }
-.q-map-v2[data-chapter="glass-marsh"] .q-map-v2-land { background: #596981; }
-.q-map-v2[data-chapter="storm-coast"] .q-map-v2-land { background: #355b6d; }
-.q-map-v2[data-chapter="lantern-forest"] .q-map-v2-land { background: #284b4a; }
-.q-map-v2[data-chapter="star-reach"] .q-map-v2-land { background: #262544; }
-.q-map-v2-distant { position: absolute; inset: 0 0 42%; background: #b9d39c; clip-path: polygon(0 66%, 13% 42%, 25% 58%, 38% 25%, 52% 61%, 67% 34%, 81% 55%, 100% 29%, 100% 100%, 0 100%); }
+.q-map-v2[data-world="meadow"] .q-map-v2-land {
+  background-image:
+    linear-gradient(180deg, rgba(12, 43, 32, .04), rgba(12, 43, 32, .12)),
+    url("/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp");
+}
+.q-map-v2[data-world="dino"] .q-map-v2-land {
+  background-image:
+    linear-gradient(180deg, rgba(47, 25, 13, .04), rgba(47, 25, 13, .14)),
+    url("/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp");
+}
+.q-map-v2[data-world="moonwood"] .q-map-v2-land {
+  background-image:
+    linear-gradient(180deg, rgba(14, 10, 35, .03), rgba(14, 10, 35, .2)),
+    url("/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp");
+}
+.q-map-v2[data-world] .q-map-v2-land {
+  background-position: center;
+  background-size: cover;
+}
+.q-map-v2[data-chapter="river-gardens"] .q-map-v2-land { background-color: #5f9b8b; }
+.q-map-v2[data-chapter="fossil-canyon"] .q-map-v2-land { background-color: #a96f49; }
+.q-map-v2[data-chapter="forge-settlement"] .q-map-v2-land { background-color: #514d55; }
+.q-map-v2[data-chapter="glass-marsh"] .q-map-v2-land { background-color: #596981; }
+.q-map-v2[data-chapter="storm-coast"] .q-map-v2-land { background-color: #355b6d; }
+.q-map-v2[data-chapter="lantern-forest"] .q-map-v2-land { background-color: #284b4a; }
+.q-map-v2[data-chapter="star-reach"] .q-map-v2-land { background-color: #262544; }
+.q-map-v2-distant { display: none; }
 .q-map-v2[data-chapter="river-gardens"] .q-map-v2-distant { background: #8bb9a1; }
 .q-map-v2[data-chapter="fossil-canyon"] .q-map-v2-distant { background: #d0a06b; }
 .q-map-v2[data-chapter="forge-settlement"] .q-map-v2-distant { background: #80675e; }
@@ -3395,12 +3458,12 @@
 .q-map-v2[data-chapter="storm-coast"] .q-map-v2-distant { background: #5d8491; }
 .q-map-v2[data-chapter="lantern-forest"] .q-map-v2-distant { background: #496d63; }
 .q-map-v2[data-chapter="star-reach"] .q-map-v2-distant { background: #4d486f; }
-.q-map-v2-weather { position: absolute; inset: 0; opacity: .24; background-image: radial-gradient(circle, #fff4b5 0 2px, transparent 2.5px); background-size: 46px 46px; }
+.q-map-v2-weather { position: absolute; inset: 0; opacity: .13; background-image: radial-gradient(circle, #fff4b5 0 2px, transparent 2.5px); background-size: 46px 46px; }
 .q-map-v2[data-chapter="star-reach"] .q-map-v2-weather { opacity: .42; background-image: radial-gradient(circle, #fff2bd 0 1.5px, transparent 2px), radial-gradient(circle, #b9a8f1 0 2px, transparent 2.5px); background-position: 0 0, 23px 21px; }
 .q-map-v2-road { position: absolute; inset: 9% 4% 4%; z-index: 2; width: 92%; height: 87%; overflow: visible; }
 .q-map-road-edge, .q-map-road-centre, .q-map-shortcut-edge, .q-map-shortcut-centre { fill: none; stroke-linecap: round; }
-.q-map-road-edge { stroke: rgba(63, 51, 36, .42); stroke-width: 8; }
-.q-map-road-centre { stroke: #e5ce9d; stroke-width: 5.5; stroke-dasharray: 1 1.5; }
+.q-map-road-edge { stroke: rgba(39, 32, 24, .52); stroke-width: 2.2; }
+.q-map-road-centre { stroke: rgba(255, 239, 177, .98); stroke-width: .7; stroke-dasharray: .7 1.8; }
 .q-map-v2[data-chapter="star-reach"] .q-map-road-edge { stroke: rgba(15, 13, 39, .72); }
 .q-map-v2[data-chapter="star-reach"] .q-map-road-centre { stroke: #c9b7e7; }
 .q-map-shortcut-edge { stroke: rgba(28, 56, 49, .72); stroke-width: 6.5; }
@@ -3455,9 +3518,9 @@
 }
 .q-map-stop:disabled .q-map-stop-landmark { filter: grayscale(.85) opacity(.48); }
 .q-map-stop-number, .q-map-stop strong, .q-map-stop small { position: relative; z-index: 1; }
-.q-map-stop-number { display: grid; place-items: center; width: 42px; aspect-ratio: 1; border: 3px solid #fff7db; border-radius: 50%; background: #385f4c; color: #fff; box-shadow: 0 4px 0 rgba(25, 42, 34, .26); font-size: 18px; font-weight: 900; }
-.q-map-stop strong { max-width: 126px; margin-top: 5px; padding: 3px 7px; background: rgba(255, 251, 237, .9); font-size: 12px; line-height: 1.2; }
-.q-map-stop small { margin-top: 2px; color: #2c4238; font-size: 10px; font-weight: 800; }
+.q-map-stop-number { display: grid; place-items: center; width: 48px; aspect-ratio: 1; border: 4px solid #fff7db; border-radius: 50%; background: #385f4c; color: #fff; box-shadow: 0 5px 0 rgba(25, 42, 34, .32), 0 10px 22px rgba(21, 32, 28, .2); font-size: 20px; font-weight: 900; }
+.q-map-stop strong { max-width: 132px; margin-top: 5px; padding: 5px 9px; border-radius: 7px; background: rgba(255, 251, 237, .96); box-shadow: 0 3px 9px rgba(22, 31, 27, .18); font-size: 13px; line-height: 1.2; }
+.q-map-stop small { margin-top: 3px; padding: 2px 6px; border-radius: 5px; background: rgba(255, 251, 237, .82); color: #2c4238; font-size: 11px; font-weight: 800; }
 .q-map-stop.is-done .q-map-stop-number { background: #a1662f; }
 .q-map-stop.is-next .q-map-stop-number { outline: 4px solid rgba(255, 221, 111, .72); animation: qMapPulse 1.7s ease-in-out infinite; }
 .q-map-stop:disabled .q-map-stop-number { background: #65716b; opacity: .65; }
@@ -3838,7 +3901,7 @@
   height: 44px;
   padding: 0;
   border: 2px solid rgba(255, 244, 202, .56);
-  border-radius: 6px;
+  border-radius: 14px;
   background: rgba(31, 43, 42, .9);
   color: #fff8dc;
   box-shadow: 0 4px 0 rgba(20, 24, 27, .7);
@@ -3858,7 +3921,7 @@
   min-width: 0;
   padding: 8px 14px 9px;
   border: 2px solid rgba(255, 244, 202, .5);
-  border-radius: 6px;
+  border-radius: 15px;
   background: rgba(31, 43, 42, .88);
   box-shadow: 0 4px 0 rgba(20, 24, 27, .68);
   text-align: center;
@@ -3879,7 +3942,7 @@
   height: 44px;
   padding-inline: 3px;
   border: 2px solid rgba(255, 244, 202, .56);
-  border-radius: 6px;
+  border-radius: 15px;
   background: rgba(31, 43, 42, .9);
   box-shadow: 0 4px 0 rgba(20, 24, 27, .7);
   overflow: hidden;
@@ -3945,12 +4008,12 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 4px 12px;
-  width: min(430px, calc(100% - 28px));
-  min-height: 58px;
-  padding: 10px 11px 10px 15px;
+  width: min(520px, calc(100% - 28px));
+  min-height: 68px;
+  padding: 12px 13px 12px 18px;
   transform: translateX(-50%);
   border: 2px solid #4c3e39;
-  border-radius: 6px;
+  border-radius: 18px;
   background: #fff4ca;
   box-shadow: 0 5px 0 rgba(35, 31, 34, .7), 0 12px 28px rgba(19, 31, 29, .2);
   color: #2d2730;
@@ -3958,29 +4021,29 @@
   transition: left 220ms ease, transform 220ms ease, width 220ms ease, min-height 220ms ease, padding 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease, color 220ms ease;
 }
 
-.qp-cue > span { color: #7d4f3b; font-size: 10px; font-weight: 950; text-transform: uppercase; }
-.qp-cue > strong { grid-column: 1; overflow-wrap: anywhere; font-size: 18px; line-height: 1.15; letter-spacing: 0; }
-.qp-cue > small { grid-column: 1; color: #6c6259; font-size: 10px; font-weight: 850; }
+.qp-cue > span { color: #7d4f3b; font-size: 12px; font-weight: 950; text-transform: uppercase; }
+.qp-cue > strong { grid-column: 1; overflow-wrap: anywhere; font-size: 24px; line-height: 1.12; letter-spacing: -.01em; }
+.qp-cue > small { grid-column: 1; color: #6c6259; font-size: 12px; font-weight: 850; }
 .qp-cue > .qp-cue-icon { grid-column: 2; grid-row: 1 / span 3; border-color: #5b4a41; background: #d56f54; color: #fffdf2; box-shadow: 0 3px 0 #7f3e32; }
 .qp-cue.has-feedback > strong { color: #8b4938; }
 .qp-cue.is-compact {
   left: 50%;
-  width: min(250px, calc(100% - 28px));
-  min-height: 40px;
-  padding: 7px 9px 7px 12px;
+  width: min(350px, calc(100% - 28px));
+  min-height: 50px;
+  padding: 9px 11px 9px 15px;
   border-color: rgba(255, 244, 202, .5);
+  border-radius: 16px;
   background: rgba(31, 43, 42, .92);
   box-shadow: 0 4px 0 rgba(20, 24, 27, .64), 0 9px 20px rgba(19, 31, 29, .18);
   color: #fff8dc;
   transform: translateX(-50%);
   backdrop-filter: blur(7px);
-  animation: qp-cue-arrive 180ms ease-out, qp-cue-rest 220ms ease-in 2.8s forwards;
+  animation: qp-cue-arrive 180ms ease-out;
 }
 @keyframes qp-cue-arrive { from { opacity: 0; translate: 0 -7px; } }
-@keyframes qp-cue-rest { to { opacity: .68; } }
 .qp-cue.is-compact > span,
 .qp-cue.is-compact > small { display: none; }
-.qp-cue.is-compact > strong { grid-column: 1; color: #fff8dc; font-size: 14px; }
+.qp-cue.is-compact > strong { grid-column: 1; color: #fff8dc; font-size: 20px; }
 .qp-cue.is-compact > .qp-cue-icon { width: 36px; height: 36px; grid-row: 1; }
 .qp-cue > div { grid-column: 1 / -1; display: flex; justify-content: center; gap: 10px; margin-top: 4px; }
 .qp-cue > div .qp-cue-icon { border-color: #5b4a41; background: #d56f54; color: #fffdf2; box-shadow: 0 3px 0 #7f3e32; }
@@ -4036,16 +4099,26 @@
   z-index: 23;
   bottom: max(16px, env(safe-area-inset-bottom));
   left: max(16px, env(safe-area-inset-left));
-  display: none;
-  grid-template: repeat(2, 50px) / repeat(3, 50px);
+  display: grid;
+  grid-template: 18px repeat(2, 54px) / repeat(3, 54px);
   gap: 5px;
 }
 
-.qp-dpad button { width: 50px; height: 50px; background: rgba(31, 43, 42, .8); }
-.qp-dpad button:nth-child(1) { grid-column: 2; }
-.qp-dpad button:nth-child(2) { grid-column: 1; grid-row: 2; }
-.qp-dpad button:nth-child(3) { grid-column: 2; grid-row: 2; }
-.qp-dpad button:nth-child(4) { grid-column: 3; grid-row: 2; }
+.qp-dpad::before {
+  content: "MOVE";
+  grid-column: 1 / 4;
+  color: #fff8dc;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .14em;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .65);
+}
+.qp-dpad button { width: 54px; height: 54px; background: rgba(31, 43, 42, .86); backdrop-filter: blur(7px); }
+.qp-dpad button:nth-child(1) { grid-column: 2; grid-row: 2; }
+.qp-dpad button:nth-child(2) { grid-column: 1; grid-row: 3; }
+.qp-dpad button:nth-child(3) { grid-column: 2; grid-row: 3; }
+.qp-dpad button:nth-child(4) { grid-column: 3; grid-row: 3; }
 
 .qp-semantic-choices {
   position: absolute;
@@ -4091,10 +4164,6 @@
 .q-root[data-high-contrast="true"] .qp-cue { border-color: #fff; background: #000; color: #fff; }
 .q-root[data-high-contrast="true"] .qp-cue > span,
 .q-root[data-high-contrast="true"] .qp-cue > small { color: #ffdf55; }
-
-@media (hover: none), (pointer: coarse) {
-  .qp-dpad { display: grid; }
-}
 
 @media (max-width: 620px) {
   .qp-header { top: 8px; left: 8px; right: 8px; grid-template-columns: 42px minmax(0, 1fr) 88px; gap: 7px; }
@@ -4344,7 +4413,7 @@
 
 .qp-semantic-choices.is-pinned {
   left: 50%;
-  bottom: calc(max(16px, env(safe-area-inset-bottom)) + 117px);
+  bottom: calc(max(16px, env(safe-area-inset-bottom)) + 154px);
   width: auto;
   height: auto;
   padding: 10px;
@@ -4388,7 +4457,7 @@
   }
 }
 
-@media (max-width: 431px) and (max-height: 340px) and (orientation: landscape) and (pointer: coarse) {
+@media (max-width: 460px) and (max-height: 340px) and (orientation: landscape) and (pointer: coarse) {
   .qp-semantic-choices.is-pinned {
     flex-direction: column;
     gap: 4px;

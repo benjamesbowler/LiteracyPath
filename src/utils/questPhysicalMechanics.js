@@ -381,7 +381,9 @@ export function stageCueNamesAnswer(stage) {
 
 function letterSoundPrompt(beat, stageIndex = 0, stageCount = 1) {
   if (beat?.cue?.kind === "word" && beat.cue.word) {
-    return `Find the ${beat.cuePosition || "matching"} sound in '${beat.cue.word}'`;
+    const target = String(beatAnswers(beat)[stageIndex] || beatAnswers(beat)[0] || "");
+    const unit = target.replace(/^hw:/, "").length > 1 ? "letters" : "sound";
+    return `Find the ${beat.cuePosition || "matching"} ${unit} in '${beat.cue.word}'`;
   }
   if (!beat?.word) return "Find the letter that matches the sound";
   return stageCount > 1 && stageIndex > 0

@@ -2159,8 +2159,8 @@
       "chapterStop": 5,
       "actions": 7,
       "encounters": 3,
-      "beats": 4,
-      "deferredBeats": 0,
+      "beats": 3,
+      "deferredBeats": 1,
       "patterns": [
         "rhythm",
         "assembly",
@@ -2183,21 +2183,12 @@
           "mechanic": "bridge-build",
           "pattern": "assembly",
           "chapterAuthored": false,
-          "stages": 3,
+          "stages": 4,
           "actions": [
+            "build",
             "build",
             "build",
             "build"
-          ]
-        },
-        {
-          "encounter": "story-rock",
-          "mechanic": "story-choice",
-          "pattern": "route",
-          "chapterAuthored": false,
-          "stages": 1,
-          "actions": [
-            "choose-path"
           ]
         },
         {

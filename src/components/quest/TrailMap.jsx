@@ -25,6 +25,12 @@ const MAP_LANDMARKS = Object.freeze({
   "star-reach": ["comet-stair", "aster-archive", "dawn-causeway", "reading-skybridge", "first-reading-star"].map(asset => `/game-assets/quest-pixel/star-reach/scenery-premium/${asset}.png`)
 });
 
+const WORLD_LABELS = Object.freeze({
+  meadow: "Meadow Pals",
+  dino: "Dino Land",
+  moonwood: "Moonwood"
+});
+
 function mapPath(points) {
   if (!points.length) return "";
   return points.reduce((path, point, index) => {
@@ -58,13 +64,18 @@ export default function TrailMap({
   const walkTimer = useRef(0);
   const positions = stops.map((stop, index) => ({ stop, ...MAP_POINTS[index] }));
   const landmarks = MAP_LANDMARKS[chapter.id] || [];
+  const worldChapters = QUEST_CHAPTERS.filter(candidate => candidate.worldKit === chapter.worldKit);
+  const worldStops = worldChapters.flatMap(candidate => candidate.stopIds);
+  const chapterWorldOffset = Math.max(0, worldStops.indexOf(chapter.stopIds[0]));
+  const levelStart = chapterWorldOffset + 1;
+  const levelEnd = levelStart + chapter.stopIds.length - 1;
+  const worldLabel = WORLD_LABELS[chapter.worldKit] || chapter.title;
   const road = mapPath(positions);
   const chapterComplete = chapter.stopIds.every(stopId => done.has(stopId));
   const shortcutUnlocked = chapterComplete && relicIds.has(chapter.id) && Boolean(chapter.shortcut);
   const shortcutRoad = shortcutUnlocked
     ? mapPath([positions[0], { x: 50, y: 28 }, positions.at(-1)])
     : "";
-  const readyToPlay = releaseStatus => ["production", "software-ready"].includes(releaseStatus);
   const currentPosition = journeyComplete
     ? null
     : positions.find(({ stop }) => stop.index === nextIndex)
@@ -109,7 +120,11 @@ export default function TrailMap({
       <header className="q-map-v2-header">
         <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
         <div>
-          <span>{journeyComplete && chapter.id === "star-reach" ? "Whole trail restored" : `Chapter ${chapter.index} · ${readyToPlay(chapter.releaseStatus) ? "Ready to play" : "Preview"}`}</span>
+          <span>
+            {journeyComplete && chapter.id === "star-reach"
+              ? "Whole trail restored"
+              : `${worldLabel} · Levels ${levelStart}–${levelEnd} of ${worldStops.length}`}
+          </span>
           <h1>{chapter.title}</h1>
           <p>{journeyComplete && chapter.id === "star-reach" ? "Every sound is home. The First Reading Star is shining." : chapter.objective}</p>
         </div>
@@ -121,6 +136,11 @@ export default function TrailMap({
       <nav className="q-chapter-tabs" aria-label="Story chapters">
         {visibleChapters.map(candidate => {
           const open = reachable(candidate);
+          const candidateWorldStops = QUEST_CHAPTERS
+            .filter(worldChapter => worldChapter.worldKit === candidate.worldKit)
+            .flatMap(worldChapter => worldChapter.stopIds);
+          const candidateStart = Math.max(0, candidateWorldStops.indexOf(candidate.stopIds[0])) + 1;
+          const candidateEnd = candidateStart + candidate.stopIds.length - 1;
           return (
             <button
               key={candidate.id}
@@ -130,9 +150,13 @@ export default function TrailMap({
               aria-current={candidate.id === chapter.id ? "page" : undefined}
               onClick={() => onAct?.(candidate.index)}
             >
-              <span>{candidate.index}</span>
-              <strong>{open ? candidate.title : "Unexplored"}</strong>
-              <small>{relicIds.has(candidate.id) ? "Relic found" : `${readyToPlay(candidate.releaseStatus) ? "Ready" : "Preview"} · ${candidate.stopIds.filter(stopId => done.has(stopId)).length} of 5`}</small>
+              <span>{candidateStart}</span>
+              <strong>{open ? candidate.title : `Levels ${candidateStart}–${candidateEnd}`}</strong>
+              <small>
+                {relicIds.has(candidate.id)
+                  ? "Relic found"
+                  : `${candidate.stopIds.filter(stopId => done.has(stopId)).length} of ${candidate.stopIds.length} finished`}
+              </small>
             </button>
           );
         })}
@@ -193,9 +217,9 @@ export default function TrailMap({
               aria-label={locked ? `${stop.name}, unexplored` : `${stop.name}, ${stars} stars`}
             >
               {landmarks[index] && <img className="q-map-stop-landmark" src={landmarks[index]} alt="" aria-hidden="true" />}
-              <span className="q-map-stop-number">{locked ? "" : index + 1}</span>
-              <strong>{locked ? "Unexplored" : stop.name}</strong>
-              <small>{locked ? "Not reached" : isDone ? `${stars} of 3 stars` : isNext ? "Continue here" : "Revisit"}</small>
+              <span className="q-map-stop-number">{levelStart + index}</span>
+              <strong>{locked ? `Level ${levelStart + index}` : stop.name}</strong>
+              <small>{locked ? "Locked" : isDone ? `${stars} of 3 stars` : isNext ? "Continue here" : "Revisit"}</small>
             </button>
           );
         })}

@@ -48,7 +48,13 @@ function startServer() {
     cwd: ROOT,
     detached: true,
     stdio: ["ignore", "pipe", "pipe"],
-    env: { ...process.env, BROWSER: "none" }
+    env: {
+      ...process.env,
+      BROWSER: "none",
+      VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL || BASE,
+      VITE_SUPABASE_ANON_KEY:
+        process.env.VITE_SUPABASE_ANON_KEY || "quest-camera-test-key"
+    }
   });
   let output = "";
   const capture = chunk => {

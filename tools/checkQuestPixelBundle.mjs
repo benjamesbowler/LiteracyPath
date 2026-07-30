@@ -7,6 +7,7 @@ const analysisPath = path.join(ROOT, "dist", "bundle-analysis.json");
 const limits = Object.freeze({
   minifiedBytes: 870_000,
   gzipBytes: 235_000,
+  chunkedGzipBytes: 238_000,
   moduleCount: 1_050,
   renderedBytes: 1_730_000,
   phaserRenderedBytes: 1_450_000
@@ -40,21 +41,55 @@ if (pixelChunks.length !== 1) {
   process.exit();
 }
 
-const chunk = pixelChunks[0];
-const bundlePath = path.join(ROOT, "dist", chunk.fileName);
-if (!fs.existsSync(bundlePath)) {
-  fail(`analysed chunk does not exist: ${chunk.fileName}`);
-  process.exit();
+const chunkByFileName = new Map(chunks.map(chunk => [String(chunk.fileName || ""), chunk]));
+const runtimeChunks = [];
+const pendingChunks = [...pixelChunks];
+const seenChunkNames = new Set();
+
+while (pendingChunks.length) {
+  const current = pendingChunks.shift();
+  const fileName = String(current?.fileName || "");
+  if (!current || seenChunkNames.has(fileName)) continue;
+  seenChunkNames.add(fileName);
+  runtimeChunks.push(current);
+
+  for (const importedName of current.imports || []) {
+    const imported = chunkByFileName.get(String(importedName));
+    if (!imported) continue;
+    const isPixelRuntimeDependency =
+      String(imported.fileName || "").includes("vendor-phaser-") ||
+      imported.modules?.some(module =>
+        String(module.id || "").includes("/questPixelAvatar.js")
+      );
+    if (isPixelRuntimeDependency) pendingChunks.push(imported);
+  }
 }
 
-const bundle = fs.readFileSync(bundlePath);
-const modules = Array.isArray(chunk.modules) ? chunk.modules : [];
+const bundles = runtimeChunks.map(runtimeChunk => {
+  const bundlePath = path.join(ROOT, "dist", runtimeChunk.fileName);
+  if (!fs.existsSync(bundlePath)) {
+    fail(`analysed chunk does not exist: ${runtimeChunk.fileName}`);
+    return Buffer.alloc(0);
+  }
+  return fs.readFileSync(bundlePath);
+});
+const bundle = Buffer.concat(bundles);
+const modules = runtimeChunks.flatMap(runtimeChunk =>
+  Array.isArray(runtimeChunk.modules) ? runtimeChunk.modules : []
+);
 const moduleIds = modules.map(module => String(module.id || ""));
 const metrics = Object.freeze({
   minifiedBytes: bundle.length,
   gzipBytes: zlib.gzipSync(bundle).length,
+  chunkedGzipBytes: bundles.reduce(
+    (total, runtimeBundle) => total + zlib.gzipSync(runtimeBundle).length,
+    0
+  ),
   moduleCount: modules.length,
-  renderedBytes: Number(chunk.renderedLength || 0),
+  renderedBytes: runtimeChunks.reduce(
+    (total, runtimeChunk) => total + Number(runtimeChunk.renderedLength || 0),
+    0
+  ),
   phaserRenderedBytes: modules
     .filter(module => String(module.id || "").includes("/node_modules/phaser/"))
     .reduce((total, module) => total + Number(module.renderedLength || 0), 0)
@@ -112,6 +147,8 @@ if (!process.exitCode) {
     "Pixel bundle check passed:",
     `${formatKb(metrics.minifiedBytes)} minified`,
     `${formatKb(metrics.gzipBytes)} gzip`,
+    `${formatKb(metrics.chunkedGzipBytes)} chunked transfer`,
+    `${runtimeChunks.length} runtime chunks`,
     `${metrics.moduleCount} modules`,
     `${reduction.minifiedPercent.toFixed(1)}% less minified code`,
     `${reduction.gzipPercent.toFixed(1)}% less gzip transfer`,
