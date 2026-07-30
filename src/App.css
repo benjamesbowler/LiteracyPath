@@ -25695,6 +25695,7 @@ body {
 
 .teacher-assess-panel {
   overflow: hidden;
+  scroll-margin-top: 18px;
   border: 1px solid var(--lp-color-border);
   border-radius: var(--lp-radius-card);
   background: var(--lp-color-surface);
@@ -25996,6 +25997,51 @@ body {
 .teacher-assess-card-foot small {
   color: var(--lp-color-text-subtle);
   font-size: 12px;
+}
+
+.teacher-assess-selection-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--lp-color-primary-mid);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-assess-selection-summary > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.teacher-assess-selection-summary strong {
+  color: var(--lp-color-text-strong);
+  font-size: 16px;
+}
+
+.teacher-assess-selection-summary p,
+.teacher-assess-selection-summary small {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  text-wrap: pretty;
+}
+
+.teacher-assess-selection-summary .lp-button {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 640px) {
+  .teacher-assess-selection-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-assess-selection-summary .lp-button {
+    width: 100%;
+  }
 }
 
 /* SPECIFICITY: `.app button` is (0,1,1) and sets min-height/padding/font, so a

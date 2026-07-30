@@ -155,9 +155,12 @@ export function TeacherAssessmentsPage({
   const [discardDraftConfirmOpen, setDiscardDraftConfirmOpen] = useState(false);
   const [discardDraftBusy, setDiscardDraftBusy] = useState(false);
   const [discardDraftError, setDiscardDraftError] = useState("");
+  const [assessmentChoicesOpen, setAssessmentChoicesOpen] = useState(() => !checkId);
 
   const assessmentHeadingRef = useRef(null);
+  const assessmentPanelRef = useRef(null);
   const startHeadingRef = useRef(null);
+  const startPanelRef = useRef(null);
   const reachedStepRef = useRef(0);
 
   const classRead = getClassListReadView({
@@ -330,16 +333,27 @@ export function TeacherAssessmentsPage({
     });
   }, [band, bandChosenByTeacher, checkId, entry, grade, needsBand, skillIndex, timeOfYear]);
 
-  // Move focus to the panel that just became the live one. Without this a
-  // teacher using a keyboard answers step 1 and is left in a select with no
-  // idea that the assessment cards beside it are now the question.
+  // Move both focus and the viewport to the panel that just became live.
+  // Focusing with `preventScroll` used to leave step 3 below a tall assessment
+  // card grid, so a teacher could complete step 2 without ever seeing the
+  // starting-point controls or Begin button.
   useEffect(() => {
     if (reachedStepRef.current === assessmentStep) return;
     const previous = reachedStepRef.current;
     reachedStepRef.current = assessmentStep;
     if (!previous) return;
-    const target = [null, null, assessmentHeadingRef, startHeadingRef][assessmentStep];
-    target?.current?.focus({ preventScroll: true });
+    const heading = [null, null, assessmentHeadingRef, startHeadingRef][assessmentStep];
+    const panel = [null, null, assessmentPanelRef, startPanelRef][assessmentStep];
+    const frameId = window.requestAnimationFrame(() => {
+      heading?.current?.focus({ preventScroll: true });
+      (panel?.current || heading?.current)?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start"
+      });
+    });
+    return () => window.cancelAnimationFrame(frameId);
   }, [assessmentStep]);
 
   function chooseStudent(nextStudentId) {
@@ -353,6 +367,7 @@ export function TeacherAssessmentsPage({
     setBand("");
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
+    setAssessmentChoicesOpen(true);
     // No navigation, on purpose. The selected student is shared across the
     // teacher area, and loading them here re-scopes this page in place.
     onSelectStudent?.(row.id, row.name);
@@ -364,6 +379,7 @@ export function TeacherAssessmentsPage({
     setBand("");
     setBandChosenByTeacher(false);
     setAwaitingReason(false);
+    setAssessmentChoicesOpen(false);
   }
 
   function begin(reasonText = "") {
@@ -585,7 +601,10 @@ export function TeacherAssessmentsPage({
               </div>
             </section>
 
-            <section className="teacher-assess-panel teacher-assess-panel-checks">
+            <section
+              className="teacher-assess-panel teacher-assess-panel-checks"
+              ref={assessmentPanelRef}
+            >
               <h3
                 className="teacher-assess-panel-head"
                 ref={assessmentHeadingRef}
@@ -665,39 +684,57 @@ export function TeacherAssessmentsPage({
                         </div>
                       </div>
                     ))}
-                    <ul className="teacher-assess-cards" aria-label="Assessments you can start">
-                      {orderedCatalog.map(row => {
-                        const suggested = row.id === SUGGESTED_ENTRY?.id;
-                        const kind = assessmentKind(row, suggested);
-                        return (
-                          <li key={row.id}>
-                            <article
-                              className="teacher-assess-card"
-                              data-chosen={row.id === checkId ? "true" : undefined}
-                              data-kind={kind}
-                            >
-                              <span className="teacher-assess-card-kind">
-                                {ASSESSMENT_KIND_LABELS[kind]}
-                              </span>
-                              <h4>{row.label}</h4>
-                              <p>{row.description}</p>
-                              <div className="teacher-assess-card-foot">
-                                <small>{assessmentMeta(row)}</small>
-                                <button
-                                  aria-label={`Start ${row.label}`}
-                                  aria-pressed={row.id === checkId}
-                                  className="lp-button lp-button-secondary teacher-assess-card-start"
-                                  onClick={() => chooseCheck(row.id)}
-                                  type="button"
-                                >
-                                  Start
-                                </button>
-                              </div>
-                            </article>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    {entry && !assessmentChoicesOpen ? (
+                      <div className="teacher-assess-selection-summary" role="status">
+                        <div>
+                          <span className="teacher-assess-card-kind">Selected assessment</span>
+                          <strong>{entry.label}</strong>
+                          <p>{entry.description}</p>
+                          <small>{assessmentMeta(entry)}</small>
+                        </div>
+                        <button
+                          className="lp-button lp-button-secondary"
+                          onClick={() => setAssessmentChoicesOpen(true)}
+                          type="button"
+                        >
+                          Change assessment
+                        </button>
+                      </div>
+                    ) : (
+                      <ul className="teacher-assess-cards" aria-label="Assessments you can start">
+                        {orderedCatalog.map(row => {
+                          const suggested = row.id === SUGGESTED_ENTRY?.id;
+                          const kind = assessmentKind(row, suggested);
+                          return (
+                            <li key={row.id}>
+                              <article
+                                className="teacher-assess-card"
+                                data-chosen={row.id === checkId ? "true" : undefined}
+                                data-kind={kind}
+                              >
+                                <span className="teacher-assess-card-kind">
+                                  {ASSESSMENT_KIND_LABELS[kind]}
+                                </span>
+                                <h4>{row.label}</h4>
+                                <p>{row.description}</p>
+                                <div className="teacher-assess-card-foot">
+                                  <small>{assessmentMeta(row)}</small>
+                                  <button
+                                    aria-label={`Start ${row.label}`}
+                                    aria-pressed={row.id === checkId}
+                                    className="lp-button lp-button-secondary teacher-assess-card-start"
+                                    onClick={() => chooseCheck(row.id)}
+                                    type="button"
+                                  >
+                                    Start
+                                  </button>
+                                </div>
+                              </article>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                   </>
                 )}
               </div>
@@ -709,7 +746,10 @@ export function TeacherAssessmentsPage({
           </div>
 
           {entry && studentEvidenceAvailable && (
-            <section className="teacher-assess-panel teacher-assess-panel-start">
+            <section
+              className="teacher-assess-panel teacher-assess-panel-start"
+              ref={startPanelRef}
+            >
               <h3
                 className="teacher-assess-panel-head"
                 ref={startHeadingRef}

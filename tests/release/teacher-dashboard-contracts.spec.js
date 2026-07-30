@@ -727,6 +727,9 @@ test("@question-report-cloud sends once, appears in another browser, and records
   await expect(page.getByRole("heading", { name: "Assess a student", exact: true }))
     .toBeVisible();
   await page.getByRole("button", { name: "Start Skills assessment", exact: true }).click();
+  await expect(page.locator(".teacher-assess-panel-start")).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Begin Skills assessment", exact: true }))
+    .toBeInViewport();
   await page.getByRole("button", { name: "Begin Skills assessment", exact: true }).click();
 
   const questionCard = page.locator("[data-assessment-question-id]").first();

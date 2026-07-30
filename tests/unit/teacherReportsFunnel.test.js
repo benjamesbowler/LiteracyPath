@@ -217,7 +217,7 @@ test("both chooser pages keep their answers addressable and their focus honest",
     // Every answer goes into the URL, so a refresh mid-flow keeps its place.
     assert.match(source, /writeTeacherFunnelParams\(\{/);
     // A step that unlocks takes focus, or a keyboard user never learns it did.
-    assert.match(source, /target\?\.current\?\.focus\(\{ preventScroll: true \}\)/);
+    assert.match(source, /\w+\?\.current\?\.focus\(\{ preventScroll: true \}\)/);
   }
 });
 
