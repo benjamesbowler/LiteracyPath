@@ -195,7 +195,9 @@ export const sourceFileByBankName = {
   v3_adjectives: "src/data/v3/banks/adjectives.v3.generated.js",
   v3_prepositions_of_place: "src/data/v3/banks/prepositions_of_place.v3.generated.js",
   v3_plurals: "src/data/v3/banks/plurals.v3.generated.js",
-  v3_prefixes_suffixes: "src/data/v3/banks/prefixes_suffixes.v3.generated.js"
+  v3_prefixes_suffixes: "src/data/v3/banks/prefixes_suffixes.v3.generated.js",
+  v3_antonyms_synonyms: "src/data/v3/banks/antonyms_synonyms.v3.generated.js",
+  v3_homophones_homonyms: "src/data/v3/banks/homophones_homonyms.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(

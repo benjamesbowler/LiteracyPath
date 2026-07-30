@@ -14,7 +14,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Formats.** L1 `GRAMMAR_IMAGE_CHOICE` (4 picture cards, one names the target category — distractors are actions/qualities pictured, `D-FUNCTION-SWAP`), L2 `GRAMMAR_SENTENCE_FIT` + `GRAMMAR_CONTRAST`. Imageability rule: L1 picture nouns from the concrete list only — `air`, `idea`-class unimageable words banned at L1 (lint via lexicon `imageable: true` flag).
 
-**Bank.** L1: 4 × 6 = 24 + R 12; L2: 3 × 8 = 24 + R 12. Total 72 (current 146 pruned/rebuilt; the 70 GRAMMAR_IMAGE_CHOICE L1 items are salvage candidates after re-keying).
+**Bank.** L1: 4 × 6 = 24; L2: 3 × 8 = 24; + R 12 (one shared reserve, not per level). Total 60 as shipped (current 146 pruned/rebuilt; the 70 GRAMMAR_IMAGE_CHOICE L1 items are salvage candidates after re-keying).
 
 ---
 
@@ -24,7 +24,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Craft notes.** The audit's "The picture shows what happens when someone can…" generic-copy pattern is banned (O-2); every L1 item names a real depicted action scene. L2 `verb_precision` distractors are grammatical-but-wrong (`D-PLAUSIBLE-UNSUPPORTED` register) — this is what makes L2 harder thinking, not longer text.
 
-**Bank.** 3 × 8 = 24 + R 12 per level. Total 72 (current 111 replaced/pruned).
+**Bank.** L1: 3 × 8 = 24; L2: 22 across 3 units; + R 12 (one shared reserve). Total 58 as shipped (current 111 replaced/pruned).
 
 ---
 
@@ -34,7 +34,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Craft notes.** Every one of the 30 published "a adjective" prompts dies (`L-GRAM`). L2's current five-target repetition (brave/bumpy/calm/crisp/cute rotations) is replaced by the semantic-dimension units above — breadth comes from dimensions, not from recycling five words.
 
-**Bank.** L1: 4 × 6 = 24 + R 12; L2: 3 × 8 = 24 + R 12. Total 72 (current 110 replaced).
+**Bank.** L1: 4 × 6 = 24; L2: 3 × 8 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 110 replaced).
 
 ---
 
@@ -58,7 +58,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Formats.** `PLURAL_IMAGE_SPELLING` (picture of 3 stars → star/stars/stares/starry — all real words), `PLURAL_SPELLING_CONTEXT` (sentence cloze), L2 `PLURAL_ERROR_SPOT` ("Which word is written wrong? — the sanctioned home for developmental errors") + `PLURAL_PRODUCTION` (type/build: one fox, two ___).
 
-**Bank.** L1: 3 × 8 = 24 + R 12; L2: 4 × 6 = 24 + R 12. Total 72 (current 138 replaced).
+**Bank.** L1: 3 × 8 = 24; L2: 4 × 6 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 138 replaced).
 
 ---
 
@@ -70,7 +70,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Formats — three, all required per unit.** `MORPHEME_BUILD` (jump + ing → ?, tiles/choices), `MORPHEME_MEANING_CONTEXT` (choose what *unlock* means in the sentence — meanings written as natural child glosses, not formula: "open it again"❌ for unlock — the gloss must be right: "open something that was locked"), `MORPHEME_TRANSFER` (L2: apply the morpheme to an unseen word the child has never been taught — the audit's transfer requirement: "If *redo* means do again, what does *refill* mean?").
 
-**Bank.** L1: 5 × 6 (3 formats × 2 variants) = 30 + R 12; L2: 6 × 6 = 36 + R 12. Total 90 (replaces 92).
+**Bank.** L1: 5 × 6 (3 MORPHEME_BUILD + 3 MEANING_CONTEXT) = 30; L2: 6 × 6 (2 BUILD + 2 MEANING + 2 TRANSFER) = 36; + R 12 (one shared reserve). Total 78 as shipped (replaces 92).
 
 **Distractors.** `D-MORPH-LITERAL` (wrong-morpheme reading), `D-FUNCTION-SWAP`, opposite-morpheme trap (unlock ↔ relock in the same set = the discrimination that matters).
 
@@ -86,7 +86,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **The distractor law.** Every antonym item's set contains the true opposite (key), a same-category non-opposite (`D-TOPIC-ADJACENT`: for hot — warm), an unrelated same-POS word, and NEVER a synonym-of-key unless the format explicitly contrasts same-vs-opposite. Synonym items mirror it (key synonym, true ANTONYM as one distractor — the discrimination that proves the relation is understood, `D-OPPOSITE`).
 
-**Bank.** L1: 4 × 6 = 24 + R 12; L2: 4 × 6 = 24 + R 12. Total 72 (current 234 → 72; the biggest single prune in the family).
+**Bank.** L1: 4 × 6 = 24; L2: 4 × 6 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 234 → 60; the biggest single prune in the family).
 
 ---
 
@@ -94,8 +94,8 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Units (set-shaped).** L1 (8 homophone sets): `sea/see, sun/son, be/bee, no/know, one/won, ate/eight, hear/here, blue/blew`. L2 (8): `to/two/too, there/their, right/write, new/knew, hour/our, flower/flour, would/wood, made/maid`. Homonyms (bat/bat, ring/ring) become 2 recognition-only units at L2 (`nonGating: true`) — mixing the two constructs gated mastery today (0/46 eligible); the audit's set-shaped evidence key is exactly this design: `itemKey: "sea_see"`, not per-spelling.
 
-**Formats.** L1 `HOMOPHONE_MEANING` (which word goes with the picture of the ocean — sea/see + 2 same-POS foils), L2 `HOMOPHONE_CONTEXT_CLOZE` (kept — the good format: "We saw a ship on the ___." sea/see/seat/say). Each set's variants must use ≥2 different natural contexts per spelling (the audit's "multiple natural contexts").
+**Formats.** BOTH levels carry BOTH formats — the D-small rule demands 2 evidence formats per unit, so a one-format level can never certify. `HOMOPHONE_MEANING` is the L1 centre (which spelling names the big salty water — sea/see + 2 same-POS foils), `HOMOPHONE_CONTEXT_CLOZE` the L2 centre (kept — the good format: "We sailed far out on the deep blue ___." sea/see/seat/snow). Each set's variants use ≥2 different natural contexts per spelling (the audit's "multiple natural contexts"). Sitting 10, not 8: 16 units × 4 attempts + 4 exposure items = 68 slots — at 8 a perfect pass blows the 2× budget (same fix as prefixes).
 
-**Bank.** L1: 8 × 3 = 24 + R 12; L2: 8 × 3 + 2 homonym exposure ×2 = 28 + R 12. Total 76 (current 116 pruned/rebuilt; the 70 cloze items are the strongest salvage pool in this family).
+**Bank.** L1: 8 × 4 = 32; L2: 8 × 4 + 2 homonym exposure ×2 = 36; + R 12 (one shared reserve). Total 80 as shipped — 4 variants per unit is the D-small no-repeat arithmetic (current 116 pruned/rebuilt; the 70 cloze items were the strongest salvage pool in this family).
 
 **Distractors.** The paired homophone (mandatory — it IS the construct), `D-VISUAL-NEIGHBOR` real word, `D-FUNCTION-SWAP`. `L-CLOZE-FIT` relaxed for the homophone itself (it may be ungrammatical in frame — that's the point) but the two fillers must parse.

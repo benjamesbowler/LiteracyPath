@@ -437,7 +437,11 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
   bp("homophones_homonyms", {
     itemType: "homophone_set",
     unitRule: D_SMALL,
-    sitting: 8,
+    // Sitting 10, not 8: 16 gating units x 4 attempts + 4 nonGating exposure
+    // items = 68 slots; at 8 per sitting a perfect pass needs 9 sittings and
+    // blows the 2x pass budget. At 10 it lands in 7. Same fix as
+    // prefixes_suffixes (11 units, sitting 10).
+    sitting: 10,
     unitsByLevel: {
       1: ["sea_see", "sun_son", "be_bee", "no_know", "one_won", "ate_eight", "hear_here", "blue_blew"],
       2: ["to_two_too", "there_their", "right_write", "new_knew", "hour_our", "flower_flour", "would_wood", "made_maid"]

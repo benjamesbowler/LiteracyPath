@@ -57,7 +57,9 @@ const V3_BANK_IMPORTS = {
   adjectives: () => import("./banks/adjectives.v3.generated.js"),
   prepositions_of_place: () => import("./banks/prepositions_of_place.v3.generated.js"),
   plurals: () => import("./banks/plurals.v3.generated.js"),
-  prefixes_suffixes: () => import("./banks/prefixes_suffixes.v3.generated.js")
+  prefixes_suffixes: () => import("./banks/prefixes_suffixes.v3.generated.js"),
+  antonyms_synonyms: () => import("./banks/antonyms_synonyms.v3.generated.js"),
+  homophones_homonyms: () => import("./banks/homophones_homonyms.v3.generated.js")
 };
 
 const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];
