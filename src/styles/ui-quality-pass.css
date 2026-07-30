@@ -1,0 +1,676 @@
+/*
+ * Cross-surface UI quality pass
+ *
+ * This layer owns corrections that span feature stylesheets: real phone
+ * reflow, bounded readers, stable teacher navigation, and balanced settings
+ * layouts. It is imported last by the production and visual-audit entries.
+ */
+
+/* A child reader belongs to the content slot, below the persistent identity
+   bar and above the persistent navigation bar. A viewport-fixed reader was
+   hidden under both pieces of chrome because .kg-main creates a lower stacking
+   context. */
+.kg-stage .student-guided-reading-page.guided-reading-reader-open {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 8px;
+}
+
+.kg-stage .student-guided-reading-page.guided-reading-reader-open .guided-reader-shell {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: 100%;
+}
+
+/* Keep the subject of this particular cover inside its landscape crop. */
+.kg-stage img[alt="Nan and Bob get Sick cover"] {
+  object-position: 12% center;
+}
+
+/* The hint previously occupied the same right-edge lane as the World action. */
+.kg-stage .hollow-room-hint {
+  left: 50%;
+  right: auto;
+  max-width: calc(100% - 280px);
+  transform: translateX(-50%);
+}
+
+/* Teacher pages use the content pane as their scroll owner. This keeps the
+   navigation and its current-location context present throughout long class
+   lists and reports. */
+.lg-app-shell:not(.no-sidebar) {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.lg-app-shell:not(.no-sidebar) > .lg-sidebar {
+  position: relative;
+  top: auto;
+  height: 100%;
+  align-self: stretch;
+}
+
+.lg-app-shell:not(.no-sidebar) > .lg-content-area {
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+/* Login content should determine card height; the old fixed minimum left an
+   empty white half-card on common laptop screens. */
+.student-login-flow .student-flow-card {
+  min-height: 0;
+}
+
+/* Keep the visible icon compact while giving the inline help control a full
+   touch target. */
+.app .lp-metric-definition-trigger::after {
+  position: absolute;
+  inset: -10px;
+  content: "";
+}
+
+.el-benchmark-button.ghost.danger-text {
+  min-width: 152px;
+  white-space: nowrap;
+}
+
+.teacher-today-zone.attention:has(.teacher-today-empty) {
+  align-self: start;
+}
+
+.student-report-benchmark-card:has(.student-report-benchmark-evidence-table-wrap) {
+  grid-column: 1 / -1;
+}
+
+.student-report-benchmark-card:has(.student-report-benchmark-evidence-table-wrap)
+  .student-report-benchmark-evidence-table {
+  min-width: 820px;
+}
+
+@media (min-width: 901px) {
+  /* The reader header has ample horizontal room when its title and controls
+     receive explicit tracks. Flex wrapping had left the controls in a narrow
+     sliver, producing letter-by-letter button labels. */
+  .guided-reader-header {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1.8fr);
+    gap: 12px 20px;
+    align-items: start;
+  }
+
+  .guided-page-controls {
+    width: 100%;
+    max-width: none;
+    grid-template-columns:
+      minmax(290px, 1.05fr)
+      minmax(104px, 0.4fr)
+      minmax(350px, 1.25fr);
+  }
+
+  .guided-page-controls .lp-button {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  /* Four primary settings destinations read as a deliberate 2 × 2 system,
+     instead of three cards plus an accidental orphan. */
+  .teacher-settings-page .teacher-settings-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-settings-detail,
+  .teacher-settings-panel {
+    width: 100%;
+    max-width: 960px;
+  }
+
+  .student-report-benchmark-scope-control {
+    grid-template-columns:
+      minmax(210px, 0.75fr)
+      minmax(360px, 1.25fr)
+      auto;
+  }
+}
+
+/* Phones receive a native responsive layout. Scaling the 1024px tablet canvas
+   made every label and hit target roughly 40% of its intended size. */
+@media (max-width: 700px) {
+  .guided-page-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .guided-read-aloud-controls {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .guided-page-controls > .guided-page-status {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .guided-page-controls > .guided-auto-advance-toggle {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .guided-reader-secondary-controls {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .guided-reader-secondary-controls .lp-button {
+    min-height: 44px !important;
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+
+  .kg-stage {
+    --kg-header-height: 64px;
+    --kg-tabbar-height: 74px;
+    --kg-tab-height: 58px;
+    width: 100vw !important;
+    height: 100dvh;
+    transform: translate(-50%, -50%);
+  }
+
+  .kg-stage .kg-header {
+    flex: 0 0 var(--kg-header-height);
+    gap: 6px;
+    padding-inline: 8px;
+  }
+
+  .kg-stage .kg-profile {
+    min-width: 0;
+    gap: 7px;
+  }
+
+  .kg-stage .kg-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .kg-stage .kg-avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .kg-stage .kg-identity {
+    min-width: 0;
+  }
+
+  .kg-stage .kg-identity-name {
+    max-width: 88px;
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-identity-pal,
+  .kg-stage .kg-currency-caption {
+    display: none;
+  }
+
+  .kg-stage .kg-currency {
+    min-width: 44px;
+    height: 44px;
+    justify-content: center;
+    gap: 4px;
+    padding-inline: 8px;
+  }
+
+  .kg-stage .kg-currency-value {
+    font-size: 18px;
+  }
+
+  .kg-stage .kg-iconbutton {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .kg-stage .kg-main,
+  .kg-stage .kg-main--scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .kg-stage .kg-main--scroll {
+    padding-bottom: 12px;
+  }
+
+  .kg-stage .kg-main--scroll > * {
+    min-height: 100%;
+  }
+
+  .kg-stage .kg-tabbar {
+    flex: 0 0 var(--kg-tabbar-height);
+    gap: 4px;
+    padding-inline: 5px;
+  }
+
+  .kg-stage .kg-tab {
+    min-width: 0;
+    border-radius: 14px;
+  }
+
+  .kg-stage .kg-tab .kg-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .kg-stage .kg-tab-label {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-screen,
+  .kg-stage .kg-screen--home {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding: 10px;
+  }
+
+  /* Home */
+  .kg-stage .kg-home {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .kg-stage .kg-home-hero {
+    min-height: 278px;
+  }
+
+  .kg-stage .kg-home-hero-body {
+    grid-template-columns: minmax(0, 1fr) 92px;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .kg-stage .kg-home-hero-title {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .kg-stage .kg-home-hero-stop {
+    font-size: 15px;
+  }
+
+  .kg-stage .kg-home-hero-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .kg-stage .kg-home-play {
+    padding-inline: 18px;
+  }
+
+  .kg-stage .kg-home-guide {
+    width: 92px;
+  }
+
+  .kg-stage .kg-home-guide-photo {
+    width: 88px;
+    height: 112px;
+    border-radius: 25px;
+  }
+
+  .kg-stage .kg-home-guide-name {
+    padding-inline: 8px;
+  }
+
+  .kg-stage .kg-home-guide-name strong {
+    font-size: 14px;
+  }
+
+  .kg-stage .kg-home-stops {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .kg-stage .kg-home-stops-head {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .kg-stage .kg-home-stops-row {
+    gap: 2px;
+  }
+
+  .kg-stage .kg-home-stop {
+    padding-inline: 2px;
+  }
+
+  .kg-stage .kg-home-stop-label strong {
+    font-size: 14px;
+  }
+
+  .kg-stage .kg-home-stop[data-mission-state="next"] .kg-home-stop-label strong {
+    font-size: 15px;
+  }
+
+  .kg-stage .kg-home-stop-label small {
+    font-size: 10px;
+  }
+
+  .kg-stage .kg-home-doors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .kg-stage .kg-home-door {
+    min-height: 164px;
+  }
+
+  .kg-stage .kg-home-door-note {
+    display: none;
+  }
+
+  /* Arcade */
+  .kg-stage .student-surface-arcade,
+  .kg-stage .student-surface-arcade .lg-arcade,
+  .kg-stage .student-surface-arcade .lg-arcade-comic {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade,
+  .kg-stage .student-surface-arcade .lg-arcade-comic {
+    padding: 10px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband {
+    flex-wrap: wrap;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tilegrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 10px;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile {
+    min-height: 210px;
+  }
+
+  /* Phonics */
+  .kg-stage .student-surface-phonics,
+  .kg-stage .student-surface-phonics .phonics-learn-page,
+  .kg-stage .student-surface-phonics .phonics-tab-shell,
+  .kg-stage .student-surface-phonics .phonics-island-view,
+  .kg-stage .student-surface-phonics .phonics-picker,
+  .kg-stage .student-surface-phonics .cvc-picker {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-tab-shell {
+    padding: 10px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-letter-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: none;
+    flex: none;
+    gap: 8px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-letter-card {
+    min-height: 68px;
+  }
+
+  /* Reading library */
+  .kg-stage .student-guided-reading-page {
+    height: auto;
+    min-height: 100%;
+    overflow: visible;
+  }
+
+  .kg-stage .student-guided-reading-page .guided-reading-library,
+  .kg-stage .student-guided-reading-page .guided-library-breadcrumb + .guided-reading-library {
+    height: auto;
+    min-height: calc(100% - 50px);
+    padding: 10px;
+    overflow: visible;
+  }
+
+  .kg-stage .guided-child-category-grid {
+    grid-template-columns: 1fr;
+    flex: none;
+  }
+
+  .kg-stage .guided-child-category {
+    min-height: 210px;
+    padding: 24px;
+  }
+
+  .kg-stage .guided-series-grid,
+  .kg-stage .guided-child-book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    flex: none;
+  }
+
+  .kg-stage .guided-series-grid > button {
+    grid-template-columns: 1fr;
+    min-height: 230px;
+  }
+
+  .kg-stage .guided-series-cover {
+    min-height: 144px;
+  }
+
+  .kg-stage .guided-child-book-grid > button {
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px auto auto;
+    min-height: 230px;
+  }
+
+  .kg-stage .guided-child-book-grid .guided-shelf-card-cover {
+    grid-row: 1;
+  }
+
+  /* Story Quests */
+  .kg-stage .student-surface-story,
+  .kg-stage .student-surface-story .story-quest-learn-page.learn-area-page,
+  .kg-stage .student-surface-story .learn-story-quest-library,
+  .kg-stage .student-surface-story .story-quest-body,
+  .kg-stage .student-surface-story .learn-story-level-list,
+  .kg-stage .student-surface-story .learn-story-level-section {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-story .story-quest-learn-page.learn-area-page {
+    padding: 10px;
+  }
+
+  .kg-stage .student-surface-story .learn-story-quest-library {
+    border: 1px solid rgba(58, 76, 96, 0.16) !important;
+  }
+
+  .kg-stage .student-surface-story .story-quest-header-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .kg-stage .student-surface-story .learn-story-quest-copy {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .kg-stage .student-surface-story .story-quest-library-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .kg-stage .student-surface-story .story-quest-library-stats > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .kg-stage .student-surface-story .story-quest-primary-action {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .student-mode-app .kg-stage .story-quest-learn-page
+    .story-quest-header-row .learn-story-level-selector {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+  }
+
+  .kg-stage .student-surface-story .learn-story-level-button {
+    min-width: 0;
+    min-height: 64px;
+    flex-direction: column;
+    gap: 0;
+    padding: 7px 5px;
+  }
+
+  .kg-stage .student-surface-story .learn-story-level-button strong,
+  .kg-stage .student-surface-story .learn-story-level-button span {
+    line-height: 1.1;
+  }
+
+  .kg-stage .student-surface-story .learn-story-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-story .learn-story-quest-card {
+    grid-template-columns: 1fr;
+    min-height: 210px;
+    overflow: hidden;
+  }
+
+  .kg-stage .student-surface-story .learn-story-quest-cover {
+    height: 120px;
+  }
+
+  /* Trail and world map */
+  .kg-stage .kg-trail,
+  .kg-stage .kg-map {
+    grid-template-rows: auto auto auto;
+  }
+
+  .kg-stage .kg-node-scene,
+  .kg-stage .kg-map-scene {
+    width: 100%;
+    height: auto;
+    min-height: 230px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .kg-stage .kg-trail-foot {
+    grid-template-columns: 1fr;
+  }
+
+  .kg-stage .kg-map-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* My Hollow */
+  .kg-stage .student-surface-rewards,
+  .kg-stage .hollow-page {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .kg-stage .hollow-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding: 8px 10px;
+  }
+
+  .kg-stage .hollow-title {
+    text-align: center;
+  }
+
+  .kg-stage .hollow-wallet {
+    display: none;
+  }
+
+  .kg-stage .hollow-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .kg-stage .hollow-tab {
+    min-width: 0;
+    min-height: 44px;
+    justify-content: center;
+    padding: 5px 3px;
+    font-size: 0.74rem;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .kg-stage .hollow-tab-note {
+    display: none;
+  }
+
+  .kg-stage .hollow-room-name {
+    top: 10px;
+  }
+
+  .kg-stage .hollow-room-hint {
+    left: 12px;
+    right: 12px;
+    bottom: 58px;
+    max-width: none;
+    transform: none;
+  }
+
+  /* The reader remains a bounded workspace while its library reflows. */
+  .kg-stage .student-guided-reading-page.guided-reading-reader-open {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding: 6px;
+  }
+}

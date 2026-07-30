@@ -42,24 +42,48 @@ scenes from the Kimi request below when they arrive.
    three world characters peeking from the card art.
 2. **Child login** (school → class → name → pictures): Meadow world
    theme (gentlest), characters watching from the corners, frosted card.
-3. **Home**: header becomes the Little Literacy Guides lodge, with a companion avatar,
-   streak flame, gem count. Mission tiles carry the world art of the
-   content they point to. Explore cards = world doorways.
+3. **Home**: header becomes the Little Literacy Guides lodge, with the child's
+   saved Little Literacy Guide avatar plus only stars and coins. Mission tiles
+   carry the world art of the content they point to. Explore cards = world
+   doorways.
 4. **Skills Quest map**: cycles 1–9 ride through the Meadow, 10–18
-   through Dino valley, 19–27 into Moonwood — the map background and
-   stop styling shift as the child scrolls their path. Stations and
-   round cards inherit the active world.
+   through Dino valley, 19–27 into Moonwood. This is a forward path: only
+   the first unfinished stop opens; completed and future stops cannot be
+   selected. Stations and round cards inherit the active world.
 5. **Game arcade**: difficulty switch = world switch. Easy shows the
    Meadow header art and accents; Medium goes Dino; Hard goes Moonwood.
    Game cards keep their art but frames/buttons take world accents.
 6. **In-game**: stage backdrop = soft world mesh + world corner art;
    balloons/tiles/meters take world accents automatically via tokens.
-7. **Reading Library**: shelves themed by level band (A=Meadow, B=Dino,
-   C/D=Moonwood) so "leveling up" literally means traveling to the next
-   world. Level-up ceremony shows the next world opening.
+7. **Reading Library**: starts with Fiction / Non-fiction, then reader series,
+   then an eight-book page. Read books carry a tick. World theming remains a
+   supporting cue rather than replacing the category/series hierarchy.
 8. **Story Quests**: already character-driven; aligns to world tokens.
 9. **Celebrations/overlays**: confetti colors, gem colors, and Phinny
    poses tinted per world.
+10. **My Hollow**: owns Little Literacy Guide changes and the permanent
+    Beastie nook. The first Guide choice is free; later changes cost 10 earned
+    stars. Guide choices are book characters only. Every hatched beastie is
+    reachable from the nook or the Beasties tab.
+
+## Persistent Little Literacy Guide policy
+
+- A child chooses a Guide once, after their first profile hydration. There is
+  no skip action and no repeat chooser at later sign-ins.
+- The choices are Fluff (Bob and Nan), Chips (James and Anna), Socks (Aiden and
+  Betty), Chompy (Dino Pals), Muddy (Meadow Pals), and Pip (Moonwood Tales).
+- Home and the child header always read the saved Guide from the student
+  profile. They never substitute a random mascot.
+- Changes are made only in **My Hollow → My Guide**. A later change costs 10
+  available earned stars and the spend is stored in the synced profile.
+
+## One-screen child layout policy
+
+The signed-in child area uses a fixed 834-design-pixel height and a fluid stage
+width up to a defensive 3200-design-pixel ceiling. At ordinary landscape
+viewports it fills the screen edge to edge and child hubs do not scroll. Dense
+content uses bounded grids and explicit paging. The public marketing landing
+page remains the deliberate scrolling exception.
 
 ## Asset plan
 

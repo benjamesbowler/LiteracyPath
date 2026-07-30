@@ -1,6 +1,6 @@
 # Child surface rules
 
-**Version:** 2026.07.24
+**Version:** 2026.07.29
 
 **Scope:** every route a child can reach before or after sign-in
 
@@ -18,6 +18,36 @@ These rules keep each child-facing screen understandable without relying on tria
 
 The implementation exposes these regions as `data-child-title`, `data-child-instruction`, `data-child-choices`, `data-child-progress`, and `data-child-primary`. The route root exposes `data-child-surface`.
 
+## Viewport and navigation rules
+
+- Signed-in child hubs are one-screen experiences. At the supported landscape
+  viewport the browser page, glass stage, content pane and route root must all
+  have equal client and scroll dimensions. The marketing landing page is the
+  explicit scrolling exception.
+- The stage keeps a fixed 834-design-pixel height but follows the available
+  viewport width. A narrow centred band or decorative empty side gutters on an
+  ordinary laptop, tablet or 21:9 review display are defects.
+- Dense collections page inside the available stage: Arcade uses a 6×2 game
+  page, Story Quests a 3×2 quest page, Reading Library an 8-book page, and My
+  Hollow uses room/shelf tabs. Do not restore a child-page scrollbar.
+- The Adventure Map is a forward journey, not a level picker. A new child
+  starts at Meadow cycle 1, then progresses through Meadow, Dino and Moonwood.
+  Only the first unfinished stop is interactive; completed and future stops
+  are progress/context only.
+
+## Identity and collection rules
+
+- “Little Literacy Guide” is the child-facing name for the persistent
+  companion. The child chooses once from characters in LiteracyPath's reader
+  series. The chosen Guide appears on Home and in the signed-in header.
+- Later Guide changes live only in **My Hollow → My Guide** and cost 10 earned
+  stars. Choosing the current Guide again never spends stars.
+- Hatched beasties remain visible in the main Hollow's **Beastie nook** and
+  open the complete Beasties collection when tapped.
+- Reading Library disclosure order is **Fiction / Non-fiction → series → book**.
+  Series are meaningful reader groups (including Bob and Nan), not a flat
+  cover wall. Completed books carry a visible and accessible read tick.
+
 ## State rules
 
 - Loading, error, empty, completed, and resumed states retain the route title and explain what the child can do next.
@@ -34,12 +64,18 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
 | Student home | PASS | PASS | PASS | PASS | PASS | Removed the duplicate top-bar continuation; the recommended activity card now owns the one named continuation action. |
 | Phonics | PASS | PASS | PASS | PASS | PASS | Added a route title contract and promotes the first available unfinished letter while keeping the island switcher subordinate. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | Added a direct instruction and marks the first unplayed game as “Play next”; the rest remain ordinary choices. |
-| Adventure Map | PASS | PASS | PASS | PASS | PASS | Added completed-stop progress, directs the child to “you are here,” and promotes only the recommended stop. |
+| Adventure Map | PASS | PASS | PASS | PASS | PASS | Forward-only Meadow → Dino → Moonwood path; only the first unfinished stop opens. |
 | Sound Seekers | PASS | PASS | PASS | PASS | PASS | The fresh-state creature builder names the task, part step, choices, and one hatch action inside the Sound Seekers root. |
 | Story Quests | PASS | PASS | PASS | PASS | PASS | Added a single Start/Continue recommendation and a text title fallback that remains visible when the raster logo is suppressed. |
-| Reading Library | PASS | PASS | PASS | PASS | PASS | Ranks Continue, Recommended, Already Read, then first available book; only the selected next book is promoted. Added a visible text title fallback. |
-| My Hollow | PASS | PASS | PASS | PASS | PASS | The first empty placement spot is the recommended action; when the room is full, changing the world becomes the single fallback action. |
+| Reading Library | PASS | PASS | PASS | PASS | PASS | Fiction/non-fiction, then series, then paged books; completed books show a read tick. |
+| My Hollow | PASS | PASS | PASS | PASS | PASS | Guide changes and hatched beasties have permanent homes; room and market collections page without child scrolling. |
 
 ## Verification
 
-The unit contract proves registry coverage for every `STUDENT_ALLOWED_VIEWS` entry plus sign-in and the Arcade mode. The browser contract mounts the real component for all nine rows at 1280 × 900 and requires the route root, all five visible regions, exactly one `h1`, exactly one primary action, and zero page errors.
+The unit contract proves registry coverage for every `STUDENT_ALLOWED_VIEWS`
+entry plus sign-in and Arcade, as well as the forward-map, persistent-Guide,
+library hierarchy, Beastie nook and teacher class-entry contracts. The browser
+contract mounts the real component for all nine child rows and requires the
+route root, all five visible regions, exactly one `h1`, exactly one primary
+action, and zero page errors. The 1280×720 ship check additionally requires
+equal client and scroll dimensions for every signed-in child hub.
