@@ -2,6 +2,7 @@ import {
   getApprovedAudioPath,
   getAudioPreferenceStatus
 } from "./audioPreferenceManifest.js";
+import { getV3RuntimeEligibilityIssues } from "./v3/v3Registry.js";
 import {
   ALL_HFW_WORD_SET,
   getHfwBandSet,
@@ -238,6 +239,12 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const options = typeof arguments[2] === "object" ? arguments[2] : {};
   const bandId = normalizeHfwSkillId(skillId || getQuestionSkillText(question));
   if (!bandId) return ["not an HFW skill band"];
+
+  // v3 rebuild items are gate-proven against the band blueprint (word-level
+  // itemKeys, parse-audited clozes, tile builds); the legacy per-question
+  // allowlists and 12-tile requirements below only apply to legacy items.
+  const v3Issues = getV3RuntimeEligibilityIssues(question, bandId);
+  if (v3Issues) return v3Issues;
 
   const issues = [];
   const bandSet = getHfwBandSet(bandId);

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-07-30T00:29:36.633Z",
+ "generatedAt": "2026-07-30T01:37:26.687Z",
  "spec": "Every prompt/instruction, sentence, passage, and choice word needs recorded human audio (child-friendly UK/neutral voice, natural pace, no isolated phonemes). Every image slot needs a clean flat-style illustration matching /images/assessment house style, no embedded text, answer-neutral.",
  "skills": [
   {
@@ -48,6 +48,22 @@
    "instructionLines": 82,
    "wordRecordings": 410,
    "imageSlots": 94,
+   "missingImages": 0
+  },
+  {
+   "skillId": "hfw_1_25",
+   "items": 135,
+   "instructionLines": 135,
+   "wordRecordings": 381,
+   "imageSlots": 0,
+   "missingImages": 0
+  },
+  {
+   "skillId": "hfw_26_50",
+   "items": 135,
+   "instructionLines": 135,
+   "wordRecordings": 378,
+   "imageSlots": 0,
    "missingImages": 0
   },
   {
@@ -2656,6 +2672,2416 @@
   {
    "text": "think. think ends with a sound. Which ending finishes the word think?",
    "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I see hmm red hen.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I see … red hen.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We had hmm nap at two.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We had … nap at two.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "a. Find the word a.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We have jam hmm bread.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We have jam … bread.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? She has a cat hmm a dog.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "She has a cat … a dog.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "and. Find the word and.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The pigs hmm in the mud.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The pigs … in the mud.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? You hmm my best pal.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "You … my best pal.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "are. Find the word are.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? It is big hmm a bus.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "It is big … a bus.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Sam is fast hmm a fox.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sam is fast … a fox.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "as. Find the word as.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We nap hmm two.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We nap … two.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The bus stops hmm my home.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bus stops … my home.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "at. Find the word at.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? You can hmm my helper.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "You can … my helper.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? It will hmm hot at two.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "It will … hot at two.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "be. Find the word be.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? This gift is hmm you.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "This gift is … you.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We ran hmm the bus.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We ran … the bus.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "for. Find the word for.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The card is hmm Gran.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The card is … Gran.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? He ran back hmm the park.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "He ran back … the park.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "from. Find the word from.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We hmm ten hens.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … ten hens.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? They hmm a big red van.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "They … a big red van.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "have. Find the word have.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Dad is tall. hmm has big boots.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad is tall. … has big boots.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Ben naps. hmm is in bed.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ben naps. … is in bed.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "he. Find the word he.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Sam hurt hmm leg.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sam hurt … leg.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The dog wags hmm tail.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The dog wags … tail.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "his. Find the word his.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Mom and hmm bake buns.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mom and … bake buns.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? May hmm have a go?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "May … have a go?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "i. Find the word i.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The jam is hmm the jar.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The jam is … the jar.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The fish swim hmm the sea.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The fish swim … the sea.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "in. Find the word in.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The sun hmm hot.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The sun … hot.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? My cup hmm full.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My cup … full.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "is. Find the word is.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The egg fell. hmm has a crack.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The egg fell. … has a crack.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I like the hat. hmm is red.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I like the hat. … is red.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "it. Find the word it.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I want a cup hmm milk.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I want a cup … milk.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? That is a map hmm the zoo.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "That is a map … the zoo.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "of. Find the word of.",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "Which word finishes the sentence? The cat naps hmm the rug.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cat naps … the rug.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Put the lid hmm the pot.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Put the lid … the pot.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "on. Find the word on.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? See hmm ship far, far out?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "See … ship far, far out?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I sang hmm song long ago.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I sang … song long ago.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "that. Find the word that.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Look at hmm big red sun!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Look at … big red sun!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We fed hmm hens at six.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We fed … hens at six.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "the. Find the word the.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The pigs sat. hmm are muddy!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The pigs sat. … are muddy!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? My socks? hmm are wet.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My socks? … are wet.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "they. Find the word they.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Look at hmm bug on my hand!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Look at … bug on my hand!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm hat here is mine.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… hat here is mine.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "this. Find the word this.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We go hmm the park.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We go … the park.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I gave the pen hmm Ben.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I gave the pen … Ben.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "to. Find the word to.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The cat hmm on the bed.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cat … on the bed.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The milk hmm cold.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The milk … cold.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "was. Find the word was.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I hop hmm my dog.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I hop … my dog.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? She sang hmm me at camp.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "She sang … me at camp.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "with. Find the word with.",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "Which word finishes the sentence? hmm are my best pal.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… are my best pal.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Can hmm see the big top?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Can … see the big top?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "you. Find the word you.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. He has hmm pet rat.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "He has … pet rat.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I met hmm vet today.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I met … vet today.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Six hmm ten make sixteen.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Six … ten make sixteen.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Mum hmm Gran sat down.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mum … Gran sat down.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The cubs hmm so soft.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cubs … so soft.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. My hands hmm cold.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My hands … cold.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. He is fast hmm a jet.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "He is fast … a jet.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. It is cold hmm ice.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "It is cold … ice.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We met hmm the pond.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We met … the pond.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Look hmm my sandcastle!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Look … my sandcastle!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Dad will hmm back soon.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad will … back soon.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. It can hmm windy up here.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "It can … windy up here.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. This bun is hmm Gran.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "This bun is … Gran.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We sang hmm the class.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We sang … the class.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The gift came hmm Gramps.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The gift came … Gramps.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Milk comes hmm cows.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Milk comes … cows.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The twins hmm red hats.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins … red hats.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We hmm six eggs left.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … six eggs left.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Gramps naps when hmm can.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gramps naps when … can.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Tom grins when hmm wins.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Tom grins when … wins.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Dan lost hmm left sock.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dan lost … left sock.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The king sat on hmm throne.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The king sat on … throne.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Mum and hmm swim on Sundays.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mum and … swim on Sundays.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. May hmm pet the pup?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "May … pet the pup?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The frogs hop hmm the pond.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The frogs hop … the pond.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Pop the coins hmm the tin.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Pop the coins … the tin.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The soup hmm hot.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The soup … hot.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. My bike hmm new.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My bike … new.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The nest? hmm sits up high.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The nest? … sits up high.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Grab the rope and pull hmm!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Grab the rope and pull …!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I had a mug hmm milk.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I had a mug … milk.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Here is a box hmm pins.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Here is a box … pins.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The clock hangs hmm the wall.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The clock hangs … the wall.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Hop hmm the bus, quick!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Hop … the bus, quick!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Who left hmm mess there?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Who left … mess there?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I drew hmm map myself.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I drew … map myself.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Shut hmm gate, please.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Shut … gate, please.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Feed hmm fish at nine.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Feed … fish at nine.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The elves? hmm hid well.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The elves? … hid well.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. My boots? hmm got wet.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My boots? … got wet.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Smell hmm rose right here.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Smell … rose right here.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Hold hmm end of the rope.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Hold … end of the rope.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We row hmm the dock.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We row … the dock.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Pass the jam hmm Gran.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Pass the jam … Gran.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The soup hmm too hot.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The soup … too hot.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The trip hmm so much fun.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The trip … so much fun.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Come camp hmm us!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Come camp … us!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Mix the eggs hmm a fork.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mix the eggs … a fork.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Did hmm see the comet?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Did … see the comet?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I made this card for hmm.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I made this card for ….",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? She fed hmm small lamb.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "She fed … small lamb.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I baked this hmm Dad.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I baked this … Dad.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The pond hmm full of frogs.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The pond … full of frogs.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The ducks? hmm swam off.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The ducks? … swam off.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Sweep hmm steps, please.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sweep … steps, please.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Can hmm lift this log?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Can … lift this log?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We hid hmm the rain.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We hid … the rain.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Bob packs hmm own lunch.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bob packs … own lunch.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? She fed hmm of the cats.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "She fed … of the cats.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? He drank hmm of the milk — the jug is empty!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "He drank … of the milk — the jug is empty!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "all. Find the word all.",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "Which word finishes the sentence? I ate hmm egg.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I ate … egg.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? She saw hmm owl at dusk.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "She saw … owl at dusk.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "an. Find the word an.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I ran fast, hmm I missed the bus.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I ran fast, … I missed the bus.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The sun is out, hmm it is cold.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The sun is out, … it is cold.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "but. Find the word but.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The nest is hmm the gate.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The nest is … the gate.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We sat hmm the pond.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We sat … the pond.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "by. Find the word by.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm you hop like a frog?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… you hop like a frog?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The twins hmm swim fast.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins … swim fast.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "can. Find the word can.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm you like plums?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… you like plums?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? What hmm cows eat?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "What … cows eat?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "do. Find the word do.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm kid got a badge.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… kid got a badge.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Put a cup at hmm desk.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Put a cup at … desk.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "each. Find the word each.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Last week we hmm a picnic.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Last week we … a picnic.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Gran hmm six cats long ago.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gran … six cats long ago.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "had. Find the word had.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm do you make jam?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… do you make jam?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Tell me hmm the trick works.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Tell me … the trick works.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "how. Find the word how.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Ask me hmm you get stuck.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ask me … you get stuck.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm it rains, we stay in.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… it rains, we stay in.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "if. Find the word if.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The sums are hmm hard — they are easy!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The sums are … hard — they are easy!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? That is hmm my hat!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "That is … my hat!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "not. Find the word not.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I have just hmm wish.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I have just … wish.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm duck swam off; two stayed.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… duck swam off; two stayed.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "one. Find the word one.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Do you want jam hmm ham?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Do you want jam … ham?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Is the cup full hmm empty?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Is the cup full … empty?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "or. Find the word or.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Mum hmm we can camp!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Mum … we can camp!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Dad hmm yes at last.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad … yes at last.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "said. Find the word said.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? My aunt naps when hmm can.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "My aunt naps when … can.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Gran hums as hmm bakes.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gran hums as … bakes.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "she. Find the word she.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The twins lost hmm kite.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The twins lost … kite.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The cubs drank hmm milk.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The cubs drank … milk.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "their. Find the word their.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Look — the bus is over hmm!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Look — the bus is over …!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We got hmm just in time.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We got … just in time.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "there. Find the word there.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm the key to open the box.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… the key to open the box.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? We hmm mud to make bricks.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … mud to make bricks.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "use. Find the word use.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Sis and I hid. hmm both grinned.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sis and I hid. … both grinned.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Dad and I fish. hmm catch cod!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Dad and I fish. … catch cod!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "we. Find the word we.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The shops hmm shut at ten.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The shops … shut at ten.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? You hmm so brave at the vet!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "You … so brave at the vet!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "were. Find the word were.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm is in the big box?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… is in the big box?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Guess hmm I made for you!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Guess … I made for you!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "what. Find the word what.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm does the show start — at two or three?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… does the show start — at two or three?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? I clap hmm you sing.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I clap … you sing.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "when. Find the word when.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? hmm hat is yours — red or blue?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… hat is yours — red or blue?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Tell me hmm pup you like best.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Tell me … pup you like best.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "which. Find the word which.",
+   "kind": "instruction",
+   "usedBy": 2
+  },
+  {
+   "text": "Which word finishes the sentence? We read six new hmm today.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We read six new … today.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Big hmm can be fun to spell.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Big … can be fun to spell.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "words. Find the word words.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Is this hmm scarf?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Is this … scarf?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Pack hmm bags for camp.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Pack … bags for camp.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "your. Find the word your.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We ate hmm the grapes.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We ate … the grapes.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm my pens ran out.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… my pens ran out.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. He fed hmm ox at the farm.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "He fed … ox at the farm.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I need hmm extra bed.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I need … extra bed.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. I tried, hmm I slipped.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "I tried, … I slipped.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Small hmm strong!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Small … strong!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Stand hmm the door, please.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Stand … the door, please.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The mill sits hmm a stream.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The mill sits … a stream.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Foxes hmm jump high.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Foxes … jump high.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm we camp out back?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… we camp out back?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm frogs sleep in mud?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… frogs sleep in mud?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We hmm sums after lunch.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … sums after lunch.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Give hmm hen some corn.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Give … hen some corn.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm box has a lid.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… box has a lid.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We hmm fun at the fair.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … fun at the fair.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The pup hmm my sock!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The pup … my sock!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm do bees make honey?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… do bees make honey?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Show me hmm to knit.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Show me … to knit.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Yell hmm you spot land!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Yell … you spot land!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Ask Dad hmm we may go.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Ask Dad … we may go.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. That is hmm my cup.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "That is … my cup.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Do hmm wake the baby!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Do … wake the baby!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Just hmm more lap to run!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Just … more lap to run!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm star shone first.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… star shone first.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Milk hmm water with lunch?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Milk … water with lunch?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Walk hmm ride — you pick.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Walk … ride — you pick.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The vet hmm to rest the pup.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The vet … to rest the pup.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Gran hmm bedtime is nine.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Gran … bedtime is nine.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. May hmm join our team?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "May … join our team?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm dug up a gem!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… dug up a gem!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The bees kept hmm honey safe.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The bees kept … honey safe.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The kids lost hmm ball again.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The kids lost … ball again.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Park the bikes over hmm.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Park the bikes over ….",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Is anybody hmm?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Is anybody …?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm both hands to lift it.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… both hands to lift it.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. We hmm twigs for the nest.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "We … twigs for the nest.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Can hmm bake a plum pie?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Can … bake a plum pie?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm swam till six.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… swam till six.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. The socks hmm still damp.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The socks … still damp.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. You hmm fast today!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "You … fast today!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm fell off the shelf?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… fell off the shelf?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Guess hmm I found!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Guess … I found!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm does the pool open?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… does the pool open?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Clap hmm the song ends.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Clap … the song ends.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. hmm sock is mine?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "… sock is mine?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Pick hmm game we play.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Pick … game we play.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Rhyming hmm end the same.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Rhyming … end the same.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Long hmm need long tiles.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Long … need long tiles.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Tie hmm laces up tight.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Tie … laces up tight.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Bring hmm kit on Monday.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Bring … kit on Monday.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The coach hmm to rest up.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The coach … to rest up.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The ants built hmm nest fast.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The ants built … nest fast.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? The buns hmm still warm.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "The buns … still warm.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Which word finishes the sentence? Just hmm bun is left.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Just … bun is left.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Sit hmm by the window.",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Sit … by the window.",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Who hmm that?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Who … that?",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Crabs hmm nip — take care!",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Crabs … nip — take care!",
+   "kind": "sentence",
+   "usedBy": 1
+  },
+  {
+   "text": "Build the missing word. Is this hmm pen or mine?",
+   "kind": "instruction",
+   "usedBy": 1
+  },
+  {
+   "text": "Is this … pen or mine?",
+   "kind": "sentence",
    "usedBy": 1
   },
   {
@@ -8576,7 +11002,7 @@
   },
   {
    "word": "sit",
-   "usedBy": 7
+   "usedBy": 8
   },
   {
    "word": "fruit",
@@ -8584,7 +11010,7 @@
   },
   {
    "word": "fog",
-   "usedBy": 5
+   "usedBy": 6
   },
   {
    "word": "frown",
@@ -8600,7 +11026,7 @@
   },
   {
    "word": "sheep",
-   "usedBy": 10
+   "usedBy": 11
   },
   {
    "word": "green",
@@ -8676,7 +11102,7 @@
   },
   {
    "word": "win",
-   "usedBy": 8
+   "usedBy": 11
   },
   {
    "word": "swam",
@@ -8856,7 +11282,7 @@
   },
   {
    "word": "had",
-   "usedBy": 2
+   "usedBy": 14
   },
   {
    "word": "ham",
@@ -8876,7 +11302,7 @@
   },
   {
    "word": "sand",
-   "usedBy": 3
+   "usedBy": 4
   },
   {
    "word": "tent",
@@ -8884,7 +11310,7 @@
   },
   {
    "word": "ten",
-   "usedBy": 16
+   "usedBy": 17
   },
   {
    "word": "tin",
@@ -8928,7 +11354,7 @@
   },
   {
    "word": "in",
-   "usedBy": 1
+   "usedBy": 21
   },
   {
    "word": "inch",
@@ -9004,7 +11430,7 @@
   },
   {
    "word": "cap",
-   "usedBy": 18
+   "usedBy": 19
   },
   {
    "word": "spring",
@@ -9036,7 +11462,7 @@
   },
   {
    "word": "top",
-   "usedBy": 11
+   "usedBy": 12
   },
   {
    "word": "shop",
@@ -9308,7 +11734,7 @@
   },
   {
    "word": "a",
-   "usedBy": 62
+   "usedBy": 76
   },
   {
    "word": "o",
@@ -9324,15 +11750,15 @@
   },
   {
    "word": "cat",
-   "usedBy": 8
+   "usedBy": 9
   },
   {
    "word": "i",
-   "usedBy": 54
+   "usedBy": 60
   },
   {
    "word": "hat",
-   "usedBy": 20
+   "usedBy": 23
   },
   {
    "word": "pan",
@@ -9352,7 +11778,7 @@
   },
   {
    "word": "bat",
-   "usedBy": 11
+   "usedBy": 12
   },
   {
    "word": "bit",
@@ -9360,7 +11786,7 @@
   },
   {
    "word": "but",
-   "usedBy": 2
+   "usedBy": 10
   },
   {
    "word": "cake",
@@ -9376,7 +11802,7 @@
   },
   {
    "word": "nut",
-   "usedBy": 13
+   "usedBy": 14
   },
   {
    "word": "dog",
@@ -9412,7 +11838,7 @@
   },
   {
    "word": "not",
-   "usedBy": 5
+   "usedBy": 11
   },
   {
    "word": "nap",
@@ -9420,7 +11846,7 @@
   },
   {
    "word": "bee",
-   "usedBy": 2
+   "usedBy": 3
   },
   {
    "word": "bug",
@@ -9516,7 +11942,7 @@
   },
   {
    "word": "wish",
-   "usedBy": 4
+   "usedBy": 8
   },
   {
    "word": "pet",
@@ -9600,7 +12026,7 @@
   },
   {
    "word": "hot",
-   "usedBy": 8
+   "usedBy": 9
   },
   {
    "word": "hit",
@@ -9624,7 +12050,7 @@
   },
   {
    "word": "cut",
-   "usedBy": 8
+   "usedBy": 9
   },
   {
    "word": "cot",
@@ -9724,7 +12150,7 @@
   },
   {
    "word": "three",
-   "usedBy": 6
+   "usedBy": 7
   },
   {
    "word": "thread",
@@ -9908,7 +12334,7 @@
   },
   {
    "word": "hen",
-   "usedBy": 26
+   "usedBy": 27
   },
   {
    "word": "ram",
@@ -9936,7 +12362,7 @@
   },
   {
    "word": "wet",
-   "usedBy": 3
+   "usedBy": 4
   },
   {
    "word": "s",
@@ -10039,6 +12465,426 @@
    "usedBy": 1
   },
   {
+   "word": "the",
+   "usedBy": 22
+  },
+  {
+   "word": "his",
+   "usedBy": 14
+  },
+  {
+   "word": "at",
+   "usedBy": 22
+  },
+  {
+   "word": "this",
+   "usedBy": 14
+  },
+  {
+   "word": "that",
+   "usedBy": 21
+  },
+  {
+   "word": "and",
+   "usedBy": 13
+  },
+  {
+   "word": "as",
+   "usedBy": 13
+  },
+  {
+   "word": "an",
+   "usedBy": 14
+  },
+  {
+   "word": "with",
+   "usedBy": 18
+  },
+  {
+   "word": "on",
+   "usedBy": 20
+  },
+  {
+   "word": "for",
+   "usedBy": 20
+  },
+  {
+   "word": "ant",
+   "usedBy": 7
+  },
+  {
+   "word": "are",
+   "usedBy": 17
+  },
+  {
+   "word": "was",
+   "usedBy": 17
+  },
+  {
+   "word": "is",
+   "usedBy": 23
+  },
+  {
+   "word": "be",
+   "usedBy": 14
+  },
+  {
+   "word": "have",
+   "usedBy": 10
+  },
+  {
+   "word": "ear",
+   "usedBy": 2
+  },
+  {
+   "word": "arm",
+   "usedBy": 1
+  },
+  {
+   "word": "art",
+   "usedBy": 1
+  },
+  {
+   "word": "from",
+   "usedBy": 14
+  },
+  {
+   "word": "it",
+   "usedBy": 17
+  },
+  {
+   "word": "has",
+   "usedBy": 10
+  },
+  {
+   "word": "by",
+   "usedBy": 6
+  },
+  {
+   "word": "he",
+   "usedBy": 16
+  },
+  {
+   "word": "to",
+   "usedBy": 12
+  },
+  {
+   "word": "of",
+   "usedBy": 13
+  },
+  {
+   "word": "form",
+   "usedBy": 1
+  },
+  {
+   "word": "fort",
+   "usedBy": 5
+  },
+  {
+   "word": "gave",
+   "usedBy": 1
+  },
+  {
+   "word": "they",
+   "usedBy": 20
+  },
+  {
+   "word": "you",
+   "usedBy": 17
+  },
+  {
+   "word": "she",
+   "usedBy": 8
+  },
+  {
+   "word": "him",
+   "usedBy": 2
+  },
+  {
+   "word": "I",
+   "usedBy": 6
+  },
+  {
+   "word": "off",
+   "usedBy": 2
+  },
+  {
+   "word": "no",
+   "usedBy": 1
+  },
+  {
+   "word": "than",
+   "usedBy": 1
+  },
+  {
+   "word": "then",
+   "usedBy": 6
+  },
+  {
+   "word": "them",
+   "usedBy": 4
+  },
+  {
+   "word": "too",
+   "usedBy": 1
+  },
+  {
+   "word": "saw",
+   "usedBy": 8
+  },
+  {
+   "word": "wag",
+   "usedBy": 2
+  },
+  {
+   "word": "wit",
+   "usedBy": 2
+  },
+  {
+   "word": "yes",
+   "usedBy": 1
+  },
+  {
+   "word": "your",
+   "usedBy": 9
+  },
+  {
+   "word": "yak",
+   "usedBy": 6
+  },
+  {
+   "word": "wig",
+   "usedBy": 1
+  },
+  {
+   "word": "all",
+   "usedBy": 12
+  },
+  {
+   "word": "one",
+   "usedBy": 15
+  },
+  {
+   "word": "each",
+   "usedBy": 10
+  },
+  {
+   "word": "both",
+   "usedBy": 1
+  },
+  {
+   "word": "some",
+   "usedBy": 1
+  },
+  {
+   "word": "most",
+   "usedBy": 1
+  },
+  {
+   "word": "ball",
+   "usedBy": 9
+  },
+  {
+   "word": "tall",
+   "usedBy": 5
+  },
+  {
+   "word": "doll",
+   "usedBy": 1
+  },
+  {
+   "word": "or",
+   "usedBy": 46
+  },
+  {
+   "word": "if",
+   "usedBy": 10
+  },
+  {
+   "word": "when",
+   "usedBy": 14
+  },
+  {
+   "word": "bus",
+   "usedBy": 3
+  },
+  {
+   "word": "my",
+   "usedBy": 1
+  },
+  {
+   "word": "buy",
+   "usedBy": 1
+  },
+  {
+   "word": "can",
+   "usedBy": 16
+  },
+  {
+   "word": "do",
+   "usedBy": 9
+  },
+  {
+   "word": "were",
+   "usedBy": 7
+  },
+  {
+   "word": "said",
+   "usedBy": 8
+  },
+  {
+   "word": "ran",
+   "usedBy": 2
+  },
+  {
+   "word": "go",
+   "usedBy": 1
+  },
+  {
+   "word": "dot",
+   "usedBy": 6
+  },
+  {
+   "word": "eat",
+   "usedBy": 1
+  },
+  {
+   "word": "teach",
+   "usedBy": 1
+  },
+  {
+   "word": "bad",
+   "usedBy": 8
+  },
+  {
+   "word": "how",
+   "usedBy": 8
+  },
+  {
+   "word": "what",
+   "usedBy": 11
+  },
+  {
+   "word": "which",
+   "usedBy": 9
+  },
+  {
+   "word": "who",
+   "usedBy": 1
+  },
+  {
+   "word": "now",
+   "usedBy": 3
+  },
+  {
+   "word": "cow",
+   "usedBy": 4
+  },
+  {
+   "word": "very",
+   "usedBy": 2
+  },
+  {
+   "word": "own",
+   "usedBy": 1
+  },
+  {
+   "word": "once",
+   "usedBy": 1
+  },
+  {
+   "word": "says",
+   "usedBy": 4
+  },
+  {
+   "word": "sad",
+   "usedBy": 5
+  },
+  {
+   "word": "we",
+   "usedBy": 7
+  },
+  {
+   "word": "see",
+   "usedBy": 1
+  },
+  {
+   "word": "their",
+   "usedBy": 10
+  },
+  {
+   "word": "there",
+   "usedBy": 10
+  },
+  {
+   "word": "use",
+   "usedBy": 5
+  },
+  {
+   "word": "us",
+   "usedBy": 1
+  },
+  {
+   "word": "fuse",
+   "usedBy": 1
+  },
+  {
+   "word": "up",
+   "usedBy": 3
+  },
+  {
+   "word": "me",
+   "usedBy": 1
+  },
+  {
+   "word": "where",
+   "usedBy": 1
+  },
+  {
+   "word": "her",
+   "usedBy": 3
+  },
+  {
+   "word": "witch",
+   "usedBy": 11
+  },
+  {
+   "word": "words",
+   "usedBy": 5
+  },
+  {
+   "word": "word",
+   "usedBy": 4
+  },
+  {
+   "word": "works",
+   "usedBy": 3
+  },
+  {
+   "word": "wands",
+   "usedBy": 1
+  },
+  {
+   "word": "worms",
+   "usedBy": 1
+  },
+  {
+   "word": "birds",
+   "usedBy": 1
+  },
+  {
+   "word": "our",
+   "usedBy": 1
+  },
+  {
+   "word": "out",
+   "usedBy": 1
+  },
+  {
+   "word": "ill",
+   "usedBy": 1
+  },
+  {
    "word": "nervous",
    "usedBy": 3
   },
@@ -10095,10 +12941,6 @@
    "usedBy": 1
   },
   {
-   "word": "sad",
-   "usedBy": 2
-  },
-  {
    "word": "thrilled",
    "usedBy": 1
   },
@@ -10133,10 +12975,6 @@
   {
    "word": "apple",
    "usedBy": 7
-  },
-  {
-   "word": "ant",
-   "usedBy": 6
   },
   {
    "word": "egg",
@@ -10281,10 +13119,6 @@
   {
    "word": "jellyfish",
    "usedBy": 1
-  },
-  {
-   "word": "yak",
-   "usedBy": 5
   },
   {
    "word": "kite",
@@ -10507,10 +13341,6 @@
    "usedBy": 2
   },
   {
-   "word": "one",
-   "usedBy": 4
-  },
-  {
    "word": "five",
    "usedBy": 5
   },
@@ -10707,10 +13537,6 @@
    "usedBy": 2
   },
   {
-   "word": "can",
-   "usedBy": 6
-  },
-  {
    "word": "made",
    "usedBy": 2
   },
@@ -10767,10 +13593,6 @@
    "usedBy": 1
   },
   {
-   "word": "bus",
-   "usedBy": 2
-  },
-  {
    "word": "huge",
    "usedBy": 2
   },
@@ -10808,10 +13630,6 @@
   },
   {
    "word": "ar",
-   "usedBy": 39
-  },
-  {
-   "word": "or",
    "usedBy": 39
   },
   {
@@ -10867,14 +13685,6 @@
    "usedBy": 2
   },
   {
-   "word": "fort",
-   "usedBy": 4
-  },
-  {
-   "word": "word",
-   "usedBy": 1
-  },
-  {
    "word": "hard",
    "usedBy": 2
   },
@@ -10885,10 +13695,6 @@
   {
    "word": "oa",
    "usedBy": 27
-  },
-  {
-   "word": "her",
-   "usedBy": 2
   },
   {
    "word": "fern",
@@ -10913,10 +13719,6 @@
   {
    "word": "here",
    "usedBy": 2
-  },
-  {
-   "word": "very",
-   "usedBy": 1
   },
   {
    "word": "cart",
@@ -10987,10 +13789,6 @@
    "usedBy": 1
   },
   {
-   "word": "your",
-   "usedBy": 2
-  },
-  {
    "word": "bin",
    "usedBy": 8
   },
@@ -11015,10 +13813,6 @@
    "usedBy": 2
   },
   {
-   "word": "dot",
-   "usedBy": 5
-  },
-  {
    "word": "bun",
    "usedBy": 7
   },
@@ -11033,10 +13827,6 @@
   {
    "word": "tag",
    "usedBy": 1
-  },
-  {
-   "word": "bad",
-   "usedBy": 7
   },
   {
    "word": "dad",
@@ -11119,10 +13909,6 @@
    "usedBy": 2
   },
   {
-   "word": "up",
-   "usedBy": 2
-  },
-  {
    "word": "shut",
    "usedBy": 2
   },
@@ -11191,10 +13977,6 @@
    "usedBy": 3
   },
   {
-   "word": "witch",
-   "usedBy": 9
-  },
-  {
    "word": "back",
    "usedBy": 2
   },
@@ -11235,16 +14017,8 @@
    "usedBy": 1
   },
   {
-   "word": "ball",
-   "usedBy": 7
-  },
-  {
    "word": "mill",
    "usedBy": 2
-  },
-  {
-   "word": "tall",
-   "usedBy": 3
   },
   {
    "word": "bald",
@@ -11261,10 +14035,6 @@
   {
    "word": "well",
    "usedBy": 3
-  },
-  {
-   "word": "wag",
-   "usedBy": 1
   },
   {
    "word": "wall",
@@ -11359,10 +14129,6 @@
    "usedBy": 5
   },
   {
-   "word": "wit",
-   "usedBy": 1
-  },
-  {
    "word": "night",
    "usedBy": 5
   },
@@ -11405,10 +14171,6 @@
   {
    "word": "blouse",
    "usedBy": 3
-  },
-  {
-   "word": "this",
-   "usedBy": 1
   },
   {
    "word": "thin",
@@ -11504,10 +14266,6 @@
   },
   {
    "word": "rim",
-   "usedBy": 1
-  },
-  {
-   "word": "ran",
    "usedBy": 1
   },
   {
@@ -11795,10 +14553,6 @@
    "usedBy": 4
   },
   {
-   "word": "cow",
-   "usedBy": 3
-  },
-  {
    "word": "town",
    "usedBy": 2
   },
@@ -11809,10 +14563,6 @@
   {
    "word": "down",
    "usedBy": 1
-  },
-  {
-   "word": "how",
-   "usedBy": 2
   },
   {
    "word": "slow",
@@ -11977,10 +14727,6 @@
   {
    "word": "grewe",
    "usedBy": 1
-  },
-  {
-   "word": "saw",
-   "usedBy": 2
   },
   {
    "word": "sau",

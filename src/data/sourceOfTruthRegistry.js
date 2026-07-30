@@ -185,7 +185,9 @@ export const sourceFileByBankName = {
   v3_short_vowel_discrimination: "src/data/v3/banks/short_vowel_discrimination.v3.generated.js",
   v3_blends: "src/data/v3/banks/blends.v3.generated.js",
   v3_vowel_teams: "src/data/v3/banks/vowel_teams.v3.generated.js",
-  v3_r_controlled_vowels: "src/data/v3/banks/r_controlled_vowels.v3.generated.js"
+  v3_r_controlled_vowels: "src/data/v3/banks/r_controlled_vowels.v3.generated.js",
+  v3_hfw_1_25: "src/data/v3/banks/hfw_1_25.v3.generated.js",
+  v3_hfw_26_50: "src/data/v3/banks/hfw_26_50.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(

@@ -61,10 +61,24 @@ export function guessProbability(item) {
     for (let i = 2; i <= item.soundTiles.length; i++) permutations *= i;
     return 1 / permutations;
   }
+  // Letter-bank builds: pick answer.length tiles from the bank in order —
+  // bank P len arrangements, one correct.
+  if (Array.isArray(item.letterTiles) && item.letterTiles.length >= 2) {
+    const len = String(item.answer || "").length || item.letterTiles.length;
+    let arrangements = 1;
+    for (let i = 0; i < Math.min(len, item.letterTiles.length); i++) {
+      arrangements *= (item.letterTiles.length - i);
+    }
+    return 1 / Math.max(2, arrangements);
+  }
   return item.choices?.length ? 1 / item.choices.length : 0.1;
 }
 
 export function optionSetSignature(item) {
+  // Tile-build items have no option SET — their single "choice" is the answer
+  // and the variance lives in the tile bank, so set-uniqueness does not apply.
+  if ((Array.isArray(item.soundTiles) && item.soundTiles.length) ||
+      (Array.isArray(item.letterTiles) && item.letterTiles.length)) return "";
   return (item.choices || []).map(c => norm(c.text ?? c)).sort().join("|");
 }
 export function promptAnswerSignature(item) {
@@ -72,7 +86,7 @@ export function promptAnswerSignature(item) {
   // deliberately generic (LISTEN_CHOOSE_VOWEL never prints the word): two
   // items with the same prompt and answer but different pictured targets are
   // different questions, not duplicates.
-  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}`;
+  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.sentence || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -137,6 +151,9 @@ export function expandItem(raw, blueprint, imageResolver) {
     retentionOnly: Boolean(raw.retention),
     scannerExpected: Boolean(raw.scannerExpected),
     soundTiles: raw.soundTiles,
+    letterTiles: raw.letterTiles,
+    letterBank: raw.letterTiles,
+    sentenceText: raw.sentenceText || raw.sentence,
     targetWord,
     // Which media the AUTHOR declared. The runtime loader strips any
     // enrichment-added target media beyond this, so unapproved manifest paths
@@ -204,11 +221,24 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     const keyCount = item.choices.filter(c => norm(c) === norm(item.answer)).length;
     if (!item.answer) push("L-SCHEMA", item.id, "no key marked");
     if (item.choices.length && keyCount !== 1) push("L-SCHEMA", item.id, `answer appears ${keyCount}x in choices`);
-    if (item.choices.length && item.choices.length !== 4 && !["HFW_LETTER_BUILD", "PUT_SOUNDS_IN_ORDER"].includes(item.formatType)) {
+    if (item.choices.length && item.choices.length !== 4 && !["HFW_LETTER_BUILD", "PUT_SOUNDS_IN_ORDER", "HFW_SENTENCE_SPELL_CONTEXT"].includes(item.formatType)) {
       push("L-SCHEMA", item.id, `expected 4 choices, got ${item.choices.length}`);
     }
     if (item.formatType === "PUT_SOUNDS_IN_ORDER" && (!Array.isArray(item.soundTiles) || item.soundTiles.length < 2)) {
       push("L-SCHEMA", item.id, "tile format needs soundTiles (>=2)");
+    }
+    if (["HFW_LETTER_BUILD", "HFW_SENTENCE_SPELL_CONTEXT"].includes(item.formatType)) {
+      const word = norm(item.answer).replace(/ /g, "");
+      if (!Array.isArray(item.letterTiles) || item.letterTiles.length < word.length) {
+        push("L-SCHEMA", item.id, "letter-build needs a letterTiles bank covering the answer");
+      } else {
+        const bank = [...item.letterTiles.map(t => norm(t))];
+        for (const letter of word) {
+          const idx = bank.indexOf(letter);
+          if (idx === -1) { push("L-SCHEMA", item.id, `letter bank missing "${letter}"`); break; }
+          bank.splice(idx, 1);
+        }
+      }
     }
     const allUnits = new Set([
       ...(blueprint.unitsByLevel?.[1] || []),
@@ -420,9 +450,10 @@ export async function simulate(bank, blueprint, { policy, answerFn, maxSittings 
 export function scannerAnswer(item) {
   const choices = item.choices || [];
   if (!choices.length) return null;
-  // Tile-arrange items display the answer's own phonemes scrambled — there is
-  // no printed option set to surface-match, so the oracle has nothing to scan.
+  // Tile-arrange items display the answer's own phonemes/letters scrambled —
+  // there is no printed option set to surface-match, so nothing to scan.
   if (Array.isArray(item.soundTiles) && item.soundTiles.length) return null;
+  if (Array.isArray(item.letterTiles) && item.letterTiles.length) return null;
 
   if (item.passage) {
     // Verbatim-dominance test: fires when one option clearly out-quotes the

@@ -1,4 +1,4 @@
-# Assessment rebuild gate — 2026-07-30T00:29:36.625Z @ 06531805
+# Assessment rebuild gate — 2026-07-30T01:37:26.671Z @ 06531805
 
 | Skill | Ready | G1 | G2 | G3 | G4 | G5 | Items | Sittings to Secure |
 |---|---|---|---|---|---|---|---|---|
@@ -8,6 +8,8 @@
 | cvc_short_vowels | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 70 | 4 |
 | digraphs | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 60 | 5 |
 | final_sounds | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 82 | 8 |
+| hfw_1_25 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 135 | 7 |
+| hfw_26_50 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 135 | 7 |
 | inference | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 64 | 4 |
 | initial_sounds | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 160 | 7 |
 | key_details | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 71 | 4 |
