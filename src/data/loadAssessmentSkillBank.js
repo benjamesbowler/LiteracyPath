@@ -637,7 +637,12 @@ export async function loadAssessmentSkillBank(skillId) {
             // audio, but a target image the author never declared is stripped
             // so unapproved manifest paths cannot attach themselves.
             if (question.v3AuthoredMedia && !question.v3AuthoredMedia.target) {
-              const { imagePath, imageUrl, targetImage, targetImagePath, image, ...rest } = question;
+              const rest = { ...question };
+              delete rest.imagePath;
+              delete rest.imageUrl;
+              delete rest.targetImage;
+              delete rest.targetImagePath;
+              delete rest.image;
               return rest;
             }
             return question;

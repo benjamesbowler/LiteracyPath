@@ -232,7 +232,7 @@ function levelSummary(attempts, level, blueprint, unitStates) {
   };
 }
 
-function retentionSummary(attempts, blueprint) {
+function retentionSummary(attempts) {
   const retention = attempts.filter(a => a.mode === "retention");
   if (!retention.length) {
     return { attempted: false, passed: false, blockers: ["Retention check not taken yet (unlocks 3 days after Level 2 passes)."] };
