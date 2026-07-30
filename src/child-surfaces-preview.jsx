@@ -16,6 +16,7 @@ import "./styles/sage-form.css";
 import "./styles/kids-glass.css";
 import "./styles/kids-home.css";
 import "./styles/kids-trail.css";
+import "./styles/ui-quality-pass.css";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { HollowPage } from "./components/HollowPage.jsx";

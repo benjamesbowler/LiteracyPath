@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 import "./App.css";
+import "./styles/ui-quality-pass.css";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { readTeacherFunnelParams } from "./appState/appViewHelpers.js";
 import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";

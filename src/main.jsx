@@ -35,6 +35,9 @@ import './styles/kids-home.css'
 // the same idea twice — a path of stops over an illustration — and the marker
 // machinery is shared rather than written out once per screen.
 import './styles/kids-trail.css'
+// Cross-surface quality pass. This file is intentionally last: it contains
+// responsive and overflow corrections that must win over each feature layer.
+import './styles/ui-quality-pass.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
