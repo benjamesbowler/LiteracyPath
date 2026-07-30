@@ -420,5 +420,47 @@ export const assessmentRebuildStatusBySkillId = {
   },
   "generatedAt": "2026-07-30T01:37:26.669Z",
   "commit": "06531805"
+ },
+ "hfw_51_75": {
+  "skillId": "hfw_51_75",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 135,
+   "level1": 75,
+   "level2": 50,
+   "retention": 10
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T02:11:05.339Z",
+  "commit": "06531805"
+ },
+ "hfw_76_100": {
+  "skillId": "hfw_76_100",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 135,
+   "level1": 75,
+   "level2": 50,
+   "retention": 10
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G7_human_signoff": "pending-ben"
+  },
+  "generatedAt": "2026-07-30T02:12:19.613Z",
+  "commit": "06531805"
  }
 };

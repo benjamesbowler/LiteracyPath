@@ -1,0 +1,258 @@
+// HFW Band 3 (words 51–75) — v3 authored bank (wave W8, paired with hfw_76_100).
+// Same architecture as bands 1–2 (see hfw_1_25.mjs header). Band-3 particulars:
+//   - would/write carry silent letters — both get double retention coverage
+//     (the doc's known-fragile rule) and their letter banks include the
+//     tempting phonetic builds (wud's u alone, rite's missing w).
+//   - two/to homophone pair spans bands — D-HOMOPHONE live on two.
+//   - then/them/these are mutual visual neighbours.
+// Spec: docs/skills-assessment-rebuild/BLUEPRINTS_HFW.md.
+
+const K = t => ({ t, r: "KEY", k: true });
+const P = (t, r) => ({ t, r });
+
+const cz = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
+  u, lvl, ph, v, fmt: "HFW_SENTENCE_CLOZE",
+  prompt: sentence,
+  spoken: `Which word finishes the sentence? ${sentence.replace("___", "hmm")}`,
+  sentence,
+  choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
+  media: "text",
+  target: u,
+  note
+});
+
+const rf = (u, lvl, ph, v, words, rationales, note = "", frame = "find") => ({
+  u, lvl, ph, v, fmt: "HFW_READ_FIND_WORD",
+  prompt: frame === "point" ? `Point to the word: ${u}` : `Find the word: ${u}`,
+  spoken: `${u}. Find the word ${u}.`,
+  choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
+  media: "text",
+  target: u,
+  scannerExpected: true,
+  note: note || "print recognition IS the construct — surface match is the task"
+});
+
+const sp = (u, lvl, ph, v, sentence, tiles, note = "") => ({
+  u, lvl, ph, v, fmt: "HFW_SENTENCE_SPELL_CONTEXT",
+  prompt: `Build the missing word: ${sentence}`,
+  spoken: `Build the missing word. ${sentence.replace("___", "hmm")}`,
+  sentence,
+  sentenceText: sentence.replace("___", u),
+  choices: [K(u)],
+  letterTiles: tiles,
+  media: "text",
+  target: u,
+  note
+});
+
+const lb = (u, lvl, ph, v, sentence, tiles, note = "") => ({
+  u, lvl, ph, v, fmt: "HFW_LETTER_BUILD",
+  prompt: `Build the missing word: ${sentence}`,
+  spoken: `Build the missing word. ${sentence.replace("___", "hmm")}`,
+  sentence,
+  sentenceText: sentence.replace("___", u),
+  choices: [K(u)],
+  letterTiles: tiles,
+  media: "text",
+  target: u,
+  note
+});
+
+const FS = "D-FUNCTION-SWAP";
+const VN = "D-VISUAL-NEIGHBOR";
+const DV = "D-DEVELOPMENTAL";
+const HM = "D-HOMOPHONE";
+
+export default {
+  skillId: "hfw_51_75",
+  skillName: "High-Frequency Words 51–75",
+  items: [
+    // ===== L1 phase 1: about go has her him into like look make many more other out =====
+    cz("about", 1, 1, 1, "This book is ___ ants.", ["about", "with", "for", "from"], [FS, FS, FS]),
+    cz("about", 1, 1, 2, "Tell me ___ the trip!", ["about", "of", "for", "from"], [DV, FS, FS],
+      "the trip, not your trip — your contains ou and would gift the key a chunk"),
+    rf("about", 1, 1, 3, ["about", "above", "out", "shout"], [VN, VN, VN]),
+    cz("go", 1, 1, 1, "May we ___ to the fair?", ["go", "get", "look", "come"], [FS, FS, FS]),
+    cz("go", 1, 1, 2, "The vans ___ up the hill.", ["go", "get", "see", "look"], [FS, FS, FS]),
+    rf("go", 1, 1, 3, ["go", "got", "do", "gone"], [VN, VN, VN]),
+    cz("has", 1, 1, 1, "My bike ___ a bell.", ["has", "have", "had", "is"], [DV, FS, DV],
+      "my bike have — the agreement slip"),
+    cz("has", 1, 1, 2, "Ren ___ two pet mice.", ["has", "have", "is", "was"], [DV, DV, DV]),
+    rf("has", 1, 1, 3, ["has", "had", "his", "hats"], [VN, VN, VN]),
+    cz("her", 1, 1, 1, "Meg lost ___ mitten.", ["her", "his", "here", "the"], [FS, VN, FS],
+      "Meg pins her; here is the her/here slip"),
+    cz("her", 1, 1, 2, "Gran naps in ___ chair.", ["her", "his", "here", "a"], [FS, VN, FS]),
+    rf("her", 1, 1, 3, ["her", "here", "he", "hers"], [VN, VN, VN]),
+    cz("him", 1, 1, 1, "Dad waved, so I waved at ___.", ["him", "her", "he", "them"], [FS, DV, FS],
+      "waved at he — the case slip"),
+    cz("him", 1, 1, 2, "Tom fell — help ___ up!", ["him", "her", "he", "it"], [FS, DV, FS]),
+    rf("him", 1, 1, 3, ["him", "his", "hum", "hit"], [VN, VN, VN]),
+    cz("into", 1, 1, 1, "The frog hopped ___ the pond.", ["into", "onto", "out", "up"], [VN, FS, FS]),
+    cz("into", 1, 1, 2, "Pour the milk ___ the jug.", ["into", "onto", "up", "in"], [VN, DV, DV]),
+    rf("into", 1, 1, 3, ["into", "onto", "in", "it"], [VN, VN, VN]),
+    cz("like", 1, 1, 1, "I ___ plums best of all.", ["like", "look", "make", "see"], [VN, FS, FS]),
+    cz("like", 1, 1, 2, "Clouds can look ___ sheep.", ["like", "as", "so", "into"], [DV, DV, FS]),
+    rf("like", 1, 1, 3, ["like", "look", "lake", "bike"], [VN, VN, VN]),
+    cz("look", 1, 1, 1, "___ at the double rainbow!", ["look", "like", "see", "go"], [VN, DV, FS],
+      "see at — the swap children make"),
+    cz("look", 1, 1, 2, "We ___ for shells at the beach.", ["look", "like", "make", "go"], [VN, FS, DV],
+      "the beach, not low tide — low contains lo and would gift the key a chunk"),
+    rf("look", 1, 1, 3, ["look", "like", "book", "took"], [VN, VN, VN]),
+    cz("make", 1, 1, 1, "Let's ___ a mud pie!", ["make", "made", "do", "have"], [DV, FS, FS],
+      "let's made — the tense slip"),
+    cz("make", 1, 1, 2, "Bees ___ wax and honey.", ["make", "made", "get", "do"], [DV, FS, FS]),
+    rf("make", 1, 1, 3, ["make", "made", "cake", "mane"], [VN, VN, VN]),
+    cz("many", 1, 1, 1, "___ hands make light work.", ["many", "much", "more", "some"], [DV, FS, FS],
+      "much hands — the count/mass slip"),
+    cz("many", 1, 1, 2, "How ___ eggs are left?", ["many", "much", "more", "lots"], [DV, FS, DV]),
+    rf("many", 1, 1, 3, ["many", "any", "more", "mane"], [VN, VN, VN]),
+    cz("more", 1, 1, 1, "May I have ___ peas, please?", ["more", "many", "much", "most"], [FS, FS, FS]),
+    cz("more", 1, 1, 2, "This box holds ___ than that one.", ["more", "most", "much", "some"], [FS, DV, FS]),
+    rf("more", 1, 1, 3, ["more", "most", "make", "core"], [VN, VN, VN]),
+    cz("other", 1, 1, 1, "One mitten is dry. My ___ mitten is lost.", ["other", "second", "spare", "more"], [FS, FS, DV],
+      "no the in the frame — other contains the whole word the and would out-chunk everything; second ties via one"),
+    cz("other", 1, 1, 2, "Try your ___ hand.", ["other", "more", "some", "own"], [FS, FS, FS]),
+    rf("other", 1, 1, 3, ["other", "over", "otter", "order"], [VN, VN, VN]),
+    cz("out", 1, 1, 1, "The cat ran ___ of the shed.", ["out", "up", "off", "into"], [FS, FS, FS]),
+    cz("out", 1, 1, 2, "Turn the lamp ___ at nine.", ["out", "off", "up", "on"], [DV, FS, FS],
+      "off parses and nearly fits — out is the idiom"),
+    rf("out", 1, 1, 3, ["out", "our", "cut", "shout"], [VN, VN, VN]),
+
+    // ===== L1 phase 2: see so some them then these time two up will would write =====
+    cz("see", 1, 2, 1, "Owls can ___ well at night.", ["see", "look", "sea", "so"], [DV, HM, VN],
+      "look for see is the swap; sea is the homophone"),
+    cz("see", 1, 2, 2, "Come and ___ my fort!", ["see", "sea", "look", "saw"], [HM, DV, DV]),
+    rf("see", 1, 2, 3, ["see", "sea", "she", "seed"], [HM, VN, VN]),
+    cz("so", 1, 2, 1, "The tea was hot, ___ I let it cool.", ["so", "but", "and", "or"], [FS, FS, FS],
+      "tea, not soup — soup contains so and would gift the key its own letters"),
+    cz("so", 1, 2, 2, "That joke is ___ funny!", ["so", "as", "too", "very"], [DV, FS, FS]),
+    rf("so", 1, 2, 3, ["so", "no", "son", "saw"], [VN, VN, VN]),
+    cz("some", 1, 2, 1, "Save ___ cake for Gran.", ["some", "any", "many", "more"], [DV, DV, FS],
+      "any in a plain statement — the polarity slip"),
+    cz("some", 1, 2, 2, "___ birds sing at dawn.", ["some", "any", "much", "more"], [DV, DV, FS]),
+    rf("some", 1, 2, 3, ["some", "come", "same", "sum"], [VN, VN, HM]),
+    cz("them", 1, 2, 1, "The cups? I washed ___ all.", ["them", "they", "then", "these"], [DV, VN, FS],
+      "washed they — the case slip; then is the them/then neighbour"),
+    cz("them", 1, 2, 2, "Find the twins and tell ___ to come.", ["them", "they", "him", "then"], [DV, FS, VN]),
+    rf("them", 1, 2, 3, ["them", "then", "they", "the"], [VN, VN, VN]),
+    cz("then", 1, 2, 1, "We swam, ___ we had lunch.", ["then", "them", "when", "than"], [VN, FS, VN],
+      "than is the then/than slip"),
+    cz("then", 1, 2, 2, "First mix, ___ bake.", ["then", "than", "them", "so"], [VN, VN, FS]),
+    rf("then", 1, 2, 3, ["then", "than", "them", "hen"], [VN, VN, VN]),
+    cz("these", 1, 2, 1, "___ boots here are muddy.", ["these", "those", "this", "them"], [FS, DV, DV],
+      "here pins these; this misses the plural"),
+    cz("these", 1, 2, 2, "Are ___ your keys right here?", ["these", "those", "this", "they"], [FS, DV, DV]),
+    rf("these", 1, 2, 3, ["these", "those", "them", "cheese"], [VN, VN, VN]),
+    cz("time", 1, 2, 1, "What ___ does the pool open?", ["time", "day", "way", "team"], [FS, FS, VN]),
+    cz("time", 1, 2, 2, "It is ___ for bed, sleepyhead.", ["time", "day", "late", "team"], [FS, DV, VN]),
+    rf("time", 1, 2, 3, ["time", "tame", "team", "lime"], [VN, VN, VN]),
+    cz("two", 1, 2, 1, "I have ___ thumbs and eight fingers.", ["two", "to", "too", "ten"], [HM, HM, FS],
+      "the to/too/two triple — meaning alone decides"),
+    cz("two", 1, 2, 2, "The recipe needs ___ eggs.", ["two", "too", "to", "one"], [HM, HM, FS]),
+    rf("two", 1, 2, 3, ["two", "to", "too", "tow"], [HM, HM, VN]),
+    cz("up", 1, 2, 1, "The kite went ___ and away.", ["up", "out", "off", "in"], [FS, FS, FS]),
+    cz("up", 1, 2, 2, "Roll ___ your sleeping bag.", ["up", "out", "on", "in"], [FS, FS, DV]),
+    rf("up", 1, 2, 3, ["up", "us", "cup", "pup"], [VN, VN, VN]),
+    cz("will", 1, 2, 1, "It ___ rain later, I think.", ["will", "would", "was", "is"], [FS, DV, DV]),
+    cz("will", 1, 2, 2, "___ you hold my kite a bit?", ["will", "would", "was", "do"], [FS, DV, FS]),
+    rf("will", 1, 2, 3, ["will", "well", "wall", "with"], [VN, VN, VN]),
+    cz("would", 1, 2, 1, "___ you like a hot roll?", ["would", "will", "can", "do"], [FS, FS, FS]),
+    cz("would", 1, 2, 2, "He said he ___ help us pack.", ["would", "will", "was", "can"], [DV, DV, DV],
+      "said pins the reported would; will misses the shift"),
+    rf("would", 1, 2, 3, ["would", "could", "wood", "world"], [VN, HM, VN]),
+    cz("write", 1, 2, 1, "Please ___ your name at the top.", ["write", "right", "wrote", "read"], [HM, DV, FS],
+      "right is the homophone; wrote is the tense slip"),
+    cz("write", 1, 2, 2, "I ___ to my pen pal weekly.", ["write", "wrote", "right", "spell"], [DV, HM, FS]),
+    rf("write", 1, 2, 3, ["write", "right", "white", "wrote"], [HM, VN, VN]),
+
+    // ===== L2 phase 1 (spell): about … out =====
+    sp("about", 2, 1, 1, "This song is ___ the sea.", ["a", "b", "o", "u", "t", "w"],
+      "abowt — the w is present and tempting"),
+    lb("about", 2, 1, 2, "Ask me ___ my hobby.", ["a", "b", "o", "u", "t", "w"]),
+    sp("go", 2, 1, 1, "Time to ___ home now.", ["g", "o", "w", "e"],
+      "gow — the w is present and tempting"),
+    lb("go", 2, 1, 2, "Ready, steady, ___!", ["g", "o", "e", "w"]),
+    sp("has", 2, 1, 1, "The hive ___ ten bees.", ["h", "a", "s", "z", "e"]),
+    lb("has", 2, 1, 2, "Who ___ my pencil?", ["h", "a", "s", "e", "z"]),
+    sp("her", 2, 1, 1, "Val fed ___ rabbit.", ["h", "e", "r", "u", "i"],
+      "hur and hir — the sibling spellings are present"),
+    lb("her", 2, 1, 2, "Is this ___ scarf or yours?", ["h", "e", "r", "i", "u"]),
+    sp("him", 2, 1, 1, "Pass the map to ___.", ["h", "i", "m", "e", "y"]),
+    lb("him", 2, 1, 2, "We picked ___ for our team.", ["h", "i", "m", "y", "e"]),
+    sp("into", 2, 1, 1, "Hop ___ the boat, quick!", ["i", "n", "t", "o", "u"]),
+    lb("into", 2, 1, 2, "The seeds went ___ the soil.", ["i", "n", "t", "o", "u"]),
+    sp("like", 2, 1, 1, "Ducks ___ wet weather.", ["l", "i", "k", "e", "c"],
+      "lick's c is present; the silent e is the work"),
+    lb("like", 2, 1, 2, "I ___ my toast crunchy.", ["l", "i", "k", "e", "c"]),
+    sp("look", 2, 1, 1, "___ both ways first.", ["l", "o", "o", "k", "u"],
+      "luk — the double o is the work"),
+    lb("look", 2, 1, 2, "Come ___ at the tadpoles!", ["l", "o", "o", "k", "u"]),
+    sp("make", 2, 1, 1, "Let's ___ lemonade.", ["m", "a", "k", "e", "c"],
+      "mak without the silent e is the tempting build"),
+    lb("make", 2, 1, 2, "Spiders ___ silk webs.", ["m", "a", "k", "e", "c"]),
+    sp("many", 2, 1, 1, "___ moths came to the lamp.", ["m", "a", "n", "y", "e"],
+      "meny — the e is present and tempting"),
+    lb("many", 2, 1, 2, "How ___ steps to the top?", ["m", "a", "n", "y", "e"]),
+    sp("more", 2, 1, 1, "One ___ lap, then rest.", ["m", "o", "r", "e", "a"],
+      "mor without the e is the tempting build"),
+    lb("more", 2, 1, 2, "The plant needs ___ sun.", ["m", "o", "r", "e", "a"]),
+    sp("other", 2, 1, 1, "Hold it with your ___ hand.", ["o", "t", "h", "e", "r", "u"],
+      "uther — the u is present and tempting"),
+    lb("other", 2, 1, 2, "The ___ team wore red.", ["o", "t", "h", "e", "r", "u"]),
+    sp("out", 2, 1, 1, "School lets ___ at three.", ["o", "u", "t", "w"],
+      "owt — the w is present and tempting"),
+    lb("out", 2, 1, 2, "The tide went ___ fast.", ["o", "u", "t", "w"]),
+
+    // ===== L2 phase 2 (spell): see … write =====
+    sp("see", 2, 2, 1, "Can you ___ the lighthouse?", ["s", "e", "e", "a", "c"],
+      "sea's a and c are present — the double e is the work"),
+    lb("see", 2, 2, 2, "I ___ three sails!", ["s", "e", "e", "c", "a"]),
+    sp("so", 2, 2, 1, "The bag was ___ heavy!", ["s", "o", "w", "e"],
+      "sow — the w is present and tempting"),
+    lb("so", 2, 2, 2, "I trained hard, ___ I won.", ["s", "o", "e", "w"]),
+    sp("some", 2, 2, 1, "Take ___ grapes for the trip.", ["s", "o", "m", "e", "u"],
+      "sum — the u is present; the silent e is the work"),
+    lb("some", 2, 2, 2, "___ crabs hide under rocks.", ["s", "o", "m", "e", "u"]),
+    sp("them", 2, 2, 1, "The chicks? Feed ___ at five.", ["t", "h", "e", "m", "n"],
+      "then's n is present — the final m is the work"),
+    lb("them", 2, 2, 2, "Stack the chairs and count ___.", ["t", "h", "e", "m", "n"]),
+    sp("then", 2, 2, 1, "Wash up, ___ dry your hands.", ["t", "h", "e", "n", "m"],
+      "them's m is present — the final n is the work"),
+    lb("then", 2, 2, 2, "First stretch, ___ sprint.", ["t", "h", "e", "n", "m"]),
+    sp("these", 2, 2, 1, "___ shells here are tiny.", ["t", "h", "e", "s", "e", "z"],
+      "theez — the z is present and tempting"),
+    lb("these", 2, 2, 2, "Are ___ seats taken?", ["t", "h", "e", "s", "e", "z"]),
+    sp("time", 2, 2, 1, "It is snack ___!", ["t", "i", "m", "e", "y"],
+      "tym — the y is present; the silent e is the work"),
+    lb("time", 2, 2, 2, "What ___ is kickoff?", ["t", "i", "m", "e", "y"]),
+    sp("two", 2, 2, 1, "A bike has ___ wheels.", ["t", "w", "o", "u", "e"],
+      "the silent w is the work — tu and too tempt"),
+    lb("two", 2, 2, 2, "___ crows sat on the fence.", ["t", "w", "o", "e", "u"]),
+    sp("up", 2, 2, 1, "The balloon drifted ___.", ["u", "p", "o", "b"]),
+    lb("up", 2, 2, 2, "Climb ___ the ladder slowly.", ["u", "p", "b", "o"]),
+    sp("will", 2, 2, 1, "Gran ___ knit you a hat.", ["w", "i", "l", "l", "e"],
+      "wil — the double l is the work"),
+    lb("will", 2, 2, 2, "The bread ___ rise by noon.", ["w", "i", "l", "l", "e"]),
+    sp("would", 2, 2, 1, "___ you feed my fish?", ["w", "o", "u", "l", "d", "e"],
+      "wud — the silent oul cluster is the work"),
+    lb("would", 2, 2, 2, "She said she ___ come.", ["w", "o", "u", "l", "d", "e"]),
+    sp("write", 2, 2, 1, "___ a list before we shop.", ["w", "r", "i", "t", "e", "y"],
+      "rite — building without the silent w is the tempting path"),
+    lb("write", 2, 2, 2, "I ___ with my left hand.", ["w", "r", "i", "t", "e", "y"]),
+
+    // ===== Retention reserve (form R) — would/write get the double coverage =====
+    cz("would", 1, 2, 7, "___ it be OK to sit here?", ["would", "will", "was", "had"], [FS, DV, DV]),
+    cz("write", 1, 2, 7, "Scribes ___ all day long.", ["write", "right", "wrote", "make"], [HM, DV, FS]),
+    sp("would", 2, 2, 7, "Ben ___ trade his apple.", ["w", "o", "u", "l", "d", "e"]),
+    lb("write", 2, 2, 7, "___ neatly on the line.", ["w", "r", "i", "t", "e", "y"]),
+    cz("two", 1, 2, 8, "Socks come in sets of ___.", ["two", "too", "ten", "one"], [HM, FS, FS]),
+    cz("many", 1, 1, 7, "So ___ stars are out tonight!", ["many", "much", "more", "any"], [DV, FS, DV]),
+    rf("these", 1, 2, 7, ["these", "those", "then", "them"], [VN, VN, VN], "", "point"),
+    rf("about", 1, 1, 7, ["about", "out", "above", "boat"], [VN, VN, VN], "", "point"),
+    sp("look", 2, 1, 7, "___ before you leap!", ["l", "o", "o", "k", "u"]),
+    lb("time", 2, 2, 7, "Bath ___ for the pup!", ["t", "i", "m", "e", "y"])
+  ].map(item => {
+    if (item.v >= 7) item.retention = true;
+    return item;
+  })
+};
