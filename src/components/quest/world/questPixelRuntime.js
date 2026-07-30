@@ -60,6 +60,11 @@ export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 })
 
 const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
+const BOOK_WORLD_BACKGROUNDS = Object.freeze({
+  meadow: "/game-assets/sound-seekers/worlds/meadow-pals-trail-v2.webp",
+  dino: "/game-assets/sound-seekers/worlds/dino-pals-trail-v2.webp",
+  moonwood: "/game-assets/sound-seekers/worlds/moonwood-trail-v2.webp"
+});
 const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
   Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])
 ));
@@ -1147,6 +1152,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.carriedObject = null;
     this.carriedObjectMode = null;
     this.pointerTarget = null;
+    this.directionInput = { left: false, right: false, up: false, down: false };
     this.pointerMarker = null;
     this.routeLaneIndex = null;
     this.optionalRouteActive = false;
@@ -1178,6 +1184,10 @@ class QuestPixelScene extends Phaser.Scene {
       });
     });
     const world = this.model.section.world;
+    const bookWorldBackground = BOOK_WORLD_BACKGROUNDS[world];
+    if (bookWorldBackground) {
+      this.load.image("book-world-background", bookWorldBackground);
+    }
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
     const activeProfile = chapterPixelProfile(this.model.section);
@@ -1431,14 +1441,16 @@ class QuestPixelScene extends Phaser.Scene {
       this.createPlayerTexture();
       this.createAnimations();
       this.createGround();
-      this.createWaterGarden();
-      this.createScenery();
-      this.createReactiveFoliage();
-      this.createStopMapComposition();
-      this.createEncounterEdgeDetails();
-      this.createChapterSetPieces();
-      this.createRestoredMoments();
-      this.createRelicEffects();
+      if (!this.textures.exists("book-world-background")) {
+        this.createWaterGarden();
+        this.createScenery();
+        this.createReactiveFoliage();
+        this.createStopMapComposition();
+        this.createEncounterEdgeDetails();
+        this.createChapterSetPieces();
+        this.createRestoredMoments();
+        this.createRelicEffects();
+      }
       this.createGate();
       this.createResidents();
       this.createDrops();
@@ -1595,6 +1607,13 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   createGround() {
+    if (this.textures.exists("book-world-background")) {
+      this.add.image(0, 0, "book-world-background")
+        .setOrigin(0)
+        .setDisplaySize(PIXEL_WORLD.width, PIXEL_WORLD.height)
+        .setDepth(-1000);
+      return;
+    }
     const canvas = createGroundCanvas(this, this.model.section);
     this.textures.addCanvas("seedwake-ground", canvas);
     this.add.image(0, 0, "seedwake-ground").setOrigin(0).setDepth(-1000);
@@ -4220,6 +4239,14 @@ class QuestPixelScene extends Phaser.Scene {
 
   setPointerTarget(x, y, showMarker = false) {
     const targetY = Math.max(Number(y) || 0, this.forwardMovementLimit());
+    if (this.textures.exists("book-world-background")) {
+      this.pointerTarget = {
+        x: Phaser.Math.Clamp(Number(x) || 0, 24, PIXEL_WORLD.width - 24),
+        y: Phaser.Math.Clamp(targetY, 24, PIXEL_WORLD.height - 24)
+      };
+      if (showMarker) this.showPointerMarker(this.pointerTarget);
+      return;
+    }
     const gateApproach = this.model.phase === "gate" && targetY <= this.gatePoint.y + 96;
     const routeCenters = gateApproach
       ? [this.gatePoint.x]
@@ -4235,6 +4262,10 @@ class QuestPixelScene extends Phaser.Scene {
     });
     this.pointerTarget = target;
     if (!showMarker) return;
+    this.showPointerMarker(target);
+  }
+
+  showPointerMarker(target) {
     this.pointerMarker?.destroy();
     const marker = this.add.circle(target.x, target.y, 5, 0xf5d76f, 0.2)
       .setStrokeStyle(2, 0xfff0a2, 0.9)
@@ -4995,6 +5026,10 @@ class QuestPixelScene extends Phaser.Scene {
     }
     let x = 0;
     let y = 0;
+    if (this.directionInput.left) x -= 1;
+    if (this.directionInput.right) x += 1;
+    if (this.directionInput.up) y -= 1;
+    if (this.directionInput.down) y += 1;
     if (this.cursors.left.isDown || this.wasd.A.isDown) x -= 1;
     if (this.cursors.right.isDown || this.wasd.D.isDown) x += 1;
     if (this.cursors.up.isDown || this.wasd.W.isDown) y -= 1;
@@ -5041,6 +5076,7 @@ class QuestPixelScene extends Phaser.Scene {
     const velocityY = Phaser.Math.Linear(body.velocity.y, targetVelocityY, response);
     body.setVelocity(Math.abs(velocityX) < 0.35 ? 0 : velocityX, Math.abs(velocityY) < 0.35 ? 0 : velocityY);
 
+    const freeBookWorld = this.textures.exists("book-world-background");
     const gateApproach = this.model.phase === "gate" && this.player.y <= this.gatePoint.y + 128;
     const routeCenters = gateApproach
       ? [this.gatePoint.x]
@@ -5075,8 +5111,10 @@ class QuestPixelScene extends Phaser.Scene {
       dt: delta / 1000,
       ...branchBoundary
     });
-    this.player.x = routeBoundary.x;
-    body.setVelocityX(routeBoundary.velocityX);
+    if (!freeBookWorld) {
+      this.player.x = routeBoundary.x;
+      body.setVelocityX(routeBoundary.velocityX);
+    }
     const forwardLimit = this.forwardMovementLimit();
     const forwardBoundary = stepQuestForwardBoundary({
       y: this.player.y,
@@ -5106,8 +5144,8 @@ class QuestPixelScene extends Phaser.Scene {
       velocityY: body.velocity.y,
       limit: forwardLimit
     });
-    this.player.setPosition(reconciledRoute.x, reconciledForward.y);
-    body.setVelocity(reconciledRoute.velocityX, reconciledForward.velocityY);
+    this.player.setPosition(freeBookWorld ? this.player.x : reconciledRoute.x, reconciledForward.y);
+    body.setVelocity(freeBookWorld ? body.velocity.x : reconciledRoute.velocityX, reconciledForward.velocityY);
     if (!x && !y && Math.hypot(body.velocity.x, body.velocity.y) < 5) {
       this.player.stop();
       this.player.setFrame((PIXEL_BEASTIE_DIRECTIONS.indexOf(this.lastFacing) * PIXEL_BEASTIE_FRAMES_PER_DIRECTION));
@@ -5790,6 +5828,15 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
       };
       const [x, y] = vectors[direction] || [0, 0];
       scene.setPointerTarget(scene.player.x + x, scene.player.y + y);
+    },
+    startMove(direction) {
+      if (!Object.hasOwn(scene.directionInput, direction)) return;
+      scene.pointerTarget = null;
+      scene.directionInput[direction] = true;
+    },
+    stopMove(direction) {
+      if (!Object.hasOwn(scene.directionInput, direction)) return;
+      scene.directionInput[direction] = false;
     },
     playFeedback(kind, choiceId) {
       scene.playFeedback(kind, choiceId);

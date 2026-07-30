@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 // Skills-assessment CRITIC preview harness.
 //
 // Mounts the REAL AssessmentPage driven by the REAL round controller
@@ -41,7 +42,7 @@ const stage = skillTree[stageIndex];
 
 const spokenLog = [];
 
-function CriticHarness() {
+export function CriticHarness() {
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);

@@ -92,7 +92,7 @@ export const CREATURE_DYES = [
 // Each body carries its OWN anchor table. Everything else hangs off these.
 export const CREATURE_BODIES = [
   {
-    id: "tuft", label: "Tuft", cost: 0,
+    id: "tuft", label: "Muddy", series: "Meadow Pals", cost: 0, portrait: "/images/companions/muddy.webp",
     anchors: {
       headTop: [100, 32], eyeL: [80, 90], eyeR: [120, 90], eyeC: [100, 90],
       mouthMid: [100, 126], neck: [100, 66], backMid: [100, 108],
@@ -100,7 +100,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "spike", label: "Spike", cost: 0,
+    id: "spike", label: "Bouncy", series: "Meadow Pals", cost: 0,
     anchors: {
       headTop: [100, 24], eyeL: [80, 94], eyeR: [120, 94], eyeC: [100, 94],
       mouthMid: [100, 130], neck: [100, 70], backMid: [100, 114],
@@ -108,7 +108,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "pebble", label: "Pebble", cost: 20,
+    id: "pebble", label: "Chompy", series: "Dino Pals", cost: 20, portrait: "/images/companions/chompy.webp",
     anchors: {
       headTop: [100, 56], eyeL: [80, 104], eyeR: [120, 104], eyeC: [100, 104],
       mouthMid: [100, 138], neck: [100, 84], backMid: [100, 120],
@@ -116,7 +116,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "stalk", label: "Stalk", cost: 60,
+    id: "stalk", label: "Sunny", series: "Dino Pals", cost: 60,
     anchors: {
       headTop: [100, 26], eyeL: [84, 76], eyeR: [116, 76], eyeC: [100, 76],
       mouthMid: [100, 106], neck: [100, 60], backMid: [100, 112],
@@ -124,7 +124,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "moth", label: "Moth", cost: 90,
+    id: "moth", label: "Pip", series: "Moonwood Tales", cost: 90, portrait: "/images/companions/pip.webp",
     anchors: {
       headTop: [100, 34], eyeL: [80, 92], eyeR: [120, 92], eyeC: [100, 92],
       mouthMid: [100, 128], neck: [100, 68], backMid: [100, 110],
@@ -132,7 +132,7 @@ export const CREATURE_BODIES = [
     }
   },
   {
-    id: "boulder", label: "Boulder", cost: 140,
+    id: "boulder", label: "Luna", series: "Moonwood Tales", cost: 140,
     anchors: {
       headTop: [100, 42], eyeL: [78, 96], eyeR: [122, 96], eyeC: [100, 96],
       mouthMid: [100, 134], neck: [100, 76], backMid: [100, 118],
@@ -246,16 +246,28 @@ export function startingPieces() {
 export function defaultCreature() {
   return {
     body: "tuft",
-    dye: "moss",
-    pattern: "pattern-none",
-    eyes: "eyes-round",
-    mouth: "mouth-smile",
-    crest: "crest-horns",
+    dye: "coral",
+    pattern: "pattern-spots",
+    eyes: "eyes-big",
+    mouth: "mouth-snout",
+    crest: "crest-ears",
     tail: "tail-curl",
-    feet: "feet-paws",
-    equipped: { head: null, back: null, neck: null, held: null }
+    feet: "feet-hoofs",
+    equipped: { head: null, back: null, neck: null, held: null },
+    pose: "idle"
   };
 }
+
+// Stable body ids preserve every existing save while the visible choices are
+// now the children from the three guided-reading worlds.
+export const BOOK_CHARACTER_PRESETS = Object.freeze({
+  tuft: Object.freeze({ body: "tuft", dye: "coral", eyes: "eyes-big", mouth: "mouth-snout", crest: "crest-ears", tail: "tail-curl", feet: "feet-hoofs", pattern: "pattern-spots" }),
+  spike: Object.freeze({ body: "spike", dye: "sand", eyes: "eyes-big", mouth: "mouth-smile", crest: "crest-ears", tail: "tail-tuft", feet: "feet-hoofs", pattern: "pattern-none" }),
+  pebble: Object.freeze({ body: "pebble", dye: "ember", eyes: "eyes-big", mouth: "mouth-grin", crest: "crest-spikes", tail: "tail-spike", feet: "feet-claws", pattern: "pattern-scales" }),
+  stalk: Object.freeze({ body: "stalk", dye: "teal", eyes: "eyes-round", mouth: "mouth-smile", crest: "crest-frond", tail: "tail-spike", feet: "feet-claws", pattern: "pattern-spots" }),
+  moth: Object.freeze({ body: "moth", dye: "fern", eyes: "eyes-wide", mouth: "mouth-smile", crest: "crest-ears", tail: "tail-none", feet: "feet-tall", pattern: "pattern-none" }),
+  boulder: Object.freeze({ body: "boulder", dye: "dusk", eyes: "eyes-big", mouth: "mouth-beak", crest: "crest-frond", tail: "tail-fan", feet: "feet-claws", pattern: "pattern-stars" })
+});
 
 // A creature is valid if every REQUIRED slot names a piece that exists in that
 // slot. Anything unknown falls back rather than crashing — a child must never
@@ -276,7 +288,7 @@ export function normalizeCreature(creature) {
   const base = defaultCreature();
   const next = { ...base, ...(creature && typeof creature === "object" ? creature : {}) };
   next.body = getBody(next.body).id;
-  next.dye = getDye(next.dye).id;
+  next.dye = CREATURE_DYES.find(dye => dye.id === next.dye)?.id || base.dye;
   for (const slot of CREATURE_SLOTS) {
     if (slot.kind !== "part" || slot.id === "body") continue;
     const piece = getPiece(next[slot.id]);

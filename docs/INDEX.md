@@ -86,7 +86,7 @@ file to overrule one.
 
 **The Sound Seekers game** — its own world, with its own bible
 
-- [SOUND_SEEKERS_RELEASE_BIBLE](SOUND_SEEKERS_RELEASE_BIBLE.md) — the standard
+- [SOUND_SEEKERS_RELEASE_BIBLE](SOUND_SEEKERS_RELEASE_BIBLE.md) — the active standard, including the 10/10/20 Meadow, Dino and Moonwood hub contract
 - [SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md) — which mechanic teaches which skill
 - [GAME_CURRICULUM_FRAMEWORK_2026-07-06](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md) — shared difficulty framework across all games
 - [SOUND_SEEKERS_WORLD_V2_BLUEPRINT](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md) · [3D_ASSET_LIBRARY](3D_ASSET_LIBRARY.md) · [SOUND_SEEKERS_3D_ASSET_NOTICES](SOUND_SEEKERS_3D_ASSET_NOTICES.md)

@@ -3,11 +3,11 @@
 **Status:** Active product and engineering ground truth  
 **Supersedes:** `docs/SOUND_SEEKERS_SLICE_LOOP.md` for all new Sound Seekers work  
 **Applies to:** The complete Sound Seekers experience, with Seedwake Meadow as the release-quality reference chapter
-**Last software audit:** 18 July 2026, Pass 100 full-world authorship and release-gate audit
+**Last software audit:** 30 July 2026, book-world hub, movement and replay contract audit
 
 **Certification status:** Software release candidate. The complete 40-stop journey passes the local software gates; premium production certification remains withheld until the physical-device, assistive-technology, child, teacher, classroom-audio, final-voice, and professional art/audio acceptance evidence exists.
 
-**Full-world status:** Eight chapter identities and a complete journey exist. All 40 stops now use explicit route-authored layouts with stop-specific navigation, task-safe staging, scenery, landmarks, terrain features, and optional exploration where appropriate. No stop is reported as generated.
+**Full-world status:** The complete 40-stop journey is now presented as three illustrated book-world hubs: Meadow Pals (10 playable junctions), Dino Land / Sunny Hollow (10), and Moonwood Tales (20). The eight five-stop chapters remain the pacing, reward and curriculum units inside those hubs. Each junction has a primary physical learning mechanic plus several replay mechanics; a map is never treated as one oversized level.
 **Latest critical audit:** `docs/SOUND_SEEKERS_10_OUT_OF_10_CRITIQUE_2026-07-17.md`  
 **Current premium-game score:** 7.6/10; 10/10 remains the release acceptance standard, not the claimed result
 
@@ -51,6 +51,24 @@ Pass 100 completes the software-authorship conversion for Fossil Canyon, Forge S
 The pass also adds tidal boardwalks and gale motion to Storm Coast, luminous roots and fluttering life to Lantern Forest, constellation rails and floating scenery to Star Reach, and a unique First Reading Star destination at s40. The compact immutable map representation keeps this authored data inside the established pixel-world bundle budget rather than weakening the performance gate.
 
 Local release evidence is clean: 565 unit tests, 40 browser journeys, production build, lint, 40-stop pacing, pixel asset/map audit, and the analysed pixel-world bundle gate all pass. The current lazy game chunk is 870.00 KB minified / 233.28 KB gzip across 1,023 modules, within the permanent 870 KB / 235 KB ceilings. This closes the generated-route blocker. It does not manufacture real child response, physical-device performance, assistive-technology use, final voice, or professional art/audio approval.
+
+## 30 July 2026 Book-World Hub Decision
+
+The child-facing journey uses three original illustrated worlds belonging to the guided-reading universe:
+
+- **Meadow Pals Farm:** stops 1-10, two five-stop chapters.
+- **Dino Land: Sunny Hollow:** stops 11-20, two five-stop chapters.
+- **Moonwood Tales:** stops 21-40, four five-stop chapters.
+
+The map art is a hub layout, not a background for a single question. Every named junction launches a complete playable phonics stop and autosaves when the junction resolves. Replay can route the same weak grapheme through a different available mechanic instead of replaying an identical quiz. The forward journey remains open to the next curriculum junction; optional replay increases rewards and practice without trapping a lower-ESL child.
+
+Every junction exposes at least four suitable mechanics, with a broad world mix drawn from sound hunting, movement routes, sorting, herding, delivery, construction, sequencing, memory, blending, spelling and story use. A chapter must still contain five genuinely different main verb grammars. Cosmetic variety does not count as mechanic variety.
+
+The avatar is chosen independently of world. The initial choices are flagship book characters from Meadow Pals, Dino Pals and Moonwood Tales, and the child may change colour, expression, pose, pattern, clothing and accessories. Avatar choice is always free; unlockable customisation remains part of the reward economy. Residents belong to the book world in which they appear. No unrelated monster cast may be introduced as a shortcut.
+
+Movement is direct four-way movement on keyboard and touch. Left/right and up/down use the same held-input system; route snapping must not cancel vertical travel. The active learning encounter may still set a forward boundary so a child cannot accidentally bypass the junction.
+
+The replay and pacing model follows the useful principles found in Teach Your Monster to Read—short varied games, adaptive return of weak graphemes, rewards, and frequent saved progress—without copying its characters, maps, level scripts or visual assets. The product remains an original Literacy Guide game using its own books, curriculum and mechanics.
 
 ## 16 July 2026 Pixel-Direction Decision
 

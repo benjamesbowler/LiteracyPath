@@ -534,7 +534,10 @@ function PictureSequenceOrderQuestion({
   speakText,
   onEvidenceImageError
 }) {
-  const sourceCards = currentQuestion.sequenceCards || [];
+  const sourceCards = useMemo(
+    () => currentQuestion.sequenceCards || [],
+    [currentQuestion.sequenceCards]
+  );
   const displayCards = useMemo(() => {
     if (sourceCards.length < 2) return sourceCards;
     const offset = Array.from(String(currentQuestion.id || "sequence"))

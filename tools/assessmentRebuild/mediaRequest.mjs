@@ -126,7 +126,7 @@ export function buildMediaRequest(allBanks, results) {
       const choiceTexts = [
         ...(item.imageCards || []).map(c => c.word),
         ...(item.choices || []),
-        ...(item.targetWord && !/[\/_]/.test(item.targetWord) ? [item.targetWord] : [])
+        ...(item.targetWord && !/[/_]/.test(item.targetWord) ? [item.targetWord] : [])
       ].map(v => String(v).trim()).filter(Boolean);
       mapping.audio.choices = [];
       for (const text of new Set(choiceTexts)) {
@@ -314,7 +314,7 @@ export function buildMediaRequest(allBanks, results) {
       ? [
           `| Path | Alt text | Brief | Used by |`,
           `|---|---|---|---|`,
-          ...missingImages.map(([key, v]) => `| ${v.path} | ${v.alt.replace(/\|/g, "/")} | ${v.brief.replace(/\|/g, "/")} | ${v.ids.length} |`)
+          ...missingImages.map(([, v]) => `| ${v.path} | ${v.alt.replace(/\|/g, "/")} | ${v.brief.replace(/\|/g, "/")} | ${v.ids.length} |`)
         ]
       : [`All ${json.images.length} image slots resolve to existing art on disk. Any NEW art must follow the image spec above.`]),
     ``,

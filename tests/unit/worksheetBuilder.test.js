@@ -130,6 +130,31 @@ test("every sight-word page uses that cycle's own words in real sentences", () =
   }
 });
 
+test("every missing-letter prompt has a picture cue", () => {
+  for (const cycle of allCycles) {
+    if (!availableWorksheetTypes(cycle).includes("wordBuilding")) continue;
+    const { html } = buildWorksheetDocument({ cycleId: cycle.id, type: "wordBuilding", pages: 3 });
+    const prompts = [...html.matchAll(/<div class="ws-fill">([\s\S]*?)<\/div>/g)].map(match => match[1]);
+    assert.ok(prompts.length > 0, `cycle ${cycle.cycleNumber}: no missing-letter prompts`);
+    for (const prompt of prompts) {
+      assert.match(prompt, /<img class="ws-cue"[^>]+alt="[^"]+"/,
+        `cycle ${cycle.cycleNumber}: missing-letter prompt has no image`);
+    }
+  }
+});
+
+test("the first eligible beginner worksheet models _nt with an ant picture", () => {
+  const eligible = allCycles.find(cycle => {
+    if (!availableWorksheetTypes(cycle).includes("wordBuilding")) return false;
+    const { html } = buildWorksheetDocument({ cycleId: cycle.id, type: "wordBuilding", pages: 1 });
+    return html.includes('alt="ant"');
+  });
+  assert.ok(eligible, "an eligible cycle should contain the ant image");
+  const { html } = buildWorksheetDocument({ cycleId: eligible.id, type: "wordBuilding", pages: 1 });
+  assert.match(html, /alt="ant"[^>]*\/><span class="ws-blank"><\/span>nt/,
+    "ant should appear as a pictured _nt prompt");
+});
+
 test("fluency worksheets drill that cycle's own pattern", () => {
   const c25 = buildWorksheetDocument({ cycleId: "cycle-25", type: "patternFluency", pages: 1 }).html;
   const c26 = buildWorksheetDocument({ cycleId: "cycle-26", type: "patternFluency", pages: 1 }).html;

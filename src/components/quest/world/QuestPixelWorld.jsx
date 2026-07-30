@@ -142,9 +142,6 @@ export default function QuestPixelWorld({
   const [runtimeHealth, setRuntimeHealth] = useState(null);
   const mountRef = useRef(null);
   const runtimeRef = useRef(null);
-  const dpadHoldRef = useRef(null);
-  // The hold-to-move repeat must die with the component, not outlive it.
-  useEffect(() => () => window.clearInterval(dpadHoldRef.current), []);
   const solvedRef = useRef(solved);
   const collectedRef = useRef(collected);
   const completionMarksRef = useRef(completionMarks);
@@ -872,25 +869,23 @@ export default function QuestPixelWorld({
 
       {!ready && <div className="qp-loading" role="status">Opening the trail…</div>}
 
-      {!ceremony && <nav className="qp-dpad" aria-label="Move your Beastie">
+      {!ceremony && <nav className="qp-dpad" aria-label="Move your book character">
         {[["up", "↑"], ["left", "←"], ["down", "↓"], ["right", "→"]].map(([dir, glyph]) => (
           <button
             key={dir}
             type="button"
             aria-label={`Move ${dir}`}
-            /* Keyboard activation (Enter/Space arrives as a click with
-               detail 0; pointer clicks already moved on pointerdown);
-               press-and-hold repeats so crossing a trail is a held button,
-               not forty precision taps. */
             onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
-            onPointerDown={() => {
+            onPointerDown={event => {
+              event.currentTarget.setPointerCapture?.(event.pointerId);
+              runtimeRef.current?.startMove(dir);
+              // A quick tap still nudges one visible step; a held pointer keeps
+              // driving the direct movement vector until release.
               runtimeRef.current?.move(dir);
-              window.clearInterval(dpadHoldRef.current);
-              dpadHoldRef.current = window.setInterval(() => runtimeRef.current?.move(dir), 180);
             }}
-            onPointerUp={() => window.clearInterval(dpadHoldRef.current)}
-            onPointerCancel={() => window.clearInterval(dpadHoldRef.current)}
-            onPointerLeave={() => window.clearInterval(dpadHoldRef.current)}
+            onPointerUp={() => runtimeRef.current?.stopMove(dir)}
+            onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
+            onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
           >
             <span aria-hidden="true">{glyph}</span>
           </button>

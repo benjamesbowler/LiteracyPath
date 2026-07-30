@@ -14,6 +14,7 @@ import {
   CREATURE_BODIES,
   CREATURE_DYES,
   CREATURE_SLOTS,
+  BOOK_CHARACTER_PRESETS,
   piecesForSlot,
   defaultCreature
 } from "../../data/creatureParts.js";
@@ -22,6 +23,20 @@ import { lockedItemAffordance } from "../../policy/lockedItemAffordance.js";
 import { SparkIcon } from "../shared/CurrencyIcons.jsx";
 
 const PART_TABS = CREATURE_SLOTS.filter(s => s.kind === "part" && s.id !== "body" && s.id !== "pattern");
+const OUTFIT_TABS = CREATURE_SLOTS.filter(s => s.kind === "gear");
+const EXPRESSIONS = Object.freeze([
+  { id: "happy", label: "Happy", eyes: "eyes-big", mouth: "mouth-smile" },
+  { id: "excited", label: "Excited", eyes: "eyes-wide", mouth: "mouth-grin" },
+  { id: "thinking", label: "Thinking", eyes: "eyes-sleepy", mouth: "mouth-round" },
+  { id: "brave", label: "Brave", eyes: "eyes-fierce", mouth: "mouth-smile" }
+]);
+const POSES = Object.freeze([
+  { id: "idle", label: "Ready" },
+  { id: "walk", label: "Walking" },
+  { id: "cheer", label: "Cheering" },
+  { id: "think", label: "Thinking" }
+]);
+const FLAGSHIP_BOOK_CHARACTER_IDS = Object.freeze(["tuft", "pebble", "moth"]);
 
 export default function CreatureCreator({
   creature,
@@ -40,6 +55,14 @@ export default function CreatureCreator({
     if (isSoundEnabled) playPopSound();
     onChange?.({ ...creature, [key]: value });
   };
+  const setMany = values => {
+    if (isSoundEnabled) playPopSound();
+    onChange?.({ ...creature, ...values });
+  };
+  const setOutfit = (slot, value) => {
+    if (isSoundEnabled) playPopSound();
+    onChange?.({ ...creature, equipped: { ...(creature.equipped || {}), [slot]: value } });
+  };
 
   const hatch = () => {
     setHatching(true);
@@ -48,18 +71,20 @@ export default function CreatureCreator({
   };
 
   const tabs = [
-    { id: "body", label: "Body" },
-    { id: "colour", label: "Colour" },
-    ...PART_TABS.map(s => ({ id: s.id, label: s.label })),
-    { id: "pattern", label: "Pattern" }
+    { id: "body", label: "Character" },
+    { id: "colour", label: "Colours" },
+    { id: "expression", label: "Expressions" },
+    { id: "pose", label: "Poses" },
+    { id: "pattern", label: "Patterns" },
+    ...OUTFIT_TABS.map(s => ({ id: s.id, label: s.label === "Held" ? "Accessories" : s.label }))
   ];
   const activeTabIndex = Math.max(0, tabs.findIndex(item => item.id === tab));
 
   return (
     <div className="q-screen q-creator">
-      <h1 className="q-title" data-child-title="">{hatched ? "Change your creature" : "Make your creature"}</h1>
+      <h1 className="q-title" data-child-title="">{hatched ? "Change your book character" : "Choose your book character"}</h1>
       <p className="q-creator-instruction" data-child-instruction="">
-        Pick the parts. Then hatch your creature.
+        Pick a friend from Meadow Pals, Dino Pals or Moonwood Tales. Then make them your own.
       </p>
       <p className="q-creator-step" data-child-progress="">
         Part {activeTabIndex + 1} of {tabs.length}: {tabs[activeTabIndex].label}
@@ -70,11 +95,12 @@ export default function CreatureCreator({
           key={hatching ? "hatch" : "idle"}
           creature={creature}
           size={230}
-          mood={hatching ? "hatch" : "idle"}
+          mood={hatching ? "hatch" : (creature.pose || "idle")}
+          title="Your book character"
         />
       </div>
 
-      <div className="q-tabs" role="tablist" aria-label="Creature parts" data-child-choices="">
+      <div className="q-tabs" role="tablist" aria-label="Book character options" data-child-choices="">
         {tabs.map((t, tabIndex) => (
           <button
             key={t.id}
@@ -103,17 +129,23 @@ export default function CreatureCreator({
       </div>
 
       <div className="q-reel">
-        {tab === "body" && CREATURE_BODIES.map(body => (
+        {tab === "body" && CREATURE_BODIES.filter(body => FLAGSHIP_BOOK_CHARACTER_IDS.includes(body.id)).map(body => (
           <Option
             key={body.id}
-            label={body.label}
-            cost={body.cost}
+            label={`${body.label} · ${body.series}`}
+            cost={0}
             balance={sparkBalance}
-            locked={!own.has(body.id) && body.cost > 0}
+            locked={false}
             selected={creature.body === body.id}
-            onPick={() => set("body", body.id)}
+            onPick={() => setMany({
+              ...BOOK_CHARACTER_PRESETS[body.id],
+              equipped: creature.equipped,
+              pose: creature.pose || "idle"
+            })}
           >
-            <CreatureFigure creature={{ ...defaultCreature(), body: body.id, dye: creature.dye }} size={58} mood="still" />
+            {body.portrait
+              ? <img className="q-book-character-portrait" src={body.portrait} alt="" />
+              : <CreatureFigure creature={{ ...defaultCreature(), ...BOOK_CHARACTER_PRESETS[body.id] }} size={58} mood="still" title={body.label} />}
           </Option>
         ))}
 
@@ -131,7 +163,54 @@ export default function CreatureCreator({
           </Option>
         ))}
 
-        {tab !== "body" && tab !== "colour" && piecesForSlot(tab).map(piece => (
+        {tab === "expression" && EXPRESSIONS.map(expression => (
+          <Option
+            key={expression.id}
+            label={expression.label}
+            selected={creature.eyes === expression.eyes && creature.mouth === expression.mouth}
+            onPick={() => setMany({ eyes: expression.eyes, mouth: expression.mouth })}
+          >
+            <CreatureFigure creature={{ ...creature, eyes: expression.eyes, mouth: expression.mouth }} size={58} mood="still" />
+          </Option>
+        ))}
+
+        {tab === "pose" && POSES.map(pose => (
+          <Option
+            key={pose.id}
+            label={pose.label}
+            selected={(creature.pose || "idle") === pose.id}
+            onPick={() => set("pose", pose.id)}
+          >
+            <CreatureFigure creature={creature} size={58} mood={pose.id} />
+          </Option>
+        ))}
+
+        {OUTFIT_TABS.some(slot => slot.id === tab) && (
+          <>
+            <Option
+              label="No item"
+              selected={!creature.equipped?.[tab]}
+              onPick={() => setOutfit(tab, null)}
+            >
+              <CreatureFigure creature={{ ...creature, equipped: { ...creature.equipped, [tab]: null } }} size={58} mood="still" />
+            </Option>
+            {piecesForSlot(tab).map(piece => (
+              <Option
+                key={piece.id}
+                label={piece.label}
+                cost={piece.cost}
+                balance={sparkBalance}
+                locked={!own.has(piece.id)}
+                selected={creature.equipped?.[tab] === piece.id}
+                onPick={() => setOutfit(tab, piece.id)}
+              >
+                <CreatureFigure creature={{ ...creature, equipped: { ...creature.equipped, [tab]: piece.id } }} size={58} mood="still" />
+              </Option>
+            ))}
+          </>
+        )}
+
+        {PART_TABS.some(slot => slot.id === tab) && piecesForSlot(tab).map(piece => (
           <Option
             key={piece.id}
             label={piece.label}
@@ -159,7 +238,7 @@ export default function CreatureCreator({
         data-child-emphasis="primary"
         data-child-emphasis-cue=""
       >
-        {hatched ? "Done" : "Hatch my creature"}
+        {hatched ? "Done" : "Start my adventure"}
       </button>
     </div>
   );

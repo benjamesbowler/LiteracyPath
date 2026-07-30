@@ -344,8 +344,8 @@ function makeGroundTexture(theme) {
   ctx.fillStyle = "rgba(255,255,255,.2)";
   ctx.font = "900 36px Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("GRAMMAR", 256, 240);
-  ctx.fillText("GRIND", 256, 290);
+  ctx.fillText("SPELL", 256, 240);
+  ctx.fillText("& SKATE", 256, 290);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.wrapS = THREE.RepeatWrapping;
@@ -763,12 +763,12 @@ function startGame(mount, opts) {
       '<div data-gg="sentence" style="margin-top:5px;font-size:clamp(.84rem,1.5vw,1.08rem);font-weight:850;color:#eaf8ff"></div>' +
       '<div data-gg="cue" style="margin-top:4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="coach" style="margin:7px auto 0;max-width:560px;font-size:.82rem;line-height:1.15;color:#ffe7a3;font-weight:850"></div>' +
-      '<button data-gg="hear" type="button" aria-label="Hear the sentence" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR</button>' +
+      '<button data-gg="hear" type="button" aria-label="Hear the word" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR WORD</button>' +
     '</div>' +
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="speed" style="font-size:1.22rem;font-weight:950">0 kmh</div>' +
-      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find a gate</div>' +
+      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find the next sound</div>' +
       '<div style="margin-top:7px;width:142px;height:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2);margin-left:auto;overflow:hidden"><div data-gg="boostbar" style="height:100%;width:42%;background:linear-gradient(90deg,#7df2ff,#ffe17a)"></div></div>' +
       '<div data-gg="style" style="margin-top:4px;font-size:.72rem;color:#d9f2ff;font-weight:900;text-transform:uppercase;letter-spacing:.08em">Style ready</div>' +
     '</div>' +
@@ -1021,14 +1021,19 @@ function startGame(mount, opts) {
     lineStep = 0;
     lineReady = false;
     const offset = levelIndex * 0.47 + (difficulty === "hard" ? 0.8 : difficulty === "medium" ? 0.35 : 0);
-    const positions = [
-      { x: Math.sin(1.15 + offset) * 34, z: Math.cos(1.15 + offset) * 34 },
-      { x: Math.sin(3.0 + offset) * 43, z: Math.cos(3.0 + offset) * 43 },
-      { x: Math.sin(4.75 + offset) * 37, z: Math.cos(4.75 + offset) * 37 }
-    ];
-    createLineNode("READ", 0, positions[0], `Read the sentence: ${level.sentence}`);
-    createLineNode("RULE", 1, positions[1], `Rule: ${level.teaching || level.cue}`);
-    createLineNode("SOLVE", 2, positions[2], "Now hit the gate that completes the sentence.");
+    const count = Math.max(1, level.segments.length);
+    level.segments.forEach((segment, index) => {
+      const angle = offset + 0.9 + (index / count) * Math.PI * 1.72;
+      const radius = 31 + (index % 2) * 10;
+      createLineNode(
+        segment,
+        index,
+        { x: Math.sin(angle) * radius, z: Math.cos(angle) * radius },
+        index === count - 1
+          ? `${segment} completes ${level.audioWord}. Now choose the built word.`
+          : `Good. Now collect ${level.segments[index + 1]}.`
+      );
+    });
   }
 
   function placePickup(pickup, seedOffset = 0) {
@@ -1164,19 +1169,19 @@ function startGame(mount, opts) {
     el.coach.textContent = coachText || level.teaching || level.cue;
     el.world.textContent = theme.name;
     el.speed.textContent = `${Math.round(Math.abs(player.speed) * 3.2)} kmh`;
-    el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || "Find the right gate";
+    el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next sound");
     el.boostbar.style.width = `${Math.round(clamp(boost, 0, BOOST_MAX))}%`;
     el.boostbar.style.filter = boostFlash > 0 ? "brightness(1.75)" : "";
     el.style.textContent = lineReady
-      ? "Grammar line ready"
-      : lineStep < 3
-        ? `Line ${lineStep + 1} of 3`
+      ? `${level.audioWord} is ready`
+      : lineStep < level.segments.length
+        ? `Sound ${lineStep + 1} of ${level.segments.length}`
         : styleWindow > 0
           ? `Style bank ${Math.round(styleScore)}`
-          : "Collect tokens and tricks";
+          : "Collect sounds and skate";
     if (phase === "countdown") {
       el.banner.style.display = "block";
-      el.banner.textContent = phaseTimer > 2.35 ? "READ" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO";
+      el.banner.textContent = phaseTimer > 2.35 ? "LISTEN" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO";
     } else if (messageTimer > 0) {
       el.banner.style.display = "block";
       el.banner.textContent = message;
@@ -1188,7 +1193,7 @@ function startGame(mount, opts) {
   }
 
   function levelSpeechParts() {
-    return [level.prompt, level.sentence, ...level.options.filter(option => /[a-z]/i.test(option))];
+    return [level.prompt, level.audioWord].filter(Boolean);
   }
 
   // speak() stops any clip that is already playing, so the parts are chained
@@ -1207,7 +1212,7 @@ function startGame(mount, opts) {
     playPart(0);
   }
 
-  function loadLevel(index, introMessage = "Choose the right gate", introCoach = null) {
+  function loadLevel(index, introMessage = "Collect the sounds", introCoach = null) {
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
     levelMisses = 0;
@@ -1307,7 +1312,7 @@ function startGame(mount, opts) {
   }
 
   function handleGate(gate) {
-    if (phase !== "playing" || gateCooldown > 0 || gate.cooldown > 0) return;
+    if (phase !== "playing" || !lineReady || gateCooldown > 0 || gate.cooldown > 0) return;
     gate.cooldown = 1.4;
     if (grammarGrindIsCorrect(gate.choice, level)) {
       correct += 1;
@@ -1321,7 +1326,7 @@ function startGame(mount, opts) {
       spawnBurst(gate.pos, theme.correct, 22);
       sfx(playCorrectChime);
       if (lineBonus > 0) sfx(playStarChime);
-      message = lineBonus > 0 ? `Line solve +${lineBonus}` : styleBonus > 0 ? `Style solve +${styleBonus}` : `Correct: ${gate.choice}`;
+      message = lineBonus > 0 ? `Word built +${lineBonus}` : styleBonus > 0 ? `Style word +${styleBonus}` : `Correct: ${gate.choice}`;
       coachText = level.success || level.teaching || level.cue;
       messageTimer = 1.25;
       lineReady = false;
@@ -1333,15 +1338,9 @@ function startGame(mount, opts) {
       mistakes += 1;
       levelMisses += 1;
       combo = 1;
-      player.stun = 0.34;
-      player.speed *= -0.28;
-      boost = clamp(boost - 14, 0, BOOST_MAX);
-      styleWindow = Math.max(0, styleWindow - 2.5);
-      styleScore = Math.max(0, styleScore - 45);
-      addScore(-45);
       spawnBurst(gate.pos, theme.wrong, 12);
       sfx(playSoftBuzz);
-      message = "Grammar check";
+      message = "Try that word again";
       coachText = grammarGrindChoiceFeedback(gate.choice, level, { reveal: levelMisses >= 2 });
       messageTimer = 1.6;
       gateCooldown = 0.8;
@@ -1506,6 +1505,8 @@ function startGame(mount, opts) {
   function updateGates(dt) {
     gateCooldown = Math.max(0, gateCooldown - dt);
     gates.forEach(gate => {
+      gate.group.visible = lineReady;
+      if (!lineReady) return;
       gate.cooldown = Math.max(0, gate.cooldown - dt);
       gate.group.rotation.z = Math.sin(performance.now() * 0.0018 + gate.group.userData.index) * 0.035;
       if (gate.group.userData.marker) {
@@ -1574,8 +1575,8 @@ function startGame(mount, opts) {
         sfx(playPopSound);
         if (lineStep >= lineNodes.length) {
           lineReady = true;
-          coachText = "Grammar line complete. Solve the sentence for a bonus.";
-          message = "Line ready";
+          coachText = `${level.segments.join(" + ")} spells ${level.audioWord}. Choose ${level.audioWord}.`;
+          message = "Word ready";
           messageTimer = 1;
           sfx(playStarChime);
         }
@@ -1652,7 +1653,7 @@ function startGame(mount, opts) {
       phaseTimer -= dt;
       if (phaseTimer <= 0) {
         phase = "playing";
-        message = "Find the right gate";
+        message = "Find the first sound";
         messageTimer = 1.2;
       }
     }
@@ -1741,7 +1742,7 @@ function startGame(mount, opts) {
   camera.lookAt(0, 1.8, 0);
   loop.start();
 
-  // First-run onboarding: one goal line + the skate/grind controls, shown once
+  // First-run onboarding: one spelling goal + the skate controls, shown once
   // per device. update() returns immediately while paused is set, so the
   // countdown, skater and particles all freeze behind the overlay, and a
   // GamePlayer chrome resume is ignored until the child dismisses — the two
@@ -1769,8 +1770,8 @@ function startGame(mount, opts) {
     introEl.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(4,8,22,.9);pointer-events:auto;cursor:pointer";
     introEl.innerHTML =
       '<div style="display:grid;gap:12px;justify-items:center;max-width:min(600px,88vw);padding:20px">' +
-        '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Grammar Grind</div>' +
-        '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Skate the park and ride through the gate with the word that completes the sentence.</div>' +
+        '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Spell & Skate</div>' +
+        '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Listen to the word. Collect its sounds in order, then skate through the word you built.</div>' +
         '<div style="font-size:.95rem;font-weight:800;line-height:1.6;opacity:.92">Steer with ← →, push with ↑, brake with ↓ — or use the on-screen buttons.<br>Press Space (or TRICK) to jump — land on a rail to grind for style points.<br>Hold Shift (or BOOST) for a speed burst.</div>' +
         '<div style="padding:12px 28px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">Tap to play</div>' +
         '<div style="font-size:.74rem;font-weight:800;opacity:.65">or press any key</div>' +

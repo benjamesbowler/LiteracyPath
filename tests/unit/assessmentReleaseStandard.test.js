@@ -12,11 +12,9 @@ import {
 } from "../../src/content/releaseStandard.js";
 import {
   assessmentReleaseStatus,
-  assessmentReleaseStatusBySkillId,
   assessmentReleaseStatusVersion
 } from "../../src/content/assessments/assessmentReleaseStatus.generated.js";
 import {
-  assessmentReleaseExposureBySkillId,
   assessmentReleaseExposureVersion
 } from "../../src/content/assessments/assessmentReleaseExposure.generated.js";
 import {

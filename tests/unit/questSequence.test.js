@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import {
   QUEST_STOPS,
   QUEST_ACTS,
+  QUEST_WORLD_HUBS,
   QUEST_SHELL_IDS,
   TOTAL_STOPS,
   getStop,
@@ -23,9 +24,21 @@ test("the trail is 40 stops across 3 acts, indexed 1..40 with no gaps", () => {
   QUEST_STOPS.forEach((stop, i) => {
     assert.equal(stop.index, i + 1, `stop ${stop.id} is out of order`);
   });
-  assert.equal(stopsForAct(1).length, 8);
-  assert.equal(stopsForAct(2).length, 9);
-  assert.equal(stopsForAct(3).length, 23);
+  assert.equal(stopsForAct(1).length, 10);
+  assert.equal(stopsForAct(2).length, 10);
+  assert.equal(stopsForAct(3).length, 20);
+});
+
+test("each illustrated world is a replayable multi-level hub", () => {
+  assert.deepEqual(QUEST_WORLD_HUBS.map(hub => hub.levelCount), [10, 10, 20]);
+  assert.deepEqual(QUEST_WORLD_HUBS.map(hub => hub.world), ["meadow", "dino", "moonwood"]);
+  for (const hub of QUEST_WORLD_HUBS) {
+    assert.equal(new Set(hub.stopIds).size, hub.levelCount, `${hub.world} should not repeat a junction`);
+    assert.ok(hub.levels.every(level => level.replayMiniGames.length >= 4),
+      `${hub.world} junctions need multiple replay mechanics`);
+    assert.ok(new Set(hub.levels.flatMap(level => level.replayMiniGames)).size >= 6,
+      `${hub.world} needs a varied mini-game mix`);
+  }
 });
 
 test("stop ids and names are unique", () => {

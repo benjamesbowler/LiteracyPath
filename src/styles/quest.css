@@ -1280,6 +1280,12 @@
   min-width: 116px;
 }
 .q-option-art { display: grid; place-items: center; height: 60px; }
+.q-book-character-portrait {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .q-option-label { color: #e7eeeb; font-size: 11px; }
 .q-option-cost {
   display: grid;

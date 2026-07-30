@@ -1873,6 +1873,22 @@ test("earned relic abilities and world memory reach pixel and accessible play", 
   assert.match(fs.readFileSync("src/styles/quest.css", "utf8"), /q2dDiscoveryResidentFrames/, "the accessible discovery resident never performs");
 });
 
+test("book-world play exposes direct four-way movement on touch and keyboard", () => {
+  const pixel = fs.readFileSync("src/components/quest/world/QuestPixelWorld.jsx", "utf8");
+  const runtime = fs.readFileSync("src/components/quest/world/questPixelRuntime.js", "utf8");
+  assert.match(runtime, /meadow-pals-trail-v2\.webp/, "Meadow does not use the illustrated book-world map");
+  assert.match(runtime, /dino-pals-trail-v2\.webp/, "Dino Land does not use the illustrated book-world map");
+  assert.match(runtime, /moonwood-trail-v2\.webp/, "Moonwood does not use the illustrated book-world map");
+  for (const direction of ["left", "right", "up", "down"]) {
+    assert.match(runtime, new RegExp(`directionInput\\.${direction}`), `${direction} is missing from held movement`);
+  }
+  assert.match(runtime, /startMove\(direction\)/, "touch controls cannot begin held movement");
+  assert.match(runtime, /stopMove\(direction\)/, "touch controls cannot stop held movement");
+  assert.match(pixel, /runtimeRef\.current\?\.startMove\(dir\)/, "the d-pad is not wired to held movement");
+  assert.match(pixel, /onLostPointerCapture=\{\(\) => runtimeRef\.current\?\.stopMove\(dir\)\}/,
+    "a released touch can leave movement stuck on");
+});
+
 test("chapter ceremonies close the destination story with the returning cast", () => {
   const ceremony = fs.readFileSync("src/components/quest/RewardScreen.jsx", "utf8");
   const progress = fs.readFileSync("src/utils/questProgress.js", "utf8");

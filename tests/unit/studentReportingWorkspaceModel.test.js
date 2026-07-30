@@ -1433,7 +1433,7 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   assert.equal(failedSkill.latestAttempt.attemptId, "latest-fail");
   assert.equal(
     failedSkill.currentStatus.id,
-    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    REPORTING_STATUS_IDS.NEEDS_TEACHING
   );
   assert.equal(failedSkill.latestCorrectCount, 0);
   assert.equal(failedSkill.latestTotalQuestions, 1);

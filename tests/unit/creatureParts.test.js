@@ -143,9 +143,9 @@ test("the default creature is valid", () => {
 test("an invalid creature is repaired, not crashed on", () => {
   // A child must never lose their creature because we renamed a part.
   const broken = normalizeCreature({ body: "gone", dye: "gone", eyes: "gone", equipped: { head: "gone" } });
-  assert.equal(broken.body, "tuft");
-  assert.equal(broken.dye, "moss");
-  assert.equal(broken.eyes, "eyes-round");
+  assert.equal(broken.body, defaultCreature().body);
+  assert.equal(broken.dye, defaultCreature().dye);
+  assert.equal(broken.eyes, defaultCreature().eyes);
   assert.equal(broken.equipped.head, null);
   assert.equal(isValidCreature(broken), true);
   assert.equal(isValidCreature(null), false);
@@ -153,7 +153,7 @@ test("an invalid creature is repaired, not crashed on", () => {
 
 test("a piece cannot be equipped into the wrong slot", () => {
   const wrong = normalizeCreature({ ...defaultCreature(), eyes: "mouth-grin", equipped: { head: "tail-fan" } });
-  assert.equal(wrong.eyes, "eyes-round", "a mouth is not a pair of eyes");
+  assert.equal(wrong.eyes, defaultCreature().eyes, "a mouth is not a pair of eyes");
   assert.equal(wrong.equipped.head, null, "a tail is not a hat");
 });
 

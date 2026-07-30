@@ -69,7 +69,7 @@ export function worksheetCycleLabel(cycle = {}) {
 // ── Curriculum-aware content selectors (all deterministic) ───────────────────
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const CVC_POOL = [
-  "cat", "map", "bag", "tap", "ham", "van", "mat", "sat", "pan", "fan",
+  "ant", "cat", "map", "bag", "tap", "ham", "van", "mat", "sat", "pan", "fan",
   "bed", "ten", "net", "peg", "hen", "wet", "pet", "leg", "red", "men",
   "pig", "sit", "lip", "fin", "win", "dig", "pin", "bin", "hit", "zip",
   "dog", "hop", "pot", "mop", "log", "cot", "top", "pop", "fog", "box",
@@ -338,18 +338,33 @@ function letterFormationPage(cycle, page) {
 
 function wordBuildingPage(cycle, page) {
   const words = rotate(cycleWords(cycle), page * 3).slice(0, 6);
-  // First-letter fill: picture cue where we have one, so it is a real task
-  // (not copy-the-word-bank).
-  const fill = words.slice(0, 4).map(word => {
+  const taught = taughtLettersThrough(cycle.cycleNumber || 1);
+  const rotatedPictureWords = rotate(
+    [...new Set([
+      ...cycleWords(cycle),
+      ...CVC_POOL.filter(word => word.split("").every(letter => taught.includes(letter)))
+    ])].filter(word => wordImage(word)),
+    page * 3
+  );
+  // Once a, n and t have been taught, the canonical beginner prompt is always
+  // present: an ant picture beside "_nt". Rotation may vary every other item,
+  // but it must never rotate this concrete model out of the worksheet.
+  const pictureWords = ["a", "n", "t"].every(letter => taught.includes(letter)) && wordImage("ant")
+    ? ["ant", ...rotatedPictureWords.filter(word => word !== "ant")]
+    : rotatedPictureWords;
+  // A missing-letter task without a picture is ambiguous for a beginner:
+  // every prompt below is therefore selected from the verified image library.
+  const firstLetterWords = pictureWords.slice(0, 4);
+  const fill = firstLetterWords.map(word => {
     const img = wordImage(word);
-    const cue = img ? `<img class="ws-cue" src="${esc(img)}" alt=""/>` : "";
+    const cue = `<img class="ws-cue" src="${esc(img)}" alt="${esc(word)}"/>`;
     return `<div class="ws-fill">${cue}<span class="ws-blank"></span>${esc(word.slice(1))}</div>`;
   }).join("");
   // Missing-vowel fill for CVC words.
-  const vowelWords = words.filter(w => w.length === 3 && VOWELS.has(w[1])).slice(0, 3);
+  const vowelWords = pictureWords.filter(w => w.length === 3 && VOWELS.has(w[1])).slice(0, 3);
   const vowelFill = vowelWords.map(word => {
     const img = wordImage(word);
-    const cue = img ? `<img class="ws-cue" src="${esc(img)}" alt=""/>` : "";
+    const cue = `<img class="ws-cue" src="${esc(img)}" alt="${esc(word)}"/>`;
     return `<div class="ws-fill">${cue}${esc(word[0])}<span class="ws-blank"></span>${esc(word.slice(2))}</div>`;
   }).join("");
   const letters = focusCards(cycle).map(c => c.spelling).join("  ");

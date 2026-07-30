@@ -37,7 +37,7 @@ test("ready rows communicate owner, waiver, and exact exposure", () => {
   assert.equal(initial.owner, "Phonics curriculum + media QA");
   assert.deepEqual(
     [initial.studentExposure.count, initial.studentExposure.level1, initial.studentExposure.level2],
-    [92, 46, 46]
+    [150, 75, 75]
   );
   assert.equal(initial.waiver.excludedQuestionCount, 0);
 
@@ -49,7 +49,7 @@ test("ready rows communicate owner, waiver, and exact exposure", () => {
   assert.equal(hfw.gateStatus, "READY");
   assert.deepEqual(
     [hfw.studentExposure.count, hfw.studentExposure.level1, hfw.studentExposure.level2],
-    [147, 72, 75]
+    [125, 75, 50]
   );
   assert.deepEqual(hfw.reasons, []);
 });

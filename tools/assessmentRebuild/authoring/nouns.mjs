@@ -11,12 +11,8 @@
 // Child wording: "naming word", never bare "noun" at L1.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §15.
 
-import { makeImageResolver } from "../lib.mjs";
-
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
-
-const resolver = makeImageResolver(["language", "hfw", "cvc", "rhyming", "blends", "digraphs", "long-vowels"]);
 
 // L1 picture: one category card + three action cards.
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
