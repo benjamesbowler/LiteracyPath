@@ -30,6 +30,28 @@ export const questions = [
    "wheel",
    "cup"
   ],
+  "answerOptions": [
+   {
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
+   },
+   {
+    "value": "ant",
+    "label": "ant",
+    "text": "ant"
+   },
+   {
+    "value": "wheel",
+    "label": "wheel",
+    "text": "wheel"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   }
+  ],
   "answer": "whale",
   "correctAnswer": "whale",
   "distractorRationales": {
@@ -56,7 +78,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wheel ties the wh/which overlap"
+  "notes": "wheel ties the wh/which overlap",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.A.adj_size.v1_card_whale",
+    "word": "whale",
+    "value": "whale",
+    "label": "whale",
+    "image": "/images/assessment/digraphs/whale.webp",
+    "imagePath": "/images/assessment/digraphs/whale.webp",
+    "imageAlt": "whale"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_size.v1_card_ant",
+    "word": "ant",
+    "value": "ant",
+    "label": "ant",
+    "image": "/images/child-mode/initial-sounds/ant.png",
+    "imagePath": "/images/child-mode/initial-sounds/ant.png",
+    "imageAlt": "ant"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_size.v1_card_wheel",
+    "word": "wheel",
+    "value": "wheel",
+    "label": "wheel",
+    "image": "/images/assessment/digraphs/wheel.webp",
+    "imagePath": "/images/assessment/digraphs/wheel.webp",
+    "imageAlt": "wheel"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_size.v1_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/child-mode/initial-sounds/cup.png",
+    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "imageAlt": "cup"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v2",
@@ -87,6 +147,28 @@ export const questions = [
    "house",
    "tent"
   ],
+  "answerOptions": [
+   {
+    "value": "ant",
+    "label": "ant",
+    "text": "ant"
+   },
+   {
+    "value": "whale",
+    "label": "whale",
+    "text": "whale"
+   },
+   {
+    "value": "house",
+    "label": "house",
+    "text": "house"
+   },
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
+   }
+  ],
   "answer": "ant",
   "correctAnswer": "ant",
   "distractorRationales": {
@@ -113,7 +195,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.B.adj_size.v2_card_ant",
+    "word": "ant",
+    "value": "ant",
+    "label": "ant",
+    "image": "/images/child-mode/initial-sounds/ant.png",
+    "imagePath": "/images/child-mode/initial-sounds/ant.png",
+    "imageAlt": "ant"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_size.v2_card_whale",
+    "word": "whale",
+    "value": "whale",
+    "label": "whale",
+    "image": "/images/assessment/digraphs/whale.webp",
+    "imagePath": "/images/assessment/digraphs/whale.webp",
+    "imageAlt": "whale"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_size.v2_card_house",
+    "word": "house",
+    "value": "house",
+    "label": "house",
+    "image": "/images/child-mode/initial-sounds/house.png",
+    "imagePath": "/images/child-mode/initial-sounds/house.png",
+    "imageAlt": "house"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_size.v2_card_tent",
+    "word": "tent",
+    "value": "tent",
+    "label": "tent",
+    "image": "/images/assessment/blends/tent.webp",
+    "imagePath": "/images/assessment/blends/tent.webp",
+    "imageAlt": "tent"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v3",
@@ -144,6 +264,28 @@ export const questions = [
    "sock",
    "dish"
   ],
+  "answerOptions": [
+   {
+    "value": "tree",
+    "label": "tree",
+    "text": "tree"
+   },
+   {
+    "value": "mat",
+    "label": "mat",
+    "text": "mat"
+   },
+   {
+    "value": "sock",
+    "label": "sock",
+    "text": "sock"
+   },
+   {
+    "value": "dish",
+    "label": "dish",
+    "text": "dish"
+   }
+  ],
   "answer": "tree",
   "correctAnswer": "tree",
   "distractorRationales": {
@@ -170,7 +312,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.C.adj_size.v3_card_tree",
+    "word": "tree",
+    "value": "tree",
+    "label": "tree",
+    "image": "/images/assessment/long-vowels/tree.webp",
+    "imagePath": "/images/assessment/long-vowels/tree.webp",
+    "imageAlt": "tree"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_size.v3_card_mat",
+    "word": "mat",
+    "value": "mat",
+    "label": "mat",
+    "image": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
+    "imageAlt": "mat"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_size.v3_card_sock",
+    "word": "sock",
+    "value": "sock",
+    "label": "sock",
+    "image": "/images/assessment/digraphs/sock.webp",
+    "imagePath": "/images/assessment/digraphs/sock.webp",
+    "imageAlt": "sock"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_size.v3_card_dish",
+    "word": "dish",
+    "value": "dish",
+    "label": "dish",
+    "image": "/images/assessment/digraphs/dish.webp",
+    "imagePath": "/images/assessment/digraphs/dish.webp",
+    "imageAlt": "dish"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.A.adj_size.v4",
@@ -438,6 +618,28 @@ export const questions = [
    "moth",
    "wasp"
   ],
+  "answerOptions": [
+   {
+    "value": "frog",
+    "label": "frog",
+    "text": "frog"
+   },
+   {
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
+   },
+   {
+    "value": "moth",
+    "label": "moth",
+    "text": "moth"
+   },
+   {
+    "value": "wasp",
+    "label": "wasp",
+    "text": "wasp"
+   }
+  ],
   "answer": "frog",
   "correctAnswer": "frog",
   "distractorRationales": {
@@ -464,7 +666,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "canonical colours the child knows even in line art"
+  "notes": "canonical colours the child knows even in line art",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.A.adj_color.v1_card_frog",
+    "word": "frog",
+    "value": "frog",
+    "label": "frog",
+    "image": "/images/assessment/blends/frog.webp",
+    "imagePath": "/images/assessment/blends/frog.webp",
+    "imageAlt": "frog"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_color.v1_card_crab",
+    "word": "crab",
+    "value": "crab",
+    "label": "crab",
+    "image": "/images/assessment/blends/crab.webp",
+    "imagePath": "/images/assessment/blends/crab.webp",
+    "imageAlt": "crab"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_color.v1_card_moth",
+    "word": "moth",
+    "value": "moth",
+    "label": "moth",
+    "image": "/images/assessment/digraphs/moth.webp",
+    "imagePath": "/images/assessment/digraphs/moth.webp",
+    "imageAlt": "moth"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_color.v1_card_wasp",
+    "word": "wasp",
+    "value": "wasp",
+    "label": "wasp",
+    "image": "/images/assessment/blends/wasp.webp",
+    "imagePath": "/images/assessment/blends/wasp.webp",
+    "imageAlt": "wasp"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v2",
@@ -495,6 +735,28 @@ export const questions = [
    "cloud",
    "log"
   ],
+  "answerOptions": [
+   {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
+   },
+   {
+    "value": "cloud",
+    "label": "cloud",
+    "text": "cloud"
+   },
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   }
+  ],
   "answer": "sun",
   "correctAnswer": "sun",
   "distractorRationales": {
@@ -521,7 +783,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageAlt": "sun"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_cloud",
+    "word": "cloud",
+    "value": "cloud",
+    "label": "cloud",
+    "image": "/images/child-mode/blends/cloud.png",
+    "imagePath": "/images/child-mode/blends/cloud.png",
+    "imageAlt": "cloud"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_color.v2_card_log",
+    "word": "log",
+    "value": "log",
+    "label": "log",
+    "image": "/images/child-mode/cvc/log.png",
+    "imagePath": "/images/child-mode/cvc/log.png",
+    "imageAlt": "log"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v3",
@@ -868,6 +1168,28 @@ export const questions = [
    "fork",
    "shell"
   ],
+  "answerOptions": [
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "fork",
+    "label": "fork",
+    "text": "fork"
+   },
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   }
+  ],
   "answer": "sheep",
   "correctAnswer": "sheep",
   "distractorRationales": {
@@ -894,7 +1216,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "wool is the canon of soft"
+  "notes": "wool is the canon of soft",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_sheep",
+    "word": "sheep",
+    "value": "sheep",
+    "label": "sheep",
+    "image": "/images/assessment/long-vowels/sheep.webp",
+    "imagePath": "/images/assessment/long-vowels/sheep.webp",
+    "imageAlt": "sheep"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/digraphs/brick.webp",
+    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "imageAlt": "brick"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_fork",
+    "word": "fork",
+    "value": "fork",
+    "label": "fork",
+    "image": "/images/child-mode/initial-sounds/fork.png",
+    "imagePath": "/images/child-mode/initial-sounds/fork.png",
+    "imageAlt": "fork"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_shell",
+    "word": "shell",
+    "value": "shell",
+    "label": "shell",
+    "image": "/images/assessment/digraphs/shell.webp",
+    "imagePath": "/images/assessment/digraphs/shell.webp",
+    "imageAlt": "shell"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v2",
@@ -925,6 +1285,28 @@ export const questions = [
    "quilt",
    "drum"
   ],
+  "answerOptions": [
+   {
+    "value": "fish",
+    "label": "fish",
+    "text": "fish"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "quilt",
+    "label": "quilt",
+    "text": "quilt"
+   },
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   }
+  ],
   "answer": "fish",
   "correctAnswer": "fish",
   "distractorRationales": {
@@ -951,7 +1333,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_fish",
+    "word": "fish",
+    "value": "fish",
+    "label": "fish",
+    "image": "/images/assessment/digraphs/fish.webp",
+    "imagePath": "/images/assessment/digraphs/fish.webp",
+    "imageAlt": "fish"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/digraphs/brick.webp",
+    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "imageAlt": "brick"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_quilt",
+    "word": "quilt",
+    "value": "quilt",
+    "label": "quilt",
+    "image": "/images/child-mode/initial-sounds/quilt.png",
+    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
+    "imageAlt": "quilt"
+   },
+   {
+    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v3",
@@ -982,6 +1402,28 @@ export const questions = [
    "jam",
    "cloud"
   ],
+  "answerOptions": [
+   {
+    "value": "rock",
+    "label": "rock",
+    "text": "rock"
+   },
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
+   },
+   {
+    "value": "cloud",
+    "label": "cloud",
+    "text": "cloud"
+   }
+  ],
   "answer": "rock",
   "correctAnswer": "rock",
   "distractorRationales": {
@@ -1008,7 +1450,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_rock",
+    "word": "rock",
+    "value": "rock",
+    "label": "rock",
+    "image": "/images/assessment/digraphs/rock.webp",
+    "imagePath": "/images/assessment/digraphs/rock.webp",
+    "imageAlt": "rock"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_sheep",
+    "word": "sheep",
+    "value": "sheep",
+    "label": "sheep",
+    "image": "/images/assessment/long-vowels/sheep.webp",
+    "imagePath": "/images/assessment/long-vowels/sheep.webp",
+    "imageAlt": "sheep"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_jam",
+    "word": "jam",
+    "value": "jam",
+    "label": "jam",
+    "image": "/images/child-mode/initial-sounds/jam.png",
+    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "imageAlt": "jam"
+   },
+   {
+    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_cloud",
+    "word": "cloud",
+    "value": "cloud",
+    "label": "cloud",
+    "image": "/images/child-mode/blends/cloud.png",
+    "imagePath": "/images/child-mode/blends/cloud.png",
+    "imageAlt": "cloud"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v4",
@@ -1276,6 +1756,28 @@ export const questions = [
    "brick",
    "rope"
   ],
+  "answerOptions": [
+   {
+    "value": "smile",
+    "label": "smile",
+    "text": "smile"
+   },
+   {
+    "value": "moth",
+    "label": "moth",
+    "text": "moth"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "rope",
+    "label": "rope",
+    "text": "rope"
+   }
+  ],
   "answer": "smile",
   "correctAnswer": "smile",
   "distractorRationales": {
@@ -1302,7 +1804,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_smile",
+    "word": "smile",
+    "value": "smile",
+    "label": "smile",
+    "image": "/images/assessment/long-vowels/smile.webp",
+    "imagePath": "/images/assessment/long-vowels/smile.webp",
+    "imageAlt": "smile"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_moth",
+    "word": "moth",
+    "value": "moth",
+    "label": "moth",
+    "image": "/images/assessment/digraphs/moth.webp",
+    "imagePath": "/images/assessment/digraphs/moth.webp",
+    "imageAlt": "moth"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/digraphs/brick.webp",
+    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "imageAlt": "brick"
+   },
+   {
+    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_rope",
+    "word": "rope",
+    "value": "rope",
+    "label": "rope",
+    "image": "/images/assessment/long-vowels/rope.webp",
+    "imagePath": "/images/assessment/long-vowels/rope.webp",
+    "imageAlt": "rope"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v2",
@@ -3652,6 +4192,28 @@ export const questions = [
    "tent",
    "tree"
   ],
+  "answerOptions": [
+   {
+    "value": "ink",
+    "label": "ink",
+    "text": "ink"
+   },
+   {
+    "value": "house",
+    "label": "house",
+    "text": "house"
+   },
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
+   },
+   {
+    "value": "tree",
+    "label": "tree",
+    "text": "tree"
+   }
+  ],
   "answer": "ink",
   "correctAnswer": "ink",
   "distractorRationales": {
@@ -3678,7 +4240,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "an ink drop against three big things"
+  "notes": "an ink drop against three big things",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_ink",
+    "word": "ink",
+    "value": "ink",
+    "label": "ink",
+    "image": "/images/child-mode/initial-sounds/ink.png",
+    "imagePath": "/images/child-mode/initial-sounds/ink.png",
+    "imageAlt": "ink"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_house",
+    "word": "house",
+    "value": "house",
+    "label": "house",
+    "image": "/images/child-mode/initial-sounds/house.png",
+    "imagePath": "/images/child-mode/initial-sounds/house.png",
+    "imageAlt": "house"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_tent",
+    "word": "tent",
+    "value": "tent",
+    "label": "tent",
+    "image": "/images/assessment/blends/tent.webp",
+    "imagePath": "/images/assessment/blends/tent.webp",
+    "imageAlt": "tent"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_tree",
+    "word": "tree",
+    "value": "tree",
+    "label": "tree",
+    "image": "/images/assessment/long-vowels/tree.webp",
+    "imagePath": "/images/assessment/long-vowels/tree.webp",
+    "imageAlt": "tree"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l1.R.adj_color.v7r",
@@ -4266,6 +4866,28 @@ export const questions = [
    "leaf",
    "moon"
   ],
+  "answerOptions": [
+   {
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
+   },
+   {
+    "value": "quilt",
+    "label": "quilt",
+    "text": "quilt"
+   },
+   {
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
+   },
+   {
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
+   }
+  ],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {
@@ -4292,7 +4914,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "a crab's shell is the canon of bumpy"
+  "notes": "a crab's shell is the canon of bumpy",
+  "imageCards": [
+   {
+    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_crab",
+    "word": "crab",
+    "value": "crab",
+    "label": "crab",
+    "image": "/images/assessment/blends/crab.webp",
+    "imagePath": "/images/assessment/blends/crab.webp",
+    "imageAlt": "crab"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_quilt",
+    "word": "quilt",
+    "value": "quilt",
+    "label": "quilt",
+    "image": "/images/child-mode/initial-sounds/quilt.png",
+    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
+    "imageAlt": "quilt"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_leaf",
+    "word": "leaf",
+    "value": "leaf",
+    "label": "leaf",
+    "image": "/images/assessment/long-vowels/leaf.webp",
+    "imagePath": "/images/assessment/long-vowels/leaf.webp",
+    "imageAlt": "leaf"
+   },
+   {
+    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
+   }
+  ]
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v10r",

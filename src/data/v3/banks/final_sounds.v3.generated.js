@@ -2612,7 +2612,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "m": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-optional",
   "phonicsPosition": "final",
   "hadPTD": false,
   "nonGating": false,
@@ -2620,7 +2620,7 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "sleep",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "active": true,
@@ -2633,7 +2633,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "slee+b/d/m are non-words (sleet stays out)"
+  "notes": "slee+b/d/m are non-words (sleet stays out)",
+  "imagePath": "/images/objects/sleep.png",
+  "imageUrl": "/images/objects/sleep.png",
+  "targetImage": "/images/objects/sleep.png",
+  "targetImagePath": "/images/objects/sleep.png",
+  "imageAlt": "sleep"
  },
  {
   "id": "lp3.final_sounds.l1.A.t.v1",
@@ -4854,7 +4859,7 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "d": "D-POSITION"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-optional",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -4862,7 +4867,7 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "drink",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "active": true,
@@ -4875,7 +4880,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "dri+ng/nt/d are all non-words — drink is the clean nk frame"
+  "notes": "dri+ng/nt/d are all non-words — drink is the clean nk frame",
+  "imagePath": "/images/objects/drink.png",
+  "imageUrl": "/images/objects/drink.png",
+  "targetImage": "/images/objects/drink.png",
+  "targetImagePath": "/images/objects/drink.png",
+  "imageAlt": "drink"
  },
  {
   "id": "lp3.final_sounds.l2.B.nk.v2",

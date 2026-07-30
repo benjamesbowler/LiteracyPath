@@ -4,7 +4,9 @@ import { normalize } from "../utils/assessmentRoundBuilder.js";
 import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
 import {
   listV3PublishedSkillIds,
-  RUNTIME_SKILL_ID_BY_ASSESSMENT_ID
+  RUNTIME_SKILL_ID_BY_ASSESSMENT_ID,
+  V3_QUESTION_SOURCE,
+  getV3RuntimeEligibilityIssues
 } from "../data/v3/v3Registry.js";
 import {
   coverageExpectations,
@@ -1050,6 +1052,29 @@ export function isQuestionValid(q, options = {}) {
   if (!q) return false;
   if (!q.id || !q.skill || !getQuestionPrompt(q) || !getQuestionAnswer(q)) return false;
 
+  // v3 rebuild items are validated by their own gate-backed contract
+  // (blueprint format/unit membership + publication status), not the legacy
+  // per-skill heuristics below, which predate the v3 formats and reject them.
+  // Universal structural and media safety still applies, fail-closed.
+  if (q.source === V3_QUESTION_SOURCE) {
+    const v3StageIndex = getStageIndex(q);
+    if (v3StageIndex === -1) return false;
+    const v3Issues = getV3RuntimeEligibilityIssues(q, q.assessmentSkillId || q.skillId);
+    if (v3Issues === null || v3Issues.length > 0) return false;
+    if (isQuestionBlockedByMediaQa(q)) return false;
+    const v3Tiles = q.letterTiles || q.soundTiles;
+    if (Array.isArray(v3Tiles) && v3Tiles.length >= 2) return true;
+    if (!Array.isArray(q.choices) || q.choices.length < 2) return false;
+    if (!q.choices.includes(q.answer)) return false;
+    const v3LowerChoices = q.choices.map(c => normalize(c));
+    if (new Set(v3LowerChoices).size !== v3LowerChoices.length) return false;
+    if (
+      (q.mediaTier === "image-required" || q.media === "image-required") &&
+      !(q.imagePath || q.imageUrl || q.targetImage || (q.imageCards || []).length)
+    ) return false;
+    return true;
+  }
+
   if (isFixSentenceQuestion(q)) {
     const tiles = q.tiles || q.choices;
 
@@ -1191,7 +1216,11 @@ export const APPROVED_REPLACEMENT_SOURCES = new Set([
   GENERATED_REPLACEMENT_SOURCE,
   "assessment_qa_replacement_2026_06",
   "high_quality_comprehension_replacement_2026_06",
-  "skill_word_bank_workbook"
+  "skill_word_bank_workbook",
+  // The v3 rebuild IS the approved replacement for every skill in
+  // REPLACED_LEGACY_ASSESSMENT_SKILLS — gate-proven banks must not be dropped
+  // by the legacy replacement filter.
+  V3_QUESTION_SOURCE
 ]);
 export const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
   "prepositions_of_place",

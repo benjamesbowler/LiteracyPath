@@ -30,6 +30,28 @@ export const questions = [
    "clap",
    "dig"
   ],
+  "answerOptions": [
+   {
+    "value": "king",
+    "label": "king",
+    "text": "king"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   }
+  ],
   "answer": "king",
   "correctAnswer": "king",
   "distractorRationales": {
@@ -56,7 +78,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person"
+  "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_king",
+    "word": "king",
+    "value": "king",
+    "label": "king",
+    "image": "/images/child-mode/initial-sounds/king.png",
+    "imagePath": "/images/child-mode/initial-sounds/king.png",
+    "imageAlt": "king"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_person.v1_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.B.noun_person.v2",
@@ -87,6 +147,28 @@ export const questions = [
    "hop",
    "press"
   ],
+  "answerOptions": [
+   {
+    "value": "vet",
+    "label": "vet",
+    "text": "vet"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   }
+  ],
   "answer": "vet",
   "correctAnswer": "vet",
   "distractorRationales": {
@@ -113,7 +195,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.B.noun_person.v2_card_vet",
+    "word": "vet",
+    "value": "vet",
+    "label": "vet",
+    "image": "/images/child-mode/initial-sounds/vet.png",
+    "imagePath": "/images/child-mode/initial-sounds/vet.png",
+    "imageAlt": "vet"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_person.v2_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_person.v2_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_person.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.C.noun_person.v3",
@@ -144,6 +264,28 @@ export const questions = [
    "draw",
    "clap"
   ],
+  "answerOptions": [
+   {
+    "value": "queen",
+    "label": "queen",
+    "text": "queen"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   }
+  ],
   "answer": "queen",
   "correctAnswer": "queen",
   "distractorRationales": {
@@ -170,7 +312,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.C.noun_person.v3_card_queen",
+    "word": "queen",
+    "value": "queen",
+    "label": "queen",
+    "image": "/images/child-mode/initial-sounds/queen.png",
+    "imagePath": "/images/child-mode/initial-sounds/queen.png",
+    "imageAlt": "queen"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_person.v3_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_person.v3_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_person.v3_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.A.noun_person.v4",
@@ -438,6 +618,28 @@ export const questions = [
    "dig",
    "draw"
   ],
+  "answerOptions": [
+   {
+    "value": "fox",
+    "label": "fox",
+    "text": "fox"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   }
+  ],
   "answer": "fox",
   "correctAnswer": "fox",
   "distractorRationales": {
@@ -464,7 +666,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.A.noun_animal.v1_card_fox",
+    "word": "fox",
+    "value": "fox",
+    "label": "fox",
+    "image": "/images/child-mode/initial-sounds/fox.png",
+    "imagePath": "/images/child-mode/initial-sounds/fox.png",
+    "imageAlt": "fox"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_animal.v1_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_animal.v1_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_animal.v1_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.B.noun_animal.v2",
@@ -495,6 +735,28 @@ export const questions = [
    "press",
    "hop"
   ],
+  "answerOptions": [
+   {
+    "value": "zebra",
+    "label": "zebra",
+    "text": "zebra"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   }
+  ],
   "answer": "zebra",
   "correctAnswer": "zebra",
   "distractorRationales": {
@@ -521,7 +783,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.B.noun_animal.v2_card_zebra",
+    "word": "zebra",
+    "value": "zebra",
+    "label": "zebra",
+    "image": "/images/child-mode/initial-sounds/zebra.png",
+    "imagePath": "/images/child-mode/initial-sounds/zebra.png",
+    "imageAlt": "zebra"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_animal.v2_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_animal.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_animal.v2_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.C.noun_animal.v3",
@@ -552,6 +852,28 @@ export const questions = [
    "clap",
    "swim"
   ],
+  "answerOptions": [
+   {
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   }
+  ],
   "answer": "sheep",
   "correctAnswer": "sheep",
   "distractorRationales": {
@@ -578,7 +900,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_sheep",
+    "word": "sheep",
+    "value": "sheep",
+    "label": "sheep",
+    "image": "/images/assessment/long-vowels/sheep.webp",
+    "imagePath": "/images/assessment/long-vowels/sheep.webp",
+    "imageAlt": "sheep"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_animal.v3_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.A.noun_animal.v4",
@@ -846,6 +1206,28 @@ export const questions = [
    "swim",
    "hop"
   ],
+  "answerOptions": [
+   {
+    "value": "farm",
+    "label": "farm",
+    "text": "farm"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   }
+  ],
   "answer": "farm",
   "correctAnswer": "farm",
   "distractorRationales": {
@@ -872,7 +1254,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_farm",
+    "word": "farm",
+    "value": "farm",
+    "label": "farm",
+    "image": "/images/child-mode/initial-sounds/farm.png",
+    "imagePath": "/images/child-mode/initial-sounds/farm.png",
+    "imageAlt": "farm"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_place.v1_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.B.noun_place.v2",
@@ -903,6 +1323,28 @@ export const questions = [
    "draw",
    "press"
   ],
+  "answerOptions": [
+   {
+    "value": "park",
+    "label": "park",
+    "text": "park"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   }
+  ],
   "answer": "park",
   "correctAnswer": "park",
   "distractorRationales": {
@@ -929,7 +1371,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.B.noun_place.v2_card_park",
+    "word": "park",
+    "value": "park",
+    "label": "park",
+    "image": "/images/child-mode/initial-sounds/park.png",
+    "imagePath": "/images/child-mode/initial-sounds/park.png",
+    "imageAlt": "park"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_place.v2_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_place.v2_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_place.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.C.noun_place.v3",
@@ -960,6 +1440,28 @@ export const questions = [
    "clap",
    "draw"
   ],
+  "answerOptions": [
+   {
+    "value": "zoo",
+    "label": "zoo",
+    "text": "zoo"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   }
+  ],
   "answer": "zoo",
   "correctAnswer": "zoo",
   "distractorRationales": {
@@ -986,7 +1488,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.C.noun_place.v3_card_zoo",
+    "word": "zoo",
+    "value": "zoo",
+    "label": "zoo",
+    "image": "/images/child-mode/initial-sounds/zoo.png",
+    "imagePath": "/images/child-mode/initial-sounds/zoo.png",
+    "imageAlt": "zoo"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_place.v3_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_place.v3_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_place.v3_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.A.noun_place.v4",
@@ -1254,6 +1794,28 @@ export const questions = [
    "clap",
    "hop"
   ],
+  "answerOptions": [
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   }
+  ],
   "answer": "cup",
   "correctAnswer": "cup",
   "distractorRationales": {
@@ -1280,7 +1842,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.A.noun_thing.v1_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/child-mode/initial-sounds/cup.png",
+    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "imageAlt": "cup"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_thing.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_thing.v1_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.A.noun_thing.v1_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.B.noun_thing.v2",
@@ -1311,6 +1911,28 @@ export const questions = [
    "dig",
    "press"
   ],
+  "answerOptions": [
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   }
+  ],
   "answer": "drum",
   "correctAnswer": "drum",
   "distractorRationales": {
@@ -1337,7 +1959,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.B.noun_thing.v2_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_thing.v2_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_thing.v2_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.nouns.l1.B.noun_thing.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.C.noun_thing.v3",
@@ -1368,6 +2028,28 @@ export const questions = [
    "swim",
    "draw"
   ],
+  "answerOptions": [
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   }
+  ],
   "answer": "spoon",
   "correctAnswer": "spoon",
   "distractorRationales": {
@@ -1394,7 +2076,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_spoon",
+    "word": "spoon",
+    "value": "spoon",
+    "label": "spoon",
+    "image": "/images/assessment/long-vowels/spoon.webp",
+    "imagePath": "/images/assessment/long-vowels/spoon.webp",
+    "imageAlt": "spoon"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.nouns.l1.C.noun_thing.v3_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.A.noun_thing.v4",
@@ -3578,6 +4298,28 @@ export const questions = [
    "dig",
    "swim"
   ],
+  "answerOptions": [
+   {
+    "value": "girl",
+    "label": "girl",
+    "text": "girl"
+   },
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   }
+  ],
   "answer": "girl",
   "correctAnswer": "girl",
   "distractorRationales": {
@@ -3604,7 +4346,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.R.noun_person.v7r_card_girl",
+    "word": "girl",
+    "value": "girl",
+    "label": "girl",
+    "image": "/images/child-mode/initial-sounds/girl.png",
+    "imagePath": "/images/child-mode/initial-sounds/girl.png",
+    "imageAlt": "girl"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_person.v7r_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_person.v7r_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_person.v7r_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.R.noun_animal.v7r",
@@ -3635,6 +4415,28 @@ export const questions = [
    "clap",
    "draw"
   ],
+  "answerOptions": [
+   {
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
+   },
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   },
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   }
+  ],
   "answer": "goat",
   "correctAnswer": "goat",
   "distractorRationales": {
@@ -3661,7 +4463,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.nouns.l1.R.noun_animal.v7r_card_goat",
+    "word": "goat",
+    "value": "goat",
+    "label": "goat",
+    "image": "/images/assessment/long-vowels/goat.webp",
+    "imagePath": "/images/assessment/long-vowels/goat.webp",
+    "imageAlt": "goat"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_animal.v7r_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_animal.v7r_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.nouns.l1.R.noun_animal.v7r_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   }
+  ]
  },
  {
   "id": "lp3.nouns.l1.R.noun_place.v7r",

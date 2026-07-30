@@ -63,6 +63,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "cake",
   "v3AuthoredMedia": {
    "target": true,
@@ -147,6 +148,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "gate",
   "v3AuthoredMedia": {
    "target": true,
@@ -231,6 +233,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "snake",
   "v3AuthoredMedia": {
    "target": true,
@@ -315,6 +318,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -393,6 +397,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -471,6 +476,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -549,6 +555,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "kite",
   "v3AuthoredMedia": {
    "target": true,
@@ -633,6 +640,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "five",
   "v3AuthoredMedia": {
    "target": true,
@@ -717,6 +725,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "smile",
   "v3AuthoredMedia": {
    "target": true,
@@ -801,6 +810,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -879,6 +889,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -957,6 +968,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1035,6 +1047,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "bone",
   "v3AuthoredMedia": {
    "target": true,
@@ -1119,6 +1132,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "rope",
   "v3AuthoredMedia": {
    "target": true,
@@ -1203,6 +1217,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "rose",
   "v3AuthoredMedia": {
    "target": true,
@@ -1287,6 +1302,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1365,6 +1381,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1443,6 +1460,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1521,6 +1539,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "cube",
   "v3AuthoredMedia": {
    "target": true,
@@ -1605,6 +1624,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "mule",
   "v3AuthoredMedia": {
    "target": true,
@@ -1689,6 +1709,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "tube",
   "v3AuthoredMedia": {
    "target": true,
@@ -1773,6 +1794,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1851,6 +1873,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -1929,6 +1952,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2007,6 +2031,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": true,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "theme",
   "v3AuthoredMedia": {
    "target": true,
@@ -2091,6 +2116,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": true,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "scene",
   "v3AuthoredMedia": {
    "target": true,
@@ -2175,6 +2201,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": true,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "these",
   "v3AuthoredMedia": {
    "target": true,
@@ -2259,6 +2286,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": true,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "complete",
   "v3AuthoredMedia": {
    "target": true,
@@ -2344,6 +2372,7 @@ export const questions = [
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2423,6 +2452,7 @@ export const questions = [
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2501,6 +2531,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2579,6 +2610,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2657,6 +2689,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "plane",
   "v3AuthoredMedia": {
    "target": true,
@@ -2741,6 +2774,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "grape",
   "v3AuthoredMedia": {
    "target": true,
@@ -2826,6 +2860,7 @@ export const questions = [
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2905,6 +2940,7 @@ export const questions = [
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -2983,6 +3019,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3061,6 +3098,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3139,6 +3177,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "prize",
   "v3AuthoredMedia": {
    "target": true,
@@ -3223,6 +3262,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "slide",
   "v3AuthoredMedia": {
    "target": true,
@@ -3308,6 +3348,7 @@ export const questions = [
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3387,6 +3428,7 @@ export const questions = [
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3465,6 +3507,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3543,6 +3586,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3621,6 +3665,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "cone",
   "v3AuthoredMedia": {
    "target": true,
@@ -3705,6 +3750,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "note",
   "v3AuthoredMedia": {
    "target": true,
@@ -3790,6 +3836,7 @@ export const questions = [
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3869,6 +3916,7 @@ export const questions = [
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -3947,6 +3995,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4025,6 +4074,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4103,6 +4153,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "flute",
   "v3AuthoredMedia": {
    "target": true,
@@ -4187,6 +4238,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
+  "scannerExpected": false,
   "targetWord": "huge",
   "v3AuthoredMedia": {
    "target": true,
@@ -4271,6 +4323,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "targetWord": "lake",
   "v3AuthoredMedia": {
    "target": true,
@@ -4355,6 +4408,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4434,6 +4488,7 @@ export const questions = [
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4512,6 +4567,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4590,6 +4646,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "targetWord": "bike",
   "v3AuthoredMedia": {
    "target": true,
@@ -4674,6 +4731,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4752,6 +4810,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4831,6 +4890,7 @@ export const questions = [
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4909,6 +4969,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -4987,6 +5048,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "targetWord": "home",
   "v3AuthoredMedia": {
    "target": true,
@@ -5072,6 +5134,7 @@ export const questions = [
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5150,6 +5213,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5228,6 +5292,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5306,6 +5371,7 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "targetWord": "cute",
   "v3AuthoredMedia": {
    "target": true,
@@ -5391,6 +5457,7 @@ export const questions = [
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false
@@ -5469,6 +5536,7 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
+  "scannerExpected": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": false

@@ -30,6 +30,28 @@ export const questions = [
    "hat",
    "lamp"
   ],
+  "answerOptions": [
+   {
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
+   },
+   {
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
+   }
+  ],
   "answer": "swim",
   "correctAnswer": "swim",
   "distractorRationales": {
@@ -56,7 +78,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_swim",
+    "word": "swim",
+    "value": "swim",
+    "label": "swim",
+    "image": "/images/assessment/blends/swim.webp",
+    "imagePath": "/images/assessment/blends/swim.webp",
+    "imageAlt": "swim"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/child-mode/initial-sounds/cup.png",
+    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "imageAlt": "cup"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_hat",
+    "word": "hat",
+    "value": "hat",
+    "label": "hat",
+    "image": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
+    "imageAlt": "hat"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_lamp",
+    "word": "lamp",
+    "value": "lamp",
+    "label": "lamp",
+    "image": "/images/assessment/blends/lamp.webp",
+    "imagePath": "/images/assessment/blends/lamp.webp",
+    "imageAlt": "lamp"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v2",
@@ -87,6 +147,28 @@ export const questions = [
    "clock",
    "spoon"
   ],
+  "answerOptions": [
+   {
+    "value": "hop",
+    "label": "hop",
+    "text": "hop"
+   },
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
+   },
+   {
+    "value": "clock",
+    "label": "clock",
+    "text": "clock"
+   },
+   {
+    "value": "spoon",
+    "label": "spoon",
+    "text": "spoon"
+   }
+  ],
   "answer": "hop",
   "correctAnswer": "hop",
   "distractorRationales": {
@@ -113,7 +195,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_hop",
+    "word": "hop",
+    "value": "hop",
+    "label": "hop",
+    "image": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
+    "imageAlt": "hop"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_belt",
+    "word": "belt",
+    "value": "belt",
+    "label": "belt",
+    "image": "/images/assessment/blends/belt.webp",
+    "imagePath": "/images/assessment/blends/belt.webp",
+    "imageAlt": "belt"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_clock",
+    "word": "clock",
+    "value": "clock",
+    "label": "clock",
+    "image": "/images/assessment/digraphs/clock.webp",
+    "imagePath": "/images/assessment/digraphs/clock.webp",
+    "imageAlt": "clock"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_spoon",
+    "word": "spoon",
+    "value": "spoon",
+    "label": "spoon",
+    "image": "/images/assessment/long-vowels/spoon.webp",
+    "imagePath": "/images/assessment/long-vowels/spoon.webp",
+    "imageAlt": "spoon"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v3",
@@ -144,6 +264,28 @@ export const questions = [
    "tent",
    "fork"
   ],
+  "answerOptions": [
+   {
+    "value": "clap",
+    "label": "clap",
+    "text": "clap"
+   },
+   {
+    "value": "drum",
+    "label": "drum",
+    "text": "drum"
+   },
+   {
+    "value": "tent",
+    "label": "tent",
+    "text": "tent"
+   },
+   {
+    "value": "fork",
+    "label": "fork",
+    "text": "fork"
+   }
+  ],
   "answer": "clap",
   "correctAnswer": "clap",
   "distractorRationales": {
@@ -170,7 +312,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the drum is the trap — you PLAY it, but the card names a thing"
+  "notes": "the drum is the trap — you PLAY it, but the card names a thing",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_clap",
+    "word": "clap",
+    "value": "clap",
+    "label": "clap",
+    "image": "/images/assessment/blends/clap.webp",
+    "imagePath": "/images/assessment/blends/clap.webp",
+    "imageAlt": "clap"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_drum",
+    "word": "drum",
+    "value": "drum",
+    "label": "drum",
+    "image": "/images/assessment/blends/drum.webp",
+    "imagePath": "/images/assessment/blends/drum.webp",
+    "imageAlt": "drum"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_tent",
+    "word": "tent",
+    "value": "tent",
+    "label": "tent",
+    "image": "/images/assessment/blends/tent.webp",
+    "imagePath": "/images/assessment/blends/tent.webp",
+    "imageAlt": "tent"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_fork",
+    "word": "fork",
+    "value": "fork",
+    "label": "fork",
+    "image": "/images/child-mode/initial-sounds/fork.png",
+    "imagePath": "/images/child-mode/initial-sounds/fork.png",
+    "imageAlt": "fork"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v4",
@@ -438,6 +618,28 @@ export const questions = [
    "log",
    "mug"
   ],
+  "answerOptions": [
+   {
+    "value": "dig",
+    "label": "dig",
+    "text": "dig"
+   },
+   {
+    "value": "bag",
+    "label": "bag",
+    "text": "bag"
+   },
+   {
+    "value": "log",
+    "label": "log",
+    "text": "log"
+   },
+   {
+    "value": "mug",
+    "label": "mug",
+    "text": "mug"
+   }
+  ],
   "answer": "dig",
   "correctAnswer": "dig",
   "distractorRationales": {
@@ -464,7 +666,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_dig",
+    "word": "dig",
+    "value": "dig",
+    "label": "dig",
+    "image": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
+    "imageAlt": "dig"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_bag",
+    "word": "bag",
+    "value": "bag",
+    "label": "bag",
+    "image": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
+    "imageAlt": "bag"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_log",
+    "word": "log",
+    "value": "log",
+    "label": "log",
+    "image": "/images/child-mode/cvc/log.png",
+    "imagePath": "/images/child-mode/cvc/log.png",
+    "imageAlt": "log"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_mug",
+    "word": "mug",
+    "value": "mug",
+    "label": "mug",
+    "image": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
+    "imageAlt": "mug"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v8",
@@ -574,6 +814,28 @@ export const questions = [
    "bell",
    "boat"
   ],
+  "answerOptions": [
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
+   {
+    "value": "desk",
+    "label": "desk",
+    "text": "desk"
+   },
+   {
+    "value": "bell",
+    "label": "bell",
+    "text": "bell"
+   },
+   {
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
+   }
+  ],
   "answer": "draw",
   "correctAnswer": "draw",
   "distractorRationales": {
@@ -600,7 +862,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_draw",
+    "word": "draw",
+    "value": "draw",
+    "label": "draw",
+    "image": "/images/assessment/blends/draw.webp",
+    "imagePath": "/images/assessment/blends/draw.webp",
+    "imageAlt": "draw"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_desk",
+    "word": "desk",
+    "value": "desk",
+    "label": "desk",
+    "image": "/images/assessment/blends/desk.webp",
+    "imagePath": "/images/assessment/blends/desk.webp",
+    "imageAlt": "desk"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_bell",
+    "word": "bell",
+    "value": "bell",
+    "label": "bell",
+    "image": "/images/child-mode/initial-sounds/bell.png",
+    "imagePath": "/images/child-mode/initial-sounds/bell.png",
+    "imageAlt": "bell"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_boat",
+    "word": "boat",
+    "value": "boat",
+    "label": "boat",
+    "image": "/images/assessment/long-vowels/boat.webp",
+    "imagePath": "/images/assessment/long-vowels/boat.webp",
+    "imageAlt": "boat"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v2",
@@ -631,6 +931,28 @@ export const questions = [
    "shell",
    "coat"
   ],
+  "answerOptions": [
+   {
+    "value": "press",
+    "label": "press",
+    "text": "press"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "shell",
+    "label": "shell",
+    "text": "shell"
+   },
+   {
+    "value": "coat",
+    "label": "coat",
+    "text": "coat"
+   }
+  ],
   "answer": "press",
   "correctAnswer": "press",
   "distractorRationales": {
@@ -657,7 +979,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_press",
+    "word": "press",
+    "value": "press",
+    "label": "press",
+    "image": "/images/assessment/blends/press.webp",
+    "imagePath": "/images/assessment/blends/press.webp",
+    "imageAlt": "press"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/digraphs/brick.webp",
+    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "imageAlt": "brick"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_shell",
+    "word": "shell",
+    "value": "shell",
+    "label": "shell",
+    "image": "/images/assessment/digraphs/shell.webp",
+    "imagePath": "/images/assessment/digraphs/shell.webp",
+    "imageAlt": "shell"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_coat",
+    "word": "coat",
+    "value": "coat",
+    "label": "coat",
+    "image": "/images/child-mode/initial-sounds/coat.png",
+    "imagePath": "/images/child-mode/initial-sounds/coat.png",
+    "imageAlt": "coat"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v3",
@@ -688,6 +1048,28 @@ export const questions = [
    "dish",
    "bread"
   ],
+  "answerOptions": [
+   {
+    "value": "chew",
+    "label": "chew",
+    "text": "chew"
+   },
+   {
+    "value": "meat",
+    "label": "meat",
+    "text": "meat"
+   },
+   {
+    "value": "dish",
+    "label": "dish",
+    "text": "dish"
+   },
+   {
+    "value": "bread",
+    "label": "bread",
+    "text": "bread"
+   }
+  ],
   "answer": "chew",
   "correctAnswer": "chew",
   "distractorRationales": {
@@ -714,7 +1096,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "all three thing-cards are chewable — the action card still wins"
+  "notes": "all three thing-cards are chewable — the action card still wins",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_chew",
+    "word": "chew",
+    "value": "chew",
+    "label": "chew",
+    "image": "/images/assessment/long-vowels/chew.webp",
+    "imagePath": "/images/assessment/long-vowels/chew.webp",
+    "imageAlt": "chew"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_meat",
+    "word": "meat",
+    "value": "meat",
+    "label": "meat",
+    "image": "/images/child-mode/initial-sounds/meat.png",
+    "imagePath": "/images/child-mode/initial-sounds/meat.png",
+    "imageAlt": "meat"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_dish",
+    "word": "dish",
+    "value": "dish",
+    "label": "dish",
+    "image": "/images/assessment/digraphs/dish.webp",
+    "imagePath": "/images/assessment/digraphs/dish.webp",
+    "imageAlt": "dish"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_bread",
+    "word": "bread",
+    "value": "bread",
+    "label": "bread",
+    "image": "/images/assessment/blends/bread.webp",
+    "imagePath": "/images/assessment/blends/bread.webp",
+    "imageAlt": "bread"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v4",
@@ -982,6 +1402,28 @@ export const questions = [
    "pan",
    "jam"
   ],
+  "answerOptions": [
+   {
+    "value": "stir",
+    "label": "stir",
+    "text": "stir"
+   },
+   {
+    "value": "pot",
+    "label": "pot",
+    "text": "pot"
+   },
+   {
+    "value": "pan",
+    "label": "pan",
+    "text": "pan"
+   },
+   {
+    "value": "jam",
+    "label": "jam",
+    "text": "jam"
+   }
+  ],
   "answer": "stir",
   "correctAnswer": "stir",
   "distractorRationales": {
@@ -1008,7 +1450,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_stir",
+    "word": "stir",
+    "value": "stir",
+    "label": "stir",
+    "image": "/images/objects/stir.png",
+    "imagePath": "/images/objects/stir.png",
+    "imageAlt": "stir"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pot",
+    "word": "pot",
+    "value": "pot",
+    "label": "pot",
+    "image": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
+    "imageAlt": "pot"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pan",
+    "word": "pan",
+    "value": "pan",
+    "label": "pan",
+    "image": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
+    "imageAlt": "pan"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_jam",
+    "word": "jam",
+    "value": "jam",
+    "label": "jam",
+    "image": "/images/child-mode/initial-sounds/jam.png",
+    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "imageAlt": "jam"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v8",
@@ -1118,6 +1598,28 @@ export const questions = [
    "cake",
    "corn"
   ],
+  "answerOptions": [
+   {
+    "value": "eat",
+    "label": "eat",
+    "text": "eat"
+   },
+   {
+    "value": "plate",
+    "label": "plate",
+    "text": "plate"
+   },
+   {
+    "value": "cake",
+    "label": "cake",
+    "text": "cake"
+   },
+   {
+    "value": "corn",
+    "label": "corn",
+    "text": "corn"
+   }
+  ],
   "answer": "eat",
   "correctAnswer": "eat",
   "distractorRationales": {
@@ -1144,7 +1646,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_eat",
+    "word": "eat",
+    "value": "eat",
+    "label": "eat",
+    "image": "/images/objects/eat.png",
+    "imagePath": "/images/objects/eat.png",
+    "imageAlt": "eat"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_plate",
+    "word": "plate",
+    "value": "plate",
+    "label": "plate",
+    "image": "/images/objects/plate.png",
+    "imagePath": "/images/objects/plate.png",
+    "imageAlt": "plate"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_cake",
+    "word": "cake",
+    "value": "cake",
+    "label": "cake",
+    "image": "/images/assessment/long-vowels/cake.webp",
+    "imagePath": "/images/assessment/long-vowels/cake.webp",
+    "imageAlt": "cake"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_corn",
+    "word": "corn",
+    "value": "corn",
+    "label": "corn",
+    "image": "/images/child-mode/initial-sounds/corn.png",
+    "imagePath": "/images/child-mode/initial-sounds/corn.png",
+    "imageAlt": "corn"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v2",
@@ -1175,6 +1715,28 @@ export const questions = [
    "lamp",
    "quilt"
   ],
+  "answerOptions": [
+   {
+    "value": "sleep",
+    "label": "sleep",
+    "text": "sleep"
+   },
+   {
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
+   },
+   {
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
+   },
+   {
+    "value": "quilt",
+    "label": "quilt",
+    "text": "quilt"
+   }
+  ],
   "answer": "sleep",
   "correctAnswer": "sleep",
   "distractorRationales": {
@@ -1201,7 +1763,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_sleep",
+    "word": "sleep",
+    "value": "sleep",
+    "label": "sleep",
+    "image": "/images/objects/sleep.png",
+    "imagePath": "/images/objects/sleep.png",
+    "imageAlt": "sleep"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_bed",
+    "word": "bed",
+    "value": "bed",
+    "label": "bed",
+    "image": "/images/child-mode/cvc/bed.png",
+    "imagePath": "/images/child-mode/cvc/bed.png",
+    "imageAlt": "bed"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_lamp",
+    "word": "lamp",
+    "value": "lamp",
+    "label": "lamp",
+    "image": "/images/assessment/blends/lamp.webp",
+    "imagePath": "/images/assessment/blends/lamp.webp",
+    "imageAlt": "lamp"
+   },
+   {
+    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_quilt",
+    "word": "quilt",
+    "value": "quilt",
+    "label": "quilt",
+    "image": "/images/child-mode/initial-sounds/quilt.png",
+    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
+    "imageAlt": "quilt"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v3",
@@ -1232,6 +1832,28 @@ export const questions = [
    "desk",
    "shelf"
   ],
+  "answerOptions": [
+   {
+    "value": "read",
+    "label": "read",
+    "text": "read"
+   },
+   {
+    "value": "book",
+    "label": "book",
+    "text": "book"
+   },
+   {
+    "value": "desk",
+    "label": "desk",
+    "text": "desk"
+   },
+   {
+    "value": "shelf",
+    "label": "shelf",
+    "text": "shelf"
+   }
+  ],
   "answer": "read",
   "correctAnswer": "read",
   "distractorRationales": {
@@ -1258,7 +1880,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_read",
+    "word": "read",
+    "value": "read",
+    "label": "read",
+    "image": "/images/assessment/hfw/read.webp",
+    "imagePath": "/images/assessment/hfw/read.webp",
+    "imageAlt": "read"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_book",
+    "word": "book",
+    "value": "book",
+    "label": "book",
+    "image": "/images/child-mode/cvc/book.png",
+    "imagePath": "/images/child-mode/cvc/book.png",
+    "imageAlt": "book"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_desk",
+    "word": "desk",
+    "value": "desk",
+    "label": "desk",
+    "image": "/images/assessment/blends/desk.webp",
+    "imagePath": "/images/assessment/blends/desk.webp",
+    "imageAlt": "desk"
+   },
+   {
+    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_shelf",
+    "word": "shelf",
+    "value": "shelf",
+    "label": "shelf",
+    "image": "/images/assessment/blends/shelf.webp",
+    "imagePath": "/images/assessment/blends/shelf.webp",
+    "imageAlt": "shelf"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v4",
@@ -1526,6 +2186,28 @@ export const questions = [
    "pin",
    "jug"
   ],
+  "answerOptions": [
+   {
+    "value": "drink",
+    "label": "drink",
+    "text": "drink"
+   },
+   {
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
+   },
+   {
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
+   },
+   {
+    "value": "jug",
+    "label": "jug",
+    "text": "jug"
+   }
+  ],
   "answer": "drink",
   "correctAnswer": "drink",
   "distractorRationales": {
@@ -1552,7 +2234,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "pin ties the in/doing overlap"
+  "notes": "pin ties the in/doing overlap",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_drink",
+    "word": "drink",
+    "value": "drink",
+    "label": "drink",
+    "image": "/images/objects/drink.png",
+    "imagePath": "/images/objects/drink.png",
+    "imageAlt": "drink"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/child-mode/initial-sounds/cup.png",
+    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "imageAlt": "cup"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_pin",
+    "word": "pin",
+    "value": "pin",
+    "label": "pin",
+    "image": "/images/child-mode/initial-sounds/pin.png",
+    "imagePath": "/images/child-mode/initial-sounds/pin.png",
+    "imageAlt": "pin"
+   },
+   {
+    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_jug",
+    "word": "jug",
+    "value": "jug",
+    "label": "jug",
+    "image": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
+    "imageAlt": "jug"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v8",
@@ -3665,6 +4385,28 @@ export const questions = [
    "brick",
    "belt"
   ],
+  "answerOptions": [
+   {
+    "value": "chop",
+    "label": "chop",
+    "text": "chop"
+   },
+   {
+    "value": "cloth",
+    "label": "cloth",
+    "text": "cloth"
+   },
+   {
+    "value": "brick",
+    "label": "brick",
+    "text": "brick"
+   },
+   {
+    "value": "belt",
+    "label": "belt",
+    "text": "belt"
+   }
+  ],
   "answer": "chop",
   "correctAnswer": "chop",
   "distractorRationales": {
@@ -3691,7 +4433,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_chop",
+    "word": "chop",
+    "value": "chop",
+    "label": "chop",
+    "image": "/images/objects/chop.png",
+    "imagePath": "/images/objects/chop.png",
+    "imageAlt": "chop"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_cloth",
+    "word": "cloth",
+    "value": "cloth",
+    "label": "cloth",
+    "image": "/images/assessment/digraphs/cloth.webp",
+    "imagePath": "/images/assessment/digraphs/cloth.webp",
+    "imageAlt": "cloth"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_brick",
+    "word": "brick",
+    "value": "brick",
+    "label": "brick",
+    "image": "/images/assessment/digraphs/brick.webp",
+    "imagePath": "/images/assessment/digraphs/brick.webp",
+    "imageAlt": "brick"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_belt",
+    "word": "belt",
+    "value": "belt",
+    "label": "belt",
+    "image": "/images/assessment/blends/belt.webp",
+    "imagePath": "/images/assessment/blends/belt.webp",
+    "imageAlt": "belt"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v9r",
@@ -4121,6 +4901,28 @@ export const questions = [
    "gate",
    "park"
   ],
+  "answerOptions": [
+   {
+    "value": "walk",
+    "label": "walk",
+    "text": "walk"
+   },
+   {
+    "value": "path",
+    "label": "path",
+    "text": "path"
+   },
+   {
+    "value": "gate",
+    "label": "gate",
+    "text": "gate"
+   },
+   {
+    "value": "park",
+    "label": "park",
+    "text": "park"
+   }
+  ],
   "answer": "walk",
   "correctAnswer": "walk",
   "distractorRationales": {
@@ -4147,7 +4949,45 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imageCards": [
+   {
+    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_walk",
+    "word": "walk",
+    "value": "walk",
+    "label": "walk",
+    "image": "/images/objects/walk.png",
+    "imagePath": "/images/objects/walk.png",
+    "imageAlt": "walk"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_path",
+    "word": "path",
+    "value": "path",
+    "label": "path",
+    "image": "/images/objects/path.png",
+    "imagePath": "/images/objects/path.png",
+    "imageAlt": "path"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_gate",
+    "word": "gate",
+    "value": "gate",
+    "label": "gate",
+    "image": "/images/assessment/long-vowels/gate.webp",
+    "imagePath": "/images/assessment/long-vowels/gate.webp",
+    "imageAlt": "gate"
+   },
+   {
+    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_park",
+    "word": "park",
+    "value": "park",
+    "label": "park",
+    "image": "/images/child-mode/initial-sounds/park.png",
+    "imagePath": "/images/child-mode/initial-sounds/park.png",
+    "imageAlt": "park"
+   }
+  ]
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v10r",

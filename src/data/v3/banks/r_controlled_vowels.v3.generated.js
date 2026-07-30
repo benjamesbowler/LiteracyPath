@@ -1226,14 +1226,14 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "storm",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "active": true,
@@ -1246,7 +1246,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "starm, sterm and stirm are non-words"
+  "notes": "starm, sterm and stirm are non-words",
+  "imagePath": "/images/objects/storm.png",
+  "imageUrl": "/images/objects/storm.png",
+  "targetImage": "/images/objects/storm.png",
+  "targetImagePath": "/images/objects/storm.png",
+  "imageAlt": "storm"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.or.v4",
@@ -1497,10 +1502,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/horn.png",
+  "imageUrl": "/images/objects/horn.png",
+  "targetImage": "/images/objects/horn.png",
+  "targetImagePath": "/images/objects/horn.png",
   "imageAlt": "horn"
  },
  {
@@ -2474,10 +2479,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/spider.png",
+  "imageUrl": "/images/objects/spider.png",
+  "targetImage": "/images/objects/spider.png",
+  "targetImagePath": "/images/objects/spider.png",
   "imageAlt": "spider"
  },
  {
@@ -4273,10 +4278,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/purse.png",
+  "imageUrl": "/images/objects/purse.png",
+  "targetImage": "/images/objects/purse.png",
+  "targetImagePath": "/images/objects/purse.png",
   "imageAlt": "purse"
  },
  {
@@ -4358,10 +4363,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/surf.png",
+  "imageUrl": "/images/objects/surf.png",
+  "targetImage": "/images/objects/surf.png",
+  "targetImagePath": "/images/objects/surf.png",
   "imageAlt": "surf"
  },
  {
@@ -4443,10 +4448,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/turtle.png",
+  "imageUrl": "/images/objects/turtle.png",
+  "targetImage": "/images/objects/turtle.png",
+  "targetImagePath": "/images/objects/turtle.png",
   "imageAlt": "turtle"
  },
  {
@@ -5064,14 +5069,14 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "horn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
   "active": true,
@@ -5084,7 +5089,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "harn, hern and hirn are non-words"
+  "notes": "harn, hern and hirn are non-words",
+  "imagePath": "/images/objects/horn.png",
+  "imageUrl": "/images/objects/horn.png",
+  "targetImage": "/images/objects/horn.png",
+  "targetImagePath": "/images/objects/horn.png",
+  "imageAlt": "horn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v8r",
@@ -5250,10 +5260,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is spoken and pictured, never printed",
-  "imagePath": null,
-  "imageUrl": null,
-  "targetImage": null,
-  "targetImagePath": null,
+  "imagePath": "/images/objects/storm.png",
+  "imageUrl": "/images/objects/storm.png",
+  "targetImage": "/images/objects/storm.png",
+  "targetImagePath": "/images/objects/storm.png",
   "imageAlt": "storm"
  },
  {

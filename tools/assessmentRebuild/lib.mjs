@@ -298,6 +298,13 @@ export function lintBank(items, blueprint, { knownWords = new Set(), approvedDev
     if (item.imagePath && !fs.existsSync(path.join(ROOT, "public", item.imagePath.replace(/^\//, "")))) {
       push("L-MEDIA", item.id, `target image missing: ${item.imagePath}`);
     }
+    // Fail closed: an image-required item with NO resolved image at all is a
+    // defect, not a vacuous pass. (The old lint only checked images that were
+    // present, so a bank expanded without a resolver sailed through with
+    // image-less picture items — caught by the live browser critic.)
+    if (item.mediaTier === "image-required" && !item.imagePath && !(item.imageCards || []).length) {
+      push("L-MEDIA", item.id, "image-required item has no resolved imagePath or imageCards");
+    }
 
     // Option-set + prompt/answer duplicates (open-set formats only)
     const optionSig = optionSetSignature(item);

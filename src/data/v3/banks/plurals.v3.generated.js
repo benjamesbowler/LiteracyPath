@@ -79,7 +79,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "what gifts at to both cats and cat — root tie by construction"
+  "notes": "what gifts at to both cats and cat — root tie by construction",
+  "imagePath": "/images/child-mode/plurals/cats.png",
+  "imageUrl": "/images/child-mode/plurals/cats.png",
+  "targetImage": "/images/child-mode/plurals/cats.png",
+  "targetImagePath": "/images/child-mode/plurals/cats.png",
+  "imageAlt": "cats"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_s.v2",
@@ -159,7 +164,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/dogs.png",
+  "imageUrl": "/images/child-mode/plurals/dogs.png",
+  "targetImage": "/images/child-mode/plurals/dogs.png",
+  "targetImagePath": "/images/child-mode/plurals/dogs.png",
+  "imageAlt": "dogs"
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_s.v3",
@@ -239,7 +249,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "does carries es — safe here because no option ends in es"
+  "notes": "does carries es — safe here because no option ends in es",
+  "imagePath": "/images/child-mode/plurals/books.png",
+  "imageUrl": "/images/child-mode/plurals/books.png",
+  "targetImage": "/images/child-mode/plurals/books.png",
+  "targetImagePath": "/images/child-mode/plurals/books.png",
+  "imageAlt": "books"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_s.v4",
@@ -319,7 +334,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/cups.png",
+  "imageUrl": "/images/child-mode/plurals/cups.png",
+  "targetImage": "/images/child-mode/plurals/cups.png",
+  "targetImagePath": "/images/child-mode/plurals/cups.png",
+  "imageAlt": "cups"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_s.v5",
@@ -723,7 +743,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "fits gifts ts to the distractor cats only — scanner picks a distractor, never the key"
+  "notes": "fits gifts ts to the distractor cats only — scanner picks a distractor, never the key",
+  "imagePath": "/images/child-mode/cvc/cat.png",
+  "imageUrl": "/images/child-mode/cvc/cat.png",
+  "targetImage": "/images/child-mode/cvc/cat.png",
+  "targetImagePath": "/images/child-mode/cvc/cat.png",
+  "imageAlt": "cat"
  },
  {
   "id": "lp3.plurals.l1.B.plural_concept.v2",
@@ -803,7 +828,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/dogs.png",
+  "imageUrl": "/images/child-mode/plurals/dogs.png",
+  "targetImage": "/images/child-mode/plurals/dogs.png",
+  "targetImagePath": "/images/child-mode/plurals/dogs.png",
+  "imageAlt": "dogs"
  },
  {
   "id": "lp3.plurals.l1.C.plural_concept.v3",
@@ -883,7 +913,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "than gifts ha to hats and hat alike"
+  "notes": "than gifts ha to hats and hat alike",
+  "imagePath": "/images/child-mode/plurals/hats.png",
+  "imageUrl": "/images/child-mode/plurals/hats.png",
+  "targetImage": "/images/child-mode/plurals/hats.png",
+  "targetImagePath": "/images/child-mode/plurals/hats.png",
+  "imageAlt": "hats"
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v4",
@@ -963,7 +998,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "just gifts st to stars and star — a tied distractor pair, key untouched"
+  "notes": "just gifts st to stars and star — a tied distractor pair, key untouched",
+  "imagePath": "/images/child-mode/initial-sounds/cup.png",
+  "imageUrl": "/images/child-mode/initial-sounds/cup.png",
+  "targetImage": "/images/child-mode/initial-sounds/cup.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/cup.png",
+  "imageAlt": "cup"
  },
  {
   "id": "lp3.plurals.l1.B.plural_concept.v5",
@@ -1367,7 +1407,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/boxes.png",
+  "imageUrl": "/images/child-mode/plurals/boxes.png",
+  "targetImage": "/images/child-mode/plurals/boxes.png",
+  "targetImagePath": "/images/child-mode/plurals/boxes.png",
+  "imageAlt": "boxes"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_es.v2",
@@ -1447,7 +1492,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/dishes.png",
+  "imageUrl": "/images/child-mode/plurals/dishes.png",
+  "targetImage": "/images/child-mode/plurals/dishes.png",
+  "targetImagePath": "/images/child-mode/plurals/dishes.png",
+  "imageAlt": "dishes"
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_es.v3",
@@ -1527,7 +1577,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/brushes.png",
+  "imageUrl": "/images/child-mode/plurals/brushes.png",
+  "targetImage": "/images/child-mode/plurals/brushes.png",
+  "targetImagePath": "/images/child-mode/plurals/brushes.png",
+  "imageAlt": "brushes"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v4",
@@ -3930,7 +3985,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/cats.png",
+  "imageUrl": "/images/child-mode/plurals/cats.png",
+  "targetImage": "/images/child-mode/plurals/cats.png",
+  "targetImagePath": "/images/child-mode/plurals/cats.png",
+  "imageAlt": "cats"
  },
  {
   "id": "lp3.plurals.l1.R.plural_add_s.v10r",
@@ -4172,7 +4232,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/boxes.png",
+  "imageUrl": "/images/child-mode/plurals/boxes.png",
+  "targetImage": "/images/child-mode/plurals/boxes.png",
+  "targetImagePath": "/images/child-mode/plurals/boxes.png",
+  "imageAlt": "boxes"
  },
  {
   "id": "lp3.plurals.l1.R.plural_concept.v9r",
@@ -4333,7 +4398,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/child-mode/plurals/books.png",
+  "imageUrl": "/images/child-mode/plurals/books.png",
+  "targetImage": "/images/child-mode/plurals/books.png",
+  "targetImagePath": "/images/child-mode/plurals/books.png",
+  "imageAlt": "books"
  },
  {
   "id": "lp3.plurals.l2.R.plural_y_to_ies.v7r",

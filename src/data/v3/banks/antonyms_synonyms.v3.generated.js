@@ -395,7 +395,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "something gifts in to boiling — a distractor tops, never the key"
+  "notes": "something gifts in to boiling — a distractor tops, never the key",
+  "imagePath": "/images/child-mode/initial-sounds/hot.png",
+  "imageUrl": "/images/child-mode/initial-sounds/hot.png",
+  "targetImage": "/images/child-mode/initial-sounds/hot.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/hot.png",
+  "imageAlt": "hot"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_concrete.v6",
@@ -475,7 +480,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/whale.webp",
+  "imageUrl": "/images/assessment/digraphs/whale.webp",
+  "targetImage": "/images/assessment/digraphs/whale.webp",
+  "targetImagePath": "/images/assessment/digraphs/whale.webp",
+  "imageAlt": "whale"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_concrete.v1",
@@ -871,7 +881,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "sea gifts ea to ocean — beach carries ea too and ties"
+  "notes": "sea gifts ea to ocean — beach carries ea too and ties",
+  "imagePath": "/images/child-mode/initial-sounds/sea.png",
+  "imageUrl": "/images/child-mode/initial-sounds/sea.png",
+  "targetImage": "/images/child-mode/initial-sounds/sea.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/sea.png",
+  "imageAlt": "sea"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_concrete.v6",
@@ -951,7 +966,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/rain.webp",
+  "imageUrl": "/images/assessment/long-vowels/rain.webp",
+  "targetImage": "/images/assessment/long-vowels/rain.webp",
+  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
+  "imageAlt": "rain"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v1",
@@ -1031,7 +1051,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "arrow gifts ow to down; opposite gifts op to top — tie"
+  "notes": "arrow gifts ow to down; opposite gifts op to top — tie",
+  "imagePath": "/images/assessment/hfw/up.webp",
+  "imageUrl": "/images/assessment/hfw/up.webp",
+  "targetImage": "/images/assessment/hfw/up.webp",
+  "targetImagePath": "/images/assessment/hfw/up.webp",
+  "imageAlt": "up"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v2",
@@ -1111,7 +1136,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/night.webp",
+  "imageUrl": "/images/assessment/long-vowels/night.webp",
+  "targetImage": "/images/assessment/long-vowels/night.webp",
+  "targetImagePath": "/images/assessment/long-vowels/night.webp",
+  "imageAlt": "night"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.antonym_picture.v3",
@@ -1191,7 +1221,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "shoes gifts sh to fresh and shiny — a tied distractor pair"
+  "notes": "shoes gifts sh to fresh and shiny — a tied distractor pair",
+  "imagePath": "/images/assessment/hfw/new.webp",
+  "imageUrl": "/images/assessment/hfw/new.webp",
+  "targetImage": "/images/assessment/hfw/new.webp",
+  "targetImagePath": "/images/assessment/hfw/new.webp",
+  "imageAlt": "new"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.antonym_picture.v4",
@@ -1271,7 +1306,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/open.webp",
+  "imageUrl": "/images/assessment/hfw/open.webp",
+  "targetImage": "/images/assessment/hfw/open.webp",
+  "targetImagePath": "/images/assessment/hfw/open.webp",
+  "imageAlt": "open"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.antonym_picture.v5",
@@ -1509,7 +1549,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "which gifts hi to shiny — white carries it too and ties"
+  "notes": "which gifts hi to shiny — white carries it too and ties",
+  "imagePath": "/images/child-mode/cvc/sun.png",
+  "imageUrl": "/images/child-mode/cvc/sun.png",
+  "targetImage": "/images/child-mode/cvc/sun.png",
+  "targetImagePath": "/images/child-mode/cvc/sun.png",
+  "imageAlt": "sun"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v2",
@@ -1589,7 +1634,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/digraphs/rock.webp",
+  "imageUrl": "/images/assessment/digraphs/rock.webp",
+  "targetImage": "/images/assessment/digraphs/rock.webp",
+  "targetImagePath": "/images/assessment/digraphs/rock.webp",
+  "imageAlt": "rock"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.C.synonym_picture.v3",
@@ -1669,7 +1719,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "which gifts ch to chilly and hi to white — tie"
+  "notes": "which gifts ch to chilly and hi to white — tie",
+  "imagePath": "/images/assessment/long-vowels/snow.webp",
+  "imageUrl": "/images/assessment/long-vowels/snow.webp",
+  "targetImage": "/images/assessment/long-vowels/snow.webp",
+  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
+  "imageAlt": "snow"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.A.synonym_picture.v4",
@@ -1749,7 +1804,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "ant gifts an to giant; which gifts hi to thin — tied distractors"
+  "notes": "ant gifts an to giant; which gifts hi to thin — tied distractors",
+  "imagePath": "/images/child-mode/initial-sounds/ant.png",
+  "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+  "targetImage": "/images/child-mode/initial-sounds/ant.png",
+  "targetImagePath": "/images/child-mode/initial-sounds/ant.png",
+  "imageAlt": "ant"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.B.synonym_picture.v5",
@@ -3986,7 +4046,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/hfw/old.webp",
+  "imageUrl": "/images/assessment/hfw/old.webp",
+  "targetImage": "/images/assessment/hfw/old.webp",
+  "targetImagePath": "/images/assessment/hfw/old.webp",
+  "imageAlt": "old"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_concrete.v7r",
@@ -4224,7 +4289,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "arrow and down gift ow to low — a distractor tops"
+  "notes": "arrow and down gift ow to low — a distractor tops",
+  "imagePath": "/images/assessment/hfw/down.webp",
+  "imageUrl": "/images/assessment/hfw/down.webp",
+  "targetImage": "/images/assessment/hfw/down.webp",
+  "targetImagePath": "/images/assessment/hfw/down.webp",
+  "imageAlt": "down"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.synonym_picture.v7r",
@@ -4304,7 +4374,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "which gifts hi to shine; is gifts is to rise — tie"
+  "notes": "which gifts hi to shine; is gifts is to rise — tie",
+  "imagePath": "/images/assessment/long-vowels/moon.webp",
+  "imageUrl": "/images/assessment/long-vowels/moon.webp",
+  "targetImage": "/images/assessment/long-vowels/moon.webp",
+  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
+  "imageAlt": "moon"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v7r",

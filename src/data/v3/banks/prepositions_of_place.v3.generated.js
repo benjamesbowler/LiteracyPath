@@ -79,7 +79,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/cat_in_box.png",
+  "imageUrl": "/images/prepositions/cat_in_box.png",
+  "targetImage": "/images/prepositions/cat_in_box.png",
+  "targetImagePath": "/images/prepositions/cat_in_box.png",
+  "imageAlt": "cat in box"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.in.v2",
@@ -159,7 +164,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/goat_inside_barn.png",
+  "imageUrl": "/images/prepositions/goat_inside_barn.png",
+  "targetImage": "/images/prepositions/goat_inside_barn.png",
+  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "imageAlt": "goat inside barn"
  },
  {
   "id": "lp3.prepositions_of_place.l1.C.in.v3",
@@ -397,7 +407,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/ball_on_chair.png",
+  "imageUrl": "/images/prepositions/ball_on_chair.png",
+  "targetImage": "/images/prepositions/ball_on_chair.png",
+  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "imageAlt": "ball on chair"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.on.v2",
@@ -714,7 +729,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/dog_under_table.png",
+  "imageUrl": "/images/prepositions/dog_under_table.png",
+  "targetImage": "/images/prepositions/dog_under_table.png",
+  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "imageAlt": "dog under table"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.under.v2",
@@ -1031,7 +1051,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageUrl": "/images/prepositions/bear_behind_tree.png",
+  "targetImage": "/images/prepositions/bear_behind_tree.png",
+  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageAlt": "bear behind tree"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.behind.v2",
@@ -1348,7 +1373,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
+  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imageAlt": "rabbit beside basket"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.next_to.v2",
@@ -1665,7 +1695,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/cup_between_books.png",
+  "imageUrl": "/images/prepositions/cup_between_books.png",
+  "targetImage": "/images/prepositions/cup_between_books.png",
+  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "imageAlt": "cup between books"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.between.v2",
@@ -1982,7 +2017,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the same scene answers both relations — the tree stands in front of the bear"
+  "notes": "the same scene answers both relations — the tree stands in front of the bear",
+  "imagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageUrl": "/images/prepositions/bear_behind_tree.png",
+  "targetImage": "/images/prepositions/bear_behind_tree.png",
+  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imageAlt": "bear behind tree"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.in_front_of.v2",
@@ -2299,7 +2339,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/prepositions/bird_above_tree.png",
+  "imageUrl": "/images/prepositions/bird_above_tree.png",
+  "targetImage": "/images/prepositions/bird_above_tree.png",
+  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imageAlt": "bird above tree"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.above.v2",
@@ -2616,7 +2661,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the inverse question of the same scene"
+  "notes": "the inverse question of the same scene",
+  "imagePath": "/images/prepositions/bird_above_tree.png",
+  "imageUrl": "/images/prepositions/bird_above_tree.png",
+  "targetImage": "/images/prepositions/bird_above_tree.png",
+  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imageAlt": "bird above tree"
  },
  {
   "id": "lp3.prepositions_of_place.l1.B.below.v2",
@@ -5201,7 +5251,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "the inverse question of the same scene"
+  "notes": "the inverse question of the same scene",
+  "imagePath": "/images/prepositions/ball_on_chair.png",
+  "imageUrl": "/images/prepositions/ball_on_chair.png",
+  "targetImage": "/images/prepositions/ball_on_chair.png",
+  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "imageAlt": "ball on chair"
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.between.v5r",
@@ -5281,7 +5336,12 @@ export const questions = [
    "reviewedBy": [],
    "signedOffBy": null
   },
-  "notes": "one book on each side — next to the cup"
+  "notes": "one book on each side — next to the cup",
+  "imagePath": "/images/prepositions/cup_between_books.png",
+  "imageUrl": "/images/prepositions/cup_between_books.png",
+  "targetImage": "/images/prepositions/cup_between_books.png",
+  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "imageAlt": "cup between books"
  },
  {
   "id": "lp3.prepositions_of_place.l1.R.in.v5r",

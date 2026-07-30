@@ -15,9 +15,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import {
-  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
+  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR, V3_SOURCE,
   expandBank, lintBank, simulate, scannerAnswer, writeGeneratedBank, loadLexicon,
-  norm, guessProbability
+  optionSetSignature, promptAnswerSignature, norm, guessProbability, makeImageResolver
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
@@ -50,7 +50,11 @@ for (const file of authoringFiles) {
 
   try {
     const source = (await import(path.join(AUTHORING_DIR, file))).default;
-    items = expandBank(source, blueprint, source.imageResolver);
+    // Every bank expands with a real resolver: an authoring file may bring its
+    // own, but img/cards items must NEVER silently expand image-less (that hole
+    // shipped image-required items with no imagePath — caught by the live
+    // browser critic, 2026-07-30).
+    items = expandBank(source, blueprint, source.imageResolver || makeImageResolver());
     allBanks.set(skillId, items);
 
     // G1 + G2 + G3 — lints
