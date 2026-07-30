@@ -5,10 +5,13 @@ import test from "node:test";
 
 import {
   getLedaInstructionAudioPath,
+  getLedaProductionAudioPath,
   getLedaWordAudioPath,
   isLedaProductionAudioPath
 } from "../../src/data/ledaProductionAudio.js";
+import { LEDA_PRODUCTION_AUDIO_BY_ROLE } from "../../src/data/generated/ledaProductionAudio.generated.js";
 import { wordAudioPath } from "../../src/components/elQuest/elQuestEngine.js";
+import { storyQuests } from "../../src/data/storyQuests.js";
 import { getTargetWordAudioPath } from "../../src/utils/assessmentAudioRoles.js";
 import { wordSrc } from "../../src/utils/questAudio.js";
 
@@ -62,4 +65,24 @@ test("superseded spoken-audio trees are physically absent", async () => {
   for (const retiredRoot of retiredRoots) {
     await assert.rejects(access(path.join(repositoryRoot, retiredRoot)), retiredRoot);
   }
+});
+
+test("every live story-quest page resolves to its Leda narration", async () => {
+  const pages = storyQuests.flatMap(quest =>
+    (quest.pages || []).map(page => ({
+      id: `${quest.id}:${page.id}`,
+      text: Array.isArray(page.text) ? page.text.join(" ") : page.text || ""
+    }))
+  ).filter(page => page.text);
+
+  assert.equal(pages.length, 313);
+  for (const page of pages) {
+    const audioPath = getLedaProductionAudioPath(page.text, ["story_page"]);
+    assert.match(audioPath, /^\/audio\/production\/en-US\/story_page\//, page.id);
+    await access(path.join(repositoryRoot, "public", audioPath));
+  }
+});
+
+test("approved report read-aloud copy is installed in the Leda bank", () => {
+  assert.equal(Object.keys(LEDA_PRODUCTION_AUDIO_BY_ROLE.report || {}).length, 199);
 });

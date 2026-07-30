@@ -58,7 +58,7 @@ if (!fs.existsSync(manifestPath)) {
 
 const production = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const records = (production.records || []).filter(record => (
-  record.status === "READY"
+  record.result === "packaged"
   && record.audioRole !== "phoneme"
   && record.proposedOutputPath
   && record.mp3Path
