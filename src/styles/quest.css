@@ -1253,49 +1253,10 @@
   width: min(260px, 100%);
   height: 230px;
 }
-.q-creator-book-character > img {
-  width: 100%;
+.q-creator-book-character > .q-book-avatar {
+  width: 230px;
   height: 230px;
-  object-fit: contain;
-  filter: drop-shadow(0 18px 18px rgba(5, 4, 18, .38));
-  animation: qCreatorBookHello 2.6s ease-in-out infinite;
 }
-.q-creator-book-identity[data-dye="moss"] .q-creator-book-character > img { filter: hue-rotate(54deg) saturate(.82) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="slate"] .q-creator-book-character > img { filter: hue-rotate(172deg) saturate(.52) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="plum"] .q-creator-book-character > img { filter: hue-rotate(258deg) saturate(.82) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="sand"] .q-creator-book-character > img { filter: sepia(.38) saturate(.74) brightness(1.06) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="coral"] .q-creator-book-character > img { filter: hue-rotate(326deg) saturate(1.14) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="teal"] .q-creator-book-character > img { filter: hue-rotate(148deg) saturate(.96) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="ember"] .q-creator-book-character > img { filter: hue-rotate(340deg) saturate(1.2) brightness(.9) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="fern"] .q-creator-book-character > img { filter: hue-rotate(72deg) saturate(.72) brightness(.92) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="dusk"] .q-creator-book-character > img { filter: hue-rotate(214deg) saturate(.8) brightness(.85) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="bone"] .q-creator-book-character > img { filter: grayscale(.72) sepia(.18) brightness(1.12) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-dye="midnight"] .q-creator-book-character > img { filter: hue-rotate(205deg) saturate(.72) brightness(.62) drop-shadow(0 18px 18px rgba(5, 4, 18, .38)); }
-.q-creator-book-identity[data-mood="thinking"] .q-creator-book-character { transform: rotate(-4deg) translateY(4px); }
-.q-creator-book-identity[data-mood="excited"] .q-creator-book-character { animation: qCreatorExcited 1.1s ease-in-out infinite; }
-.q-creator-book-identity[data-mood="brave"] .q-creator-book-character { transform: scale(1.06); }
-.q-creator-book-identity.is-pose-walk .q-creator-book-character { animation: qCreatorWalk 1.15s ease-in-out infinite; }
-.q-creator-book-identity.is-pose-cheer .q-creator-book-character { animation: qCreatorCheer .9s ease-in-out infinite; }
-.q-creator-book-identity.is-pose-think .q-creator-book-character { transform: rotate(-4deg) translateY(4px); }
-.q-creator-gear-badge {
-  position: absolute;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  aspect-ratio: 1;
-  border: 2px solid rgba(255, 240, 177, .82);
-  border-radius: 50%;
-  background: rgba(38, 31, 73, .88);
-  box-shadow: 0 8px 18px rgba(5, 4, 18, .34);
-  font-size: 26px;
-  font-style: normal;
-}
-.q-creator-gear-badge.is-0 { top: 4px; right: 18px; }
-.q-creator-gear-badge.is-1 { top: 56px; left: 8px; }
-.q-creator-gear-badge.is-2 { right: 2px; bottom: 40px; }
-.q-creator-gear-badge.is-3 { left: 14px; bottom: 14px; }
-.q-creator-gear-badge > img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 .q-creator-book-identity span {
   margin-top: -3px;
   color: #ffe084;
@@ -1322,29 +1283,49 @@
   line-height: 1;
   transform-origin: 50% 100%;
 }
-.q-book-avatar > img {
+.q-book-avatar-character {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 8px 7px rgba(15, 21, 19, .32));
 }
-.q-book-avatar[data-dye="moss"] > img { filter: hue-rotate(54deg) saturate(.82) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="slate"] > img { filter: hue-rotate(172deg) saturate(.52) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="plum"] > img { filter: hue-rotate(258deg) saturate(.82) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="sand"] > img { filter: sepia(.38) saturate(.74) brightness(1.06) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="coral"] > img { filter: hue-rotate(326deg) saturate(1.14) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="teal"] > img { filter: hue-rotate(148deg) saturate(.96) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="ember"] > img { filter: hue-rotate(340deg) saturate(1.2) brightness(.9) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="fern"] > img { filter: hue-rotate(72deg) saturate(.72) brightness(.92) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="dusk"] > img { filter: hue-rotate(214deg) saturate(.8) brightness(.85) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="bone"] > img { filter: grayscale(.72) sepia(.18) brightness(1.12) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-dye="midnight"] > img { filter: hue-rotate(205deg) saturate(.72) brightness(.62) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
-.q-book-avatar[data-mood="thinking"],
-.q-book-avatar.is-pose-think { transform: rotate(-4deg) translateY(2px); }
-.q-book-avatar[data-mood="brave"] { transform: scale(1.04); }
-.q-book-avatar[data-mood="excited"],
-.q-book-avatar.is-pose-cheer { animation: qCreatorCheer .9s ease-in-out infinite; }
-.q-book-avatar.is-pose-walk { animation: qCreatorWalk 1.15s ease-in-out infinite; }
+.q-book-avatar-wearable {
+  position: absolute;
+  z-index: 3;
+  object-fit: contain;
+  pointer-events: none;
+}
+.q-book-avatar-wearable.is-moth-wings {
+  z-index: 0;
+  top: 16%;
+  left: 50%;
+  width: 112%;
+  height: 72%;
+  transform: translateX(-50%);
+}
+.q-book-avatar-wearable.is-leaf-cap,
+.q-book-avatar-wearable.is-acorn-hat {
+  top: 0;
+  left: 50%;
+  width: 54%;
+  height: 32%;
+  transform: translateX(-50%);
+}
+.q-book-avatar-wearable.is-vine-scarf {
+  top: 44%;
+  left: 50%;
+  width: 48%;
+  height: 25%;
+  transform: translateX(-50%);
+}
+.q-book-avatar-wearable.is-stone-staff {
+  top: 14%;
+  right: -2%;
+  width: 27%;
+  height: 82%;
+}
 .q-book-avatar-label {
   position: absolute;
   top: 100%;
@@ -1355,12 +1336,6 @@
 .q-book-avatar-label strong,
 .q-book-avatar-label small { display: block; }
 .q-creator-adventure-look svg { filter: drop-shadow(0 18px 18px rgba(5, 4, 18, .36)); }
-@keyframes qCreatorBookHello {
-  50% { transform: translateY(-7px) rotate(-1.5deg); }
-}
-@keyframes qCreatorExcited { 50% { transform: translateY(-11px) scale(1.045) rotate(2deg); } }
-@keyframes qCreatorWalk { 50% { transform: translateX(9px) rotate(2deg); } }
-@keyframes qCreatorCheer { 50% { transform: translateY(-13px) scale(1.05); } }
 
 .q-tabs { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 6px; }
 
@@ -1433,7 +1408,10 @@
     min-height: 220px;
   }
   .q-creator-book-character,
-  .q-creator-book-character > img { height: 185px; }
+  .q-creator-book-character > .q-book-avatar {
+    width: 185px;
+    height: 185px;
+  }
   .q-creator .q-reel--body {
     gap: 8px;
     padding-inline: 0;
@@ -1450,7 +1428,6 @@
   .q-option.is-featured .q-option-label { font-size: 12px; }
 }
 
-.q-root[data-reduced-motion="true"] .q-creator-book-character > img,
 .q-root[data-reduced-motion="true"] .q-creator-book-character { animation: none; }
 
 .q-option.is-on { border-color: #ffd166; background: rgba(255, 209, 102, .18); }
@@ -3913,40 +3890,16 @@
   background: rgba(38, 47, 40, .28);
   filter: blur(6px);
 }
-.q2d-creature > img, .q2d-creature > svg { width: 100% !important; height: 100% !important; object-fit: contain; }
-.q2d-creature[data-dye="moss"] > img { filter: hue-rotate(54deg) saturate(.82); }
-.q2d-creature[data-dye="slate"] > img { filter: hue-rotate(172deg) saturate(.52); }
-.q2d-creature[data-dye="plum"] > img { filter: hue-rotate(258deg) saturate(.82); }
-.q2d-creature[data-dye="sand"] > img { filter: sepia(.38) saturate(.74) brightness(1.06); }
-.q2d-creature[data-dye="coral"] > img { filter: hue-rotate(326deg) saturate(1.14); }
-.q2d-creature[data-dye="teal"] > img { filter: hue-rotate(148deg) saturate(.96); }
-.q2d-creature[data-dye="ember"] > img { filter: hue-rotate(340deg) saturate(1.2) brightness(.9); }
-.q2d-creature[data-dye="fern"] > img { filter: hue-rotate(72deg) saturate(.72) brightness(.92); }
-.q2d-creature[data-dye="dusk"] > img { filter: hue-rotate(214deg) saturate(.8) brightness(.85); }
-.q2d-creature[data-dye="bone"] > img { filter: grayscale(.72) sepia(.18) brightness(1.12); }
-.q2d-creature[data-dye="midnight"] > img { filter: hue-rotate(205deg) saturate(.72) brightness(.62); }
+.q2d-creature > img,
+.q2d-creature > svg,
+.q2d-creature > .q-book-avatar {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
 .q2d-creature.is-pose-walk { animation: q2dHeroWalk 1.2s ease-in-out infinite; }
 .q2d-creature.is-pose-cheer { animation: q2dHeroCheer .72s cubic-bezier(.25,.9,.35,1) infinite alternate; }
 .q2d-creature.is-pose-think { animation: q2dHeroThink 2.5s ease-in-out infinite; }
-.q2d-gear-badge {
-  position: absolute;
-  z-index: 5;
-  display: grid;
-  place-items: center;
-  width: 34px;
-  aspect-ratio: 1;
-  border: 2px solid rgba(255, 242, 185, .92);
-  border-radius: 50%;
-  background: rgba(38, 49, 42, .9);
-  box-shadow: 0 6px 14px rgba(21, 32, 27, .32);
-  font-size: 20px;
-  font-style: normal;
-}
-.q2d-gear-badge.is-0 { top: 5%; right: 4%; }
-.q2d-gear-badge.is-1 { top: 33%; left: 0; }
-.q2d-gear-badge.is-2 { right: -2%; bottom: 18%; }
-.q2d-gear-badge.is-3 { left: 5%; bottom: 4%; }
-.q2d-gear-badge > img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 .q2d-creature[data-phase="gate"] { animation: q2dHeroCheer .62s cubic-bezier(.25,.9,.35,1) infinite alternate; }
 @keyframes q2dHeroIdle { 50% { transform: translateX(-50%) translateY(-7px) rotate(-1deg); } }
 @keyframes q2dHeroCheer { to { transform: translateX(-50%) translateY(-18px) rotate(3deg) scale(1.04); } }

@@ -64,6 +64,23 @@ test("distractors prefer the sounds the child is WEAK at", () => {
   assert.deepEqual(picked, ["m"], "the sound they keep getting wrong should come back");
 });
 
+test("a new question prefers a wholly refreshed distractor set", () => {
+  const known = new Set(["a", "m", "t", "s", "n", "i"]);
+  const previous = ["a", "m", "t"];
+  const picked = pickDistractors("s", {
+    known,
+    mastery: {},
+    count: 2,
+    rng: rng(),
+    avoidChoices: previous
+  });
+  assert.equal(picked.length, 2);
+  assert.ok(
+    picked.every(choice => !previous.includes(choice)),
+    `expected new distractors, received ${JSON.stringify(picked)}`
+  );
+});
+
 // ── FAIRNESS RULE 2: no same-sound choices ──────────────────────────────────
 
 test("two graphemes that make the SAME sound never appear together", () => {

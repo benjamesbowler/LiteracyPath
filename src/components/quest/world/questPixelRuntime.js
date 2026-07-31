@@ -6,8 +6,9 @@ import {
   PIXEL_BEASTIE_FRAMES_PER_DIRECTION
 } from "./questPixelAvatar.js";
 import {
-  bookCharacterForCreature,
-  bookCharacterTint
+  bookCharacterAsset,
+  bookCharacterTint,
+  bookCharacterWearables
 } from "../bookCharacterAvatar.js";
 import {
   questAnalogVector,
@@ -1162,6 +1163,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.reactiveFoliage = [];
     this.navigationObstacles = [];
     this.completionObjects = new Map();
+    this.playerWearables = [];
     this.carriedObject = null;
     this.carriedObjectMode = null;
     this.pointerTarget = null;
@@ -1201,9 +1203,12 @@ class QuestPixelScene extends Phaser.Scene {
     if (bookWorldBackground) {
       this.load.image("book-world-background", bookWorldBackground);
     }
-    const bookCharacter = bookCharacterForCreature(this.model.creature);
-    if (bookCharacter?.asset) {
-      this.load.image("book-player-avatar", bookCharacter.asset);
+    const bookCharacterImage = bookCharacterAsset(this.model.creature);
+    if (bookCharacterImage) {
+      this.load.image("book-player-avatar", bookCharacterImage);
+    }
+    for (const wearable of bookCharacterWearables(this.model.creature)) {
+      this.load.image(`book-wearable-${wearable.id}`, wearable.asset);
     }
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
@@ -4248,6 +4253,13 @@ class QuestPixelScene extends Phaser.Scene {
       .setDepth(start.y + 2);
     const avatarTint = bookCharacterTint(this.model.creature);
     if (avatarTint) this.player.setTint(avatarTint);
+    this.playerWearables = bookCharacterWearables(this.model.creature)
+      .filter(item => this.textures.exists(`book-wearable-${item.id}`))
+      .map(item => ({
+        ...item,
+        sprite: this.add.image(start.x, start.y, `book-wearable-${item.id}`)
+          .setOrigin(0.5)
+      }));
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
     const cameraStart = this.model.activeStage && activeResident
@@ -4410,7 +4422,10 @@ class QuestPixelScene extends Phaser.Scene {
       }
     }
     for (const [id, drop] of this.dropObjects) drop.setVisible(!collected.has(id));
-    this.syncCompletions(model.completionMarks || []);
+    // Answer tiles are controls, not scenery. Earlier builds left a small
+    // "completed" tile behind after each right answer; those squares looked
+    // like live choices and cluttered the route. Clear legacy save marks too.
+    this.syncCompletions([]);
 
     const gateOpen = model.ceremony || model.phase === "gate" || solved.size >= this.model.section.encounters.length;
     this.gateBarrier.setVisible(!gateOpen);
@@ -4426,7 +4441,15 @@ class QuestPixelScene extends Phaser.Scene {
 
     const stage = model.activeStage;
     const signature = stage
-      ? `${model.activeEncounterId}:${stage.id}:${(stage.items || []).map(item => `${item.id}:${item.shape}`).join("|")}`
+      ? `${model.activeEncounterId}:${stage.id}:${(stage.items || []).map(item => [
+        item.id,
+        item.shape,
+        item.value,
+        item.label,
+        item.correct ? "correct" : "wrong",
+        Number(item.x).toFixed(3),
+        Number(item.z).toFixed(3)
+      ].join(":")).join("|")}`
       : "none";
     if (signature !== this.lastModelSignature) {
       this.lastModelSignature = signature;
@@ -4986,6 +5009,7 @@ class QuestPixelScene extends Phaser.Scene {
     }
     this.updateMovement(delta);
     this.player.setDepth(this.player.y + 3);
+    this.updatePlayerWearables();
     this.playerShadow.setPosition(this.player.x, this.player.y + 5).setDepth(this.player.y - 1);
     if (this.carriedObject) {
       if (this.carriedObjectMode === "steer") {
@@ -5004,6 +5028,30 @@ class QuestPixelScene extends Phaser.Scene {
     this.updateChoices(time);
     this.updateDrops();
     this.updateGate();
+  }
+
+  updatePlayerWearables() {
+    if (!this.playerWearables?.length || !this.player) return;
+    const width = this.player.displayWidth;
+    const height = this.player.displayHeight;
+    const top = this.player.y - (height * 0.78);
+    for (const wearable of this.playerWearables) {
+      const sprite = wearable.sprite;
+      if (!sprite?.active) continue;
+      if (wearable.slot === "back") {
+        sprite.setDisplaySize(width * 1.12, height * 0.72);
+        sprite.setPosition(this.player.x, top + (height * 0.52)).setDepth(this.player.y + 2);
+      } else if (wearable.slot === "head") {
+        sprite.setDisplaySize(width * 0.54, height * 0.32);
+        sprite.setPosition(this.player.x, top + (height * 0.16)).setDepth(this.player.y + 4);
+      } else if (wearable.slot === "neck") {
+        sprite.setDisplaySize(width * 0.48, height * 0.25);
+        sprite.setPosition(this.player.x, top + (height * 0.58)).setDepth(this.player.y + 4);
+      } else {
+        sprite.setDisplaySize(width * 0.27, height * 0.82);
+        sprite.setPosition(this.player.x + (width * 0.42), top + (height * 0.55)).setDepth(this.player.y + 4);
+      }
+    }
   }
 
   updateCameraFocus(delta = 16.7) {

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "../CreatureFigure.jsx";
+import BookCharacterAvatar from "../BookCharacterAvatar.jsx";
 import { buildTrailSection } from "../../../utils/questHub.js";
 import {
   buildPhysicalTask,
@@ -14,7 +15,7 @@ import {
 } from "../../../utils/questPhysicalPlan.js";
 import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../../data/questSequence.js";
-import { BOOK_CHARACTER_PRESETS } from "../../../data/creatureParts.js";
+import { bookCharacterAsset } from "../bookCharacterAvatar.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { displayGrapheme, sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
@@ -61,19 +62,6 @@ const TWO_D_WORLD_ART = Object.freeze({
     backdrop: "/images/pals/moonwood-panorama.webp",
     tile: "/game-assets/quest-pixel/fallback/moonwood-ground.png"
   })
-});
-
-const TWO_D_BOOK_AVATARS = Object.freeze({
-  tuft: "/game-assets/sound-seekers/avatars-v3/muddy.webp",
-  pebble: "/game-assets/sound-seekers/avatars-v3/chompy.webp",
-  moth: "/game-assets/sound-seekers/avatars-v3/pip.webp"
-});
-const TWO_D_GEAR_BADGES = Object.freeze({
-  "leaf-cap": "/images/hollow/gear-leaf-cloak.webp",
-  "acorn-hat": "/images/hollow/gear-acorn-shield.webp",
-  "moth-wings": "/images/hollow/gear-moth-wings.webp",
-  "vine-scarf": "/images/hollow/gear-starweave-scarf.webp",
-  "stone-staff": "/images/hollow/gear-willow-wand.webp"
 });
 
 const TWO_D_DISCOVERY_SHAPES = Object.freeze({
@@ -219,13 +207,9 @@ export default function QuestTrail2D({
     : physicalStagePrompt(stage, false);
   const visibleChoiceSignature = visibleChoices.map(choice => choice.id).join("|");
   const worldArt = TWO_D_WORLD_ART[section?.world] || TWO_D_WORLD_ART.meadow;
-  const bookAvatar = TWO_D_BOOK_AVATARS[state.creature?.body] || null;
-  const originalBookDye = BOOK_CHARACTER_PRESETS[state.creature?.body]?.dye;
-  const bookAvatarDye = state.creature?.dye === originalBookDye ? "original" : state.creature?.dye;
-  const bookAvatarGear = Object.values(state.creature?.equipped || {})
-    .filter(Boolean)
-    .map(id => ({ id, badge: TWO_D_GEAR_BADGES[id] }))
-    .filter(item => item.badge);
+  const bookAvatar = bookCharacterAsset(state.creature, {
+    pose: phase === "gate" ? "cheer" : undefined
+  });
   const residentKey = questPixelResidentKey(
     section?.chapter?.id,
     encounter?.friend,
@@ -668,18 +652,15 @@ export default function QuestTrail2D({
         <div
           className={`q2d-creature is-pose-${phase === "gate" ? "cheer" : (state.creature?.pose || "idle")}`}
           data-phase={phase}
-          data-dye={bookAvatarDye}
           aria-hidden="true"
         >
           {bookAvatar ? (
-            <>
-              <img src={bookAvatar} alt="" />
-              {bookAvatarGear.map((item, index) => (
-                <i key={item.id} className={`q2d-gear-badge is-${index}`}>
-                  <img src={item.badge} alt="" />
-                </i>
-              ))}
-            </>
+            <BookCharacterAvatar
+              creature={state.creature}
+              size={180}
+              pose={phase === "gate" ? "cheer" : undefined}
+              decorative
+            />
           ) : (
             <CreatureFigure creature={state.creature} size={150} mood={phase === "gate" ? "cheer" : "idle"} />
           )}

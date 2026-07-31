@@ -54,6 +54,56 @@ export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 
 // ── Books ───────────────────────────────────────────────────────────────────
 
+// A level answers "how hard is this book?". A collection answers "what kind of
+// book or which friends do I want?". Keep those two decisions separate: a
+// child can browse Meadow Pals at Level A without losing the Level A filter.
+export const BOOK_COLLECTIONS = Object.freeze([
+  Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
+  Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),
+  Object.freeze({ id: "james-and-anna", label: "James & Anna" }),
+  Object.freeze({ id: "dino-pals", label: "Dino Pals" }),
+  Object.freeze({ id: "aiden-and-betty", label: "Aiden & Betty" }),
+  Object.freeze({ id: "moonwood-tales", label: "Moonwood Tales" }),
+  Object.freeze({ id: "science-and-facts", label: "Science & Facts" }),
+  Object.freeze({ id: "other-stories", label: "Other Stories" })
+]);
+
+export function bookCollectionId(book = {}) {
+  const id = String(book?.id || "").toLowerCase();
+  const title = String(book?.title || "").toLowerCase();
+  if (id.startsWith("bob-and-nan-") || /\b(?:bob and nan|nan and bob)\b/.test(title)) {
+    return "bob-and-nan";
+  }
+  if (id.startsWith("meadow-pals-")) return "meadow-pals";
+  if (
+    id.startsWith("james-and-anna-")
+    || id.startsWith("ja-b-")
+    || /\bjames and anna\b/.test(title)
+  ) {
+    return "james-and-anna";
+  }
+  if (id.startsWith("dino-pals-")) return "dino-pals";
+  if (id.startsWith("ab-c-") || /\baiden and betty\b/.test(title)) return "aiden-and-betty";
+  if (id.startsWith("moonwood-tales-")) return "moonwood-tales";
+  if (
+    id.startsWith("first-facts-")
+    || id.startsWith("level-c-nonfiction-")
+    || /^gr-[a-z]-\d+/.test(id)
+  ) {
+    return "science-and-facts";
+  }
+  return "other-stories";
+}
+
+export function bookCollectionsForLevel(books = [], level = "A") {
+  const present = new Set(
+    books
+      .filter(book => book?.level === level)
+      .map(bookCollectionId)
+  );
+  return BOOK_COLLECTIONS.filter(collection => present.has(collection.id));
+}
+
 /**
  * The book's own cover.
  *

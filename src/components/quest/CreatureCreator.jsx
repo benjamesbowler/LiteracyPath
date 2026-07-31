@@ -10,9 +10,9 @@
 
 import { useState } from "react";
 import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
+import { bookCharacterForCreature } from "./bookCharacterAvatar.js";
 import {
   CREATURE_BODIES,
-  CREATURE_DYES,
   CREATURE_SLOTS,
   BOOK_CHARACTER_PRESETS,
   piecesForSlot
@@ -35,19 +35,37 @@ const POSES = Object.freeze([
   { id: "think", label: "Thinking" }
 ]);
 const FLAGSHIP_BOOK_CHARACTER_IDS = Object.freeze(["tuft", "pebble", "moth"]);
-const FLAGSHIP_BOOK_DYES = new Set(FLAGSHIP_BOOK_CHARACTER_IDS.map(id => BOOK_CHARACTER_PRESETS[id]?.dye).filter(Boolean));
-const BOOK_CHARACTER_CUTOUTS = Object.freeze({
-  tuft: "/game-assets/sound-seekers/avatars-v3/muddy.webp",
-  pebble: "/game-assets/sound-seekers/avatars-v3/chompy.webp",
-  moth: "/game-assets/sound-seekers/avatars-v3/pip.webp"
+const CHARACTER_LOOKS = Object.freeze({
+  tuft: Object.freeze([
+    { id: "coral", label: "Story pink", variant: "original" },
+    { id: "sand", label: "Honey gold", variant: "honey" },
+    { id: "plum", label: "Moon lavender", variant: "moon" },
+    { id: "clay", label: "Woodland brown", variant: "woodland" }
+  ]),
+  pebble: Object.freeze([
+    { id: "ember", label: "Story orange", variant: "original" },
+    { id: "moss", label: "Leaf green", variant: "honey" },
+    { id: "slate", label: "Moon blue", variant: "moon" },
+    { id: "coral", label: "Berry red", variant: "woodland" }
+  ]),
+  moth: Object.freeze([
+    { id: "fern", label: "Story green", variant: "original" },
+    { id: "sand", label: "Honey gold", variant: "honey" },
+    { id: "plum", label: "Moon violet", variant: "moon" },
+    { id: "teal", label: "Woodland teal", variant: "woodland" }
+  ])
 });
-const GEAR_BADGES = Object.freeze({
-  "leaf-cap": "/images/hollow/gear-leaf-cloak.webp",
-  "acorn-hat": "/images/hollow/gear-acorn-shield.webp",
-  "moth-wings": "/images/hollow/gear-moth-wings.webp",
-  "vine-scarf": "/images/hollow/gear-starweave-scarf.webp",
-  "stone-staff": "/images/hollow/gear-willow-wand.webp"
+const OUTFIT_LABELS = Object.freeze({
+  "leaf-cap": "Leaf cap",
+  "acorn-hat": "Acorn cap",
+  "moth-wings": "Moth wings",
+  "vine-scarf": "Vine scarf",
+  "stone-staff": "Willow wand"
 });
+const OUTFIT_OPTIONS = Object.freeze(OUTFIT_TABS.flatMap(slot => (
+  piecesForSlot(slot.id).map(piece => ({ ...piece, displayLabel: OUTFIT_LABELS[piece.id] || piece.label }))
+)));
+const EMPTY_OUTFIT = Object.freeze({ head: null, back: null, neck: null, held: null });
 
 export default function CreatureCreator({
   creature,
@@ -62,17 +80,25 @@ export default function CreatureCreator({
   const [hatching, setHatching] = useState(false);
   const own = owned || new Set();
 
-  const set = (key, value) => {
-    if (isSoundEnabled) playPopSound();
-    onChange?.({ ...creature, [key]: value });
-  };
   const setMany = values => {
     if (isSoundEnabled) playPopSound();
     onChange?.({ ...creature, ...values });
   };
-  const setOutfit = (slot, value) => {
+  const setOutfit = piece => {
     if (isSoundEnabled) playPopSound();
-    onChange?.({ ...creature, equipped: { ...(creature.equipped || {}), [slot]: value } });
+    if (!piece) {
+      onChange?.({ ...creature, equipped: { ...EMPTY_OUTFIT } });
+      return;
+    }
+    const selected = creature.equipped?.[piece.slot] === piece.id;
+    onChange?.({
+      ...creature,
+      equipped: {
+        ...EMPTY_OUTFIT,
+        ...(creature.equipped || {}),
+        [piece.slot]: selected ? null : piece.id
+      }
+    });
   };
 
   const hatch = () => {
@@ -86,48 +112,31 @@ export default function CreatureCreator({
     { id: "colour", label: "Colours" },
     { id: "expression", label: "Moods" },
     { id: "pose", label: "Poses" },
-    ...OUTFIT_TABS.map(s => ({ id: s.id, label: s.label === "Held" ? "Accessories" : s.label }))
+    { id: "outfit", label: "Outfits" }
   ];
   const activeTabIndex = Math.max(0, tabs.findIndex(item => item.id === tab));
-  const selectedBody = CREATURE_BODIES.find(body => body.id === creature.body);
-  const selectedBookCutout = BOOK_CHARACTER_CUTOUTS[creature.body] || null;
-  const originalDye = BOOK_CHARACTER_PRESETS[creature.body]?.dye;
-  const selectedExpression = EXPRESSIONS.find(expression => (
-    creature.eyes === expression.eyes && creature.mouth === expression.mouth
-  ))?.id || "happy";
-  const equippedBadges = Object.values(creature.equipped || {})
-    .filter(Boolean)
-    .map(id => ({ id, badge: GEAR_BADGES[id] }))
-    .filter(item => item.badge);
+  const selectedCharacter = bookCharacterForCreature(creature);
+  const characterLooks = CHARACTER_LOOKS[creature.body] || CHARACTER_LOOKS.tuft;
+  const equippedIds = Object.values(creature.equipped || {}).filter(Boolean);
 
   return (
     <div className="q-screen q-creator">
       <h1 className="q-title" data-child-title="">{hatched ? "Change your book character" : "Choose your book character"}</h1>
       <p className="q-creator-instruction" data-child-instruction="">
-        Pick a book friend. Change their colour, mood, pose and trail gear.
+        Pick a book friend, then choose a real illustrated colour, mood, pose or outfit.
       </p>
       <p className="q-creator-step" data-child-progress="">
         Part {activeTabIndex + 1} of {tabs.length}: {tabs[activeTabIndex].label}
       </p>
 
       <div className="q-creator-stage">
-        {selectedBookCutout && (
-          <div
-            className={`q-creator-book-identity is-pose-${creature.pose || "idle"}`}
-            data-dye={creature.dye === originalDye ? "original" : creature.dye}
-            data-mood={selectedExpression}
-            aria-label={`${selectedBody?.label || "Book character"}, from ${selectedBody?.series || "our books"}`}
-          >
+        {selectedCharacter && (
+          <div className="q-creator-book-identity">
             <div className="q-creator-book-character">
-              <img src={selectedBookCutout} alt="" />
-              {equippedBadges.map((item, index) => (
-                <i key={item.id} className={`q-creator-gear-badge is-${index}`} aria-hidden="true">
-                  <img src={item.badge} alt="" />
-                </i>
-              ))}
+              <BookCharacterAvatar creature={creature} size={230} decorative />
             </div>
-            <span>{selectedBody?.label}</span>
-            <small>{selectedBody?.series}</small>
+            <span>{selectedCharacter.name}</span>
+            <small>{selectedCharacter.series}</small>
           </div>
         )}
       </div>
@@ -172,29 +181,48 @@ export default function CreatureCreator({
             selected={creature.body === body.id}
             onPick={() => setMany({
               ...BOOK_CHARACTER_PRESETS[body.id],
-              equipped: creature.equipped,
-              pose: creature.pose || "idle"
+              equipped: { ...EMPTY_OUTFIT, ...(creature.equipped || {}) },
+              pose: "idle",
+              visualVariant: "pose-ready"
             })}
           >
             <BookCharacterAvatar
-              creature={{ ...creature, ...BOOK_CHARACTER_PRESETS[body.id] }}
+              creature={{
+                ...creature,
+                ...BOOK_CHARACTER_PRESETS[body.id],
+                equipped: creature.equipped,
+                pose: "idle",
+                visualVariant: "pose-ready"
+              }}
               size={78}
               decorative
             />
           </Option>
         ))}
 
-        {tab === "colour" && CREATURE_DYES.map(dye => (
+        {tab === "colour" && characterLooks.map(look => (
           <Option
-            key={dye.id}
-            label={dye.label}
-            cost={dye.cost}
-            balance={sparkBalance}
-            locked={!FLAGSHIP_BOOK_DYES.has(dye.id) && !own.has(dye.id) && dye.cost > 0}
-            selected={creature.dye === dye.id}
-            onPick={() => set("dye", dye.id)}
+            key={look.id}
+            label={look.label}
+            selected={creature.dye === look.id}
+            onPick={() => setMany({
+              dye: look.id,
+              pose: "idle",
+              visualVariant: `look-${look.variant}`
+            })}
           >
-            <span className="q-swatch" style={{ background: dye.skin, borderColor: dye.skinDark }} />
+            <BookCharacterAvatar
+              creature={{
+                ...creature,
+                ...BOOK_CHARACTER_PRESETS[creature.body],
+                dye: look.id,
+                pose: "idle",
+                equipped: creature.equipped,
+                visualVariant: `look-${look.variant}`
+              }}
+              size={66}
+              decorative
+            />
           </Option>
         ))}
 
@@ -203,10 +231,23 @@ export default function CreatureCreator({
             key={expression.id}
             label={expression.label}
             selected={creature.eyes === expression.eyes && creature.mouth === expression.mouth}
-            onPick={() => setMany({ eyes: expression.eyes, mouth: expression.mouth })}
+            onPick={() => setMany({
+              eyes: expression.eyes,
+              mouth: expression.mouth,
+              pose: "idle",
+              visualVariant: `mood-${expression.id === "thinking" ? "thoughtful" : expression.id}`
+            })}
           >
             <BookCharacterAvatar
-              creature={{ ...creature, eyes: expression.eyes, mouth: expression.mouth }}
+              creature={{
+                ...creature,
+                ...BOOK_CHARACTER_PRESETS[creature.body],
+                eyes: expression.eyes,
+                mouth: expression.mouth,
+                pose: "idle",
+                equipped: creature.equipped,
+                visualVariant: `mood-${expression.id === "thinking" ? "thoughtful" : expression.id}`
+              }}
               size={66}
               decorative
             />
@@ -218,33 +259,61 @@ export default function CreatureCreator({
             key={pose.id}
             label={pose.label}
             selected={(creature.pose || "idle") === pose.id}
-            onPick={() => set("pose", pose.id)}
+            onPick={() => setMany({
+              pose: pose.id,
+              visualVariant: `pose-${pose.id === "idle" ? "ready"
+                : pose.id === "walk" ? "walking"
+                  : pose.id === "cheer" ? "cheering"
+                    : "thinking"}`
+            })}
           >
-            <BookCharacterAvatar creature={creature} size={66} pose={pose.id} decorative />
+            <BookCharacterAvatar
+              creature={{
+                ...creature,
+                ...BOOK_CHARACTER_PRESETS[creature.body],
+                pose: pose.id,
+                equipped: creature.equipped,
+                visualVariant: `pose-${pose.id === "idle" ? "ready"
+                  : pose.id === "walk" ? "walking"
+                    : pose.id === "cheer" ? "cheering"
+                      : "thinking"}`
+              }}
+              size={66}
+              pose={pose.id}
+              decorative
+            />
           </Option>
         ))}
 
-        {OUTFIT_TABS.some(slot => slot.id === tab) && (
+        {tab === "outfit" && (
           <>
             <Option
-              label="No item"
-              selected={!creature.equipped?.[tab]}
-              onPick={() => setOutfit(tab, null)}
+              label="Remove all"
+              selected={!equippedIds.length}
+              onPick={() => setOutfit(null)}
             >
               <BookCharacterAvatar creature={creature} size={66} decorative />
             </Option>
-            {piecesForSlot(tab).map(piece => (
+            {OUTFIT_OPTIONS.map(piece => (
               <Option
                 key={piece.id}
-                label={piece.label}
+                label={piece.displayLabel}
                 cost={piece.cost}
+                unlock={piece.unlock}
                 balance={sparkBalance}
                 locked={!own.has(piece.id)}
-                selected={creature.equipped?.[tab] === piece.id}
-                onPick={() => setOutfit(tab, piece.id)}
+                selected={equippedIds.includes(piece.id)}
+                onPick={() => setOutfit(piece)}
               >
                 <BookCharacterAvatar
-                  creature={{ ...creature, equipped: { ...creature.equipped, [tab]: piece.id } }}
+                  creature={{
+                    ...creature,
+                    equipped: {
+                      ...EMPTY_OUTFIT,
+                      ...(creature.equipped || {}),
+                      [piece.slot]: piece.id
+                    }
+                  }}
                   size={66}
                   decorative
                 />
@@ -269,15 +338,16 @@ export default function CreatureCreator({
   );
 }
 
-function Option({ label, cost, balance, locked, selected, featured = false, onPick, children }) {
-  const affordance = locked
+function Option({ label, cost, unlock, balance, locked, selected, featured = false, onPick, children }) {
+  const isTrailReward = locked && Number(cost) === 0 && Boolean(unlock);
+  const affordance = locked && !isTrailReward
     ? lockedItemAffordance({
       cost,
       balance,
       currency: { singular: "Spark", plural: "Sparks" }
     })
     : null;
-  const lockedCopy = affordance?.text || "";
+  const lockedCopy = isTrailReward ? "Find this on the Sound Trail." : affordance?.text || "";
 
   return (
     <button
@@ -296,11 +366,15 @@ function Option({ label, cost, balance, locked, selected, featured = false, onPi
       {locked && (
         <span className="q-option-cost">
           <SparkIcon size={14} />
-          <span className="q-option-cost-copy">
-            <span className="q-option-price">{affordance.priceText}</span>
-            {" — earn "}
-            {affordance.shortfall} more
-          </span>
+          {isTrailReward
+            ? <span className="q-option-cost-copy">Trail reward</span>
+            : (
+              <span className="q-option-cost-copy">
+                <span className="q-option-price">{affordance.priceText}</span>
+                {" — earn "}
+                {affordance.shortfall} more
+              </span>
+            )}
         </span>
       )}
     </button>

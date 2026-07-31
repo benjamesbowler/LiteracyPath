@@ -54,6 +54,7 @@ import { clampQuestWorldResume } from "../../../utils/questWorldResume.js";
 // Touch devices get the big-answer strip PINNED: focus-within only ever
 // helped keyboard users; a sighted motor-impaired child on touch saw nothing.
 const COARSE_POINTER = typeof window !== "undefined" && Boolean(window.matchMedia?.("(pointer: coarse)")?.matches);
+const NO_COMPLETION_MARKS = Object.freeze([]);
 
 function learningSequence(task) {
   if (task?.learningSequence?.length) return [...task.learningSequence];
@@ -148,7 +149,9 @@ export default function QuestPixelWorld({
   const [rhythmOpen, setRhythmOpen] = useState(true);
   const [solved, setSolved] = useState(() => new Set(resume?.solved || []));
   const [collected, setCollected] = useState(() => new Set(resume?.drops || []));
-  const [completionMarks, setCompletionMarks] = useState(() => resume?.completionMarks || []);
+  // Correct-answer tiles are ephemeral controls. Do not revive the legacy
+  // completion squares from old checkpoints or save new ones.
+  const completionMarks = NO_COMPLETION_MARKS;
   const [hiddenGateHint, setHiddenGateHint] = useState(null);
   const [pickupNotice, setPickupNotice] = useState("");
   const [ready, setReady] = useState(false);
@@ -159,7 +162,7 @@ export default function QuestPixelWorld({
   const runtimeRef = useRef(null);
   const solvedRef = useRef(solved);
   const collectedRef = useRef(collected);
-  const completionMarksRef = useRef(completionMarks);
+  const completionMarksRef = useRef([]);
   const correctionsRef = useRef(corrections);
   const reviewQueueRef = useRef(resume?.reviewQueue || []);
   const reviewedBeatsRef = useRef(resume?.reviewedBeats || []);
@@ -491,20 +494,6 @@ export default function QuestPixelWorld({
     }
     emitStageInteraction("response", { correct: true, mechanic: task.mechanic });
     runtimeRef.current?.playFeedback?.("correct", choice.id);
-    if (stage.completion) {
-      const mark = {
-        ...stage.completion,
-        id: stage.completion.id || `${task.key}-${fieldStage}`,
-        encounterId: encounter?.id,
-        mechanic: task.mechanic,
-        label: stage.completion.label || choice.label || choice.value
-      };
-      if (!completionMarksRef.current.some(item => item.id === mark.id)) {
-        const nextMarks = [...completionMarksRef.current, mark];
-        completionMarksRef.current = nextMarks;
-        setCompletionMarks(nextMarks);
-      }
-    }
     setFeedback("Yes!");
     if (fieldStage + 1 < task.stages.length) {
       const nextStage = fieldStage + 1;
@@ -516,7 +505,7 @@ export default function QuestPixelWorld({
     }
     answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery, { promptLevel: promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode), key: activeCorrectionKey });
     nextBeat();
-  }, [activeCorrectionKey, answer, beat?.target, beatIndex, checkpoint, emitStageInteraction, encounter?.id, fieldStage, isSoundEnabled, nextBeat, rhythmOpen, stage, stageRecordsMastery, task, visibleChoices]);
+  }, [activeCorrectionKey, answer, beat?.target, beatIndex, checkpoint, emitStageInteraction, fieldStage, isSoundEnabled, nextBeat, rhythmOpen, stage, stageRecordsMastery, task, visibleChoices]);
 
   const beginTrail = useCallback(() => {
     setPhase("trail");
@@ -547,10 +536,6 @@ export default function QuestPixelWorld({
   useEffect(() => {
     collectedRef.current = collected;
   }, [collected]);
-
-  useEffect(() => {
-    completionMarksRef.current = completionMarks;
-  }, [completionMarks]);
 
   useEffect(() => {
     correctionsRef.current = corrections;

@@ -1,11 +1,9 @@
-import { bookCharacterForCreature } from "./bookCharacterAvatar.js";
-
-function expressionForCreature(creature = {}) {
-  if (creature.eyes === "eyes-wide" || creature.mouth === "mouth-grin") return "excited";
-  if (creature.eyes === "eyes-sleepy" || creature.mouth === "mouth-round") return "thinking";
-  if (creature.eyes === "eyes-fierce") return "brave";
-  return "happy";
-}
+import {
+  bookCharacterAsset,
+  bookCharacterForCreature,
+  bookCharacterMood,
+  bookCharacterWearables
+} from "./bookCharacterAvatar.js";
 
 export default function BookCharacterAvatar({
   creature,
@@ -16,21 +14,37 @@ export default function BookCharacterAvatar({
   decorative = false
 }) {
   const character = bookCharacterForCreature(creature);
-  const mood = expressionForCreature(creature);
+  const mood = bookCharacterMood(creature);
   const selectedPose = pose || creature?.pose || "idle";
-  const dye = creature?.dye === character.originalDye ? "original" : creature?.dye || "original";
+  const asset = bookCharacterAsset(creature, { pose });
+  const wearables = bookCharacterWearables(creature);
 
   return (
     <span
       className={`q-book-avatar is-pose-${selectedPose}${className ? ` ${className}` : ""}`}
-      data-dye={dye}
       data-mood={mood}
       style={{ "--q-book-avatar-size": `${size}px` }}
       role={decorative ? undefined : "img"}
       aria-hidden={decorative ? "true" : undefined}
       aria-label={decorative ? undefined : `${character.name}, from ${character.series}`}
     >
-      <img src={character.asset} alt="" />
+      {wearables.filter(item => item.slot === "back").map(item => (
+        <img
+          key={item.id}
+          className={`q-book-avatar-wearable is-${item.id}`}
+          src={item.asset}
+          alt=""
+        />
+      ))}
+      <img className="q-book-avatar-character" src={asset} alt="" />
+      {wearables.filter(item => item.slot !== "back").map(item => (
+        <img
+          key={item.id}
+          className={`q-book-avatar-wearable is-${item.id}`}
+          src={item.asset}
+          alt=""
+        />
+      ))}
       {showLabel && (
         <span className="q-book-avatar-label">
           <strong>{character.name}</strong>

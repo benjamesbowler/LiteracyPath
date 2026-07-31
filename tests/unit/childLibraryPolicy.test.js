@@ -16,6 +16,8 @@ import {
   BOOK_SHELF_SLOTS,
   QUEST_GRID_SLOTS,
   STORY_WORLDS,
+  bookCollectionId,
+  bookCollectionsForLevel,
   bookCoverSrc,
   bookReadingProgress,
   bookStars,
@@ -165,6 +167,31 @@ test("shelf one is the child's own level, ordered by the app's recommender", () 
   });
   assert.deepEqual(shelf.books.map(row => row.book.id), ["a3", "a1", "a2"]);
   assert.equal(shelf.note, "Level A");
+});
+
+test("book collections organise each level without changing its reading difficulty", () => {
+  const books = [
+    book("bob-and-nan-01", "A"),
+    book("meadow-pals-01-muddy-has-a-bath", "A"),
+    book("first-facts-level-a-01-colors", "A"),
+    book("dino-pals-01-chompys-big-lunch", "B"),
+    book("first-facts-a-01-look-at-the-colours", "B"),
+    book("moonwood-tales-c-01", "C")
+  ];
+
+  assert.equal(bookCollectionId(books[0]), "bob-and-nan");
+  assert.equal(bookCollectionId(books[1]), "meadow-pals");
+  assert.equal(bookCollectionId(books[2]), "science-and-facts");
+  assert.equal(bookCollectionId(books[3]), "dino-pals");
+  assert.equal(bookCollectionId(books[5]), "moonwood-tales");
+  assert.deepEqual(
+    bookCollectionsForLevel(books, "A").map(collection => collection.label),
+    ["Bob & Nan", "Meadow Pals", "Science & Facts"]
+  );
+  assert.deepEqual(
+    bookCollectionsForLevel(books, "B").map(collection => collection.label),
+    ["Dino Pals", "Science & Facts"]
+  );
 });
 
 test("a cover is read off the same book object as the title", () => {
