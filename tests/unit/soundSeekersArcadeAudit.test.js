@@ -174,3 +174,33 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(reward, /timers\.forEach\(timer => clearTimeout\(timer\)\);\s*stopCueAudio\(\)/);
   assert.match(reward, /aria-hidden="true">(?:→|➜|▶)/);
 });
+
+test("the early adventure and skate routes stay book-led, physical, and recoverable", async () => {
+  const [creator, trail, questCss, skate, chapters] = await Promise.all([
+    source("src/components/quest/CreatureCreator.jsx"),
+    source("src/components/quest/world/QuestTrail2D.jsx"),
+    source("src/styles/quest.css"),
+    source("src/components/learn/games/games/GrammarGrindGame.jsx"),
+    source("src/data/questChapters.js")
+  ]);
+
+  assert.match(creator, /avatars-v3\/muddy\.webp/);
+  assert.match(creator, /Change their colour, mood, pose and trail gear/);
+  assert.doesNotMatch(creator, /Your adventure look/);
+  assert.match(trail, /q2d-gear-badge/);
+  assert.match(trail, /parentElement\.scrollTop = 0/);
+  assert.match(trail, /className="q2d-resident is-guide"/);
+  assert.match(questCss, /data-mechanic="sound-hunt"/);
+  assert.match(questCss, /seed-lantern\.png/);
+
+  assert.match(skate, /MAX_SPEED = \{ easy: 9,/);
+  assert.match(skate, /TOKEN_COUNT = \{ easy: 0,/);
+  assert.match(skate, /The skater moves for you\. Use only ← and →\./);
+  assert.match(skate, /Try the glowing sound/);
+  assert.match(skate, /player\.pos\.set\(0, 0, lineReady \? -38 : 24\)/);
+  assert.match(skate, /easyLaneChosen/);
+  assert.match(skate, /player\.pos\.set\(0, 0, 24\)/);
+  assert.match(skate, /Tap left or right to choose/);
+  assert.match(chapters, /guide: \{ name: "Bouncy", role: "lantern keeper"/);
+  assert.doesNotMatch(chapters, /guide: \{ name: "Pip", role: "lantern keeper"/);
+});

@@ -33,7 +33,7 @@ export const TRAIL_BOUNDS = Object.freeze({
 export const TRAIL_START = Object.freeze({ x: 0, z: 7.5 });
 
 const FRIENDS = Object.freeze({
-  meadow: ["Pip", "Moss", "Tumble", "Bramble"],
+  meadow: ["Bouncy", "Moss", "Tumble", "Bramble"],
   dino: ["Fen", "Rook", "Amber", "Claw"],
   moonwood: ["Vale", "Echo", "Luma", "Wisp"]
 });

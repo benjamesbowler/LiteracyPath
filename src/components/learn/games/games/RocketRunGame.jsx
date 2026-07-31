@@ -68,7 +68,9 @@ const ROUND_THEMES = [
 ];
 
 function difficultyCount(difficulty) {
-  return difficulty === "hard" ? 12 : difficulty === "medium" ? 10 : 8;
+  // Five deliberate catches is enough evidence for an entry reader. The old
+  // eight-word easy round became a reaction endurance test and hid the phonics.
+  return difficulty === "hard" ? 12 : difficulty === "medium" ? 9 : 5;
 }
 
 // Imperative game — kept out of React so the render stays a single container.
@@ -996,7 +998,12 @@ function startGame(THREE, mount, opts) {
     // Interleave meteors to dodge — more the deeper you get, scaled by the sector.
     // Meteor pressure grows gently and is CAPPED — the sector meteorMul used to
     // multiply an already-steep ramp into ~30 meteors, leaving no room to dodge.
-    const meteorCount = Math.min(10, Math.round((2 + roundIx * 0.6) * (theme.meteorMul || 1)));
+    const isEasy = opts.difficulty === "easy";
+    // Easy begins as a listening-and-steering lesson. Hazards arrive only once
+    // the child has completed a calm sound round, and never flood the learning.
+    const meteorCount = isEasy
+      ? (roundIx === 0 ? 0 : Math.min(3, 1 + Math.floor(roundIx / 3)))
+      : Math.min(10, Math.round((2 + roundIx * 0.6) * (theme.meteorMul || 1)));
     for (let i = 0; i < meteorCount; i += 1) seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { meteor: true });
     seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { heart: true }); // a life to win back
     queue = seq;
@@ -1234,7 +1241,10 @@ function startGame(THREE, mount, opts) {
     elapsed += dt;
     const finale = roundIx === ROUNDS_PER_GAME - 1;
     const boost = boostT > 0 ? 1.8 : 1; boostT = Math.max(0, boostT - dt);
-    const speed = (1.15 + roundIx * 0.26 + Math.min(1.0, elapsed * 0.01)) * (finale ? 1.25 : 1);
+    const difficultySpeed = opts.difficulty === "easy" ? 0.68 : opts.difficulty === "medium" ? 0.88 : 1.04;
+    const speed = (1.15 + roundIx * 0.26 + Math.min(1.0, elapsed * 0.01))
+      * difficultySpeed
+      * (finale ? (opts.difficulty === "easy" ? 1.08 : 1.25) : 1);
 
     // themed sector tween (fog + ambient) + low-hearts fog tension
     if (scene.fog && scene.fog.color) scene.fog.color.lerp(fogTarget, Math.min(1, dt * 1.2));
@@ -1342,15 +1352,23 @@ function startGame(THREE, mount, opts) {
           let lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
           if (avoidLane != null && lane === avoidLane) lane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
           bubbles.push(item.ring ? makeRing(lane) : item.heart ? makeHeart(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
+          // Entry readers should not need to decode a moving word before they
+          // can practise its first sound. Easy mode says each word as it enters,
+          // creating a true listen → identify → steer loop.
+          if (opts.difficulty === "easy" && item.word) say(() => speakWord(item.word));
           return lane;
         };
         const lane = spawnOne(null);
-        const pairChance = Math.min(0.35, 0.08 + roundIx * 0.03 + (opts.difficulty === "hard" ? 0.1 : 0));
+        const pairChance = opts.difficulty === "easy"
+          ? 0
+          : Math.min(0.35, 0.08 + roundIx * 0.03 + (opts.difficulty === "hard" ? 0.1 : 0));
         if (queue.length && Math.random() < pairChance) spawnOne(lane);
         // Spacing GROWS with speed: the old 1.0/speed collapsed the reaction gap to
         // ~0.3s at high speed. Floor it (~0.7s min) so faster = more spread out, not
         // an unavoidable wall — the child always has time to change lanes.
-        spawnTimer = Math.max(0.7, 1.2 / Math.sqrt(speed));
+        spawnTimer = opts.difficulty === "easy"
+          ? 2.05
+          : Math.max(0.7, 1.2 / Math.sqrt(speed));
       }
       const noseZ = ship.position.z - 1.9; // catch at the rocket's NOSE, not its centre/tail
       for (const bubble of bubbles) {
@@ -1436,10 +1454,11 @@ function startGame(THREE, mount, opts) {
     const overlay = showOverlay(
       '<div style="display:grid;gap:12px;justify-items:center;max-width:min(520px,88vw)">' +
       '<div style="font-size:.8rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#7ff0ff">Rocket Run</div>' +
-      '<div style="font-size:clamp(1.2rem,3.6vw,1.6rem);font-weight:800;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound — and dodge the asteroids!</div>' +
-      '<div style="font-size:.98rem;font-weight:700;line-height:1.55;opacity:.92">Steer with the ← → arrow keys, or tap the left and right sides of the screen.<br>On a touch screen you can also swipe or drag to change lanes.</div>' +
-      '<button data-rr="intro-play" style="' + overlayButtonStyle + '">Tap to play</button>' +
-      '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press any key</div>' +
+      '<div style="font-size:clamp(1.55rem,4.5vw,2.2rem);font-weight:900;line-height:1.08;text-wrap:balance">Listen. Choose. Fly!</div>' +
+      '<div aria-hidden="true" style="display:flex;align-items:center;gap:16px;font-size:2.2rem"><svg viewBox="0 0 24 24" width="38" height="38"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg><span>→</span><svg viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" d="M14.4 3.1c2.2-.9 4.4-.8 6.5-.6.2 2.2.2 4.5-.7 6.6l-3.1 3.1-5.3-5.3 2.6-3.8ZM10.7 8l5.3 5.3-3 3-2.2-.6-2.5 2.5-2.5-2.5 2.5-2.5-.6-2.2 3-3Zm-4.2 9.3c-.9.2-2.4 1.2-2.8 3 .9-.4 2.1-.7 3.2-.5.2-1 .9-1.9 1.7-2.5l-2.1-.1Z"/></svg></div>' +
+      '<div style="font-size:1rem;font-weight:750;line-height:1.45;opacity:.94">Hear the word. Fly to it if it begins with the target sound.</div>' +
+      '<div style="display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:750;opacity:.82"><span>← tap left</span><span>tap right →</span></div>' +
+      '<button data-rr="intro-play" style="' + overlayButtonStyle + '">Play</button>' +
       '</div>'
     );
     overlay.querySelector('[data-rr="intro-play"]').addEventListener("click", dismissIntro);

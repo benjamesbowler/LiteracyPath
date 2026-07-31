@@ -271,7 +271,7 @@ test("chapter relics unlock only at five-stop destination gates", () => {
   assert.equal(seedwakeReward.destination, "Bramble Gate");
   assert.equal(seedwakeReward.finale.cue, "bramble-gate");
   assert.deepEqual(seedwakeReward.stopIds, ["s1", "s2", "s3", "s4", "s5"]);
-  assert.deepEqual(seedwakeReward.cast.map(friend => friend.name), ["Pip", "Moss", "Tumble", "Bramble"]);
+  assert.deepEqual(seedwakeReward.cast.map(friend => friend.name), ["Bouncy", "Moss", "Tumble", "Bramble"]);
   assert.deepEqual(unlockedChapterRewards(state).map(reward => reward.id), ["seedwake-lantern"]);
   assert.equal(questRewardBonuses(state).collectionRadius, 1.06);
 });

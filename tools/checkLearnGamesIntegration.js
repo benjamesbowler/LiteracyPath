@@ -4,6 +4,10 @@ import { CVC_WORDS, GAME_LIST, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/
 import { getChildWordAsset } from "../src/data/childAssets.js";
 import { soundSafariAudioCoverage } from "../src/utils/soundSafariRounds.js";
 import { AUDIO_FILE_PATHS } from "../src/data/generated/audioFilePaths.generated.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../src/data/ledaProductionAudio.js";
 
 const root = process.cwd();
 const requiredFiles = [
@@ -123,9 +127,9 @@ if (invalidSafariBanks.length) {
 }
 
 const requiredArcadeVoiceCues = [
-  "/audio/child-mode/clean-human/phrases/listen-and-find.mp3",
-  "/audio/child-mode/clean-human/phrases/tap.mp3",
-  "/audio/ui/voice/great-job.mp3"
+  getLedaInstructionAudioPath("Listen and find"),
+  getLedaWordAudioPath("tap"),
+  getLedaInstructionAudioPath("Great job")
 ];
 const missingArcadeVoiceCues = requiredArcadeVoiceCues.filter(src => !AUDIO_FILE_PATHS.has(src));
 if (missingArcadeVoiceCues.length) {

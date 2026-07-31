@@ -37,6 +37,19 @@ const POSES = Object.freeze([
   { id: "think", label: "Thinking" }
 ]);
 const FLAGSHIP_BOOK_CHARACTER_IDS = Object.freeze(["tuft", "pebble", "moth"]);
+const FLAGSHIP_BOOK_DYES = new Set(FLAGSHIP_BOOK_CHARACTER_IDS.map(id => BOOK_CHARACTER_PRESETS[id]?.dye).filter(Boolean));
+const BOOK_CHARACTER_CUTOUTS = Object.freeze({
+  tuft: "/game-assets/sound-seekers/avatars-v3/muddy.webp",
+  pebble: "/game-assets/sound-seekers/avatars-v3/chompy.webp",
+  moth: "/game-assets/sound-seekers/avatars-v3/pip.webp"
+});
+const GEAR_BADGES = Object.freeze({
+  "leaf-cap": "/images/hollow/gear-leaf-cloak.webp",
+  "acorn-hat": "/images/hollow/gear-acorn-shield.webp",
+  "moth-wings": "/images/hollow/gear-moth-wings.webp",
+  "vine-scarf": "/images/hollow/gear-starweave-scarf.webp",
+  "stone-staff": "/images/hollow/gear-willow-wand.webp"
+});
 
 export default function CreatureCreator({
   creature,
@@ -73,31 +86,53 @@ export default function CreatureCreator({
   const tabs = [
     { id: "body", label: "Character" },
     { id: "colour", label: "Colours" },
-    { id: "expression", label: "Expressions" },
+    { id: "expression", label: "Moods" },
     { id: "pose", label: "Poses" },
     { id: "pattern", label: "Patterns" },
     ...OUTFIT_TABS.map(s => ({ id: s.id, label: s.label === "Held" ? "Accessories" : s.label }))
   ];
   const activeTabIndex = Math.max(0, tabs.findIndex(item => item.id === tab));
+  const selectedBody = CREATURE_BODIES.find(body => body.id === creature.body);
+  const selectedBookCutout = BOOK_CHARACTER_CUTOUTS[creature.body] || null;
+  const originalDye = BOOK_CHARACTER_PRESETS[creature.body]?.dye;
+  const selectedExpression = EXPRESSIONS.find(expression => (
+    creature.eyes === expression.eyes && creature.mouth === expression.mouth
+  ))?.id || "happy";
+  const equippedBadges = Object.values(creature.equipped || {})
+    .filter(Boolean)
+    .map(id => ({ id, badge: GEAR_BADGES[id] }))
+    .filter(item => item.badge);
 
   return (
     <div className="q-screen q-creator">
       <h1 className="q-title" data-child-title="">{hatched ? "Change your book character" : "Choose your book character"}</h1>
       <p className="q-creator-instruction" data-child-instruction="">
-        Pick a friend from Meadow Pals, Dino Pals or Moonwood Tales. Then make them your own.
+        Pick a book friend. Change their colour, mood, pose and trail gear.
       </p>
       <p className="q-creator-step" data-child-progress="">
         Part {activeTabIndex + 1} of {tabs.length}: {tabs[activeTabIndex].label}
       </p>
 
       <div className="q-creator-stage">
-        <CreatureFigure
-          key={hatching ? "hatch" : "idle"}
-          creature={creature}
-          size={230}
-          mood={hatching ? "hatch" : (creature.pose || "idle")}
-          title="Your book character"
-        />
+        {selectedBookCutout && (
+          <div
+            className={`q-creator-book-identity is-pose-${creature.pose || "idle"}`}
+            data-dye={creature.dye === originalDye ? "original" : creature.dye}
+            data-mood={selectedExpression}
+            aria-label={`${selectedBody?.label || "Book character"}, from ${selectedBody?.series || "our books"}`}
+          >
+            <div className="q-creator-book-character">
+              <img src={selectedBookCutout} alt="" />
+              {equippedBadges.map((item, index) => (
+                <i key={item.id} className={`q-creator-gear-badge is-${index}`} aria-hidden="true">
+                  <img src={item.badge} alt="" />
+                </i>
+              ))}
+            </div>
+            <span>{selectedBody?.label}</span>
+            <small>{selectedBody?.series}</small>
+          </div>
+        )}
       </div>
 
       <div className="q-tabs" role="tablist" aria-label="Book character options" data-child-choices="">
@@ -156,7 +191,7 @@ export default function CreatureCreator({
             label={dye.label}
             cost={dye.cost}
             balance={sparkBalance}
-            locked={!own.has(dye.id) && dye.cost > 0}
+            locked={!FLAGSHIP_BOOK_DYES.has(dye.id) && !own.has(dye.id) && dye.cost > 0}
             selected={creature.dye === dye.id}
             onPick={() => set("dye", dye.id)}
           >

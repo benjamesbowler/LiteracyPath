@@ -91,7 +91,7 @@ export const QUEST_CHAPTERS = Object.freeze([
     ],
     finale: CHAPTER_FINALES["seedwake-meadow"],
     cast: {
-      guide: { name: "Pip", role: "lantern keeper", archetype: "meadow-scout" },
+      guide: { name: "Bouncy", role: "lantern keeper", archetype: "meadow-scout" },
       residents: [
         { name: "Moss", role: "seed gardener", archetype: "garden-tender" },
         { name: "Tumble", role: "ford builder", archetype: "river-builder" },

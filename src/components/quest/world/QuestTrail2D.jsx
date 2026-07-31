@@ -14,6 +14,7 @@ import {
 } from "../../../utils/questPhysicalPlan.js";
 import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../../data/questSequence.js";
+import { BOOK_CHARACTER_PRESETS } from "../../../data/creatureParts.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { displayGrapheme, sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
@@ -49,14 +50,30 @@ import {
 
 const TWO_D_WORLD_ART = Object.freeze({
   meadow: Object.freeze({
+    backdrop: "/images/pals/meadow-panorama.webp",
     tile: "/game-assets/quest-pixel/fallback/meadow-ground.png"
   }),
   dino: Object.freeze({
+    backdrop: "/images/pals/dino-panorama.webp",
     tile: "/game-assets/quest-pixel/fallback/dino-ground.png"
   }),
   moonwood: Object.freeze({
+    backdrop: "/images/pals/moonwood-panorama.webp",
     tile: "/game-assets/quest-pixel/fallback/moonwood-ground.png"
   })
+});
+
+const TWO_D_BOOK_AVATARS = Object.freeze({
+  tuft: "/game-assets/sound-seekers/avatars-v3/muddy.webp",
+  pebble: "/game-assets/sound-seekers/avatars-v3/chompy.webp",
+  moth: "/game-assets/sound-seekers/avatars-v3/pip.webp"
+});
+const TWO_D_GEAR_BADGES = Object.freeze({
+  "leaf-cap": "/images/hollow/gear-leaf-cloak.webp",
+  "acorn-hat": "/images/hollow/gear-acorn-shield.webp",
+  "moth-wings": "/images/hollow/gear-moth-wings.webp",
+  "vine-scarf": "/images/hollow/gear-starweave-scarf.webp",
+  "stone-staff": "/images/hollow/gear-willow-wand.webp"
 });
 
 const TWO_D_DISCOVERY_SHAPES = Object.freeze({
@@ -202,12 +219,25 @@ export default function QuestTrail2D({
     : physicalStagePrompt(stage, false);
   const visibleChoiceSignature = visibleChoices.map(choice => choice.id).join("|");
   const worldArt = TWO_D_WORLD_ART[section?.world] || TWO_D_WORLD_ART.meadow;
+  const bookAvatar = TWO_D_BOOK_AVATARS[state.creature?.body] || null;
+  const originalBookDye = BOOK_CHARACTER_PRESETS[state.creature?.body]?.dye;
+  const bookAvatarDye = state.creature?.dye === originalBookDye ? "original" : state.creature?.dye;
+  const bookAvatarGear = Object.values(state.creature?.equipped || {})
+    .filter(Boolean)
+    .map(id => ({ id, badge: TWO_D_GEAR_BADGES[id] }))
+    .filter(item => item.badge);
   const residentKey = questPixelResidentKey(
     section?.chapter?.id,
     encounter?.friend,
     section?.world
   );
   const residentSprite = questPixelResidentPath(residentKey);
+  const guideKey = questPixelResidentKey(
+    section?.chapter?.id,
+    section?.guide?.friend,
+    section?.world
+  );
+  const guideSprite = questPixelResidentPath(guideKey);
   const previousBestDrops = Math.max(0, Number(state.trail?.drops?.[stopId]) || 0);
   const pendingDropCount = Math.max(0, collected.size - previousBestDrops);
   const liveSparks = availableSparks(state) + (pendingDropCount * SPARKS_PER_DROP);
@@ -296,6 +326,11 @@ export default function QuestTrail2D({
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
+      // A tapped answer can leave the overflowing task panel scrolled down.
+      // Reset before moving focus so the next spoken prompt is also visible.
+      if (taskFocusRef.current?.parentElement) {
+        taskFocusRef.current.parentElement.scrollTop = 0;
+      }
       taskFocusRef.current?.focus({ preventScroll: true });
     });
     return () => window.cancelAnimationFrame(frame);
@@ -610,13 +645,18 @@ export default function QuestTrail2D({
       <section
         className="q2d-world"
         aria-label={`${section.chapter?.title || "Sound Seekers"} two-dimensional trail`}
-        style={{ "--q2d-world-tile": `url(${worldArt.tile})` }}
+        style={{
+          "--q2d-world-backdrop": `url(${worldArt.backdrop})`,
+          "--q2d-world-tile": `url(${worldArt.tile})`
+        }}
       >
         <div className="q2d-scenery" aria-hidden="true">
           <span className="q2d-sun" />
           <span className="q2d-hills is-far" />
           <span className="q2d-hills is-near" />
           <span className="q2d-path" />
+          <span className="q2d-air is-one" />
+          <span className="q2d-air is-two" />
         </div>
         <ol className="q2d-route" aria-label="Trail progress">
           {section.encounters.map((item, index) => (
@@ -625,8 +665,24 @@ export default function QuestTrail2D({
             </li>
           ))}
         </ol>
-        <div className="q2d-creature" aria-hidden="true">
-          <CreatureFigure creature={state.creature} size={126} mood={phase === "gate" ? "cheer" : "idle"} />
+        <div
+          className={`q2d-creature is-pose-${phase === "gate" ? "cheer" : (state.creature?.pose || "idle")}`}
+          data-phase={phase}
+          data-dye={bookAvatarDye}
+          aria-hidden="true"
+        >
+          {bookAvatar ? (
+            <>
+              <img src={bookAvatar} alt="" />
+              {bookAvatarGear.map((item, index) => (
+                <i key={item.id} className={`q2d-gear-badge is-${index}`}>
+                  <img src={item.badge} alt="" />
+                </i>
+              ))}
+            </>
+          ) : (
+            <CreatureFigure creature={state.creature} size={150} mood={phase === "gate" ? "cheer" : "idle"} />
+          )}
         </div>
         {completionMarks.length > 0 && (
           <ol className="q2d-repairs" aria-label={`${completionMarks.length} trail repairs completed`}>
@@ -644,6 +700,12 @@ export default function QuestTrail2D({
           >
             <span>{encounter.friend}</span>
             <i style={residentFieldStyle(residentKey, residentSprite)} />
+          </div>
+        )}
+        {phase === "teach" && section.guide?.friend && (
+          <div className="q2d-resident is-guide" aria-hidden="true">
+            <span>{section.guide.friend}</span>
+            <i style={residentFieldStyle(guideKey, guideSprite)} />
           </div>
         )}
         {phase === "trail" && nextMemory?.story && !memoryStory && (
@@ -697,16 +759,19 @@ export default function QuestTrail2D({
           <div className="q2d-physical" data-mechanic={task.mechanic} data-action={stage.playerAction}>
             <div className="q2d-cue" ref={taskFocusRef} tabIndex={-1} aria-labelledby="q2d-active-prompt">
               <strong id="q2d-active-prompt">{visiblePrompt}</strong>
-              {isSoundEnabled && stageCueAvailable && (
+              {stageCueAvailable && (
                 <button
                   type="button"
                   onClick={() => {
                     if (stage.audioCue?.kind === "grapheme") sayGrapheme(stage.audioCue.value, true);
                     else if (stage.audioCue?.kind === "word") sayWord(stage.audioCue.value, true);
                   }}
-                  aria-label="Play the sound again"
+                  aria-label="Hear the sound"
                 >
-                  Listen again
+                  <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+                    <path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z" />
+                  </svg>
+                  <span>Hear it</span>
                 </button>
               )}
             </div>
