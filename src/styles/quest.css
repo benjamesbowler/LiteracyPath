@@ -3460,6 +3460,92 @@
 .q-map-v2[data-chapter="star-reach"] .q-map-v2-distant { background: #4d486f; }
 .q-map-v2-weather { position: absolute; inset: 0; opacity: .13; background-image: radial-gradient(circle, #fff4b5 0 2px, transparent 2.5px); background-size: 46px 46px; }
 .q-map-v2[data-chapter="star-reach"] .q-map-v2-weather { opacity: .42; background-image: radial-gradient(circle, #fff2bd 0 1.5px, transparent 2px), radial-gradient(circle, #b9a8f1 0 2px, transparent 2.5px); background-position: 0 0, 23px 21px; }
+.q-map-v2-ambient,
+.q-map-v2-ambient > i {
+  position: absolute;
+  pointer-events: none;
+}
+.q-map-v2-ambient {
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.q-map-ambient-ripple {
+  width: 11%;
+  aspect-ratio: 2 / 1;
+  border: 2px solid rgba(221, 252, 255, .72);
+  border-radius: 50%;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(180, 246, 255, .46));
+  animation: qMapWaterRipple 4.2s ease-out infinite;
+}
+.q-map-ambient-ripple::before,
+.q-map-ambient-ripple::after {
+  position: absolute;
+  inset: 18%;
+  border: 1px solid rgba(227, 254, 255, .68);
+  border-radius: inherit;
+  content: "";
+}
+.q-map-ambient-ripple::after { inset: 34%; }
+.q-map-ambient-ripple.is-two { animation-delay: -2.1s; }
+.q-map-ambient-flow {
+  overflow: hidden;
+  border-radius: 45%;
+  background:
+    repeating-linear-gradient(
+      165deg,
+      transparent 0 8px,
+      rgba(222, 252, 255, .48) 9px 12px,
+      transparent 13px 21px
+    );
+  background-size: 100% 72px;
+  mix-blend-mode: screen;
+  opacity: .64;
+  filter: blur(.2px);
+  animation: qMapWaterFlow 2.4s linear infinite;
+}
+.q-map-ambient-spark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50% 4px 50% 4px;
+  background: #fff2a3;
+  opacity: .76;
+  box-shadow: 0 0 10px 3px rgba(255, 232, 122, .5);
+  animation: qMapSparkDrift 5.8s ease-in-out infinite;
+}
+.q-map-ambient-spark.is-two { animation-delay: -1.9s; }
+.q-map-ambient-spark.is-three { animation-delay: -3.8s; }
+
+/* Meadow water: the orchard stream at the top, the pond at lower left and the
+   river below the bridge all remain quietly alive behind the level controls. */
+.q-map-v2[data-world="meadow"] .q-map-ambient-ripple.is-one { left: 9%; top: 54%; }
+.q-map-v2[data-world="meadow"] .q-map-ambient-ripple.is-two { left: 34%; top: 5%; width: 9%; }
+.q-map-v2[data-world="meadow"] .q-map-ambient-flow { right: -2%; bottom: -3%; width: 38%; height: 18%; transform: rotate(-7deg); }
+.q-map-v2[data-world="meadow"] .q-map-ambient-spark.is-one { left: 27%; top: 29%; }
+.q-map-v2[data-world="meadow"] .q-map-ambient-spark.is-two { left: 72%; top: 23%; }
+.q-map-v2[data-world="meadow"] .q-map-ambient-spark.is-three { left: 88%; top: 64%; }
+
+/* Dino Land has the most obvious moving landmark: the waterfall at the left.
+   The small shimmer over the lava channel gives the hot area a different,
+   slower rhythm from the water. */
+.q-map-v2[data-world="dino"] .q-map-ambient-ripple.is-one { left: 6%; top: 55%; width: 10%; }
+.q-map-v2[data-world="dino"] .q-map-ambient-ripple.is-two { left: 7%; top: 32%; width: 8%; }
+.q-map-v2[data-world="dino"] .q-map-ambient-flow { left: 8.7%; top: 36%; width: 5.4%; height: 23%; transform: rotate(2deg); }
+.q-map-v2[data-world="dino"] .q-map-ambient-spark { background: #ffb13d; box-shadow: 0 0 12px 4px rgba(255, 107, 36, .45); }
+.q-map-v2[data-world="dino"] .q-map-ambient-spark.is-one { left: 55%; top: 73%; }
+.q-map-v2[data-world="dino"] .q-map-ambient-spark.is-two { left: 59%; top: 62%; }
+.q-map-v2[data-world="dino"] .q-map-ambient-spark.is-three { left: 57%; top: 83%; }
+
+/* Moonwood's river glints and its three fireflies move independently. */
+.q-map-v2[data-world="moonwood"] .q-map-ambient-ripple.is-one { left: 70%; top: 56%; width: 14%; }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-ripple.is-two { left: 30%; top: 63%; width: 10%; }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-flow { left: 67%; top: 42%; width: 24%; height: 34%; transform: rotate(17deg); opacity: .48; }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-spark { background: #cbfbff; box-shadow: 0 0 13px 4px rgba(110, 235, 255, .72); }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-spark.is-one { left: 18%; top: 18%; }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-spark.is-two { left: 52%; top: 25%; }
+.q-map-v2[data-world="moonwood"] .q-map-ambient-spark.is-three { left: 86%; top: 48%; }
+
 .q-map-v2-road { position: absolute; inset: 9% 4% 4%; z-index: 2; width: 92%; height: 87%; overflow: visible; }
 .q-map-road-edge, .q-map-road-centre, .q-map-shortcut-edge, .q-map-shortcut-centre { fill: none; stroke-linecap: round; }
 .q-map-road-edge { stroke: rgba(39, 32, 24, .52); stroke-width: 2.2; }
@@ -3514,8 +3600,11 @@
   object-fit: contain;
   pointer-events: none;
   transform: translateX(-50%);
+  transform-origin: 50% 100%;
   filter: drop-shadow(0 8px 5px rgba(17, 22, 29, .3));
+  animation: qMapLandmarkBreeze 5.2s ease-in-out infinite;
 }
+.q-map-stop:nth-of-type(even) .q-map-stop-landmark { animation-delay: -2.6s; }
 .q-map-stop:disabled .q-map-stop-landmark { filter: grayscale(.85) opacity(.48); }
 .q-map-stop-number, .q-map-stop strong, .q-map-stop small { position: relative; z-index: 1; }
 .q-map-stop-number { display: grid; place-items: center; width: 48px; aspect-ratio: 1; border: 4px solid #fff7db; border-radius: 50%; background: #385f4c; color: #fff; box-shadow: 0 5px 0 rgba(25, 42, 34, .32), 0 10px 22px rgba(21, 32, 28, .2); font-size: 20px; font-weight: 900; }
@@ -3532,6 +3621,21 @@
 .q-map-destination p { margin: 0; font-size: 12px; line-height: 1.35; }
 @keyframes qMapPulse { 50% { transform: translateY(-4px); } }
 @keyframes qMapShortcutFlow { to { stroke-dashoffset: -8; } }
+@keyframes qMapWaterRipple {
+  0% { opacity: 0; transform: scale(.58); }
+  18% { opacity: .82; }
+  100% { opacity: 0; transform: scale(1.42); }
+}
+@keyframes qMapWaterFlow { to { background-position-y: 72px; } }
+@keyframes qMapSparkDrift {
+  0%, 100% { opacity: .34; transform: translate(0, 0) rotate(8deg) scale(.82); }
+  35% { opacity: .92; transform: translate(14px, -12px) rotate(38deg) scale(1.08); }
+  68% { opacity: .58; transform: translate(-8px, -22px) rotate(74deg) scale(.92); }
+}
+@keyframes qMapLandmarkBreeze {
+  0%, 100% { transform: translateX(-50%) rotate(-.55deg); }
+  50% { transform: translateX(-50%) rotate(.7deg) translateY(-2px); }
+}
 
 /* Shared 2D fallback ----------------------------------------------------- */
 .q2d-root { display: grid; grid-template-rows: auto minmax(220px, 44vh) minmax(0, 1fr); overflow: auto; background: #f5f0df; color: #242b29; }
@@ -4240,6 +4344,8 @@
 @media (prefers-reduced-motion: reduce) {
   .q-map-stop.is-next .q-map-stop-number,
   .q-map-shortcut-centre,
+  .q-map-v2-ambient > i,
+  .q-map-stop-landmark,
   .q-ceremony-ring,
   .q-ceremony-relic-mark,
   .q-ceremony-friend-sprite,
@@ -4247,7 +4353,9 @@
   .q-map-v2-walker { transition: none; }
 }
 .q-map-v2[data-reduced-motion="true"] .q-map-stop.is-next .q-map-stop-number,
-.q-map-v2[data-reduced-motion="true"] .q-map-shortcut-centre { animation: none; }
+.q-map-v2[data-reduced-motion="true"] .q-map-shortcut-centre,
+.q-map-v2[data-reduced-motion="true"] .q-map-v2-ambient > i,
+.q-map-v2[data-reduced-motion="true"] .q-map-stop-landmark { animation: none; }
 .q-map-v2[data-reduced-motion="true"] .q-map-v2-walker { transition: none; }
 
 @media (max-width: 760px) {

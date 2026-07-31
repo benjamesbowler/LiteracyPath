@@ -412,14 +412,23 @@
   }
 
   .kg-stage .student-surface-arcade .lg-game-tilegrid {
+    flex: none;
+    height: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: none;
     gap: 10px;
     overflow: visible;
+    contain: none;
   }
 
   .kg-stage .student-surface-arcade .lg-game-tile {
+    height: auto;
     min-height: 210px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile-art {
+    height: auto;
+    min-height: 132px;
   }
 
   /* Phonics */

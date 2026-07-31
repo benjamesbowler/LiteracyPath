@@ -183,6 +183,14 @@ export default function TrailMap({
       <section className="q-map-v2-land" aria-label={`${chapter.title} trail map`}>
         <div className="q-map-v2-weather" aria-hidden="true" />
         <div className="q-map-v2-distant" aria-hidden="true" />
+        <div className="q-map-v2-ambient" aria-hidden="true">
+          <i className="q-map-ambient-ripple is-one" />
+          <i className="q-map-ambient-ripple is-two" />
+          <i className="q-map-ambient-flow" />
+          <i className="q-map-ambient-spark is-one" />
+          <i className="q-map-ambient-spark is-two" />
+          <i className="q-map-ambient-spark is-three" />
+        </div>
         <svg className="q-map-v2-road" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <path d={road} className="q-map-road-edge" />
           <path d={road} className="q-map-road-centre" />
