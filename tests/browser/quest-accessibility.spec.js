@@ -734,19 +734,17 @@ test("automatic mode avoids the pixel engine on a genuinely constrained device",
   await expectNoSeriousAxeViolations(page);
 });
 
-test("Den and map transitions move focus to the new screen heading", async ({ page }) => {
+test("the retired Den route opens the real map and character edits return there", async ({ page }) => {
   await page.goto(`${PREVIEW}&view=den&display=2d`);
-  await expect(page.getByRole("heading", { name: "Your Den", level: 1 })).toBeVisible();
-
-  await page.getByRole("button", { name: "Open the trail map" }).click();
   const mapHeading = page.locator(".q-map-v2 h1");
   await expect(mapHeading).toBeVisible();
-  await expect(mapHeading).toBeFocused();
+  await expect(page.getByRole("heading", { name: "Your Den" })).toHaveCount(0);
 
-  await page.getByRole("button", { name: "Back to the Den" }).click();
-  const denHeading = page.getByRole("heading", { name: "Your Den", level: 1 });
-  await expect(denHeading).toBeVisible();
-  await expect(denHeading).toBeFocused();
+  await page.getByRole("button", { name: "Character" }).click();
+  await expect(page.getByRole("heading", { name: "Change your book character" })).toBeFocused();
+  await page.getByRole("button", { name: "Done" }).click();
+  await expect(mapHeading).toBeVisible();
+  await expect(mapHeading).toBeFocused();
 });
 
 test("the mounted pixel world follows live OS reduced-motion changes", async ({ page }) => {
@@ -1324,7 +1322,7 @@ test("the mobile release surface keeps the Trading Post child-reachable", async 
 
   await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
   await expect(page.getByRole("tabpanel")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Back to the Den" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to map" })).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);

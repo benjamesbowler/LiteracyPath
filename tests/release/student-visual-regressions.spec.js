@@ -112,8 +112,7 @@ test("Sound Seekers world maps move gently and respect reduced motion", async ({
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
   await page.getByRole("button", { name: "Go to Hollow Tree" }).click();
   await page.getByRole("button", { name: "Start my adventure" }).click();
-  await page.getByRole("button", { name: "Back to the Den" }).click();
-  await page.getByRole("button", { name: "Open the trail map" }).click();
+  await page.getByRole("button", { name: "Back to the map" }).click();
 
   const ambientPieces = page.locator(".q-map-v2-ambient > i");
   await expect(ambientPieces).toHaveCount(6);

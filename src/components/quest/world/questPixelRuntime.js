@@ -6,6 +6,10 @@ import {
   PIXEL_BEASTIE_FRAMES_PER_DIRECTION
 } from "./questPixelAvatar.js";
 import {
+  bookCharacterForCreature,
+  bookCharacterTint
+} from "../bookCharacterAvatar.js";
+import {
   questAnalogVector,
   questCameraResponse,
   questCameraTravelTarget,
@@ -1197,6 +1201,10 @@ class QuestPixelScene extends Phaser.Scene {
     if (bookWorldBackground) {
       this.load.image("book-world-background", bookWorldBackground);
     }
+    const bookCharacter = bookCharacterForCreature(this.model.creature);
+    if (bookCharacter?.asset) {
+      this.load.image("book-player-avatar", bookCharacter.asset);
+    }
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
     const activeProfile = chapterPixelProfile(this.model.section);
@@ -1605,7 +1613,12 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   createPlayerTexture() {
-    const canvas = createPixelBeastieSheet(this.model.creature);
+    const source = this.textures.exists("book-player-avatar")
+      ? this.textures.get("book-player-avatar").getSourceImage()
+      : null;
+    const canvas = source
+      ? this.createBookCharacterSheet(source)
+      : createPixelBeastieSheet(this.model.creature);
     const texture = this.textures.addCanvas("pixel-beastie", canvas);
     for (let row = 0; row < PIXEL_BEASTIE_DIRECTIONS.length; row += 1) {
       for (let frame = 0; frame < PIXEL_BEASTIE_FRAMES_PER_DIRECTION; frame += 1) {
@@ -1613,6 +1626,34 @@ class QuestPixelScene extends Phaser.Scene {
         texture.add(frameIndex, 0, frame * PIXEL_BEASTIE_FRAME, row * PIXEL_BEASTIE_FRAME, PIXEL_BEASTIE_FRAME, PIXEL_BEASTIE_FRAME);
       }
     }
+  }
+
+  createBookCharacterSheet(source) {
+    const canvas = document.createElement("canvas");
+    canvas.width = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_FRAMES_PER_DIRECTION;
+    canvas.height = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_DIRECTIONS.length;
+    const context = canvas.getContext("2d");
+    context.imageSmoothingEnabled = true;
+
+    for (let row = 0; row < PIXEL_BEASTIE_DIRECTIONS.length; row += 1) {
+      const direction = PIXEL_BEASTIE_DIRECTIONS[row];
+      for (let frame = 0; frame < PIXEL_BEASTIE_FRAMES_PER_DIRECTION; frame += 1) {
+        const x = frame * PIXEL_BEASTIE_FRAME;
+        const y = row * PIXEL_BEASTIE_FRAME;
+        const walkingFrame = frame % 4;
+        const bob = walkingFrame === 1 ? -2 : walkingFrame === 3 ? -1 : 0;
+        const lean = walkingFrame === 1 ? -0.035 : walkingFrame === 3 ? 0.035 : 0;
+        const avatarSize = 58;
+
+        context.save();
+        context.translate(x + (PIXEL_BEASTIE_FRAME / 2), y + PIXEL_BEASTIE_FRAME - 2 + bob);
+        if (direction === "left") context.scale(-1, 1);
+        context.rotate(lean);
+        context.drawImage(source, -avatarSize / 2, -avatarSize, avatarSize, avatarSize);
+        context.restore();
+      }
+    }
+    return canvas;
   }
 
   createGround() {
@@ -4203,8 +4244,10 @@ class QuestPixelScene extends Phaser.Scene {
     this.playerShadow = addPixelShadow(this, start.x, start.y + 5, 27, 7);
     this.player = this.physics.add.sprite(start.x, start.y, "pixel-beastie", 0)
       .setOrigin(0.5, 0.78)
-      .setScale(0.86)
+      .setScale(this.textures.exists("book-player-avatar") ? 1.16 : 0.86)
       .setDepth(start.y + 2);
+    const avatarTint = bookCharacterTint(this.model.creature);
+    if (avatarTint) this.player.setTint(avatarTint);
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
     const cameraStart = this.model.activeStage && activeResident

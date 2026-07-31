@@ -9,20 +9,18 @@
 // learns, without being told, that walking the trail buys parts.
 
 import { useState } from "react";
-import CreatureFigure from "./CreatureFigure.jsx";
+import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import {
   CREATURE_BODIES,
   CREATURE_DYES,
   CREATURE_SLOTS,
   BOOK_CHARACTER_PRESETS,
-  piecesForSlot,
-  defaultCreature
+  piecesForSlot
 } from "../../data/creatureParts.js";
 import { playPopSound, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { lockedItemAffordance } from "../../policy/lockedItemAffordance.js";
 import { SparkIcon } from "../shared/CurrencyIcons.jsx";
 
-const PART_TABS = CREATURE_SLOTS.filter(s => s.kind === "part" && s.id !== "body" && s.id !== "pattern");
 const OUTFIT_TABS = CREATURE_SLOTS.filter(s => s.kind === "gear");
 const EXPRESSIONS = Object.freeze([
   { id: "happy", label: "Happy", eyes: "eyes-big", mouth: "mouth-smile" },
@@ -88,7 +86,6 @@ export default function CreatureCreator({
     { id: "colour", label: "Colours" },
     { id: "expression", label: "Moods" },
     { id: "pose", label: "Poses" },
-    { id: "pattern", label: "Patterns" },
     ...OUTFIT_TABS.map(s => ({ id: s.id, label: s.label === "Held" ? "Accessories" : s.label }))
   ];
   const activeTabIndex = Math.max(0, tabs.findIndex(item => item.id === tab));
@@ -179,9 +176,11 @@ export default function CreatureCreator({
               pose: creature.pose || "idle"
             })}
           >
-            {body.portrait
-              ? <img className="q-book-character-portrait" src={body.portrait} alt="" />
-              : <CreatureFigure creature={{ ...defaultCreature(), ...BOOK_CHARACTER_PRESETS[body.id] }} size={58} mood="still" title={body.label} />}
+            <BookCharacterAvatar
+              creature={{ ...creature, ...BOOK_CHARACTER_PRESETS[body.id] }}
+              size={78}
+              decorative
+            />
           </Option>
         ))}
 
@@ -206,7 +205,11 @@ export default function CreatureCreator({
             selected={creature.eyes === expression.eyes && creature.mouth === expression.mouth}
             onPick={() => setMany({ eyes: expression.eyes, mouth: expression.mouth })}
           >
-            <CreatureFigure creature={{ ...creature, eyes: expression.eyes, mouth: expression.mouth }} size={58} mood="still" />
+            <BookCharacterAvatar
+              creature={{ ...creature, eyes: expression.eyes, mouth: expression.mouth }}
+              size={66}
+              decorative
+            />
           </Option>
         ))}
 
@@ -217,7 +220,7 @@ export default function CreatureCreator({
             selected={(creature.pose || "idle") === pose.id}
             onPick={() => set("pose", pose.id)}
           >
-            <CreatureFigure creature={creature} size={58} mood={pose.id} />
+            <BookCharacterAvatar creature={creature} size={66} pose={pose.id} decorative />
           </Option>
         ))}
 
@@ -228,7 +231,7 @@ export default function CreatureCreator({
               selected={!creature.equipped?.[tab]}
               onPick={() => setOutfit(tab, null)}
             >
-              <CreatureFigure creature={{ ...creature, equipped: { ...creature.equipped, [tab]: null } }} size={58} mood="still" />
+              <BookCharacterAvatar creature={creature} size={66} decorative />
             </Option>
             {piecesForSlot(tab).map(piece => (
               <Option
@@ -240,29 +243,15 @@ export default function CreatureCreator({
                 selected={creature.equipped?.[tab] === piece.id}
                 onPick={() => setOutfit(tab, piece.id)}
               >
-                <CreatureFigure creature={{ ...creature, equipped: { ...creature.equipped, [tab]: piece.id } }} size={58} mood="still" />
+                <BookCharacterAvatar
+                  creature={{ ...creature, equipped: { ...creature.equipped, [tab]: piece.id } }}
+                  size={66}
+                  decorative
+                />
               </Option>
             ))}
           </>
         )}
-
-        {PART_TABS.some(slot => slot.id === tab) && piecesForSlot(tab).map(piece => (
-          <Option
-            key={piece.id}
-            label={piece.label}
-            cost={piece.cost}
-            balance={sparkBalance}
-            locked={!own.has(piece.id) && piece.cost > 0}
-            selected={creature[tab] === piece.id}
-            onPick={() => set(tab, piece.id)}
-          >
-            <CreatureFigure
-              creature={{ ...defaultCreature(), dye: creature.dye, body: creature.body, [tab]: piece.id }}
-              size={58}
-              mood="still"
-            />
-          </Option>
-        ))}
       </div>
 
       <button

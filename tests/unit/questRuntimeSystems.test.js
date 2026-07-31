@@ -1042,7 +1042,11 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(runtime, /setStrokeStyle\(2, 0xfff0a2/, "touch movement gives no visible acknowledgement");
   assert.match(runtime, /facingX < 0 \? "left" : "right"/, "horizontal animation mapping is reversed");
   assert.match(runtime, /questPixelCameraZoom\(/, "pixel scale still enlarges the low-resolution kit without a framing contract");
-  assert.match(runtime, /\.setScale\(0\.86\)/, "the custom book character is too small to read clearly against the illustrated worlds");
+  assert.match(
+    runtime,
+    /\.setScale\(this\.textures\.exists\("book-player-avatar"\) \? 1\.16 : 0\.86\)/,
+    "the real book character is too small to read clearly against the illustrated worlds"
+  );
   assert.match(runtime, /zoomTo\(zoom, 260, "Sine\.easeInOut", true\)/, "task camera changes still snap between scales");
   assert.match(runtime, /cameraTargetZoom/, "answer staging ignores the destination view while the camera is moving");
   assert.match(runtime, /choiceInside\.has\(choice\.id\)/, "standing on a choice can retrigger it every frame");
@@ -1932,12 +1936,11 @@ test("Sound Seekers preserves its authored mix across scene state and tab visibi
   const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
   const music = fs.readFileSync("src/utils/audio/gameMusic.js", "utf8");
   const cues = fs.readFileSync("src/utils/audio/cuePlayer.js", "utf8");
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
 
   assert.match(root, /mode: musicMode/, "later chapters do not receive travel, encounter, and ceremony music mixes");
   assert.match(root, /const soundscapeEnabled = isSoundEnabled && !state\.settings\?\.quietSoundscape/, "background audio cannot be quieted independently of phonics cues");
-  assert.match(root, /quietSoundscape=\{Boolean\(state\.settings\?\.quietSoundscape\)\}/, "the saved soundscape preference does not reach Settings");
-  assert.match(den, /Quiet soundscape \(spoken sounds stay on\)/, "Settings do not explain that spoken phonics remains available");
+  assert.doesNotMatch(root, /DenScreen/, "the retired duplicate Den sits between the child and the real chapter map");
+  assert.match(root, /initialView === VIEW\.DEN[\s\S]*?\? VIEW\.MAP/, "old Den links do not migrate to the real map");
   assert.match(root, /setGameAudioSuspended\(hidden\)/, "hidden tabs keep playing Sound Seekers music");
   assert.match(root, /setCueAudioSuspended\(hidden\)/, "hidden tabs keep consuming the active phonics cue");
   assert.match(root, /document\.addEventListener\("visibilitychange", syncAudioVisibility\)/, "audio visibility recovery is not installed");

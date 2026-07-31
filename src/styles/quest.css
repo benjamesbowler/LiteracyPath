@@ -1310,6 +1310,50 @@
   font-weight: 750;
   letter-spacing: .04em;
 }
+
+/* Real book characters are the avatar everywhere: creator option previews,
+   chapter map and the playable world all use the same transparent cutout. */
+.q-book-avatar {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: var(--q-book-avatar-size, 92px);
+  height: var(--q-book-avatar-size, 92px);
+  line-height: 1;
+  transform-origin: 50% 100%;
+}
+.q-book-avatar > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 7px rgba(15, 21, 19, .32));
+}
+.q-book-avatar[data-dye="moss"] > img { filter: hue-rotate(54deg) saturate(.82) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="slate"] > img { filter: hue-rotate(172deg) saturate(.52) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="plum"] > img { filter: hue-rotate(258deg) saturate(.82) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="sand"] > img { filter: sepia(.38) saturate(.74) brightness(1.06) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="coral"] > img { filter: hue-rotate(326deg) saturate(1.14) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="teal"] > img { filter: hue-rotate(148deg) saturate(.96) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="ember"] > img { filter: hue-rotate(340deg) saturate(1.2) brightness(.9) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="fern"] > img { filter: hue-rotate(72deg) saturate(.72) brightness(.92) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="dusk"] > img { filter: hue-rotate(214deg) saturate(.8) brightness(.85) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="bone"] > img { filter: grayscale(.72) sepia(.18) brightness(1.12) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-dye="midnight"] > img { filter: hue-rotate(205deg) saturate(.72) brightness(.62) drop-shadow(0 8px 7px rgba(15, 21, 19, .32)); }
+.q-book-avatar[data-mood="thinking"],
+.q-book-avatar.is-pose-think { transform: rotate(-4deg) translateY(2px); }
+.q-book-avatar[data-mood="brave"] { transform: scale(1.04); }
+.q-book-avatar[data-mood="excited"],
+.q-book-avatar.is-pose-cheer { animation: qCreatorCheer .9s ease-in-out infinite; }
+.q-book-avatar.is-pose-walk { animation: qCreatorWalk 1.15s ease-in-out infinite; }
+.q-book-avatar-label {
+  position: absolute;
+  top: 100%;
+  display: grid;
+  min-width: 110px;
+  text-align: center;
+}
+.q-book-avatar-label strong,
+.q-book-avatar-label small { display: block; }
 .q-creator-adventure-look svg { filter: drop-shadow(0 18px 18px rgba(5, 4, 18, .36)); }
 @keyframes qCreatorBookHello {
   50% { transform: translateY(-7px) rotate(-1.5deg); }
@@ -3477,12 +3521,23 @@
   border-bottom: 1px solid rgba(35, 48, 43, .16);
 }
 
-.q-map-v2-header > div { min-width: 0; text-align: center; }
+.q-map-v2-header > .q-map-v2-copy { min-width: 0; text-align: center; }
 .q-map-v2-header span { display: block; color: #53665e; font-size: 12px; font-weight: 800; text-transform: uppercase; }
 .q-map-v2-header h1 { margin: 2px 0 4px; font-size: clamp(25px, 3vw, 38px); line-height: 1.05; letter-spacing: 0; }
 .q-map-v2-header p { margin: 0 auto; max-width: 720px; font-size: 14px; line-height: 1.4; }
 .q-map-v2-header .q-ghost { border-color: rgba(38, 48, 45, .26); color: #27312e; }
 .q-map-review { justify-self: end; }
+.q-map-v2-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  min-width: 0;
+}
+.q-map-v2-actions .q-ghost {
+  min-width: 0;
+  padding-inline: 12px;
+  white-space: nowrap;
+}
 
 .q-chapter-tabs {
   display: grid;
@@ -4784,17 +4839,24 @@
 @media (max-width: 760px) {
   .q-map-v2 { grid-template-rows: auto auto minmax(0, 1fr); }
   .q-map-v2-header { grid-template-columns: minmax(128px, .9fr) minmax(154px, 1.1fr); gap: 8px; padding: 12px; }
-  .q-map-v2-header > div { grid-column: 1 / -1; grid-row: 1; }
+  .q-map-v2-header > .q-map-v2-copy { grid-column: 1 / -1; grid-row: 1; }
   .q-map-v2-header > .q-ghost,
-  .q-map-review {
+  .q-map-v2-actions .q-ghost {
     width: 100%;
     min-height: 46px;
     padding-inline: 12px;
     border-radius: 8px;
     white-space: nowrap;
   }
-  .q-map-v2-header > .q-ghost:not(.q-map-review) { grid-column: 1; grid-row: 2; justify-self: stretch; }
-  .q-map-v2-header > .q-map-review { grid-column: 2; grid-row: 2; justify-self: stretch; margin-right: 0; }
+  .q-map-v2-header > .q-ghost { grid-column: 1; grid-row: 2; justify-self: stretch; }
+  .q-map-v2-actions {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+  .q-map-v2-actions .q-ghost { min-height: 46px; padding-inline: 5px; font-size: 10px; }
   .q-map-v2-header p { display: none; }
   .q-chapter-tabs { display: none; }
   .q-chapter-picker {

@@ -62,6 +62,16 @@ function learningSequence(task) {
     .filter(value => value != null);
 }
 
+const WORD_BUILD_MECHANICS = new Set(["bridge-build", "sequence-build", "echo-sequence"]);
+
+function isWordBuildTask(task) {
+  return Boolean(
+    task
+    && WORD_BUILD_MECHANICS.has(task.mechanic)
+    && task.stages?.filter(taskStage => taskStage.audioCue).length > 1
+  );
+}
+
 function shortPrompt(stage, soundDelivered = true) {
   if (!stage) return "Follow the trail";
   if (!soundDelivered) return physicalStagePrompt(stage, false);
@@ -193,7 +203,8 @@ export default function QuestPixelWorld({
   const stageAudioKind = stage?.audioCue?.kind || null;
   const stageAudioValue = stage?.audioCue?.value || null;
   const stageCueAvailable = cueIsAvailable(stageAudioKind, stageAudioValue);
-  const stageInstruction = task?.stages?.length > 1
+  const wordBuildTask = isWordBuildTask(task);
+  const stageInstruction = wordBuildTask
     ? "Build the word. Fill each box in order."
     : stageAudioKind === "grapheme"
       ? "Listen. Find the letter that matches the sound."
@@ -802,7 +813,7 @@ export default function QuestPixelWorld({
   if (!section) return null;
 
   const stageCount = task?.stages?.length || 1;
-  const buildSequence = stageCount > 1
+  const buildSequence = wordBuildTask && stageCount > 1
     ? learningSequence(task).map(value => String(value || "").replace(/^hw:/, ""))
     : [];
   const cueVisible = !ceremony && (phase === "teach" || encounterStarted || (phase === "gate" && hiddenGateHint !== stopId));
@@ -831,7 +842,7 @@ export default function QuestPixelWorld({
       <div ref={mountRef} className="qp-canvas" aria-hidden="true" />
 
       <header className="qp-header">
-        <button type="button" className="qp-icon-button" onClick={() => { checkpoint(); onQuit?.(); }} aria-label="Back to the Den">
+        <button type="button" className="qp-icon-button" onClick={() => { checkpoint(); onQuit?.(); }} aria-label="Back to the trail map">
           <span aria-hidden="true">&#8592;</span>
         </button>
         <div className="qp-place">

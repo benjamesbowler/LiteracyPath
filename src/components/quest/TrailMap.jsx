@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import CreatureFigure from "./CreatureFigure.jsx";
+import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import { QUEST_CHAPTERS } from "../../data/questChapters.js";
 import { getStop } from "../../data/questSequence.js";
 import { currentStopIndex, unlockedChapterRewards } from "../../utils/questProgress.js";
@@ -49,6 +49,8 @@ export default function TrailMap({
   onFreeRoam,
   onShortcut,
   onBack,
+  onEditCharacter,
+  onTradingPost,
   isSoundEnabled = true
 }) {
   const chapter = QUEST_CHAPTERS[Math.max(0, Math.min(QUEST_CHAPTERS.length - 1, act - 1))];
@@ -118,8 +120,8 @@ export default function TrailMap({
       data-reduced-motion={state.settings?.reducedMotion ? "true" : undefined}
     >
       <header className="q-map-v2-header">
-        <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
-        <div>
+        <button type="button" className="q-ghost" onClick={onBack}>Close</button>
+        <div className="q-map-v2-copy">
           <span>
             {journeyComplete && chapter.id === "star-reach"
               ? "Whole trail restored"
@@ -128,9 +130,13 @@ export default function TrailMap({
           <h1>{chapter.title}</h1>
           <p>{journeyComplete && chapter.id === "star-reach" ? "Every sound is home. The First Reading Star is shining." : chapter.objective}</p>
         </div>
-        <button type="button" className="q-ghost q-map-review" onClick={onFreeRoam}>
-          {reviewPlan.weakest.length ? "Practise sounds" : "Explore sounds"}
-        </button>
+        <div className="q-map-v2-actions">
+          <button type="button" className="q-ghost" onClick={onEditCharacter}>Character</button>
+          <button type="button" className="q-ghost" onClick={onTradingPost}>Shop</button>
+          <button type="button" className="q-ghost q-map-review" onClick={onFreeRoam}>
+            {reviewPlan.weakest.length ? "Practise" : "Explore"}
+          </button>
+        </div>
       </header>
 
       <nav className="q-chapter-tabs" aria-label="Story chapters">
@@ -239,7 +245,12 @@ export default function TrailMap({
             data-side={currentPosition.x >= 65 ? "left" : "right"}
             aria-hidden="true"
           >
-            <CreatureFigure creature={state.creature} size={92} mood={walkingStop ? "walk" : "idle"} />
+            <BookCharacterAvatar
+              creature={state.creature}
+              size={104}
+              pose={walkingStop ? "walk" : "idle"}
+              decorative
+            />
           </div>
         )}
 

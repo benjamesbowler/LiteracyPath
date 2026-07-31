@@ -631,7 +631,7 @@ export default function QuestTrail2D({
       data-reduced-motion={state.settings?.reducedMotion ? "true" : undefined}
     >
       <header className="q2d-header">
-        <button type="button" className="q-ghost" onClick={() => { checkpoint(); onQuit?.(); }}>Back to the Den</button>
+        <button type="button" className="q-ghost" onClick={() => { checkpoint(); onQuit?.(); }}>Back to the map</button>
         <div>
           <span>{routeLabel || (mode === "review" ? "Sound practice" : section.chapter?.title)}</span>
           <strong>{stop?.name}</strong>
