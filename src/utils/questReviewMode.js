@@ -42,7 +42,7 @@ export function freeRoamReviewPlan(state, limit = 5) {
     assignment: assignment || null,
     title: assignment
       ? "Practice from your teacher"
-      : weak.length ? "Your tricky-sound trail" : "Explore today's sounds",
+      : weak.length ? "Your sound practice trail" : "Explore today's sounds",
     description: assignment
       ? `Your teacher picked ${assignment.targets.length} sound${assignment.targets.length === 1 ? "" : "s"} to practise.`
       : weak.length

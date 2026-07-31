@@ -7,6 +7,7 @@ import {
   isMissingRpcOverload,
   loadCompatibleDashboardStudents,
   loadCompatibleStudentClass,
+  loadCompatibleTeacherClassCounts,
   loadCompatibleTeacherClasses,
   loadCompatibleTeacherStudents,
   loginCompatibleStudent
@@ -79,6 +80,38 @@ test("teacher classes do not mask permission or unrelated database failures", as
   assert.equal(result.error, denied);
   assert.equal(result.compatibility, "current");
   assert.equal(calls.length, 1);
+});
+
+test("teacher class counts come from active roster rows", async () => {
+  const calls = [];
+  const client = {
+    table(name) {
+      assert.equal(name, "students");
+      return {
+        select(fields) {
+          return studentQueryResponse({
+            data: [
+              { id: "student-1", class_id: "class-1", archived_at: null },
+              { id: "student-2", class_id: "class-1", archived_at: null }
+            ],
+            error: null
+          }, calls, fields);
+        }
+      };
+    }
+  };
+
+  const result = await loadCompatibleTeacherClassCounts({
+    client,
+    teacherId: "teacher-1"
+  });
+
+  assert.equal(result.error, null);
+  assert.equal(result.data.length, 2);
+  assert.deepEqual(calls[0].filters, [
+    ["eq", "teacher_id", "teacher-1"],
+    ["is", "archived_at", null]
+  ]);
 });
 
 test("teacher class loading reads beyond the server's first 1,000 rows", async () => {

@@ -861,6 +861,7 @@ function addPixelLowercaseGlyph(scene, value, y) {
 
 function addChoiceArt(scene, container, item, index) {
   const shape = String(item.shape || "token");
+  const choiceLabel = String(item.label ?? item.value ?? "");
   const palette = paletteForShape(shape);
   const destinationShape = shape.includes("marker") || shape.includes("slot") || shape.includes("pen");
   const glow = scene.add.ellipse(0, 2, shape.includes("plank") ? 48 : 38, shape.includes("plank") ? 27 : 38, palette.glow, 0.14);
@@ -1024,11 +1025,13 @@ function addChoiceArt(scene, container, item, index) {
         art.lineStyle(2, 0xfff3c2, 0.96).strokeCircle(x, -5, 4).strokeCircle(x, 5, 4);
       }
       glow.setAlpha(0.34).setScale(1.18);
+    } else if (choiceLabel) {
+      art.fillStyle(palette.edge, 1).fillRoundedRect(-22, -22, 44, 44, 8);
+      art.fillStyle(0xfff4d7, 1).fillRoundedRect(-18, -18, 36, 36, 6);
+      art.fillStyle(palette.light, 0.72).fillRect(-13, -14, 19, 3);
     } else {
-      art.lineStyle(5, palette.light, 0.95).strokeCircle(0, 0, 18);
-      art.lineStyle(2, palette.edge, 1).strokeCircle(0, 0, 18);
-      art.fillStyle(palette.body, 0.66).fillCircle(0, 0, 12);
-      art.fillStyle(0xffffff, 0.8).fillTriangle(-5, 2, 5, 2, 0, -6);
+      art.fillStyle(palette.edge, 1).fillRoundedRect(-18, -18, 36, 36, 7);
+      art.fillStyle(palette.body, 1).fillRoundedRect(-14, -14, 28, 28, 5);
     }
     radius = 22;
   } else if (shape.includes("orb") || shape.includes("rune")) {
@@ -1054,7 +1057,7 @@ function addChoiceArt(scene, container, item, index) {
     art.fillStyle(palette.light, 0.7).fillRect(-8, -9, 13, 3);
   }
 
-  const rawLabel = destinationShape ? "" : String(item.label ?? item.value ?? "");
+  const rawLabel = choiceLabel;
   const embeddedLabel = Boolean(rawLabel) && (
     ["token", "orb", "rune"].includes(shape)
     || (rawLabel.length <= 3 && /lantern|sign|path|track|parcel|flower|plank|bridge|fish|bone|fossil|shard|lens|mirror|flag|beacon|gear|ore|rail|word-plate|rune|reed|lily|moth|telescope|orbit|dial/.test(shape))

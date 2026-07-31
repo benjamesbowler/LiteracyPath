@@ -115,6 +115,12 @@ const TRAIL_MILESTONES = Object.fromEntries(
   QUEST_CHAPTERS.map(chapter => [chapter.stopIds[chapter.stopIds.length - 1], chapter.destination])
 );
 
+const TRAIL_MAPS = Object.freeze({
+  meadow: "/images/pals/maps/meadow-map-wide.webp",
+  dino: "/images/pals/maps/dino-map-wide.webp",
+  moonwood: "/images/pals/maps/moonwood-map-wide.webp"
+});
+
 const COUNT_WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
 function countWord(value) {
@@ -284,7 +290,7 @@ export function StudentSoundTrailPage({
         >
           <img
             className="kg-node-scene-art"
-            src={world.backdrop}
+            src={TRAIL_MAPS[world.id] || TRAIL_MAPS.meadow}
             alt=""
             loading="eager"
             decoding="async"

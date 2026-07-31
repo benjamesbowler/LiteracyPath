@@ -82,7 +82,7 @@ export const QUEST_CHAPTERS = Object.freeze([
     conflict: "The meadow's sound-lanterns have gone dark and the gate vines will not open.",
     objective: "Wake the five lantern gardens and carry their notes to Bramble Gate.",
     optionalDiscovery: { title: "Bramble's trail note", message: "Bramble left a warm lantern here." },
-    shortcut: { id: "lantern-run", label: "Lantern Run", action: "Follow the flowers between restored gardens.", effect: "Carries tricky sounds through the places you repaired." },
+    shortcut: { id: "lantern-run", label: "Lantern Run", action: "Follow the flowers between restored gardens.", effect: "Carries practice sounds through the places you repaired." },
     memoryStories: [
       { speaker: "Moss", line: "The seeds you woke are lighting new sound paths.", change: "Lantern flowers now mark the return lane." },
       { speaker: "Tumble", line: "Your bridge held through the night rain.", change: "The ford is open for every meadow friend." },

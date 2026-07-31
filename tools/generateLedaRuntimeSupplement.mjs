@@ -52,7 +52,11 @@ const fixedTexts = Object.freeze([
   "amazing work",
   "build the word you hear",
   "listen then tap the matching word",
-  "find the matching sight words"
+  "find the matching sight words",
+  "listen. find the letter that matches the sound",
+  "listen. find the right sound",
+  "listen. choose the matching letter",
+  "build the word. fill each box in order"
 ]);
 
 function slug(value) {

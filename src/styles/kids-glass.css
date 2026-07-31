@@ -1176,6 +1176,12 @@
 
 .kg-stage .student-surface-arcade .lg-game-tile {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  align-items: stretch;
+  justify-items: stretch;
+  align-content: stretch;
   min-width: 0;
   min-height: 0;
   max-height: 100%;
@@ -1183,11 +1189,22 @@
 }
 
 .kg-stage .student-surface-arcade .lg-game-tile-art {
+  position: relative;
+  display: block;
   flex: 1 1 0;
   width: 100%;
-  height: 0;
+  height: 100%;
   min-height: 0;
   aspect-ratio: auto;
+  overflow: hidden;
+}
+
+.kg-stage .student-surface-arcade .lg-game-tile-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .kg-stage .student-surface-arcade .lg-game-tile-name {

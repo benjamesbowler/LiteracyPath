@@ -76,7 +76,7 @@ export default function DenScreen({
   const lit = visible.filter(g => isMastered(state.mastery, g)).length;
   const relics = unlockedChapterRewards(state);
   const reviewPlan = freeRoamReviewPlan(state);
-  const reviewLabel = reviewPlan.weakest.length ? "Practise tricky sounds" : "Explore today's sounds";
+  const reviewLabel = reviewPlan.weakest.length ? "Practise sounds again" : "Explore today's sounds";
 
   const followDenLink = callback => {
     if (soundEnabled) playWhoosh();
@@ -254,7 +254,7 @@ export default function DenScreen({
 
         {state.trickies.length > 0 && (
           <>
-            <h2 className="q-subhead">Your Trickies <span className="q-count">{state.trickies.length}</span></h2>
+            <h2 className="q-subhead">Words to practise <span className="q-count">{state.trickies.length}</span></h2>
             <div className="q-trickies">
               {state.trickies.map(word => <span key={word} className="q-trickie">{word}</span>)}
             </div>

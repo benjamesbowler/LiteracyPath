@@ -16,6 +16,8 @@ import { getStop, targetsAtStop } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
 import { sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
+import { getLedaInstructionAudioPath } from "../../../data/ledaProductionAudio.js";
+import { playCueAudio } from "../../../utils/audio/cuePlayer.js";
 import {
   applyQuestTaskInput,
   createSeedwakeVerbState,
@@ -191,6 +193,12 @@ export default function QuestPixelWorld({
   const stageAudioKind = stage?.audioCue?.kind || null;
   const stageAudioValue = stage?.audioCue?.value || null;
   const stageCueAvailable = cueIsAvailable(stageAudioKind, stageAudioValue);
+  const stageInstruction = task?.stages?.length > 1
+    ? "Build the word. Fill each box in order."
+    : stageAudioKind === "grapheme"
+      ? "Listen. Find the letter that matches the sound."
+      : "Listen. Find the right sound.";
+  const stageInstructionAudio = getLedaInstructionAudioPath(stageInstruction);
   const stageSoundDelivered = Boolean(isSoundEnabled && stageCueAvailable);
   const stageRecordsMastery = physicalStageRecordsMastery(stage, stageSoundDelivered);
   const teachCueAvailable = Boolean(firstTeachEntry?.id && hasGraphemeAudio(firstTeachEntry.id));
@@ -506,10 +514,20 @@ export default function QuestPixelWorld({
   }, [checkpoint]);
 
   const replayCue = useCallback(() => {
-    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, isSoundEnabled);
-    else if (stageAudioKind === "word") sayWord(stageAudioValue, isSoundEnabled);
-    else if (firstTeachEntry?.id) sayGraphemeWithName(firstTeachEntry.id, isSoundEnabled);
-  }, [firstTeachEntry, isSoundEnabled, stageAudioKind, stageAudioValue]);
+    if (!isSoundEnabled) return;
+    if (encounterStarted && stageInstructionAudio) {
+      playCueAudio(stageInstructionAudio);
+      window.clearTimeout(cueTimerRef.current);
+      cueTimerRef.current = window.setTimeout(() => {
+        if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
+        else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
+      }, 4000);
+      return;
+    }
+    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
+    else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
+    else if (firstTeachEntry?.id) sayGraphemeWithName(firstTeachEntry.id, true);
+  }, [encounterStarted, firstTeachEntry, isSoundEnabled, stageAudioKind, stageAudioValue, stageInstructionAudio]);
 
   useEffect(() => {
     solvedRef.current = solved;
@@ -562,10 +580,9 @@ export default function QuestPixelWorld({
   }, [encounterStarted, onAudioState, phase]);
 
   useEffect(() => {
-    if (!encounterStarted || !stageCueAvailable || !isSoundEnabled) return;
-    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
-    else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
-  }, [encounterStarted, isSoundEnabled, stage?.id, stageAudioKind, stageAudioValue, stageCueAvailable]);
+    if (!encounterStarted || !isSoundEnabled) return;
+    replayCue();
+  }, [encounterStarted, isSoundEnabled, replayCue, stage?.id]);
 
   useEffect(() => {
     if (phase !== "trail" || !encounterStarted || !stage?.id) return;
@@ -785,11 +802,14 @@ export default function QuestPixelWorld({
   if (!section) return null;
 
   const stageCount = task?.stages?.length || 1;
+  const buildSequence = stageCount > 1
+    ? learningSequence(task).map(value => String(value || "").replace(/^hw:/, ""))
+    : [];
   const cueVisible = !ceremony && (phase === "teach" || encounterStarted || (phase === "gate" && hiddenGateHint !== stopId));
   const cueCompact = phase === "trail" && encounterStarted;
   return (
     <main
-      className="q-screen qp-root"
+      className={`q-screen qp-root${buildSequence.length > 1 ? " has-build-progress" : ""}`}
       data-world={section.world}
       data-ceremony={ceremony ? "true" : "false"}
       data-ready={ready ? "true" : "false"}
@@ -832,6 +852,22 @@ export default function QuestPixelWorld({
         {section.encounters.map(item => <span key={item.id} className={solved.has(item.id) ? "is-done" : item.id === encounter?.id ? "is-current" : ""} />)}
       </div>
 
+      {encounterStarted && buildSequence.length > 1 && (
+        <div className="qp-build-strip" aria-label={`Word progress: ${fieldStage} of ${buildSequence.length} parts found`}>
+          <strong>Build the word</strong>
+          <span>
+            {buildSequence.map((part, index) => (
+              <i
+                key={`${part}-${index}`}
+                className={index < fieldStage ? "is-filled" : index === fieldStage ? "is-next" : ""}
+              >
+                {index < fieldStage ? part : ""}
+              </i>
+            ))}
+          </span>
+        </div>
+      )}
+
       {!ceremony && pickupNotice && <aside className="qp-pickup-notice" role="status">{pickupNotice}</aside>}
 
       {ceremony && ready && (
@@ -846,7 +882,7 @@ export default function QuestPixelWorld({
           key={`${stage?.id || phase}:${feedback || "prompt"}`}
           ref={taskFocusRef}
           tabIndex={-1}
-          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}`}
+          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}${buildSequence.length > 1 ? " has-build-progress" : ""}`}
           aria-live="polite"
         >
           {phase === "teach" ? (
@@ -864,7 +900,7 @@ export default function QuestPixelWorld({
             <>
               <span>{encounter?.friend || "Trail friend"}</span>
               <strong>{feedback || shortPrompt(stage, stageSoundDelivered)}</strong>
-              {isSoundEnabled && stageCueAvailable && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the sound again"><span aria-hidden="true">&#9835;</span></button>}
+              {isSoundEnabled && (stageCueAvailable || stageInstructionAudio) && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the instruction and sound again"><span aria-hidden="true">&#9835;</span></button>}
               {stageCount > 1 && <small>{fieldStage + 1} / {stageCount}</small>}
             </>
           )}

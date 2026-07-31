@@ -242,9 +242,10 @@
    beastie on it, and the populated panorama already has two pals walking the
    path. Placed pal + clean plate, or populated plate alone — never both. */
 .kg-stage .kg-trail-scene .kg-node-scene-art {
-  left: -23%;
-  width: 146%;
-  object-position: center 55%;
+  left: 0;
+  width: 100%;
+  object-position: center;
+  filter: saturate(1.05) contrast(1.02);
 }
 
 /* ── Screen: the Sound Trail ─────────────────────────────────────────────── */

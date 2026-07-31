@@ -84,6 +84,34 @@ export async function loadCompatibleTeacherClasses({ client, teacherId }) {
   return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
 }
 
+function teacherStudentCountQuery(client, teacherId, fields, activeOnly) {
+  let query = client
+    .table("students")
+    .select(fields)
+    .eq("teacher_id", teacherId);
+  if (activeOnly) query = query.is("archived_at", null);
+  return query.order("class_id", { ascending: true });
+}
+
+/**
+ * Read the active roster once for the class chooser. Class rows do not carry a
+ * trustworthy student total, so showing `0 students` from a missing field is a
+ * false claim. The legacy retry keeps counts working before `archived_at`
+ * reaches every database.
+ */
+export async function loadCompatibleTeacherClassCounts({ client, teacherId }) {
+  const current = await selectAllRows(() =>
+    teacherStudentCountQuery(client, teacherId, "id,class_id,archived_at", true)
+  );
+  if (!isLegacyStudentSchemaError(current.error)) {
+    return { ...current, compatibility: "current" };
+  }
+  const legacy = await selectAllRows(() =>
+    teacherStudentCountQuery(client, teacherId, "id,class_id", false)
+  );
+  return { ...legacy, compatibility: legacy.error ? "failed" : "legacy" };
+}
+
 function teacherStudentQuery(client, {
   teacherId,
   classId,

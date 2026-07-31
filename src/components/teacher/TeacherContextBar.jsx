@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { teacherCycleOptions } from "./teacherCycleReference.js";
 import "../../styles/teacher-context-bar.css";
 
@@ -24,6 +24,8 @@ export function TeacherContextBar({
   onPresent,
   onAssess
 }) {
+  const [copyState, setCopyState] = useState("idle");
+  const copyResetRef = useRef(0);
   const cycleIndex = useMemo(() => {
     const index = TEACHING_CYCLES.findIndex(option => option.id === cycleId);
     return index === -1 ? 0 : index;
@@ -40,6 +42,19 @@ export function TeacherContextBar({
   function stepCycle(delta) {
     const next = TEACHING_CYCLES[cycleIndex + delta];
     if (next) onChangeCycle?.(next.id);
+  }
+
+  useEffect(() => () => window.clearTimeout(copyResetRef.current), []);
+
+  async function copyClassCode() {
+    try {
+      await navigator.clipboard.writeText(classCode);
+      setCopyState("copied");
+      window.clearTimeout(copyResetRef.current);
+      copyResetRef.current = window.setTimeout(() => setCopyState("idle"), 1800);
+    } catch {
+      setCopyState("failed");
+    }
   }
 
   return (
@@ -63,10 +78,13 @@ export function TeacherContextBar({
             className="tcb-class-code"
             aria-label={`Copy student sign-in code ${classCode}`}
             title="Copy student sign-in code"
-            onClick={() => navigator.clipboard?.writeText?.(classCode)}
+            onClick={copyClassCode}
           >
             <span>Student sign-in code</span>
             <strong>{classCode}</strong>
+            <em aria-live="polite">
+              {copyState === "copied" ? "Copied" : copyState === "failed" ? "Try again" : "Copy"}
+            </em>
           </button>
         )}
       </div>

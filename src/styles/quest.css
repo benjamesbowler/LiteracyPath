@@ -4430,6 +4430,58 @@
   pointer-events: none;
 }
 
+.qp-build-strip {
+  position: absolute;
+  z-index: 24;
+  top: 104px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 8px 14px;
+  transform: translateX(-50%);
+  border: 3px solid #f0cf67;
+  border-radius: 10px;
+  background: rgba(31, 43, 42, .96);
+  color: #fff7d6;
+  box-shadow: 0 5px 0 rgba(20, 29, 28, .55);
+}
+
+.qp-build-strip > strong {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.qp-build-strip > span {
+  display: flex;
+  gap: 6px;
+}
+
+.qp-build-strip i {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 38px;
+  border: 3px solid #aebbb0;
+  border-radius: 7px;
+  background: #fff9e7;
+  color: #253c36;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.qp-build-strip i.is-filled {
+  border-color: #79c46b;
+  background: #dff5d8;
+}
+
+.qp-build-strip i.is-next {
+  border-color: #f0cf67;
+  box-shadow: 0 0 0 4px rgba(240, 207, 103, .22);
+}
+
 .qp-pickup-notice {
   position: absolute;
   z-index: 24;
@@ -4447,6 +4499,10 @@
   text-align: center;
   transform: translateX(-50%);
   pointer-events: none;
+}
+
+.qp-root.has-build-progress .qp-pickup-notice {
+  top: 244px;
 }
 
 .qp-progress span {
@@ -4482,6 +4538,10 @@
   color: #2d2730;
   pointer-events: auto;
   transition: left 220ms ease, transform 220ms ease, width 220ms ease, min-height 220ms ease, padding 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease, color 220ms ease;
+}
+
+.qp-cue.has-build-progress {
+  top: 170px;
 }
 
 .qp-cue > span { color: #7d4f3b; font-size: 12px; font-weight: 950; text-transform: uppercase; }
@@ -4637,7 +4697,10 @@
   .qp-tally { height: 42px; }
   .qp-progress { top: 66px; }
   .qp-cue { top: 84px; width: min(360px, calc(100% - 20px)); min-height: 54px; padding-block: 8px; }
+  .qp-build-strip { top: 82px; max-width: calc(100% - 20px); }
+  .qp-cue.has-build-progress { top: 148px; }
   .qp-pickup-notice { top: 150px; }
+  .qp-root.has-build-progress .qp-pickup-notice { top: 214px; }
   .qp-cue > strong { font-size: 16px; }
   .qp-cue.qp-ceremony-cue { bottom: max(16px, env(safe-area-inset-bottom)); }
   .qp-cue.is-compact { left: 50%; width: min(230px, calc(100% - 20px)); min-height: 38px; padding-block: 6px; }

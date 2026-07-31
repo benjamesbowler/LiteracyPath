@@ -380,11 +380,9 @@ export function buildQuestCard({ quest = {}, row = {}, reachedIndex = 0 } = {}) 
 }
 
 /**
- * The 3 x 2 grid: the chosen world first, then the worlds after it, then the
- * ones before — so the grid is always full even though a world holds four or
- * five stories and the grid holds six. A story borrowed from another world
- * keeps its OWN badge; being shown out of turn does not make a finished story
- * new.
+ * The chosen world's stories only. A full-looking grid is never worth telling
+ * a child that a Meadow story belongs in Moonwood or a Moonwood story belongs
+ * in Dino Land.
  *
  * Inside a world the order is the spec's: the story you are in, then the ones
  * you have not read, then the ones you have.
@@ -404,17 +402,11 @@ export function buildQuestGrid({
   }));
 
   const stateRank = { "carry-on": 0, new: 1, "next-world": 2, done: 3 };
-  const selected = worldIndex(world);
-  const distance = card => {
-    const index = worldIndex(card.world);
-    return index >= selected ? index - selected : STORY_WORLDS.length + index;
-  };
-
   return cards
+    .filter(card => card.world === world)
     .slice()
     .sort((a, b) => (
-      distance(a) - distance(b)
-      || stateRank[a.state] - stateRank[b.state]
+      stateRank[a.state] - stateRank[b.state]
       || String(a.title).localeCompare(String(b.title))
     ))
     .slice(0, slots);

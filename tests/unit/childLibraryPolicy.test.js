@@ -250,15 +250,14 @@ test("a quest badge says what to do, and the note under it is true", () => {
   assert.equal(startedAhead.badge, "Carry on");
 });
 
-test("the quest grid is always full, and a borrowed story keeps its own badge", () => {
+test("the quest grid never borrows stories from another world", () => {
   for (const world of STORY_WORLDS) {
     const cards = buildQuestGrid({ quests: storyQuests, progress: {}, world: world.id });
-    assert.equal(
-      cards.length,
-      QUEST_GRID_SLOTS,
-      `${world.id} must fill all six cells — a hole in the grid is the half-empty panel the spec forbids`
+    assert.ok(cards.length > 0 && cards.length <= QUEST_GRID_SLOTS);
+    assert.ok(
+      cards.every(card => card.world === world.id),
+      `${world.id} must not show a story from another world`
     );
-    assert.equal(cards[0].world, world.id, "the chosen world comes first");
   }
 
   const finished = storyQuests.find(quest => questWorldId(quest) === "meadow");
@@ -268,8 +267,7 @@ test("the quest grid is always full, and a borrowed story keeps its own badge", 
     world: "moonwood",
     reachedWorld: "moonwood"
   });
-  const borrowed = cards.find(card => card.id === finished.id);
-  if (borrowed) assert.equal(borrowed.badge, "Done");
+  assert.equal(cards.some(card => card.id === finished.id), false);
 });
 
 test("the story you are in is the one the grid puts first", () => {
