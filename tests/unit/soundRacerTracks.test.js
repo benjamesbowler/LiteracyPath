@@ -9,9 +9,11 @@ import {
 import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.generated.js";
 import { rocketRunTargets } from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
+import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 
 const isDigraph = g => /^(sh|ch|th|ng|ck|qu)$/.test(g);
 const hasRecordedWordAudio = word => [
+  getLedaWordAudioPath(word),
   `/audio/child-mode/clean-human/words/${word}.mp3`,
   `/audio/child-mode/words/${word}.mp3`,
   `/audio/child-mode/clean-human/hfw/${word}.mp3`,

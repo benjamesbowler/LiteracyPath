@@ -24,9 +24,9 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
 
   return (
     <div className="phonics-picker">
-      <h2>Choose a letter</h2>
+      <h1 data-child-title="">Choose a letter</h1>
 
-      <p>Tap a letter to hear its sound and start practising.</p>
+      <p data-child-instruction="">Tap a letter to hear its sound and start practising.</p>
       {recommendedLetter && (
         <p className="phonics-recommendation-reason">
           <strong>Why this one?</strong>{" "}
@@ -77,7 +77,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
         })}
       </div>
 
-      <div className="phonics-picker-progress">
+      <div className="phonics-picker-progress" data-child-progress="">
         <span>{completedCount} of {totalLetters} letters learned</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (

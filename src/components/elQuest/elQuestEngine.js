@@ -7,8 +7,13 @@ import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWordAudio.js";
+import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaProductionAudioPath,
+  getLedaWordAudioPath
+} from "../../data/ledaProductionAudio.js";
 
-const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
 
 // Graphemes that make the SAME phoneme in this curriculum. A sound-based round
@@ -77,33 +82,15 @@ function firstExisting(paths) {
 // Spoken cue for a grapheme: pure phoneme recordings first, then the
 // grapheme bank (digraphs etc.), with the spelling text as speech fallback.
 export function graphemeAudioPath(spelling) {
-  const clean = String(spelling || "").toLowerCase();
-  if (!clean) return "";
-  if (clean.length === 1 && VOWELS.has(clean)) {
-    return firstExisting([
-      `/audio/phonemes/short_${clean}.mp3`,
-      `/audio/child-mode/clean-human/graphemes/short_vowels/short_${clean}.mp3`
-    ]);
-  }
-  return firstExisting([
-    `/audio/phonemes/${clean}.mp3`,
-    `/audio/child-mode/clean-human/graphemes/consonants/${clean}.mp3`,
-    `/audio/child-mode/clean-human/graphemes/digraphs_blends/${clean}.mp3`
-  ]);
+  return getPreferredPhonemeAudioPath(spelling);
 }
 
 export function wordAudioPath(word) {
   const slug = String(word || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const ledaPath = getLedaWordAudioPath(word);
   // Words whose only recordings are defective count as having no recording.
-  if (hasKnownBadWordAudio(slug)) return "";
-  return firstExisting([
-    `/audio/child-mode/clean-human/words/${slug}.mp3`,
-    `/audio/child-mode/words/${slug}.mp3`,
-    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
-    `/audio/child-mode/hfw/${slug}.mp3`,
-    `/guided-reading/audio/words/${slug}.mp3`,
-    `/audio/vocabulary/${slug}.mp3`
-  ]);
+  if (hasKnownBadWordAudio(slug) && !ledaPath) return "";
+  return firstExisting([ledaPath]);
 }
 
 function focusEntries(cycle) {
@@ -201,7 +188,9 @@ function pictureWordsFor(spelling, limit = 4) {
 // Station - Letter Spot: match big and small letters. The cue speaks the
 // letter's NAME (ay, bee...), matching the "This is big A" prompt.
 function letterNameAudioPath(letter) {
-  return firstExisting([`/audio/letter-names/${letter}.mp3`]) || graphemeAudioPath(letter);
+  return firstExisting([
+    getLedaProductionAudioPath(letter, ["letter_name"])
+  ]) || graphemeAudioPath(letter);
 }
 
 const SINGLE_LETTERS = ALL_GRAPHEMES.filter(g => g.length === 1);
@@ -452,11 +441,7 @@ function buildPoemRounds(cycle) {
   const poemWords = uniqueChoices(
     text.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(w => w.length > 1)
   );
-  // v2 = the gold re-record matching the rewritten character poems. Until those
-  // files exist the round just cues the target word (the old v1 audio voiced the
-  // previous poems, so we must NOT play it - it would say the wrong words).
-  const narration = `/audio/learn-games/poems/v2/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
-  const poemAudio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
+  const poemAudio = getLedaInstructionAudioPath(text);
   return poem.findWords.map(word => ({
     type: "poem",
     audio: poemAudio || wordAudioPath(word),

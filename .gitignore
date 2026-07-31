@@ -15,6 +15,7 @@ node_modules
 .cache/
 playwright-report/
 test-results/
+outputs/
 docs/release/artifacts/
 dist
 dist-quest-offline
@@ -32,10 +33,6 @@ raw/
 *.njsproj
 *.sln
 *.sw?
-.env
-.env.local
-.env
-.env.local
 .env
 .env.local
 *.zip
@@ -70,14 +67,12 @@ docs/audio-recording/staged/
 # stray duplicate build output — do not commit
 dist 2/
 
-# stray duplicate build output — do not commit
-dist 2/
-
 # stray nested graphify output (not tracked on main) — regenerable dev artifact
 /src/graphify-out/
 
 # local Claude settings
 .claude/settings.local.json
+.claude-batch-*.tgz
 
 # Screenshot harness output (tools/shootQuest.mjs) — dev artefact, regenerate with: npm run shots
 docs/previews/shots/

@@ -555,6 +555,10 @@ export function TeacherTodayPage({
   loadingClasses = false,
   loadClasses,
   selectedClassId,
+  onSelectClass,
+  createClass,
+  newClassName = "",
+  setNewClassName,
   studentList = [],
   studentListReadState = null,
   loadingStudents = false,
@@ -572,6 +576,8 @@ export function TeacherTodayPage({
 }) {
   const [creatingDemo, setCreatingDemo] = useState(false);
   const [demoError, setDemoError] = useState("");
+  const [creatingClass, setCreatingClass] = useState(false);
+  const [createClassError, setCreateClassError] = useState("");
   const [supportFollowUpOpen, setSupportFollowUpOpen] = useState(false);
   const [supportQueueState, setSupportQueueState] = useState({
     count: 0,
@@ -684,19 +690,48 @@ export function TeacherTodayPage({
     }
   }
 
+  async function handleCreateFirstClass(event) {
+    event.preventDefault();
+    if (creatingClass) return;
+
+    const cleanName = String(newClassName || "").trim().replace(/\s+/g, " ");
+    if (!cleanName) {
+      setCreateClassError("Enter a class name first.");
+      return;
+    }
+    if (cleanName.length > 120) {
+      setCreateClassError("Class names must be 120 characters or fewer.");
+      return;
+    }
+
+    setCreatingClass(true);
+    setCreateClassError("");
+    try {
+      const saved = await createClass?.();
+      if (saved !== true) {
+        setCreateClassError("We couldn't create that class. Nothing was added. Try again.");
+      }
+    } catch (error) {
+      console.error("Could not create the first class.", error);
+      setCreateClassError("We couldn't create that class. Nothing was added. Try again.");
+    } finally {
+      setCreatingClass(false);
+    }
+  }
+
   return (
     <TeacherPageShell
       className="teacher-dashboard-page teacher-today-page"
       product="class-dashboard"
     >
-      <TeacherPageHeader
-        className="teacher-dashboard-hero"
-        eyebrow={todayKicker()}
-        title={TEACHER_COPY.today.title}
-        description={knownSelectedClass
-          ? TEACHER_COPY.today.description
-          : TEACHER_COPY.today.descriptionWithoutClass}
-      />
+      {selectedClass && (
+        <TeacherPageHeader
+          className="teacher-dashboard-hero"
+          eyebrow={todayKicker()}
+          title={TEACHER_COPY.today.title}
+          description={TEACHER_COPY.today.description}
+        />
+      )}
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />
       <ActionFeedback
@@ -704,9 +739,89 @@ export function TeacherTodayPage({
         kind="error"
         message={demoError}
       />
+      <ActionFeedback
+        className="teacher-dashboard-message"
+        kind="error"
+        message={createClassError}
+      />
+
+      {classRead.complete && visibleClassList.length > 0 && !selectedClass && (
+        <section className="teacher-class-gate" aria-labelledby="teacher-class-gate-title">
+          <div className="teacher-class-gate-copy">
+            <p>Start here</p>
+            <h2 id="teacher-class-gate-title">Choose your class</h2>
+            <span>Choose a class to see today’s dashboard, priorities and student results.</span>
+          </div>
+          <div className="teacher-class-gate-grid">
+            {visibleClassList.map((classRow, index) => (
+              <button
+                key={classRow.id}
+                type="button"
+                className={index === 0 ? "is-first" : ""}
+                onClick={() => onSelectClass?.(classRow.id)}
+              >
+                <strong>{classRow.name || "Untitled class"}</strong>
+                <span>
+                  {Number(classRow.studentCount ?? classRow.student_count ?? 0)} student{
+                    Number(classRow.studentCount ?? classRow.student_count ?? 0) === 1 ? "" : "s"
+                  }
+                </span>
+                <em>Open class →</em>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {classRead.complete && visibleClassList.length === 0 && !selectedClass && (
+        <section
+          className="teacher-class-gate teacher-first-class-gate"
+          aria-labelledby="teacher-first-class-title"
+        >
+          <div className="teacher-class-gate-copy">
+            <p>First setup</p>
+            <h2 id="teacher-first-class-title">Create your first class</h2>
+            <span>
+              Name the class your students will join. You can add students and
+              print their sign-in cards next.
+            </span>
+          </div>
+          <form
+            className="teacher-first-class-form"
+            aria-busy={creatingClass}
+            onSubmit={handleCreateFirstClass}
+          >
+            <label htmlFor="teacher-first-class-name">Class name</label>
+            <input
+              id="teacher-first-class-name"
+              autoComplete="off"
+              autoFocus
+              disabled={creatingClass}
+              maxLength={120}
+              value={newClassName}
+              placeholder="For example, Willow Class"
+              onChange={event => {
+                setNewClassName?.(event.target.value);
+                setCreateClassError("");
+              }}
+            />
+            <button
+              className="lp-button lp-button-primary"
+              disabled={creatingClass || !String(newClassName || "").trim()}
+              type="submit"
+            >
+              {creatingClass ? "Creating class…" : "Create class"}
+            </button>
+            <small>
+              This becomes your active class immediately. You can create more
+              classes later from Students.
+            </small>
+          </form>
+        </section>
+      )}
 
       <>
-      {classRead.complete
+      {selectedClass && classRead.complete
         && (!selectedClass || (rosterRead.complete && dashboardRead.complete))
         && showSetupChecklist && (
         <TeacherSetupChecklist

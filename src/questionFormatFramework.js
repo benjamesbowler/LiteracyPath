@@ -1,3 +1,5 @@
+import { getBlueprintByItem } from "./content/blueprints/skillBlueprints.js";
+
 const FORMAT_TYPES = new Set([
   "VPM",
   "PTD",
@@ -78,6 +80,25 @@ const FORMAT_TYPES = new Set([
   "GRAMMAR_SENTENCE_FIT",
   "COMPREHENSION",
   "FIX_SENTENCE",
+  // v3 rebuild formats (docs/skills-assessment-rebuild/BLUEPRINTS_*.md)
+  "RHYME_MATCH_PICTURE",
+  "RHYME_ODD_ONE_OUT",
+  "SILENT_E_TRANSFORM",
+  "R_CONTROLLED_PATTERN",
+  "GRAMMAR_WORD_CHOICE",
+  "GRAMMAR_CONTRAST",
+  "PREPOSITION_SCENE_CHOICE",
+  "PREPOSITION_TEXT_CHOICE",
+  "PREPOSITION_SENTENCE_FIT",
+  "PREPOSITION_PRECISION",
+  "PLURAL_TEXT_CHOICE",
+  "PLURAL_ERROR_SPOT",
+  "LANGUAGE_PAIR_TEXT_CHOICE",
+  "WORD_IN_SENTENCE_SWAP",
+  "MORPHEME_BUILD",
+  "MORPHEME_TRANSFER",
+  "HOMOPHONE_CONTEXT_CLOZE",
+  "HFW_READ_FIND_WORD",
   "UNKNOWN"
 ]);
 
@@ -226,6 +247,32 @@ export function isMasteryEligible(evidence = {}, itemType = "", itemKey = "") {
   const blockers = [];
   const normalizedItemType = normalizeText(itemType);
   const normalizedItemKey = normalizePattern(itemKey);
+
+  // v3 blueprint path: when the evidence unit belongs to a rebuild blueprint,
+  // the blueprint's construct-specific rule replaces the generic two-format
+  // heuristic and the pattern-regex extras below. The published v3 banks are
+  // gate-proven to make these requirements reachable (SIM-PASS); the legacy
+  // path stays for units that have not been cut over yet.
+  const blueprint = getBlueprintByItem(itemType, itemKey);
+  if (blueprint) {
+    const rule = blueprint.unitRule;
+    if (formatTypes.size === 0) blockers.push("No question format evidence yet.");
+    if (formatTypes.size === 1 && formatTypes.has("VPM")) {
+      blockers.push("Visual recognition only cannot establish mastery.");
+    }
+    if (formatTypes.size < rule.formatsMin) {
+      blockers.push(`Needs evidence from at least ${rule.formatsMin} question format${rule.formatsMin === 1 ? "" : "s"}.`);
+    }
+    if (
+      blueprint.skillId === "digraphs" &&
+      !blueprint.positionExemptUnits?.includes(normalizedItemKey) &&
+      !blueprint.finalOnlyUnits?.includes(normalizedItemKey) &&
+      !positions.has("final")
+    ) {
+      blockers.push("Digraphs need final-position exposure.");
+    }
+    return { eligible: blockers.length === 0, blockers };
+  }
 
   if (formatTypes.size === 0) blockers.push("No question format evidence yet.");
   if (formatTypes.size === 1 && formatTypes.has("VPM")) blockers.push("Visual recognition only cannot establish mastery.");

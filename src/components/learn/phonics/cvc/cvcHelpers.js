@@ -64,7 +64,7 @@ export function getLetterSoundCue(letter, family) {
     // sounding out "cat" is c-a-t, NOT the synthetic buzz and NOT the spoken
     // "short a" label. If the recording is missing, the control stays silent.
     return {
-      src: `/audio/phonemes/short_${vowel}.mp3`,
+      src: getGraphemeAudioPath(vowel, vowel),
       fallbackText: VOWEL_SOUND_FALLBACKS[vowel] || vowel
     };
   }

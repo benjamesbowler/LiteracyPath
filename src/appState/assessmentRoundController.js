@@ -1,6 +1,4 @@
-import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentPathKey, getAssessmentPathLabel, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getItemMasteryStateKeyForValues, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
-import { AUDIO_CHOICE_KEYS } from "../data/generated/audioChoiceKeys.generated.js";
-import { getGeneratedAudioKey } from "../utils/audioManifestKey.js";
+import { ASSESSMENT_PATH_STEPS, comparableSentenceAnswer, configuredCoverageTotals, debugAssessmentCoverage, formatCoverageKeyLabel, getRoundItemLabels, getAssessmentPathKey, getAssessmentPathLabel, getAssessmentQuestionLevel, getAssessmentQuestionPhase, getConfiguredPhaseItemKeys, getCoverageItemKeysForStage, getQuestionAnswer, getQuestionPathStep, getQuestionPrompt, getQuestionTargetWord, getRuntimeQuestionPromptAnswerSignature, getRuntimeQuestionSignature, getFinalSoundQuestionLevel, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isFinalSoundsStage, isFixSentenceQuestion, isInitialSoundsStage, isListenChooseVowelQuestion, isMissingItemMasteryTableError, isPairSelectionQuestion, isPureEarlyPhonicsStage, isQuestionBlockedByMediaQa, normalizeAnswerRecordShape, normalizeAssessmentQuestion, normalizeItemKey, normalizeMultiSelectAnswer, normalizePairSelectionAnswer, normalizeSentenceAnswer } from "./assessmentRuntime.js";
 import { supabase } from "../supabaseClient";
 import { skillTree } from "../skillTree";
 import { questionUsesFailedAssessmentMedia } from "../policy/assessmentMediaEvidence.js";
@@ -10,6 +8,7 @@ import { createAssessmentRoundDuplicateProfile, getAssessmentRoundDuplicateFlags
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation";
 import { buildFinalSoundAvailableWordMap, evaluateFinalSoundLevelOneMasteryDepth, finalSoundLevelOneTargets, getFinalSoundTargetFromEvidence } from "../data/finalSoundMasteryDepth";
 import { getQuestionFormatMetadata, isMasteryEligible } from "../questionFormatFramework";
+import { getBlueprintUnitRuleByItem } from "../content/blueprints/skillBlueprints.js";
 import { buildInitialSoundsProgressFromAnswerHistory, getInitialSoundRoundPlan } from "../content/initialSounds/initialSoundSelector";
 import { INITIAL_SOUND_LETTERS } from "../content/initialSounds/initialSoundWordBank";
 import { getAnswerRecordPromptAnswerSignature, getRepeatOptionSetSignature } from "../questionRepeatGuards";
@@ -22,6 +21,15 @@ import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
 import { preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
+import {
+  assessmentAttemptsToSkillLedger,
+  computeSkillStatus,
+  SKILL_STATUS_IDS
+} from "../policy/skillStatusPolicy.js";
 
 export function createAssessmentRoundController(context) {
   const {
@@ -73,21 +81,6 @@ export function createAssessmentRoundController(context) {
     return passedKeys;
   }
 
-  function getConfiguredLevelCoverageKeys(stage, level) {
-    const configured = configuredCoverageTotals[stage?.id];
-    if (!configured?.levels?.[level]?.length || !configured?.itemType) return [];
-    return configured.levels[level].map(itemKey =>
-      getItemMasteryStateKeyForValues(itemKey, configured.itemType)
-    );
-  }
-
-  function isConfiguredLevelCoverageComplete(stage, level) {
-    const expectedKeys = getConfiguredLevelCoverageKeys(stage, level);
-    if (!expectedKeys.length) return false;
-    const coveredKeys = getCoveredStageItemKeys(stage, { level });
-    return expectedKeys.every(key => coveredKeys.has(key));
-  }
-
   function hasConfiguredPhaseCoverage(stage, step = {}) {
     return Boolean(getConfiguredPhaseItemKeys(stage, step.level, step.phase)?.length);
   }
@@ -110,61 +103,30 @@ export function createAssessmentRoundController(context) {
 
   function getNextAssessmentPathStep(stage) {
     const passedKeys = getPassedAssessmentPathKeys(stage);
-
-    if (
-      isFinalSoundsStage(stage) &&
-      getFinalSoundsLevelOneMasteryDepth().levelOneMastered &&
-      configuredCoverageTotals[stage?.id]?.levels?.[2]?.length
-    ) {
-      return { level: 2, phase: 1 };
-    }
-
-    if (stage && !isInitialSoundsStage(stage) && !isFinalSoundsStage(stage)) {
-      const hasLevelTwoContent = getConfiguredLevelCoverageKeys(stage, 2).length > 0;
-      const levelOneComplete = hasLevelTwoContent && isConfiguredLevelCoverageComplete(stage, 1);
-      const levelTwoComplete = hasLevelTwoContent && isConfiguredLevelCoverageComplete(stage, 2);
-      const hasLevelTwoHistory = getStageAssessmentRecords(stage)
-        .some(record => Number(record.itemLevel || 1) >= 2);
-      const nextLevelOneStep = ASSESSMENT_PATH_STEPS.find(step =>
-        Number(step.level || 1) === 1 &&
-        !passedKeys.has(getAssessmentPathKey(step)) &&
-        hasAssessmentPathQuestions(stage, step)
-      );
-      const nextLevelTwoStep = ASSESSMENT_PATH_STEPS.find(step =>
-        Number(step.level || 1) === 2 &&
-        !passedKeys.has(getAssessmentPathKey(step)) &&
-        hasAssessmentPathQuestions(stage, step)
-      );
-
-      if (hasLevelTwoContent && !levelTwoComplete) {
-        if (hasLevelTwoHistory) return nextLevelTwoStep || { level: 2, phase: 1 };
-        if (levelOneComplete && !nextLevelOneStep) return nextLevelTwoStep || { level: 2, phase: 1 };
-      }
-    }
-
-    return ASSESSMENT_PATH_STEPS.find(step =>
+    const nextUnpassed = ASSESSMENT_PATH_STEPS.find(step =>
       !passedKeys.has(getAssessmentPathKey(step)) &&
-      hasAssessmentPathQuestions(stage, step)
-    ) ||
-      ASSESSMENT_PATH_STEPS.at(-1);
+      (isInitialSoundsStage(stage) || hasAssessmentPathQuestions(stage, step))
+    );
+    if (nextUnpassed) return nextUnpassed;
+
+    // A thin or temporarily media-blocked bank must not jump over an unpassed
+    // phase. Keep the four-stage order and let the assessment start surface
+    // explain that content is unavailable.
+    return ASSESSMENT_PATH_STEPS.find(step =>
+      !passedKeys.has(getAssessmentPathKey(step))
+    ) || ASSESSMENT_PATH_STEPS.at(-1);
   }
 
-  function getCheckpointPathStatus(stage, currentStep = {}, options = {}) {
+  function getCheckpointPathStatus(stage, currentStep = {}) {
     const currentKey = getAssessmentPathKey(currentStep);
     const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => getAssessmentPathKey(step) === currentKey));
     const nextStep = ASSESSMENT_PATH_STEPS[index + 1] || null;
-    const configured = configuredCoverageTotals[stage?.id];
-    const nextStepHasQuestions = nextStep ? hasAssessmentPathQuestions(stage, nextStep) : false;
-    const levelOneCompleteWithLevelTwoReady =
-      options.coverageComplete &&
-      Number(currentStep.level || 1) === 1 &&
-      (Number(currentStep.phase || 1) === 2 || !nextStepHasQuestions) &&
-      configured?.levels?.[2]?.length;
-    const finalStepComplete = levelOneCompleteWithLevelTwoReady
-      ? false
-      : (options.coverageComplete && !nextStepHasQuestions) || !nextStep;
-    const nextActionLabel = levelOneCompleteWithLevelTwoReady
-      ? "Start Level 2"
+    const passedKeys = getPassedAssessmentPathKeys(stage);
+    const levelOnePassed = passedKeys.has("L1P1") && passedKeys.has("L1P2");
+    const levelTwoPassed = passedKeys.has("L2P1") && passedKeys.has("L2P2");
+    const finalStepComplete = levelTwoPassed || currentKey === "L2P2";
+    const nextActionLabel = currentKey === "L1P2" && levelOnePassed
+      ? "Try optional Level 2 Phase 1"
       : finalStepComplete
         ? "Move to next skill"
         : ASSESSMENT_PATH_STEPS[index].nextLabel;
@@ -175,27 +137,17 @@ export function createAssessmentRoundController(context) {
       nextStep,
       nextActionLabel,
       finalStepComplete,
+      levelOnePassed,
+      levelTwoPassed,
+      nextSkillUnlocked: levelOnePassed,
+      level2Unlocked: levelOnePassed,
+      level2Optional: true,
       nextSkillLabel: skillTree[(skillTree.findIndex(item => item.id === stage?.id) + 1)]?.label || ""
     };
   }
 
   function getInitialSoundStageProgress(records = answerHistoryRef.current) {
     return buildInitialSoundsProgressFromAnswerHistory(records);
-  }
-
-  function getNextInitialSoundLevel(progress = getInitialSoundStageProgress()) {
-    const levelOneProbe = getInitialSoundRoundPlan({
-      studentProgress: { initialSoundsProgress: progress },
-      level: 1,
-      roundNumber: null,
-      seed: 11
-    });
-    const levelOneMastered = new Set(progress.level1?.masteredLetters || []);
-    const levelOneAvailable = levelOneProbe.meta.availableLetters || [];
-    const levelOneComplete = levelOneAvailable.length > 0 &&
-      levelOneAvailable.every(letter => levelOneMastered.has(letter));
-
-    return levelOneComplete ? 2 : 1;
   }
 
   // Clear the queue AND forget which letters this round has asked. Every
@@ -206,15 +158,28 @@ export function createAssessmentRoundController(context) {
     initialSoundRoundAskedLettersRef.current = new Set();
   }
 
+  function ensureInitialSoundRoundState() {
+    if (!Array.isArray(initialSoundRoundQueueRef.current)) {
+      initialSoundRoundQueueRef.current = [];
+    }
+    if (!(initialSoundRoundAskedLettersRef.current instanceof Set)) {
+      initialSoundRoundAskedLettersRef.current = new Set();
+    }
+    return initialSoundRoundQueueRef.current;
+  }
+
   function buildInitialSoundRoundQueue({ excludeLetters = [] } = {}) {
     const progress = getInitialSoundStageProgress();
     const forcedLevel = initialSoundForcedLevelRef.current;
-    const level = forcedLevel || getNextInitialSoundLevel(progress);
+    const stage = skillTree.find(item => item.id === "initial_sounds");
+    const pathStep = getNextAssessmentPathStep(stage);
+    const level = forcedLevel || pathStep.level;
+    const phase = forcedLevel ? 1 : pathStep.phase;
     initialSoundForcedLevelRef.current = null;
     const plan = getInitialSoundRoundPlan({
       studentProgress: { initialSoundsProgress: progress },
       level,
-      roundNumber: null,
+      roundNumber: level === 2 ? phase + 2 : phase,
       seed: Date.now() + Math.floor(Math.random() * 1000000),
       excludeLetters,
       itemFilter: item => (
@@ -244,7 +209,8 @@ export function createAssessmentRoundController(context) {
   }
 
   function getNextInitialSoundQuestion() {
-    if (initialSoundRoundQueueRef.current.length === 0) {
+    const queue = ensureInitialSoundRoundState();
+    if (queue.length === 0) {
       // Mid-round rebuild (asked-letters set is non-empty): exclude letters
       // already asked so we don't repeat them. Fresh rounds cleared the set via
       // resetInitialSoundRoundQueue, so nothing is excluded there.
@@ -254,19 +220,19 @@ export function createAssessmentRoundController(context) {
     }
 
     let skippedFailedItem = false;
-    let next = initialSoundRoundQueueRef.current.shift();
+    let next = queue.shift();
     while (
       next &&
       questionUsesFailedAssessmentMedia(next, failedAssessmentMediaRef.current)
     ) {
       skippedFailedItem = true;
-      next = initialSoundRoundQueueRef.current.shift();
+      next = queue.shift();
     }
     if (!next && skippedFailedItem) {
       buildInitialSoundRoundQueue({
         excludeLetters: [...initialSoundRoundAskedLettersRef.current]
       });
-      next = initialSoundRoundQueueRef.current.shift();
+      next = queue.shift();
     }
     if (!next) return null;
 
@@ -303,9 +269,10 @@ export function createAssessmentRoundController(context) {
     const stage = skillTree[stageIndex];
     if (!stage) return [];
     if (isInitialSoundsStage(stage)) {
+      const queue = ensureInitialSoundRoundState();
       return excludeSessionMediaFailures(
-        initialSoundRoundQueueRef.current.length
-          ? [...initialSoundRoundQueueRef.current]
+        queue.length
+          ? [...queue]
           : buildInitialSoundRoundQueue().items
       );
     }
@@ -1066,9 +1033,21 @@ export function createAssessmentRoundController(context) {
       crossPatternExposure: Boolean(previous?.crossPatternExposure || formatMetadata.crossPatternGroup || formatMetadata.formatType === "CPS")
     };
     const eligibility = isMasteryEligible(evidence, metadata.itemType, metadata.itemKey);
-    const baseMastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
+    // v3 blueprints tune the numeric evidence rule per construct (large
+    // inventories need 2 solid proofs per unit, small ones need 3+); units that
+    // are not covered by a blueprint keep the legacy 4/3/2 rule.
+    const unitRule = getBlueprintUnitRuleByItem(metadata.itemType, metadata.itemKey);
+    const attemptsMin = unitRule?.attemptsMin ?? 4;
+    const correctMin = unitRule?.correctMin ?? 3;
+    const sessionsMin = unitRule?.sessionsMin ?? 2;
+    const baseMastered = attempts >= attemptsMin && correct >= correctMin && isCorrect && sessionsSeen >= sessionsMin;
     const isAssessmentEvidence = (source.source || "assessment") === "assessment";
-    const mastered = Boolean(previous?.mastered || (isAssessmentEvidence && baseMastered && eligibility.eligible));
+    // v3 honesty rule (MASTERY_SYSTEM.md §3): mastery is never sticky — the
+    // most recent answer being wrong always clears the mastered flag, so a
+    // failed retake can no longer hide behind an old success.
+    const mastered = isCorrect
+      ? Boolean(previous?.mastered || (isAssessmentEvidence && baseMastered && eligibility.eligible))
+      : false;
     const stageIndex = getStageIndex(source);
     const stage = skillTree[stageIndex];
 
@@ -1438,9 +1417,7 @@ export function createAssessmentRoundController(context) {
           level: 1,
           phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
         };
-        const pathStatus = getCheckpointPathStatus(stage, currentStep, {
-          coverageComplete: depth.levelOneMastered
-        });
+        const pathStatus = getCheckpointPathStatus(stage, currentStep);
         const effectivePassed = passed;
         const missingCoverage = finalSoundLevelOneTargets.filter(target => !depth.coveredTargets.includes(target));
         const stillNeedsPractice = depth.stillNeedsPractice;
@@ -1536,7 +1513,7 @@ export function createAssessmentRoundController(context) {
     const coverageComplete = expectedKeys.length
       ? expectedKeys.every(key => coveredKeys.has(key))
       : true;
-    const pathStatus = getCheckpointPathStatus(stage, currentStep, { coverageComplete });
+    const pathStatus = getCheckpointPathStatus(stage, currentStep);
     const effectivePassed = passed;
 
     return {
@@ -1753,6 +1730,7 @@ export function createAssessmentRoundController(context) {
 
       setFeedback({
         question: answeredQuestion,
+        answerEventId: answerRecord.answerEventId,
         skillId: answeredQuestion.skillId,
         isCorrect,
         chosen: submittedAnswer,
@@ -1760,19 +1738,12 @@ export function createAssessmentRoundController(context) {
         skill: answeredQuestion.skill,
         explanation: getTeachingTip(answeredQuestion, submittedAnswer, isCorrect),
         support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
-        autoAdvance: isCorrect
+        autoAdvance: false
       });
       setAssessmentTransitioning(false);
 
       setCurrentQuestion(null);
-      if (isCorrect) {
-        setTimeout(() => {
-          if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
-          setAssessmentTransitioning(true);
-          setFeedback(null);
-          pickQuestion("targetedReview");
-        }, 750);
-      }
+      answerInFlightRef.current = false;
       return;
     }
 
@@ -1788,23 +1759,71 @@ export function createAssessmentRoundController(context) {
         accuracyPassed,
         nextRoundCorrectItemKeys
       );
-      const masteryEstablished = Boolean(
-        accuracyPassed
-        && roundCheckpoint.pathStatus?.finalStepComplete
-        && isFormalStageMasteryComplete(stage, itemPersistence?.row)
-      );
-      const checkpoint = {
+      const preliminaryCheckpoint = {
         ...roundCheckpoint,
-        passed: masteryEstablished,
-        masteryEstablished,
-        blockedPassReason: masteryEstablished || !accuracyPassed
+        passed: false,
+        masteryEstablished: false,
+        blockedPassReason: !accuracyPassed
           ? roundCheckpoint.blockedPassReason
           : roundCheckpoint.blockedPassReason
             || "This round was accurate, but the skill still needs enough correct results across separate assessments before it can be marked Secure."
       };
-      const mastered = masteryEstablished;
       const roundRecords = answerHistoryRef.current.slice(-nextRound.length);
-      const attemptRecord = buildAssessmentAttemptRecord({
+      let attemptRecord = buildAssessmentAttemptRecord({
+        studentId,
+        studentName,
+        classId: selectedClassId,
+        teacherId,
+        stage,
+        checkpoint: preliminaryCheckpoint,
+        questionRecords: roundRecords,
+        assessmentType: getAssessmentAttemptType(assessmentMode),
+        policySnapshot: {
+          rule: "Skills Assessment v3 single-status policy",
+          roundLength: ROUND_LENGTH,
+          passScore: PASS_SCORE,
+          stageId: stage.id,
+          level: preliminaryCheckpoint?.pathStatus?.level ?? null,
+          phase: preliminaryCheckpoint?.pathStatus?.phase ?? null
+        }
+      });
+      const archivedAttempts = loadAssessmentAttempts({ teacherId });
+      const skillStatus = computeSkillStatus(
+        assessmentAttemptsToSkillLedger([...archivedAttempts, attemptRecord], stage.id),
+        stage.id
+      );
+      const masteryEstablished = Boolean(
+        skillStatus?.status === SKILL_STATUS_IDS.SECURE
+        && !skillStatus?.needsReview
+      );
+      const completedLevel = Number(preliminaryCheckpoint?.pathStatus?.level || 1) >= 2 ? 2 : 1;
+      const completedPhase = Number(preliminaryCheckpoint?.pathStatus?.phase || 1) === 2 ? 2 : 1;
+      const phasePassed = Boolean(
+        skillStatus?.[`level${completedLevel}`]?.phases?.[completedPhase]?.passed
+      );
+      const checkpoint = {
+        ...preliminaryCheckpoint,
+        passed: phasePassed,
+        masteryEstablished,
+        skillStatus,
+        pathStatus: {
+          ...preliminaryCheckpoint.pathStatus,
+          levelOnePassed: Boolean(skillStatus?.level1?.passed),
+          levelTwoPassed: Boolean(skillStatus?.level2?.passed),
+          nextSkillUnlocked: Boolean(skillStatus?.nextSkillUnlocked),
+          level2Unlocked: Boolean(skillStatus?.level2Unlocked),
+          level2Optional: true
+        },
+        blockedPassReason: phasePassed || !accuracyPassed
+          ? preliminaryCheckpoint.blockedPassReason
+          : skillStatus?.[`level${completedLevel}`]?.phases?.[completedPhase]?.blockers?.[0]
+            || preliminaryCheckpoint.blockedPassReason
+      };
+      const mastered = Boolean(skillStatus?.nextSkillUnlocked);
+      // Rebuild the immutable archive row with the authoritative policy result
+      // included. Reports still recompute from the ledger; this snapshot only
+      // explains what the learner saw at completion time.
+      attemptRecord = buildAssessmentAttemptRecord({
         studentId,
         studentName,
         classId: selectedClassId,
@@ -1814,12 +1833,14 @@ export function createAssessmentRoundController(context) {
         questionRecords: roundRecords,
         assessmentType: getAssessmentAttemptType(assessmentMode),
         policySnapshot: {
-          rule: "stage mastery rule at administration time",
+          rule: "Skills Assessment v3 single-status policy",
           roundLength: ROUND_LENGTH,
           passScore: PASS_SCORE,
           stageId: stage.id,
           level: checkpoint?.pathStatus?.level ?? null,
-          phase: checkpoint?.pathStatus?.phase ?? null
+          phase: checkpoint?.pathStatus?.phase ?? null,
+          status: skillStatus?.status || "not_started",
+          needsReview: Boolean(skillStatus?.needsReview)
         }
       });
 
@@ -1839,14 +1860,16 @@ export function createAssessmentRoundController(context) {
         return;
       }
 
-      const retainedMastery = Boolean(mastery?.[stage.id]?.mastered || mastered);
+      // Recency is authoritative. A later failed retake must surface as review,
+      // never remain silently green because an old boolean was ratcheted true.
+      const retainedMastery = mastered;
       setMastery(prev => ({
         ...prev,
         [stage.id]: {
           attempts: (prev[stage.id]?.attempts || 0) + 1,
           mastered: retainedMastery,
-          // A failed retake never silently disappears: keep the ratchet for
-          // the child, but stamp it so the teacher dashboard can surface it.
+          // A failed retake never silently disappears: clear the current
+          // mastery conclusion and retain the failure timestamp for reporting.
           lastRetakeFailedAt: !mastered && prev[stage.id]?.mastered
             ? new Date().toISOString()
             : prev[stage.id]?.lastRetakeFailedAt || null,
@@ -1885,6 +1908,7 @@ export function createAssessmentRoundController(context) {
 
     setFeedback({
       question: answeredQuestion,
+      answerEventId: answerRecord.answerEventId,
       skillId: answeredQuestion.skillId,
       isCorrect,
       chosen: submittedAnswer,
@@ -1892,19 +1916,50 @@ export function createAssessmentRoundController(context) {
       skill: answeredQuestion.skill,
       explanation: getTeachingTip(answeredQuestion, submittedAnswer, isCorrect),
       support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
-      autoAdvance: isCorrect
+      autoAdvance: false
     });
     setAssessmentTransitioning(false);
 
     setCurrentQuestion(null);
-    if (isCorrect) {
-      setTimeout(() => {
-        if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
-        setAssessmentTransitioning(true);
-        setFeedback(null);
-        pickQuestion("mastery", stageIndex);
-      }, 750);
+    answerInFlightRef.current = false;
+  }
+
+  function reviseLastAnswer(answeredQuestion = {}, answerEventId = "") {
+    const questionId = answeredQuestion?.id || answeredQuestion?.questionId || "";
+    let removed = null;
+    const revisedHistory = [...answerHistoryRef.current];
+    for (let index = revisedHistory.length - 1; index >= 0; index -= 1) {
+      const row = revisedHistory[index];
+      if (
+        (answerEventId && row.answerEventId === answerEventId)
+        || (!answerEventId && questionId && row.questionId === questionId)
+      ) {
+        [removed] = revisedHistory.splice(index, 1);
+        break;
+      }
     }
+    answerHistoryRef.current = revisedHistory;
+    setAnswerHistory(revisedHistory);
+    setRoundAnswers(previous => previous.slice(0, -1));
+    setRoundItemKeys(previous => previous.slice(0, -1));
+    roundItemKeysRef.current = roundItemKeysRef.current.slice(0, -1);
+    setRoundQuestionIds(previous => previous.slice(0, -1));
+    roundQuestionIdsRef.current = roundQuestionIdsRef.current.slice(0, -1);
+    setUsedByStage(previous => {
+      const stageId = answeredQuestion?.skillId || "";
+      if (!stageId || !previous[stageId]) return previous;
+      const rows = [...previous[stageId]];
+      const removeAt = rows.lastIndexOf(questionId);
+      if (removeAt >= 0) rows.splice(removeAt, 1);
+      return { ...previous, [stageId]: rows };
+    });
+    setTotalAnswered(previous => Math.max(0, previous - 1));
+    if (removed?.isCorrect) setCorrectAnswered(previous => Math.max(0, previous - 1));
+    setShowConfetti(false);
+    setFeedback(null);
+    setAssessmentTransitioning(false);
+    setCurrentQuestion(normalizeAssessmentQuestion(answeredQuestion));
+    answerInFlightRef.current = false;
   }
 
   function buildFeedbackSupport(question, submittedAnswer) {
@@ -2008,16 +2063,6 @@ export function createAssessmentRoundController(context) {
     return `The correct answer is "${answer}". Review the skill and try the next one.`;
   }
 
-  function normalizeAudioText(text) {
-    return String(text || "")
-      .normalize("NFKC")
-      .replace(/[“”]/g, "\"")
-      .replace(/[‘’]/g, "'")
-      .replace(/\s+/g, " ")
-      .trim()
-      .toLowerCase();
-  }
-
   function speakWithBrowser(text) {
     if (!speakWithBrowserFallback(text, { rate: 0.85, pitch: 1 })) {
       console.warn("Browser speech synthesis is unavailable.");
@@ -2039,7 +2084,10 @@ export function createAssessmentRoundController(context) {
         audioPath
       });
     }
-    const preferredAudioPath = audioPath || "";
+    const ledaAudioPath = options.audioRole === "target_word"
+      ? getLedaWordAudioPath(text)
+      : getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
+    const preferredAudioPath = ledaAudioPath || audioPath || "";
 
     if (requireApprovedAudio && !preferredAudioPath) return;
 
@@ -2058,35 +2106,7 @@ export function createAssessmentRoundController(context) {
       }
     }
 
-    const normalizedText = normalizeAudioText(text);
-    const audioKey = await getGeneratedAudioKey(normalizedText);
-
     if (requireApprovedAudio) return;
-
-    if (audioKey) {
-      const audioPaths = AUDIO_CHOICE_KEYS.has(audioKey)
-        ? [`/audio/choices/${audioKey}.mp3`]
-        : [];
-
-      try {
-        for (const audioPath of audioPaths) {
-          if (!audioPath) continue;
-          try {
-            if (window.speechSynthesis) {
-              window.speechSynthesis.cancel();
-            }
-
-            const audio = new Audio(audioPath);
-            await audio.play();
-            return;
-          } catch {
-            // Try the next known manifest path before falling back to browser speech.
-          }
-        }
-      } catch (error) {
-        console.warn("Local audio unavailable.", error);
-      }
-    }
 
     if (allowBrowserFallback) {
       speakWithBrowser(text);
@@ -2270,7 +2290,7 @@ export function createAssessmentRoundController(context) {
   return {
     answerQuestion, buildInitialSoundRoundQueue, buildSkillMasterySummary, getAvailableStageQuestions,
     getItemMasteryStateKey, getQuestionItemKey, handleAssessmentEvidenceImageError, normalizeItemMasteryRow,
-    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue,
+    persistCompletedAssessmentAttempt, pickQuestion, prioritizeCoverageQuestions, resetInitialSoundRoundQueue, reviseLastAnswer,
     shouldShowImage, speakText, updateItemMastery,
   };
 }

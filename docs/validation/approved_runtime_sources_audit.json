@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T01:17:05.827Z",
+  "generatedAt": "2026-07-29T13:27:07.565Z",
   "sourceRegistrySummary": {
     "hfw": {
       "role": "approved workbook only",
@@ -61,181 +61,181 @@
   "skills": [
     {
       "skillId": "initial_sounds",
-      "loaderQuestions": 141,
-      "selectableQuestions": 131,
+      "loaderQuestions": 92,
+      "selectableQuestions": 132,
       "violations": 0
     },
     {
       "skillId": "final_sounds",
-      "loaderQuestions": 549,
-      "selectableQuestions": 464,
+      "loaderQuestions": 366,
+      "selectableQuestions": 457,
       "violations": 0
     },
     {
       "skillId": "rhyming",
-      "loaderQuestions": 813,
-      "selectableQuestions": 666,
+      "loaderQuestions": 656,
+      "selectableQuestions": 656,
       "violations": 0
     },
     {
       "skillId": "cvc_short_vowels",
-      "loaderQuestions": 500,
+      "loaderQuestions": 412,
       "selectableQuestions": 412,
       "violations": 0
     },
     {
       "skillId": "short_vowel_discrimination",
-      "loaderQuestions": 523,
-      "selectableQuestions": 304,
+      "loaderQuestions": 299,
+      "selectableQuestions": 299,
       "violations": 0
     },
     {
       "skillId": "hfw_1_25",
-      "loaderQuestions": 150,
+      "loaderQuestions": 147,
       "selectableQuestions": 147,
       "violations": 0
     },
     {
       "skillId": "hfw_26_50",
-      "loaderQuestions": 150,
+      "loaderQuestions": 149,
       "selectableQuestions": 149,
       "violations": 0
     },
     {
       "skillId": "hfw_51_75",
-      "loaderQuestions": 150,
+      "loaderQuestions": 148,
       "selectableQuestions": 148,
       "violations": 0
     },
     {
       "skillId": "hfw_76_100",
-      "loaderQuestions": 148,
+      "loaderQuestions": 144,
       "selectableQuestions": 144,
       "violations": 0
     },
     {
       "skillId": "blends",
-      "loaderQuestions": 304,
+      "loaderQuestions": 97,
       "selectableQuestions": 97,
       "violations": 0
     },
     {
       "skillId": "digraphs",
-      "loaderQuestions": 309,
+      "loaderQuestions": 120,
       "selectableQuestions": 120,
       "violations": 0
     },
     {
       "skillId": "long_vowels",
-      "loaderQuestions": 237,
+      "loaderQuestions": 104,
       "selectableQuestions": 0,
       "violations": 0
     },
     {
       "skillId": "vowel_teams",
-      "loaderQuestions": 282,
-      "selectableQuestions": 116,
+      "loaderQuestions": 141,
+      "selectableQuestions": 141,
       "violations": 0
     },
     {
       "skillId": "r_controlled",
-      "loaderQuestions": 161,
-      "selectableQuestions": 118,
+      "loaderQuestions": 128,
+      "selectableQuestions": 128,
       "violations": 0
     },
     {
       "skillId": "nouns",
-      "loaderQuestions": 90,
-      "selectableQuestions": 130,
+      "loaderQuestions": 146,
+      "selectableQuestions": 146,
       "violations": 0
     },
     {
       "skillId": "verbs",
-      "loaderQuestions": 25,
-      "selectableQuestions": 68,
+      "loaderQuestions": 111,
+      "selectableQuestions": 111,
       "violations": 0
     },
     {
       "skillId": "adjectives",
-      "loaderQuestions": 25,
-      "selectableQuestions": 51,
+      "loaderQuestions": 110,
+      "selectableQuestions": 110,
       "violations": 0
     },
     {
       "skillId": "prepositions",
-      "loaderQuestions": 488,
-      "selectableQuestions": 264,
+      "loaderQuestions": 303,
+      "selectableQuestions": 314,
       "violations": 0
     },
     {
       "skillId": "plurals",
-      "loaderQuestions": 380,
-      "selectableQuestions": 104,
+      "loaderQuestions": 138,
+      "selectableQuestions": 184,
       "violations": 0
     },
     {
       "skillId": "prefix_suffix",
-      "loaderQuestions": 475,
+      "loaderQuestions": 92,
       "selectableQuestions": 0,
       "violations": 0
     },
     {
       "skillId": "antonyms_synonyms",
-      "loaderQuestions": 390,
-      "selectableQuestions": 155,
+      "loaderQuestions": 234,
+      "selectableQuestions": 236,
       "violations": 0
     },
     {
       "skillId": "homophones",
-      "loaderQuestions": 299,
+      "loaderQuestions": 116,
       "selectableQuestions": 0,
       "violations": 0
     },
     {
       "skillId": "sentence_comprehension",
-      "loaderQuestions": 293,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "key_details",
-      "loaderQuestions": 360,
-      "selectableQuestions": 0,
+      "loaderQuestions": 93,
+      "selectableQuestions": 93,
       "violations": 0
     },
     {
       "skillId": "sequencing",
-      "loaderQuestions": 302,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "main_idea",
-      "loaderQuestions": 300,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "inference",
-      "loaderQuestions": 262,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "cause_effect",
-      "loaderQuestions": 306,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "context_clues",
-      "loaderQuestions": 218,
-      "selectableQuestions": 0,
+      "loaderQuestions": 92,
+      "selectableQuestions": 92,
       "violations": 0
     },
     {
       "skillId": "theme",
-      "loaderQuestions": 217,
+      "loaderQuestions": 92,
       "selectableQuestions": 0,
       "violations": 0
     }

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 import "./App.css";
+import "./styles/ui-quality-pass.css";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { readTeacherFunnelParams } from "./appState/appViewHelpers.js";
 import { EL_BENCHMARK_IDS } from "./data/elBenchmarkAssessments.js";
@@ -29,6 +30,8 @@ import { computeHydratedValue } from "./utils/progressMerge.js";
 const params = new URLSearchParams(window.location.search);
 const surface = params.get("surface") || "today";
 const showLearnerDrawer = params.get("learner") === "1";
+const previewStartsWithoutClass = params.get("class") === "none";
+const previewNewTeacher = params.get("account") === "new";
 const classId = "00000000-0000-4000-8000-0000000000a1";
 const secondClassId = "00000000-0000-4000-8000-0000000000b2";
 const teacherId = "00000000-0000-4000-8000-0000000000f1";
@@ -206,7 +209,12 @@ function viewForSurface(value) {
 }
 
 function Dashboard({ page }) {
-  const [selectedClassId, setSelectedClassId] = useState(classId);
+  const [previewClassList, setPreviewClassList] = useState(
+    () => previewNewTeacher ? [] : classList
+  );
+  const [selectedClassId, setSelectedClassId] = useState(
+    previewStartsWithoutClass || previewNewTeacher ? "" : classId
+  );
   const [selectedPreviewStudentId, setSelectedPreviewStudentId] = useState(
     showLearnerDrawer ? studentId : ""
   );
@@ -259,11 +267,29 @@ function Dashboard({ page }) {
   }
 
   if (page === "today") {
+    async function createPreviewClass() {
+      const cleanName = String(newClassName || "").trim().replace(/\s+/g, " ");
+      if (!cleanName) return false;
+      const createdClass = {
+        id: "preview-first-class",
+        name: cleanName,
+        access_code: "FIRST1",
+        leaderboard_scope: "class"
+      };
+      setPreviewClassList([createdClass]);
+      setSelectedClassId(createdClass.id);
+      setNewClassName("");
+      return true;
+    }
+
     return (
       <TeacherTodayPage
-        classList={classList}
+        classList={previewClassList}
         selectedClassId={selectedClassId}
-        setSelectedClassId={setSelectedClassId}
+        onSelectClass={setSelectedClassId}
+        createClass={createPreviewClass}
+        newClassName={newClassName}
+        setNewClassName={setNewClassName}
         setStudentList={noop}
         studentList={previewStudents}
         loadStudents={asyncNoop}
@@ -785,7 +811,11 @@ function Surface() {
 
 export function TeacherA11yPreview() {
   const appView = viewForSurface(surface);
-  const focused = surface === "assessment" || surface === "accessibility";
+  const classEntryPreview = surface === "today"
+    && (previewStartsWithoutClass || previewNewTeacher);
+  const focused = surface === "assessment"
+    || surface === "accessibility"
+    || classEntryPreview;
   return (
     <div
       className={`lg-app-shell${focused ? " no-sidebar assessment-fullscreen-shell" : ""}`}
@@ -811,7 +841,11 @@ export function TeacherA11yPreview() {
         />
       )}
       <div className="lg-content-area">
-        <div className={`app${focused ? " assessment-app no-sidebar el-benchmark-app" : ""}`}>
+        <div className={`app${
+          classEntryPreview
+            ? " teacher-class-entry-app no-sidebar"
+            : focused ? " assessment-app no-sidebar el-benchmark-app" : ""
+        }`}>
           <Surface />
         </div>
       </div>

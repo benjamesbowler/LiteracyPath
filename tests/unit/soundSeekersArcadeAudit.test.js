@@ -5,6 +5,10 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { speakWithBrowser } from "../../src/utils/audio/speakWithBrowser.js";
 import { hasPhonicsAudioSource } from "../../src/hooks/usePhonicsAudio.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../../src/data/ledaProductionAudio.js";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -14,12 +18,15 @@ async function source(relativePath) {
 
 test("gold voice policy stays recorded-only across shared phonics and login audio", async () => {
   assert.equal(speakWithBrowser("never synthesize this"), false);
-  for (const digraph of ["sh", "ch", "th", "wh", "ck", "ng"]) {
+  for (const digraph of ["wh", "ck", "ng"]) {
     assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${digraph}.mp3`), true, `${digraph} needs recorded reinforcement`);
   }
-  assert.equal(hasPhonicsAudioSource("/audio/ui/voice/great-job.mp3"), true);
-  assert.equal(hasPhonicsAudioSource("/audio/child-mode/clean-human/phrases/tap.mp3"), true);
-  assert.equal(hasPhonicsAudioSource("/audio/child-mode/clean-human/phrases/listen-and-find.mp3"), true);
+  for (const deferred of ["sh", "ch", "th"]) {
+    assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${deferred}.mp3`), false, `${deferred} must not revive deleted audio`);
+  }
+  assert.equal(hasPhonicsAudioSource(getLedaInstructionAudioPath("Great job")), true);
+  assert.equal(hasPhonicsAudioSource(getLedaWordAudioPath("tap")), true);
+  assert.equal(hasPhonicsAudioSource(getLedaInstructionAudioPath("Listen and find")), true);
   assert.equal(hasPhonicsAudioSource("generated:phoneme:a"), false);
   assert.equal(hasPhonicsAudioSource("/audio/phonemes/not-a-real-clip.mp3"), false);
 
@@ -35,19 +42,31 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
   assert.match(phonicsHook, /AUDIO_FILE_PATHS\.has\(src\)/);
   assert.match(loginFlow, /AUDIO_FILE_PATHS\.has\(src\)/);
   assert.doesNotMatch(loginFlow, /speakWithBrowser/);
-  const usedLoginVoiceKeys = [...loginFlow.matchAll(/speakLine\("([^"]+)"/g)].map(match => match[1]);
-  assert.ok(usedLoginVoiceKeys.length > 0);
-  for (const key of usedLoginVoiceKeys) {
-    assert.equal(hasPhonicsAudioSource(`/audio/ui/voice/${key}.mp3`), true, `login voice ${key} must be recorded`);
+  assert.doesNotMatch(loginFlow, /\/audio\/ui\/voice\//);
+  assert.match(loginFlow, /getLedaInstructionAudioPath\(text\)/);
+  for (const text of [
+    "Ask your teacher for the class code.",
+    "Who are you?",
+    "Tap your three secret pictures.",
+    "That did not match.",
+    "Try again",
+    "Ask your teacher for help."
+  ]) {
+    assert.equal(
+      hasPhonicsAudioSource(getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text)),
+      true,
+      `login prompt must use recorded Leda audio: ${text}`
+    );
   }
   const tracerInstructionSources = [
-    "/audio/child-mode/phrases/watch-me-first.mp3",
-    "/audio/child-mode/phrases/start-at-the-top.mp3",
-    "/audio/child-mode/phrases/now-you-try.mp3"
+    ["Watch me first", "WATCH_ME_FIRST_AUDIO"],
+    ["Start at the top", "START_AT_TOP_AUDIO"],
+    ["Now you try", "NOW_YOU_TRY_AUDIO"]
   ];
-  for (const src of tracerInstructionSources) {
+  for (const [text, constantName] of tracerInstructionSources) {
+    const src = getLedaInstructionAudioPath(text);
     assert.equal(hasPhonicsAudioSource(src), true, `tracer instruction ${src} must be manifest-backed`);
-    assert.match(stepTracer, new RegExp(src.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(stepTracer, new RegExp(`${constantName} = getLedaInstructionAudioPath`));
   }
   assert.doesNotMatch(stepTracer, /usePhonicsAudio\(\s*""/, "tracer instructions still route an empty source into the audio hook");
   assert.match(stepTracer, /playCueSequence\(\[WATCH_ME_FIRST_AUDIO, START_AT_TOP_AUDIO\]/);
@@ -77,7 +96,7 @@ test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and redu
   assert.match(racer, /playerZ \+= speed \* dt \* \(reduceMotion \? 0\.55 : 1\)/);
   assert.match(racer, /const opticalFlowScale = reduceMotion \? 0\.45 : 1/);
   assert.match(racer, /if \(!activates\) return;[\s\S]*event\.preventDefault\(\)/);
-  assert.match(racer, /\/audio\/ui\/voice\/great-job\.mp3/);
+  assert.match(racer, /getLedaInstructionAudioPath\("Great job"\)/);
   assert.match(racer, /buildSoundRacerTutorial\(track, \{ hasRecordedAudio: hasRecordedSpeech \}\)/);
   assert.match(racer, /data-sr="tutorial-phonics" aria-label="Sound example"/);
   assert.match(racer, /data-sr="tutorial-motor" aria-label="How to steer"/);
@@ -146,11 +165,12 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(safari, /presentedUnits/);
   assert.match(safari, /fieldGuideReplayBox/);
   assert.match(safari, /speakPhoneme\(value\)/);
-  assert.match(soundBeat, /\/audio\/child-mode\/clean-human\/phrases\/tap\.mp3/);
-  assert.match(learnGamesAudio, /graphemes\/vowel_teams\/\$\{normalized\}\.mp3/);
+  assert.match(soundBeat, /getLedaWordAudioPath\("tap"\)/);
+  assert.match(learnGamesAudio, /phonemeAudioCandidates\(normalized\)/);
+  assert.doesNotMatch(learnGamesAudio, /clean-human\/graphemes/);
   assert.match(learnGamesAudio, /if \(played\) return;\s*speakWithBrowser\(normalized, options\);\s*return;/);
   assert.match(learnGamesAudio, /existingAudioPaths\(wordAudioCandidates\(slug\)\)\.length > 0/);
-  assert.match(reward, /\/audio\/ui\/voice\/great-job\.mp3/);
+  assert.match(reward, /getLedaInstructionAudioPath\("Great job"\)/);
   assert.match(reward, /timers\.forEach\(timer => clearTimeout\(timer\)\);\s*stopCueAudio\(\)/);
   assert.match(reward, /aria-hidden="true">(?:→|➜|▶)/);
 });

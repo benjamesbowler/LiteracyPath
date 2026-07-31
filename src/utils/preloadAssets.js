@@ -4,6 +4,7 @@
 import { GAME_LIST } from "../data/learnGamesData";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { COMPANIONS } from "./studentProfile.js";
+import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
 
 // Home board tile backgrounds — heavy webp that otherwise paint blank/black on
 // a cold visit; warm them so re-visits are instant.
@@ -76,9 +77,9 @@ export function warmStudentAssets(world) {
 
     // Most-played instruction audio
     [
-      "/audio/learn-games/instructions/build-the-word-you-hear.mp3",
-      "/audio/learn-games/instructions/listen-then-tap-the-matching-word.mp3",
-      "/audio/learn-games/instructions/find-the-matching-sight-words.mp3"
+      getLedaInstructionAudioPath("Build the word you hear"),
+      getLedaInstructionAudioPath("Listen then tap the matching word"),
+      getLedaInstructionAudioPath("Find the matching sight words")
     ].forEach(preloadAudio);
   };
 

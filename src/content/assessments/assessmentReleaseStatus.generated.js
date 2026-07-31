@@ -15,8 +15,8 @@ export const assessmentReleaseStatus = Object.freeze([
       "runtimeSelectability": "pass"
     },
     "reasons": [],
-    "authoredQuestions": 151,
-    "approvedQuestions": 132,
+    "authoredQuestions": 152,
+    "approvedQuestions": 133,
     "runtimeSelectableQuestions": 92,
     "releaseEligibleQuestions": 92,
     "unapprovedAudioQuestions": 0,
@@ -61,7 +61,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 366,
     "runtimeSelectableQuestions": 366,
     "releaseEligibleQuestions": 366,
-    "unapprovedAudioQuestions": 11,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -99,11 +99,11 @@ export const assessmentReleaseStatus = Object.freeze([
       "runtimeSelectability": "pass"
     },
     "reasons": [],
-    "authoredQuestions": 802,
+    "authoredQuestions": 803,
     "approvedQuestions": 656,
     "runtimeSelectableQuestions": 656,
     "releaseEligibleQuestions": 656,
-    "unapprovedAudioQuestions": 0,
+    "unapprovedAudioQuestions": 1,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -187,7 +187,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 299,
     "runtimeSelectableQuestions": 299,
     "releaseEligibleQuestions": 299,
-    "unapprovedAudioQuestions": 14,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -397,7 +397,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 97,
     "runtimeSelectableQuestions": 97,
     "releaseEligibleQuestions": 97,
-    "unapprovedAudioQuestions": 1,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -439,7 +439,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 120,
     "runtimeSelectableQuestions": 120,
     "releaseEligibleQuestions": 120,
-    "unapprovedAudioQuestions": 2,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -481,7 +481,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 104,
     "runtimeSelectableQuestions": 104,
     "releaseEligibleQuestions": 104,
-    "unapprovedAudioQuestions": 8,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -565,7 +565,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 128,
     "runtimeSelectableQuestions": 128,
     "releaseEligibleQuestions": 128,
-    "unapprovedAudioQuestions": 1,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -607,7 +607,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 146,
     "runtimeSelectableQuestions": 146,
     "releaseEligibleQuestions": 146,
-    "unapprovedAudioQuestions": 1,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -646,10 +646,10 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "authoredQuestions": 420,
-    "approvedQuestions": 111,
-    "runtimeSelectableQuestions": 111,
-    "releaseEligibleQuestions": 111,
-    "unapprovedAudioQuestions": 19,
+    "approvedQuestions": 119,
+    "runtimeSelectableQuestions": 119,
+    "releaseEligibleQuestions": 119,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -661,9 +661,9 @@ export const assessmentReleaseStatus = Object.freeze([
         "balancePass": true
       },
       "2": {
-        "eligibleQuestionCount": 60,
-        "uniqueTargetCount": 23,
-        "maximumTargetShare": 0.1,
+        "eligibleQuestionCount": 68,
+        "uniqueTargetCount": 31,
+        "maximumTargetShare": 0.08823529411764706,
         "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
@@ -688,10 +688,10 @@ export const assessmentReleaseStatus = Object.freeze([
     },
     "reasons": [],
     "authoredQuestions": 384,
-    "approvedQuestions": 110,
-    "runtimeSelectableQuestions": 110,
-    "releaseEligibleQuestions": 110,
-    "unapprovedAudioQuestions": 5,
+    "approvedQuestions": 112,
+    "runtimeSelectableQuestions": 112,
+    "releaseEligibleQuestions": 112,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -703,9 +703,9 @@ export const assessmentReleaseStatus = Object.freeze([
         "balancePass": true
       },
       "2": {
-        "eligibleQuestionCount": 64,
-        "uniqueTargetCount": 21,
-        "maximumTargetShare": 0.15625,
+        "eligibleQuestionCount": 66,
+        "uniqueTargetCount": 23,
+        "maximumTargetShare": 0.15151515151515152,
         "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
@@ -720,37 +720,40 @@ export const assessmentReleaseStatus = Object.freeze([
     "skillId": "prepositions_of_place",
     "skillName": "Prepositions of Place",
     "standardVersion": "2026.07.24-a1.4",
-    "releaseReady": true,
+    "releaseReady": false,
     "dimensions": {
-      "questionCount": "pass",
-      "balance": "pass",
+      "questionCount": "fail",
+      "balance": "fail",
       "media": "pass",
       "accessibility": "pass",
-      "runtimeSelectability": "pass"
+      "runtimeSelectability": "blocked"
     },
-    "reasons": [],
+    "reasons": [
+      "Question-count floor is not met at both levels.",
+      "Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard."
+    ],
     "authoredQuestions": 314,
-    "approvedQuestions": 303,
-    "runtimeSelectableQuestions": 303,
-    "releaseEligibleQuestions": 303,
+    "approvedQuestions": 214,
+    "runtimeSelectableQuestions": 0,
+    "releaseEligibleQuestions": 214,
     "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
-        "eligibleQuestionCount": 229,
-        "uniqueTargetCount": 27,
-        "maximumTargetShare": 0.05240174672489083,
+        "eligibleQuestionCount": 200,
+        "uniqueTargetCount": 20,
+        "maximumTargetShare": 0.05,
         "additionalBalancePass": true,
         "questionCountPass": true,
         "balancePass": true
       },
       "2": {
-        "eligibleQuestionCount": 74,
-        "uniqueTargetCount": 50,
-        "maximumTargetShare": 0.04054054054054054,
+        "eligibleQuestionCount": 14,
+        "uniqueTargetCount": 14,
+        "maximumTargetShare": 0.07142857142857142,
         "additionalBalancePass": true,
-        "questionCountPass": true,
-        "balancePass": true
+        "questionCountPass": false,
+        "balancePass": false
       }
     },
     "accessibilityIssueCount": 0,
@@ -859,7 +862,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 116,
     "runtimeSelectableQuestions": 116,
     "releaseEligibleQuestions": 116,
-    "unapprovedAudioQuestions": 1,
+    "unapprovedAudioQuestions": 0,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {
@@ -985,7 +988,7 @@ export const assessmentReleaseStatus = Object.freeze([
     "approvedQuestions": 93,
     "runtimeSelectableQuestions": 93,
     "releaseEligibleQuestions": 93,
-    "unapprovedAudioQuestions": 0,
+    "unapprovedAudioQuestions": 2,
     "publicationMode": "audited-id-set",
     "levels": {
       "1": {

@@ -58,6 +58,44 @@ test.after(async () => {
   await vite?.close();
 });
 
+test("existing teachers must choose a verified class before Today opens", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+    classList: [
+      { id: "class-willow", name: "Willow Class", studentCount: 18 },
+      { id: "class-oak", name: "Oak Class", studentCount: 21 }
+    ],
+    selectedClassId: "",
+    loadingClasses: false,
+    teacherId: "teacher-a"
+  }));
+
+  assert.match(html, /Choose your class/);
+  assert.match(html, /Willow Class/);
+  assert.match(html, /18 students/);
+  assert.match(html, /Oak Class/);
+  assert.doesNotMatch(html, /Create your first class/);
+  assert.doesNotMatch(html, /Today ·/);
+});
+
+test("a verified new teacher account gets first-class creation directly", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherTodayPage, {
+    classList: [],
+    selectedClassId: "",
+    loadingClasses: false,
+    teacherId: "teacher-new",
+    newClassName: "",
+    setNewClassName: () => {},
+    createClass: async () => true
+  }));
+
+  assert.match(html, /Create your first class/);
+  assert.match(html, /Class name/);
+  assert.match(html, /For example, Willow Class/);
+  assert.match(html, /type="submit"/);
+  assert.doesNotMatch(html, /Choose your class/);
+  assert.doesNotMatch(html, /Today ·/);
+});
+
 // A fresh sign-in: the class request is in flight, so there is no class list and
 // no selected class yet. That is not the same as having no classes.
 test("the checks funnel waits instead of telling a teacher to make their first class", () => {
@@ -480,8 +518,8 @@ test("a stale class id settles on a chooser instead of an endless loading state"
   assert.match(students, /Choose a class/);
   assert.doesNotMatch(students, /data-teacher-state="loading"/);
   assert.doesNotMatch(students, /No classes yet/);
-  // v2 Dashboard: no in-page class picker; the header sends the teacher to
-  // choose a class (via the context bar's Change link) instead of spinning.
+  // A stale saved class cannot reopen Today; the focused chooser takes over
+  // instead of leaving the page spinning on an unavailable selection.
   assert.match(today, /Choose a class to see today/);
   assert.doesNotMatch(today, /data-teacher-state="loading"/);
   assert.doesNotMatch(today, /No classes yet/);

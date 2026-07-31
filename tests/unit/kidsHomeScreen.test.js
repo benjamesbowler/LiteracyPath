@@ -143,10 +143,12 @@ test("reduced-choice mode and the grown-ups menu both survive the re-layout", ()
   // teacher setting cannot be lost by a layout change.
   assert.match(code, /selectStudentRailItems\(doorways, \{ active: "home", reducedChoiceMode \}\)/);
   assert.match(code, /loadStudentProfile\(progressScopeKey\)\.reducedChoiceMode/);
-  // Grown-ups: the shell's header button opens the menu that holds change
-  // companion and sign out.
+  // Grown-ups: the shell's header button opens the menu. Guide changes belong
+  // in the Hollow (and cost stars), while sign-out stays protected here.
   assert.match(code, /onGrownUps=\{\(\) => setAccountOpen\(open => !open\)\}/);
-  assert.match(code, /setPickingCompanion\(true\)/);
+  assert.match(code, /My Little Literacy Guide/);
+  assert.match(code, /onClick=\{onOpenRewards\}/);
+  assert.doesNotMatch(code, /setPickingCompanion\(true\)/);
   assert.match(code, /onClick=\{onLogout\}/);
   assert.match(code, /aria-label=\{logoutAriaLabel\}/);
 });
@@ -233,7 +235,7 @@ test("the stops count names a real number and promises no stars", () => {
   assert.match(code, /<DoneRingGlyph \/>/);
 });
 
-test("the hero pairs a clean backdrop with ONE placed pal, never two sets of characters", () => {
+test("the hero pairs a clean backdrop with the child's saved book guide", () => {
   // pals/{world}-panorama.webp already has a rabbit and a hedgehog painted into
   // it; the hero used to stand a third character (world.point) on top of them.
   assert.match(code, /src=\{world\.backdrop\}/);
@@ -242,7 +244,9 @@ test("the hero pairs a clean backdrop with ONE placed pal, never two sets of cha
     false,
     "the panorama has pals painted in — a placed pal needs the clean plate"
   );
-  assert.match(code, /src=\{world\.point\}/);
+  assert.match(code, /src=\{companion\.image\}/);
+  assert.doesNotMatch(code, /src=\{world\.point\}/);
+  assert.match(code, /My Little Literacy Guide/);
   for (const world of Object.values(PAL_WORLDS)) {
     assert.match(
       world.backdrop,
@@ -275,10 +279,6 @@ test("the home stylesheet takes system classes and re-declares no glass recipe",
     false,
     "reaching for text-shadow means the scrim is missing"
   );
-  // The bob/centring collision: the hero's companion is a wrapper plus an inner
-  // animated <img>, and the wrapper must never own a transform.
-  const pal = css.match(/\.kg-stage \.kg-home-hero-pal\.kg-sprite \{[\s\S]*?\n\}/);
-  assert.ok(pal, "the hero sprite wrapper is gone");
-  assert.equal(/(^|[^-])transform:/.test(pal[0]), false);
-  assert.match(code, /<img className="kg-bob"/);
+  assert.match(css, /\.kg-stage \.kg-home-guide-photo/);
+  assert.match(code, /className="kg-home-guide-name kg-glass-dark"/);
 });

@@ -1,6 +1,6 @@
 # LiteracyPath Strict Production Assessment Audit
 
-Generated: 2026-07-25T10:12:14.038Z
+Generated: 2026-07-31T09:33:54.125Z
 
 ## Strict Standard
 
@@ -11,10 +11,10 @@ The audit imports `src/content/releaseStandard.js` version 2026.07.24-a1.4. Each
 | Metric | Value |
 | --- | --- |
 | Total skills audited | 30 |
-| Skills fully production-ready | 30 |
+| Skills fully production-ready | 29 |
 | Skills with enough quantity but weak balance | 0 |
 | Skills missing Level 1 depth | 0 |
-| Skills missing Level 2 depth | 0 |
+| Skills missing Level 2 depth | 1 |
 | Skills missing images | 0 |
 | Skills missing audio | 0 |
 | Skills with stale media warnings | 0 |
@@ -24,7 +24,7 @@ The audit imports `src/content/releaseStandard.js` version 2026.07.24-a1.4. Each
 | Skills needing only path/wiring fixes | 0 |
 | Total exact missing images | 0 |
 | Total exact missing audio | 0 |
-| Total exact missing questions | 0 |
+| Total exact missing questions | 32 |
 | Total weak but passing warnings | 0 |
 
 ## Status Labels
@@ -42,30 +42,30 @@ The audit imports `src/content/releaseStandard.js` version 2026.07.24-a1.4. Each
 
 | # | Skill | Skill ID | Category | Order | Status | Raw | Runtime-safe | Strict usable | L1 raw | L1 runtime | L1 strict | L2 raw | L2 runtime | L2 strict | L1 missing | L2 missing | Total missing | L1 unique | L2 unique | Overused targets | Repeated templates | Req images | Valid images | Missing images | Req audio | Valid audio | Missing audio | Text-only OK | Text-only problem | Exact next action |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Initial Sounds | initial_sounds | Phonics | 1 | PRODUCTION READY | 151 | 132 | 92 | 69 | 50 | 46 | 82 | 82 | 46 | 0 | 0 | 0 | 20 | 25 | - | FIRST_SOUND:28, INITIAL_SOUND_PAIR_SELECT:18, INITIAL_SOUND_PAIR_SELECT:28, FIRST_SOUND:18 | 151 | 151 | 0 | 151 | 151 | 0 | 0 | 0 | No immediate content action. |
-| 2 | Final Sounds | final_sounds | Phonics | 2 | PRODUCTION READY | 530 | 457 | 366 | 249 | 189 | 189 | 281 | 268 | 177 | 0 | 0 | 0 | 121 | 141 | - | ENDING_SOUND:189, ENDING_SOUND:103, FINAL_SOUND_PAIR_SELECT:74 | 517 | 517 | 0 | 530 | 530 | 0 | 0 | 0 | No immediate content action. |
-| 3 | Rhyming | rhyming | Phonological Awareness | 3 | PRODUCTION READY | 802 | 656 | 656 | 601 | 476 | 476 | 201 | 180 | 180 | 0 | 0 | 0 | 82 | 64 | - | RHYMING_PICTURE:476, RHYMING_PICTURE:180 | 797 | 797 | 0 | 761 | 761 | 0 | 5 | 0 | No immediate content action. |
-| 4 | CVC Short Vowels | cvc_short_vowels | Phonics | 4 | PRODUCTION READY | 467 | 412 | 412 | 299 | 266 | 266 | 168 | 146 | 146 | 0 | 0 | 0 | 72 | 50 | - | MISSING_VOWEL_CVC:66, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:54, PICTURE_TO_PRINT_MATCH:52, SHORT_VOWEL_WORD:50, PUT_SOUNDS_IN_ORDER:29, COMPLETE_WORD:15 | 466 | 466 | 0 | 455 | 455 | 0 | 1 | 0 | No immediate content action. |
-| 5 | Short Vowel Discrimination | short_vowel_discrimination | Phonics | 5 | PRODUCTION READY | 527 | 299 | 299 | 166 | 103 | 103 | 361 | 196 | 196 | 0 | 0 | 0 | 59 | 95 | - | PICTURE_TO_PRINT_MATCH:73, LISTEN_CHOOSE_VOWEL:30, LISTEN_CHOOSE_VOWEL:98, PICTURE_TO_PRINT_MATCH:98 | 511 | 511 | 0 | 498 | 498 | 0 | 12 | 0 | No immediate content action. |
-| 6 | High-Frequency Words 1-25 | hfw_1_25 | High-Frequency Words | 6 | PRODUCTION READY | 150 | 147 | 147 | 75 | 72 | 72 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P2_02:25, HFW_SENTENCE_CLOZE_L1P2_03:24, HFW_SENTENCE_CLOZE_L1P1_01:23, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 150 | 150 | 0 | 0 | 0 | No immediate content action. |
-| 7 | High-Frequency Words 26-50 | hfw_26_50 | High-Frequency Words | 7 | PRODUCTION READY | 150 | 149 | 149 | 75 | 74 | 74 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P1_01:25, HFW_SENTENCE_CLOZE_L1P2_03:25, HFW_SENTENCE_CLOZE_L1P2_02:24, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 150 | 150 | 0 | 0 | 0 | No immediate content action. |
-| 8 | High-Frequency Words 51-75 | hfw_51_75 | High-Frequency Words | 8 | PRODUCTION READY | 150 | 148 | 148 | 75 | 73 | 73 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P2_02:25, HFW_SENTENCE_CLOZE_L1P2_03:25, HFW_SENTENCE_CLOZE_L1P1_01:23, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 150 | 150 | 0 | 0 | 0 | No immediate content action. |
-| 9 | High-Frequency Words 76-100 | hfw_76_100 | High-Frequency Words | 9 | PRODUCTION READY | 148 | 144 | 144 | 73 | 70 | 70 | 75 | 74 | 74 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P1_01:24, HFW_SENTENCE_CLOZE_L1P2_02:23, HFW_SENTENCE_CLOZE_L1P2_03:23, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25, HFW_SENTENCE_SPELL_L2P1_04:24 | 0 | 0 | 0 | 148 | 148 | 0 | 0 | 0 | No immediate content action. |
-| 10 | Blends | blends | Phonics | 10 | PRODUCTION READY | 253 | 97 | 97 | 143 | 47 | 47 | 110 | 50 | 50 | 0 | 0 | 0 | 47 | 50 | - | BLEND_IMAGE_CHOICE:47, BLEND_COMPLETE_WORD:50 | 232 | 232 | 0 | 129 | 129 | 0 | 19 | 0 | No immediate content action. |
-| 11 | Digraphs | digraphs | Phonics | 11 | PRODUCTION READY | 252 | 120 | 120 | 129 | 60 | 60 | 123 | 60 | 60 | 0 | 0 | 0 | 60 | 60 | - | DIGRAPH_IMAGE_CHOICE:60, DIGRAPH_COMPLETE_WORD:60 | 232 | 232 | 0 | 176 | 176 | 0 | 12 | 0 | No immediate content action. |
-| 12 | Long Vowels and Silent E | long_vowels_silent_e | Phonics | 12 | PRODUCTION READY | 226 | 104 | 104 | 80 | 50 | 50 | 146 | 54 | 54 | 0 | 0 | 0 | 44 | 51 | - | LONG_VOWEL_SILENT_E_PATTERN:50, LONG_VOWEL_TEAM_COMPLETE:54 | 205 | 205 | 0 | 185 | 185 | 0 | 7 | 0 | No immediate content action. |
-| 13 | Vowel Teams | vowel_teams | Phonics | 13 | PRODUCTION READY | 141 | 141 | 141 | 56 | 56 | 56 | 85 | 85 | 85 | 0 | 0 | 0 | 32 | 76 | - | PICTURE_AUDIO_TO_PATTERN:39, LONG_VOWEL_TEAM_COMPLETE:17, LONG_VOWEL_TEAM_COMPLETE:85 | 141 | 141 | 0 | 126 | 126 | 0 | 0 | 0 | No immediate content action. |
-| 14 | R-Controlled Vowels | r_controlled_vowels | Phonics | 14 | PRODUCTION READY | 128 | 128 | 128 | 47 | 47 | 47 | 81 | 81 | 81 | 0 | 0 | 0 | 25 | 40 | - | PICTURE_AUDIO_TO_PATTERN:33, MULTIPLE_CHOICE:14, MULTIPLE_CHOICE:70, DECODING:11 | 118 | 118 | 0 | 122 | 122 | 0 | 0 | 0 | No immediate content action. |
+| 1 | Initial Sounds | initial_sounds | Phonics | 1 | PRODUCTION READY | 152 | 133 | 92 | 70 | 51 | 46 | 82 | 82 | 46 | 0 | 0 | 0 | 20 | 25 | - | FIRST_SOUND:28, INITIAL_SOUND_PAIR_SELECT:18, INITIAL_SOUND_PAIR_SELECT:28, FIRST_SOUND:18 | 152 | 152 | 0 | 152 | 152 | 0 | 0 | 0 | No immediate content action. |
+| 2 | Final Sounds | final_sounds | Phonics | 2 | PRODUCTION READY | 530 | 458 | 366 | 249 | 189 | 189 | 281 | 269 | 177 | 0 | 0 | 0 | 121 | 141 | - | ENDING_SOUND:189, ENDING_SOUND:103, FINAL_SOUND_PAIR_SELECT:74 | 517 | 517 | 0 | 530 | 530 | 0 | 0 | 0 | No immediate content action. |
+| 3 | Rhyming | rhyming | Phonological Awareness | 3 | PRODUCTION READY | 803 | 656 | 656 | 602 | 476 | 476 | 201 | 180 | 180 | 0 | 0 | 0 | 82 | 64 | - | RHYMING_PICTURE:476, RHYMING_PICTURE:180 | 798 | 798 | 0 | 799 | 799 | 0 | 3 | 0 | No immediate content action. |
+| 4 | CVC Short Vowels | cvc_short_vowels | Phonics | 4 | PRODUCTION READY | 467 | 412 | 412 | 299 | 266 | 266 | 168 | 146 | 146 | 0 | 0 | 0 | 72 | 50 | - | MISSING_VOWEL_CVC:66, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:54, PICTURE_TO_PRINT_MATCH:52, SHORT_VOWEL_WORD:50, PUT_SOUNDS_IN_ORDER:29, COMPLETE_WORD:15 | 466 | 466 | 0 | 466 | 466 | 0 | 1 | 0 | No immediate content action. |
+| 5 | Short Vowel Discrimination | short_vowel_discrimination | Phonics | 5 | PRODUCTION READY | 527 | 299 | 299 | 166 | 103 | 103 | 361 | 196 | 196 | 0 | 0 | 0 | 59 | 95 | - | PICTURE_TO_PRINT_MATCH:73, LISTEN_CHOOSE_VOWEL:30, LISTEN_CHOOSE_VOWEL:98, PICTURE_TO_PRINT_MATCH:98 | 511 | 511 | 0 | 516 | 516 | 0 | 10 | 0 | No immediate content action. |
+| 6 | High-Frequency Words 1-25 | hfw_1_25 | High-Frequency Words | 6 | PRODUCTION READY | 150 | 147 | 147 | 75 | 72 | 72 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P2_02:25, HFW_SENTENCE_CLOZE_L1P2_03:24, HFW_SENTENCE_CLOZE_L1P1_01:23, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 0 | 0 | 0 | 150 | 0 | No immediate content action. |
+| 7 | High-Frequency Words 26-50 | hfw_26_50 | High-Frequency Words | 7 | PRODUCTION READY | 150 | 149 | 149 | 75 | 74 | 74 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P1_01:25, HFW_SENTENCE_CLOZE_L1P2_03:25, HFW_SENTENCE_CLOZE_L1P2_02:24, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 0 | 0 | 0 | 150 | 0 | No immediate content action. |
+| 8 | High-Frequency Words 51-75 | hfw_51_75 | High-Frequency Words | 8 | PRODUCTION READY | 150 | 148 | 148 | 75 | 73 | 73 | 75 | 75 | 75 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P2_02:25, HFW_SENTENCE_CLOZE_L1P2_03:25, HFW_SENTENCE_CLOZE_L1P1_01:23, HFW_SENTENCE_SPELL_L2P1_04:25, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25 | 0 | 0 | 0 | 0 | 0 | 0 | 150 | 0 | No immediate content action. |
+| 9 | High-Frequency Words 76-100 | hfw_76_100 | High-Frequency Words | 9 | PRODUCTION READY | 148 | 144 | 144 | 73 | 70 | 70 | 75 | 74 | 74 | 0 | 0 | 0 | 25 | 25 | - | HFW_SENTENCE_CLOZE_L1P1_01:24, HFW_SENTENCE_CLOZE_L1P2_02:23, HFW_SENTENCE_CLOZE_L1P2_03:23, HFW_SENTENCE_SPELL_L2P2_05:25, HFW_SENTENCE_SPELL_L2P2_06:25, HFW_SENTENCE_SPELL_L2P1_04:24 | 0 | 0 | 0 | 0 | 0 | 0 | 148 | 0 | No immediate content action. |
+| 10 | Blends | blends | Phonics | 10 | PRODUCTION READY | 253 | 97 | 97 | 143 | 47 | 47 | 110 | 50 | 50 | 0 | 0 | 0 | 47 | 50 | - | BLEND_IMAGE_CHOICE:47, BLEND_COMPLETE_WORD:50 | 232 | 232 | 0 | 142 | 142 | 0 | 13 | 0 | No immediate content action. |
+| 11 | Digraphs | digraphs | Phonics | 11 | PRODUCTION READY | 252 | 120 | 120 | 129 | 60 | 60 | 123 | 60 | 60 | 0 | 0 | 0 | 60 | 60 | - | DIGRAPH_IMAGE_CHOICE:60, DIGRAPH_COMPLETE_WORD:60 | 232 | 232 | 0 | 183 | 183 | 0 | 9 | 0 | No immediate content action. |
+| 12 | Long Vowels and Silent E | long_vowels_silent_e | Phonics | 12 | PRODUCTION READY | 226 | 104 | 104 | 80 | 50 | 50 | 146 | 54 | 54 | 0 | 0 | 0 | 44 | 51 | - | LONG_VOWEL_SILENT_E_PATTERN:50, LONG_VOWEL_TEAM_COMPLETE:54 | 205 | 205 | 0 | 219 | 219 | 0 | 5 | 0 | No immediate content action. |
+| 13 | Vowel Teams | vowel_teams | Phonics | 13 | PRODUCTION READY | 141 | 141 | 141 | 56 | 56 | 56 | 85 | 85 | 85 | 0 | 0 | 0 | 32 | 76 | - | PICTURE_AUDIO_TO_PATTERN:39, LONG_VOWEL_TEAM_COMPLETE:17, LONG_VOWEL_TEAM_COMPLETE:85 | 141 | 141 | 0 | 141 | 141 | 0 | 0 | 0 | No immediate content action. |
+| 14 | R-Controlled Vowels | r_controlled_vowels | Phonics | 14 | PRODUCTION READY | 128 | 128 | 128 | 47 | 47 | 47 | 81 | 81 | 81 | 0 | 0 | 0 | 25 | 40 | - | PICTURE_AUDIO_TO_PATTERN:33, MULTIPLE_CHOICE:14, MULTIPLE_CHOICE:70, DECODING:11 | 118 | 118 | 0 | 128 | 128 | 0 | 0 | 0 | No immediate content action. |
 | 15 | Nouns | nouns | Grammar | 15 | PRODUCTION READY | 398 | 146 | 146 | 199 | 70 | 70 | 199 | 76 | 76 | 0 | 0 | 0 | 70 | 59 | - | GRAMMAR_IMAGE_CHOICE:70, GRAMMAR_SENTENCE_FIT:76 | 0 | 0 | 0 | 233 | 233 | 0 | 95 | 0 | No immediate content action. |
-| 16 | Verbs | verbs | Grammar | 16 | PRODUCTION READY | 420 | 111 | 111 | 204 | 51 | 51 | 216 | 60 | 60 | 0 | 0 | 0 | 51 | 23 | - | GRAMMAR_IMAGE_CHOICE:51, GRAMMAR_SENTENCE_FIT:60 | 0 | 0 | 0 | 225 | 225 | 0 | 119 | 0 | No immediate content action. |
-| 17 | Adjectives | adjectives | Grammar | 17 | PRODUCTION READY | 384 | 110 | 110 | 183 | 46 | 46 | 201 | 64 | 64 | 0 | 0 | 0 | 36 | 21 | - | GRAMMAR_IMAGE_CHOICE:46, GRAMMAR_SENTENCE_FIT:64 | 0 | 0 | 0 | 199 | 199 | 0 | 120 | 0 | No immediate content action. |
-| 18 | Prepositions of Place | prepositions_of_place | Grammar | 18 | PRODUCTION READY | 314 | 314 | 303 | 240 | 240 | 229 | 74 | 74 | 74 | 0 | 0 | 0 | 27 | 50 | - | PREPOSITION_TEXT_CHOICE:200, GRAMMAR_IMAGE_CHOICE:15, PREPOSITION_IMAGE_CHOICE:14, GRAMMAR_BASICS:46, PREPOSITION_CONTEXT_CHOICE:14, PREPOSITION_SENTENCE_FIT:14 | 0 | 0 | 0 | 30 | 30 | 0 | 39 | 0 | No immediate content action. |
+| 16 | Verbs | verbs | Grammar | 16 | PRODUCTION READY | 420 | 119 | 119 | 204 | 51 | 51 | 216 | 68 | 68 | 0 | 0 | 0 | 51 | 31 | - | GRAMMAR_IMAGE_CHOICE:51, GRAMMAR_SENTENCE_FIT:68 | 0 | 0 | 0 | 249 | 249 | 0 | 116 | 0 | No immediate content action. |
+| 17 | Adjectives | adjectives | Grammar | 17 | PRODUCTION READY | 384 | 112 | 112 | 183 | 46 | 46 | 201 | 66 | 66 | 0 | 0 | 0 | 36 | 23 | - | GRAMMAR_IMAGE_CHOICE:46, GRAMMAR_SENTENCE_FIT:66 | 0 | 0 | 0 | 219 | 219 | 0 | 118 | 0 | No immediate content action. |
+| 18 | Prepositions of Place | prepositions_of_place | Grammar | 18 | NEEDS QUESTIONS | 314 | 314 | 214 | 240 | 240 | 200 | 74 | 74 | 14 | 0 | 32 | 0 | 20 | 14 | - | PREPOSITION_TEXT_CHOICE:200, PREPOSITION_SENTENCE_FIT:14 | 0 | 0 | 0 | 30 | 30 | 0 | 39 | 0 | No immediate content action. Generate controlled gap-fill questions from approved media/lexicon. |
 | 19 | Plurals | plurals | Grammar | 19 | PRODUCTION READY | 184 | 184 | 138 | 46 | 46 | 46 | 138 | 138 | 92 | 0 | 0 | 0 | 28 | 89 | - | PLURAL_IMAGE_SPELLING:28, GRAMMAR_IMAGE_CHOICE:17, PLURAL_IMAGE_SPELLING:52, PLURAL_TEXT_CHOICE:32, PLURAL_RULE_CHOICE:8 | 0 | 0 | 0 | 28 | 28 | 0 | 47 | 0 | No immediate content action. |
 | 20 | Antonyms and Synonyms | antonyms_synonyms | Vocabulary | 20 | PRODUCTION READY | 236 | 236 | 234 | 62 | 62 | 60 | 174 | 174 | 174 | 0 | 0 | 0 | 28 | 114 | - | LANGUAGE_PAIR_TEXT_CHOICE:45, GRAMMAR_IMAGE_CHOICE:15, LANGUAGE_PAIR_TEXT_CHOICE:90, COMPREHENSION:46, ANTONYM_CHOICE:22, SYNONYM_CHOICE:16 | 0 | 0 | 0 | 56 | 56 | 0 | 45 | 0 | No immediate content action. |
-| 21 | Homophones and Homonyms | homophones_homonyms | Vocabulary | 21 | PRODUCTION READY | 162 | 162 | 116 | 46 | 46 | 46 | 116 | 116 | 70 | 0 | 0 | 0 | 46 | 68 | - | HOMOPHONE_MEANING:46, HOMOPHONE_CONTEXT_CLOZE:70 | 0 | 0 | 0 | 3 | 3 | 0 | 90 | 0 | No immediate content action. |
+| 21 | Homophones and Homonyms | homophones_homonyms | Vocabulary | 21 | PRODUCTION READY | 162 | 162 | 116 | 46 | 46 | 46 | 116 | 116 | 70 | 0 | 0 | 0 | 46 | 68 | - | HOMOPHONE_MEANING:46, HOMOPHONE_CONTEXT_CLOZE:70 | 0 | 0 | 0 | 5 | 5 | 0 | 90 | 0 | No immediate content action. |
 | 22 | Prefixes and Suffixes | prefixes_suffixes | Morphology | 22 | PRODUCTION READY | 317 | 317 | 92 | 46 | 46 | 46 | 271 | 271 | 46 | 0 | 0 | 0 | 46 | 46 | - | MORPHEME_MEANING_CONTEXT:46 | 0 | 0 | 0 | 6 | 6 | 0 | 311 | 0 | No immediate content action. |
 | 23 | Sentence Comprehension | sentence_comprehension | Comprehension | 23 | PRODUCTION READY | 92 | 92 | 92 | 46 | 46 | 46 | 46 | 46 | 46 | 0 | 0 | 0 | 46 | 46 | - | COMPREHENSION:46 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | No immediate content action. |
-| 24 | Key Details | key_details | Comprehension | 24 | PRODUCTION READY | 185 | 93 | 93 | 92 | 46 | 46 | 93 | 47 | 47 | 0 | 0 | 0 | 46 | 47 | - | COMPREHENSION:46, COMPREHENSION:47 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | No immediate content action. |
+| 24 | Key Details | key_details | Comprehension | 24 | PRODUCTION READY | 185 | 93 | 93 | 92 | 46 | 46 | 93 | 47 | 47 | 0 | 0 | 0 | 46 | 47 | - | COMPREHENSION:46, COMPREHENSION:47 | 0 | 0 | 0 | 2 | 2 | 0 | 0 | 0 | No immediate content action. |
 | 25 | Sequencing | sequencing | Comprehension | 25 | PRODUCTION READY | 92 | 92 | 92 | 46 | 46 | 46 | 46 | 46 | 46 | 0 | 0 | 0 | 46 | 46 | - | COMPREHENSION:46 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | No immediate content action. |
 | 26 | Main Idea | main_idea | Comprehension | 26 | PRODUCTION READY | 92 | 92 | 92 | 46 | 46 | 46 | 46 | 46 | 46 | 0 | 0 | 0 | 46 | 46 | - | COMPREHENSION:46 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | No immediate content action. |
 | 27 | Inference | inference | Comprehension | 27 | PRODUCTION READY | 92 | 92 | 92 | 46 | 46 | 46 | 46 | 46 | 46 | 0 | 0 | 0 | 46 | 46 | - | COMPREHENSION:46 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | No immediate content action. |
@@ -77,6 +77,7 @@ The audit imports `src/content/releaseStandard.js` version 2026.07.24-a1.4. Each
 
 | Skill | Level | Missing count | Needed target/type | Existing media? | New media needed? | Recommended source | Recommended action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Prepositions of Place | 2 | 32 | level-tagged multiple-choice or picture-supported items | likely | no obvious true media gap | existing bank or Kimi 500 vocab reserve | Generate controlled gap-fill questions from approved media/lexicon. |
 
 ## Exact Missing Media Needs
 

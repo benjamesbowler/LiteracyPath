@@ -1,6 +1,25 @@
+import { getPreferredPhonemeAudioPath } from "../../data/phonemeAudioBank.js";
+import { getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
+
 const INTERNAL_GENERATED_LICENSE = "Internal generated/commissioned asset; no third-party licence recorded";
 
 function metadataForPath(filePath = "", mediaType = "") {
+  if (filePath.includes("/audio/phonemes/") || filePath.includes("/audio/production/en-US/pattern/")) {
+    return {
+      source: "Human-reviewed LiteracyPath phoneme bank",
+      license: INTERNAL_GENERATED_LICENSE,
+      reviewStatus: "approved by human listening review",
+      pronunciationVariant: mediaType === "audio" ? "General American; isolated phoneme or reviewed phonics pattern" : "n/a"
+    };
+  }
+  if (filePath.includes("/audio/production/en-US/")) {
+    return {
+      source: "Google Cloud Text-to-Speech Chirp 3 HD Leda production pack",
+      license: INTERNAL_GENERATED_LICENSE,
+      reviewStatus: "approved production language clip",
+      pronunciationVariant: mediaType === "audio" ? "General American; exact-context Leda recording" : "n/a"
+    };
+  }
   if (filePath.includes("/clean-human/")) {
     return {
       source: "Kimi Pack 6 clean-human assessment audio",
@@ -54,25 +73,29 @@ export function getAssessmentMediaSourceMetadata(filePath = "", mediaType = "") 
 }
 
 function wiring(mediaType, target, filePath, questionIds) {
+  const resolvedFilePath = mediaType === "audio" &&
+    !/^\/audio\/(?:phonemes\/|production\/en-US\/pattern\/)/i.test(filePath)
+    ? getLedaWordAudioPath(target) || filePath
+    : filePath;
   return Object.freeze({
     mediaType,
     target,
-    filePath,
+    filePath: resolvedFilePath,
     questionIds: Object.freeze(questionIds),
-    ...metadataForPath(filePath, mediaType)
+    ...metadataForPath(resolvedFilePath, mediaType)
   });
 }
 
 export const assessmentMediaWiring = Object.freeze([
-  wiring("audio", "p", "/audio/child-mode/clean-human/graphemes/consonants/p.mp3", ["qb12_fs_017", "phonics_k_072"]),
-  wiring("audio", "m", "/audio/child-mode/clean-human/graphemes/consonants/m.mp3", ["qb12_fs_018"]),
-  wiring("audio", "n", "/audio/child-mode/clean-human/graphemes/consonants/n.mp3", ["qb12_fs_019", "qb12_fs_033", "phonics_k_046", "phonics_k_094"]),
-  wiring("audio", "k", "/audio/child-mode/clean-human/graphemes/consonants/k.mp3", ["qb12_fs_020", "phonics_k_048"]),
+  wiring("audio", "p", getPreferredPhonemeAudioPath("p"), ["qb12_fs_017", "phonics_k_072"]),
+  wiring("audio", "m", getPreferredPhonemeAudioPath("m"), ["qb12_fs_018"]),
+  wiring("audio", "n", getPreferredPhonemeAudioPath("n"), ["qb12_fs_019", "qb12_fs_033", "phonics_k_046", "phonics_k_094"]),
+  wiring("audio", "k", getPreferredPhonemeAudioPath("k"), ["qb12_fs_020", "phonics_k_048"]),
   wiring("audio", "sat", "/audio/child-mode/clean-human/words/sat.mp3", ["qb12_fs_024"]),
   wiring("audio", "sing", "/audio/child-mode/clean-human/words/sing.mp3", ["qb12_fs_027", "qb12_dg_021"]),
   wiring("image", "bath", "/images/assessment/digraphs/bath.webp", ["qb12_fs_028"]),
   wiring("audio", "bath", "/audio/child-mode/clean-human/words/bath.mp3", ["qb12_fs_028"]),
-  wiring("audio", "t", "/audio/child-mode/clean-human/graphemes/consonants/t.mp3", ["qb12_fs_032", "phonics_k_085"]),
+  wiring("audio", "t", getPreferredPhonemeAudioPath("t"), ["qb12_fs_032", "phonics_k_085"]),
   wiring("audio", "cash", "/media/vocabulary/audio/cash.mp3", ["gen_final_l2_sh_cash_2_word"]),
   wiring("audio", "fell", "/guided-reading/audio/words/fell.mp3", ["gen_final_l2_ll_fell_12_word"]),
   wiring("audio", "bang", "/guided-reading/audio/words/bang.mp3", ["gen_final_l2_ng_bang_0_word"]),
@@ -81,7 +104,7 @@ export const assessmentMediaWiring = Object.freeze([
   wiring("audio", "song", "/audio/child-mode/clean-human/words/song.mp3", ["gen_final_l2_ng_song_9_word"]),
   wiring("audio", "bank", "/audio/child-mode/clean-human/words/bank.mp3", ["gen_final_l2_nk_bank_0_word"]),
   wiring("audio", "sink", "/audio/child-mode/clean-human/words/sink.mp3", ["gen_final_l2_nk_sink_4_word"]),
-  wiring("audio", "g", "/audio/child-mode/clean-human/graphemes/consonants/g.mp3", ["phonics_k_008", "phonics_k_052"]),
+  wiring("audio", "g", getPreferredPhonemeAudioPath("g"), ["phonics_k_008", "phonics_k_052"]),
   wiring("audio", "span", "/media/vocabulary/audio/span.mp3", ["svd_l2p2_listen_short_a_span"]),
   wiring("audio", "shack", "/media/vocabulary/audio/shack.mp3", ["svd_l2p2_listen_short_a_shack"]),
   wiring("audio", "blend", "/media/vocabulary/audio/blend.mp3", ["svd_l2p2_listen_short_e_blend"]),
@@ -95,8 +118,8 @@ export const assessmentMediaWiring = Object.freeze([
   wiring("audio", "set", "/guided-reading/audio/words/set.mp3", ["qb12_sv_002"]),
   wiring("audio", "fond", "/media/vocabulary/audio/fond.mp3", ["qb12_sv_019"]),
   wiring("audio", "bump", "/guided-reading/audio/words/bump.mp3", ["qb12_sv_025"]),
-  wiring("audio", "short a", "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3", ["qb12_sv_040"]),
-  wiring("audio", "short i", "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3", ["qb12_sv_041"]),
+  wiring("audio", "short a", getPreferredPhonemeAudioPath("a"), ["qb12_sv_040"]),
+  wiring("audio", "short i", getPreferredPhonemeAudioPath("i"), ["qb12_sv_041"]),
   wiring("audio", "baby", "/guided-reading/audio/words/baby.mp3", ["spelling-k-2-038"]),
   wiring("audio", "chase", "/guided-reading/audio/words/chase.mp3", ["spelling-k-2-045"]),
   wiring("audio", "sweet", "/guided-reading/audio/words/sweet.mp3", ["spelling-k-2-061"]),
@@ -108,10 +131,7 @@ export const assessmentMediaWiring = Object.freeze([
   wiring("audio", "stick", "/audio/assessment/digraphs/stick.mp3", ["digraphs_l2_58_ck_stick"]),
   wiring("audio", "chat", "/audio/child-mode/clean-human/words/chat.mp3", ["qb12_dg_024"]),
   wiring("audio", "think", "/audio/child-mode/clean-human/hfw/think.mp3", ["qb12_dg_026"]),
-  wiring("audio", "sh", "/audio/child-mode/clean-human/graphemes/digraphs_blends/sh.mp3", ["qb12_dg_028"]),
-  wiring("audio", "ch", "/audio/child-mode/clean-human/graphemes/digraphs_blends/ch.mp3", ["qb12_dg_029"]),
-  wiring("audio", "th", "/audio/child-mode/clean-human/graphemes/digraphs_blends/th.mp3", ["qb12_dg_030"]),
-  wiring("audio", "ck", "/audio/child-mode/clean-human/graphemes/digraphs_blends/ck.mp3", ["qb12_dg_031"]),
+  wiring("audio", "ck", getPreferredPhonemeAudioPath("ck"), ["qb12_dg_031"]),
   wiring("audio", "thick", "/guided-reading/audio/words/thick.mp3", ["qb12_dg_052"]),
   wiring("audio", "note", "/audio/assessment/long-vowels/note.mp3", ["qb10_lv_003"]),
   wiring("audio", "rice", "/media/vocabulary/audio/rice.mp3", ["qb10_lv_010"]),
@@ -158,7 +178,10 @@ export const assessmentHfwAudioWiring = Object.freeze(Object.fromEntries([
   ["made", "/audio/child-mode/clean-human/hfw/made.mp3"],
   ["may", "/audio/child-mode/clean-human/hfw/may.mp3"],
   ["part", "/audio/child-mode/clean-human/hfw/part.mp3"]
-]));
+].map(([targetWord, filePath]) => [
+  targetWord,
+  getLedaWordAudioPath(targetWord) || filePath
+])));
 
 const existingLegacyVocabularyAudioWords = new Set([
   "brave", "build", "close", "drive", "fall", "fly", "glue", "hide", "huge", "pink", "play", "zip"
@@ -282,7 +305,10 @@ export function getAssessmentMediaWiring(questionId = "") {
 }
 
 export function getAssessmentHfwAudioWiring(targetWord = "") {
-  return assessmentHfwAudioWiring[String(targetWord || "").toLowerCase().trim()] || "";
+  const normalizedTarget = String(targetWord || "").toLowerCase().trim();
+  return getLedaWordAudioPath(normalizedTarget) ||
+    assessmentHfwAudioWiring[normalizedTarget] ||
+    "";
 }
 
 export function getAssessmentMediaWaiver(questionId = "") {

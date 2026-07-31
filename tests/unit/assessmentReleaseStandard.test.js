@@ -237,43 +237,38 @@ test("Initial Sounds canonical selection caps phoneme, prompt-family, response-f
   assert.ok(report.levels[2].listenAndFindShare < report.levels[2].caps.maximumListenAndFindShare);
 });
 
-test("Initial Sounds student loader returns exactly the audited publication IDs and levels", async () => {
-  const status = assessmentReleaseStatusBySkillId.initial_sounds;
-  const expected = new Map(assessmentReleaseExposureBySkillId.initial_sounds.map(item => [
-    item.questionId,
-    item.level
-  ]));
+test("Initial Sounds student loader uses the gate-proven v3 bank after cutover", async () => {
   const published = await loadAssessmentSkillBank("initial_sounds");
 
-  assert.equal(status.publicationMode, "audited-id-set");
-  assert.equal(published.length, expected.size);
-  assert.equal(published.filter(question => question.level === 1).length, 46);
-  assert.equal(published.filter(question => question.level === 2).length, 46);
+  assert.equal(published.length, 150);
+  assert.equal(published.filter(question => question.level === 1).length, 75);
+  assert.equal(published.filter(question => question.level === 2).length, 75);
   for (const question of published) {
-    assert.equal(expected.get(question.id), question.level, question.id);
-    assert.equal(question.releaseStandardVersion, assessmentReleaseStatusVersion);
+    assert.equal(question.source, "skills_rebuild_v3_2026_08", question.id);
+    assert.equal(question.bankStandardVersion, 3, question.id);
   }
 });
 
-test("Short Vowels and Nouns publish every approved runtime format without source gaps", async () => {
+test("Short Vowels and Nouns publish every gate-proven v3 runtime format", async () => {
   const expectations = {
     short_vowel_discrimination: {
-      count: 299,
-      formats: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"]
+      count: 60,
+      perLevel: 30,
+      formats: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH", "SHORT_VOWEL_IMAGE_GROUP_SELECT"]
     },
     nouns: {
-      count: 146,
-      formats: ["GRAMMAR_IMAGE_CHOICE", "GRAMMAR_SENTENCE_FIT"]
+      count: 48,
+      perLevel: 24,
+      formats: ["GRAMMAR_CONTRAST", "GRAMMAR_IMAGE_CHOICE", "GRAMMAR_SENTENCE_FIT", "GRAMMAR_WORD_CHOICE"]
     }
   };
 
   for (const [skillId, expectation] of Object.entries(expectations)) {
-    const status = assessmentReleaseStatusBySkillId[skillId];
-    const expected = assessmentReleaseExposureBySkillId[skillId];
     const published = await loadAssessmentSkillBank(skillId);
-    assert.equal(status.releaseReady, true, skillId);
     assert.equal(published.length, expectation.count, skillId);
-    assert.equal(published.length, expected.length, skillId);
+    assert.equal(published.filter(question => question.level === 1).length, expectation.perLevel, skillId);
+    assert.equal(published.filter(question => question.level === 2).length, expectation.perLevel, skillId);
+    assert.equal(published.every(question => question.source === "skills_rebuild_v3_2026_08"), true, skillId);
     assert.deepEqual(
       [...new Set(published.map(question => question.formatType))].sort(),
       expectation.formats,

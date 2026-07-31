@@ -32,6 +32,7 @@ const texts = Object.freeze([
   // these in the highest-priority supplement map guarantees every surface
   // stops resolving the earlier production take.
   "hat", "sun",
+  "listen to the word. what sound does it start with?",
   "what digraph makes the sh sound as in ship",
   "what digraph makes the ch sound as in chip",
   "what digraph makes the th sound as in think",

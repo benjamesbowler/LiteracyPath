@@ -18,6 +18,7 @@ import { starRubric } from "../../../../utils/starRubric.js";
 import { hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
+import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 import {
   loadThree,
   createRenderer,
@@ -2877,7 +2878,7 @@ function startGame(THREE, mount, opts) {
       return;
     }
 
-    overlayCueTimer = queueRecordedCue("/audio/ui/voice/great-job.mp3", 320);
+    overlayCueTimer = queueRecordedCue(getLedaInstructionAudioPath("Great job"), 320);
 
     const overlay = showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px">' +
@@ -2914,7 +2915,7 @@ function startGame(THREE, mount, opts) {
     const mistakes = results.reduce((sum, item) => sum + item.mistakes, 0);
     const stars = starRubric({ correct, total, mistakes, deaths: 0 });
     sfx(playCelebrationFanfare);
-    overlayCueTimer = queueRecordedCue("/audio/ui/voice/great-job.mp3", 1100);
+    overlayCueTimer = queueRecordedCue(getLedaInstructionAudioPath("Great job"), 1100);
     opts.onProgressUpdate?.(levelCount, levelCount);
     const overlay = showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px">' +

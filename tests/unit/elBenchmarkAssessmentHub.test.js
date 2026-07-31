@@ -298,6 +298,14 @@ test("the skills check opens on the child's next skill and can be changed before
   );
   assert.match(html, /Skill this assessment starts on/);
   assert.match(html, /<option value="3" selected="">CVC and Short Vowels<\/option>/);
+  assert.match(html, />Change assessment</);
+  assert.doesNotMatch(html, /aria-label="Start Skills assessment"/);
+});
+
+test("choosing an assessment reveals its start controls instead of leaving them below the cards", () => {
+  assert.match(FUNNEL_SOURCE, /scrollIntoView\(\{/);
+  assert.match(FUNNEL_SOURCE, /block: "start"/);
+  assert.match(FUNNEL_SOURCE, /prefers-reduced-motion: reduce/);
 });
 
 test("assessment choices and starting points fail closed until every saved-result source loads", () => {

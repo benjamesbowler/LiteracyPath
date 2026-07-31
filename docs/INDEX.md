@@ -54,6 +54,7 @@ file to overrule one.
 - [teacher/UI_PRIMITIVES](teacher/UI_PRIMITIVES.md) — the components teacher screens are built from
 - [teacher/STATE_MATRIX](teacher/STATE_MATRIX.md) — every teacher surface in every state
 - [teacher/PARITY_MATRIX](teacher/PARITY_MATRIX.md) — capabilities that must survive any refactor
+- [teacher/CLASS_ENTRY](teacher/CLASS_ENTRY.md) — explicit login class choice and first-class creation contract
 - [teacher/CLASS_PROGRESS](teacher/CLASS_PROGRESS.md) — the class-first progress contract
 - [teacher/ASSESSMENT_EVIDENCE](teacher/ASSESSMENT_EVIDENCE.md) — why assessment records are immutable
 - [architecture/teacher_assessment_ux_review_v1](architecture/teacher_assessment_ux_review_v1.md) — the assessment module in full
@@ -119,9 +120,10 @@ closed. D-076 through D-151 are IN-PROGRESS in the current teacher remediation:
 their focused implementations exist, but final integrated, fresh-database,
 authenticated browser, and adversarial evidence is still pending.
 
-The critique's measured findings really are fixed: `check:assessment-runtime-variation`
-cited **876 failures** and now reports **0**; `check:skill-progression` cited **55
-warnings** and is now down to ~1. Verified by running both, 2026-07-27.
+The critique's earlier measured findings were reported fixed on 2026-07-27, but that status is no
+longer current. The 2026-07-31 [adversarial-audit cross-check](ADVERSARIAL_AUDIT_CROSSCHECK_2026-07-31.md)
+ran the current v3 population and found `check:assessment-runtime-variation` red with **662
+failures**. Treat the cross-check as the current assessment-content status.
 
 **But green gates are not a working product, and this repo has now proved it twice.**
 The Ten-Out-Of-Ten plan's own first rule says a task is DONE only when its gate passes
@@ -144,7 +146,23 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-31 | [ADVERSARIAL_AUDIT_CROSSCHECK_2026-07-31](ADVERSARIAL_AUDIT_CROSSCHECK_2026-07-31.md) | Re-checked every adversarial-audit finding against the current v3 runtime; separates live release defects from retired legacy claims and marks obsolete data, rules, and checker logic for permanent deletion |
+| 2026-07-30 | [GROUP_GUIDED_READING_IMPLEMENTATION_PLAN_2026-07-30](GROUP_GUIDED_READING_IMPLEMENTATION_PLAN_2026-07-30.md) | Synced-iPad Group Guided Reading planned end to end: the 07-27 spec's anchors re-verified after the teacher/kids rebuilds, four build phases with named gates, hosted-DB deploy runbook; spec imported as [SYNCED_GUIDED_READING_SPEC_2026-07-27](SYNCED_GUIDED_READING_SPEC_2026-07-27.md) — nothing implemented yet |
+| 2026-07-29 | [KIDS_EXPERIENCE_SHIP_PASS_2026-07-29](KIDS_EXPERIENCE_SHIP_PASS_2026-07-29.md) | Child hubs made full-width and one-screen; map made forward-only Meadow→Dino→Moonwood; persistent book-character Little Literacy Guide, structured library, teacher class-entry gate and Beastie nook shipped |
 | 2026-07-29 | [KIDS_REDESIGN_PLAN_2026-07-29](KIDS_REDESIGN_PLAN_2026-07-29.md) | Kids-side redesign accepted (7 screens, liquid glass, rail→bottom tabs, fixed 1194×834 stage); prototype in `mockups/design-handoff-kids-side/`; six-phase plan |
+| 2026-07-29 | [rounded_atomic_v23](assets/rounded_atomic_v23_2026-07-29.md) | V22 reconciled at 4 Yes, 4 Needs edit and 5 No; A, NG, T and Y were installed to eight runtime files, while the remaining nine sounds received new natural sources, physically extended pure sounds or rounded tails |
+| 2026-07-29 | [app_wide_phoneme_audio_mapping](assets/app_wide_phoneme_audio_mapping_2026-07-29.md) | One reviewed phoneme resolver now serves Sound Seekers, Arcade, assessment, teacher, student, guided-reading and EL Quest sound prompts; 69 legacy grapheme files and eight unresolved runtime files were physically deleted, with missing sounds forced silent |
+| 2026-07-29 | [manually_tightened_atomic_v22](assets/manually_tightened_atomic_v22_2026-07-29.md) | V21 reconciled at 6 Yes, 11 Needs edit and 3 No; six approved sources resolved seven sounds and installed to 12 runtime files, while 13 unresolved sounds received physically tightened boundaries in a new review form |
+| 2026-07-29 | [reviewed_leda_atomic_v21](assets/reviewed_leda_atomic_v21_2026-07-29.md) | Both V20 reviews reconciled; 24 approved same-Leda phonemes plus the approved `ou` repair were installed to 45 live runtime files, and the remaining 20 sounds received source-word cuts or alternate prompts in a new human-ear form |
+| 2026-07-29 | [consistent_leda_atomic_v20](assets/consistent_leda_atomic_v20_2026-07-29.md) | V18 reconciled at 26 Yes, 21 Needs edit and 2 No; the two No clips were rebuilt, and all 43 legacy human phoneme files received same-Leda review candidates without replacing production audio |
+| 2026-07-29 | [complete_phoneme_bank_v18](assets/complete_phoneme_bank_v18_2026-07-29.md) | All six V17 manual edits passed; closure-preserving `ct`, `pt` and `xt` were volume-checked and installed, then all 49 approved phonemes were level-matched for a full-bank review with five legacy-fade clips flagged |
+| 2026-07-29 | [manual_vowel_removal_v17](assets/manual_vowel_removal_v17_2026-07-29.md) | V16 reconciled at 1 Yes, 3 Maybe and 4 No; `nd` was installed, while `ct`, `pt` and `xt` received two spectrogram-guided manual cuts that physically remove the opening vowel |
+| 2026-07-29 | [alternate_engine_cluster_review_v16](assets/alternate_engine_cluster_review_v16_2026-07-29.md) | V15 reconciled at 8 Yes, 9 No and 1 unrated; five approved patterns were volume-matched and installed, while four unresolved ending clusters received Studio-O and Neural2-F direct-IPA alternatives for a new eight-clip review |
+| 2026-07-29 | [targeted_cluster_alternatives_v15](assets/targeted_cluster_alternatives_v15_2026-07-29.md) | V14 reconciled at 10 Yes, 1 Maybe and 8 No; the 10 passes were installed and nine unresolved patterns received two distinct onset or vowel-suppression alternatives for A/B review |
+| 2026-07-29 | [tight_spec_cluster_review_v14](assets/tight_spec_cluster_review_v14_2026-07-29.md) | V13 reconciled at 10/29 passes; those 10 plus two pending V12 passes installed, while 19 failures were regenerated as joined-schwa onsets or quiet-support-vowel ending clusters for a new human-ear review |
+| 2026-07-29 | [bluh_cue_cluster_review_v13](assets/bluh_cue_cluster_review_v13_2026-07-29.md) | Direct IPA review reconciled at 2/33 passes; 29 rejected consonant clusters regenerated as compact `bluh`/`gruh`/`truh`-style cues and delivered in a new listening form |
+| 2026-07-29 | [direct_ipa_phoneme_review_v12](assets/direct_ipa_phoneme_review_v12_2026-07-29.md) | All 33 rejected phonics-pattern clips regenerated with direct IPA in Leda; distinct 24 kHz MP3s validated and a persistent Yes/Maybe/No listening form delivered without replacing production audio |
+| 2026-07-29 | [leda_phonics_audio_v10_import](assets/leda_phonics_audio_v10_import_2026-07-29.md) | V10 listening review reconciled: 18 approved Leda clips imported, 33 rejected clips queued for direct-IPA regeneration, and 16 unrated clips preserved for review |
 | 2026-07-28 | [LANDING_REDESIGN_2026-07-28](LANDING_REDESIGN_2026-07-28.md) | Signed-out entry rebuilt as the full marketing landing page; mock's placeholder stats corrected to data-derived truth; two CSS mechanisms recorded (block-container `place-items`, fixed `minmax` track) |
 | 2026-07-28 | [TEACHER_REDESIGN_V2_PLAN_2026-07-28](TEACHER_REDESIGN_V2_PLAN_2026-07-28.md) | Teacher-area v2 redesign accepted; prototype committed to `mockups/design-handoff-teacher-area/`; six-phase build plan with file map, test-impact list and the current-cycle data gap |
 | 2026-07-28 | [PRESENT_REDESIGN_2026-07-28](PRESENT_REDESIGN_2026-07-28.md) | Present mode redesigned: fixed 1920×1080 stage, section rail, organic theme, live srcdoc preview, reveal/timer warm-ups; two handoff defects fixed (orphaned timer dial, stage centering) |
@@ -176,6 +194,7 @@ they show the reasoning, not because they describe the app.
 
 - **Sound Seekers:** [audit 07-14](SOUND_SEEKERS_AUDIT_2026-07-14.md) → [upgrade plan 07-15](SOUND_SEEKERS_CRITIQUE_AND_UPGRADE_PLAN_2026-07-15.md) → [10/10 critique 07-17](SOUND_SEEKERS_10_OUT_OF_10_CRITIQUE_2026-07-17.md) → **[complete audit 07-20](SOUND_SEEKERS_COMPLETE_AUDIT_2026-07-20.md)**
 - **Whole app:** [audit & roadmap 07-10](APP_AUDIT_AND_ROADMAP_2026-07-10.md) → **[full critique 07-23](FULL_APP_CRITIQUE_2026-07-23.md)**
+- **Assessment adversarial audit:** [original audit 07-31](ADVERSARIAL_AUDIT_2026-07-31.md) → **[current cross-check 07-31](ADVERSARIAL_AUDIT_CROSSCHECK_2026-07-31.md)**
 - **Teacher side:** [audit 07-10](TEACHER_SIDE_AUDIT_2026-07-10.md) → [dashboard redesign audit](implementation/teacher_dashboard_redesign_audit.md) → [overhaul 07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) → [funnels 07-27](TEACHER_FUNNELS_2026-07-27.md) → [audit and fixes 07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) → **[current remediation 07-27](TEACHER_SIDE_REMEDIATION_2026-07-27.md)**
 - **Child side:** [design audit 07-08](KIDS_SIDE_DESIGN_AUDIT_2026-07-08.md) → [fix handoff 07-08](KIDS_SIDE_AUDIT_FIXES_2026-07-08.md) → **[design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md)**
 - **Sound Seekers build specs:** [quest design plan 07-11](QUEST_DESIGN_PLAN_2026-07-11.md) · [slice 1 spec 07-11](QUEST_SLICE_1_SPEC_2026-07-11.md) · [slice loop](SOUND_SEEKERS_SLICE_LOOP.md) · [push 2](SOUND_SEEKERS_PUSH_2.md) → **[release bible](SOUND_SEEKERS_RELEASE_BIBLE.md)**
@@ -365,6 +384,7 @@ Subfolders have their own indexes, linked above.
 | [GAME_CONCEPTS_bridge_builders_and_sound_racer_2026-07-06](GAME_CONCEPTS_bridge_builders_and_sound_racer_2026-07-06.md) | 3,202 | LiteracyPath — Two Future Arcade Games (Design Doc) |
 | [GAME_CURRICULUM_FRAMEWORK_2026-07-06](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md) | 837 | LiteracyPath — Shared Game Curriculum & Difficulty Framework |
 | [GAME_DESIGN_sentence_express_2026-07-09](GAME_DESIGN_sentence_express_2026-07-09.md) | 1,195 | SENTENCE EXPRESS — flagship arcade game design (2026-07-09) |
+| [GROUP_GUIDED_READING_IMPLEMENTATION_PLAN_2026-07-30](GROUP_GUIDED_READING_IMPLEMENTATION_PLAN_2026-07-30.md) | 5,594 | Group Guided Reading (synced iPads) — implementation plan (2026-07-30) |
 | [HOLLOW_LIVE_CRITIQUE_2026-07-08](HOLLOW_LIVE_CRITIQUE_2026-07-08.md) | 610 | My Hollow — live critique on Vercel preview (2026-07-08) |
 | [IMPROVEMENT_LOOPS](IMPROVEMENT_LOOPS.md) | 3,031 | IMPROVEMENT LOOPS — the instruction file |
 | [KIDS_SIDE_AUDIT_FIXES_2026-07-08](KIDS_SIDE_AUDIT_FIXES_2026-07-08.md) | 1,436 | Kids-Side Audit — Fix Handoff (2026-07-08) |
@@ -434,6 +454,7 @@ Subfolders have their own indexes, linked above.
 | [STATUS_OPEN_ITEMS](STATUS_OPEN_ITEMS.md) | 230 | Literacy Pals — honest open items (13 Jun 2026) |
 | [STORY_QUEST_REWRITE_2026-07-26](STORY_QUEST_REWRITE_2026-07-26.md) | 6,498 | Story Quest rewrite — 2026-07-26 |
 | [STUDENT_UI_CONSISTENCY_AUDIT](STUDENT_UI_CONSISTENCY_AUDIT.md) | 1,693 | Student UI — Style & Layout Consistency Audit |
+| [SYNCED_GUIDED_READING_SPEC_2026-07-27](SYNCED_GUIDED_READING_SPEC_2026-07-27.md) | 5,485 | Shared Reading Session — design spec (written 2026-07-27 at `9aa08d97`; imported 2026-07-30; anchor updates live in the implementation plan) |
 | [TEACHER_AREA_OVERHAUL_2026-07-26](TEACHER_AREA_OVERHAUL_2026-07-26.md) | 670 | Teacher area overhaul — 2026-07-26 |
 | [TEACHER_FUNNELS_2026-07-27](TEACHER_FUNNELS_2026-07-27.md) | 994 | Assessments and Reports funnels — 2026-07-27 |
 | [TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27](TEACHER_SIDE_AUDIT_AND_FIXES_2026-07-27.md) | 1,419 | Teacher-side audit and fixes — 2026-07-27 |

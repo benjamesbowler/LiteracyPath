@@ -3,6 +3,7 @@ import {
   isSilentEPattern,
   normalizeLongVowelPattern
 } from "./longVowelPatternData.js";
+import { getV3RuntimeEligibilityIssues } from "./v3/v3Registry.js";
 
 export const LONG_VOWELS_ALLOWED_FORMATS = new Set([
   "LONG_VOWEL_SILENT_E_PATTERN",
@@ -47,6 +48,11 @@ function isLongVowelsSkill(skillId = "", question = {}) {
 
 export function getLongVowelsRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (!isLongVowelsSkill(skillId, question)) return ["not a Long Vowels and Silent E skill"];
+
+  // v3 rebuild items (silent-e only, gate-proven) bypass the legacy
+  // replacement-bank lock; vowel-team content now lives in vowel_teams.
+  const v3Issues = getV3RuntimeEligibilityIssues(question, "long_vowels_silent_e");
+  if (v3Issues) return v3Issues;
 
   const issues = [];
   const format = getFormat(question);

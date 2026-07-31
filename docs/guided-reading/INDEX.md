@@ -6,6 +6,19 @@ Guided Reading is the levelled-book side of the app: 176 books with narration,
 word-tap audio and quizzes. This folder holds both the systems that produce those
 books and the audits of each import batch.
 
+## Runtime audio contract
+
+- Every readable word token on every live page resolves to a current production
+  voice clip and plays on the first tap.
+- **Read whole book** uses current production narration only. When narration is
+  stored as page clips, it plays those clips in order, turns to the matching image
+  and text after each clip, and continues without another press.
+- Guided Reading narration plays at the child-paced `0.88` rate. Deleted legacy
+  whole-book paths must never override the current page-by-page narration.
+- `tests/unit/guidedReadingLedaAudioCoverage.test.js` is the release gate for page
+  narration, word-token coverage, legacy-path rejection and the continuous-reading
+  contract.
+
 ## Systems and standards — still current
 
 These describe how books are made and what they must satisfy. Read these.

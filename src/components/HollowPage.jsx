@@ -7,7 +7,15 @@ import {
 import { loadHollowLedger, recordPurchase, recordFeed, saveLayout, markCoinsSeen } from "../utils/hollowState.js";
 import { DEN_THEMES, isDenThemeUnlocked } from "../utils/denRewards.js";
 import { hollowSpotsFor, getCachedHollowOverride, loadHollowSpotsOverride } from "../data/hollowSpots.js";
-import { loadStudentProfile, saveStudentProfile, getCompanion } from "../utils/studentProfile.js";
+import {
+  changeLittleLiteracyGuide,
+  COMPANIONS,
+  getAvailableGuideStars,
+  getCompanion,
+  LITTLE_LITERACY_GUIDE_CHANGE_COST,
+  loadStudentProfile,
+  saveStudentProfile
+} from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
 import { lockedItemAffordance } from "../policy/lockedItemAffordance.js";
@@ -147,7 +155,7 @@ export function PalFigure({ companion, equipped = {} }) {
 
 const MARKET_SHELVES = [
   { id: "caravan", label: "Caravan" },
-  { id: "gear", label: "Pal gear" },
+  { id: "gear", label: "Guide gear" },
   { id: "home", label: "For your Hollow" },
   { id: "eggs", label: "Mystery eggs" }
 ];
@@ -165,13 +173,16 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps -- ledgerVersion re-reads after every purchase/feed/layout change
   const ledger = useMemo(() => loadHollowLedger(scope), [scope, ledgerVersion]);
   const hollow = useMemo(() => computeHollow(ledger, treasury.breakdown), [ledger, treasury]);
-  const companion = useMemo(() => getCompanion(scope), [scope]);
+  const [companion, setCompanionState] = useState(() => getCompanion(scope));
   const [tab, setTab] = useState("hollow");
   const [roomIndex, setRoomIndex] = useState(0);
   const [shelf, setShelf] = useState("caravan");
+  const [marketPage, setMarketPage] = useState(0);
   const [pickingSpot, setPickingSpot] = useState(null);
   const [pickingWorld, setPickingWorld] = useState(false);
   const [hatched, setHatched] = useState(null);
+  const [guidePickerOpen, setGuidePickerOpen] = useState(false);
+  const [guideNotice, setGuideNotice] = useState("");
   const [theme, setTheme] = useState(() => loadStudentProfile(scope).denTheme || "meadow");
   // Admin-placed spot positions (Admin → Hollow Spots). Cached first so the
   // room never renders with the wrong spots for a frame, then refreshed.
@@ -186,6 +197,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   useEffect(() => {
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== scope) return;
+      setCompanionState(getCompanion(scope));
       setHydrationTick(tick => tick + 1);
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
@@ -198,6 +210,27 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }, [scope, hollow.coinsEarnedTotal]);
 
   const refresh = () => setLedgerVersion(v => v + 1);
+  const guideStarsEarned =
+    (Number(treasury.breakdown?.questStars) || 0)
+    + (Number(treasury.breakdown?.gameStars) || 0)
+    + (Number(treasury.breakdown?.soundSeekerStars) || 0);
+  const guideStarsAvailable = getAvailableGuideStars(scope, guideStarsEarned);
+
+  function chooseGuide(companionId) {
+    const result = changeLittleLiteracyGuide(scope, companionId, {
+      earnedStars: guideStarsEarned
+    });
+    if (!result.ok) {
+      setGuideNotice(`Earn ${result.short} more star${result.short === 1 ? "" : "s"} to change your guide.`);
+      return;
+    }
+    setCompanionState(result.guide);
+    setGuidePickerOpen(false);
+    setGuideNotice(result.reason === "first-choice"
+      ? `${result.guide.name} is now your Little Literacy Guide.`
+      : `${result.guide.name} is now your guide. ${result.cost} stars were used.`);
+    playStarChime();
+  }
 
   function grant(item) {
     // Idempotent for one-time gifts: a fast double-tap on "Crack it open!"
@@ -267,7 +300,6 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const placedIds = new Set(Object.values(hollow.slots));
   const placeable = hollow.ownedHollowItems.filter(i => !placedIds.has(i.id));
   const nextExpansion = EXPANSIONS.find(e => !hollow.ownedIds.has(e.id));
-  const residents = hollow.beasties.filter(b => b.growth.stage === 3);
   const hungry = hollow.beasties.filter(b => b.growth.next && hollow.berries > 0).length;
   const welcomeEggWaiting = !ledger.purchases.some(p => p?.item === WELCOME_EGG.id);
   const season = hollow.market.season;
@@ -276,6 +308,20 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const everydayGear = hollow.market.gear.filter(i => i.caravan === undefined);
   const everydayHollow = hollow.market.hollow.filter(i => i.caravan === undefined);
   const gearShopPreview = [...hollow.market.gear].sort((a, b) => a.price - b.price).slice(0, 3);
+  const marketItems = shelf === "caravan"
+    ? caravanWares
+    : shelf === "gear"
+      ? everydayGear
+      : shelf === "home"
+        ? everydayHollow
+        : hollow.market.eggs;
+  const marketPageSize = shelf === "caravan" ? 6 : 12;
+  const marketPageCount = Math.max(1, Math.ceil(marketItems.length / marketPageSize));
+  const safeMarketPage = Math.min(marketPage, marketPageCount - 1);
+  const visibleMarketItems = marketItems.slice(
+    safeMarketPage * marketPageSize,
+    (safeMarketPage + 1) * marketPageSize
+  );
 
   // The rooms a child can page through: main hollow, each owned expansion,
   // then the next locked expansion as a "door" with its price.
@@ -393,7 +439,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
         <nav className="hollow-tabs" aria-label="Hollow areas" data-child-choices="">
           {[
             { id: "hollow", label: "My Hollow" },
-            { id: "pal", label: "My Pal" },
+            { id: "pal", label: "My Guide" },
             { id: "beasties", label: "Beasties", note: welcomeEggWaiting ? "gift!" : hungry ? `${hungry} hungry` : "" },
             { id: "market", label: "Market", note: caravanIcon }
           ].map(t => (
@@ -422,11 +468,24 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                 {room.tint && <span className="hollow-room-tint" style={{ background: room.tint }} aria-hidden="true" />}
                 <span className="hollow-room-name">{room.id === "main" ? "🌳" : EMOJI[room.id]} {room.name}</span>
                 {room.spots.map(renderSpot)}
-                {room.id === "main" && residents.map((b, index) => (
-                  <span key={b.id} className="hollow-resident" style={{ left: `${18 + index * 16}%`, top: "90%" }} title={`${b.name} lives here`}>
-                    <ItemArt id={b.id} stage={3} size={72} />
-                  </span>
-                ))}
+                {room.id === "main" && hollow.beasties.length > 0 && (
+                  <aside className="hollow-beastie-nook" aria-label="Your hatched beasties">
+                    <span className="hollow-beastie-nook-label">Beastie nook</span>
+                    <span className="hollow-beastie-nook-row">
+                      {hollow.beasties.slice(0, 8).map(b => (
+                        <button
+                          key={b.id}
+                          type="button"
+                          title={`${b.name}, ${b.growth.name}`}
+                          onClick={() => setTab("beasties")}
+                        >
+                          <ItemArt id={b.id} stage={b.growth.stage} size={54} />
+                          <span>{b.name}</span>
+                        </button>
+                      ))}
+                    </span>
+                  </aside>
+                )}
                 {renderPicker()}
                 <p className="hollow-room-hint" data-child-instruction="">Tap a glow to place something.</p>
                 <button
@@ -497,11 +556,24 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
             <div className="hollow-pal-row">
               <div className="hollow-pal-stage">
                 <PalFigure companion={companion} equipped={hollow.equipped} />
+                <h2>{companion?.name || "Choose a guide"}</h2>
+                <p className="hollow-guide-kicker">My Little Literacy Guide</p>
                 <p className="hollow-pal-caption">
                   {Object.keys(hollow.equipped).length
                     ? `Wearing: ${Object.values(hollow.equipped).map(id => findCatalogItem(id)?.name).filter(Boolean).join(", ")}`
                     : "Buy gear at the Market, then tap it here to wear it."}
                 </p>
+                <button
+                  className="hollow-change-guide"
+                  type="button"
+                  onClick={() => {
+                    setGuideNotice("");
+                    setGuidePickerOpen(value => !value);
+                  }}
+                >
+                  Change guide · ★ {LITTLE_LITERACY_GUIDE_CHANGE_COST}
+                </button>
+                <p className="hollow-guide-balance">★ {guideStarsAvailable} available</p>
               </div>
               <div className="hollow-gear-grid">
                 {hollow.ownedGear.map(gear => {
@@ -524,6 +596,38 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                 ))}
               </div>
             </div>
+            {guidePickerOpen && (
+              <section className="hollow-guide-picker" aria-label="Choose a Little Literacy Guide">
+                <header>
+                  <div>
+                    <h2>Choose your Little Literacy Guide</h2>
+                    <p>Every guide is a character from one of your books.</p>
+                  </div>
+                  <button type="button" onClick={() => setGuidePickerOpen(false)} aria-label="Close guide choices">×</button>
+                </header>
+                <div>
+                  {COMPANIONS.map(item => {
+                    const current = companion?.id === item.id;
+                    const affordable = current || guideStarsAvailable >= LITTLE_LITERACY_GUIDE_CHANGE_COST;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        className={current ? "active" : ""}
+                        disabled={!affordable}
+                        onClick={() => chooseGuide(item.id)}
+                      >
+                        <img src={item.image} alt="" onError={hideOnError} />
+                        <strong>{item.name}</strong>
+                        <span>{item.series}</span>
+                        <em>{current ? "Your guide" : affordable ? `★ ${LITTLE_LITERACY_GUIDE_CHANGE_COST}` : `Need ${LITTLE_LITERACY_GUIDE_CHANGE_COST - guideStarsAvailable} more`}</em>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+            {guideNotice && <p className="hollow-guide-notice" role="status">{guideNotice}</p>}
           </div>
         )}
 
@@ -585,7 +689,10 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                     type="button"
                     className={`hollow-shelf-tab${shelf === s.id ? " active" : ""}`}
                     aria-pressed={shelf === s.id}
-                    onClick={() => setShelf(s.id)}
+                    onClick={() => {
+                      setShelf(s.id);
+                      setMarketPage(0);
+                    }}
                   >
                     {s.id === "caravan" ? `${caravanIcon} ` : ""}{s.label}
                   </button>
@@ -603,24 +710,24 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   <span>New things on this shelf, then the caravan moves on!</span>
                 </div>
                 <div className="hollow-market-grid">
-                  {caravanWares.map(renderWare)}
+                  {visibleMarketItems.map(renderWare)}
                 </div>
               </div>
             )}
             {shelf === "gear" && (
               <div className="hollow-shelf">
-                <div className="hollow-market-grid">{everydayGear.map(renderWare)}</div>
+                <div className="hollow-market-grid">{visibleMarketItems.map(renderWare)}</div>
               </div>
             )}
             {shelf === "home" && (
               <div className="hollow-shelf">
-                <div className="hollow-market-grid">{everydayHollow.map(renderWare)}</div>
+                <div className="hollow-market-grid">{visibleMarketItems.map(renderWare)}</div>
               </div>
             )}
             {shelf === "eggs" && (
               <div className="hollow-shelf">
                 <div className="hollow-market-grid hollow-eggs">
-                  {hollow.market.eggs.map(egg => (
+                  {visibleMarketItems.map(egg => (
                     <button key={egg.id} type="button" className={`hollow-ware egg-${egg.tier}`} disabled={!canBuy(hollow, egg.id).ok} onClick={() => buy(egg.id)}>
                       <ItemArt id={egg.id} size={84} />
                       <strong>{egg.name}</strong>
@@ -632,6 +739,14 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                   ))}
                 </div>
               </div>
+            )}
+
+            {marketPageCount > 1 && (
+              <nav className="hollow-market-pages" aria-label={`${MARKET_SHELVES.find(item => item.id === shelf)?.label} pages`}>
+                <button type="button" disabled={safeMarketPage === 0} onClick={() => setMarketPage(page => Math.max(0, page - 1))}>←</button>
+                <span>{safeMarketPage + 1} of {marketPageCount}</span>
+                <button type="button" disabled={safeMarketPage === marketPageCount - 1} onClick={() => setMarketPage(page => Math.min(marketPageCount - 1, page + 1))}>→</button>
+              </nav>
             )}
 
             <div className="hollow-earn-row" aria-label="How to earn coins">

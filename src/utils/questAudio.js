@@ -2,10 +2,8 @@
 //
 // WHY THIS FILE EXISTS — a real bug, found while writing the design plan:
 //
-//   27 gold-voice clips covering the ENTIRE advanced code — a_e e_e i_e o_e u_e,
-//   ar er ir or ur, ai ay ea ee eigh ew ie igh oa oe oi oo ou ow oy ue ui — are
-//   recorded, on disk, in public/audio/child-mode/clean-human/graphemes/, and
-//   NO RUNNING CODE PATH CAN REACH THEM:
+//   Historically, advanced grapheme clips and atomic sounds were scattered
+//   across several folders, and no single running code path could reach them:
 //
 //     - learnGamesAudio.speakPhoneme() does `.slice(0, 1)` on its input, so it
 //       can only ever ask for a single letter.
@@ -14,7 +12,8 @@
 //       silent_e, r_controlled or vowel_teams.
 //
 //   So Act III's phonics audio was already paid for and silently orphaned.
-//   This module resolves all six folders. That is the whole trick.
+//   The reviewed bank now owns resolution. Superseded grapheme folders were
+//   physically deleted, so this module cannot silently revive them.
 //
 // THE OTHER RULE: no synthetic speech, ever. Browser TTS is a deliberate no-op
 // in this codebase and generated TTS for phonics failed human ear-checks twice
@@ -24,6 +23,14 @@
 
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
+import {
+  getPreferredPhonemeAudioPath,
+  phonemeAudioCandidates
+} from "../data/phonemeAudioBank.js";
+import {
+  getLedaProductionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 import { QUEST_STOPS } from "../data/questSequence.js";
 
 // The blends the trail actually teaches (st, bl, sw…). ONLY these may fall
@@ -33,15 +40,6 @@ const TAUGHT_BLENDS = new Set(
   QUEST_STOPS.flatMap(stop => (stop.teach || []).filter(entry => entry.kind === "blend").map(entry => entry.id))
 );
 
-const CLEAN = "/audio/child-mode/clean-human/graphemes";
-const VOWELS = new Set(["a", "e", "i", "o", "u"]);
-const SPLIT = /^[aeiou]_e$/;
-const R_CONTROLLED = new Set(["ar", "er", "ir", "or", "ur"]);
-const VOWEL_TEAMS = new Set([
-  "ai", "ay", "ea", "ee", "eigh", "ew", "ie", "igh",
-  "oa", "oe", "oi", "oo", "ou", "ow", "oy", "ue", "ui"
-]);
-
 function firstExisting(paths) {
   return paths.find(path => AUDIO_FILE_PATHS.has(path) && !isKnownBadAudioPath(path)) || "";
 }
@@ -49,46 +47,12 @@ function firstExisting(paths) {
 // Every place a grapheme's recording could live, in preference order.
 // Exported so the content check can report exactly which paths it looked at.
 export function graphemeCandidates(grapheme) {
-  const g = String(grapheme || "").toLowerCase().trim();
-  if (!g) return [];
-
-  // Alternative pronunciations and morphs (y_ie, oo_short, c_s, suffix_s…)
-  // live in /audio/quest/alt/. This branch is what makes the alt lessons
-  // SELF-REVIVING: the pens gate checks hasGraphemeAudio, which resolves
-  // through here — record the clip and the sort re-enables with no code
-  // change. (Previously altPronunciationSrc pointed at the folder but nothing
-  // ever called it, so even recorded clips could never revive the lesson.)
-  if (g.includes("_") && !SPLIT.test(g)) {
-    return [`/audio/quest/alt/${g}.mp3`];
-  }
-
-  if (g.length === 1 && VOWELS.has(g)) {
-    return [`/audio/phonemes/short_${g}.mp3`, `${CLEAN}/short_vowels/short_${g}.mp3`];
-  }
-  if (SPLIT.test(g)) return [`${CLEAN}/silent_e/${g}.mp3`];
-  if (R_CONTROLLED.has(g)) return [`${CLEAN}/r_controlled/${g}.mp3`, `/audio/phonemes/${g}.mp3`];
-  if (VOWEL_TEAMS.has(g)) return [`${CLEAN}/vowel_teams/${g}.mp3`, `/audio/phonemes/${g}.mp3`];
-
-  const candidates = [
-    `/audio/phonemes/${g}.mp3`,
-    `${CLEAN}/consonants/${g}.mp3`,
-    `${CLEAN}/digraphs_blends/${g}.mp3`
-  ];
-  // A doubled consonant (pp in "happy") says its single letter's sound — the
-  // floss rule adds no new phoneme, so the single letter's clip IS its clip.
-  const doubled = /^([bdgmnprt])\1$/.exec(g);
-  if (doubled) {
-    candidates.push(
-      `/audio/phonemes/${doubled[1]}.mp3`,
-      `${CLEAN}/consonants/${doubled[1]}.mp3`
-    );
-  }
-  return candidates;
+  return phonemeAudioCandidates(grapheme);
 }
 
 // "" when nothing is recorded. Callers MUST treat "" as "hide the button".
 export function graphemeSrc(grapheme) {
-  return firstExisting(graphemeCandidates(grapheme));
+  return getPreferredPhonemeAudioPath(grapheme);
 }
 
 // A blend can be SAID even with no clip of its own: it is two sounds the
@@ -113,20 +77,14 @@ export function hasGraphemeAudio(grapheme) {
 export function letterNameSrc(letter) {
   const l = String(letter || "").toLowerCase().trim();
   if (l.length !== 1 || !/[a-z]/.test(l)) return "";
-  return firstExisting([`/audio/letter-names/${l}.mp3`]);
+  return firstExisting([getLedaProductionAudioPath(l, ["letter_name"])]);
 }
 
 export function wordSrc(word) {
   const slug = String(word || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  if (!slug || hasKnownBadWordAudio(slug)) return "";
-  return firstExisting([
-    `/audio/child-mode/clean-human/words/${slug}.mp3`,
-    `/audio/child-mode/words/${slug}.mp3`,
-    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
-    `/audio/child-mode/hfw/${slug}.mp3`,
-    `/guided-reading/audio/words/${slug}.mp3`,
-    `/audio/vocabulary/${slug}.mp3`
-  ]);
+  const ledaPath = getLedaWordAudioPath(word);
+  if (!slug || (hasKnownBadWordAudio(slug) && !ledaPath)) return "";
+  return firstExisting([ledaPath]);
 }
 
 export function hasWordAudio(word) {

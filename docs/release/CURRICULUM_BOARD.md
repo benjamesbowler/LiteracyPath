@@ -7,8 +7,8 @@ Canonical release standard: `2026.07.24-a1.4`
 
 ## Current truth
 
-- Skills ready: **30/30**
-- Skills blocked: **0/30**
+- Skills ready: **29/30**
+- Skills blocked: **1/30**
 - A READY row means the canonical question-count, balance, media,
   accessibility, and live runtime-selectability dimensions pass.
 - “Student exposure today” is counted from the real student bank loader after
@@ -19,9 +19,9 @@ Canonical release standard: `2026.07.24-a1.4`
 
 | Skill | Gate | Owner | Authored | Approved | Student exposure today | Exact exposure set | Gate reason | Release exclusions / waivers |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
-| Initial Sounds | READY | Phonics curriculum + media QA | 151 | 132 | 92 today (L1 46; L2 46) | sha256:3e64b7a127d3 | All canonical release dimensions pass. | None |
+| Initial Sounds | READY | Phonics curriculum + media QA | 152 | 133 | 92 today (L1 46; L2 46) | sha256:acbeb7a8e62e | All canonical release dimensions pass. | None |
 | Final Sounds | READY | Phonics curriculum + media QA | 530 | 366 | 366 today (L1 189; L2 177) | sha256:cd43aa53a702 | All canonical release dimensions pass. | 6 excluded; review 2026-10-23 |
-| Rhyming | READY | Phonics curriculum + media QA | 802 | 656 | 656 today (L1 476; L2 180) | sha256:3d96c7c43a0d | All canonical release dimensions pass. | None |
+| Rhyming | READY | Phonics curriculum + media QA | 803 | 656 | 656 today (L1 476; L2 180) | sha256:3d96c7c43a0d | All canonical release dimensions pass. | None |
 | CVC Short Vowels | READY | Phonics curriculum + media QA | 467 | 412 | 412 today (L1 266; L2 146) | sha256:2d3a933c2665 | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
 | Short Vowel Discrimination | READY | Phonics curriculum + media QA | 527 | 299 | 299 today (L1 103; L2 196) | sha256:17a8aed32509 | All canonical release dimensions pass. | 7 excluded; review 2026-10-23 |
 | High-Frequency Words 1-25 | READY | Literacy curriculum + media QA | 150 | 147 | 147 today (L1 72; L2 75) | sha256:12fe53fe2754 | All canonical release dimensions pass. | None |
@@ -34,9 +34,9 @@ Canonical release standard: `2026.07.24-a1.4`
 | Vowel Teams | READY | Phonics curriculum + media QA | 141 | 141 | 141 today (L1 56; L2 85) | sha256:37526c9d6223 | All canonical release dimensions pass. | None |
 | R-Controlled Vowels | READY | Phonics curriculum + media QA | 128 | 128 | 128 today (L1 47; L2 81) | sha256:b36797e95bcb | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
 | Nouns | READY | Curriculum + media QA | 398 | 146 | 146 today (L1 70; L2 76) | sha256:0e54affb9633 | All canonical release dimensions pass. | None |
-| Verbs | READY | Curriculum + media QA | 420 | 111 | 111 today (L1 51; L2 60) | sha256:6a590d5fd250 | All canonical release dimensions pass. | None |
-| Adjectives | READY | Curriculum + media QA | 384 | 110 | 110 today (L1 46; L2 64) | sha256:43210b12d289 | All canonical release dimensions pass. | None |
-| Prepositions of Place | READY | Curriculum + media QA | 314 | 303 | 303 today (L1 229; L2 74) | sha256:826a80129a6a | All canonical release dimensions pass. | None |
+| Verbs | READY | Curriculum + media QA | 420 | 119 | 119 today (L1 51; L2 68) | sha256:675f40b68193 | All canonical release dimensions pass. | None |
+| Adjectives | READY | Curriculum + media QA | 384 | 112 | 112 today (L1 46; L2 66) | sha256:de455124f4b4 | All canonical release dimensions pass. | None |
+| Prepositions of Place | BLOCKED | Curriculum + media QA | 314 | 214 | 0 — blocked from children | sha256:e3b0c44298fc | Question-count floor is not met at both levels. Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard. | None |
 | Plurals | READY | Curriculum + media QA | 184 | 138 | 138 today (L1 46; L2 92) | sha256:beb6299d2a8b | All canonical release dimensions pass. | None |
 | Prefixes and Suffixes | READY | Curriculum + media QA | 317 | 92 | 92 today (L1 46; L2 46) | sha256:29a178b2fc81 | All canonical release dimensions pass. | None |
 | Antonyms and Synonyms | READY | Curriculum + media QA | 236 | 234 | 234 today (L1 60; L2 174) | sha256:8ef6c279b72e | All canonical release dimensions pass. | None |

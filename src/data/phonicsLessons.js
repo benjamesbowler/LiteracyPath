@@ -1,36 +1,11 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildWordAsset } from "./childAssets.js";
+import { getPreferredPhonemeAudioPath } from "./phonemeAudioBank.js";
 
 /**
  * @typedef {{ word: string, image: string, audio: string, phonemeBreakdown: string }} PhonicsWord
  * @typedef {{ letter: string, phonicSound: string, phonicAudio: string, letterNameAudio: string, words: PhonicsWord[], distractors: PhonicsWord[], traceSVG: string, matchPrompt?: string }} LetterLesson
  */
-
-const PHONIC_AUDIO_BY_LETTER = {
-  A: "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3",
-  B: "/audio/child-mode/clean-human/graphemes/consonants/b.mp3",
-  C: "/audio/child-mode/clean-human/graphemes/consonants/c.mp3",
-  D: "/audio/child-mode/clean-human/graphemes/consonants/d.mp3",
-  E: "/audio/child-mode/clean-human/graphemes/short_vowels/short_e.mp3",
-  F: "/audio/child-mode/clean-human/graphemes/consonants/f.mp3",
-  G: "/audio/child-mode/clean-human/graphemes/consonants/g.mp3",
-  H: "/audio/child-mode/clean-human/graphemes/consonants/h.mp3",
-  I: "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3",
-  J: "/audio/child-mode/clean-human/graphemes/consonants/j.mp3",
-  L: "/audio/child-mode/clean-human/graphemes/consonants/l.mp3",
-  M: "/audio/child-mode/clean-human/graphemes/consonants/m.mp3",
-  N: "/audio/child-mode/clean-human/graphemes/consonants/n.mp3",
-  O: "/audio/child-mode/clean-human/graphemes/short_vowels/short_o.mp3",
-  P: "/audio/child-mode/clean-human/graphemes/consonants/p.mp3",
-  R: "/audio/child-mode/clean-human/graphemes/consonants/r.mp3",
-  S: "/audio/child-mode/clean-human/graphemes/consonants/s.mp3",
-  T: "/audio/child-mode/clean-human/graphemes/consonants/t.mp3",
-  U: "/audio/child-mode/clean-human/graphemes/short_vowels/short_u.mp3",
-  V: "/audio/child-mode/clean-human/graphemes/consonants/v.mp3",
-  W: "/audio/child-mode/clean-human/graphemes/consonants/w.mp3",
-  Y: "/audio/child-mode/clean-human/graphemes/consonants/y.mp3",
-  Z: "/audio/child-mode/clean-human/graphemes/consonants/z.mp3"
-};
 
 function word(w, phoneme) {
   const asset = getChildWordAsset(w) || {};
@@ -47,13 +22,13 @@ function word(w, phoneme) {
 }
 
 function letter(l, sound, words, distractors, traceSVG, options = {}) {
-  const upperLetter = String(l || "").toUpperCase();
+  const lowerLetter = String(l || "").toLowerCase();
 
   return {
     letter: l,
     phonicSound: sound,
-    phonicAudio: PHONIC_AUDIO_BY_LETTER[upperLetter] || `/phonics/audio/letters/${l.toLowerCase()}-sound.mp3`,
-    letterNameAudio: `/phonics/audio/letters/${l.toLowerCase()}-name.mp3`,
+    phonicAudio: getPreferredPhonemeAudioPath(lowerLetter),
+    letterNameAudio: `/phonics/audio/letters/${lowerLetter}-name.mp3`,
     words,
     distractors,
     traceSVG,

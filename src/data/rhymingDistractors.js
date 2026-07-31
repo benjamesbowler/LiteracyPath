@@ -144,6 +144,9 @@ export function normalizeRhymingQuestionChoices(question = {}) {
   const isFindRhyme = formatType === "READ_FIND_RHYME" || formatType === "LISTEN_FIND_RHYME";
   const skillId = String(question.skillId || question.assessmentSkillId || question.skill || "").toLowerCase();
   if (!isFindRhyme || !skillId.includes("rhym")) return question;
+  if (question.mediaTier === "text" || question.v3AuthoredMedia?.cards === false) {
+    return question;
+  }
 
   const targetWord = normalizeWord(question.targetWord);
   const answer = normalizeWord(question.answer || question.correctAnswer);

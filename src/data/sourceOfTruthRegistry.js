@@ -166,7 +166,38 @@ export const sourceFileByBankName = {
   assessmentQaReplacementQuestions: "src/data/assessmentQaReplacementQuestions.js",
   highQualityComprehensionReplacementQuestions: "src/data/highQualityComprehensionReplacements.js",
   fixSentenceQuestions: "src/data/fixSentenceQuestions.js",
-  templateComprehensionAdvanced: "src/data/templateComprehensionAdvanced.js"
+  templateComprehensionAdvanced: "src/data/templateComprehensionAdvanced.js",
+  // Skills Assessment Rebuild v3 — generated from tools/assessmentRebuild/authoring/*
+  v3_long_vowels_silent_e: "src/data/v3/banks/long_vowels_silent_e.v3.generated.js",
+  v3_digraphs: "src/data/v3/banks/digraphs.v3.generated.js",
+  v3_main_idea: "src/data/v3/banks/main_idea.v3.generated.js",
+  v3_inference: "src/data/v3/banks/inference.v3.generated.js",
+  v3_cause_effect: "src/data/v3/banks/cause_effect.v3.generated.js",
+  v3_context_clues: "src/data/v3/banks/context_clues.v3.generated.js",
+  v3_theme_higher_comprehension: "src/data/v3/banks/theme_higher_comprehension.v3.generated.js",
+  v3_sequencing: "src/data/v3/banks/sequencing.v3.generated.js",
+  v3_key_details: "src/data/v3/banks/key_details.v3.generated.js",
+  v3_sentence_comprehension: "src/data/v3/banks/sentence_comprehension.v3.generated.js",
+  v3_initial_sounds: "src/data/v3/banks/initial_sounds.v3.generated.js",
+  v3_final_sounds: "src/data/v3/banks/final_sounds.v3.generated.js",
+  v3_rhyming: "src/data/v3/banks/rhyming.v3.generated.js",
+  v3_cvc_short_vowels: "src/data/v3/banks/cvc_short_vowels.v3.generated.js",
+  v3_short_vowel_discrimination: "src/data/v3/banks/short_vowel_discrimination.v3.generated.js",
+  v3_blends: "src/data/v3/banks/blends.v3.generated.js",
+  v3_vowel_teams: "src/data/v3/banks/vowel_teams.v3.generated.js",
+  v3_r_controlled_vowels: "src/data/v3/banks/r_controlled_vowels.v3.generated.js",
+  v3_hfw_1_25: "src/data/v3/banks/hfw_1_25.v3.generated.js",
+  v3_hfw_26_50: "src/data/v3/banks/hfw_26_50.v3.generated.js",
+  v3_hfw_51_75: "src/data/v3/banks/hfw_51_75.v3.generated.js",
+  v3_hfw_76_100: "src/data/v3/banks/hfw_76_100.v3.generated.js",
+  v3_nouns: "src/data/v3/banks/nouns.v3.generated.js",
+  v3_verbs: "src/data/v3/banks/verbs.v3.generated.js",
+  v3_adjectives: "src/data/v3/banks/adjectives.v3.generated.js",
+  v3_prepositions_of_place: "src/data/v3/banks/prepositions_of_place.v3.generated.js",
+  v3_plurals: "src/data/v3/banks/plurals.v3.generated.js",
+  v3_prefixes_suffixes: "src/data/v3/banks/prefixes_suffixes.v3.generated.js",
+  v3_antonyms_synonyms: "src/data/v3/banks/antonyms_synonyms.v3.generated.js",
+  v3_homophones_homonyms: "src/data/v3/banks/homophones_homonyms.v3.generated.js"
 };
 
 export const activeRuntimeSourceFiles = new Set(
@@ -179,6 +210,7 @@ export const legacyCandidateSourceNames = new Set(sourceOfTruthRegistry.legacyCa
 
 const HFW_SKILL_IDS = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 const HFW_ALLOWED_FORMAT_PREFIX = /^HFW_SENTENCE_(?:CLOZE|SPELL)_L[12]P[12]_\d{2}$/;
+const ASSESSMENT_REBUILD_V3_SOURCE = "skills_rebuild_v3_2026_08";
 const BLOCKED_QA_STATUSES = new Set(["blocked", "rejected", "deprecated", "legacy"]);
 const BAD_HFW_PROMPT_PATTERNS = [
   /\btap the word\b/i,
@@ -263,10 +295,17 @@ export function getRuntimeSourceIssues(question = {}, context = {}) {
     issues.push(`archive/legacy path is not runtime-approved: ${sourceFile}`);
   }
   if (isHighFrequencyRuntimeSkill(skillId)) {
-    if (question.source !== sourceOfTruthRegistry.hfw.allowedQuestionSource) {
+    const isV3HfwQuestion =
+      question.source === ASSESSMENT_REBUILD_V3_SOURCE
+      && sourceName === `v3_${skillId}`
+      && sourceFile === `src/data/v3/banks/${skillId}.v3.generated.js`;
+    if (
+      question.source !== sourceOfTruthRegistry.hfw.allowedQuestionSource
+      && !isV3HfwQuestion
+    ) {
       issues.push("HFW runtime questions must come from approved_hfw_workbook");
     }
-    if (!HFW_ALLOWED_FORMAT_PREFIX.test(format)) {
+    if (!isV3HfwQuestion && !HFW_ALLOWED_FORMAT_PREFIX.test(format)) {
       issues.push(`HFW format is not in the approved sentence cloze/spell set: ${format || "UNKNOWN"}`);
     }
     if (BAD_HFW_PROMPT_PATTERNS.some(pattern => pattern.test(text))) {

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import WordTile from "../WordTile";
+import { getLedaInstructionAudioPath } from "../../../../../data/ledaProductionAudio.js";
 
 function shuffleTiles(words, distractors) {
   const allTiles = [
@@ -23,9 +24,9 @@ function getTileKey(tile) {
 }
 
 const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
-  const { play: playCorrect } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/great-job.mp3", "Great job");
-  const { play: playIncorrect } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/try-again.mp3", "Try again");
-  const { play: playYay } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/you-found-it.mp3", "You found it");
+  const { play: playCorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Great job"), "Great job");
+  const { play: playIncorrect } = usePhonicsAudio(getLedaInstructionAudioPath("Try again"), "Try again");
+  const { play: playYay } = usePhonicsAudio(getLedaInstructionAudioPath("You found it"), "You found it");
   const tiles = useMemo(() => shuffleTiles(lesson.words, lesson.distractors), [lesson.distractors, lesson.words]);
   const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
   const [foundCount, setFoundCount] = useState(0);

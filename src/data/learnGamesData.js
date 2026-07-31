@@ -21,21 +21,9 @@ export const CVC_WORDS = {
 };
 
 export const SIGHT_WORDS = {
-  level1: [
-    "the", "and", "is", "to", "of", "a", "in", "you", "it", "he",
-    "was", "for", "on", "are", "as", "with", "his", "they", "at", "be",
-    "I", "me", "my", "we", "she", "see", "go", "no", "so", "up"
-  ],
-  level2: [
-    "this", "have", "from", "or", "one", "had", "by", "but", "not", "what",
-    "all", "were", "when", "your", "can", "said", "there", "use", "like", "him",
-    "into", "time", "has", "look", "two", "more", "her", "make", "than", "come"
-  ],
-  level3: [
-    "each", "which", "do", "how", "their", "if", "will", "other", "about", "out",
-    "many", "then", "them", "these", "some", "would", "could", "should", "people",
-    "down", "day", "did", "get", "made", "may", "part", "over", "new", "sound", "take"
-  ]
+  level1: [...HFW_WORDS_1_25, ...HFW_WORDS_26_50],
+  level2: [...HFW_WORDS_51_75, ...HFW_WORDS_76_100, ...ALL_HFW_WORDS.slice(100, 300)],
+  level3: ALL_HFW_WORDS.slice(300)
 };
 
 export const RHYMING_PAIRS = [
@@ -436,3 +424,10 @@ export const GAME_LIST = [
     surfaces: ["arcade"]
   }
 ];
+import {
+  ALL_HFW_WORDS,
+  HFW_WORDS_1_25,
+  HFW_WORDS_26_50,
+  HFW_WORDS_51_75,
+  HFW_WORDS_76_100
+} from "./highFrequencyWordBands.js";

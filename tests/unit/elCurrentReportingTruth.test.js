@@ -126,7 +126,7 @@ function worksheetRows(sheet) {
   return rows;
 }
 
-test("old EL results remain descriptive but cannot create a current Secure status", async () => {
+test("old literal EL observations remain visible as Yes without being treated as longitudinal mastery", async () => {
   const assessmentHistory = [letterAttempt()];
   const formal = buildIndividualElFormalAssessmentReport({
     student,
@@ -138,8 +138,9 @@ test("old EL results remain descriptive but cannot create a current Secure statu
   assert.equal(uppercaseName.evidenceCount, 3);
   assert.equal(uppercaseName.selectedPeriodAttempts, 3);
   assert.equal(uppercaseName.staleEvidenceCount, 3);
-  assert.equal(uppercaseName.attempts, 0);
-  assert.equal(uppercaseName.status, "not_enough_evidence");
+  assert.equal(uppercaseName.attempts, 1);
+  assert.equal(uppercaseName.status, "mastered");
+  assert.equal(uppercaseName.statusLabel, "Yes");
   assert.ok(uppercaseName.details.every(detail => detail.withinCurrentWindow === false));
 
   const stored = buildStudentElAssessmentReportData({
@@ -151,8 +152,8 @@ test("old EL results remain descriptive but cannot create a current Secure statu
     now: NOW
   });
   const skill = stored.skillRows.find(row => row.skillName === "Letter Names and Sounds");
-  assert.equal(skill.masteryStatus, "Not enough results");
-  assert.equal(skill.attempts, 0);
+  assert.equal(skill.masteryStatus, "Yes");
+  assert.equal(skill.attempts, 1);
   assert.equal(skill.selectedPeriodAttempts, 1);
   assert.equal(stored.reportingPeriods.currentConclusions.days, 90);
 
@@ -166,15 +167,15 @@ test("old EL results remain descriptive but cannot create a current Secure statu
   });
   const exportedCell = exported.formalAssessments.individualLetterMatrix
     .find(row => row.letter === "a").uppercaseName;
-  assert.equal(exportedCell.statusLabel, "Not enough results");
+  assert.equal(exportedCell.statusLabel, "Yes");
 
   const workbook = await createStudentElAssessmentWorkbook(exported);
   const letterRow = worksheetRows(workbook.getWorksheet("Letter Names & Sounds"))
     .find(row => row["Letter pair"] === "A/a");
-  assert.equal(letterRow["Uppercase name result"], "Not enough results");
+  assert.equal(letterRow["Uppercase name result"], "Yes");
 });
 
-test("old reconciled Skills results stay visible without becoming a current EL status", () => {
+test("old reconciled Skills evidence stays separate from the literal EL observation grid", () => {
   const report = buildStudentElAssessmentExportReport({
     assessmentHistory: oldSkillsLetterAttempts(),
     students: [student],
@@ -195,7 +196,7 @@ test("old reconciled Skills results stay visible without becoming a current EL s
   assert.ok(cell.details.every(detail => detail.withinCurrentWindow === false));
 });
 
-test("Advanced Phonics cannot pool reading and sound into a fabricated Secure status", async () => {
+test("Advanced Phonics reports the latest reading and sound observations literally", async () => {
   const splitEvidence = advancedAttempt({ readingCount: 2, soundCount: 1 });
   const formal = buildIndividualElFormalAssessmentReport({
     student,
@@ -204,11 +205,12 @@ test("Advanced Phonics cannot pool reading and sound into a fabricated Secure st
   });
   const ai = formal.individualAdvancedPhonicsMatrix.find(row => row.pattern === "ai");
 
-  assert.equal(ai.attempts, 3);
+  assert.equal(ai.attempts, 2);
   assert.equal(ai.accuracy, 100);
-  assert.equal(ai.readingResult.status, "not_enough_evidence");
-  assert.equal(ai.soundResult.status, "not_enough_evidence");
-  assert.equal(ai.status, "not_enough_evidence");
+  assert.equal(ai.readingResult.status, "mastered");
+  assert.equal(ai.soundResult.status, "mastered");
+  assert.equal(ai.status, "mastered");
+  assert.equal(ai.statusLabel, "Yes");
 
   const stored = buildStudentElAssessmentReportData({
     assessmentHistory: [splitEvidence],
@@ -222,10 +224,10 @@ test("Advanced Phonics cannot pool reading and sound into a fabricated Secure st
     row => row.skillName === "Advanced Phonics Patterns"
   );
   const pattern = stored.patternDetailRows.find(row => row.pattern === "ai");
-  assert.equal(advancedSkill.masteryStatus, "Not enough results");
-  assert.equal(pattern.status, "Not enough results");
-  assert.equal(pattern.readingStatus, "Not enough results");
-  assert.equal(pattern.soundStatus, "Not enough results");
+  assert.equal(advancedSkill.masteryStatus, "Yes");
+  assert.equal(pattern.status, "Yes");
+  assert.equal(pattern.readingStatus, "Yes");
+  assert.equal(pattern.soundStatus, "Yes");
 
   const exported = buildStudentElAssessmentExportReport({
     assessmentHistory: [splitEvidence],
@@ -237,11 +239,11 @@ test("Advanced Phonics cannot pool reading and sound into a fabricated Secure st
   });
   const exportedPattern = exported.formalAssessments.individualAdvancedPhonicsMatrix
     .find(row => row.pattern === "ai");
-  assert.equal(exportedPattern.statusLabel, "Not enough results");
+  assert.equal(exportedPattern.statusLabel, "Yes");
   const workbook = await createStudentElAssessmentWorkbook(exported);
   const workbookPattern = worksheetRows(workbook.getWorksheet("Advanced Phonics Patterns"))
     .find(row => row.Pattern === "ai");
-  assert.equal(workbookPattern.Status, "Not enough results");
+  assert.equal(workbookPattern.Status, "Yes");
 
   const independentlySecure = buildIndividualElFormalAssessmentReport({
     student,

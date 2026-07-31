@@ -2,10 +2,13 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  markQuestionMediaUsage,
   resolveQuestionMediaDynamically,
   validateResolvedQuestionMedia
 } from "../../src/data/assessmentMediaPicker.js";
 import { getAssessmentMediaByPath } from "../../src/data/assessmentMediaRegistry.js";
+import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
+import { rhymingAssessmentImageVariants } from "../../src/data/generated/assessmentImageVariants.generated.js";
 import { grammarAssessmentQuestions } from "../../src/data/generated/grammarAssessmentQuestions.generated.js";
 import { secondBlockSkillTopUpQuestions } from "../../src/data/generated/secondBlockSkillTopUpQuestions.generated.js";
 
@@ -66,6 +69,141 @@ test("pair-selection validation still rejects a mismatched option image", () => 
     validateResolvedQuestionMedia(question).join("\n"),
     /media option "nap" image is not approved exact-target media/
   );
+});
+
+test("rhyming picture options resolve to approved exact-word assessment images", () => {
+  const question = {
+    id: "rhyming-option-media-contract",
+    skillId: "rhyming",
+    questionType: "visual_card_choice",
+    formatType: "RHYMING_PICTURE",
+    targetWord: "sun",
+    imagePath: "/images/child-mode/cvc/sun.png",
+    choices: ["fun", "top", "lip", "jeep"],
+    answer: "fun",
+    imageCards: [
+      {
+        word: "fun",
+        image: "/media/vocabulary/images/fun.webp"
+      },
+      {
+        word: "top",
+        image: "/images/child-mode/initial-sounds/top.png"
+      },
+      {
+        word: "lip",
+        image: "/media/vocabulary/images/lip.webp"
+      },
+      {
+        word: "jeep",
+        image: "/media/initial-sounds/images/j/jeep.webp"
+      }
+    ],
+    answerOptions: [
+      { word: "fun", value: "fun" },
+      { word: "top", value: "top" },
+      { word: "lip", value: "lip" },
+      { word: "jeep", value: "jeep" }
+    ]
+  };
+
+  const resolved = resolveQuestionMediaDynamically(question, {
+    skillId: "rhyming",
+    level: 1,
+    phase: 2
+  });
+
+  assert.equal(resolved.imageCards.length, 4);
+  assert.match(resolved.imageCards[0].image, /^\/images\/assessment\/rhyming\/variants\/fun\/fun-/);
+  assert.match(resolved.imageCards[1].image, /^\/images\/assessment\/rhyming\/variants\/op\/top-/);
+  assert.match(resolved.imageCards[2].image, /^\/images\/assessment\/rhyming\/variants\/ip\/lip-/);
+  assert.equal(
+    resolved.answerOptions.every(option =>
+      option.image === resolved.imageCards.find(card => card.word === option.word)?.image
+    ),
+    true
+  );
+  assert.deepEqual(validateResolvedQuestionMedia(resolved), []);
+});
+
+test("rhyming option images are recorded in assessment session usage", () => {
+  const usage = {
+    imagePaths: new Set(),
+    audioPaths: new Set(),
+    targetWords: new Set(),
+    contentKeys: new Set(),
+    templateKeys: new Set(),
+    promptKeys: new Set(),
+    correctQuestionIds: new Set()
+  };
+  const question = {
+    id: "rhyming-option-usage-contract",
+    skillId: "rhyming",
+    questionType: "visual_card_choice",
+    formatType: "RHYMING_PICTURE",
+    targetWord: "sun",
+    imagePath: "/images/child-mode/cvc/sun.png",
+    choices: ["fun", "top"],
+    answer: "fun",
+    imageCards: [
+      { word: "fun", image: "/media/vocabulary/images/fun.webp" },
+      { word: "top", image: "/images/child-mode/initial-sounds/top.png" }
+    ]
+  };
+  const resolved = resolveQuestionMediaDynamically(question, {
+    skillId: "rhyming",
+    level: 1,
+    phase: 2,
+    sessionUsage: usage
+  });
+
+  markQuestionMediaUsage(usage, resolved);
+
+  assert.equal(
+    resolved.imageCards.every(card => usage.imagePaths.has(card.image)),
+    true
+  );
+});
+
+test("every published rhyming option resolves to complete exact-word image media", async () => {
+  const assessmentVariantPathsByWord = new Map();
+  Object.values(rhymingAssessmentImageVariants).forEach(words => {
+    Object.entries(words).forEach(([word, paths]) => {
+      assessmentVariantPathsByWord.set(word, new Set(paths));
+    });
+  });
+  const questions = await loadAssessmentSkillBank("rhyming");
+
+  assert.ok(questions.length > 0);
+  questions.forEach(question => {
+    const resolved = resolveQuestionMediaDynamically(question, {
+      skillId: "rhyming",
+      level: question.level || question.difficulty || 1,
+      phase: question.phase || question.assessmentPhase || 1
+    });
+
+    const isPictureItem = question.mediaTier !== "text";
+    const resolvedCards = resolved.imageCards || [];
+    assert.equal(
+      resolvedCards.length,
+      isPictureItem ? resolved.choices.length : 0,
+      `${question.id} should ${isPictureItem ? "have one image card per option" : "remain text-only"}`
+    );
+    resolvedCards.forEach(card => {
+      const path = card.image || card.imagePath || card.imageUrl || "";
+      const record = getAssessmentMediaByPath(path, "image");
+      assert.equal(record?.available, true, `${question.id}:${card.word} should use approved image media`);
+      assert.equal(record?.normalizedWord, card.word, `${question.id}:${card.word} image should match the option word`);
+      const variants = assessmentVariantPathsByWord.get(card.word);
+      if (variants?.size) {
+        assert.equal(
+          variants.has(path),
+          true,
+          `${question.id}:${card.word} should use its purpose-built assessment variant`
+        );
+      }
+    });
+  });
 });
 
 test("approved Kimi vocabulary and Final Sounds override images are indexed", () => {

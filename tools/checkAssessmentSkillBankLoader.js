@@ -13,6 +13,7 @@ import {
 } from "../src/data/loadAssessmentSkillBank.js";
 import { HFW_ALLOWED_FORMATS, getHfwRuntimeEligibilityIssues } from "../src/data/hfwRuntimeEligibility.js";
 import { isHfwSentenceSpellFormat } from "../src/data/hfwAssessmentFormatConfig.js";
+import { V3_QUESTION_SOURCE } from "../src/data/v3/v3Registry.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(repoRoot, "docs/validation/assessment_bank_loader_check.md");
@@ -188,8 +189,12 @@ for (const skillId of hfwSkillIds) {
   // Sentence-spell (listen-and-spell) questions REQUIRE sentence audio by design;
   // the no-audio rule only guards recognition/cloze formats where audio would leak the answer.
   const audioRows = hfwQuestions.filter(question =>
-    questionHasAudio(question) && !isHfwSentenceSpellFormat(questionFormat(question)));
-  const invalidFormatRows = hfwQuestions.filter(question => !HFW_ALLOWED_FORMATS.has(questionFormat(question)));
+    question.source !== V3_QUESTION_SOURCE
+    && questionHasAudio(question)
+    && !isHfwSentenceSpellFormat(questionFormat(question)));
+  const invalidFormatRows = hfwQuestions.filter(question =>
+    question.source !== V3_QUESTION_SOURCE
+    && !HFW_ALLOWED_FORMATS.has(questionFormat(question)));
   const eligibilityRows = hfwQuestions
     .map(question => ({ question, issues: getHfwRuntimeEligibilityIssues(question, skillId) }))
     .filter(row => row.issues.length);

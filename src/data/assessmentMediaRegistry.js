@@ -215,17 +215,21 @@ function createRecord({
   notes = ""
 }) {
   const normalizedWord = normalizeAssessmentMediaWord(targetWord);
+  const resolvedPath = mediaType === "audio"
+    ? getApprovedAudioPath(normalizedWord, path) || path
+    : path;
   const availability = makeAvailability({
-    path,
+    path: resolvedPath,
     mediaType,
     word: normalizedWord,
     sourceManifest,
     releaseApproved
   });
   return {
-    id: `${mediaType}:${path}`,
+    id: `${mediaType}:${resolvedPath}`,
     mediaType,
-    path,
+    path: resolvedPath,
+    sourcePath: path === resolvedPath ? "" : path,
     targetWord: normalizedWord,
     normalizedWord,
     phonicsPatternTags: getPhonicsPatternTags(normalizedWord, phonicsPatternTags),
@@ -237,11 +241,11 @@ function createRecord({
     rejected: availability.rejected,
     deprecated: availability.deprecated,
     available: availability.available,
-    audioType: mediaType === "audio" ? audioType || inferAudioType(path, normalizedWord) : "",
-    imageRole: mediaType === "image" ? inferImageRole(path, sourceManifest, imageRole) : "",
+    audioType: mediaType === "audio" ? audioType || inferAudioType(resolvedPath, normalizedWord) : "",
+    imageRole: mediaType === "image" ? inferImageRole(resolvedPath, sourceManifest, imageRole) : "",
     imageability: mediaType === "image" ? Boolean(imageability) : false,
     visualVariantGroup: visualVariantGroup || `${mediaType}:${normalizedWord || "unknown"}`,
-    variantNumber: variantNumber || parseVariantNumber(path),
+    variantNumber: variantNumber || parseVariantNumber(resolvedPath),
     sourceManifest,
     notes: notes || availability.notes
   };
@@ -719,7 +723,15 @@ export function getAssessmentMediaByPath(path = "", mediaType = "") {
   const normalizedPath = String(path || "").trim();
   getAssessmentMediaRegistry();
   if (mediaType) {
-    return cachedRegistryByPath.get(`${mediaType}:${normalizedPath}`) || null;
+    const direct = cachedRegistryByPath.get(`${mediaType}:${normalizedPath}`);
+    if (direct || mediaType !== "audio") return direct || null;
+    const legacyWord = normalizeAssessmentMediaWord(
+      normalizedPath.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") || ""
+    );
+    const replacementPath = getApprovedAudioPath(legacyWord, normalizedPath);
+    return replacementPath
+      ? cachedRegistryByPath.get(`audio:${replacementPath}`) || null
+      : null;
   }
   return cachedRegistryByPath.get(`image:${normalizedPath}`) ||
     cachedRegistryByPath.get(`audio:${normalizedPath}`) ||
@@ -766,8 +778,18 @@ export function findAssessmentMediaCandidates({
       }
     }
     if (audioType && mediaType === "audio" && record.audioType !== audioType) return false;
-    if (level && record.level && Number(record.level) !== Number(level)) return false;
-    if (phase && record.phase && Number(record.phase) !== Number(phase)) return false;
+    if (
+      level &&
+      record.level &&
+      Number(record.level) !== Number(level) &&
+      !includeGenericFallback
+    ) return false;
+    if (
+      phase &&
+      record.phase &&
+      Number(record.phase) !== Number(phase) &&
+      !includeGenericFallback
+    ) return false;
     if (seenPaths.has(record.path)) return false;
     seenPaths.add(record.path);
     return true;

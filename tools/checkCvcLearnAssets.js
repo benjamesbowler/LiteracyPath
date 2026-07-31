@@ -4,12 +4,14 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { cvcWordFamilies, getCvcWordParts, getGraphemeAudioPath } from "../src/data/cvcWordFamilies.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
+import { DEFERRED_ATOMIC_SOUND_KEYS } from "../src/data/phonemeAudioBank.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
 const publicRoot = path.join(repoRoot, "public");
 const missing = [];
+const deferred = new Set();
 
 function publicPathExists(assetPath) {
   if (!assetPath || !assetPath.startsWith("/")) return false;
@@ -29,6 +31,11 @@ function checkWord(word) {
 function checkGrapheme(letter, vowel) {
   const audioPath = getGraphemeAudioPath(letter, vowel);
   if (!publicPathExists(audioPath)) {
+    const sound = String(vowel || letter || "").toLowerCase();
+    if (DEFERRED_ATOMIC_SOUND_KEYS.includes(sound)) {
+      deferred.add(sound);
+      return;
+    }
     missing.push(`grapheme audio for "${letter}" (${audioPath})`);
   }
 }
@@ -57,3 +64,6 @@ if (missing.length > 0) {
 }
 
 console.log(`CVC Learn asset check passed for ${cvcWordFamilies.length} word families.`);
+if (deferred.size) {
+  console.warn(`Known silent sounds awaiting a new recording: ${[...deferred].sort().join(", ")}.`);
+}

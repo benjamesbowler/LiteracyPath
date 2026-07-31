@@ -1,4 +1,4 @@
-const VOWELS = new Set(["a", "e", "i", "o", "u"]);
+import { getPreferredPhonemeAudioPath } from "./phonemeAudioBank.js";
 
 export const cvcWordFamilies = [
   {
@@ -70,13 +70,7 @@ export const cvcWordFamilies = [
 export function getGraphemeAudioPath(letter, vowel = "") {
   const normalizedLetter = String(letter || "").toLowerCase();
   const normalizedVowel = String(vowel || "").toLowerCase();
-  const target = normalizedVowel || normalizedLetter;
-
-  if (VOWELS.has(normalizedLetter) || VOWELS.has(target)) {
-    return `/audio/child-mode/clean-human/graphemes/short_vowels/short_${target}.mp3`;
-  }
-
-  return `/audio/child-mode/clean-human/graphemes/consonants/${normalizedLetter}.mp3`;
+  return getPreferredPhonemeAudioPath(normalizedVowel || normalizedLetter);
 }
 
 export function getCvcWordParts(word, rime) {

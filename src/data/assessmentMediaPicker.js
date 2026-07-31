@@ -181,7 +181,8 @@ function isVisualCardMediaQuestion(question = {}) {
     question.imageCards.length > 0 &&
     (
       String(question.questionType || "").toLowerCase() === "visual_card_choice" ||
-      format === "RHYMING_PICTURE"
+      format === "RHYMING_PICTURE" ||
+      (/RHYME|RHYMING/.test(format) && /PICTURE/.test(format))
     );
 }
 
@@ -237,17 +238,113 @@ function isHfwSentenceQuestion(question = {}, skillId = "") {
 function markUsed(usage, question = {}, resolved = {}) {
   if (!usage) return;
   const image = resolved.image?.path || currentImagePath(question);
+  const optionImages = (question.imageCards || [])
+    .map(option => mediaOptionPath(option, "image"))
+    .filter(Boolean);
   const audio = resolved.audio?.path || currentAudioPath(question);
   const target = inferAssessmentQuestionTargetWord(question);
   const key = getQuestionMediaContentKey(question);
   const template = getQuestionTemplateKey(question);
   const prompt = getQuestionPromptKey(question);
   if (image) usage.imagePaths.add(image);
+  optionImages.forEach(optionImage => usage.imagePaths.add(optionImage));
   if (audio) usage.audioPaths.add(audio);
   if (target) usage.targetWords.add(target);
   if (key) usage.contentKeys.add(key);
   if (template) usage.templateKeys.add(template);
   if (prompt) usage.promptKeys.add(prompt);
+}
+
+function resolveVisualCardOptionImages(question = {}, {
+  imageRole = "target_object",
+  level = null,
+  phase = null,
+  sessionUsage = null,
+  skillId = "",
+  studentUsage = null
+} = {}) {
+  if (!isVisualCardMediaQuestion(question)) return question;
+
+  const questionId = question.approvedQuestionId || question.questionId || question.id || "";
+  const imageCards = (question.imageCards || []).map(option => {
+    const word = mediaOptionWord(option);
+    if (!word) return option;
+
+    const existingImage = mediaOptionPath(option, "image");
+    const existingRecord = existingImage
+      ? getAssessmentMediaByPath(existingImage, "image")
+      : null;
+    const existingImageQuarantined = Boolean(existingImage && isMediaPairingQuarantined({
+      area: "assessment",
+      skillId,
+      questionId,
+      imagePath: existingImage
+    }));
+    const existingImageUsable = Boolean(
+      !existingImageQuarantined &&
+      existingRecord?.available &&
+      existingRecord.normalizedWord === word
+    );
+    const existingImageUsed = Boolean(sessionUsage?.imagePaths?.has(existingImage));
+    const imageCandidates = getApprovedMediaForTarget({
+      word,
+      skillId,
+      mediaType: "image",
+      role: imageRole,
+      level,
+      phase
+    }).filter(record => !isMediaPairingQuarantined({
+      area: "assessment",
+      skillId,
+      questionId,
+      imagePath: record.path
+    }));
+    const chosenImage = imageCandidates.length
+      ? pickLeastRecentlyUsedMedia({
+        candidates: imageCandidates,
+        sessionUsage,
+        studentUsage,
+        mediaType: "image",
+        role: imageRole
+      })
+      : null;
+    const shouldUseChosenImage = Boolean(chosenImage && (
+      !existingImageUsable ||
+      existingImageUsed ||
+      roleScore(chosenImage, imageRole) > roleScore(existingRecord || {}, imageRole)
+    ));
+    const image = shouldUseChosenImage
+      ? chosenImage.path
+      : existingImageUsable
+        ? existingImage
+        : "";
+
+    if (!image) return option;
+    return {
+      ...option,
+      image,
+      imageUrl: image,
+      imagePath: image
+    };
+  });
+
+  const answerOptions = Array.isArray(question.answerOptions)
+    ? question.answerOptions.map(option => {
+      const matchingCard = imageCards.find(card =>
+        mediaOptionWord(card) === mediaOptionWord(option)
+      );
+      const image = mediaOptionPath(matchingCard, "image");
+      return image && option && typeof option === "object"
+        ? { ...option, image, imageUrl: image, imagePath: image }
+        : option;
+    })
+    : question.answerOptions;
+
+  return {
+    ...question,
+    answerOptions,
+    imageCards
+  };
 }
 
 export function resolveQuestionMediaDynamically(question = {}, context = {}) {
@@ -263,7 +360,17 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const phase = context.phase ?? question.phase ?? question.assessmentPhase ?? null;
   const imageRole = roleForQuestion(question, skillId);
   const resolvedMedia = { image: null, audio: null, warnings: [] };
-  const out = { ...question, skillId: question.skillId || skillId, targetWord: question.targetWord || targetWord };
+  const out = resolveVisualCardOptionImages(
+    { ...question, skillId: question.skillId || skillId, targetWord: question.targetWord || targetWord },
+    {
+      imageRole,
+      level,
+      phase,
+      sessionUsage,
+      skillId,
+      studentUsage
+    }
+  );
   const questionId = out.approvedQuestionId || out.questionId || out.id || "";
 
   if (isPairSelectionMediaQuestion(out)) {

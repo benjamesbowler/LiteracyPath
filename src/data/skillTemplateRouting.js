@@ -11,6 +11,10 @@ import {
   getLongVowelsRuntimeEligibilityIssues
 } from "./longVowelsRuntimeEligibility.js";
 import { HFW_ALLOWED_FORMATS as HFW_ALLOWED_FORMAT_LIST } from "./hfwAssessmentFormatConfig.js";
+import {
+  RUNTIME_SKILL_ID_BY_ASSESSMENT_ID,
+  getV3RuntimeEligibilityIssues
+} from "./v3/v3Registry.js";
 
 const normalize = value =>
   String(value || "")
@@ -319,6 +323,16 @@ function getComprehensionRuntimeEligibilityIssues(question = {}, stageId = "") {
 }
 
 export function getQuestionRoutingIssue(question = {}, stageId = "", options = {}) {
+  // v3 rebuild items route by their gate-backed blueprint contract, not the
+  // legacy per-skill format allowlists (which predate the v3 formats). A
+  // non-v3 question returns null here and falls through to the legacy rules.
+  const v3AssessmentSkillId =
+    Object.entries(RUNTIME_SKILL_ID_BY_ASSESSMENT_ID).find(([, runtime]) => runtime === stageId)?.[0] || stageId;
+  const v3Issues = getV3RuntimeEligibilityIssues(question, v3AssessmentSkillId);
+  if (v3Issues !== null) {
+    return v3Issues.length ? `v3 routing violation: ${v3Issues.join("; ")}` : "";
+  }
+
   const rule = getSkillRoutingRule(stageId);
   if (!rule) return "";
 

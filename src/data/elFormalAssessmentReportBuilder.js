@@ -797,6 +797,30 @@ function finalizeCell(cell, now = new Date()) {
   };
 }
 
+// Letter names, letter sounds and taught phonics patterns are teacher
+// observations, not longitudinal mastery estimates. One independent check is
+// enough to report the latest literal outcome: Yes, No, or blank.
+function finalizeBinaryObservationCell(cell) {
+  const latest = [...(cell.details || [])]
+    .filter(detail => detail.scored)
+    .sort((a, b) => new Date(a.date || 0) - new Date(b.date || 0))
+    .at(-1);
+  const status = !latest
+    ? "not_assessed"
+    : latest.isCorrect
+      ? "mastered"
+      : "needs_support";
+  return {
+    ...cell,
+    attempts: latest ? 1 : 0,
+    correct: latest?.isCorrect ? 1 : 0,
+    incorrect: latest && !latest.isCorrect ? 1 : 0,
+    accuracy: latest ? (latest.isCorrect ? 100 : 0) : null,
+    status,
+    statusLabel: latest ? (latest.isCorrect ? "Yes" : "No") : ""
+  };
+}
+
 const FORMAL_UNSCORED_RESPONSE_STATUSES = new Set([
   "recorded",
   "unscored",
@@ -957,7 +981,7 @@ export function combineAdvancedPhonicsStatus(readingResult = {}, soundResult = {
   ) {
     return "unscored_evidence";
   }
-  return "not_enough_evidence";
+  return "not_assessed";
 }
 
 function addDetail(cell, question = {}, record = {}, now = new Date()) {
@@ -1063,10 +1087,10 @@ export function buildIndividualElFormalAssessmentReport({
 
   const individualLetterMatrix = Array.from(letterMap.values()).map(row => ({
     ...row,
-    uppercaseName: finalizeCell(row.uppercaseName, now),
-    uppercaseSound: finalizeCell(row.uppercaseSound, now),
-    lowercaseName: finalizeCell(row.lowercaseName, now),
-    lowercaseSound: finalizeCell(row.lowercaseSound, now),
+    uppercaseName: finalizeBinaryObservationCell(row.uppercaseName),
+    uppercaseSound: finalizeBinaryObservationCell(row.uppercaseSound),
+    lowercaseName: finalizeBinaryObservationCell(row.lowercaseName),
+    lowercaseSound: finalizeBinaryObservationCell(row.lowercaseSound),
     lastAssessed: formatDate(row.lastAssessed)
   }));
 
@@ -1116,8 +1140,8 @@ export function buildIndividualElFormalAssessmentReport({
   });
 
   const individualAdvancedPhonicsMatrix = Array.from(patternMap.values()).map(row => {
-    const readingResult = finalizeCell(row.readingResult, now);
-    const soundResult = finalizeCell(row.soundResult, now);
+    const readingResult = finalizeBinaryObservationCell(row.readingResult);
+    const soundResult = finalizeBinaryObservationCell(row.soundResult);
     const attempts = readingResult.attempts + soundResult.attempts;
     const correct = readingResult.correct + soundResult.correct;
     const currentEvidenceCount = readingResult.currentEvidenceCount + soundResult.currentEvidenceCount;
@@ -1149,7 +1173,11 @@ export function buildIndividualElFormalAssessmentReport({
       incorrect: attempts - correct,
       accuracy,
       status,
-      statusLabel: STATUS_LABELS[status],
+      statusLabel: status === "mastered"
+        ? "Yes"
+        : status === "needs_support"
+          ? "No"
+          : "",
       exampleWords: Array.from(row.exampleWords).slice(0, 10),
       lastAssessed: formatDate(row.lastAssessed)
     };
@@ -1192,7 +1220,9 @@ function countCellByStudent(rows = [], cellKey, students = []) {
   };
   rows.forEach(({ student, matrixRow }) => {
     const cell = matrixRow?.[cellKey] || makeCell();
-    const status = cell.status || "not_assessed";
+    const status = cell.status === "not_assessed" && cell.unscoredCount > 0
+      ? "unscored_evidence"
+      : cell.status || "not_assessed";
     counts[status] += 1;
     if (status === "needs_support") counts.supportStudents.push(getStudentName(student));
     if (status === "not_enough_evidence") {
@@ -1407,7 +1437,10 @@ export function buildClassElFormalAssessmentReport({
     }));
     const withEvidence = rows.filter(item => item.row?.evidenceCount > 0);
     const attempted = withEvidence.filter(item => item.row?.attempts > 0);
-    const unscored = withEvidence.filter(item => item.row.status === "unscored_evidence");
+    const unscored = withEvidence.filter(item => (
+      item.row.status === "unscored_evidence" ||
+      (item.row.status === "not_assessed" && item.row.unscoredCount > 0)
+    ));
     const notEnough = withEvidence.filter(item => item.row.status === "not_enough_evidence");
     const mastered = withEvidence.filter(item => item.row.status === "mastered");
     const developing = withEvidence.filter(item => item.row.status === "developing");

@@ -268,7 +268,10 @@
     "export:practice-sheet": "node tools/practiceSheet/buildPracticeSheet.mjs",
     "export:rubric-judge": "node tools/exportRubricJudgeBatch.mjs",
     "generate:sage-soft": "node tools/generateSageSoft.mjs",
-    "check:live-database": "node tools/verifyLiveDatabaseFunctions.mjs"
+    "check:live-database": "node tools/verifyLiveDatabaseFunctions.mjs",
+    "build:v3-banks": "node tools/assessmentRebuild/gate.mjs --write",
+    "check:audit:assessment-rebuild": "node tools/assessmentRebuild/gate.mjs",
+    "check:skill-status-policy": "node --test tests/unit/skillStatusPolicy.test.js"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

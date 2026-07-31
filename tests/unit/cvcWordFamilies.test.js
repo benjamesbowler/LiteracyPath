@@ -3,20 +3,25 @@ import assert from "node:assert/strict";
 import { getGraphemeAudioPath } from "../../src/data/cvcWordFamilies.js";
 
 // Regression guard for the Word Builder vowel bug: the vowel must resolve to a
-// real pure-phoneme/clean recording path, never a "short a" label or synthetic
-// buzz. Consonants resolve to the clean-human consonant recordings.
-test("vowels resolve to a clean short-vowel grapheme recording", () => {
-  for (const v of ["a", "e", "i", "o", "u"]) {
+// real pure-phoneme recording path, never a "short a" label or synthetic buzz.
+test("approved vowels resolve to the reviewed short-vowel bank", () => {
+  for (const v of ["a", "i", "o", "u"]) {
     assert.equal(
       getGraphemeAudioPath(v, v),
-      `/audio/child-mode/clean-human/graphemes/short_vowels/short_${v}.mp3`
+      `/audio/phonemes/short_${v}.mp3`
     );
   }
 });
 
-test("consonants resolve to clean-human consonant recordings", () => {
-  assert.equal(getGraphemeAudioPath("c", ""), "/audio/child-mode/clean-human/graphemes/consonants/c.mp3");
-  assert.equal(getGraphemeAudioPath("t", ""), "/audio/child-mode/clean-human/graphemes/consonants/t.mp3");
+test("consonants resolve to the reviewed phoneme bank", () => {
+  assert.equal(getGraphemeAudioPath("c", ""), "/audio/phonemes/c.mp3");
+  assert.equal(getGraphemeAudioPath("t", ""), "/audio/phonemes/t.mp3");
+});
+
+test("deferred sounds stay silent after their old audio is deleted", () => {
+  for (const sound of ["e", "b", "j", "ch", "sh", "th", "nk", "zz"]) {
+    assert.equal(getGraphemeAudioPath(sound, sound === "e" ? "e" : ""), "");
+  }
 });
 
 test("never returns a synthetic 'generated:' source", () => {

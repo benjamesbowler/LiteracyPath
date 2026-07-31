@@ -13,10 +13,9 @@
 // overlays use tier-3 dark glass. That is what removes the need for a
 // text-shadow — and there is no text-shadow anywhere in this system.
 //
-// IT IS A FRONT DOOR, NOT A REPLACEMENT. Tapping a stop opens the Skills Quest
-// at that stop, and the mode keeps everything it had: its own full map with the
-// three lands, drag-to-pan, the admin-placed landmark coordinates, the station
-// rota, the Cycle Check and the certificate. Nothing was culled.
+// IT IS A FORWARD PATH, NOT A LEVEL PICKER. Only the first unfinished stop can
+// open. Completed stops are visible proof of progress and later stops show the
+// journey ahead, but neither is selectable.
 //
 // EVERY NUMBER IS REAL. The mock's "Duck Pond, 3 of 3 stars" is a placeholder
 // (the spec says so). The land, the part, the place names, which stop is next
@@ -288,14 +287,14 @@ export function StudentAdventureMapPage({
             </svg>
 
             {scene.stops.map(stop => {
-              const locked = stop.state === "locked";
-              const Tag = locked ? "span" : "button";
+              const isNext = stop.state === "next";
+              const Tag = isNext ? "button" : "span";
               return (
                 <Tag
                   key={stop.id}
-                  {...(locked
-                    ? { role: "img", "aria-disabled": "true" }
-                    : { type: "button", onClick: () => setOpenCycleId(stop.id) })}
+                  {...(isNext
+                    ? { type: "button", onClick: () => setOpenCycleId(stop.id) }
+                    : { role: "img", "aria-disabled": "true" })}
                   className={`kg-node kg-node--${stop.state}${stop.state === "next" ? " kg-halo" : ""}`}
                   style={{
                     "--kg-node-x": `${stop.x}%`,
@@ -307,7 +306,7 @@ export function StudentAdventureMapPage({
                   data-stop={stop.id}
                   aria-label={
                     stop.state === "done"
-                      ? `${stop.name}, ${stop.stars} of 3 stars. Play it again.`
+                      ? `${stop.name}, ${stop.stars} of 3 stars, complete`
                       : stop.state === "next"
                         ? `${stop.name}, your pal is here. Go there.`
                         : `${stop.name}, locked`
@@ -369,14 +368,15 @@ export function StudentAdventureMapPage({
 
         <div className="kg-map-cards" data-child-choices="">
           {scene.cards.map(stop => {
-            const locked = stop.state === "locked";
+            const isNext = stop.state === "next";
+            const Tag = isNext ? "button" : "article";
             return (
-              <button
+              <Tag
                 key={stop.id}
-                type="button"
+                {...(isNext ? { type: "button" } : {})}
                 className={`kg-glass kg-map-card kg-map-card--${stop.state}`}
-                onClick={locked ? undefined : () => setOpenCycleId(stop.id)}
-                aria-disabled={locked || undefined}
+                onClick={isNext ? () => setOpenCycleId(stop.id) : undefined}
+                aria-disabled={!isNext || undefined}
                 data-node-state={stop.state}
                 data-child-emphasis={stop.state === "next" ? "primary" : "choice"}
                 {...(stop.state === "next" ? { "data-child-primary": "" } : {})}
@@ -390,7 +390,7 @@ export function StudentAdventureMapPage({
                     {read.ok ? stateLabel(stop) : "Still loading"}
                   </small>
                 </span>
-              </button>
+              </Tag>
             );
           })}
         </div>

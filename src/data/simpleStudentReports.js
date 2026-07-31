@@ -1,4 +1,7 @@
-import { ALL_HFW_WORDS, ALL_HFW_WORD_SET } from "./highFrequencyWordBands.js";
+import {
+  ASSESSED_HFW_WORDS,
+  ASSESSED_HFW_WORD_SET
+} from "./highFrequencyWordBands.js";
 import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 
 export const SIMPLE_ACCURACY_BANDS = Object.freeze({
@@ -98,13 +101,13 @@ function conceptCounts(concept = {}, { currentDecisionOnly = false } = {}) {
 function plainConceptLabel(concept = {}) {
   if (concept.construct === "initial_sound") return `initial sound “${concept.key}”`;
   if (concept.construct === "final_sound") return `final sound “${concept.key}”`;
-  if (concept.construct === "isolated_word_reading" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "isolated_word_reading" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `reading high-frequency word “${concept.key}” on its own`;
   }
-  if (concept.construct === "word_in_context" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "word_in_context" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `high-frequency word “${concept.key}” in a sentence`;
   }
-  if (concept.construct === "word_spelling" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "word_spelling" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `spelling high-frequency word “${concept.key}” in a sentence`;
   }
   return String(concept.label || concept.key || "this item")
@@ -116,13 +119,13 @@ function plainConceptLabel(concept = {}) {
 function compactConceptLabel(concept = {}) {
   if (concept.construct === "initial_sound") return `Initial sound “${concept.key}”`;
   if (concept.construct === "final_sound") return `Final sound “${concept.key}”`;
-  if (concept.construct === "isolated_word_reading" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "isolated_word_reading" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `“${concept.key}” · Read alone`;
   }
-  if (concept.construct === "word_in_context" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "word_in_context" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `“${concept.key}” · In a sentence`;
   }
-  if (concept.construct === "word_spelling" && ALL_HFW_WORD_SET.has(concept.key)) {
+  if (concept.construct === "word_spelling" && ASSESSED_HFW_WORD_SET.has(concept.key)) {
     return `“${concept.key}” · Spelling`;
   }
   if (concept.construct === "grapheme_sound") return `Sound “${concept.key}”`;
@@ -189,7 +192,7 @@ export function simpleConceptRow(concept = {}, studentName = "This student") {
 
 function isHfwConcept(concept = {}) {
   return ["isolated_word_reading", "word_in_context", "word_spelling"].includes(concept.construct)
-    && ALL_HFW_WORD_SET.has(String(concept.key || "").toLowerCase());
+    && ASSESSED_HFW_WORD_SET.has(String(concept.key || "").toLowerCase());
 }
 
 export function buildSimpleSkillsRows(workspace = {}, studentName = "This student") {
@@ -228,7 +231,7 @@ export function buildSimpleHfwRows(workspace = {}, studentName = "This student")
       label: word => `Spell “${word}” in a sentence`
     }
   };
-  return constructs.flatMap(construct => ALL_HFW_WORDS.map(word => {
+  return constructs.flatMap(construct => ASSESSED_HFW_WORDS.map(word => {
     const definition = defaults[construct] || defaults.word_in_context;
     const concept = concepts.get(`${construct}::${word}`) || {
       conceptId: `hfw::${construct}::${word}`,

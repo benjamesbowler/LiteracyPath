@@ -149,7 +149,7 @@ test("the authoring canvas is 1194 x 834 and the chrome takes 78 + 92 of it", ()
   assert.match(css, /--kg-header-height:\s*78px/);
   assert.match(css, /--kg-tabbar-height:\s*92px/);
   assert.equal(KIDS_STAGE_MIN_WIDTH, 1024);
-  assert.equal(KIDS_STAGE_MAX_WIDTH, 1560);
+  assert.equal(KIDS_STAGE_MAX_WIDTH, 3200);
 });
 
 test("the scale follows the height, and the width only when the stage would go under 1024", () => {
@@ -201,9 +201,12 @@ test("the stage fills the viewport width at every size the owner reviews at", ()
   }
   // The iPad target is the exact fixed point of the whole policy.
   assert.deepEqual(computeKidsStageMetrics(1194, 834), { scale: 1, stageWidth: 1194 });
-  // Past 1.87:1 the canvas stops growing and the page colour becomes a
-  // deliberate gutter rather than the layout stretching for ever.
-  assert.equal(computeKidsStageWidth(3440, 1440), KIDS_STAGE_MAX_WIDTH);
+  // A 21:9 display still fills edge to edge. The safety ceiling exists only
+  // for extreme display walls, not ordinary review monitors.
+  assert.equal(
+    Math.round(computeKidsStageWidth(3440, 1440) * computeKidsStageScale(3440, 1440)),
+    3440
+  );
   // A read with no viewport falls back to the authoring width, never to zero.
   assert.equal(computeKidsStageWidth(0, 0), KIDS_STAGE_WIDTH);
 });

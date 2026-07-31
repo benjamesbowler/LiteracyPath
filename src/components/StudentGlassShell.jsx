@@ -1,8 +1,8 @@
-// THE CHILD SHELL — fixed 1194 x 834 stage, 78px header, 92px five-tab bar.
+// THE CHILD SHELL — fluid-width 834px stage, 78px header, 92px five-tab bar.
 //
-// This is phase A of the 2026-07-29 kids-side redesign: chrome and system, no
-// screen content. Every child screen renders inside `children`; phases B–F
-// replace those screens one at a time without touching this file.
+// Every child screen renders inside `children`. The design coordinate system
+// keeps a fixed height so each surface can prove it does not scroll, while its
+// width follows the viewport so there is no narrow centre band.
 //
 // WHY THE TAB BAR REPLACED THE LEFT RAIL. The rail was a text-labelled column a
 // pre-reader cannot use, in the hardest corner of a two-handed tablet to reach.
@@ -18,7 +18,7 @@
 // The rule is in the spec and repeated in kids-glass.css because it is the kind
 // of rule that erodes one well-meant counter at a time.
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
 import {
   STUDENT_RAIL_ICON_PATHS,
@@ -26,10 +26,26 @@ import {
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
 import { applyKidsStageMetrics } from "../utils/kidsStage.js";
-import { getCompanion } from "../utils/studentProfile.js";
+import { getAvailableGuideStars, getCompanion } from "../utils/studentProfile.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger } from "../utils/hollowState.js";
+
+let studentProfileRevision = 0;
+
+function subscribeToStudentProfile(scopeKey, callback) {
+  const refresh = event => {
+    if (event.detail?.studentId && event.detail.studentId !== scopeKey) return;
+    studentProfileRevision += 1;
+    callback();
+  };
+  window.addEventListener("lp-progress-hydrated", refresh);
+  window.addEventListener("lp-student-profile-updated", refresh);
+  return () => {
+    window.removeEventListener("lp-progress-hydrated", refresh);
+    window.removeEventListener("lp-student-profile-updated", refresh);
+  };
+}
 
 // The spec's own glyphs. The app's existing CoinIcon is a comic-era icon with a
 // 2px black outline, and this system has no ink outlines anywhere — so the two
@@ -85,7 +101,7 @@ function readWallet(scopeKey) {
       + (Number(breakdown.gameStars) || 0)
       + (Number(breakdown.soundSeekerStars) || 0);
     const coins = computeHollow(loadHollowLedger(scopeKey), breakdown).coins;
-    return { ok: true, stars, coins };
+    return { ok: true, stars: getAvailableGuideStars(scopeKey, stars), coins };
   } catch {
     return { ok: false, stars: null, coins: null };
   }
@@ -149,6 +165,12 @@ export default function StudentGlassShell({
     };
   }, []);
 
+  const profileRevision = useSyncExternalStore(
+    callback => subscribeToStudentProfile(scopeKey, callback),
+    () => studentProfileRevision,
+    () => 0
+  );
+  void profileRevision;
   const companion = getCompanion(scopeKey);
   const wallet = readWallet(scopeKey);
   const activeTab = selectActiveStudentTab(active);

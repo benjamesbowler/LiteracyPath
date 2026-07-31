@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
 import { getLetterSoundCue, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const words = useCvcWordModels(family.magicSwaps, family);
@@ -35,7 +36,7 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     setTimeout(() => {
       setIsSwapping(false);
       if (wordIndex + 1 >= words.length - 1) {
-        playCue("/audio/child-mode/phrases/you-found-it.mp3", "You found it");
+        playCue(getLedaInstructionAudioPath("You found it"), "You found it");
         setTimeout(onComplete, 900);
       }
     }, 1450);

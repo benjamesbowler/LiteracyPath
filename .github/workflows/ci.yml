@@ -87,7 +87,12 @@ jobs:
 
   release-gate:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # The canonical gate currently runs 104 checks sequentially. It takes about
+    # 27 minutes on a warm development machine, while a fresh hosted runner also
+    # has to install browsers, start Supabase, migrate, and seed the audit school.
+    # Forty-five minutes was terminating healthy runs before they could report
+    # their real result.
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

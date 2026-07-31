@@ -2,6 +2,7 @@ import {
   isAllowedDigraphPattern,
   normalizeDigraphPattern
 } from "./digraphPatternData.js";
+import { getV3RuntimeEligibilityIssues } from "./v3/v3Registry.js";
 
 export const DIGRAPHS_ALLOWED_FORMATS = new Set([
   "DIGRAPH_IMAGE_CHOICE",
@@ -43,6 +44,11 @@ function getImageCards(question = {}) {
 export function getDigraphsRuntimeEligibilityIssues(question = {}, skillId = "") {
   const skillText = skillId || getQuestionSkillText(question);
   if (!String(skillText || "").toLowerCase().includes("digraph")) return ["not a Digraphs skill"];
+
+  // v3 rebuild items are gate-proven against the digraphs blueprint; the
+  // legacy replacement-bank lock below only applies to legacy items.
+  const v3Issues = getV3RuntimeEligibilityIssues(question, "digraphs");
+  if (v3Issues) return v3Issues;
 
   const issues = [];
   const format = getFormat(question);

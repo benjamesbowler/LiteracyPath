@@ -1063,7 +1063,10 @@ test("active assessments use a focused shell and their own durable exit handlers
     source("src/components/Sidebar.jsx")
   ]);
 
-  assert.match(surface, /const isFocusedShell = isStudentMode \|\| appView === APP_VIEWS\.STUDENT_LOGIN \|\| isFocusedAssessment/);
+  assert.match(
+    surface,
+    /const isFocusedShell = isStudentMode[\s\S]*?\|\| isTeacherClassEntry[\s\S]*?\|\| appView === APP_VIEWS\.STUDENT_LOGIN[\s\S]*?\|\| isFocusedAssessment/
+  );
   assert.match(surface, /\{!isFocusedShell && \(\s*<Suspense[\s\S]*?<Sidebar/);
   assert.match(surface, /<LetterAssessmentPage[\s\S]*?endAssessment=\{saveLetterAssessmentPartialAndExit\}/);
   assert.match(surface, /<AdvancedPhonicsPatternAssessmentPage[\s\S]*?endAssessment=\{savePatternAssessmentPartialAndExit\}/);

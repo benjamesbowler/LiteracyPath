@@ -1121,3 +1121,320 @@
     margin: 0 auto;
   }
 }
+
+/* Ship pass: every child route uses the whole fluid stage. Legacy wrappers may
+   still carry viewport padding/min-height rules for standalone teacher use;
+   inside the child shell they are a bounded panel, never a second page. */
+.kg-stage .student-surface-frame,
+.kg-stage .learn-fullscreen-frame,
+.kg-stage .student-surface-rewards,
+.kg-stage .student-surface-arcade,
+.kg-stage .student-surface-phonics {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.kg-stage .learn-fullscreen-toggle {
+  display: none;
+}
+
+.kg-stage .student-surface-arcade .lg-arcade,
+.kg-stage .student-surface-arcade .lg-arcade-comic {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 10px 18px;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.kg-stage .student-surface-arcade .lg-arcade-topband,
+.kg-stage .student-surface-arcade .lg-arcade-tabs {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.kg-stage .student-surface-arcade .lg-game-tilegrid {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  overflow: hidden;
+}
+
+.kg-stage .student-surface-arcade .lg-game-tile {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.kg-stage .student-surface-arcade .lg-game-tile-art {
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.kg-stage .student-surface-arcade .lg-arcade-bottomband {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.kg-stage .student-surface-arcade .phonics-learn-page,
+.kg-stage .student-surface-arcade .phonics-tab-shell,
+.kg-stage .student-surface-arcade .phonics-arcade-surface,
+.kg-stage .student-surface-phonics .phonics-learn-page,
+.kg-stage .student-surface-phonics .phonics-tab-shell {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.kg-stage .student-surface-phonics .phonics-tab-shell { padding: 8px 16px 12px; }
+.kg-stage .student-surface-phonics .phonics-island-view {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  gap: 10px;
+  overflow: hidden;
+}
+.kg-stage .student-surface-phonics .phonics-island-switcher { flex: 0 0 auto; }
+.kg-stage .student-surface-phonics .phonics-island-card { min-height: 68px; padding-block: 8px; }
+.kg-stage .student-surface-phonics .phonics-picker,
+.kg-stage .student-surface-phonics .cvc-picker {
+  min-height: 0;
+  overflow: hidden;
+  gap: 9px;
+}
+.kg-stage .student-surface-phonics .phonics-letter-grid {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  flex: 1;
+  min-height: 0;
+}
+.kg-stage .student-surface-phonics .phonics-letter-card { min-height: 0; height: 100%; aspect-ratio: auto; }
+
+/* Student library: category → series → book. Each level is paged, not
+   vertically stacked, so even the largest series remains a one-screen choice. */
+.kg-stage .student-guided-reading-page {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.kg-stage .student-guided-reading-page .guided-library-breadcrumb {
+  height: 34px;
+  margin: 8px 18px 0;
+  padding: 0 12px;
+}
+
+.kg-stage .student-guided-reading-page .guided-reading-library {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100% - 8px);
+  min-height: 0;
+  padding: 10px 20px 14px;
+  overflow: hidden;
+}
+
+.kg-stage .student-guided-reading-page .guided-library-breadcrumb + .guided-reading-library {
+  height: calc(100% - 50px);
+}
+
+.kg-stage .guided-library-progress {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.76);
+  color: #29445c;
+}
+.kg-stage .guided-library-progress strong { font-size: 1.35rem; }
+.kg-stage .guided-library-progress span { font-weight: 800; }
+
+.kg-stage .guided-child-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  flex: 1;
+  min-height: 0;
+}
+
+.kg-stage .guided-child-category {
+  display: grid;
+  align-content: end;
+  justify-items: start;
+  min-height: 0;
+  padding: clamp(22px, 3vw, 44px);
+  border: 3px solid rgba(58,76,96,.18);
+  border-radius: 28px;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: inset 0 -120px 120px rgba(16,26,37,.42);
+}
+.kg-stage .guided-child-category.fiction { background: linear-gradient(145deg, #8e5ac7, #384c9b); }
+.kg-stage .guided-child-category.nonfiction { background: linear-gradient(145deg, #2d9473, #176080); }
+.kg-stage .guided-child-category span { font-weight: 900; opacity: .9; }
+.kg-stage .guided-child-category strong { font: 800 clamp(2.1rem, 4vw, 4.2rem)/1 "Fredoka", sans-serif; }
+.kg-stage .guided-child-category em { margin-top: 10px; font-style: normal; font-weight: 800; }
+
+.kg-stage .guided-series-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.kg-stage .guided-series-grid > button {
+  display: grid;
+  grid-template-columns: minmax(82px, .44fr) 1fr;
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 12px;
+  border: 2px solid rgba(52,71,92,.17);
+  border-radius: 20px;
+  background: rgba(255,255,255,.86);
+  color: #243a51;
+  text-align: left;
+  cursor: pointer;
+}
+.kg-stage .guided-series-cover,
+.kg-stage .guided-series-cover > * { width: 100%; height: 100%; min-height: 0; }
+.kg-stage .guided-series-cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.kg-stage .guided-series-grid > button > span:last-child { display: grid; gap: 5px; min-width: 0; }
+.kg-stage .guided-series-grid strong { font-size: clamp(1rem, 1.6vw, 1.4rem); }
+.kg-stage .guided-series-grid em, .kg-stage .guided-series-grid small { color: #607287; font-style: normal; font-weight: 800; }
+
+.kg-stage .guided-child-book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+
+.kg-stage .guided-child-book-grid > button {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(72px, .55fr) 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 3px 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 9px;
+  border: 2px solid rgba(52,71,92,.16);
+  border-radius: 16px;
+  background: rgba(255,255,255,.9);
+  color: #263d54;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+.kg-stage .guided-child-book-grid .guided-shelf-card-cover { grid-row: 1 / 3; width: 100%; height: 100%; min-height: 0; }
+.kg-stage .guided-child-book-grid .guided-shelf-card-cover > * { width: 100%; height: 100%; }
+.kg-stage .guided-child-book-grid .guided-shelf-card-cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
+.kg-stage .guided-child-book-grid strong { align-self: end; line-height: 1.12; }
+.kg-stage .guided-child-book-grid small { color: #607287; font-weight: 800; }
+.kg-stage .guided-child-read-tick {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #24734f;
+  color: #fff;
+  font-weight: 1000;
+}
+.kg-stage .guided-library-pages { display: flex; justify-content: center; align-items: center; gap: 14px; }
+.kg-stage .guided-library-pages button { border: 0; border-radius: 999px; padding: 7px 15px; background: #294f70; color: white; font-weight: 900; }
+.kg-stage .guided-library-pages button:disabled { opacity: .35; }
+.kg-stage .guided-library-pages span { color: #405a72; font-weight: 900; }
+
+@media (max-width: 900px) {
+  .kg-stage .guided-series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .kg-stage .guided-child-book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Story Quests shows one level and six covers at a time. The primary Continue
+   action already handles open quests, so the duplicate continue strip is
+   removed from the bounded child view. */
+.kg-stage .student-surface-story .story-quest-learn-page.learn-area-page {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 8px 14px 12px;
+  overflow: hidden;
+}
+.kg-stage .student-surface-story .learn-story-quest-library {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  padding: 10px 14px;
+  overflow: hidden;
+}
+.kg-stage .student-surface-story .story-quest-header-row { flex: 0 0 auto; flex-wrap: nowrap; }
+.kg-stage .student-surface-story .learn-story-quest-copy { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; }
+.kg-stage .student-surface-story .learn-story-quest-copy > :not(.story-quest-primary-action) { grid-column: 1; }
+.kg-stage .student-surface-story .story-quest-primary-action { grid-column: 2; grid-row: 1 / 6; align-self: center; }
+.kg-stage .student-surface-story .story-quest-title-logo img { max-height: 50px; }
+.kg-stage .student-surface-story .story-quest-library-stats { margin: 4px 0 0; }
+.kg-stage .student-surface-story .story-quest-continue-strip { display: none; }
+.kg-stage .student-surface-story .story-quest-body,
+.kg-stage .student-surface-story .learn-story-level-list,
+.kg-stage .student-surface-story .learn-story-level-section {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.kg-stage .student-surface-story .learn-story-level-section { display: flex; flex-direction: column; padding: 10px; }
+.kg-stage .student-surface-story .learn-story-level-header { flex: 0 0 auto; margin-bottom: 7px; }
+.kg-stage .student-surface-story .learn-story-level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  flex: 1;
+  min-height: 0;
+}
+.kg-stage .student-surface-story .learn-story-quest-card { display: grid; grid-template-columns: 38% 1fr; min-height: 0; overflow: hidden; }
+.kg-stage .student-surface-story .learn-story-quest-cover { width: 100%; height: 100%; min-height: 0; object-fit: cover; }
+.kg-stage .student-surface-story .learn-story-quest-card-copy { min-width: 0; padding: 8px; }
+.kg-stage .story-quest-pages { display: flex; justify-content: center; align-items: center; gap: 12px; padding-top: 6px; }
+.kg-stage .story-quest-pages button { border: 0; border-radius: 999px; padding: 6px 13px; background: #172033; color: #fff; font-weight: 900; }
+.kg-stage .story-quest-pages button:disabled { opacity: .3; }
+.kg-stage .story-quest-pages span { font-weight: 900; color: #33485e; }

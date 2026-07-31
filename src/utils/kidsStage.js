@@ -13,7 +13,7 @@
 // THE NEW POLICY: PIN THE HEIGHT, LET THE WIDTH BREATHE.
 //
 //   scale       = min(viewportHeight / 834, viewportWidth / 1024)
-//   stageWidth  = clamp(1024, viewportWidth / scale, 1560)   [design px]
+//   stageWidth  = clamp(1024, viewportWidth / scale, 3200)   [design px]
 //   stageHeight = 834                                        [design px]
 //
 // The stage is still AUTHORED in design pixels — 44px is still 44px, the header
@@ -36,9 +36,9 @@
 //   1024 is the narrowest width the child screens are authored to survive (six
 //        doorways, five tabs). Below it the scale drops instead, so a tall
 //        narrow window letterboxes top-and-bottom rather than breaking the row.
-//   1560 is the widest before the layout stops gaining and starts stretching
-//        (aspect 1.87). Past it the stage stops growing and the page colour
-//        shows as a deliberate, symmetric gutter. 2560 x 1440 still fills.
+//   3200 is a defensive ceiling for display walls. Ordinary classroom laptops,
+//        16:9 desktops and 21:9 review monitors all continue to fill edge to
+//        edge instead of returning to a narrow mid-band.
 //
 // 1194 x 834 — iPad landscape, the primary classroom device — is the exact
 // fixed point of all of this: scale 1, stageWidth 1194. The guaranteed-correct
@@ -58,9 +58,11 @@
 export const KIDS_STAGE_WIDTH = 1194;
 export const KIDS_STAGE_HEIGHT = 834;
 
-// How far the canvas may stretch sideways before it stops helping.
+// How far the canvas may stretch sideways before it stops helping. 3200 design
+// pixels covers classroom laptops, 16:9 displays and 21:9 review monitors
+// without returning to the narrow centre band the fluid-stage work removed.
 export const KIDS_STAGE_MIN_WIDTH = 1024;
-export const KIDS_STAGE_MAX_WIDTH = 1560;
+export const KIDS_STAGE_MAX_WIDTH = 3200;
 
 // Everything below the header and above the tab bar. Exported so a screen can
 // reason about its own height without re-deriving the chrome. The height is

@@ -50,8 +50,8 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
       <motion.div className="cvc-picker-hero" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}>
         <Blendy expression="idle" />
         <div>
-          <h2>Word Workshop</h2>
-          <p>Tap a word nest.</p>
+          <h1 data-child-title="">Word Workshop</h1>
+          <p data-child-instruction="">Tap a word nest.</p>
         </div>
       </motion.div>
 
@@ -90,7 +90,12 @@ export function WorkshopFamilyPicker({ progress = {}, onSelectFamily }) {
         })}
       </motion.div>
 
-      <motion.div className="phonics-picker-progress cvc-picker-progress" initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+      <motion.div
+        className="phonics-picker-progress cvc-picker-progress"
+        data-child-progress=""
+        initial={{ y: 24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
         <span>{completedCount} of {cvcWordFamilies.length} word nests built</span>
         <span className="phonics-picker-stars" aria-hidden="true">
           {Array.from({ length: 3 }).map((_, index) => (
