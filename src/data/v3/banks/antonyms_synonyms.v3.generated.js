@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -196,14 +195,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "big",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -321,14 +319,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "up",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -446,14 +443,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "wet",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
@@ -533,14 +529,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "something gifts in to boiling — a distractor tops, never the key",
   "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
@@ -620,14 +615,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "whale",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/whale.webp",
@@ -707,14 +701,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "happy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -832,14 +825,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shout",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -957,14 +949,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "small",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1082,14 +1073,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "begin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "closest gifts st to start; begin gifts in to finish and sing — three-way tie",
   "imagePath": "/images/assessment/generated/concepts/begin.webp",
@@ -1169,14 +1159,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sea",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "sea gifts ea to ocean — beach carries ea too and ties",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
@@ -1256,14 +1245,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/rain.webp",
@@ -1343,14 +1331,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "up",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "arrow gifts ow to down; opposite gifts op to top — tie",
   "imageCards": [
@@ -1468,14 +1455,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "night",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1593,14 +1579,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "new",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "shoes gifts sh to fresh and shiny — a tied distractor pair",
   "imageCards": [
@@ -1718,14 +1703,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "open",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/hfw/open.webp",
@@ -1805,14 +1789,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "day",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "word gifts or to morning — a distractor tops, never the key",
   "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
@@ -1892,14 +1875,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tall",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "word gifts or to short — orange carries or too and ties",
   "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
@@ -1979,14 +1961,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sun",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "which gifts hi to shiny — white carries it too and ties",
   "imageCards": [
@@ -2104,14 +2085,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2229,14 +2209,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "which gifts ch to chilly and hi to white — tie",
   "imageCards": [
@@ -2354,14 +2333,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ant",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ant gifts an to giant; which gifts hi to thin — tied distractors",
   "imagePath": "/images/child-mode/initial-sounds/ant.png",
@@ -2441,14 +2419,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "quick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "closest gifts st to fast — steady carries st too and ties",
   "imagePath": "/images/assessment/generated/concepts/quick.webp",
@@ -2528,14 +2505,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sleepy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
@@ -2603,33 +2579,25 @@ export const questions = [
    "mumble": "D-OPPOSITE",
    "sing": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/shout.webp",
-  "imageUrl": "/images/assessment/generated/concepts/shout.webp",
-  "targetImage": "/images/assessment/generated/concepts/shout.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/shout.webp",
-  "resolvedImageAssetKey": "shout",
-  "imageAlt": "Which is the exact opposite of 'whisper'?"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_precise.v2",
@@ -2689,33 +2657,25 @@ export const questions = [
    "loud": "D-SEMANTIC",
    "icy": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "boiling is the only hot extreme; icy and cold reinforce freezing",
-  "imagePath": "/images/assessment/generated/concepts/boiling.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boiling.webp",
-  "targetImage": "/images/assessment/generated/concepts/boiling.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boiling.webp",
-  "resolvedImageAssetKey": "boiling",
-  "imageAlt": "Which is the exact opposite of 'freezing'?"
+  "notes": "boiling is the only hot extreme; icy and cold reinforce freezing"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_precise.v3",
@@ -2775,33 +2735,25 @@ export const questions = [
    "long": "D-TOPIC-ADJACENT",
    "kind": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "resolvedImageAssetKey": "tiny",
-  "imageAlt": "Which is the exact opposite of 'giant'?"
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_precise.v4",
@@ -2861,33 +2813,25 @@ export const questions = [
    "bright": "D-TOPIC-ADJACENT",
    "loud": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "silent is the only choice about an absence of sound",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Pick the antonym of 'noisy'."
+  "notes": "silent is the only choice about an absence of sound"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_precise.v5",
@@ -2948,34 +2892,26 @@ export const questions = [
    "calm": "D-OPPOSITE",
    "soft": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The kitten is tame. The tiger is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/calm-wild-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/calm-wild-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/calm-wild-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/calm-wild-01.webp",
-  "resolvedImageAssetKey": "wild",
-  "imageAlt": "The kitten is tame. The tiger is wild."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_precise.v6",
@@ -3036,34 +2972,26 @@ export const questions = [
    "easy": "D-OPPOSITE",
    "long": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "This puzzle is simple. Its opposite is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "resolvedImageAssetKey": "tricky",
-  "imageAlt": "This puzzle is simple. Its opposite is tricky."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_shade.v1",
@@ -3123,33 +3051,25 @@ export const questions = [
    "sob": "D-OPPOSITE",
    "chat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "chuckle alone names the same small laugh; no broader laugh synonym competes",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/laugh-giggle-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/laugh-giggle-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/laugh-giggle-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/laugh-giggle-01.webp",
-  "resolvedImageAssetKey": "giggle",
-  "imageAlt": "Which word is closest to 'giggle'?"
+  "notes": "chuckle alone names the same small laugh; no broader laugh synonym competes"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_shade.v2",
@@ -3209,33 +3129,25 @@ export const questions = [
    "narrow": "D-TOPIC-ADJACENT",
    "small": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "enormous is the only same-meaning size word",
-  "imagePath": "/images/assessment/long-vowels/huge.webp",
-  "imageUrl": "/images/assessment/long-vowels/huge.webp",
-  "targetImage": "/images/assessment/long-vowels/huge.webp",
-  "targetImagePath": "/images/assessment/long-vowels/huge.webp",
-  "resolvedImageAssetKey": "huge",
-  "imageAlt": "Which word is closest to 'huge'?"
+  "notes": "enormous is the only same-meaning size word"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v3",
@@ -3295,33 +3207,25 @@ export const questions = [
    "stroll": "D-OPPOSITE",
    "paint": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "dash is the only fast-running match",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/run-dash-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/run-dash-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/run-dash-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/run-dash-01.webp",
-  "resolvedImageAssetKey": "dash",
-  "imageAlt": "Which word is closest to 'sprint'?"
+  "notes": "dash is the only fast-running match"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_shade.v4",
@@ -3381,33 +3285,25 @@ export const questions = [
    "sing": "D-SEMANTIC",
    "frown": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "grin gifts in to sing — a distractor tops, never the key",
-  "imagePath": "/images/assessment/long-vowels/smile.webp",
-  "imageUrl": "/images/assessment/long-vowels/smile.webp",
-  "targetImage": "/images/assessment/long-vowels/smile.webp",
-  "targetImagePath": "/images/assessment/long-vowels/smile.webp",
-  "resolvedImageAssetKey": "smile",
-  "imageAlt": "Which word is closest to 'grin'?"
+  "notes": "grin gifts in to sing — a distractor tops, never the key"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_shade.v5",
@@ -3468,34 +3364,26 @@ export const questions = [
    "soft": "D-TOPIC-ADJACENT",
    "big": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The mouse is not just small. It is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/large-tiny-01.webp",
-  "resolvedImageAssetKey": "tiny",
-  "imageAlt": "The mouse is not just small. It is tiny."
+  "notes": "mouse gifts ou to round — a distractor tops; tiny is the step beyond small the frame demands"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_shade.v6",
@@ -3556,34 +3444,26 @@ export const questions = [
    "green": "D-SEMANTIC",
    "cool": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Not just cold — the pond was ___ this morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Not just cold — the pond was frozen this morning."
+  "notes": "cool is weaker than cold, not stronger; was gifts wa to warm, a distractor tops"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v1",
@@ -3644,34 +3524,26 @@ export const questions = [
    "green": "D-SEMANTIC",
    "loud": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The morning was noisy. The night was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "The morning was noisy. The night was quiet."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v2",
@@ -3732,34 +3604,26 @@ export const questions = [
    "pink": "D-SEMANTIC",
    "big": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "This bag is heavy. That bag is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
-  "imageAlt": "This bag is heavy. That bag is light."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v3",
@@ -3820,34 +3684,26 @@ export const questions = [
    "brown": "D-SEMANTIC",
    "sleepy": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The turtle is slow. The hare is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "slow gifts sl to sleepy; opposite gifts te to late — tied distractors",
-  "imagePath": "/images/assessment/generated/concepts/fast.webp",
-  "imageUrl": "/images/assessment/generated/concepts/fast.webp",
-  "targetImage": "/images/assessment/generated/concepts/fast.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/fast.webp",
-  "resolvedImageAssetKey": "fast",
-  "imageAlt": "The turtle is slow. The hare is fast."
+  "notes": "slow gifts sl to sleepy; opposite gifts te to late — tied distractors"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.antonym_in_context.v4",
@@ -3908,34 +3764,26 @@ export const questions = [
    "dry": "D-TOPIC-ADJACENT",
    "tan": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "My hands were dirty. Now they are ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hands gifts an to clean — tan carries an too and ties",
-  "imagePath": "/images/assessment/generated/concepts/clean.webp",
-  "imageUrl": "/images/assessment/generated/concepts/clean.webp",
-  "targetImage": "/images/assessment/generated/concepts/clean.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/clean.webp",
-  "resolvedImageAssetKey": "clean",
-  "imageAlt": "My hands were dirty. Now they are clean."
+  "notes": "hands gifts an to clean — tan carries an too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.antonym_in_context.v5",
@@ -3995,33 +3843,25 @@ export const questions = [
    "beside": "D-TOPIC-ADJACENT",
    "over": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "opposite gifts si to beside — a distractor tops, never the key",
-  "imagePath": "/images/assessment/generated/concepts/below.webp",
-  "imageUrl": "/images/assessment/generated/concepts/below.webp",
-  "targetImage": "/images/assessment/generated/concepts/below.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/below.webp",
-  "resolvedImageAssetKey": "below",
-  "imageAlt": "Which word is the opposite of 'above'?"
+  "notes": "opposite gifts si to beside — a distractor tops, never the key"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.antonym_in_context.v6",
@@ -4081,33 +3921,25 @@ export const questions = [
    "first": "D-OPPOSITE",
    "white": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "opposite gifts te to late — white carries te too and ties",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "resolvedImageAssetKey": "late",
-  "imageAlt": "Which word is the opposite of 'early'?"
+  "notes": "opposite gifts te to late — white carries te too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v1",
@@ -4168,34 +4000,26 @@ export const questions = [
    "painted": "D-SEMANTIC",
    "built": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Dad fixed the gate. In the same way, he ___ the fence.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fixed gifts ed to mended and painted — tie",
-  "imagePath": "/images/assessment/long-vowels/gate.webp",
-  "imageUrl": "/images/assessment/long-vowels/gate.webp",
-  "targetImage": "/images/assessment/long-vowels/gate.webp",
-  "targetImagePath": "/images/assessment/long-vowels/gate.webp",
-  "resolvedImageAssetKey": "gate",
-  "imageAlt": "Dad fixed the gate. In the same way, he mended the fence."
+  "notes": "fixed gifts ed to mended and painted — tie"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v2",
@@ -4256,34 +4080,26 @@ export const questions = [
    "warm": "D-TOPIC-ADJACENT",
    "loud": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The soup was tasty. Its twin word is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "soup gifts ou to delicious and loud; was gifts wa to warm — three-way tie",
-  "imagePath": "/images/assessment/blends/twin.webp",
-  "imageUrl": "/images/assessment/blends/twin.webp",
-  "targetImage": "/images/assessment/blends/twin.webp",
-  "targetImagePath": "/images/assessment/blends/twin.webp",
-  "resolvedImageAssetKey": "twin",
-  "imageAlt": "The soup was tasty. Its twin word is delicious."
+  "notes": "soup gifts ou to delicious and loud; was gifts wa to warm — three-way tie"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v3",
@@ -4344,34 +4160,26 @@ export const questions = [
    "luck": "D-SEMANTIC",
    "mud": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We shouted with joy. Joy's twin word is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/twin.webp",
-  "imageUrl": "/images/assessment/blends/twin.webp",
-  "targetImage": "/images/assessment/blends/twin.webp",
-  "targetImagePath": "/images/assessment/blends/twin.webp",
-  "resolvedImageAssetKey": "twin",
-  "imageAlt": "We shouted with joy. Joy's twin word is glee."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.A.synonym_in_context.v4",
@@ -4432,34 +4240,26 @@ export const questions = [
    "smooth": "D-TOPIC-ADJACENT",
    "wide": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The path was narrow. Its twin word is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "path gifts th to thin — smooth carries th too and ties",
-  "imagePath": "/images/child-mode/initial-sounds/thin.png",
-  "imageUrl": "/images/child-mode/initial-sounds/thin.png",
-  "targetImage": "/images/child-mode/initial-sounds/thin.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/thin.png",
-  "resolvedImageAssetKey": "thin",
-  "imageAlt": "The path was narrow. Its twin word is thin."
+  "notes": "path gifts th to thin — smooth carries th too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.B.synonym_in_context.v5",
@@ -4519,33 +4319,25 @@ export const questions = [
    "sad": "D-TOPIC-ADJACENT",
    "lost": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "closest gifts os to cross — lost carries os too and ties",
-  "imagePath": "/images/assessment/generated/concepts/cross.webp",
-  "imageUrl": "/images/assessment/generated/concepts/cross.webp",
-  "targetImage": "/images/assessment/generated/concepts/cross.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/cross.webp",
-  "resolvedImageAssetKey": "cross",
-  "imageAlt": "Which word is closest to 'angry'?"
+  "notes": "closest gifts os to cross — lost carries os too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.C.synonym_in_context.v6",
@@ -4605,33 +4397,25 @@ export const questions = [
    "team": "D-TOPIC-ADJACENT",
    "enemy": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "friend gifts en to enemy; which gifts ch to teacher — tied distractors",
-  "imagePath": "/images/assessment/generated/concepts/pal.webp",
-  "imageUrl": "/images/assessment/generated/concepts/pal.webp",
-  "targetImage": "/images/assessment/generated/concepts/pal.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/pal.webp",
-  "resolvedImageAssetKey": "pal",
-  "imageAlt": "Which word is closest to 'friend'?"
+  "notes": "friend gifts en to enemy; which gifts ch to teacher — tied distractors"
  },
  {
   "id": "lp3.antonyms_synonyms.l1.R.antonym_concrete.v7r",
@@ -4703,14 +4487,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "high",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4828,14 +4611,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "old",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4953,14 +4735,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jump",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5078,14 +4859,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yell",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5203,14 +4983,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "down",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "arrow and down gift ow to low — a distractor tops",
   "imageCards": [
@@ -5328,14 +5107,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "moon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "which gifts hi to shine; is gifts is to rise — tie",
   "imageCards": [
@@ -5441,33 +5219,25 @@ export const questions = [
    "stay": "D-OPPOSITE",
    "dive": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "arrive gifts ve to leave — dive carries ve too and ties",
-  "imagePath": "/images/assessment/generated/concepts/leave.webp",
-  "imageUrl": "/images/assessment/generated/concepts/leave.webp",
-  "targetImage": "/images/assessment/generated/concepts/leave.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/leave.webp",
-  "resolvedImageAssetKey": "leave",
-  "imageAlt": "Which is the exact opposite of 'arrive'?"
+  "notes": "arrive gifts ve to leave — dive carries ve too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_precise.v8r",
@@ -5527,33 +5297,25 @@ export const questions = [
    "rainbow": "D-SEMANTIC",
    "morning": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_precise-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sunrise gifts sun to the key — sunlight carries sun too and ties",
-  "imagePath": "/images/assessment/generated/concepts/sunset.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sunset.webp",
-  "targetImage": "/images/assessment/generated/concepts/sunset.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sunset.webp",
-  "resolvedImageAssetKey": "sunset",
-  "imageAlt": "Which is the exact opposite of 'sunrise'?"
+  "notes": "sunrise gifts sun to the key — sunlight carries sun too and ties"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_shade.v7r",
@@ -5613,33 +5375,25 @@ export const questions = [
    "red": "D-SEMANTIC",
    "dusty": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "drenched is the only equally wet meaning",
-  "imagePath": "/images/assessment/generated/concepts/drenched.webp",
-  "imageUrl": "/images/assessment/generated/concepts/drenched.webp",
-  "targetImage": "/images/assessment/generated/concepts/drenched.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/drenched.webp",
-  "resolvedImageAssetKey": "drenched",
-  "imageAlt": "Which word is closest to 'soaked'?"
+  "notes": "drenched is the only equally wet meaning"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_shade.v8r",
@@ -5699,33 +5453,25 @@ export const questions = [
    "dirty": "D-OPPOSITE",
    "cloudy": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_shade-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "clean is the only same-meaning choice",
-  "imagePath": "/images/assessment/generated/concepts/clean.webp",
-  "imageUrl": "/images/assessment/generated/concepts/clean.webp",
-  "targetImage": "/images/assessment/generated/concepts/clean.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/clean.webp",
-  "resolvedImageAssetKey": "clean",
-  "imageAlt": "Which word is closest to 'spotless'?"
+  "notes": "clean is the only same-meaning choice"
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.antonym_in_context.v7r",
@@ -5786,34 +5532,26 @@ export const questions = [
    "full": "D-TOPIC-ADJACENT",
    "pink": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The oven is hot. The fridge is ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-antonym_in_context-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/cold-chilly-01.webp",
-  "resolvedImageAssetKey": "cold",
-  "imageAlt": "The oven is hot. The fridge is cold."
+  "notes": ""
  },
  {
   "id": "lp3.antonyms_synonyms.l2.R.synonym_in_context.v7r",
@@ -5874,33 +5612,25 @@ export const questions = [
    "folded": "D-TOPIC-ADJACENT",
    "green": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The old map was torn. It was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "antonyms_synonyms-synonym_in_context-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/antonyms_synonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "old gifts ol to folded — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/old.webp",
-  "imageUrl": "/images/assessment/hfw/old.webp",
-  "targetImage": "/images/assessment/hfw/old.webp",
-  "targetImagePath": "/images/assessment/hfw/old.webp",
-  "resolvedImageAssetKey": "old",
-  "imageAlt": "The old map was torn. It was ripped."
+  "notes": "old gifts ol to folded — a distractor tops, never the key"
  }
 ];

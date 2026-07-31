@@ -1,11 +1,4 @@
-// THE MASTERY GATE — the whole reason Sound Seekers exists.
-//
-// Teach Your Monster has no mastery gate. Their own post-mortem (Mar 2026):
-// "we couldn't be certain that a letter sound was actually learnt, or simply
-// seen." A child there can be pushed into digraphs while still failing `s`.
-//
-// Here, mastery is a CLAIM ABOUT THE CHILD, and claims must be earned.
-// The live bar (MASTERY_RULES below — this summary MUST match the code):
+// Sound Seekers mastery rules. This summary must match MASTERY_RULES below:
 //
 //   1. >= 4 correct responses
 //   2. >= 75% accuracy over the LAST 4 attempts (not lifetime — a child who
@@ -13,10 +6,6 @@
 //   3. proved in >= 2 DIFFERENT mini-game shells  (kills shell-specific
 //      pattern-matching: "I know it's the third stone")
 //   4. proved on >= 2 DIFFERENT days               (kills same-sitting cramming)
-//
-// (The bar was 8-correct/85%-of-10 in the v1 quiz build; the "why it changed"
-// note above MASTERY_RULES tells that story.)
-//
 // A mastered sound falls back to `learning` if it is missed twice in a row.
 //
 // NOTHING NARRATIVE IS GATED BY THIS. The child always finishes the stop, always
@@ -25,28 +14,9 @@
 //
 // DOM-free and deterministic — unit-tested in tests/unit/questMastery.test.js.
 
-// THE BAR HAS TO FIT THE GAME THE CHILD IS ACTUALLY PLAYING.
-//
-// It used to be 8 correct across a 10-attempt window. That was tuned for the
-// first build, where every stop was a five-shell quiz plus a six-round Gate —
-// about twenty questions a stop. That game was joyless and it is gone.
-//
-// A stop is now a WALK: three things happen in the path, about five responses in
-// total, and most of the time is spent walking. Ten attempts per sound is simply
-// more evidence than this game will ever produce for a sound taught late on the
-// trail, so the bar would have quietly become unreachable — a child could read
-// perfectly and still watch the last stones stay dark forever.
-//
-// Four correct, 75% over the last four, in TWO DIFFERENT ENCOUNTERS, on TWO
-// DIFFERENT DAYS.
-//
-// The two conditions that carry the honesty are untouched, and they are the only
-// two that ever mattered:
-//   - two different days  -> you cannot cram it in one sitting
-//   - two different things -> you cannot fake it by learning one mini-game
-// The raw count was never the honest part. Demanding ten attempts of a game that
-// only ever offers four is not rigour; it is a bar nobody can clear, and the
-// child gets the blame.
+// The current walk format supplies about five responses per stop, so the rule
+// requires evidence the live game can actually produce. Different days prevent
+// same-sitting cramming; different encounters prevent shell-specific guessing.
 export const MASTERY_RULES = Object.freeze({
   minCorrect: 4,
   minAccuracy: 0.75,
@@ -56,25 +26,9 @@ export const MASTERY_RULES = Object.freeze({
   demoteAfterConsecutiveMisses: 2
 });
 
-// BLENDS GET THEIR OWN BAR, and this is not a fudge to make a test pass.
-//
-// A blend is not a grapheme. `st` is s and t said quickly — there is no such
-// thing as "the /st/ stone", so a blend can never be a letter-choice question.
-// The only evidence for it is a child reading or spelling a word that contains
-// one, which means it gets ~2 exposures per stop against a bar that demands a
-// TEN-attempt window. A full-trail simulation showed the consequence: even a
-// PERFECT reader could never master sn, sk, sm, sw, sl or pr. Not "found it
-// hard" — could not, ever, by construction.
-//
-// Three correct reads, across two different task types, on two different days,
-// is real evidence for a unit this size. Demanding ten was demanding evidence
-// the game structurally cannot produce.
-//
-// The window arithmetic matters and once shipped wrong: a 3-attempt window at
-// 0.75 means 2/3 (= 0.667) FAILS, so a blend needed a PERFECT 3-of-3 — a
-// stricter bar than a grapheme's 3-of-4, the exact opposite of this comment's
-// argument. 0.66 makes 2-of-3 pass: one slip in three reads does not un-know
-// a blend.
+// Blends use word-reading or spelling evidence rather than grapheme-choice
+// evidence. Two correct responses in the three-response window meet 0.66;
+// evidence must still span two task types and two days.
 export const BLEND_RULES = Object.freeze({
   minCorrect: 3,
   minAccuracy: 0.66,

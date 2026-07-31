@@ -62,9 +62,9 @@ representation does not justify subgroup outcome claims.
 Every finding receives a stable ID and the fields required by
 `REVISION_WORKFLOW.md`. In addition:
 
-- critical and major findings are appended to `docs/release/DISCOVERED.md`;
+- critical and major findings are appended to the current release issue;
 - affected plan items are set to `IN-PROGRESS` in
-  `docs/release/TRACEABILITY.md`;
+  the current release issue;
 - the owner writes an acceptance criterion that can fail before the fix;
 - mechanizable criteria become permanent unit, browser, content, security, or
   release gates;
@@ -89,5 +89,5 @@ finding remains open.
 - correction criteria, gates, re-review/retest, and release decision;
 - limitations and explicitly unsupported claims.
 
-Only real signed/linked cycle evidence may change A10.10 from
-`EXTERNAL-READY` to `EXTERNAL-CLOSED`.
+Only real linked cycle evidence and independent external review may close the
+observation work.

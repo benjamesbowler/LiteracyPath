@@ -69,7 +69,7 @@ if (fs.existsSync(originalFixturePath)) {
   failures.push("Check mode wrote the fixture into tracked docs/validation.");
 }
 if (!fs.existsSync(artifactFixturePath)) {
-  failures.push("Check mode did not redirect the fixture into docs/release/artifacts.");
+  failures.push("Check mode did not redirect the fixture into the temporary audit artifact directory.");
 }
 
 if (failures.length) {

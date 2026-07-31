@@ -1242,7 +1242,7 @@ export const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
 export const MEDIA_QA_BLOCKING_STATUSES = new Set([
   "rejected",
   "blocked",
-  "needs_kimi",
+  "needs_replacement",
   "deleted",
   "needs_media_replacement",
   "needs_image_replacement",

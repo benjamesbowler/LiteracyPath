@@ -11,7 +11,7 @@ import "../../../../styles/sentence-express.css";
 // the end-mark caboose), pull the whistle, then read the sentence back as the
 // train departs through a scrolling low-poly landscape.
 // Prototype scope: full loop + juice; arcade registration/persistence land in
-// the integration pass (Codex owns those files right now).
+// the integration pass.
 
 const PHASES = { INTRO: "intro", SHUNT: "shunt", DEPART: "depart", TALLY: "tally" };
 const WORLD_LABELS = { meadow: "MEADOW LINE", dino: "DINO CANYON LINE", moonwood: "MOONWOOD NIGHT LINE" };

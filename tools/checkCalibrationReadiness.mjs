@@ -92,8 +92,6 @@ export function inspectCalibrationReadiness() {
   const protocol = read("docs/research/CALIBRATION_PROTOCOL.md");
   const admin = read("src/components/AdminDashboardPage.jsx");
   const panel = read("src/components/admin/CalibrationMonitoringPanel.jsx");
-  const traceability = read("docs/release/TRACEABILITY.md");
-  const external = read("docs/release/EXTERNAL.md");
 
   requireText(protocol, [
     "Purpose and limits",
@@ -123,16 +121,6 @@ export function inspectCalibrationReadiness() {
     'activeSection === "calibration"',
     "<CalibrationMonitoringPanel"
   ], "AdminDashboardPage.jsx", failures);
-
-  if (!/\| A4\.10 \| 4 \| P1 EXTERNAL \| EXTERNAL-READY \| `check:calibration-readiness`/.test(traceability)) {
-    failures.push("TRACEABILITY.md must list A4.10 EXTERNAL-READY under check:calibration-readiness.");
-  }
-  if (!/\| A4\.10 \|[^|]+\| EXTERNAL-READY \|/.test(external)) {
-    failures.push("EXTERNAL.md must list A4.10 EXTERNAL-READY.");
-  }
-  if (!/Human execution not started/i.test(external)) {
-    failures.push("EXTERNAL.md must state that calibration human execution has not started.");
-  }
 
   const forbiddenResearchResults = fs.readdirSync(researchRoot, { recursive: true })
     .map(value => String(value))

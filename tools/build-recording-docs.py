@@ -83,7 +83,7 @@ cvc = read("src/data/cvcWordFamilies.js")
 for arr in re.findall(r"buildWords:\s*\[([^\]]*)\]", cvc):
     for w in qwords(arr): words.add(w.strip().lower())
 # 500-word vocabulary lexicon
-lex = read("src/data/kimiVocabulary500Lexicon.js")
+lex = read("src/data/vocabularyMediaLexicon.js")
 for w in re.findall(r'"word":\s*"([^"]+)"', lex): words.add(w.strip().lower())
 # the three short whole words from the sounds script
 for w in ["am","ax","of"]: words.add(w)

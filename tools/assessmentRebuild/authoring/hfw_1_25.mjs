@@ -10,7 +10,7 @@
 // L2 spell: HFW_SENTENCE_SPELL_CONTEXT + HFW_LETTER_BUILD — tile builds; the
 //   word is never displayed, the letter bank always includes the tempting
 //   wrong letters (was → z, o present). Text tier runs read-and-spell from the
-//   sentence; recorded audio lands via MEDIA_REQUEST.
+//   sentence; recorded audio is resolved through the production registry.
 // Frames use band-1 words plus decodable content words only.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_HFW.md.
 

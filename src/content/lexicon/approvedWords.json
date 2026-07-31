@@ -1,5 +1,5 @@
 {
-  "note": "Skills Assessment Rebuild v3 lexicon. `words` = real, child-appropriate words approved for use as choices in single-word formats. `approvedDevErrors` = the ONLY sanctioned non-standard forms, usable solely in explicitly error-recognition formats (AUTHORING_STANDARDS §4). `phonics` = human-reviewed word→pattern mappings; L-LEX rejects any phonics item whose mapping is absent. Grow this file per authoring wave; every addition is part of Ben's per-skill review pack.",
+  "note": "Skills Assessment Rebuild v3 lexicon. `words` = real, child-appropriate words approved for use as choices in single-word formats. `approvedDevErrors` = the ONLY sanctioned non-standard forms, usable solely in explicitly error-recognition formats (AUTHORING_STANDARDS §4). `phonics` = reviewed word→pattern mappings; L-LEX rejects any phonics item whose mapping is absent. Additions must pass the current assessment authoring gate.",
   "words": [
     "a",
     "about",

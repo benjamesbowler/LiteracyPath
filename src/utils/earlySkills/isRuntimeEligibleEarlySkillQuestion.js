@@ -34,7 +34,7 @@ const SHORT_VOWEL_FORBIDDEN_WORDS = new Set([
 const SHORT_VOWEL_GRAPHEME_CHOICES = new Set(["a", "e", "i", "o", "u"]);
 const PLACEHOLDER_PATTERN = /(?:placeholder|fallback|missing|unavailable|coming-soon|blank)/i;
 const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|(?:^|[/_-])audio(?:[/_.-]|$)|(?:^|[/_-])sound(?:[/_.-]|$)|\.svg$)/i;
-const MEDIA_QA_BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi", "deleted"]);
+const MEDIA_QA_BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_replacement", "deleted"]);
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
@@ -440,7 +440,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
   if (routingIssue) issues.push(`routing/template mismatch: ${routingIssue}`);
 
   if (isQuestionBlockedByMediaQa(question, context)) {
-    issues.push("question uses blocked/rejected/needs-Kimi media");
+    issues.push("question uses blocked/rejected/needs-replacement media");
   }
 
   if (skillId === "final_sounds" && level === 1) {

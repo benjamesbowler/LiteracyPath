@@ -416,9 +416,9 @@ function buildAdvancedPhonicsSummary(
     latestDate: latest?.completedAt || "",
     latestAccuracy: latest?.accuracy || 0,
     currentStatusWindowDays: LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
-    masteredPatterns: rows.filter(row => row.status === "Secure").map(row => row.pattern),
-    developingPatterns: rows.filter(row => row.status === "Developing").map(row => row.pattern),
-    needsSupportPatterns: rows.filter(row => row.status === "Needs support").map(row => row.pattern),
+    masteredPatterns: rows.filter(row => row.status === "Yes").map(row => row.pattern),
+    developingPatterns: [],
+    needsSupportPatterns: rows.filter(row => row.status === "No").map(row => row.pattern),
     patternRows: rows
   };
 }
@@ -468,9 +468,17 @@ function collectSkillRows(records = [], { includeAllSkills = true, now = new Dat
           !isElBenchmarkAssessmentRecord(record) &&
           (record.skillName === skillName || record.skillId === skillName)
         ));
+    const isLetterObservationSkill = selectedPeriodSkillRecords.some(record => (
+      record.assessmentType === "el_letter_assessment" ||
+      record.assessmentId === "el_letter_assessment" ||
+      record.skillId === "el_letter_assessment"
+    ));
+    const isAdvancedObservationSkill = selectedPeriodSkillRecords.some(isAdvancedPhonicsRecord);
     const skillRecords = benchmarkDefinition
       ? selectedPeriodSkillRecords
-      : selectedPeriodSkillRecords.filter(record => isCurrentConclusionRecord(record, now));
+      : isLetterObservationSkill || isAdvancedObservationSkill
+        ? selectedPeriodSkillRecords
+        : selectedPeriodSkillRecords.filter(record => isCurrentConclusionRecord(record, now));
     const totalQuestions = skillRecords.reduce((sum, record) => sum + Number(record.totalQuestions || 0), 0);
     const correctCount = skillRecords.reduce((sum, record) => sum + Number(record.correctCount || 0), 0);
     const accuracy = benchmarkDefinition
@@ -484,17 +492,31 @@ function collectSkillRows(records = [], { includeAllSkills = true, now = new Dat
     const advancedPatternStatuses = advancedPatternRows.map(row => row.status);
     const advancedStatus = !advancedPatternStatuses.length
       ? null
-      : advancedPatternStatuses.some(status => (
-          status === "Not enough results" ||
-          status === "Unscored results" ||
-          status === "Not checked"
-        ))
-        ? "Not enough results"
-        : advancedPatternStatuses.some(status => status === "Needs support")
-          ? "Needs support"
-          : advancedPatternStatuses.some(status => status === "Developing")
-            ? "Developing"
-            : "Secure";
+      : advancedPatternStatuses.some(status => status === "No")
+        ? "No"
+        : advancedPatternStatuses.some(status => status === "Yes")
+          ? "Yes"
+          : "";
+    const letterObservationStatus = isLetterObservationSkill
+      ? (() => {
+          const studentId = selectedPeriodSkillRecords.find(record => record.studentId)?.studentId || "";
+          if (!studentId) return "";
+          const formal = buildIndividualElFormalAssessmentReport({
+            student: { id: studentId },
+            assessmentHistory: selectedPeriodSkillRecords,
+            now
+          });
+          const labels = formal.individualLetterMatrix.flatMap(row => [
+            row.uppercaseName.statusLabel,
+            row.uppercaseSound.statusLabel,
+            row.lowercaseName.statusLabel,
+            row.lowercaseSound.statusLabel
+          ]);
+          if (labels.includes("No")) return "No";
+          if (labels.includes("Yes")) return "Yes";
+          return "";
+        })()
+      : null;
     const latestCurrent = skillRecords
       .slice()
       .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
@@ -503,7 +525,7 @@ function collectSkillRows(records = [], { includeAllSkills = true, now = new Dat
       .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
     const status = benchmarkDefinition
       ? benchmarkEvidenceStatus(skillRecords.slice().sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0])
-      : advancedStatus || (
+      : letterObservationStatus ?? advancedStatus ?? (
           totalQuestions
             ? getStatusFromAccuracy(accuracy, totalQuestions, latestCurrent?.completedAt, now)
             : selectedPeriodSkillRecords.length
@@ -534,9 +556,13 @@ function collectSkillRows(records = [], { includeAllSkills = true, now = new Dat
       policyVersion: LEARNING_POLICY_VERSION,
       statusModel: benchmarkDefinition
         ? "descriptive_benchmark_evidence"
+        : isLetterObservationSkill || advancedStatus !== null
+          ? "latest_literal_observation"
         : "current_90_day_conclusion",
       currentStatusWindowDays: benchmarkDefinition
         ? null
+        : isLetterObservationSkill || advancedStatus !== null
+          ? null
         : LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
       isProvisionalBenchmark: Boolean(benchmarkDefinition),
       assessmentId: benchmarkDefinition?.assessmentId || "",

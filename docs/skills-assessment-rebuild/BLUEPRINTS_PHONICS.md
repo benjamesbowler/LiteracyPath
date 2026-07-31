@@ -78,7 +78,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units.** 4 mastery units: `a_e i_e o_e u_e`. `e_e` = recognition-only exposure items, excluded from pass computation (blueprint marks it `nonGating: true`) — matching the audit's "sparingly, approved examples only".
 
-**Levels.** L1: pattern choice + word reading from the clean list (cake game name gate · bike five time ride · home bone rope nose · cube tune mule cute — Ben-approved lexicon seed; NO r-influenced, no `-ve/-ce` soft endings, no dialect-sensitive words). L2: short↔long contrast pairs (cap/cape, kit/kite, hop/hope, cub/cube — mandatory `D-PATTERN-TRAP` short-vowel twin in every item) + real-vs-distractor VCe decoding.
+**Levels.** L1: pattern choice + word reading from the current clean lexicon (cake game name gate · bike five time ride · home bone rope nose · cube tune mule cute; no r-influenced, `-ve`/`-ce` soft-ending, or dialect-sensitive words). L2: short↔long contrast pairs (cap/cape, kit/kite, hop/hope, cub/cube — mandatory `D-PATTERN-TRAP` short-vowel twin in every item) + real-vs-distractor VCe decoding.
 
 **Formats.** Text tier: `LONG_VOWEL_SILENT_E_PATTERN` (image+word → pattern), new `SILENT_E_TRANSFORM` (hop + e → ? with image pair — the classic magic-e format), `CVC_VCE_CONTRAST` (which word says /kite/: kit, kite, kitt, kate → real-word rule applies: kit/kite/bite/kate all real). Audio tier: heard-word→spelling upgrades.
 
@@ -106,7 +106,7 @@ Shared: itemType `short_vowel` / `phonics_pattern` kept. Sitting = 10. Every wor
 
 **Units.** 5: `ar or er ir ur`. Family **D-small**. L1 recognition in familiar words (car, star, corn, fork, her, bird, girl, turn, hurt); L2: er/ir/ur discrimination (the three-way /ɜr/ spelling choice — mandatory `D-PATTERN-TRAP` sibling spellings ×2 per item) + ar/or contrast.
 
-**Work.** Prune 128 → 60 (5 × 6 per level + R). Replace the 84 generic `MULTIPLE_CHOICE` formats with named formats (`R_CONTROLLED_PATTERN`, `CPS`). Dialect note per lexicon entry (Ben approves once; flagged words like `chore` drop). Harden distractors from the audit's "plausible sound-based" instruction: her/hir/hur spelling choices, all pronounceable.
+**Work.** Use 60 construct-sized items (5 × 6 per level + R) with named formats (`R_CONTROLLED_PATTERN`, `CPS`). Dialect notes live in the checked-in lexicon and are enforced by the same release gate. Distractors use plausible, pronounceable sound-based alternatives.
 
 **Exemplar (L2, unit er).**
 ```json

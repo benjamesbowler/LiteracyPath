@@ -34,7 +34,7 @@ whole screen re-themes from one attribute.
 
 World banner art comes from our own book covers/pages today (with a soft
 gradient overlay for legibility) and is replaced by dedicated panoramic
-scenes from the Kimi request below when they arrive.
+current production scenes when they exist.
 
 ## Screen-by-screen plan
 
@@ -90,7 +90,7 @@ page remains the deliberate scrolling exception.
 **Have today (ship immediately):** 70 book covers, hundreds of page
 scenes, character art on every page, Phinny poses, gems, word images.
 
-**Kimi request (media — `docs/KIMI_LITERACY_PALS_ART_REQUEST.md`):**
+**Optional future production assets:**
 1. Three panoramic background scenes (2400×800, soft detail, characters
    small and in the distance, lots of calm sky/space for UI):
    `meadow-panorama.png`, `dino-panorama.png`, `moonwood-panorama.png`
@@ -108,5 +108,6 @@ scenes, character art on every page, Phinny poses, gems, word images.
   with existing cover art; quest map world bands.
 - **Round 2:** in-game world backdrops, library world shelves,
   level-up world-travel ceremony, celebrations per world.
-- **Round 3 (after Kimi art lands):** swap cover-art banners for the
-  panoramas, add emblems and character cutouts everywhere planned.
+- **Round 3 (only when current production art is added):** swap cover-art banners
+  for the panoramas, then add emblems and character cutouts where the live design
+  calls for them.

@@ -124,7 +124,7 @@ function buildHeardWordToPrintQuestion([id, targetWord, choices]) {
 
 // TODO(child-mode-adaptive): Replace fixed mission ordering with adaptive progression once Child Mode connects to mastery state.
 // TODO(child-mode-mastery): Add a mastery-mode variant with reduced scaffolding after introduction/practice evidence exists.
-// TODO(child-mode-assets): Add final Kimi assets for jam/ham/ram before using them as targets.
+// Add current production assets for jam/ham/ram before using them as targets.
 export const shortAEchoCavesQuestions = [
   ...introQuestions.map(question => buildPictureToPrintQuestion(question, "introduction")),
   ...practiceQuestions.map(question => buildPictureToPrintQuestion(question, "practice")),
@@ -132,7 +132,7 @@ export const shortAEchoCavesQuestions = [
   ...masteryPrepQuestions.map(question => buildHeardWordToPrintQuestion(question))
 ].map(question => ({
   ...question,
-  // TODO(child-mode-assets): Replace any fallback placeholders with final Kimi/generated assets as the pool expands.
+  // Replace fallback placeholders with current production assets as the pool expands.
   targetAsset: getChildWordAsset(question.targetWord) || childImageAssets[question.targetWord],
   choices: question.choices.map(word => ({
     id: word,

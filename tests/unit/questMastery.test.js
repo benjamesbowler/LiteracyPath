@@ -104,7 +104,7 @@ test("A SHORT HISTORY IS NOT MASTERY: too few attempts is still `learning`", () 
 
 // ── THE POSITIVE CASE ───────────────────────────────────────────────────────
 
-test("mastery: 10 attempts, >=8 correct, >=85%, 2 shells, 2 days", () => {
+test("mastery: the current four-response window passes across 2 shells and 2 days", () => {
   const r = run(emptyRecord(), [
     ...hits(5, "stones", "2026-07-11"),
     ...hits(5, "bridge", "2026-07-12")
@@ -116,7 +116,7 @@ test("mastery: 10 attempts, >=8 correct, >=85%, 2 shells, 2 days", () => {
   assert.equal(isMastered({ sh: r }, "sh"), true);
 });
 
-test("accuracy is measured over the LAST 10, so an early bad day doesn't haunt them", () => {
+test("accuracy is measured over the current last-four window, so an early bad day doesn't haunt them", () => {
   const shaky = run(emptyRecord(), [
     { correct: false, shell: "stones", at: "2026-07-01T10:00:00Z" },
     { correct: false, shell: "stones", at: "2026-07-01T10:01:00Z" },
@@ -223,7 +223,7 @@ test("a MISS at review distance does not retire — and two misses demote even a
 
 // ── Blend bar arithmetic: one slip in three reads must not block a blend ─────
 
-test("BLEND_RULES: 2-of-3 in the window passes (the old 0.75/3 demanded a PERFECT 3)", () => {
+test("BLEND_RULES: 2-of-3 in the current window passes", () => {
   const blend = run(emptyRecord(), [
     { correct: true, shell: "bridge", at: "2026-07-11T10:00:00Z", stopIndex: 12, rules: BLEND_RULES },
     { correct: false, shell: "cave", at: "2026-07-12T10:00:00Z", stopIndex: 13, rules: BLEND_RULES },

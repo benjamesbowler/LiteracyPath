@@ -9,8 +9,7 @@ the product's reachable runtime. It is not a way to turn a red audit green.
 
 ## Required record
 
-Every proposed exception must add a row to `docs/release/WAIVERS.md` and link
-an issue or pull request containing:
+Every proposed exception must be recorded in the issue or pull request containing:
 
 - package, installed version, advisory ID, severity, and complete dependency
   path;
@@ -18,12 +17,12 @@ an issue or pull request containing:
 - evidence showing whether the vulnerable function is reachable;
 - the attempted upgrade or replacement and the failure it caused;
 - compensating controls and a test that proves each control;
-- one named owner, one independent reviewer, and explicit approval by Ben;
+- one named security owner and one independent reviewer;
 - an expiry date no more than 30 days after approval;
 - the fixed version or replacement being tracked and the removal plan.
 
 The author cannot be the independent reviewer. Missing fields, an expired
-date, or an unapproved row make the exception invalid.
+date, or a missing independent review make the exception invalid.
 
 ## Gate changes
 

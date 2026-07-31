@@ -60,7 +60,7 @@ export const questions = [
    "each": "D-FUNCTION-SWAP",
    "both": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -68,27 +68,19 @@ export const questions = [
   "sentenceText": "She fed ___ of the cats.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "She fed all of the cats."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.all.v2",
@@ -149,7 +141,7 @@ export const questions = [
    "most": "D-FUNCTION-SWAP",
    "some": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -157,27 +149,19 @@ export const questions = [
   "sentenceText": "He drank ___ the milk. The jug is empty!",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the empty jug pins all; some and most parse but contradict it",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "He drank all the milk. The jug is empty!"
+  "notes": "the empty jug pins all; some and most parse but contradict it"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.all.v3",
@@ -237,34 +221,26 @@ export const questions = [
    "tall": "D-VISUAL-NEIGHBOR",
    "doll": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Find the word: all"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.an.v1",
@@ -325,7 +301,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -333,27 +309,19 @@ export const questions = [
   "sentenceText": "I ate ___ egg.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-an-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "a egg — THE a/an error",
-  "imagePath": "/images/assessment/hfw/an.webp",
-  "imageUrl": "/images/assessment/hfw/an.webp",
-  "targetImage": "/images/assessment/hfw/an.webp",
-  "targetImagePath": "/images/assessment/hfw/an.webp",
-  "resolvedImageAssetKey": "an",
-  "imageAlt": "I ate an egg."
+  "notes": "a egg — THE a/an error"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.an.v2",
@@ -414,7 +382,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "that": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -422,27 +390,19 @@ export const questions = [
   "sentenceText": "She saw ___ owl at dusk.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-an-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/an.webp",
-  "imageUrl": "/images/assessment/hfw/an.webp",
-  "targetImage": "/images/assessment/hfw/an.webp",
-  "targetImagePath": "/images/assessment/hfw/an.webp",
-  "resolvedImageAssetKey": "an",
-  "imageAlt": "She saw an owl at dusk."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.an.v3",
@@ -502,34 +462,26 @@ export const questions = [
    "on": "D-VISUAL-NEIGHBOR",
    "in": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-an-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/an.webp",
-  "imageUrl": "/images/assessment/hfw/an.webp",
-  "targetImage": "/images/assessment/hfw/an.webp",
-  "targetImagePath": "/images/assessment/hfw/an.webp",
-  "resolvedImageAssetKey": "an",
-  "imageAlt": "Find the word: an"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.but.v1",
@@ -590,7 +542,7 @@ export const questions = [
    "or": "D-FUNCTION-SWAP",
    "if": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -598,27 +550,19 @@ export const questions = [
   "sentenceText": "I ran fast, ___ I missed the bus.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-but-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/but.webp",
-  "imageUrl": "/images/assessment/hfw/but.webp",
-  "targetImage": "/images/assessment/hfw/but.webp",
-  "targetImagePath": "/images/assessment/hfw/but.webp",
-  "resolvedImageAssetKey": "but",
-  "imageAlt": "I ran fast, but I missed the bus."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.but.v2",
@@ -679,7 +623,7 @@ export const questions = [
    "or": "D-FUNCTION-SWAP",
    "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -687,27 +631,19 @@ export const questions = [
   "sentenceText": "The sun is out, ___ it is cold.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-but-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/but.webp",
-  "imageUrl": "/images/assessment/hfw/but.webp",
-  "targetImage": "/images/assessment/hfw/but.webp",
-  "targetImagePath": "/images/assessment/hfw/but.webp",
-  "resolvedImageAssetKey": "but",
-  "imageAlt": "The sun is out, but it is cold."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.but.v3",
@@ -767,34 +703,26 @@ export const questions = [
    "bus": "D-VISUAL-NEIGHBOR",
    "cut": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-but-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/but.webp",
-  "imageUrl": "/images/assessment/hfw/but.webp",
-  "targetImage": "/images/assessment/hfw/but.webp",
-  "targetImagePath": "/images/assessment/hfw/but.webp",
-  "resolvedImageAssetKey": "but",
-  "imageAlt": "Find the word: but"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.by.v1",
@@ -855,7 +783,7 @@ export const questions = [
    "in": "D-FUNCTION-SWAP",
    "at": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -863,27 +791,19 @@ export const questions = [
   "sentenceText": "The nest is ___ the gate.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-by-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/by.webp",
-  "imageUrl": "/images/assessment/hfw/by.webp",
-  "targetImage": "/images/assessment/hfw/by.webp",
-  "targetImagePath": "/images/assessment/hfw/by.webp",
-  "resolvedImageAssetKey": "by",
-  "imageAlt": "The nest is by the gate."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.by.v2",
@@ -944,7 +864,7 @@ export const questions = [
    "at": "D-FUNCTION-SWAP",
    "on": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -952,27 +872,19 @@ export const questions = [
   "sentenceText": "We sat ___ the pond.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-by-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/by.webp",
-  "imageUrl": "/images/assessment/hfw/by.webp",
-  "targetImage": "/images/assessment/hfw/by.webp",
-  "targetImagePath": "/images/assessment/hfw/by.webp",
-  "resolvedImageAssetKey": "by",
-  "imageAlt": "We sat by the pond."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.by.v3",
@@ -1032,34 +944,26 @@ export const questions = [
    "be": "D-VISUAL-NEIGHBOR",
    "my": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-by-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/by.webp",
-  "imageUrl": "/images/assessment/hfw/by.webp",
-  "targetImage": "/images/assessment/hfw/by.webp",
-  "targetImagePath": "/images/assessment/hfw/by.webp",
-  "resolvedImageAssetKey": "by",
-  "imageAlt": "Find the word: by"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.can.v1",
@@ -1120,7 +1024,7 @@ export const questions = [
    "do": "D-FUNCTION-SWAP",
    "are": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1128,27 +1032,19 @@ export const questions = [
   "sentenceText": "___ you hop like a frog?",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "can you hop like a frog?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.can.v2",
@@ -1209,7 +1105,7 @@ export const questions = [
    "are": "D-DEVELOPMENTAL",
    "said": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1217,27 +1113,19 @@ export const questions = [
   "sentenceText": "The twins ___ swim fast.",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "do stays out — the twins do swim fast would be a second key",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "The twins can swim fast."
+  "notes": "do stays out — the twins do swim fast would be a second key"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.can.v3",
@@ -1297,34 +1185,26 @@ export const questions = [
    "cat": "D-VISUAL-NEIGHBOR",
    "cap": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "Find the word: can"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.do.v1",
@@ -1385,7 +1265,7 @@ export const questions = [
    "is": "D-DEVELOPMENTAL",
    "can": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1393,27 +1273,19 @@ export const questions = [
   "sentenceText": "___ you like plums?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-do-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/like.webp",
-  "imageUrl": "/images/assessment/hfw/like.webp",
-  "targetImage": "/images/assessment/hfw/like.webp",
-  "targetImagePath": "/images/assessment/hfw/like.webp",
-  "resolvedImageAssetKey": "like",
-  "imageAlt": "do you like plums?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.do.v2",
@@ -1474,7 +1346,7 @@ export const questions = [
    "had": "D-DEVELOPMENTAL",
    "can": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1482,27 +1354,19 @@ export const questions = [
   "sentenceText": "What ___ cows eat?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-do-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "resolvedImageAssetKey": "cows",
-  "imageAlt": "What do cows eat?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.do.v3",
@@ -1562,34 +1426,26 @@ export const questions = [
    "dot": "D-VISUAL-NEIGHBOR",
    "to": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-do-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
-  "imageAlt": "Find the word: do"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.each.v1",
@@ -1650,7 +1506,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1658,27 +1514,19 @@ export const questions = [
   "sentenceText": "___ kid got a badge.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-each-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "all kid — the agreement slip children make",
-  "imagePath": "/images/child-mode/initial-sounds/kid.png",
-  "imageUrl": "/images/child-mode/initial-sounds/kid.png",
-  "targetImage": "/images/child-mode/initial-sounds/kid.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/kid.png",
-  "resolvedImageAssetKey": "kid",
-  "imageAlt": "each kid got a badge."
+  "notes": "all kid — the agreement slip children make"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.each.v2",
@@ -1739,7 +1587,7 @@ export const questions = [
    "that": "D-FUNCTION-SWAP",
    "one": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1747,27 +1595,19 @@ export const questions = [
   "sentenceText": "Put a cup at ___ desk.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-each-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/desk.webp",
-  "imageUrl": "/images/assessment/blends/desk.webp",
-  "targetImage": "/images/assessment/blends/desk.webp",
-  "targetImagePath": "/images/assessment/blends/desk.webp",
-  "resolvedImageAssetKey": "desk",
-  "imageAlt": "Put a cup at each desk."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.each.v3",
@@ -1827,34 +1667,26 @@ export const questions = [
    "teach": "D-VISUAL-NEIGHBOR",
    "ear": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-each-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
-  "imageAlt": "Find the word: each"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.had.v1",
@@ -1915,7 +1747,7 @@ export const questions = [
    "do": "D-DEVELOPMENTAL",
    "have": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1923,27 +1755,19 @@ export const questions = [
   "sentenceText": "Last week we ___ a picnic.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-had-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "last week pins the past tense; have is the tense slip",
-  "imagePath": "/images/assessment/hfw/had.webp",
-  "imageUrl": "/images/assessment/hfw/had.webp",
-  "targetImage": "/images/assessment/hfw/had.webp",
-  "targetImagePath": "/images/assessment/hfw/had.webp",
-  "resolvedImageAssetKey": "had",
-  "imageAlt": "Last week we had a picnic."
+  "notes": "last week pins the past tense; have is the tense slip"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.had.v2",
@@ -2004,7 +1828,7 @@ export const questions = [
    "have": "D-DEVELOPMENTAL",
    "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2012,27 +1836,19 @@ export const questions = [
   "sentenceText": "Gran ___ six cats long ago.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-had-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/had.webp",
-  "imageUrl": "/images/assessment/hfw/had.webp",
-  "targetImage": "/images/assessment/hfw/had.webp",
-  "targetImagePath": "/images/assessment/hfw/had.webp",
-  "resolvedImageAssetKey": "had",
-  "imageAlt": "Gran had six cats long ago."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.had.v3",
@@ -2092,34 +1908,26 @@ export const questions = [
    "bad": "D-VISUAL-NEIGHBOR",
    "has": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-had-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/had.webp",
-  "imageUrl": "/images/assessment/hfw/had.webp",
-  "targetImage": "/images/assessment/hfw/had.webp",
-  "targetImagePath": "/images/assessment/hfw/had.webp",
-  "resolvedImageAssetKey": "had",
-  "imageAlt": "Find the word: had"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.how.v1",
@@ -2180,7 +1988,7 @@ export const questions = [
    "what": "D-FUNCTION-SWAP",
    "when": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2188,27 +1996,19 @@ export const questions = [
   "sentenceText": "___ do you make jam?",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-how-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "how do you make jam?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.how.v2",
@@ -2269,7 +2069,7 @@ export const questions = [
    "what": "D-DEVELOPMENTAL",
    "if": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2277,27 +2077,19 @@ export const questions = [
   "sentenceText": "Tell me ___ the trick works.",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-how-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "Tell me how the trick works."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.how.v3",
@@ -2357,34 +2149,26 @@ export const questions = [
    "who": "D-VISUAL-NEIGHBOR",
    "now": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-how-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "Find the word: how"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.if.v1",
@@ -2445,7 +2229,7 @@ export const questions = [
    "and": "D-FUNCTION-SWAP",
    "but": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2453,27 +2237,19 @@ export const questions = [
   "sentenceText": "Ask me ___ you get stuck.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-if-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/if.webp",
-  "imageUrl": "/images/assessment/generated/concepts/if.webp",
-  "targetImage": "/images/assessment/generated/concepts/if.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
-  "resolvedImageAssetKey": "if",
-  "imageAlt": "Ask me if you get stuck."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.if.v2",
@@ -2534,7 +2310,7 @@ export const questions = [
    "but": "D-DEVELOPMENTAL",
    "as": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2542,27 +2318,19 @@ export const questions = [
   "sentenceText": "___ it rains, we stay in.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-if-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/if.webp",
-  "imageUrl": "/images/assessment/generated/concepts/if.webp",
-  "targetImage": "/images/assessment/generated/concepts/if.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
-  "resolvedImageAssetKey": "if",
-  "imageAlt": "if it rains, we stay in."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.if.v3",
@@ -2622,34 +2390,26 @@ export const questions = [
    "it": "D-VISUAL-NEIGHBOR",
    "in": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-if-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/generated/concepts/if.webp",
-  "imageUrl": "/images/assessment/generated/concepts/if.webp",
-  "targetImage": "/images/assessment/generated/concepts/if.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
-  "resolvedImageAssetKey": "if",
-  "imageAlt": "Find the word: if"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.not.v1",
@@ -2710,7 +2470,7 @@ export const questions = [
    "very": "D-FUNCTION-SWAP",
    "all": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2718,27 +2478,19 @@ export const questions = [
   "sentenceText": "The sums are ___ hard — they are easy!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-not-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the easy tag pins not",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "The sums are not hard — they are easy!"
+  "notes": "the easy tag pins not"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.not.v2",
@@ -2799,7 +2551,7 @@ export const questions = [
    "all": "D-DEVELOPMENTAL",
    "for": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2807,27 +2559,19 @@ export const questions = [
   "sentenceText": "That is ___ my hat!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-not-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "now is the not/now slip",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "That is not my hat!"
+  "notes": "now is the not/now slip"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.not.v3",
@@ -2887,34 +2631,26 @@ export const questions = [
    "hot": "D-VISUAL-NEIGHBOR",
    "now": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-not-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Find the word: not"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.one.v1",
@@ -2975,7 +2711,7 @@ export const questions = [
    "an": "D-DEVELOPMENTAL",
    "each": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2983,27 +2719,19 @@ export const questions = [
   "sentenceText": "I have just ___ wish.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "I have just one wish."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.one.v2",
@@ -3064,7 +2792,7 @@ export const questions = [
    "a": "D-FUNCTION-SWAP",
    "each": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3072,27 +2800,19 @@ export const questions = [
   "sentenceText": "___ duck swam off; two stayed.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "one duck swam off; two stayed."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.one.v3",
@@ -3152,34 +2872,26 @@ export const questions = [
    "own": "D-VISUAL-NEIGHBOR",
    "once": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Find the word: one"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.or.v1",
@@ -3240,7 +2952,7 @@ export const questions = [
    "not": "D-FUNCTION-SWAP",
    "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3248,27 +2960,19 @@ export const questions = [
   "sentenceText": "Do you want jam ___ ham?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-or-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "resolvedImageAssetKey": "want",
-  "imageAlt": "Do you want jam or ham?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.or.v2",
@@ -3329,7 +3033,7 @@ export const questions = [
    "if": "D-DEVELOPMENTAL",
    "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3337,27 +3041,19 @@ export const questions = [
   "sentenceText": "Is the cup full ___ empty?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-or-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "resolvedImageAssetKey": "empty",
-  "imageAlt": "Is the cup full or empty?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.or.v3",
@@ -3417,34 +3113,26 @@ export const questions = [
    "on": "D-VISUAL-NEIGHBOR",
    "of": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-or-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
-  "imageAlt": "Find the word: or"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.said.v1",
@@ -3505,7 +3193,7 @@ export const questions = [
    "saw": "D-VISUAL-NEIGHBOR",
    "says": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3513,27 +3201,19 @@ export const questions = [
   "sentenceText": "Mum ___ we can camp!",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sad is the said/sad slip; saw parses and reverses the meaning",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Mum said we can camp!"
+  "notes": "sad is the said/sad slip; saw parses and reverses the meaning"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.said.v2",
@@ -3594,7 +3274,7 @@ export const questions = [
    "had": "D-DEVELOPMENTAL",
    "says": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3602,27 +3282,19 @@ export const questions = [
   "sentenceText": "Dad ___ yes at last.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Dad said yes at last."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.said.v3",
@@ -3682,34 +3354,26 @@ export const questions = [
    "sand": "D-VISUAL-NEIGHBOR",
    "sad": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Find the word: said"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.she.v1",
@@ -3770,7 +3434,7 @@ export const questions = [
    "he": "D-FUNCTION-SWAP",
    "we": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3778,27 +3442,19 @@ export const questions = [
   "sentenceText": "My aunt naps when ___ can.",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-she-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the aunt pins she",
-  "imagePath": "/images/assessment/hfw/she.webp",
-  "imageUrl": "/images/assessment/hfw/she.webp",
-  "targetImage": "/images/assessment/hfw/she.webp",
-  "targetImagePath": "/images/assessment/hfw/she.webp",
-  "resolvedImageAssetKey": "she",
-  "imageAlt": "My aunt naps when she can."
+  "notes": "the aunt pins she"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.she.v2",
@@ -3859,7 +3515,7 @@ export const questions = [
    "it": "D-FUNCTION-SWAP",
    "they": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3867,27 +3523,19 @@ export const questions = [
   "sentenceText": "Gran hums as ___ bakes.",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-she-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/she.webp",
-  "imageUrl": "/images/assessment/hfw/she.webp",
-  "targetImage": "/images/assessment/hfw/she.webp",
-  "targetImagePath": "/images/assessment/hfw/she.webp",
-  "resolvedImageAssetKey": "she",
-  "imageAlt": "Gran hums as she bakes."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.she.v3",
@@ -3947,34 +3595,26 @@ export const questions = [
    "he": "D-VISUAL-NEIGHBOR",
    "see": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-she-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/she.webp",
-  "imageUrl": "/images/assessment/hfw/she.webp",
-  "targetImage": "/images/assessment/hfw/she.webp",
-  "targetImagePath": "/images/assessment/hfw/she.webp",
-  "resolvedImageAssetKey": "she",
-  "imageAlt": "Find the word: she"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.their.v1",
@@ -4035,7 +3675,7 @@ export const questions = [
    "they": "D-DEVELOPMENTAL",
    "his": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4043,27 +3683,19 @@ export const questions = [
   "sentenceText": "The twins lost ___ kite.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "there is the homophone; they is the they/their slip; his misses the plural",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "The twins lost their kite."
+  "notes": "there is the homophone; they is the they/their slip; his misses the plural"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.their.v2",
@@ -4124,7 +3756,7 @@ export const questions = [
    "there": "D-HOMOPHONE",
    "the": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4132,27 +3764,19 @@ export const questions = [
   "sentenceText": "The cubs drank ___ milk.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "The cubs drank their milk."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.their.v3",
@@ -4212,34 +3836,26 @@ export const questions = [
    "they": "D-VISUAL-NEIGHBOR",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "Find the word: their"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.there.v1",
@@ -4300,7 +3916,7 @@ export const questions = [
    "their": "D-HOMOPHONE",
    "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4308,27 +3924,19 @@ export const questions = [
   "sentenceText": "Look — the bus is over ___!",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Look — the bus is over there!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.there.v2",
@@ -4389,7 +3997,7 @@ export const questions = [
    "that": "D-FUNCTION-SWAP",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4397,27 +4005,19 @@ export const questions = [
   "sentenceText": "We got ___ just in time.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "got their — the classic reversal; then is the there/then slip",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "We got there just in time."
+  "notes": "got their — the classic reversal; then is the there/then slip"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.there.v3",
@@ -4477,34 +4077,26 @@ export const questions = [
    "their": "D-HOMOPHONE",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Find the word: there"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.use.v1",
@@ -4565,7 +4157,7 @@ export const questions = [
    "do": "D-DEVELOPMENTAL",
    "can": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4573,27 +4165,19 @@ export const questions = [
   "sentenceText": "___ the key to open the box.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-use-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "resolvedImageAssetKey": "use",
-  "imageAlt": "use the key to open the box."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.use.v2",
@@ -4654,7 +4238,7 @@ export const questions = [
    "can": "D-DEVELOPMENTAL",
    "are": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4662,27 +4246,19 @@ export const questions = [
   "sentenceText": "We ___ mud to make bricks.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-use-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "had stays out — we had mud would be true too",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "resolvedImageAssetKey": "use",
-  "imageAlt": "We use mud to make bricks."
+  "notes": "had stays out — we had mud would be true too"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.use.v3",
@@ -4742,34 +4318,26 @@ export const questions = [
    "fuse": "D-VISUAL-NEIGHBOR",
    "up": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-use-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "resolvedImageAssetKey": "use",
-  "imageAlt": "Find the word: use"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.we.v1",
@@ -4830,7 +4398,7 @@ export const questions = [
    "she": "D-DEVELOPMENTAL",
    "you": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4838,27 +4406,19 @@ export const questions = [
   "sentenceText": "Sis and I hid. ___ both grinned.",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-we-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the speaker is in the pair, so we is the only true reference",
-  "imagePath": "/images/assessment/hfw/we.webp",
-  "imageUrl": "/images/assessment/hfw/we.webp",
-  "targetImage": "/images/assessment/hfw/we.webp",
-  "targetImagePath": "/images/assessment/hfw/we.webp",
-  "resolvedImageAssetKey": "we",
-  "imageAlt": "Sis and I hid. we both grinned."
+  "notes": "the speaker is in the pair, so we is the only true reference"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.we.v2",
@@ -4919,7 +4479,7 @@ export const questions = [
    "he": "D-FUNCTION-SWAP",
    "you": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4927,27 +4487,19 @@ export const questions = [
   "sentenceText": "Dad and I fish. ___ catch cod!",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-we-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "catch cod, not get wet — wet contains we and would gift the key a chunk",
-  "imagePath": "/images/assessment/hfw/we.webp",
-  "imageUrl": "/images/assessment/hfw/we.webp",
-  "targetImage": "/images/assessment/hfw/we.webp",
-  "targetImagePath": "/images/assessment/hfw/we.webp",
-  "resolvedImageAssetKey": "we",
-  "imageAlt": "Dad and I fish. we catch cod!"
+  "notes": "catch cod, not get wet — wet contains we and would gift the key a chunk"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.we.v3",
@@ -5007,34 +4559,26 @@ export const questions = [
    "be": "D-VISUAL-NEIGHBOR",
    "wet": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-we-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/we.webp",
-  "imageUrl": "/images/assessment/hfw/we.webp",
-  "targetImage": "/images/assessment/hfw/we.webp",
-  "targetImagePath": "/images/assessment/hfw/we.webp",
-  "resolvedImageAssetKey": "we",
-  "imageAlt": "Find the word: we"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.were.v1",
@@ -5095,7 +4639,7 @@ export const questions = [
    "is": "D-DEVELOPMENTAL",
    "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5103,27 +4647,19 @@ export const questions = [
   "sentenceText": "The shops ___ shut at ten.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the shops was — the agreement slip; are misses the tense",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "The shops were shut at ten."
+  "notes": "the shops was — the agreement slip; are misses the tense"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.were.v2",
@@ -5184,7 +4720,7 @@ export const questions = [
    "be": "D-DEVELOPMENTAL",
    "was": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5192,27 +4728,19 @@ export const questions = [
   "sentenceText": "You ___ so brave at the vet!",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "you was — THE developmental error",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "resolvedImageAssetKey": "brave",
-  "imageAlt": "You were so brave at the vet!"
+  "notes": "you was — THE developmental error"
  },
  {
   "id": "lp3.hfw_26_50.l1.C.were.v3",
@@ -5272,34 +4800,26 @@ export const questions = [
    "her": "D-VISUAL-NEIGHBOR",
    "where": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
-  "imageAlt": "Find the word: were"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.what.v1",
@@ -5360,7 +4880,7 @@ export const questions = [
    "which": "D-FUNCTION-SWAP",
    "when": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5368,27 +4888,19 @@ export const questions = [
   "sentenceText": "___ is in the big box?",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-what-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/what.webp",
-  "imageUrl": "/images/assessment/hfw/what.webp",
-  "targetImage": "/images/assessment/hfw/what.webp",
-  "targetImagePath": "/images/assessment/hfw/what.webp",
-  "resolvedImageAssetKey": "what",
-  "imageAlt": "what is in the big box?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.what.v2",
@@ -5449,7 +4961,7 @@ export const questions = [
    "which": "D-FUNCTION-SWAP",
    "when": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5457,27 +4969,19 @@ export const questions = [
   "sentenceText": "Guess ___ I made for you!",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-what-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/what.webp",
-  "imageUrl": "/images/assessment/hfw/what.webp",
-  "targetImage": "/images/assessment/hfw/what.webp",
-  "targetImagePath": "/images/assessment/hfw/what.webp",
-  "resolvedImageAssetKey": "what",
-  "imageAlt": "Guess what I made for you!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.what.v3",
@@ -5537,34 +5041,26 @@ export const questions = [
    "that": "D-VISUAL-NEIGHBOR",
    "when": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-what-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/what.webp",
-  "imageUrl": "/images/assessment/hfw/what.webp",
-  "targetImage": "/images/assessment/hfw/what.webp",
-  "targetImagePath": "/images/assessment/hfw/what.webp",
-  "resolvedImageAssetKey": "what",
-  "imageAlt": "Find the word: what"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.when.v1",
@@ -5625,7 +5121,7 @@ export const questions = [
    "what": "D-DEVELOPMENTAL",
    "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5633,27 +5129,19 @@ export const questions = [
   "sentenceText": "___ does the show start?",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-when-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the two-or-three tag pins when over how",
-  "imagePath": "/images/assessment/hfw/when.webp",
-  "imageUrl": "/images/assessment/hfw/when.webp",
-  "targetImage": "/images/assessment/hfw/when.webp",
-  "targetImagePath": "/images/assessment/hfw/when.webp",
-  "resolvedImageAssetKey": "when",
-  "imageAlt": "when does the show start?"
+  "notes": "the two-or-three tag pins when over how"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.when.v2",
@@ -5714,7 +5202,7 @@ export const questions = [
    "as": "D-FUNCTION-SWAP",
    "and": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5722,27 +5210,19 @@ export const questions = [
   "sentenceText": "I clap ___ you sing.",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-when-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/when.webp",
-  "imageUrl": "/images/assessment/hfw/when.webp",
-  "targetImage": "/images/assessment/hfw/when.webp",
-  "targetImagePath": "/images/assessment/hfw/when.webp",
-  "resolvedImageAssetKey": "when",
-  "imageAlt": "I clap when you sing."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.when.v3",
@@ -5802,34 +5282,26 @@ export const questions = [
    "hen": "D-VISUAL-NEIGHBOR",
    "what": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-when-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/when.webp",
-  "imageUrl": "/images/assessment/hfw/when.webp",
-  "targetImage": "/images/assessment/hfw/when.webp",
-  "targetImagePath": "/images/assessment/hfw/when.webp",
-  "resolvedImageAssetKey": "when",
-  "imageAlt": "Find the word: when"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.which.v1",
@@ -5890,7 +5362,7 @@ export const questions = [
    "this": "D-DEVELOPMENTAL",
    "what": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5898,27 +5370,19 @@ export const questions = [
   "sentenceText": "___ hat is yours — red or blue?",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "which hat is yours — red or blue?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.B.which.v2",
@@ -5979,7 +5443,7 @@ export const questions = [
    "each": "D-FUNCTION-SWAP",
    "that": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5987,27 +5451,19 @@ export const questions = [
   "sentenceText": "Tell me ___ pup you like best.",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "Tell me which pup you like best."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.which.v3",
@@ -6067,34 +5523,26 @@ export const questions = [
    "wish": "D-VISUAL-NEIGHBOR",
    "witch": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "Find the word: which"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.words.v1",
@@ -6155,7 +5603,7 @@ export const questions = [
    "wands": "D-VISUAL-NEIGHBOR",
    "word": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6163,27 +5611,19 @@ export const questions = [
   "sentenceText": "We read six new ___ today.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-words-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "six new word — the plural slip",
-  "imagePath": "/images/assessment/hfw/read.webp",
-  "imageUrl": "/images/assessment/hfw/read.webp",
-  "targetImage": "/images/assessment/hfw/read.webp",
-  "targetImagePath": "/images/assessment/hfw/read.webp",
-  "resolvedImageAssetKey": "read",
-  "imageAlt": "We read six new words today."
+  "notes": "six new word — the plural slip"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.words.v2",
@@ -6244,7 +5684,7 @@ export const questions = [
    "works": "D-VISUAL-NEIGHBOR",
    "worms": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6252,27 +5692,19 @@ export const questions = [
   "sentenceText": "Big ___ can be fun to spell.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-words-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/big.webp",
-  "imageUrl": "/images/assessment/hfw/big.webp",
-  "targetImage": "/images/assessment/hfw/big.webp",
-  "targetImagePath": "/images/assessment/hfw/big.webp",
-  "resolvedImageAssetKey": "big",
-  "imageAlt": "Big words can be fun to spell."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.words.v3",
@@ -6332,34 +5764,26 @@ export const questions = [
    "birds": "D-VISUAL-NEIGHBOR",
    "word": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-words-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
-  "imageAlt": "Find the word: words"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.A.your.v1",
@@ -6420,7 +5844,7 @@ export const questions = [
    "his": "D-FUNCTION-SWAP",
    "the": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6428,27 +5852,19 @@ export const questions = [
   "sentenceText": "Is this ___ scarf?",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "is this you scarf — the you/your slip",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Is this your scarf?"
+  "notes": "is this you scarf — the you/your slip"
  },
  {
   "id": "lp3.hfw_26_50.l1.B.your.v2",
@@ -6509,7 +5925,7 @@ export const questions = [
    "the": "D-FUNCTION-SWAP",
    "their": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6517,27 +5933,19 @@ export const questions = [
   "sentenceText": "Pack ___ bags for camp.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Pack your bags for camp."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.C.your.v3",
@@ -6597,34 +6005,26 @@ export const questions = [
    "our": "D-VISUAL-NEIGHBOR",
    "out": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Find the word: your"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l2.A.all.v1",
@@ -6663,7 +6063,7 @@ export const questions = [
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6685,27 +6085,19 @@ export const questions = [
   "sentenceText": "We ate all the grapes.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the double l is the work — one l is the tempting build",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Build the missing word: We ate all the grapes."
+  "notes": "the double l is the work — one l is the tempting build"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.all.v2",
@@ -6744,7 +6136,7 @@ export const questions = [
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6766,27 +6158,19 @@ export const questions = [
   "sentenceText": "all my pens ran out.",
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Build the missing word: all my pens ran out."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.an.v1",
@@ -6825,7 +6209,7 @@ export const questions = [
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6845,27 +6229,19 @@ export const questions = [
   "sentenceText": "He fed an ox at the farm.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-an-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/an.webp",
-  "imageUrl": "/images/assessment/hfw/an.webp",
-  "targetImage": "/images/assessment/hfw/an.webp",
-  "targetImagePath": "/images/assessment/hfw/an.webp",
-  "resolvedImageAssetKey": "an",
-  "imageAlt": "Build the missing word: He fed an ox at the farm."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.an.v2",
@@ -6904,7 +6280,7 @@ export const questions = [
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6924,27 +6300,19 @@ export const questions = [
   "sentenceText": "I need an extra bed.",
   "targetWord": "an",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-an-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/an.webp",
-  "imageUrl": "/images/assessment/hfw/an.webp",
-  "targetImage": "/images/assessment/hfw/an.webp",
-  "targetImagePath": "/images/assessment/hfw/an.webp",
-  "resolvedImageAssetKey": "an",
-  "imageAlt": "Build the missing word: I need an extra bed."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.but.v1",
@@ -6983,7 +6351,7 @@ export const questions = [
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7005,27 +6373,19 @@ export const questions = [
   "sentenceText": "I tried, but I slipped.",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-but-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/but.webp",
-  "imageUrl": "/images/assessment/hfw/but.webp",
-  "targetImage": "/images/assessment/hfw/but.webp",
-  "targetImagePath": "/images/assessment/hfw/but.webp",
-  "resolvedImageAssetKey": "but",
-  "imageAlt": "Build the missing word: I tried, but I slipped."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.but.v2",
@@ -7064,7 +6424,7 @@ export const questions = [
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7086,27 +6446,19 @@ export const questions = [
   "sentenceText": "Small but strong!",
   "targetWord": "but",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-but-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/but.webp",
-  "imageUrl": "/images/assessment/hfw/but.webp",
-  "targetImage": "/images/assessment/hfw/but.webp",
-  "targetImagePath": "/images/assessment/hfw/but.webp",
-  "resolvedImageAssetKey": "but",
-  "imageAlt": "Build the missing word: Small but strong!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.by.v1",
@@ -7145,7 +6497,7 @@ export const questions = [
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7165,27 +6517,19 @@ export const questions = [
   "sentenceText": "Stand by the door, please.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-by-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "bi is the tempting phonetic build",
-  "imagePath": "/images/assessment/hfw/by.webp",
-  "imageUrl": "/images/assessment/hfw/by.webp",
-  "targetImage": "/images/assessment/hfw/by.webp",
-  "targetImagePath": "/images/assessment/hfw/by.webp",
-  "resolvedImageAssetKey": "by",
-  "imageAlt": "Build the missing word: Stand by the door, please."
+  "notes": "bi is the tempting phonetic build"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.by.v2",
@@ -7224,7 +6568,7 @@ export const questions = [
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7244,27 +6588,19 @@ export const questions = [
   "sentenceText": "The mill sits by a stream.",
   "targetWord": "by",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-by-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/by.webp",
-  "imageUrl": "/images/assessment/hfw/by.webp",
-  "targetImage": "/images/assessment/hfw/by.webp",
-  "targetImagePath": "/images/assessment/hfw/by.webp",
-  "resolvedImageAssetKey": "by",
-  "imageAlt": "Build the missing word: The mill sits by a stream."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.can.v1",
@@ -7303,7 +6639,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7325,27 +6661,19 @@ export const questions = [
   "sentenceText": "Foxes can jump high.",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "kan — the k is present and tempting",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "Build the missing word: Foxes can jump high."
+  "notes": "kan — the k is present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.can.v2",
@@ -7384,7 +6712,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7406,27 +6734,19 @@ export const questions = [
   "sentenceText": "can we camp out back?",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "Build the missing word: can we camp out back?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.do.v1",
@@ -7465,7 +6785,7 @@ export const questions = [
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7485,27 +6805,19 @@ export const questions = [
   "sentenceText": "do frogs sleep in mud?",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-do-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "doo — the u is present and tempting",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: do frogs sleep in mud?"
+  "notes": "doo — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.do.v2",
@@ -7544,7 +6856,7 @@ export const questions = [
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7564,27 +6876,19 @@ export const questions = [
   "sentenceText": "We do sums after lunch.",
   "targetWord": "do",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-do-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: We do sums after lunch."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.each.v1",
@@ -7623,7 +6927,7 @@ export const questions = [
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7645,27 +6949,19 @@ export const questions = [
   "sentenceText": "Give each hen some corn.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-each-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "eech — the i tempts the phonetic build",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: Give each hen some corn."
+  "notes": "eech — the i tempts the phonetic build"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.each.v2",
@@ -7704,7 +7000,7 @@ export const questions = [
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7726,27 +7022,19 @@ export const questions = [
   "sentenceText": "each box has a lid.",
   "targetWord": "each",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-each-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: each box has a lid."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.had.v1",
@@ -7785,7 +7073,7 @@ export const questions = [
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7807,27 +7095,19 @@ export const questions = [
   "sentenceText": "We had fun at the fair.",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-had-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/had.webp",
-  "imageUrl": "/images/assessment/hfw/had.webp",
-  "targetImage": "/images/assessment/hfw/had.webp",
-  "targetImagePath": "/images/assessment/hfw/had.webp",
-  "resolvedImageAssetKey": "had",
-  "imageAlt": "Build the missing word: We had fun at the fair."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.had.v2",
@@ -7866,7 +7146,7 @@ export const questions = [
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7888,27 +7168,19 @@ export const questions = [
   "sentenceText": "The pup had my sock!",
   "targetWord": "had",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-had-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/had.webp",
-  "imageUrl": "/images/assessment/hfw/had.webp",
-  "targetImage": "/images/assessment/hfw/had.webp",
-  "targetImagePath": "/images/assessment/hfw/had.webp",
-  "resolvedImageAssetKey": "had",
-  "imageAlt": "Build the missing word: The pup had my sock!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.how.v1",
@@ -7947,7 +7219,7 @@ export const questions = [
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7969,27 +7241,19 @@ export const questions = [
   "sentenceText": "how do bees make honey?",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-how-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hou — the u is present and tempting",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "Build the missing word: how do bees make honey?"
+  "notes": "hou — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.how.v2",
@@ -8028,7 +7292,7 @@ export const questions = [
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8050,27 +7314,19 @@ export const questions = [
   "sentenceText": "Show me how to knit.",
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-how-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "Build the missing word: Show me how to knit."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.if.v1",
@@ -8109,7 +7365,7 @@ export const questions = [
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8129,27 +7385,19 @@ export const questions = [
   "sentenceText": "Yell if you spot land!",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-if-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/if.webp",
-  "imageUrl": "/images/assessment/generated/concepts/if.webp",
-  "targetImage": "/images/assessment/generated/concepts/if.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
-  "resolvedImageAssetKey": "if",
-  "imageAlt": "Build the missing word: Yell if you spot land!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.if.v2",
@@ -8188,7 +7436,7 @@ export const questions = [
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8208,27 +7456,19 @@ export const questions = [
   "sentenceText": "Ask Dad if we may go.",
   "targetWord": "if",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-if-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/if.webp",
-  "imageUrl": "/images/assessment/generated/concepts/if.webp",
-  "targetImage": "/images/assessment/generated/concepts/if.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/if.webp",
-  "resolvedImageAssetKey": "if",
-  "imageAlt": "Build the missing word: Ask Dad if we may go."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.not.v1",
@@ -8267,7 +7507,7 @@ export const questions = [
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8289,27 +7529,19 @@ export const questions = [
   "sentenceText": "That is not my cup.",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-not-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Build the missing word: That is not my cup."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.not.v2",
@@ -8348,7 +7580,7 @@ export const questions = [
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8370,27 +7602,19 @@ export const questions = [
   "sentenceText": "Do not wake the baby!",
   "targetWord": "not",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-not-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Build the missing word: Do not wake the baby!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.one.v1",
@@ -8429,7 +7653,7 @@ export const questions = [
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8451,27 +7675,19 @@ export const questions = [
   "sentenceText": "Just one more lap to run!",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wun — the w and u are present and tempting",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Build the missing word: Just one more lap to run!"
+  "notes": "wun — the w and u are present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.one.v2",
@@ -8510,7 +7726,7 @@ export const questions = [
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8532,27 +7748,19 @@ export const questions = [
   "sentenceText": "one star shone first.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Build the missing word: one star shone first."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.or.v1",
@@ -8591,7 +7799,7 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8611,27 +7819,19 @@ export const questions = [
   "sentenceText": "Milk or water with lunch?",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-or-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: Milk or water with lunch?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.or.v2",
@@ -8670,7 +7870,7 @@ export const questions = [
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8690,27 +7890,19 @@ export const questions = [
   "sentenceText": "Walk or ride — you pick.",
   "targetWord": "or",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-or-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: Walk or ride — you pick."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.said.v1",
@@ -8749,7 +7941,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8771,27 +7963,19 @@ export const questions = [
   "sentenceText": "The vet said to rest the pup.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sed — the e is present; the ai is the irregular work",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Build the missing word: The vet said to rest the pup."
+  "notes": "sed — the e is present; the ai is the irregular work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.said.v2",
@@ -8830,7 +8014,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8852,27 +8036,19 @@ export const questions = [
   "sentenceText": "Gran said bedtime is nine.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Build the missing word: Gran said bedtime is nine."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.she.v1",
@@ -8911,7 +8087,7 @@ export const questions = [
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8933,27 +8109,19 @@ export const questions = [
   "sentenceText": "May she join our team?",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-she-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/she.webp",
-  "imageUrl": "/images/assessment/hfw/she.webp",
-  "targetImage": "/images/assessment/hfw/she.webp",
-  "targetImagePath": "/images/assessment/hfw/she.webp",
-  "resolvedImageAssetKey": "she",
-  "imageAlt": "Build the missing word: May she join our team?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.she.v2",
@@ -8992,7 +8160,7 @@ export const questions = [
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9014,27 +8182,19 @@ export const questions = [
   "sentenceText": "she dug up a gem!",
   "targetWord": "she",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-she-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/she.webp",
-  "imageUrl": "/images/assessment/hfw/she.webp",
-  "targetImage": "/images/assessment/hfw/she.webp",
-  "targetImagePath": "/images/assessment/hfw/she.webp",
-  "resolvedImageAssetKey": "she",
-  "imageAlt": "Build the missing word: she dug up a gem!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.their.v1",
@@ -9073,7 +8233,7 @@ export const questions = [
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9097,27 +8257,19 @@ export const questions = [
   "sentenceText": "The bees kept their honey safe.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "thair — the a is present; ei order is the work",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "Build the missing word: The bees kept their honey safe."
+  "notes": "thair — the a is present; ei order is the work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.their.v2",
@@ -9156,7 +8308,7 @@ export const questions = [
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9180,27 +8332,19 @@ export const questions = [
   "sentenceText": "The kids lost their ball again.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "Build the missing word: The kids lost their ball again."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.there.v1",
@@ -9239,7 +8383,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9263,27 +8407,19 @@ export const questions = [
   "sentenceText": "Park the bikes over there.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "their letters minus one e — the double e is the work",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Build the missing word: Park the bikes over there."
+  "notes": "their letters minus one e — the double e is the work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.there.v2",
@@ -9322,7 +8458,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9346,27 +8482,19 @@ export const questions = [
   "sentenceText": "Is anybody there?",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Build the missing word: Is anybody there?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.use.v1",
@@ -9405,7 +8533,7 @@ export const questions = [
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9427,27 +8555,19 @@ export const questions = [
   "sentenceText": "use both hands to lift it.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-use-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "yooz — z and o are present and tempting",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "resolvedImageAssetKey": "use",
-  "imageAlt": "Build the missing word: use both hands to lift it."
+  "notes": "yooz — z and o are present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.use.v2",
@@ -9486,7 +8606,7 @@ export const questions = [
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9508,27 +8628,19 @@ export const questions = [
   "sentenceText": "We use twigs for the nest.",
   "targetWord": "use",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-use-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/use-employ-01.webp",
-  "resolvedImageAssetKey": "use",
-  "imageAlt": "Build the missing word: We use twigs for the nest."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.we.v1",
@@ -9567,7 +8679,7 @@ export const questions = [
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9587,27 +8699,19 @@ export const questions = [
   "sentenceText": "Can we bake a plum pie?",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-we-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/we.webp",
-  "imageUrl": "/images/assessment/hfw/we.webp",
-  "targetImage": "/images/assessment/hfw/we.webp",
-  "targetImagePath": "/images/assessment/hfw/we.webp",
-  "resolvedImageAssetKey": "we",
-  "imageAlt": "Build the missing word: Can we bake a plum pie?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.B.we.v2",
@@ -9646,7 +8750,7 @@ export const questions = [
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9666,27 +8770,19 @@ export const questions = [
   "sentenceText": "we swam till six.",
   "targetWord": "we",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-we-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/we.webp",
-  "imageUrl": "/images/assessment/hfw/we.webp",
-  "targetImage": "/images/assessment/hfw/we.webp",
-  "targetImagePath": "/images/assessment/hfw/we.webp",
-  "resolvedImageAssetKey": "we",
-  "imageAlt": "Build the missing word: we swam till six."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.were.v1",
@@ -9725,7 +8821,7 @@ export const questions = [
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9747,27 +8843,19 @@ export const questions = [
   "sentenceText": "The socks were still damp.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wur — the u is present; the double e is the work",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: The socks were still damp."
+  "notes": "wur — the u is present; the double e is the work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.were.v2",
@@ -9806,7 +8894,7 @@ export const questions = [
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9828,27 +8916,19 @@ export const questions = [
   "sentenceText": "You were fast today!",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: You were fast today!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.what.v1",
@@ -9887,7 +8967,7 @@ export const questions = [
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9909,27 +8989,19 @@ export const questions = [
   "sentenceText": "what fell off the shelf?",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-what-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wot — the o is present and tempting",
-  "imagePath": "/images/assessment/hfw/what.webp",
-  "imageUrl": "/images/assessment/hfw/what.webp",
-  "targetImage": "/images/assessment/hfw/what.webp",
-  "targetImagePath": "/images/assessment/hfw/what.webp",
-  "resolvedImageAssetKey": "what",
-  "imageAlt": "Build the missing word: what fell off the shelf?"
+  "notes": "wot — the o is present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.what.v2",
@@ -9968,7 +9040,7 @@ export const questions = [
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9990,27 +9062,19 @@ export const questions = [
   "sentenceText": "Guess what I found!",
   "targetWord": "what",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-what-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/what.webp",
-  "imageUrl": "/images/assessment/hfw/what.webp",
-  "targetImage": "/images/assessment/hfw/what.webp",
-  "targetImagePath": "/images/assessment/hfw/what.webp",
-  "resolvedImageAssetKey": "what",
-  "imageAlt": "Build the missing word: Guess what I found!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.when.v1",
@@ -10049,7 +9113,7 @@ export const questions = [
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10071,27 +9135,19 @@ export const questions = [
   "sentenceText": "when does the pool open?",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-when-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wen — the h placement is the work",
-  "imagePath": "/images/assessment/hfw/when.webp",
-  "imageUrl": "/images/assessment/hfw/when.webp",
-  "targetImage": "/images/assessment/hfw/when.webp",
-  "targetImagePath": "/images/assessment/hfw/when.webp",
-  "resolvedImageAssetKey": "when",
-  "imageAlt": "Build the missing word: when does the pool open?"
+  "notes": "wen — the h placement is the work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.when.v2",
@@ -10130,7 +9186,7 @@ export const questions = [
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10152,27 +9208,19 @@ export const questions = [
   "sentenceText": "Clap when the song ends.",
   "targetWord": "when",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-when-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/when.webp",
-  "imageUrl": "/images/assessment/hfw/when.webp",
-  "targetImage": "/images/assessment/hfw/when.webp",
-  "targetImagePath": "/images/assessment/hfw/when.webp",
-  "resolvedImageAssetKey": "when",
-  "imageAlt": "Build the missing word: Clap when the song ends."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.which.v1",
@@ -10211,7 +9259,7 @@ export const questions = [
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10235,27 +9283,19 @@ export const questions = [
   "sentenceText": "which sock is mine?",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wich — the second h is the work",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "Build the missing word: which sock is mine?"
+  "notes": "wich — the second h is the work"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.which.v2",
@@ -10294,7 +9334,7 @@ export const questions = [
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10318,27 +9358,19 @@ export const questions = [
   "sentenceText": "Pick which game we play.",
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "Build the missing word: Pick which game we play."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.words.v1",
@@ -10377,7 +9409,7 @@ export const questions = [
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10401,27 +9433,19 @@ export const questions = [
   "sentenceText": "Rhyming words end the same.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-words-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "wurds — the u is present and tempting",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: Rhyming words end the same."
+  "notes": "wurds — the u is present and tempting"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.words.v2",
@@ -10460,7 +9484,7 @@ export const questions = [
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10484,27 +9508,19 @@ export const questions = [
   "sentenceText": "Long words need long tiles.",
   "targetWord": "words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-words-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
-  "imageAlt": "Build the missing word: Long words need long tiles."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.A.your.v1",
@@ -10543,7 +9559,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10565,27 +9581,19 @@ export const questions = [
   "sentenceText": "Tie your laces up tight.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "yor — building without the u is the tempting path",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Build the missing word: Tie your laces up tight."
+  "notes": "yor — building without the u is the tempting path"
  },
  {
   "id": "lp3.hfw_26_50.l2.B.your.v2",
@@ -10624,7 +9632,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10646,27 +9654,19 @@ export const questions = [
   "sentenceText": "Bring your kit on Monday.",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Build the missing word: Bring your kit on Monday."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.R.said.v7r",
@@ -10727,7 +9727,7 @@ export const questions = [
    "saw": "D-VISUAL-NEIGHBOR",
    "had": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10735,27 +9735,19 @@ export const questions = [
   "sentenceText": "The coach ___ to rest up.",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "The coach said to rest up."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.R.their.v7r",
@@ -10816,7 +9808,7 @@ export const questions = [
    "his": "D-FUNCTION-SWAP",
    "there": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10824,27 +9816,19 @@ export const questions = [
   "sentenceText": "The ants built ___ nest fast.",
   "targetWord": "their",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-their-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "The ants built their nest fast."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.R.were.v7r",
@@ -10905,7 +9889,7 @@ export const questions = [
    "are": "D-FUNCTION-SWAP",
    "had": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -10913,27 +9897,19 @@ export const questions = [
   "sentenceText": "The buns ___ still warm.",
   "targetWord": "were",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-were-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/warm.webp",
-  "imageUrl": "/images/assessment/generated/concepts/warm.webp",
-  "targetImage": "/images/assessment/generated/concepts/warm.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/warm.webp",
-  "resolvedImageAssetKey": "warm",
-  "imageAlt": "The buns were still warm."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l1.R.one.v7r",
@@ -10994,7 +9970,7 @@ export const questions = [
    "all": "D-DEVELOPMENTAL",
    "an": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -11002,27 +9978,19 @@ export const questions = [
   "sentenceText": "Just ___ bun is left.",
   "targetWord": "one",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-one-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "only would gift the key its on-chunk",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Just one bun is left."
+  "notes": "only would gift the key its on-chunk"
  },
  {
   "id": "lp3.hfw_26_50.l1.R.which.v7r",
@@ -11082,34 +10050,26 @@ export const questions = [
    "witch": "D-HOMOPHONE",
    "wish": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "targetWord": "which",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-which-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/which-witch-01.webp",
-  "resolvedImageAssetKey": "which",
-  "imageAlt": "Point to the word: which"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l1.R.all.v7r",
@@ -11169,34 +10129,26 @@ export const questions = [
    "ball": "D-VISUAL-NEIGHBOR",
    "ill": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "targetWord": "all",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-all-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Point to the word: all"
+  "notes": "print recognition IS the construct — surface match is the task"
  },
  {
   "id": "lp3.hfw_26_50.l2.R.there.v7r",
@@ -11235,7 +10187,7 @@ export const questions = [
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -11259,27 +10211,19 @@ export const questions = [
   "sentenceText": "Sit there by the window.",
   "targetWord": "there",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-there-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Build the missing word: Sit there by the window."
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.R.said.v7r",
@@ -11318,7 +10262,7 @@ export const questions = [
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -11340,27 +10284,19 @@ export const questions = [
   "sentenceText": "Who said that?",
   "targetWord": "said",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-said-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/said.webp",
-  "imageUrl": "/images/assessment/hfw/said.webp",
-  "targetImage": "/images/assessment/hfw/said.webp",
-  "targetImagePath": "/images/assessment/hfw/said.webp",
-  "resolvedImageAssetKey": "said",
-  "imageAlt": "Build the missing word: Who said that?"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.R.can.v7r",
@@ -11399,7 +10335,7 @@ export const questions = [
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -11421,27 +10357,19 @@ export const questions = [
   "sentenceText": "Crabs can nip — take care!",
   "targetWord": "can",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-can-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "Build the missing word: Crabs can nip — take care!"
+  "notes": ""
  },
  {
   "id": "lp3.hfw_26_50.l2.R.your.v7r",
@@ -11480,7 +10408,7 @@ export const questions = [
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -11502,26 +10430,18 @@ export const questions = [
   "sentenceText": "Is this your pen or mine?",
   "targetWord": "your",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hfw_26_50-your-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/hfw_26_50.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/your-you-re-01.webp",
-  "resolvedImageAssetKey": "your",
-  "imageAlt": "Build the missing word: Is this your pen or mine?"
+  "notes": ""
  }
 ];

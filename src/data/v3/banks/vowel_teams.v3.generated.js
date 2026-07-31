@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/rain.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/rain.webp",
   "targetImagePath": "/images/assessment/long-vowels/rain.webp",
   "resolvedImageAssetKey": "rain",
-  "imageAlt": "Finish: r__n"
+  "imageAlt": "rain"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v2",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "train",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/train.webp",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/train.webp",
   "targetImagePath": "/images/assessment/long-vowels/train.webp",
   "resolvedImageAssetKey": "train",
-  "imageAlt": "Finish: tr__n"
+  "imageAlt": "train"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v3",
@@ -233,33 +231,25 @@ export const questions = [
    "bed": "D-VOWEL",
    "ship": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the instructional-standards CPS exemplar, now actually published",
-  "imagePath": "/images/assessment/long-vowels/rain.webp",
-  "imageUrl": "/images/assessment/long-vowels/rain.webp",
-  "targetImage": "/images/assessment/long-vowels/rain.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
-  "resolvedImageAssetKey": "rain",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "the instructional-standards CPS exemplar, now actually published"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ai.v4",
@@ -319,33 +309,25 @@ export const questions = [
    "sock": "D-VOWEL",
    "hen": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "chin is one letter from the key with the short sound",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "chin is one letter from the key with the short sound"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v5",
@@ -405,34 +387,26 @@ export const questions = [
    "snaile": "D-DEVELOPMENTAL",
    "snale": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "snail",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v6",
@@ -492,34 +466,26 @@ export const questions = [
    "pante": "D-DEVELOPMENTAL",
    "painte": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "paint",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v1",
@@ -591,14 +557,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "play",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "plai is the medial-team-in-final-position error",
   "imagePath": "/images/assessment/long-vowels/play.webp",
@@ -606,7 +571,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/play.webp",
   "targetImagePath": "/images/assessment/long-vowels/play.webp",
   "resolvedImageAssetKey": "play",
-  "imageAlt": "Finish: pl__"
+  "imageAlt": "play"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v2",
@@ -678,14 +643,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tray",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/tray.webp",
@@ -693,7 +657,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/tray.webp",
   "targetImagePath": "/images/assessment/long-vowels/tray.webp",
   "resolvedImageAssetKey": "tray",
-  "imageAlt": "Finish: tr__"
+  "imageAlt": "tray"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v3",
@@ -753,33 +717,25 @@ export const questions = [
    "plan": "D-PATTERN-TRAP",
    "pot": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ay-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "plan shares three letters with the key but keeps the short a",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "plan shares three letters with the key but keeps the short a"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v4",
@@ -839,33 +795,25 @@ export const questions = [
    "pin": "D-VOWEL",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ay-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "resolvedImageAssetKey": "day",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v5",
@@ -925,7 +873,7 @@ export const questions = [
    "dae": "D-DEVELOPMENTAL",
    "dai": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -937,14 +885,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "day",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
@@ -952,7 +899,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "resolvedImageAssetKey": "day",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "day"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ay.v6",
@@ -1012,34 +959,26 @@ export const questions = [
    "staye": "D-DEVELOPMENTAL",
    "stae": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "stay",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ay-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v1",
@@ -1111,14 +1050,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sheep",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/sheep.webp",
@@ -1126,7 +1064,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/sheep.webp",
   "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
   "resolvedImageAssetKey": "sheep",
-  "imageAlt": "Finish: sh__p"
+  "imageAlt": "sheep"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v2",
@@ -1198,14 +1136,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "green",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/green.webp",
@@ -1213,7 +1150,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/green.webp",
   "targetImagePath": "/images/assessment/blends/green.webp",
   "resolvedImageAssetKey": "green",
-  "imageAlt": "Finish: gr__n"
+  "imageAlt": "green"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v3",
@@ -1273,33 +1210,25 @@ export const questions = [
    "fan": "D-VOWEL",
    "sock": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ee-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/feet.png",
-  "imageUrl": "/images/child-mode/initial-sounds/feet.png",
-  "targetImage": "/images/child-mode/initial-sounds/feet.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/feet.png",
-  "resolvedImageAssetKey": "feet",
-  "imageAlt": "Which word has the long e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v4",
@@ -1359,33 +1288,25 @@ export const questions = [
    "bag": "D-VOWEL",
    "log": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ee-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/tree.webp",
-  "imageUrl": "/images/assessment/long-vowels/tree.webp",
-  "targetImage": "/images/assessment/long-vowels/tree.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tree.webp",
-  "resolvedImageAssetKey": "tree",
-  "imageAlt": "Which word has the long e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v5",
@@ -1445,7 +1366,7 @@ export const questions = [
    "shiep": "D-DEVELOPMENTAL",
    "sheap": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1457,14 +1378,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sheep",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/long-vowels/sheep.webp",
@@ -1472,7 +1392,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/sheep.webp",
   "targetImagePath": "/images/assessment/long-vowels/sheep.webp",
   "resolvedImageAssetKey": "sheep",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "sheep"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ee.v6",
@@ -1532,7 +1452,7 @@ export const questions = [
    "bie": "D-DEVELOPMENTAL",
    "beey": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1544,14 +1464,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bee",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
@@ -1559,7 +1478,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
   "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
   "resolvedImageAssetKey": "bee",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "bee"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v1",
@@ -1631,14 +1550,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "leaf",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/leaf.webp",
@@ -1646,7 +1564,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/leaf.webp",
   "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
   "resolvedImageAssetKey": "leaf",
-  "imageAlt": "Finish: l__f"
+  "imageAlt": "leaf"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v2",
@@ -1718,14 +1636,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "meat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "meet is real — the meat image pins the target",
   "imagePath": "/images/child-mode/initial-sounds/meat.png",
@@ -1733,7 +1650,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/meat.png",
   "targetImagePath": "/images/child-mode/initial-sounds/meat.png",
   "resolvedImageAssetKey": "meat",
-  "imageAlt": "Finish: m__t"
+  "imageAlt": "meat"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v3",
@@ -1793,33 +1710,25 @@ export const questions = [
    "leg": "D-PATTERN-TRAP",
    "fish": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ea-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/leaf.webp",
-  "imageUrl": "/images/assessment/long-vowels/leaf.webp",
-  "targetImage": "/images/assessment/long-vowels/leaf.webp",
-  "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
-  "resolvedImageAssetKey": "leaf",
-  "imageAlt": "Which word has the long e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v4",
@@ -1879,33 +1788,25 @@ export const questions = [
    "leaf": "D-PATTERN-TRAP",
    "beach": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ea-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "ea's two sounds — bread keeps the letters and loses the sound",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
-  "resolvedImageAssetKey": "bread",
-  "imageAlt": "Which word does NOT have the long e sound?"
+  "notes": "ea's two sounds — bread keeps the letters and loses the sound"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v5",
@@ -1965,33 +1866,25 @@ export const questions = [
    "peach": "D-PATTERN-TRAP",
    "sea": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ea-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word does NOT have the long e sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v6",
@@ -2051,7 +1944,7 @@ export const questions = [
    "beache": "D-DEVELOPMENTAL",
    "biech": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2063,14 +1956,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "beach",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "beech is a real tree but not the sandy place — the picture decides",
   "imagePath": "/images/assessment/long-vowels/beach.webp",
@@ -2078,7 +1970,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/beach.webp",
   "targetImagePath": "/images/assessment/long-vowels/beach.webp",
   "resolvedImageAssetKey": "beach",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "beach"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v1",
@@ -2150,14 +2042,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "beet and bait are real — the boat image pins the target",
   "imagePath": "/images/assessment/long-vowels/boat.webp",
@@ -2165,7 +2056,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
   "resolvedImageAssetKey": "boat",
-  "imageAlt": "Finish: b__t"
+  "imageAlt": "boat"
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v2",
@@ -2237,14 +2128,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "goat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/goat.webp",
@@ -2252,7 +2142,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/goat.webp",
   "targetImagePath": "/images/assessment/long-vowels/goat.webp",
   "resolvedImageAssetKey": "goat",
-  "imageAlt": "Finish: g__t"
+  "imageAlt": "goat"
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v3",
@@ -2312,33 +2202,25 @@ export const questions = [
    "pin": "D-VOWEL",
    "hen": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oa-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "got is the key minus its team — the short sibling",
-  "imagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageUrl": "/images/assessment/long-vowels/goat.webp",
-  "targetImage": "/images/assessment/long-vowels/goat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "resolvedImageAssetKey": "goat",
-  "imageAlt": "Which word has the long o sound?"
+  "notes": "got is the key minus its team — the short sibling"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v4",
@@ -2398,33 +2280,25 @@ export const questions = [
    "leg": "D-VOWEL",
    "rod": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oa-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/vowels/road.png",
-  "imageUrl": "/images/child-mode/vowels/road.png",
-  "targetImage": "/images/child-mode/vowels/road.png",
-  "targetImagePath": "/images/child-mode/vowels/road.png",
-  "resolvedImageAssetKey": "road",
-  "imageAlt": "Which word has the long o sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v5",
@@ -2484,7 +2358,7 @@ export const questions = [
    "boet": "D-DEVELOPMENTAL",
    "boate": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2496,14 +2370,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/long-vowels/boat.webp",
@@ -2511,7 +2384,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
   "resolvedImageAssetKey": "boat",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "boat"
  },
  {
   "id": "lp3.vowel_teams.l1.C.oa.v6",
@@ -2571,7 +2444,7 @@ export const questions = [
    "koat": "D-DEVELOPMENTAL",
    "cote": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2583,14 +2456,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "coat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
@@ -2598,7 +2470,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/oat/coat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
   "resolvedImageAssetKey": "coat",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "coat"
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v1",
@@ -2670,14 +2542,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "light",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/light.webp",
@@ -2685,7 +2556,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/light.webp",
   "targetImagePath": "/images/assessment/long-vowels/light.webp",
   "resolvedImageAssetKey": "light",
-  "imageAlt": "Finish: l__t"
+  "imageAlt": "light"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v2",
@@ -2757,14 +2628,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "night",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/night.webp",
@@ -2772,7 +2642,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/night.webp",
   "targetImagePath": "/images/assessment/long-vowels/night.webp",
   "resolvedImageAssetKey": "night",
-  "imageAlt": "Finish: n__t"
+  "imageAlt": "night"
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v3",
@@ -2832,33 +2702,25 @@ export const questions = [
    "dog": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-igh-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "Which word has the long i sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v4",
@@ -2918,33 +2780,25 @@ export const questions = [
    "pot": "D-VOWEL",
    "lit": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-igh-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "lit is the key minus its team",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
-  "imageAlt": "Which word has the long i sound?"
+  "notes": "lit is the key minus its team"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v5",
@@ -3004,7 +2858,7 @@ export const questions = [
    "lyte": "D-DEVELOPMENTAL",
    "lite": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3016,14 +2870,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "light",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "lite is the classic commercial rival spelling",
   "imagePath": "/images/assessment/long-vowels/light.webp",
@@ -3031,7 +2884,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/light.webp",
   "targetImagePath": "/images/assessment/long-vowels/light.webp",
   "resolvedImageAssetKey": "light",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "light"
  },
  {
   "id": "lp3.vowel_teams.l1.C.igh.v6",
@@ -3091,7 +2944,7 @@ export const questions = [
    "nighte": "D-DEVELOPMENTAL",
    "nite": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3103,14 +2956,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "night",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/long-vowels/night.webp",
@@ -3118,7 +2970,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/night.webp",
   "targetImagePath": "/images/assessment/long-vowels/night.webp",
   "resolvedImageAssetKey": "night",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "night"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v1",
@@ -3190,14 +3042,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "moon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "moan is real — the moon image pins the target",
   "imagePath": "/images/assessment/long-vowels/moon.webp",
@@ -3205,7 +3056,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/moon.webp",
   "targetImagePath": "/images/assessment/long-vowels/moon.webp",
   "resolvedImageAssetKey": "moon",
-  "imageAlt": "Finish: m__n"
+  "imageAlt": "moon"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v2",
@@ -3277,14 +3128,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "spoon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/spoon.webp",
@@ -3292,7 +3142,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/spoon.webp",
   "targetImagePath": "/images/assessment/long-vowels/spoon.webp",
   "resolvedImageAssetKey": "spoon",
-  "imageAlt": "Finish: sp__n"
+  "imageAlt": "spoon"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v3",
@@ -3352,34 +3202,26 @@ export const questions = [
    "pig": "D-VOWEL",
    "book": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "blue",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "book keeps the letters and swaps the sound — the two-oo contrast",
-  "imagePath": "/images/assessment/long-vowels/blue.webp",
-  "imageUrl": "/images/assessment/long-vowels/blue.webp",
-  "targetImage": "/images/assessment/long-vowels/blue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
-  "resolvedImageAssetKey": "blue",
-  "imageAlt": "Which word has the same sound as blue?"
+  "notes": "book keeps the letters and swaps the sound — the two-oo contrast"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v4",
@@ -3439,34 +3281,26 @@ export const questions = [
    "fan": "D-VOWEL",
    "net": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "glue",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/glue.webp",
-  "imageUrl": "/images/assessment/long-vowels/glue.webp",
-  "targetImage": "/images/assessment/long-vowels/glue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/glue.webp",
-  "resolvedImageAssetKey": "glue",
-  "imageAlt": "Which word has the same sound as glue?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v5",
@@ -3526,33 +3360,25 @@ export const questions = [
    "moon": "D-PATTERN-TRAP",
    "spoon": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "resolvedImageAssetKey": "book",
-  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v6",
@@ -3612,33 +3438,25 @@ export const questions = [
    "boot": "D-PATTERN-TRAP",
    "room": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/hfw/look.webp",
-  "imageUrl": "/images/assessment/hfw/look.webp",
-  "targetImage": "/images/assessment/hfw/look.webp",
-  "targetImagePath": "/images/assessment/hfw/look.webp",
-  "resolvedImageAssetKey": "look",
-  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v1",
@@ -3710,14 +3528,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/snow.webp",
@@ -3725,7 +3542,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/snow.webp",
   "targetImagePath": "/images/assessment/long-vowels/snow.webp",
   "resolvedImageAssetKey": "snow",
-  "imageAlt": "Finish: sn__"
+  "imageAlt": "snow"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v2",
@@ -3785,34 +3602,26 @@ export const questions = [
    "aw": "D-PATTERN-TRAP",
    "ou": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "grow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: gr__"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v3",
@@ -3872,34 +3681,26 @@ export const questions = [
    "bed": "D-VOWEL",
    "cow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cow keeps the letters and swaps the sound",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "Which word has the same sound as boat?"
+  "notes": "cow keeps the letters and swaps the sound"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v4",
@@ -3959,34 +3760,26 @@ export const questions = [
    "pin": "D-VOWEL",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "loud",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/loud.webp",
-  "imageUrl": "/images/assessment/generated/concepts/loud.webp",
-  "targetImage": "/images/assessment/generated/concepts/loud.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/loud.webp",
-  "resolvedImageAssetKey": "loud",
-  "imageAlt": "Which word has the same sound as loud?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v5",
@@ -4046,33 +3839,25 @@ export const questions = [
    "town": "D-PATTERN-TRAP",
    "down": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/long-vowels/snow.webp",
-  "imageUrl": "/images/assessment/long-vowels/snow.webp",
-  "targetImage": "/images/assessment/long-vowels/snow.webp",
-  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
-  "resolvedImageAssetKey": "snow",
-  "imageAlt": "Which word does NOT have the ow (as in cow) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v6",
@@ -4132,33 +3917,25 @@ export const questions = [
    "slow": "D-PATTERN-TRAP",
    "show": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "resolvedImageAssetKey": "cow",
-  "imageAlt": "Which word does NOT have the ow (as in snow) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v1",
@@ -4230,14 +4007,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cloud",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/blends/cloud.png",
@@ -4245,7 +4021,7 @@ export const questions = [
   "targetImage": "/images/child-mode/blends/cloud.png",
   "targetImagePath": "/images/child-mode/blends/cloud.png",
   "resolvedImageAssetKey": "cloud",
-  "imageAlt": "Finish: cl__d"
+  "imageAlt": "cloud"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v2",
@@ -4317,14 +4093,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "house",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
@@ -4332,7 +4107,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/house/house-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
   "resolvedImageAssetKey": "house",
-  "imageAlt": "Finish: h__se"
+  "imageAlt": "house"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v3",
@@ -4392,34 +4167,26 @@ export const questions = [
    "hat": "D-VOWEL",
    "zip": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "cow",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ou-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk",
-  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "resolvedImageAssetKey": "cow",
-  "imageAlt": "Which word has the same sound as cow?"
+  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v4",
@@ -4479,34 +4246,26 @@ export const questions = [
    "moth": "D-PATTERN-TRAP",
    "bag": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ou-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "moth is the key minus one letter with a different vowel entirely",
-  "imagePath": "/images/assessment/hfw/how.webp",
-  "imageUrl": "/images/assessment/hfw/how.webp",
-  "targetImage": "/images/assessment/hfw/how.webp",
-  "targetImagePath": "/images/assessment/hfw/how.webp",
-  "resolvedImageAssetKey": "how",
-  "imageAlt": "Which word has the same sound as how?"
+  "notes": "moth is the key minus one letter with a different vowel entirely"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v5",
@@ -4566,33 +4325,25 @@ export const questions = [
    "shout": "D-PATTERN-TRAP",
    "loud": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ou-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "soup's ou says oo — the variable-team contrast",
-  "imagePath": "/images/child-mode/blends/cloud.png",
-  "imageUrl": "/images/child-mode/blends/cloud.png",
-  "targetImage": "/images/child-mode/blends/cloud.png",
-  "targetImagePath": "/images/child-mode/blends/cloud.png",
-  "resolvedImageAssetKey": "cloud",
-  "imageAlt": "Which word does NOT have the ou (as in cloud) sound?"
+  "notes": "soup's ou says oo — the variable-team contrast"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v6",
@@ -4652,33 +4403,25 @@ export const questions = [
    "house": "D-PATTERN-TRAP",
    "mouse": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ou-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "could's ou says the book-oo",
-  "imagePath": "/images/assessment/hfw/could.webp",
-  "imageUrl": "/images/assessment/hfw/could.webp",
-  "targetImage": "/images/assessment/hfw/could.webp",
-  "targetImagePath": "/images/assessment/hfw/could.webp",
-  "resolvedImageAssetKey": "could",
-  "imageAlt": "Which word does NOT have the ou (as in cloud) sound?"
+  "notes": "could's ou says the book-oo"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v1",
@@ -4738,34 +4481,26 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "ee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: c__n"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v2",
@@ -4837,14 +4572,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boil",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/concepts/boil.webp",
@@ -4852,7 +4586,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/boil.webp",
   "targetImagePath": "/images/assessment/generated/concepts/boil.webp",
   "resolvedImageAssetKey": "boil",
-  "imageAlt": "Finish: b__l"
+  "imageAlt": "boil"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v3",
@@ -4912,34 +4646,26 @@ export const questions = [
    "pin": "D-VOWEL",
    "bag": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "resolvedImageAssetKey": "toy",
-  "imageAlt": "Which word has the same sound as toy?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v4",
@@ -4999,34 +4725,26 @@ export const questions = [
    "log": "D-VOWEL",
    "pen": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
-  "resolvedImageAssetKey": "boy",
-  "imageAlt": "Which word has the same sound as boy?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v5",
@@ -5086,34 +4804,26 @@ export const questions = [
    "koin": "D-DEVELOPMENTAL",
    "coine": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "coyn is the oy-in-the-middle position error",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "coyn is the oy-in-the-middle position error"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v6",
@@ -5173,34 +4883,26 @@ export const questions = [
    "poynt": "D-DEVELOPMENTAL",
    "poient": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "point",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v1",
@@ -5272,14 +4974,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bay is real — the boy image pins the target; boi is the position error",
   "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
@@ -5287,7 +4988,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "resolvedImageAssetKey": "boy",
-  "imageAlt": "Finish: b__"
+  "imageAlt": "boy"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v2",
@@ -5359,14 +5060,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "joy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "joi, jai and jee are non-words",
   "imagePath": "/images/assessment/generated/concepts/joy.webp",
@@ -5374,7 +5074,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/joy.webp",
   "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
   "resolvedImageAssetKey": "joy",
-  "imageAlt": "Finish: j__"
+  "imageAlt": "joy"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v3",
@@ -5434,34 +5134,26 @@ export const questions = [
    "net": "D-VOWEL",
    "rug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oy-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "resolvedImageAssetKey": "toy",
-  "imageAlt": "Which word has the same sound as coin?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v4",
@@ -5521,34 +5213,26 @@ export const questions = [
    "jog": "D-PATTERN-TRAP",
    "pin": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oy-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/oil.webp",
-  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
-  "targetImage": "/images/assessment/generated/concepts/oil.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
-  "resolvedImageAssetKey": "oil",
-  "imageAlt": "Which word has the same sound as oil?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v5",
@@ -5608,7 +5292,7 @@ export const questions = [
    "boye": "D-DEVELOPMENTAL",
    "boey": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5620,14 +5304,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "boi is the oi-at-the-end position error",
   "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
@@ -5635,7 +5318,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "resolvedImageAssetKey": "boy",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "boy"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oy.v6",
@@ -5695,7 +5378,7 @@ export const questions = [
    "toi": "D-DEVELOPMENTAL",
    "toye": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5707,14 +5390,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "toy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
@@ -5722,7 +5404,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "resolvedImageAssetKey": "toy",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "toy"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v1",
@@ -5794,14 +5476,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "screw",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/screw.webp",
@@ -5809,7 +5490,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/screw.webp",
   "targetImagePath": "/images/assessment/blends/screw.webp",
   "resolvedImageAssetKey": "screw",
-  "imageAlt": "Finish: scr__"
+  "imageAlt": "screw"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v2",
@@ -5881,14 +5562,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "chew",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/chew.webp",
@@ -5896,7 +5576,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/chew.webp",
   "targetImagePath": "/images/assessment/long-vowels/chew.webp",
   "resolvedImageAssetKey": "chew",
-  "imageAlt": "Finish: ch__"
+  "imageAlt": "chew"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v3",
@@ -5956,34 +5636,26 @@ export const questions = [
    "bag": "D-VOWEL",
    "dog": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ew-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/moon.webp",
-  "imageUrl": "/images/assessment/long-vowels/moon.webp",
-  "targetImage": "/images/assessment/long-vowels/moon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
-  "resolvedImageAssetKey": "moon",
-  "imageAlt": "Which word has the same sound as moon?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v4",
@@ -6043,34 +5715,26 @@ export const questions = [
    "fled": "D-PATTERN-TRAP",
    "sock": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "zoo",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ew-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-  "resolvedImageAssetKey": "zoo",
-  "imageAlt": "Which word has the same sound as zoo?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v5",
@@ -6130,7 +5794,7 @@ export const questions = [
    "nue": "D-DEVELOPMENTAL",
    "newe": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6142,14 +5806,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "new",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/hfw/new.webp",
@@ -6157,7 +5820,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/new.webp",
   "targetImagePath": "/images/assessment/hfw/new.webp",
   "resolvedImageAssetKey": "new",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "new"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ew.v6",
@@ -6217,34 +5880,26 @@ export const questions = [
    "groo": "D-DEVELOPMENTAL",
    "grue": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "grew",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ew-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v1",
@@ -6316,14 +5971,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "draw",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "drew is real — the draw image pins the target",
   "imagePath": "/images/assessment/blends/draw.webp",
@@ -6331,7 +5985,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
   "resolvedImageAssetKey": "draw",
-  "imageAlt": "Finish: dr__"
+  "imageAlt": "draw"
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v2",
@@ -6403,14 +6057,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yawn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "yewn, yoon and yoan are non-words",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
@@ -6418,7 +6071,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
   "resolvedImageAssetKey": "yawn",
-  "imageAlt": "Finish: y__n"
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v3",
@@ -6478,34 +6131,26 @@ export const questions = [
    "pin": "D-VOWEL",
    "mug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "resolvedImageAssetKey": "ball",
-  "imageAlt": "Which word has the same sound as ball?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v4",
@@ -6565,34 +6210,26 @@ export const questions = [
    "pan": "D-PATTERN-TRAP",
    "bed": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "tall",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
-  "imageAlt": "Which word has the same sound as tall?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v5",
@@ -6652,34 +6289,26 @@ export const questions = [
    "sawe": "D-DEVELOPMENTAL",
    "soar": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "saw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "soar is a real word but not this one — the picture decides",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "soar is a real word but not this one — the picture decides"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v6",
@@ -6739,34 +6368,26 @@ export const questions = [
    "clau": "D-DEVELOPMENTAL",
    "clawe": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "claw",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
-  "imageAlt": "Which is the real word?"
+  "notes": "rival spellings are pronounceable developmental errors"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v7r",
@@ -6838,14 +6459,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tail",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tayl, teel and toal are non-words",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
@@ -6853,7 +6473,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
   "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
   "resolvedImageAssetKey": "tail",
-  "imageAlt": "Finish: t__l"
+  "imageAlt": "tail"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v7r",
@@ -6913,34 +6533,26 @@ export const questions = [
    "ai": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "toast",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oa-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: t__st"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.R.ea.v7r",
@@ -7000,33 +6612,25 @@ export const questions = [
    "cup": "D-VOWEL",
    "bench": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ea-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageUrl": "/images/assessment/long-vowels/beach.webp",
-  "targetImage": "/images/assessment/long-vowels/beach.webp",
-  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "resolvedImageAssetKey": "beach",
-  "imageAlt": "Which word has the long e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v7r",
@@ -7086,34 +6690,26 @@ export const questions = [
    "pig": "D-VOWEL",
    "jam": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/flew.webp",
-  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
-  "targetImage": "/images/assessment/generated/concepts/flew.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
-  "resolvedImageAssetKey": "flew",
-  "imageAlt": "Which word has the same sound as flew?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v8r",
@@ -7173,7 +6769,7 @@ export const questions = [
    "rayn": "D-DEVELOPMENTAL",
    "raine": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -7185,14 +6781,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rival spellings are pronounceable developmental errors",
   "imagePath": "/images/assessment/long-vowels/rain.webp",
@@ -7200,7 +6795,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/rain.webp",
   "targetImagePath": "/images/assessment/long-vowels/rain.webp",
   "resolvedImageAssetKey": "rain",
-  "imageAlt": "Which is the real word?"
+  "imageAlt": "rain"
  },
  {
   "id": "lp3.vowel_teams.l2.R.ow.v7r",
@@ -7260,33 +6855,25 @@ export const questions = [
    "show": "D-PATTERN-TRAP",
    "slow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/blends/brown.webp",
-  "imageUrl": "/images/assessment/blends/brown.webp",
-  "targetImage": "/images/assessment/blends/brown.webp",
-  "targetImagePath": "/images/assessment/blends/brown.webp",
-  "resolvedImageAssetKey": "brown",
-  "imageAlt": "Which word does NOT have the ow (as in snow) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v8r",
@@ -7358,14 +6945,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "road",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "reed and raid are real — the road image pins the target",
   "imagePath": "/images/child-mode/vowels/road.png",
@@ -7373,7 +6959,7 @@ export const questions = [
   "targetImage": "/images/child-mode/vowels/road.png",
   "targetImagePath": "/images/child-mode/vowels/road.png",
   "resolvedImageAssetKey": "road",
-  "imageAlt": "Finish: r__d"
+  "imageAlt": "road"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oi.v7r",
@@ -7433,34 +7019,26 @@ export const questions = [
    "bell": "D-PATTERN-TRAP",
    "pot": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/joy.webp",
-  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
-  "targetImage": "/images/assessment/generated/concepts/joy.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
-  "resolvedImageAssetKey": "joy",
-  "imageAlt": "Which word has the same sound as joy?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.ew.v7r",
@@ -7532,14 +7110,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "new",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "now is real — the new word card pins the target",
   "imagePath": "/images/assessment/hfw/new.webp",
@@ -7547,7 +7124,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/new.webp",
   "targetImagePath": "/images/assessment/hfw/new.webp",
   "resolvedImageAssetKey": "new",
-  "imageAlt": "Finish: n__"
+  "imageAlt": "new"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v7r",
@@ -7607,34 +7184,26 @@ export const questions = [
    "strap": "D-PATTERN-TRAP",
    "bin": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "resolvedImageAssetKey": "ball",
-  "imageAlt": "Which word has the same sound as ball?"
+  "notes": ""
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v8r",
@@ -7694,33 +7263,25 @@ export const questions = [
    "food": "D-PATTERN-TRAP",
    "room": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oo-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/good-great-01.webp",
-  "resolvedImageAssetKey": "good",
-  "imageAlt": "Which word does NOT have the oo (as in moon) sound?"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v8r",
@@ -7780,33 +7341,25 @@ export const questions = [
    "ee": "D-PATTERN-TRAP",
    "oo": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "crawl",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/vowel_teams.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "crowl, creel and crool are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: cr__l"
+  "notes": "crowl, creel and crool are non-words"
  }
 ];

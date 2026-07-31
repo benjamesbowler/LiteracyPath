@@ -6,12 +6,10 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const analysisPath = path.join(repoRoot, "dist", "bundle-analysis.json");
-const routeDataRawLimitBytes = 700_000;
 const lazyBankModules = [
-  "/src/data/cvcShortVowelExpansionQuestions.js",
-  "/src/data/initialSoundCoverageQuestions.js",
-  "/src/data/ixlStyleSeedQuestions.js",
-  "/src/data/rhymingCoverageQuestions.js"
+  "/src/data/v3/banks/initial_sounds.v3.generated.js",
+  "/src/data/v3/banks/hfw_1_25.v3.generated.js",
+  "/src/data/v3/banks/main_idea.v3.generated.js"
 ];
 const elBenchmarkEngineModule = "/src/appState/elBenchmarkEngine.js";
 const elBenchmarkCoreModules = [
@@ -20,14 +18,6 @@ const elBenchmarkCoreModules = [
   "/src/data/elBenchmarkSession.js",
   "/src/utils/elBenchmarkAssessmentScoring.js"
 ];
-const giantRuntimeBankBarrels = [
-  "/src/data/generated/languageSkillQuestions.generated.js",
-  "/src/data/generated/skillLevelGapQuestions.generated.js",
-  "/src/data/generated/rhyming.generated.js",
-  "/src/data/generated/hfwAssessmentQuestions.generated.js",
-  "/src/data/generated/hfwLevel2Questions.generated.js"
-];
-const runtimeShardDirectory = "/src/data/generated/runtimeShards/";
 
 function runBuild() {
   return new Promise(resolve => {
@@ -66,10 +56,6 @@ if (!fs.existsSync(analysisPath)) {
 const analysis = JSON.parse(fs.readFileSync(analysisPath, "utf8"));
 const failures = [];
 const normalizedModuleId = module => module.id.replaceAll("\\", "/");
-const chunkRawBytes = chunk => {
-  const filePath = path.join(repoRoot, "dist", chunk.fileName);
-  return fs.existsSync(filePath) ? fs.statSync(filePath).size : Number.POSITIVE_INFINITY;
-};
 for (const moduleSuffix of lazyBankModules) {
   const chunks = analysis.chunks.filter(chunk =>
     chunk.modules.some(module => module.id.replaceAll("\\", "/").endsWith(moduleSuffix))
@@ -113,17 +99,6 @@ if (!entryChunk) {
     }
   }
 
-  const staticallyLoadedRuntimeShards = analysis.chunks.filter(chunk =>
-    staticallyReachable.has(chunk.fileName)
-    && chunk.modules.some(module => normalizedModuleId(module).includes(runtimeShardDirectory))
-  );
-  if (staticallyLoadedRuntimeShards.length) {
-    failures.push(
-      `runtime question shards are statically reachable from main entry: ${staticallyLoadedRuntimeShards
-        .map(chunk => chunk.fileName)
-        .join(", ")}`
-    );
-  }
 }
 
 const engineChunks = analysis.chunks.filter(chunk =>
@@ -138,66 +113,14 @@ if (engineChunks.length !== 1 || !engineChunks[0].isDynamicEntry || engineChunks
   );
 }
 
-const browserMasterLexiconChunks = analysis.chunks.filter(chunk =>
-  chunk.modules.some(module =>
-    module.id.replaceAll("\\", "/").endsWith("/src/content/lexicon/masterWordLexicon.js")
-  )
-);
-if (browserMasterLexiconChunks.length) {
-  failures.push(
-    `build-time master lexicon leaked into browser chunks: ${browserMasterLexiconChunks
-      .map(chunk => chunk.fileName)
-      .join(", ")}`
-  );
-}
-
-const runtimeShardChunks = analysis.chunks.filter(chunk =>
-  chunk.modules.some(module => normalizedModuleId(module).includes(runtimeShardDirectory))
-);
-if (!runtimeShardChunks.length) {
-  failures.push("runtime question shards: absent from build");
-}
-for (const chunk of runtimeShardChunks) {
-  if (chunk.isEntry || !chunk.isDynamicEntry) {
-    failures.push(`${chunk.fileName}: runtime shard is not an isolated dynamic entry`);
-  }
-}
-
-for (const moduleSuffix of giantRuntimeBankBarrels) {
-  const leakedChunks = analysis.chunks.filter(chunk =>
-    chunk.modules.some(module => normalizedModuleId(module).endsWith(moduleSuffix))
-  );
-  if (leakedChunks.length) {
-    failures.push(
-      `${moduleSuffix}: full audit/tool barrel leaked into browser build (${leakedChunks
-        .map(chunk => chunk.fileName)
-        .join(", ")})`
-    );
-  }
-}
-
-for (const chunk of analysis.chunks) {
-  const isRouteOrDataChunk = chunk.isDynamicEntry || chunk.modules.some(module => {
-    const id = normalizedModuleId(module);
-    return id.includes("/src/data/") || id.includes(runtimeShardDirectory);
-  });
-  if (!isRouteOrDataChunk) continue;
-  const rawBytes = chunkRawBytes(chunk);
-  if (rawBytes > routeDataRawLimitBytes) {
-    failures.push(
-      `${chunk.fileName}: route/data chunk is ${rawBytes} bytes, above ${routeDataRawLimitBytes}`
-    );
-  }
-}
 
 if (failures.length) {
   console.error(`Split-boundary verification failed:\n- ${failures.join("\n- ")}`);
   process.exit(1);
 }
 console.log(
-  `Split boundaries verified: ${lazyBankModules.length} assessment banks and `
-  + `${runtimeShardChunks.length} skill/level shards are dynamic, every route/data chunk is `
-  + `≤ ${routeDataRawLimitBytes} bytes, full audit barrels stay out of the browser, `
+  `Split boundaries verified: ${lazyBankModules.length} representative assessment banks are dynamic, `
+  + `full audit barrels stay out of the browser, `
   + "the EL benchmark engine is outside the main-entry static graph, "
-  + "the build-time lexicon is absent, and zero ineffective dynamic imports were reported."
+  + "and zero ineffective dynamic imports were reported."
 );

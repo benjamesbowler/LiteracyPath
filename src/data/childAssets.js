@@ -1,6 +1,4 @@
-import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
-import { kimiAssets3WordAssets } from "./kimiAssets3Manifest.js";
-import { kimiAssets4WordAssets } from "./kimiAssets4Manifest.js";
+import { childWordMediaManifest } from "./childWordMediaManifest.js";
 import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generated.js";
 import { getPreferredAudioPath } from "./audioPreferenceManifest.js";
 
@@ -567,9 +565,7 @@ export const childPhraseAudio = {
 export function getChildWordAsset(word, options = {}) {
   const key = normalizeAssetKey(word);
   const localAsset = childWordAssets[key];
-  const kimiAsset = kimiAssets2WordAssets[key];
-  const kimi3Asset = kimiAssets3WordAssets[key];
-  const kimi4Asset = kimiAssets4WordAssets[key];
+  const importedAsset = childWordMediaManifest[key];
   const vocabularyAsset = k3VocabularyMedia[key]
     ? {
       word: key,
@@ -579,7 +575,7 @@ export function getChildWordAsset(word, options = {}) {
       source: k3VocabularyMedia[key].source
     }
     : null;
-  const candidates = [localAsset, kimiAsset, kimi3Asset, kimi4Asset, vocabularyAsset];
+  const candidates = [localAsset, importedAsset, vocabularyAsset];
   const primary = candidates.find(Boolean);
   if (!primary) return blockAssessmentImageIfNeeded(key, null, options);
 
@@ -590,12 +586,9 @@ export function getChildWordAsset(word, options = {}) {
       ...primary,
       image: first("image"),
       fallbackImage: localAsset?.fallbackImage ||
-        kimiAsset?.fallbackImage ||
-        kimi3Asset?.image ||
-        kimi4Asset?.image ||
+        importedAsset?.fallbackImage ||
+        importedAsset?.image ||
         vocabularyAsset?.image ||
-        kimi3Asset?.fallbackImage ||
-        kimi4Asset?.fallbackImage ||
         vocabularyAsset?.fallbackImage,
       source: first("source")
     };
@@ -609,9 +602,7 @@ export function getChildAudioPath(text) {
   const key = normalizeAssetKey(text);
   const fallbackPath =
     childWordAssets[key]?.audio ||
-    kimiAssets2WordAssets[key]?.audio ||
-    kimiAssets3WordAssets[key]?.audio ||
-    kimiAssets4WordAssets[key]?.audio ||
+    childWordMediaManifest[key]?.audio ||
     k3VocabularyMedia[key]?.audio ||
     childPhraseAudio[key] ||
     "";

@@ -6,7 +6,7 @@ import "../../styles/teacher-context-bar.css";
 // Sits above every teacher screen: which class and school you are acting for,
 // the teaching cycle you are working to, and the two always-available actions.
 //
-// The cycle here is a TEACHER-SET REFERENCE, not automation: Benjamin's call
+// The cycle here is a TEACHER-SET REFERENCE, not automation: the current policy
 // (2026-07-28) - the teacher steps it with the small previous/next buttons or
 // picks it directly, and the choice feeds Present mode's default cycle. It is
 // remembered in localStorage and changes nothing about student data.

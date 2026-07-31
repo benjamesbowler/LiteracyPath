@@ -1,9 +1,10 @@
 # LiteracyPath — Shared Game Curriculum & Difficulty Framework
 
-**Status:** Spec / the law for EVERY game (Letter Leap, Rocket Run, and all future arcade games).
-**Date:** 2026-07-06 · **Branch:** `pristine-v2-3d` (previews first, never straight to `main`)
+**Status:** Current shared curriculum reference for Letter Leap, Rocket Run, and compatible arcade games.
+**Date:** 2026-07-06
 
-Benjamin's rule: every game must have the same difficulty/world/curriculum structure. This doc defines it once so all games share one engine.
+Compatible games use the same difficulty, world, and curriculum structure so the
+shared engine has one coherent rule set.
 
 ---
 
@@ -84,4 +85,4 @@ A ~3-minute level ≈ enough targets to sustain play: roughly 8–12 words per w
 - [ ] Hard levels past the threshold are `mode:"sentence"` and every sentence is orderable/decodable.
 - [ ] `catchUpQueue`: a missed target always reappears and the level only completes once all (incl. recovered) are caught.
 - [ ] Deterministic: same (game,difficulty,level,seed) = same plan (reproducible + testable).
-- [ ] Full gate green; previews-only until Benjamin signs off; then merge to `main`.
+- [ ] Focused tests, complete unit suite, and production build are green.

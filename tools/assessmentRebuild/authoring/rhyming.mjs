@@ -15,7 +15,7 @@
 //     the odd key. Zero scanner leaks is the target, not the 25% gate ceiling.
 // Audio note: L1 is phonological; until recorded audio ships this is honest
 // print-pattern evidence (blueprint mediaTierNote) — instruction + word audio
-// for every item is queued in MEDIA_REQUEST.
+// for every item is checked against the current production-audio registry.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md §3.
 
 import { makeImageResolver } from "../lib.mjs";

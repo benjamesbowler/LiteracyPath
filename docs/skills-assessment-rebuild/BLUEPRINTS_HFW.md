@@ -14,14 +14,14 @@ itemKey:  "the"            // the word — THE unit
 id:       "lp3.hfw_1_25.l1.A.the.v1"   // variant identity lives in the id, nowhere else
 ```
 
-Migration (MASTERY_SYSTEM §8): split legacy keys on `_HFWQ-`, merge ledger rows per word, recompute states. `hfwRuntimeEligibility`'s giant per-question key tables retire with the keys.
+Current evidence keys are the canonical HFW words themselves. Historical per-question key migration logic has been permanently removed and is not part of the runtime standard.
 
 **Construct.** Instant recognition (L1) and spelling (L2) of the band's 25 words, evidenced in meaning-bearing context — never visual spotting (per instructional standards' sight-word section).
 
-**Units.** The 25 words. Rule family **D-large**: word passed = 2 correct · 2 distinct items · 2 days · latest correct. Sitting = 12 → 5 sittings per level for full coverage (SIM-PASS budget; Ben may tune per MASTERY_SYSTEM §11.1).
+**Units.** The 25 words. Rule family **D-large**: word passed = 2 correct · 2 distinct items · 2 days · latest correct. Sitting = 12. Runtime progression always uses the sitting length and 70% phase rule defined in the current blueprint/policy modules.
 
 **Levels.**
-- **L1 — read & choose.** `HFW_SENTENCE_CLOZE` (printed sentence, 4 word tiles) and `READ_FIND_WORD` (find the word ⟨said⟩ among 4 printed HFW neighbors — legitimate here: the construct IS print recognition; distractors are same-band visual neighbors: said/sand/says/side-class, all real words).
+- **L1 — read & choose.** `HFW_SENTENCE_CLOZE` (printed sentence, 4 word tiles) and `HFW_READ_FIND_WORD` (find the word ⟨said⟩ among 4 printed HFW neighbors — legitimate here: the construct IS print recognition; distractors are same-band visual neighbors: said/sand/says/side-class, all real words).
 - **L2 — spell.** `HFW_LETTER_BUILD` (letter tiles, existing panel) and `HFW_SENTENCE_SPELL` (sentence with blank, type/build the word). L2 keeps the listen-and-spell frame but each item ships `sentenceText` for on-screen display until recorded audio lands (mediaTier `audio-required` items run in the interim as read-and-spell — honest per MASTERY_SYSTEM §7; do NOT rely on browser TTS as the primary carrier, per the audit).
 
 **The cloze quality bar** (this is where the current bank fails — 50 duplicate sentence groups per band, grammar-giveaway distractor sets):

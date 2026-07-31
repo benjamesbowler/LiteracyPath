@@ -125,7 +125,7 @@ export function AppSurface({ surface }) {
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
   // The context bar's teaching cycle - a teacher-set reference (never
-  // automated; Benjamin's 2026-07-28 decision), remembered across sessions
+  // automated; this is the current product behavior), remembered across sessions
   // and fed to Present mode as its default cycle.
   const [teacherCycleId, setTeacherCycleId] = useState(() => {
     try {

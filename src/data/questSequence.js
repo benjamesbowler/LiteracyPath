@@ -43,7 +43,7 @@ export const QUEST_ACTS = [
 // Graphemes with no gold-voice recording yet. The app stays SILENT for these
 // (never a browser voice — see docs/IMPROVEMENT_LOOPS.md rule #3) and the
 // Listen button hides itself. Listed here so the check reports them as a known
-// gap instead of failing, and so the Kimi request doc can be generated from it.
+// gap instead of failing, and so a replacement request can be generated from it.
 export const NEEDS_AUDIO = [
   "aw", "ore", "air", "are", "ear", "ure", "le", "tion",
   "y_ie", "y_ee", "oo_short", "ow_ou", "c_s", "g_j", "ch_k", "ea_e",

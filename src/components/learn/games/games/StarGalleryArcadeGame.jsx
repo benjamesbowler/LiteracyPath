@@ -2164,7 +2164,6 @@ function createStarGalleryEngine(mount, options) {
   };
   const detachContextGuard = attachContextLossGuard(renderer, { onLost: () => api.pause(), onRestored: () => api.resume() });
   if (options.debugGlobalName) window[options.debugGlobalName] = api;
-  if (window.location.pathname.includes("star-gallery-preview")) window.__starGalleryEngine = api;
   options.onEngineReady?.(api);
   loop.start(true); // immediate first tick preserves the old synchronous animate() call
   return api;

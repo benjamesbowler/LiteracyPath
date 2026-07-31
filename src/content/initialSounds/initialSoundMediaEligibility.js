@@ -4,7 +4,7 @@ import { hasImportedInitialSoundImage } from "./initialSoundMediaManifest.js";
 const BLOCKED_QA_STATUSES = new Set([
   "rejected",
   "blocked",
-  "needs_kimi",
+  "needs_replacement",
   "needs_image_replacement",
   "draft_needs_assets",
   "bad_image",

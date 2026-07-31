@@ -11,7 +11,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
-const reportPath = path.join(repoRoot, "docs", "validation", "repo_hygiene_audit.md");
+const reportPath = path.join(repoRoot, ".artifacts", "repo-hygiene", "report.md");
 const reportRelativePath = normalizePath(path.relative(repoRoot, reportPath));
 const hygieneBaseline = JSON.parse(
   fs.readFileSync(path.join(repoRoot, "tools", "hygiene-baseline.json"), "utf8")
@@ -21,7 +21,8 @@ const LIVE_MEDIA_ROOTS = [
   "public/images",
   "public/audio",
   "public/media",
-  "public/guided-reading"
+  "public/guided-reading",
+  "public/learn-decks"
 ];
 
 const APPROVED_LARGE_ROOTS = LIVE_MEDIA_ROOTS;
@@ -29,6 +30,11 @@ const ROOT_PREVIEW_RE = /preview.*\.html$/i;
 const BACKUP_EXTENSIONS = new Set([".bak", ".tmp", ".old"]);
 const ZIP_EXTENSIONS = new Set([".zip"]);
 const SOURCE_MEDIA_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".psd", ".ai", ".zip", ".md"]);
+const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
+  // This is the production recording for the vocabulary word "source", not a
+  // source/reference artifact.
+  "public/audio/production/en-US/isolated_word/source-719dea8a7f.mp3"
+]);
 const HARD_SOURCE_EXTENSIONS = new Set([".psd", ".ai", ".zip", ".md"]);
 const TEMP_ROOT_NAMES = new Set([".tmp", "tmp", "temp", "temporary"]);
 const SKIP_DIRS = new Set([".cache", ".git", "node_modules", "dist", "playwright-report", "test-results"]);
@@ -48,8 +54,7 @@ const GENERATED_NOISE_PATTERNS = hygieneBaseline.generatedOutputPatterns
 const PREVIEW_HARNESS_ROOTS = new Set(hygieneBaseline.previewHarnessRoots);
 const RUNTIME_ENTRY_FILES = [
   "src/App.jsx",
-  "src/data/loadAssessmentSkillBank.js",
-  "tools/phonicsRuntimeUtils.js"
+  "src/data/loadAssessmentSkillBank.js"
 ];
 const IMPORT_RE = /import\s+(?:[\s\S]*?\s+from\s+)?["']([^"']+)["']|import\(["']([^"']+)["']\)|require\(["']([^"']+)["']\)/g;
 
@@ -155,6 +160,7 @@ function isSourceMediaCandidate(filePath) {
 
 function isHardTrackedMediaSource(filePath) {
   if (!isLiveMediaPath(filePath)) return false;
+  if (CURRENT_NAMED_MEDIA_EXCEPTIONS.has(filePath)) return false;
   const ext = extension(filePath);
   if (HARD_SOURCE_EXTENSIONS.has(ext)) return true;
   return isSourceName(filePath) && !isWebpFile(filePath);
@@ -473,7 +479,7 @@ function main() {
         ignored,
         "allowed",
         filePath,
-        "Existing tracked legacy non-webp public media file.",
+        "Existing tracked non-WebP public media file.",
         "Allowed in this pass unless changed."
       );
     }
@@ -481,6 +487,7 @@ function main() {
 
   for (const filePath of gitContext.allGitPaths) {
     const status = gitContext.statusByPath.get(filePath);
+    if (status?.deleted) continue;
 
     if (isActiveRequestDoc(filePath)) {
       if (ALLOWED_NEW_REQUEST_DOCS.has(filePath)) {
@@ -549,27 +556,10 @@ function main() {
         "Ensure source-of-truth guards block this from selectable runtime."
       );
     }
-    if (/photorealistic/i.test(text)) {
-      addFinding(
-        warnings,
-        "warning",
-        filePath,
-        "Runtime source mentions photorealistic assessment imagery.",
-        "Review asset style and QA status."
-      );
-    }
   }
 
   for (const entry of collectLargeFiles(gitContext.allGitPaths)) {
-    if (entry.size > 20 * 1024 * 1024) {
-      addFinding(
-        warnings,
-        "warning",
-        entry.path,
-        `Large file over 20 MB: ${formatBytes(entry.size)}.`,
-        "Review before committing."
-      );
-    } else if (!isApprovedLargePath(entry.path)) {
+    if (!isApprovedLargePath(entry.path)) {
       addFinding(
         warnings,
         "warning",

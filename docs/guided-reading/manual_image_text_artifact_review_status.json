@@ -1,4 +1,0 @@
-{
-  "instructions": "Set each item key to clean, needs_replacement, or uncertain after human visual review. Optional notes and issueLabels are supported.",
-  "items": {}
-}

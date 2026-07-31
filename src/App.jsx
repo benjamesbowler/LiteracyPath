@@ -14,7 +14,6 @@ import { saveStudentAccessibilitySettings, saveStudentReducedChoiceMode } from "
 import { applyLearnerAccessibilityToDocument, learnerAccessibilityFromProfile } from "./accessibility/learnerAccessibility.js";
 import { loadStudentProfile } from "./utils/studentProfile.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
-import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
 import { ASSESSMENT_RESPONSE_STATUSES, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
@@ -557,12 +556,6 @@ export default function App() {
     return () => window.removeEventListener("online", resume);
   }, [authReady, teacherId]);
 
-  async function getRuntimeQuestionValidationOptions(skillId = "") {
-    if (!isHighFrequencyWordSkill(skillId)) return {};
-    const { getHfwRuntimeEligibilityIssues } = await importWithRetry(() => import("./data/hfwRuntimeEligibility"));
-    return { getHfwRuntimeEligibilityIssues };
-  }
-
   async function ensureAssessmentMediaPicker() {
     if (!assessmentMediaPickerRef.current) {
       assessmentMediaPickerRef.current = await loadAssessmentMediaPickerModule();
@@ -601,12 +594,9 @@ export default function App() {
 
     if (!assessmentSkillBankPromisesRef.current.has(skillId)) {
       const loadPromise = (async () => {
-        const [loaderModule, validationOptions] = await Promise.all([
-          loadAssessmentSkillBankLoaderModule(),
-          getRuntimeQuestionValidationOptions(skillId)
-        ]);
+        const loaderModule = await loadAssessmentSkillBankLoaderModule();
         const bank = await loaderModule.loadAssessmentSkillBank(skillId);
-        const preparedQuestions = prepareRuntimeQuestionBank(bank, validationOptions);
+        const preparedQuestions = prepareRuntimeQuestionBank(bank);
         const nextQuestions = dedupeQuestionsByRuntimeSignature([
           ...allQuestionsRef.current,
           ...preparedQuestions

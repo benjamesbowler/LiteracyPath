@@ -68,4 +68,4 @@ Automation is necessary but cannot establish usability with a screen reader,
 switch device, keyboard-only workflow, 200% browser zoom, sound disabled,
 reduced motion, or a child participant. Those modes are scheduled and recorded
 using `MANUAL_AUDIT_PROGRAM.md` and the unexecuted first-run record in
-`docs/release/EXTERNAL.md`. No automated pass is presented as human approval.
+the current release issue. No automated pass is presented as human approval.

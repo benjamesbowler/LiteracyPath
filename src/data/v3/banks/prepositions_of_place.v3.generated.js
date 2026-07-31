@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cat_in_box",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cat_in_box.png",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "goat_inside_barn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/goat_inside_barn.png",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cat_in_box",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cat_in_box.png",
@@ -332,14 +329,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "goat_inside_barn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/goat_inside_barn.png",
@@ -419,14 +415,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ball_on_chair",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/ball_on_chair.png",
@@ -506,14 +501,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snow_on_roof",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/snow_on_roof.png",
@@ -593,14 +587,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ball_on_chair",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/ball_on_chair.png",
@@ -680,14 +673,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snow_on_roof",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/snow_on_roof.png",
@@ -767,14 +759,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog_under_table",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/dog_under_table.png",
@@ -854,14 +845,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "slippers_under_bed",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/slippers_under_bed.png",
@@ -941,14 +931,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog_under_table",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/dog_under_table.png",
@@ -1028,14 +1017,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "slippers_under_bed",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/slippers_under_bed.png",
@@ -1115,14 +1103,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bear_behind_tree.png",
@@ -1202,14 +1189,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "child_behind_curtain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/child_behind_curtain.png",
@@ -1289,14 +1275,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bear_behind_tree.png",
@@ -1376,14 +1361,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "child_behind_curtain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/child_behind_curtain.png",
@@ -1463,14 +1447,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/rabbit_beside_basket.png",
@@ -1550,14 +1533,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup_next_to_plate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cup_next_to_plate.png",
@@ -1637,14 +1619,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/rabbit_beside_basket.png",
@@ -1724,14 +1705,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup_next_to_plate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cup_next_to_plate.png",
@@ -1811,14 +1791,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup_between_books",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cup_between_books.png",
@@ -1898,14 +1877,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "teddy_between_pillows",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/teddy_between_pillows.png",
@@ -1985,14 +1963,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup_between_books",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/cup_between_books.png",
@@ -2072,14 +2049,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "teddy_between_pillows",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/teddy_between_pillows.png",
@@ -2159,14 +2135,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the same scene answers both relations — the tree stands in front of the bear",
   "imagePath": "/images/prepositions/bear_behind_tree.png",
@@ -2246,14 +2221,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bike_in_front_of_garage",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
@@ -2333,14 +2307,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bear_behind_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bear_behind_tree.png",
@@ -2420,14 +2393,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bike_in_front_of_garage",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
@@ -2507,14 +2479,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird_above_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bird_above_tree.png",
@@ -2594,14 +2565,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock_above_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/clock_above_door.png",
@@ -2681,14 +2651,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird_above_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bird_above_tree.png",
@@ -2768,14 +2737,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock_above_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/clock_above_door.png",
@@ -2855,14 +2823,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird_above_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the inverse question of the same scene",
   "imagePath": "/images/prepositions/bird_above_tree.png",
@@ -2942,14 +2909,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fish_below_bridge",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/fish_below_bridge.png",
@@ -3029,14 +2995,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird_above_tree",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bird_above_tree.png",
@@ -3116,14 +3081,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fish_below_bridge",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/fish_below_bridge.png",
@@ -3205,14 +3169,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plane_over_town",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/plane_over_town.png",
@@ -3294,14 +3257,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "horse_over_gate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/horse_over_gate.png",
@@ -3383,14 +3345,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plane_over_town",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The elevated picture and high-in-the-sky clue pin over.",
   "imagePath": "/images/prepositions/plane_over_town.png",
@@ -3472,14 +3433,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "horse_over_gate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "through and under are possible for an open gate; the locked gate and picture leave over.",
   "imagePath": "/images/prepositions/horse_over_gate.png",
@@ -3561,14 +3521,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/train_through_tunnel.png",
@@ -3650,14 +3609,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rain_through_tent_crack",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/rain_through_tent_crack.png",
@@ -3739,14 +3697,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Entering one end and leaving the other defines through.",
   "imagePath": "/images/prepositions/train_through_tunnel.png",
@@ -3828,14 +3785,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rain_through_tent_crack",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The visible crack is an opening that the rain passes through.",
   "imagePath": "/images/prepositions/rain_through_tent_crack.png",
@@ -3917,14 +3873,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "house_near_school",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The picture shows the house and school close together on one short street.",
   "imagePath": "/images/prepositions/house_near_school.png",
@@ -4006,14 +3961,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bucket_near_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/bucket_near_door.png",
@@ -4095,14 +4049,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "house_near_school",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The picture and short-walk clue establish near without allowing inside, above, or behind.",
   "imagePath": "/images/prepositions/house_near_school.png",
@@ -4184,14 +4137,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bucket_near_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Quick to reach and the small pictured gap pin near.",
   "imagePath": "/images/prepositions/bucket_near_door.png",
@@ -4273,14 +4225,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bakery_opposite_bank",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "just across the road defines opposite",
   "imagePath": "/images/prepositions/bakery_opposite_bank.png",
@@ -4362,14 +4313,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "opposite_goals_pitch",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/opposite_goals_pitch.png",
@@ -4451,14 +4401,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bakery_opposite_bank",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Facing across the road pins opposite; near alone does not express the facing relation.",
   "imagePath": "/images/prepositions/bakery_opposite_bank.png",
@@ -4540,14 +4489,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "opposite_goals_pitch",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "goals face each other end to end — beside would be the same end",
   "imagePath": "/images/prepositions/opposite_goals_pitch.png",
@@ -4629,14 +4577,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "many yellow ones — among, not the two-thing between",
   "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
@@ -4718,14 +4665,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "deer_among_trees",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/deer_among_trees.png",
@@ -4807,14 +4753,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Many surrounding flowers require among; between describes a smaller two-sided relation.",
   "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
@@ -4896,14 +4841,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "deer_among_trees",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The deer is surrounded by several trees; behind would describe one tree.",
   "imagePath": "/images/prepositions/deer_among_trees.png",
@@ -4985,14 +4929,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fence_around_garden",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the whole garden pins the ring shape of around",
   "imagePath": "/images/prepositions/fence_around_garden.png",
@@ -5074,14 +5017,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "path_around_puddle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/path_around_puddle.png",
@@ -5163,14 +5105,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "path_around_puddle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "through gets you wet and over means a jump — walking dry pins around",
   "imagePath": "/images/prepositions/path_around_puddle.png",
@@ -5252,14 +5193,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fence_around_garden",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "A complete ring encloses the garden on all sides, which pins around.",
   "imagePath": "/images/prepositions/fence_around_garden.png",
@@ -5341,14 +5281,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "rain pins inside",
   "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
@@ -5430,14 +5369,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "muddy_boots_outside_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
@@ -5519,14 +5457,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "muddy_boots_outside_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Muddy boots stay outdoors before the child comes in, so outside is exact.",
   "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
@@ -5608,14 +5545,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Dry while rain falls outdoors and the enclosing walls pin inside.",
   "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
@@ -5695,14 +5631,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ball_on_chair",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the inverse question of the same scene",
   "imagePath": "/images/prepositions/ball_on_chair.png",
@@ -5782,14 +5717,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup_between_books",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "one book on each side — next to the cup",
   "imagePath": "/images/prepositions/cup_between_books.png",
@@ -5869,14 +5803,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "goat_inside_barn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/goat_inside_barn.png",
@@ -5956,14 +5889,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog_under_table",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/dog_under_table.png",
@@ -6043,14 +5975,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock_above_door",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/clock_above_door.png",
@@ -6130,14 +6061,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rabbit_beside_basket",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/prepositions/rabbit_beside_basket.png",
@@ -6219,14 +6149,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "horse_over_gate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The horse is visibly airborne above the gate.",
   "imagePath": "/images/prepositions/horse_over_gate.png",
@@ -6308,14 +6237,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "train_through_tunnel",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The train enters the tunnel opening.",
   "imagePath": "/images/prepositions/train_through_tunnel.png",
@@ -6397,14 +6325,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "house_near_school",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The short path and small pictured gap pin near.",
   "imagePath": "/images/prepositions/house_near_school.png",
@@ -6486,14 +6413,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "Several yellow tulips surround the red one, which pins among.",
   "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
@@ -6575,14 +6501,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fence_around_garden",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The fence encloses the garden.",
   "imagePath": "/images/prepositions/fence_around_garden.png",
@@ -6664,14 +6589,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "children_inside_house_in_rain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prepositions_of_place.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "The house walls enclose the children while rain falls outdoors.",
   "imagePath": "/images/prepositions/children_inside_house_in_rain.png",

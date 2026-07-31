@@ -15,3 +15,30 @@ The `ninja-blue`, `samurai-blue`, and `samurai-green` directional sheets, cache 
 
 - Source repository: https://github.com/pixel-boy/NinjaAdventure
 - Pack license confirmation: https://pixel-boy.itch.io/ninja-adventure-asset-pack
+
+## Project-authored premium kits
+
+The shipping premium character, scenery, and interaction PNGs are current
+Sound Seekers assets. Project-authored with OpenAI image generation on 17 July
+2026, they were then curated locally into fixed transparent pixel-art canvases. They are not
+part of the upstream CC0 pack. This is the single retained provenance note for:
+
+- project-authored premium Seedwake scenery;
+- project-authored premium River Gardens scenery;
+- the project-authored Fossil Canyon scenery kit;
+- the project-authored Fossil Canyon interaction kit;
+- the project-authored Forge Settlement scenery kit;
+- the project-authored Forge Settlement interaction kit;
+- the project-authored Glass Marsh scenery kit;
+- the project-authored Glass Marsh interaction kit;
+- the project-authored Storm Coast scenery kit;
+- the project-authored Storm Coast interaction kit;
+- the project-authored Lantern Forest character, scenery, and interaction kits;
+- Star Reach premium scenery sources and Star Reach premium interaction sources;
+- named premium character casts for every current chapter.
+
+The source boards used flat chroma backgrounds. Shipping derivatives were
+chroma-keyed, inspected, point-resampled, and packed into the fixed canvases
+verified by the runtime tests. Grapheme labels are applied by the renderer so
+the artwork remains reusable across curriculum targets. Temporary generation
+boards and machine-local paths are intentionally not retained.

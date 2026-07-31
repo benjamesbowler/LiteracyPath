@@ -59,34 +59,25 @@ export const questions = [
    "replay": "D-OPPOSITE",
    "helpful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "child-feeling-unhappy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-feeling-unhappy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "resolvedImageAssetKey": "unhappy",
-  "imageAlt": "child feeling unhappy"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_un.v2",
@@ -146,34 +137,25 @@ export const questions = [
    "careful": "D-PATTERN-TRAP",
    "reader": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "two-children-unfair-share",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "two-children-unfair-share",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "resolvedImageAssetKey": "unfair",
-  "imageAlt": "two children unfair share"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_un.v3",
@@ -233,34 +215,25 @@ export const questions = [
    "repaint": "D-OPPOSITE",
    "joyful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "child-being-unkind",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-being-unkind",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "resolvedImageAssetKey": "unkind",
-  "imageAlt": "child being unkind"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_un.v4",
@@ -320,34 +293,25 @@ export const questions = [
    "joyful": "D-PATTERN-TRAP",
    "painter": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "sad-child",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sad-child",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sad-unhappy-01.webp",
-  "resolvedImageAssetKey": "unhappy",
-  "imageAlt": "sad child"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_un.v5",
@@ -407,34 +371,25 @@ export const questions = [
    "remake": "D-PATTERN-TRAP",
    "painter": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "unfair-game",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "unfair-game",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unfair-01.webp",
-  "resolvedImageAssetKey": "unfair",
-  "imageAlt": "unfair game"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_un.v6",
@@ -494,34 +449,25 @@ export const questions = [
    "reread": "D-PATTERN-TRAP",
    "helper": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
-  "targetWord": "unkind-words",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "unkind-words",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unkind-01.webp",
-  "resolvedImageAssetKey": "unkind",
-  "imageAlt": "unkind words"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_re.v1",
@@ -581,34 +527,25 @@ export const questions = [
    "playful": "D-PATTERN-TRAP",
    "player": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "children-replay-game",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "children-replay-game",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "resolvedImageAssetKey": "replay",
-  "imageAlt": "children replay game"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_re.v2",
@@ -668,34 +605,25 @@ export const questions = [
    "unfair": "D-OPPOSITE",
    "helpful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-remakes-model",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-remakes-model",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/again.webp",
-  "imageUrl": "/images/assessment/hfw/again.webp",
-  "targetImage": "/images/assessment/hfw/again.webp",
-  "targetImagePath": "/images/assessment/hfw/again.webp",
-  "resolvedImageAssetKey": "again",
-  "imageAlt": "child remakes model"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_re.v3",
@@ -755,34 +683,25 @@ export const questions = [
    "careful": "D-PATTERN-TRAP",
    "reader": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-rereads-book",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-rereads-book",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "resolvedImageAssetKey": "reread",
-  "imageAlt": "child rereads book"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_re.v4",
@@ -842,34 +761,25 @@ export const questions = [
    "making": "D-SEMANTIC",
    "unmake": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-remakes-picture",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-remakes-picture",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "child remakes picture"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_re.v5",
@@ -929,34 +839,25 @@ export const questions = [
    "unread": "D-SEMANTIC",
    "reader": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-rereads-page",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-rereads-page",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/reread-01.webp",
-  "resolvedImageAssetKey": "reread",
-  "imageAlt": "child rereads page"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_re.v6",
@@ -1016,34 +917,25 @@ export const questions = [
    "unplayed": "D-SEMANTIC",
    "player": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "children-replay-song",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "children-replay-song",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/replay-01.webp",
-  "resolvedImageAssetKey": "replay",
-  "imageAlt": "children replay song"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_ful.v1",
@@ -1103,34 +995,25 @@ export const questions = [
    "rehelp": "D-SEMANTIC",
    "helpless": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "helpful-child",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "helpful-child",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "resolvedImageAssetKey": "helpful",
-  "imageAlt": "helpful child"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_ful.v2",
@@ -1190,34 +1073,25 @@ export const questions = [
    "rejoice": "D-SEMANTIC",
    "joyless": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "joyful-child",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "joyful-child",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "resolvedImageAssetKey": "joyful",
-  "imageAlt": "joyful child"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_ful.v3",
@@ -1277,34 +1151,25 @@ export const questions = [
    "recare": "D-SEMANTIC",
    "careless": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "careful-child-carrying-glass",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "careful-child-carrying-glass",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "resolvedImageAssetKey": "careful",
-  "imageAlt": "careful child carrying glass"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_ful.v4",
@@ -1364,34 +1229,25 @@ export const questions = [
    "replay": "D-PATTERN-TRAP",
    "singer": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-helping-friend",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-helping-friend",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/helpful-01.webp",
-  "resolvedImageAssetKey": "helpful",
-  "imageAlt": "child helping friend"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_ful.v5",
@@ -1451,34 +1307,25 @@ export const questions = [
    "joyless": "D-OPPOSITE",
    "unfair": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-smiling-with-joy",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-smiling-with-joy",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/joyful-01.webp",
-  "resolvedImageAssetKey": "joyful",
-  "imageAlt": "child smiling with joy"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_ful.v6",
@@ -1538,34 +1385,25 @@ export const questions = [
    "remake": "D-PATTERN-TRAP",
    "teacher": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-carefully-carrying-glass",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-carefully-carrying-glass",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "resolvedImageAssetKey": "careful",
-  "imageAlt": "child carefully carrying glass"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v1",
@@ -1625,34 +1463,25 @@ export const questions = [
    "helper": "D-PATTERN-TRAP",
    "rehope": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-feeling-hopeless",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-feeling-hopeless",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "resolvedImageAssetKey": "hopeless",
-  "imageAlt": "child feeling hopeless"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_less.v2",
@@ -1712,34 +1541,25 @@ export const questions = [
    "refear": "D-SEMANTIC",
    "fearful": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "fearless-child",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "fearless-child",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "resolvedImageAssetKey": "fearless",
-  "imageAlt": "fearless child"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_less.v3",
@@ -1799,34 +1619,25 @@ export const questions = [
    "helper": "D-PATTERN-TRAP",
    "reharm": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "harmless-butterfly",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "harmless-butterfly",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "resolvedImageAssetKey": "butterfly",
-  "imageAlt": "harmless butterfly"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v4",
@@ -1886,34 +1697,25 @@ export const questions = [
    "harmful": "D-OPPOSITE",
    "helpful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "harmless-butterfly-on-hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "harmless-butterfly-on-hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "resolvedImageAssetKey": "butterfly",
-  "imageAlt": "harmless butterfly on hand"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_less.v5",
@@ -1973,34 +1775,25 @@ export const questions = [
    "fearful": "D-OPPOSITE",
    "careful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-trying-bravely",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-trying-bravely",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/fearless-01.webp",
-  "resolvedImageAssetKey": "fearless",
-  "imageAlt": "child trying bravely"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_less.v6",
@@ -2060,34 +1853,25 @@ export const questions = [
    "hopeful": "D-OPPOSITE",
    "joyful": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "team-feeling-hopeless",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "team-feeling-hopeless",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeless-01.webp",
-  "resolvedImageAssetKey": "hopeless",
-  "imageAlt": "team feeling hopeless"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v1",
@@ -2147,34 +1931,25 @@ export const questions = [
    "sings": "D-PATTERN-TRAP",
    "replay": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "person-singing",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "person-singing",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "resolvedImageAssetKey": "singer",
-  "imageAlt": "person singing"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v2",
@@ -2234,34 +2009,25 @@ export const questions = [
    "teaches": "D-PATTERN-TRAP",
    "unfair": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "teacher-with-class",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "teacher-with-class",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "teacher with class"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v3",
@@ -2321,34 +2087,25 @@ export const questions = [
    "helpful": "D-PATTERN-TRAP",
    "remake": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "child-helper",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-helper",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/child-helper.webp",
-  "imageUrl": "/images/assessment/generated/concepts/child-helper.webp",
-  "targetImage": "/images/assessment/generated/concepts/child-helper.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/child-helper.webp",
-  "resolvedImageAssetKey": "child-helper",
-  "imageAlt": "child helper"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v4",
@@ -2408,34 +2165,25 @@ export const questions = [
    "reading": "D-OPPOSITE",
    "reread": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "person-reading-to-class",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "person-reading-to-class",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/reader-01.webp",
-  "resolvedImageAssetKey": "reader",
-  "imageAlt": "person reading to class"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v5",
@@ -2495,34 +2243,25 @@ export const questions = [
    "repaint": "D-PATTERN-TRAP",
    "joyful": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "person-painting",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "person-painting",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/painter-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/painter-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/painter-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/painter-01.webp",
-  "resolvedImageAssetKey": "painter",
-  "imageAlt": "person painting"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v6",
@@ -2582,34 +2321,25 @@ export const questions = [
    "farming": "D-OPPOSITE",
    "farm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "farmer-on-farm",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "farmer-on-farm",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/farm.png",
-  "imageUrl": "/images/child-mode/initial-sounds/farm.png",
-  "targetImage": "/images/child-mode/initial-sounds/farm.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
-  "resolvedImageAssetKey": "farm",
-  "imageAlt": "farmer on farm"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v1",
@@ -2669,34 +2399,25 @@ export const questions = [
    "pens": "D-PATTERN-TRAP",
    "hen": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_s_es-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
-  "imageAlt": "Add -s to hen"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v2",
@@ -2756,34 +2477,25 @@ export const questions = [
    "foxs": "D-FUNCTION-SWAP",
    "dishes": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_s_es-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fox.png",
-  "targetImage": "/images/child-mode/initial-sounds/fox.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
-  "resolvedImageAssetKey": "fox",
-  "imageAlt": "Add -es to fox"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v3",
@@ -2843,34 +2555,25 @@ export const questions = [
    "caps": "D-PATTERN-TRAP",
    "cup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_s_es-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/cup-cups-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cup-cups-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cup-cups-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cup-cups-01.webp",
-  "resolvedImageAssetKey": "cups",
-  "imageAlt": "Add -s to cup"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v4",
@@ -2931,35 +2634,26 @@ export const questions = [
    "washing": "D-FUNCTION-SWAP",
    "washed": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Every day, Dad ___ the car.",
-  "targetWord": "suffix_s_es-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/every.webp",
-  "imageUrl": "/images/assessment/hfw/every.webp",
-  "targetImage": "/images/assessment/hfw/every.webp",
-  "targetImagePath": "/images/assessment/hfw/every.webp",
-  "resolvedImageAssetKey": "every",
-  "imageAlt": "Every day, Dad washes the car."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v5",
@@ -3020,35 +2714,26 @@ export const questions = [
    "napping": "D-FUNCTION-SWAP",
    "napped": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "My cat ___ on the mat each day.",
-  "targetWord": "suffix_s_es-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
-  "imageAlt": "My cat naps on the mat each day."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v6",
@@ -3109,35 +2794,26 @@ export const questions = [
    "baking": "D-FUNCTION-SWAP",
    "baked": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Gran ___ bread every Sunday.",
-  "targetWord": "suffix_s_es-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
-  "resolvedImageAssetKey": "bread",
-  "imageAlt": "Gran bakes bread every Sunday."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ing.v1",
@@ -3197,34 +2873,25 @@ export const questions = [
    "singing": "D-PATTERN-TRAP",
    "jumps": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ing-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
-  "imageAlt": "Add -ing to jump"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ing.v2",
@@ -3284,34 +2951,25 @@ export const questions = [
    "singing": "D-PATTERN-TRAP",
    "reads": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ing-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/read.webp",
-  "imageUrl": "/images/assessment/hfw/read.webp",
-  "targetImage": "/images/assessment/hfw/read.webp",
-  "targetImagePath": "/images/assessment/hfw/read.webp",
-  "resolvedImageAssetKey": "read",
-  "imageAlt": "Add -ing to read"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ing.v3",
@@ -3371,34 +3029,25 @@ export const questions = [
    "doing": "D-PATTERN-TRAP",
    "plays": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ing-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
-  "imageAlt": "Add -ing to play"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ing.v4",
@@ -3459,35 +3108,26 @@ export const questions = [
    "boil": "D-FUNCTION-SWAP",
    "sleeping": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Right now, the pot is ___ on the stove.",
-  "targetWord": "suffix_ing-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/boiling.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boiling.webp",
-  "targetImage": "/images/assessment/generated/concepts/boiling.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boiling.webp",
-  "resolvedImageAssetKey": "boiling",
-  "imageAlt": "Right now, the pot is boiling on the stove."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ing.v5",
@@ -3548,35 +3188,26 @@ export const questions = [
    "builds": "D-FUNCTION-SWAP",
    "build": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We are ___ a sandcastle today.",
-  "targetWord": "suffix_ing-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
-  "imageAlt": "We are building a sandcastle today."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ing.v6",
@@ -3637,35 +3268,26 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "singing": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Keep ___! The finish line is close.",
-  "targetWord": "suffix_ing-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Keep running! The finish line is close."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ed.v1",
@@ -3725,34 +3347,25 @@ export const questions = [
    "walks": "D-FUNCTION-SWAP",
    "walking": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ed-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-  "resolvedImageAssetKey": "walk",
-  "imageAlt": "Add -ed to walk"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v2",
@@ -3812,34 +3425,25 @@ export const questions = [
    "helping": "D-FUNCTION-SWAP",
    "hopped": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ed-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/help.webp",
-  "imageUrl": "/images/assessment/hfw/help.webp",
-  "targetImage": "/images/assessment/hfw/help.webp",
-  "targetImagePath": "/images/assessment/hfw/help.webp",
-  "resolvedImageAssetKey": "help",
-  "imageAlt": "Add -ed to help"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ed.v3",
@@ -3899,34 +3503,25 @@ export const questions = [
    "jumping": "D-FUNCTION-SWAP",
    "jumps": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ed-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
-  "imageAlt": "Add -ed to jump"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ed.v4",
@@ -3987,35 +3582,26 @@ export const questions = [
    "walking": "D-FUNCTION-SWAP",
    "jumped": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Yesterday we ___ to the park.",
-  "targetWord": "suffix_ed-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/park.png",
-  "imageUrl": "/images/child-mode/initial-sounds/park.png",
-  "targetImage": "/images/child-mode/initial-sounds/park.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/park.png",
-  "resolvedImageAssetKey": "park",
-  "imageAlt": "Yesterday we walked to the park."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v5",
@@ -4076,35 +3662,26 @@ export const questions = [
    "crying": "D-FUNCTION-SWAP",
    "called": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Last night, the baby ___ for hours.",
-  "targetWord": "suffix_ed-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "Last night, the baby cried for hours."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ed.v6",
@@ -4165,35 +3742,26 @@ export const questions = [
    "locking": "D-FUNCTION-SWAP",
    "filled": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We ___ the door before bed.",
-  "targetWord": "suffix_ed-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "We locked the door before bed."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v1",
@@ -4253,34 +3821,25 @@ export const questions = [
    "tall": "D-FUNCTION-SWAP",
    "fastest": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_er_est-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "resolvedImageAssetKey": "tallest",
-  "imageAlt": "Add -est to tall"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v2",
@@ -4340,34 +3899,25 @@ export const questions = [
    "taller": "D-PATTERN-TRAP",
    "fastest": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_er_est-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/fast.webp",
-  "imageUrl": "/images/assessment/generated/concepts/fast.webp",
-  "targetImage": "/images/assessment/generated/concepts/fast.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/fast.webp",
-  "resolvedImageAssetKey": "fast",
-  "imageAlt": "Add -er to fast"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v3",
@@ -4428,35 +3978,26 @@ export const questions = [
    "tall": "D-FUNCTION-SWAP",
    "faster": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Ben is tall, but Ana is even ___.",
-  "targetWord": "suffix_er_est-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
-  "imageAlt": "Ben is tall, but Ana is even taller."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v4",
@@ -4517,35 +4058,26 @@ export const questions = [
    "faster": "D-FUNCTION-SWAP",
    "fast": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Of all three dogs, Rex is the ___.",
-  "targetWord": "suffix_er_est-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "resolvedImageAssetKey": "dogs",
-  "imageAlt": "Of all three dogs, Rex is the fastest."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v5",
@@ -4605,34 +4137,25 @@ export const questions = [
    "tallest": "D-OPPOSITE",
    "tall": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_er_est-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
-  "imageAlt": "Which word compares two tall things?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v6",
@@ -4692,34 +4215,25 @@ export const questions = [
    "slower": "D-OPPOSITE",
    "slow": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_er_est-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowest-01.webp",
-  "resolvedImageAssetKey": "slowest",
-  "imageAlt": "Which word picks the slow one from every snail?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ly.v1",
@@ -4779,34 +4293,25 @@ export const questions = [
    "quickest": "D-FUNCTION-SWAP",
    "softly": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ly-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quickly-01.webp",
-  "resolvedImageAssetKey": "quickly",
-  "imageAlt": "Add -ly to quick"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ly.v2",
@@ -4866,34 +4371,25 @@ export const questions = [
    "softer": "D-FUNCTION-SWAP",
    "soft": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ly-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/softly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/softly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/softly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/softly-01.webp",
-  "resolvedImageAssetKey": "softly",
-  "imageAlt": "Add -ly to soft"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ly.v3",
@@ -4954,35 +4450,26 @@ export const questions = [
    "gentler": "D-FUNCTION-SWAP",
    "quickly": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Set the eggs down ___, with no bumps.",
-  "targetWord": "suffix_ly-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/down.webp",
-  "imageUrl": "/images/assessment/hfw/down.webp",
-  "targetImage": "/images/assessment/hfw/down.webp",
-  "targetImagePath": "/images/assessment/hfw/down.webp",
-  "resolvedImageAssetKey": "down",
-  "imageAlt": "Set the eggs down gently, with no bumps."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ly.v4",
@@ -5043,35 +4530,26 @@ export const questions = [
    "loudly": "D-PATTERN-TRAP",
    "quiet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The mouse crept ___ past the cat.",
-  "targetWord": "suffix_ly-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "resolvedImageAssetKey": "quietly",
-  "imageAlt": "The mouse crept quietly past the cat."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ly.v5",
@@ -5131,34 +4609,25 @@ export const questions = [
    "being afraid": "D-SEMANTIC",
    "in a soft way": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ly-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "resolvedImageAssetKey": "brave",
-  "imageAlt": "What does bravely mean?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ly.v6",
@@ -5218,34 +4687,25 @@ export const questions = [
    "being sad": "D-SEMANTIC",
    "in a quick way": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "suffix_ly-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/proud.webp",
-  "imageUrl": "/images/assessment/generated/concepts/proud.webp",
-  "targetImage": "/images/assessment/generated/concepts/proud.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/proud.webp",
-  "resolvedImageAssetKey": "proud",
-  "imageAlt": "What does proudly mean?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.prefix_pre.v1",
@@ -5305,34 +4765,25 @@ export const questions = [
    "preview": "D-PATTERN-TRAP",
    "heated": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "prefix_pre-1",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "resolvedImageAssetKey": "preheat",
-  "imageAlt": "Add pre- to heat"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.prefix_pre.v2",
@@ -5392,34 +4843,25 @@ export const questions = [
    "preheat": "D-PATTERN-TRAP",
    "views": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "prefix_pre-2",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "resolvedImageAssetKey": "preview",
-  "imageAlt": "Add pre- to view"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.prefix_pre.v3",
@@ -5480,35 +4922,26 @@ export const questions = [
    "Preview": "D-PATTERN-TRAP",
    "Heat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "___ the oven before you mix the batter.",
-  "targetWord": "prefix_pre-3",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preheat-01.webp",
-  "resolvedImageAssetKey": "Preheat",
-  "imageAlt": "Preheat the oven before you mix the batter."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.prefix_pre.v4",
@@ -5569,35 +5002,26 @@ export const questions = [
    "viewed": "D-FUNCTION-SWAP",
    "preheat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We watched a ___ before the film opened.",
-  "targetWord": "prefix_pre-4",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preview-01.webp",
-  "resolvedImageAssetKey": "preview",
-  "imageAlt": "We watched a preview before the film opened."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.prefix_pre.v5",
@@ -5657,34 +5081,25 @@ export const questions = [
    "a test after": "D-OPPOSITE",
    "the best test": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "prefix_pre-5",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/pretest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/pretest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/pretest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/pretest-01.webp",
-  "resolvedImageAssetKey": "pretest",
-  "imageAlt": "What is a pretest?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.prefix_pre.v6",
@@ -5744,34 +5159,25 @@ export const questions = [
    "heat the order": "D-PATTERN-TRAP",
    "order more": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
-  "targetWord": "prefix_pre-6",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preorder-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preorder-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preorder-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preorder-01.webp",
-  "resolvedImageAssetKey": "preorder",
-  "imageAlt": "What does preorder mean?"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_un.v7r",
@@ -5831,34 +5237,25 @@ export const questions = [
    "safety": "D-PATTERN-TRAP",
    "helper": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
-  "targetWord": "unsafe-bridge",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "unsafe-bridge",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unsafe-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unsafe-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unsafe-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unsafe-01.webp",
-  "resolvedImageAssetKey": "unsafe",
-  "imageAlt": "unsafe bridge"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_re.v7r",
@@ -5918,34 +5315,25 @@ export const questions = [
    "paintful": "D-SEMANTIC",
    "unpaint": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "child-repaints-wall",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-repaints-wall",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/repaint-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/repaint-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/repaint-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/repaint-01.webp",
-  "resolvedImageAssetKey": "repaint",
-  "imageAlt": "child repaints wall"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_ful.v7r",
@@ -6005,34 +5393,25 @@ export const questions = [
    "hoping": "D-PATTERN-TRAP",
    "unhappy": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "hopeful-child",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "hopeful-child",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/hopeful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/hopeful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/hopeful-01.webp",
-  "resolvedImageAssetKey": "hopeful",
-  "imageAlt": "hopeful child"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_less.v7r",
@@ -6092,34 +5471,25 @@ export const questions = [
    "caring": "D-PATTERN-TRAP",
    "unsafe": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "careless-spill",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "careless-spill",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/careless-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/careless-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/careless-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/careless-01.webp",
-  "resolvedImageAssetKey": "careless",
-  "imageAlt": "careless spill"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_er_person.v7r",
@@ -6179,34 +5549,25 @@ export const questions = [
    "baking": "D-OPPOSITE",
    "bakes": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "baker-with-bread",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "baker-with-bread",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/baker.webp",
-  "imageUrl": "/images/assessment/generated/concepts/baker.webp",
-  "targetImage": "/images/assessment/generated/concepts/baker.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/baker.webp",
-  "resolvedImageAssetKey": "baker",
-  "imageAlt": "baker with bread"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_re.v8r",
@@ -6266,34 +5627,25 @@ export const questions = [
    "building": "D-PATTERN-TRAP",
    "unbuilt": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "child-rebuilds-block-tower",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "child-rebuilds-block-tower",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/rebuild-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/rebuild-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/rebuild-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/rebuild-01.webp",
-  "resolvedImageAssetKey": "rebuild",
-  "imageAlt": "child rebuilds block tower"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_s_es.v7r",
@@ -6353,34 +5705,25 @@ export const questions = [
    "bus": "D-FUNCTION-SWAP",
    "buss": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "suffix_s_es-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_s_es-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/buses.webp",
-  "imageUrl": "/images/assessment/generated/concepts/buses.webp",
-  "targetImage": "/images/assessment/generated/concepts/buses.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/buses.webp",
-  "resolvedImageAssetKey": "buses",
-  "imageAlt": "Add -es to bus"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ing.v7r",
@@ -6440,34 +5783,25 @@ export const questions = [
    "cooked": "D-FUNCTION-SWAP",
    "reading": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "suffix_ing-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ing-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/cooking.webp",
-  "imageUrl": "/images/assessment/generated/concepts/cooking.webp",
-  "targetImage": "/images/assessment/generated/concepts/cooking.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/cooking.webp",
-  "resolvedImageAssetKey": "cooking",
-  "imageAlt": "Add -ing to cook"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ed.v7r",
@@ -6527,34 +5861,25 @@ export const questions = [
    "playing": "D-FUNCTION-SWAP",
    "walked": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "suffix_ed-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ed-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
-  "imageAlt": "Add -ed to play"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_er_est.v7r",
@@ -6615,35 +5940,26 @@ export const questions = [
    "quick": "D-FUNCTION-SWAP",
    "softer": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Sam is quick, but Ali is even ___.",
-  "targetWord": "suffix_er_est-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_er_est-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/quick.webp",
-  "imageUrl": "/images/assessment/generated/concepts/quick.webp",
-  "targetImage": "/images/assessment/generated/concepts/quick.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/quick.webp",
-  "resolvedImageAssetKey": "quick",
-  "imageAlt": "Sam is quick, but Ali is even quicker."
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ly.v7r",
@@ -6703,34 +6019,25 @@ export const questions = [
    "softly": "D-PATTERN-TRAP",
    "braver": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "suffix_ly-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "suffix_ly-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "resolvedImageAssetKey": "brave",
-  "imageAlt": "Add -ly to brave"
+  "notes": ""
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.prefix_pre.v7r",
@@ -6790,33 +6097,24 @@ export const questions = [
    "schooling": "D-FUNCTION-SWAP",
    "preheat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
-  "targetWord": "prefix_pre-7",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "prefix_pre-7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/prefixes_suffixes.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/preschool-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/preschool-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/preschool-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/preschool-01.webp",
-  "resolvedImageAssetKey": "preschool",
-  "imageAlt": "Add pre- to school"
+  "notes": ""
  }
 ];

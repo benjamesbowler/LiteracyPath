@@ -61,33 +61,25 @@ export const questions = [
    "everything about paper cups": "D-TOPIC-ADJACENT",
    "a girl who hates plants": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Rana planted three bean seeds in a paper cup. She watered them every morning before school. For days, nothing happened. Then one green stem pushed up through the soil. Rana cheered so loudly that her dog barked."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v2",
@@ -149,33 +141,25 @@ export const questions = [
    "how libraries lend books": "D-TOPIC-ADJACENT",
    "a boy who loves tidying": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "resolvedImageAssetKey": "story",
-  "imageAlt": "Illustration for Tom could not find his library book anywhere. He looked under his bed and behind the sofa. He even checked the fridge. At last he found it inside his pillow case, right where he had read it last night."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v3",
@@ -237,33 +221,25 @@ export const questions = [
    "all the parts of a bicycle": "D-TOPIC-ADJACENT",
    "a broken bike nobody fixed": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "resolvedImageAssetKey": "quietly",
-  "imageAlt": "Illustration for Amara's bike squeaked all the way to the park. Squeak, squeak, squeak. Her uncle showed her how to drip oil on the chain. On the ride home, the bike rolled along quietly, and Amara grinned the whole way."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v4",
@@ -325,33 +301,25 @@ export const questions = [
    "a boy scared of the dentist": "D-PLAUSIBLE-UNSUPPORTED",
    "laughing at dinner": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "resolvedImageAssetKey": "story",
-  "imageAlt": "Illustration for Milo's tooth had wobbled for a week. He wiggled it at breakfast and at bath time. Then, while he was laughing at dinner, it popped out into his hand. Milo put it under his pillow that night."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v5",
@@ -413,33 +381,25 @@ export const questions = [
    "how to look after every pet": "D-TOPIC-ADJACENT",
    "a kitten that ran away forever": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/vocabulary/friends.png",
-  "imageUrl": "/images/vocabulary/friends.png",
-  "targetImage": "/images/vocabulary/friends.png",
-  "targetImagePath": "/images/vocabulary/friends.png",
-  "resolvedImageAssetKey": "friends",
-  "imageAlt": "Illustration for A thin grey kitten kept visiting Priya's steps. Each day Priya set out a little dish of water. Each day the kitten crept closer. On Friday it finally curled up on her lap, purring like a tiny engine."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_fiction.v6",
@@ -501,33 +461,25 @@ export const questions = [
    "a boy who lost his hat": "D-PLAUSIBLE-UNSUPPORTED",
    "footprints in the snow": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "resolvedImageAssetKey": "story",
-  "imageAlt": "Illustration for Dev dropped his mitten somewhere in the snow. He walked back along his own footprints to look. Near the gate he saw a flash of red on the fence post. Someone had found his mitten and left it where he would see it."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_fiction.v7",
@@ -589,33 +541,25 @@ export const questions = [
    "Miss Obi clapping a beat": "D-DETAIL-AS-MAIN",
    "every kind of music": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "resolvedImageAssetKey": "practice",
-  "imageAlt": "Illustration for The choir had one last practice before the show. First the singing was too quiet. Then it was too fast. Miss Obi clapped a steady beat, and slowly all the voices came together like one big voice."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_fiction.v8",
@@ -677,33 +621,25 @@ export const questions = [
    "a dad watching on Sunday": "D-DETAIL-AS-MAIN",
    "what people eat for breakfast": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/landed-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/landed-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/landed-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/landed-01.webp",
-  "resolvedImageAssetKey": "landed",
-  "imageAlt": "Illustration for Jin practised flipping pancakes with a cold, empty pan. Flip, catch. Flip, catch. On Sunday he tried it with a real pancake while his dad watched. The pancake spun in the air and landed back in the pan."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v1",
@@ -765,33 +701,25 @@ export const questions = [
    "every insect in the garden": "D-TOPIC-ADJACENT",
    "why bees never leave the hive": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/called-01.webp",
-  "resolvedImageAssetKey": "called",
-  "imageAlt": "Illustration for Bees visit many flowers on one trip. They drink a sweet juice called nectar. Back at the hive, they pass the nectar to other bees. Slowly the nectar thickens into honey. One jar of honey takes thousands of flower visits."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v2",
@@ -853,33 +781,25 @@ export const questions = [
    "back legs growing first": "D-DETAIL-AS-MAIN",
    "animals that live in ponds": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for A tadpole does not look like a frog. It has a tail and no legs. First the back legs grow. Then the front legs appear, and the tail gets shorter. At last the little frog can hop out of the pond."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v3",
@@ -941,33 +861,25 @@ export const questions = [
    "everything factories can make": "D-TOPIC-ADJACENT",
    "why paper must be thrown away": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Old paper does not have to be rubbish. Trucks take it to a special factory. There it is mashed with water into a grey soup. The soup is rolled flat and dried. It comes out as fresh, clean paper, ready to use again."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v4",
@@ -1029,33 +941,25 @@ export const questions = [
    "ships that sail only in the day": "D-PLAUSIBLE-UNSUPPORTED",
    "a big lamp that turns": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/safe-dangerous-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/safe-dangerous-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/safe-dangerous-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/safe-dangerous-01.webp",
-  "resolvedImageAssetKey": "dangerous",
-  "imageAlt": "Illustration for A lighthouse stands where the rocks are dangerous. At night its big lamp turns round and round. Ships far out at sea watch for the flashing light. The light tells them where the rocks are, so they can steer safely past."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v5",
@@ -1117,33 +1021,25 @@ export const questions = [
    "ants that live all alone": "D-OPPOSITE",
    "one ant finds a crumb and leaves a trail": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for An ant is small, but it is a strong helper. Ants work in long lines. One ant finds a crumb and leaves a smell trail. The others follow the trail. Together they carry food back to the nest, piece by piece."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_info.v6",
@@ -1205,33 +1101,25 @@ export const questions = [
    "shadows that never move": "D-OPPOSITE",
    "small shadows at midday": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Shadows are not the same all day. In the morning, the sun is low and shadows are long. At midday, the sun is high and shadows shrink small. In the evening they stretch long again, pointing the other way."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_info.v7",
@@ -1293,33 +1181,25 @@ export const questions = [
    "wind carrying one thread": "D-DETAIL-AS-MAIN",
    "every animal that makes a home": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/objects/spider.png",
-  "imageUrl": "/images/objects/spider.png",
-  "targetImage": "/images/objects/spider.png",
-  "targetImagePath": "/images/objects/spider.png",
-  "resolvedImageAssetKey": "spider",
-  "imageAlt": "Illustration for A spider web starts with one thin thread. The spider lets the wind carry it across a gap. Then she walks the thread and adds more lines, round and round. The finished web is sticky, ready to catch her dinner."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_info.v8",
@@ -1381,33 +1261,25 @@ export const questions = [
    "all the stars in space": "D-TOPIC-ADJACENT",
    "how astronauts fly to the moon": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/bright.webp",
-  "imageUrl": "/images/assessment/generated/concepts/bright.webp",
-  "targetImage": "/images/assessment/generated/concepts/bright.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/bright.webp",
-  "resolvedImageAssetKey": "bright",
-  "imageAlt": "Illustration for The moon seems to change shape, but it does not really. The moon circles the Earth. Sunlight lights up one side of it. Some nights we see all of the bright side, some nights only a sliver. That is why the moon looks different."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v1",
@@ -1469,33 +1341,25 @@ export const questions = [
    "all the jobs grown-ups do": "D-TOPIC-ADJACENT",
    "children who cross alone": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for Every morning Mr Pole stands at the school crossing. He holds up his round sign, and the cars stop. He waves the children across, grinning his good-morning grin. Rain or shine, he is there before the first bell rings."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v2",
@@ -1557,33 +1421,25 @@ export const questions = [
    "a room that stayed messy": "D-OPPOSITE",
    "one team stacking chairs": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for Class 2 had a tidy-up race before home time. One team stacked the chairs. Another team collected the pencils. The last team wiped the tables. In five minutes the whole room was neat, and everyone won a sticker."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v3",
@@ -1645,33 +1501,25 @@ export const questions = [
    "how all shops sell food": "D-TOPIC-ADJACENT",
    "a boy who stayed at home": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Saturday is market day. Nan gives Ade the shopping list. He finds the oranges, and Nan picks the fish. The stall man always adds one free plum for Ade. They walk home with heavy bags and happy plans for dinner."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v4",
@@ -1733,33 +1581,25 @@ export const questions = [
    "towels folded into tall piles": "D-DETAIL-AS-MAIN",
    "every shop on the street": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for The launderette on our street hums all morning. Round windows spin with socks and shirts. Mrs Kaur folds warm towels into tall piles. People chat while they wait, and the whole shop smells like clean cotton."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v5",
@@ -1821,33 +1661,25 @@ export const questions = [
    "leaf boats in the gutter": "D-DETAIL-AS-MAIN",
    "why weather changes": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/vocabulary/friends.png",
-  "imageUrl": "/images/vocabulary/friends.png",
-  "targetImage": "/images/vocabulary/friends.png",
-  "targetImagePath": "/images/vocabulary/friends.png",
-  "resolvedImageAssetKey": "friends",
-  "imageAlt": "Illustration for After the rain, the playground was full of puddles. Small boots splashed in the big one by the slide. Two friends raced leaf boats along the gutter stream. By lunch, the sun had drunk the puddles all up."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.C.mostly_about_everyday.v6",
@@ -1909,33 +1741,25 @@ export const questions = [
    "a big red circle for Grandma": "D-DETAIL-AS-MAIN",
    "how to count all the months": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for Dad flips the calendar to a new month. Everyone adds their days. Swimming badge test for Lena. Dentist for Dad. Grandma's visit gets a big red circle. The little squares fill up with the family's plans."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.A.mostly_about_everyday.v7",
@@ -1997,33 +1821,25 @@ export const questions = [
    "a road that gets no letters": "D-OPPOSITE",
    "a parcel for number 12": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "resolvedImageAssetKey": "happily",
-  "imageAlt": "Illustration for The postman's trolley squeaks up our road at nine. Letters slide through doors, flap, flap, flap. Number 12 gets a parcel and signs for it happily. Our dog waits by the letter box every single morning."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.B.mostly_about_everyday.v8",
@@ -2085,33 +1901,25 @@ export const questions = [
    "every food people like": "D-TOPIC-ADJACENT",
    "a shop that never opens": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/happily-01.webp",
-  "resolvedImageAssetKey": "happily",
-  "imageAlt": "Illustration for The bakery opens before the sun is up. Trays of rolls slide into the big oven. The smell of warm bread drifts down the street. By eight o'clock a little queue waits at the door, sniffing happily."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v1",
@@ -2173,33 +1981,25 @@ export const questions = [
    "The Year the Garden Failed": "D-OPPOSITE",
    "Crisp Packets by the Fence": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
-  "resolvedImageAssetKey": "sunflower",
-  "imageAlt": "Illustration for Nobody wanted the muddy corner of the school garden. Weeds grew tall, and crisp packets blew against the fence. Then Year 2 claimed it. They pulled the weeds, dug in compost, and planted sunflower seeds in careful rows. All summer the corner blazed yellow, and even the caretaker stopped to take photographs."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v2",
@@ -2261,33 +2061,25 @@ export const questions = [
    "The Shortest Path to School": "D-OPPOSITE",
    "Fixing the Old Footbridge": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for When the old footbridge closed for repairs, everyone grumbled. The walk to school took ten minutes longer, right around the stream. But on the long way, children found blackberries, a heron, and a hollow tree that echoed. By the time the bridge reopened, some families kept taking the long way on purpose."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v3",
@@ -2349,33 +2141,25 @@ export const questions = [
    "The Girl Who Gave Up Music": "D-OPPOSITE",
    "A Drum Kit in the Garage": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/tricky-01.webp",
-  "resolvedImageAssetKey": "tricky",
-  "imageAlt": "Illustration for Asha's drum kit lived in the garage, because drums are loud. Every evening she practised the same tricky rhythm, and every evening it fell apart in the middle. Her mum suggested slowing right down. Boring, thought Asha, but she tried it. Two slow weeks later, her sticks flew through the rhythm at full speed without a single slip."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v4",
@@ -2437,33 +2221,25 @@ export const questions = [
    "How to Visit a City Aquarium": "D-TOPIC-ADJACENT",
    "The Otters Who Never Moved": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for The city aquarium had a problem: the otters kept escaping their pool at night and sliding down the corridors. Cameras showed them stacking rocks by the glass wall like little stairs. The keepers did not punish the clever climbers. Instead they built a bigger pool with waterfalls, tunnels, and plenty of rocks to move around."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v5",
@@ -2525,33 +2301,25 @@ export const questions = [
    "A Flight Across the Kitchen": "D-DETAIL-AS-MAIN",
    "The History of Real Aeroplanes": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "resolvedImageAssetKey": "straight",
-  "imageAlt": "Illustration for Grandpa folds a square of paper in silence. Corner to corner, crease by crease. Suddenly it has wings. He taught this plane to Dad thirty years ago, and today he is teaching it to me. Mine flies crooked, then straight, then right across the kitchen. Grandpa says the fold matters more than the throw."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.best_title.v6",
@@ -2613,33 +2381,25 @@ export const questions = [
    "Why Storms Happen": "D-TOPIC-ADJACENT",
    "The Chart Nobody Filled In": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
-  "resolvedImageAssetKey": "mountain",
-  "imageAlt": "Illustration for At first the new rain gauge seemed dull. A plastic tube, a ruler, an empty chart. But day by day the chart filled in. A dry week made a flat line. A stormy Tuesday shot the line up like a mountain. By the end of term, Class 3 could read their whole spring in one zigzag picture."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.best_title.v7",
@@ -2701,33 +2461,25 @@ export const questions = [
    "How Train Stations Are Built": "D-TOPIC-ADJACENT",
    "The Week the Busker Stayed Home": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/cheerful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/cheerful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/cheerful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/cheerful-01.webp",
-  "resolvedImageAssetKey": "cheerful",
-  "imageAlt": "Illustration for The escalator at the station broke on Monday, and a sign said SORRY. Some people sighed and took the stairs. A busker moved to the bottom step and played cheerful songs for the climbers. Strangers started counting the steps out loud together, laughing when they lost count. It was, everyone agreed, a strangely happy week."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.best_title.v8",
@@ -2789,33 +2541,25 @@ export const questions = [
    "How to Cook with Beans": "D-TOPIC-ADJACENT",
    "The Bank That Lost Its Seeds": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
-  "resolvedImageAssetKey": "pumpkin",
-  "imageAlt": "Illustration for Every seed in the seed bank sleeps in a silver packet. Wheat from one valley, beans from another, a pumpkin seed saved from a hundred years ago. If a flood or a fire ever destroys a crop, farmers can borrow its seeds and start again. The freezer hums quietly, keeping tomorrow's fields safe on its cold shelves."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v1",
@@ -2877,33 +2621,25 @@ export const questions = [
    "Sam stirred the pot": "D-DETAIL-AS-MAIN",
    "carrots were cut into little moons": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "three true details vs the point — the defining discrimination of this cell",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "resolvedImageAssetKey": "wonderful",
-  "imageAlt": "Illustration for The class made soup for the winter fair. Priya chopped carrots into little moons. Sam stirred so the bottom would not stick. Miss Lee added one secret spoonful of ginger. When the pot finally bubbled, the whole corridor smelled wonderful, and the soup sold out in twenty minutes."
+  "notes": "three true details vs the point — the defining discrimination of this cell"
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v2",
@@ -2965,33 +2701,25 @@ export const questions = [
    "a gap in a fence helps hedgehogs walk through": "D-DETAIL-AS-MAIN",
    "bonfires should be checked": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "resolvedImageAssetKey": "leaves",
-  "imageAlt": "Illustration for Hedgehogs need help in autumn. They look for a safe pile of leaves to sleep in all winter. People can leave a wild corner in the garden and check bonfires before lighting them. A small gap in the fence lets hedgehogs walk from garden to garden to find food."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v3",
@@ -3053,33 +2781,25 @@ export const questions = [
    "she kept the diary for a month": "D-DETAIL-AS-MAIN",
    "she drew with a silver pencil": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "resolvedImageAssetKey": "silver",
-  "imageAlt": "Illustration for Maya kept a moon diary for a month. On clear nights she drew the moon's shape in silver pencil. On cloudy nights she wrote 'hidden' in the box. Slowly her pages showed the moon growing round, then shrinking thin. Her diary turned a whole month of sky into one small story."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v4",
@@ -3141,33 +2861,25 @@ export const questions = [
    "the shelves change every week": "D-DETAIL-AS-MAIN",
    "people leave a book when they take one": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/smallest-01.webp",
-  "resolvedImageAssetKey": "smallest",
-  "imageAlt": "Illustration for The old phone box on Elm Street does not hold a phone any more. The town filled it with books instead. Anyone may take one home, as long as they leave another. The shelves change every week: cookbooks, comics, mysteries. The little red box is now the smallest library in town."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v5",
@@ -3229,33 +2941,25 @@ export const questions = [
    "potatoes are dug in autumn": "D-DETAIL-AS-MAIN",
    "kale stands in the frost": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/potato-potatoes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/potato-potatoes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/potato-potatoes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/potato-potatoes-01.webp",
-  "resolvedImageAssetKey": "potatoes",
-  "imageAlt": "Illustration for Dad's allotment gives us vegetables nearly all year. In spring we pull sweet little radishes. Summer brings beans that climb higher than me. In autumn we dig up potatoes like buried treasure. Even in winter there is kale, standing green in the frost."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.main_idea_vs_detail.v6",
@@ -3317,33 +3021,25 @@ export const questions = [
    "the long ladder unfolds to reach high windows": "D-DETAIL-AS-MAIN",
    "children sprayed a practice hose": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for The fire station opened its doors on Saturday. Children tried on helmets that wobbled on their heads. A firefighter showed how the long ladder unfolds to reach high windows. Everyone got to spray the practice hose at a target. By home time, half the visitors wanted the job one day."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.main_idea_vs_detail.v7",
@@ -3405,33 +3101,25 @@ export const questions = [
    "blades rest on still days": "D-DETAIL-AS-MAIN",
    "the blades look like pinwheels": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/church-churches-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/church-churches-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/church-churches-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/church-churches-01.webp",
-  "resolvedImageAssetKey": "church",
-  "imageAlt": "Illustration for A wind farm stands on the hill above our town. Each turbine is taller than the church tower. When the blades spin, they turn wind into electricity for hundreds of homes. On still days the blades rest, and on wild days they whirl like giant white pinwheels."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.main_idea_vs_detail.v8",
@@ -3493,33 +3181,25 @@ export const questions = [
    "flags were strung from lamp post to lamp post": "D-DETAIL-AS-MAIN",
    "the cake had one hundred candles": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for Our street planned a surprise for Mr Chen's hundredth birthday. Neighbours strung flags from lamp post to lamp post. The cafe baked a cake with exactly one hundred candles, which took three tries to light. Children painted a banner as long as a bus. When Mr Chen stepped outside, the whole street sang at once."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v1",
@@ -3581,33 +3261,25 @@ export const questions = [
    "Swimming pools hold lessons every Saturday.": "D-TOPIC-ADJACENT",
    "Leo decided swimming was not for him.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "resolvedImageAssetKey": "practice",
-  "imageAlt": "Illustration for Leo wanted to swim the whole length of the pool. At first he could only manage halfway before standing up, coughing. His coach gave him one tip each week: slower arms, bubbles out, long legs. Six Saturdays later, Leo touched the far wall for the first time and burst up grinning."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v2",
@@ -3669,33 +3341,25 @@ export const questions = [
    "Museums keep many kinds of old things.": "D-TOPIC-ADJACENT",
    "The dinosaur could never be put together.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "resolvedImageAssetKey": "dinosaur",
-  "imageAlt": "Illustration for The museum's dinosaur skeleton arrived in ninety-two boxes. For a month, visitors watched scientists fit bone to bone behind a glass wall. A neck as long as a slide rose slowly toward the ceiling. When the last tail bone clicked into place, the hall finally looked the way it did in the posters."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v3",
@@ -3757,33 +3421,25 @@ export const questions = [
    "Electricity comes into homes through wires.": "D-TOPIC-ADJACENT",
    "The family sat bored until the lights returned.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "resolvedImageAssetKey": "whole",
-  "imageAlt": "Illustration for When the power went out, the flat went quiet and dark. Mum found candles, and we ate supper by their small light. With no screens, Gran taught us a clapping game from when she was small. The lights blinked on at bedtime, but we asked to keep one candle burning anyway."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v4",
@@ -3845,33 +3501,25 @@ export const questions = [
    "Nadia found nothing in the empty pool.": "D-OPPOSITE",
    "A crab came out from under a stone.": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "resolvedImageAssetKey": "quietly",
-  "imageAlt": "Illustration for The tide pool looked empty at first. Then Nadia crouched still and waited. A crab sidled out from under a stone. A blob on the rock turned out to be an anemone, waving tiny arms. The longer she stayed still, the more the pool came alive around her."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v5",
@@ -3933,33 +3581,25 @@ export const questions = [
    "Machines do many jobs in houses.": "D-TOPIC-ADJACENT",
    "Robot vacuums work best in messy rooms.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/chair-chairs-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/chair-chairs-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/chair-chairs-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/chair-chairs-01.webp",
-  "resolvedImageAssetKey": "chairs",
-  "imageAlt": "Illustration for Robots vacuum some homes now, but they need help to do it well. Cables must be lifted off the floor, or the robot eats them. Chairs become fences that trap it in corners. One sock can end the whole clean. Tidy first, the instructions say, and the robot will do the rest."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.C.summary_choice.v6",
@@ -4021,33 +3661,25 @@ export const questions = [
    "The islanders ignore the ferry completely.": "D-OPPOSITE",
    "The ferry carries crates at noon.": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for The ferry crosses the bay eight times a day. Islanders set their clocks by its horn. It carries schoolchildren in the morning, shopping crates at noon, and tired workers at dusk. In storms it stays tied to the dock, and the whole island seems to hold its breath until it sails again."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.A.summary_choice.v7",
@@ -4109,33 +3741,25 @@ export const questions = [
    "The bathroom had a wonderful echo.": "D-DETAIL-AS-MAIN",
    "Trumpets are brass instruments.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "resolvedImageAssetKey": "wonderful",
-  "imageAlt": "Illustration for Amir's baby sister cried every time he practised trumpet. He tried playing in the garden, but the neighbours leaned out of windows. He tried the bathroom, where the echo was wonderful but the space was not. In the end, the wardrobe full of winter coats swallowed the sound perfectly, and everyone was happy."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.B.summary_choice.v8",
@@ -4197,33 +3821,25 @@ export const questions = [
    "A whale was painted above a door.": "D-DETAIL-AS-MAIN",
    "Artists use many colours of paint.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "resolvedImageAssetKey": "slowly",
-  "imageAlt": "Illustration for The street mural began as one painted door. The artist added a whale above it the next week, then waves along three more houses. Neighbours started leaving paint tins by their walls as an invitation. By summer, the grey street had become a sea scene that visitors crossed town to photograph."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v9r",
@@ -4285,33 +3901,25 @@ export const questions = [
    "a brother sent out of the room": "D-OPPOSITE",
    "blocks rolling everywhere": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for Bo built a tower of blocks taller than the table. His baby brother reached out one finger. Crash! Blocks rolled everywhere. Bo took a big breath. Then he handed his brother two blocks and they started a new tower together."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v10r",
@@ -4373,33 +3981,25 @@ export const questions = [
    "a kite lost in a tree": "D-PLAUSIBLE-UNSUPPORTED",
    "a tail made from a scarf": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "resolvedImageAssetKey": "story",
-  "imageAlt": "Illustration for Nia's kite would not fly. It flopped on the grass like a tired fish. Grandad tied on a longer tail made from his old scarf. The next gust lifted the kite high over the hill, and Nia ran laughing beneath it."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v9r",
@@ -4461,33 +4061,25 @@ export const questions = [
    "every toy in the toy box": "D-TOPIC-ADJACENT",
    "magnets that pull everything": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/spoon-spoons-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/spoon-spoons-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/spoon-spoons-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/spoon-spoons-01.webp",
-  "resolvedImageAssetKey": "spoons",
-  "imageAlt": "Illustration for A magnet does not pull everything. It grabs paper clips, keys, and the fridge door. It ignores plastic bricks, wooden spoons, and glass marbles. Magnets only pull some metals. That is why one side of your toy sticks and the other side slides off."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v10r",
@@ -4549,33 +4141,25 @@ export const questions = [
    "all the creatures in a garden": "D-TOPIC-ADJACENT",
    "why scraps must go to the tip": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "resolvedImageAssetKey": "leaves",
-  "imageAlt": "Illustration for Compost turns old scraps into new soil. Peelings, leaves, and eggshells go into the bin. Tiny creatures chew them up for months. Slowly the scraps turn dark and crumbly. Gardeners spread this new soil to feed their plants."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v9r",
@@ -4637,33 +4221,25 @@ export const questions = [
    "a tank with stripy fish": "D-DETAIL-AS-MAIN",
    "how teeth grow": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for The dentist's waiting room has a fish tank and a box of old comics. Ben watches the stripy fish glide while Mum reads. A buzzer sounds, a nurse smiles round the door, and it is Ben's turn to hop into the big moving chair."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_everyday.v10r",
@@ -4725,33 +4301,25 @@ export const questions = [
    "recipes from around the world": "D-TOPIC-ADJACENT",
    "a quiet dinner eaten alone": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_everyday-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for On Sunday the whole flat smells of coconut rice. Aunty stirs the big silver pot. Cousins squeeze around the small table, elbow to elbow. There is always one more chair, one more plate, one more story before the food is gone."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_fiction.v11r",
@@ -4813,33 +4381,25 @@ export const questions = [
    "seed shells by the library": "D-DETAIL-AS-MAIN",
    "how to care for small pets": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_fiction-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for The classroom hamster escaped on Friday. All weekend he was loose in the school. On Monday the children followed a trail of seed shells past the library. They found him asleep in the lost-property box, curled inside a woolly hat."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l1.R.mostly_about_info.v11r",
@@ -4901,33 +4461,25 @@ export const questions = [
    "every animal in the sea": "D-TOPIC-ADJACENT",
    "pools the sea never touches": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l1-mostly_about_info-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Rock pools change twice a day. When the tide is out, the pools sit still in the sun, and you can peer in. When the tide rolls back, the sea covers everything, bringing fresh water and food. The creatures in the pool live by this in-and-out clock."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v9r",
@@ -4989,33 +4541,25 @@ export const questions = [
    "A Baker Dusted in Flour": "D-DETAIL-AS-MAIN",
    "How Buses Are Driven": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "resolvedImageAssetKey": "sleepy",
-  "imageAlt": "Illustration for The night bus is a different world. Streetlights slide across sleepy faces. A nurse heads to her shift; a baker heads home, dusted in flour. The driver knows the regulars by name and waits an extra breath at every stop, because nobody should run at midnight."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v10r",
@@ -5077,33 +4621,25 @@ export const questions = [
    "Forests and Their Trees": "D-TOPIC-ADJACENT",
    "The Fire That Never Lit": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for The campfire needed three tries. The first pile of sticks was too wet. The second caught, then sulked into smoke. For the third try, Sana peeled dry bark shavings, stacked the sticks like a little tent, and shielded the match with her hand. The flame climbed, crackled, and settled in for the evening."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v9r",
@@ -5165,33 +4701,25 @@ export const questions = [
    "they scream over town in late summer": "D-DETAIL-AS-MAIN",
    "chicks may not land for two years": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/bird-birds-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/bird-birds-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/bird-birds-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/bird-birds-01.webp",
-  "resolvedImageAssetKey": "birds",
-  "imageAlt": "Illustration for Swifts are astonishing birds. They eat while flying and even sleep on the wing. Their nests are tucked under roofs, and when the chicks leave, they may not land again for two whole years. In late summer the sky over town fills with their screaming, swooping games."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.main_idea_vs_detail.v10r",
@@ -5253,33 +4781,25 @@ export const questions = [
    "it happens in the hall": "D-DETAIL-AS-MAIN",
    "some jackets have stuck zips": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-main_idea_vs_detail-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/people.webp",
-  "imageUrl": "/images/assessment/generated/concepts/people.webp",
-  "targetImage": "/images/assessment/generated/concepts/people.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/people.webp",
-  "resolvedImageAssetKey": "people",
-  "imageAlt": "Illustration for The repair cafe opens in the hall on the first Saturday of the month. People bring broken toasters, wobbly chairs, and jackets with stuck zips. Volunteers with toolboxes sit at long tables and mend things for free, explaining as they go. Most visitors leave with their things working and a new trick learned."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v9r",
@@ -5341,33 +4861,25 @@ export const questions = [
    "The twins gave up after the wave.": "D-OPPOSITE",
    "A wave stole the castle gate.": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
-  "imageAlt": "Illustration for The twins entered the sandcastle contest with a plan. Ria dug the moat while Rafi packed the towers. Halfway through, a wave stole their gate. They rebuilt it farther up the beach, faster this time. Their castle did not win first prize, but the judges gave it a ribbon for Best Teamwork."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v10r",
@@ -5429,33 +4941,25 @@ export const questions = [
    "The street took every sticker down.": "D-OPPOSITE",
    "A paper owl was stuck in the bookshop window.": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "window",
-  "imageAlt": "Illustration for Every window on Wren Street has a different bird sticker, because of one shop. The bookshop owner noticed birds bumping the big clear glass. She stuck a paper owl in the window, and the bumping stopped. She printed spare stickers, left them in a basket by the till, and week by week the whole street joined in."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.best_title.v11r",
@@ -5517,33 +5021,25 @@ export const questions = [
    "How Sound Travels": "D-TOPIC-ADJACENT",
    "The Radio They Threw Away": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-best_title-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/radio-radios-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/radio-radios-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/radio-radios-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/radio-radios-01.webp",
-  "resolvedImageAssetKey": "radio",
-  "imageAlt": "Illustration for Dad's old radio only played crackles until Amal turned the dial a hair at a time. A voice swam up out of the fuzz, then music, clear as water. Now the radio lives on the windowsill, and every breakfast starts with Amal's steady hand finding the station again."
+  "notes": ""
  },
  {
   "id": "lp3.main_idea.l2.R.summary_choice.v11r",
@@ -5605,32 +5101,24 @@ export const questions = [
    "Class 1 pressed juice with a hand press.": "D-DETAIL-AS-MAIN",
    "Apple trees blossom in the spring.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "main_idea-l2-summary_choice-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/main_idea.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
-  "imageAlt": "Illustration for The school's old apple tree gives more fruit than anyone can eat. This year the cook dried rings of apple for snack time. Class 1 pressed juice with a squeaky hand press. The rest went in crates by the gate with a sign saying HELP YOURSELF, and by Friday every crate was empty."
+  "notes": ""
  }
 ];

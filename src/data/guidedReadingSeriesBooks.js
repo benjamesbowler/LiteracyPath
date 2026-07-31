@@ -191,7 +191,7 @@ const createAidenAndBettyBook = ({
   bookNumber,
   order: bookNumber,
   author: "Nora Bell",
-  illustrator: "Kimi",
+  illustrator: "LiteracyPath Studio",
   status: "approved",
   qaStatus: "approved",
   qaNotes: "Reviewed fiction book released for student Guided Reading.",

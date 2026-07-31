@@ -57,7 +57,7 @@ audio alternatives, motion behavior, or supported assistive technology changes.
    accounts, and non-production data.
 2. Confirm local legal, school, safeguarding, consent, assent, privacy, and
    recording decisions before involving a child.
-3. Run the unexecuted template in `docs/release/EXTERNAL.md`; do not mark a mode
+3. Run the unexecuted template in the current release issue; do not mark a mode
    complete from an automated result.
 4. Record direct observation and task outcome, not inferred emotion or a
    facilitator’s workaround.

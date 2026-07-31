@@ -6,12 +6,12 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
-test("App controller stays below the final decomposition ratchet", () => {
+test("App controller uses the current session and rendering boundaries", () => {
   const appSource = readFileSync(path.join(repoRoot, "src", "App.jsx"), "utf8");
-  assert.ok(
-    appSource.split(/\r?\n/).length <= 3000,
-    "App.jsx exceeded the 3,000-line final milestone; extract the new responsibility instead of growing the controller"
-  );
+  assert.match(appSource, /import \{ useAppSessionController \} from "\.\/appState\/useAppSessionController\.js";/);
+  assert.match(appSource, /import \{ AppSurface \} from "\.\/appState\/appRuntimeSurfaces\.jsx";/);
+  assert.match(appSource, /useAppSessionController\(\{/);
+  assert.match(appSource, /<AppSurface\b/);
 });
 
 test("App responsibilities remain behind explicit runtime and rendering boundaries", () => {

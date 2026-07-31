@@ -484,7 +484,7 @@ test("individual benchmark reporting preserves domain-specific evidence without 
   }), /Mastered|Developing|Needs Support/);
 });
 
-test("A1 and A2 retain provenance while unscored evidence never becomes failure", async () => {
+test("A1 and A2 report the latest scored observation as Yes or No while unscored evidence stays blank", async () => {
   const provenance = {
     studentId: student.id,
     studentName: student.name,
@@ -530,21 +530,21 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const individual = buildIndividualElFormalAssessmentReport({ student, assessmentHistory: history });
   const letterA = individual.individualLetterMatrix.find(row => row.letter === "a");
-  assert.equal(letterA.uppercaseName.statusLabel, "Not enough results");
-  assert.equal(letterA.uppercaseSound.statusLabel, "Unscored results");
+  assert.equal(letterA.uppercaseName.statusLabel, "Yes");
+  assert.equal(letterA.uppercaseSound.statusLabel, "");
   assert.equal(letterA.uppercaseSound.attempts, 0);
   assert.equal(letterA.uppercaseSound.incorrect, 0);
   assert.equal(letterA.uppercaseSound.accuracy, null);
   assert.equal(letterA.uppercaseSound.details[0].isCorrect, null);
-  assert.equal(letterA.lowercaseName.statusLabel, "Unscored results");
-  assert.equal(letterA.lowercaseSound.statusLabel, "Unscored results");
+  assert.equal(letterA.lowercaseName.statusLabel, "");
+  assert.equal(letterA.lowercaseSound.statusLabel, "");
   assert.equal(letterA.uppercaseSound.details[0].attemptId, "letter-provenance-attempt");
   assert.equal(letterA.uppercaseSound.details[0].formVersion, provenance.formVersion);
   assert.equal(letterA.uppercaseSound.details[0].responseSchemaVersion, 7);
 
   ["sh", "ch", "th"].forEach(pattern => {
     const row = individual.individualAdvancedPhonicsMatrix.find(item => item.pattern === pattern);
-    assert.equal(row.statusLabel, "Unscored results");
+    assert.equal(row.statusLabel, "");
     assert.equal(row.attempts, 0);
     assert.equal(row.incorrect, 0);
     assert.equal(row.accuracy, null);
@@ -574,7 +574,8 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
   const studentWorkbook = await createStudentElAssessmentWorkbook(studentReport);
   const letterRows = worksheetRows(studentWorkbook.getWorksheet("Letter Names & Sounds"));
   const exportedA = letterRows.find(row => row["Letter pair"] === "A/a");
-  assert.equal(exportedA["Uppercase sound result"], "Unscored results");
+  assert.equal(exportedA["Uppercase name result"], "Yes");
+  assert.equal(exportedA["Uppercase sound result"], "");
   assert.equal(exportedA["Uppercase sound attempts"], 0);
   assert.match(exportedA["Uppercase sound evidence provenance"], /letter-provenance-attempt/);
   assert.match(exportedA["Uppercase sound evidence provenance"], /a12-form-v3/);
@@ -583,7 +584,7 @@ test("A1 and A2 retain provenance while unscored evidence never becomes failure"
 
   const advancedRows = worksheetRows(studentWorkbook.getWorksheet("Advanced Phonics Patterns"));
   const exportedSh = advancedRows.find(row => row.Pattern === "sh");
-  assert.equal(exportedSh.Status, "Unscored results");
+  assert.equal(exportedSh.Status, "");
   assert.equal(exportedSh.Accuracy, "");
   assert.match(exportedSh["Evidence provenance"], /advanced-provenance-attempt/);
   assert.match(exportedSh["Evidence provenance"], /Result: Not scored/);

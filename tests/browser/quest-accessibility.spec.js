@@ -1,7 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { mkdirSync } from "node:fs";
 
 const PREVIEW = "/preview/quest.html?sound=0&creature=showcase&adapt=0";
+mkdirSync(".artifacts/quest-release", { recursive: true });
 
 async function expectNoHorizontalOverflow(page) {
   const dimensions = await page.evaluate(() => ({
@@ -210,7 +212,7 @@ test("Forge sorting keeps its machine, cast, and moving answers in separate safe
   await expect(page.getByRole("button", { name: "3. a" })).toBeVisible();
   await page.waitForTimeout(3200);
   expect(await page.evaluate(() => window.__questFeedbackSeen)).toEqual([]);
-  await verifyLayout("docs/previews/quest-release/forge-sorting-desktop.png");
+  await verifyLayout(".artifacts/quest-release/forge-sorting-desktop.png");
   await page.getByRole("button", { name: "3. a" }).press("Enter");
   await expect(page.getByText("Tip it into the hopper", { exact: true })).toBeVisible();
 
@@ -219,7 +221,7 @@ test("Forge sorting keeps its machine, cast, and moving answers in separate safe
   await expect(page.getByRole("button", { name: "3. a" })).toBeVisible();
   await page.waitForTimeout(3200);
   expect(await page.evaluate(() => window.__questFeedbackSeen)).toEqual([]);
-  await verifyLayout("docs/previews/quest-release/forge-sorting-phone.png");
+  await verifyLayout(".artifacts/quest-release/forge-sorting-phone.png");
   const tallyContainsText = await page.locator(".qp-tally").evaluate(element => (
     element.scrollWidth <= element.clientWidth
     && [...element.querySelectorAll("span, small")].every(child => child.scrollWidth <= child.clientWidth)
@@ -1252,7 +1254,7 @@ test("the customised Beastie has a distinct authored pose for every quest action
   expect(report.actions.every(action => action.occupied > 220)).toBe(true);
   expect(report.actions.every(action => action.differenceFromIdle > 80)).toBe(true);
   await page.locator("#beastie-action-atlas").screenshot({
-    path: "docs/previews/quest-release/beastie-action-atlas.png"
+    path: ".artifacts/quest-release/beastie-action-atlas.png"
   });
 });
 
@@ -1273,7 +1275,7 @@ test("the mobile release surface keeps the Den and settings child-reachable", as
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  await page.screenshot({ path: "docs/previews/quest-release/mobile-den-settings.png" });
+  await page.screenshot({ path: ".artifacts/quest-release/mobile-den-settings.png" });
 });
 
 test("the mobile release surface keeps creature creation child-reachable", async ({ page }) => {
@@ -1286,7 +1288,7 @@ test("the mobile release surface keeps creature creation child-reachable", async
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  await page.screenshot({ path: "docs/previews/quest-release/mobile-creature-creator.png" });
+  await page.screenshot({ path: ".artifacts/quest-release/mobile-creature-creator.png" });
 });
 
 test("the mobile release surface keeps the chapter map child-reachable", async ({ page }) => {
@@ -1299,7 +1301,7 @@ test("the mobile release surface keeps the chapter map child-reachable", async (
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  await page.screenshot({ path: "docs/previews/quest-release/mobile-trail-map.png" });
+  await page.screenshot({ path: ".artifacts/quest-release/mobile-trail-map.png" });
 });
 
 test("the mobile release surface keeps the Trading Post child-reachable", async ({ page }) => {
@@ -1312,7 +1314,7 @@ test("the mobile release surface keeps the Trading Post child-reachable", async 
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  await page.screenshot({ path: "docs/previews/quest-release/mobile-trading-post.png" });
+  await page.screenshot({ path: ".artifacts/quest-release/mobile-trading-post.png" });
 });
 
 test("the mobile release surface keeps the chapter ceremony child-reachable", async ({ page }) => {
@@ -1325,5 +1327,5 @@ test("the mobile release surface keeps the chapter ceremony child-reachable", as
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  await page.screenshot({ path: "docs/previews/quest-release/mobile-chapter-ceremony.png" });
+  await page.screenshot({ path: ".artifacts/quest-release/mobile-chapter-ceremony.png" });
 });

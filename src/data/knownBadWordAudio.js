@@ -2,7 +2,7 @@
 // former entries (am, ax, of) now have approved Leda replacements.
 //
 // TO REMOVE AN ENTRY: import the good recording to every path listed in
-// docs/KIMI_SHORT_WORD_AUDIO_RERECORD.md, listen-check it,
+// the current production replacement, listen-check it,
 // then delete the word here.
 export const KNOWN_BAD_WORD_AUDIO = new Set();
 

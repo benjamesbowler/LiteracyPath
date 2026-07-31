@@ -168,7 +168,7 @@ const LANDMARKS = [
   "Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard",
   "Wildflower Field", "Sheep Pen", "Strawberry Field", "Haystacks", "The Big Barn"
 ];
-// Benjamin's own Meadow Farm placements, click-to-placed with the Map Stops
+// Current Meadow Farm placements, set with the Map Stops
 // editor and copied here from DEFAULT_WIDE_MAP_POINTS. A fixture, not a source
 // of truth: the screen passes the real list (admin override applied) in, and
 // "the map is drawn on the admin's placements" below checks it still matches.
@@ -268,7 +268,7 @@ test("the map never runs off either end of the land", () => {
   assert.equal(atEnd.cards.at(-1).id, "cycle-9");
 });
 
-// THE COORDINATES ARE THE PRODUCT OWNER'S, NOT A DESIGNER'S. Benjamin placed
+// THE COORDINATES ARE THE CURRENT AUTHORED PRODUCT POSITIONS.
 // all twenty-seven with the click-to-place Map Stops editor, and the front door
 // has to read them through the SAME override plumbing the Skills Quest uses —
 // otherwise an admin drags a stop onto the barn and only one of the two screens

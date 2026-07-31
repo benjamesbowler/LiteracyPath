@@ -13,7 +13,7 @@ import {
 test("known words upgrade to the Leda production recording", () => {
   for (const w of ["cat", "dog", "sun", "pig"]) {
     const resolved = getPreferredAudioPath(w, `/audio/child-mode/words/${w}.mp3`);
-    assert.match(resolved, new RegExp(`^/audio/production/en-US/isolated_word/${w}-`));
+    assert.match(resolved, new RegExp(`^/audio/production/en-US/(?:isolated_word|supplemental)/${w}-`));
   }
 });
 

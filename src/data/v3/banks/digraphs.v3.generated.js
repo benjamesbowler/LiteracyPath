@@ -70,14 +70,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "whale ties the which/ch letter overlap so print scanning cannot win",
   "imageCards": [
@@ -188,14 +187,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -308,14 +306,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "chain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "chain: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/chain.webp",
@@ -323,7 +320,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/chain.webp",
   "targetImagePath": "/images/assessment/digraphs/chain.webp",
   "resolvedImageAssetKey": "chain",
-  "imageAlt": "Finish the word: __ain"
+  "imageAlt": "chain"
  },
  {
   "id": "lp3.digraphs.l1.A.ch.v4",
@@ -396,14 +393,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cherry",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cherry: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/cherry.webp",
@@ -411,7 +407,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/cherry.webp",
   "targetImagePath": "/images/assessment/digraphs/cherry.webp",
   "resolvedImageAssetKey": "cherry",
-  "imageAlt": "Finish the word: __erry"
+  "imageAlt": "cherry"
  },
  {
   "id": "lp3.digraphs.l2.A.ch.v1",
@@ -484,14 +480,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bench",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bench: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/bench.webp",
@@ -499,7 +494,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/bench.webp",
   "targetImagePath": "/images/assessment/digraphs/bench.webp",
   "resolvedImageAssetKey": "bench",
-  "imageAlt": "Finish the word: ben__"
+  "imageAlt": "bench"
  },
  {
   "id": "lp3.digraphs.l2.B.ch.v2",
@@ -572,14 +567,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "watch",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "watch: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/watch.webp",
@@ -587,7 +581,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/watch.webp",
   "targetImagePath": "/images/assessment/digraphs/watch.webp",
   "resolvedImageAssetKey": "watch",
-  "imageAlt": "Finish the word: wat__"
+  "imageAlt": "watch"
  },
  {
   "id": "lp3.digraphs.l2.C.ch.v3",
@@ -658,14 +652,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wheel ties the which-overlap; moth/sock are rival final sounds",
   "imageCards": [
@@ -776,14 +769,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -894,14 +886,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "chick is the scanner decoy: its letters overlap 'which' more than the key does",
   "imageCards": [
@@ -1012,14 +1003,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1132,14 +1122,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ship",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ship: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/ship.webp",
@@ -1147,7 +1136,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/ship.webp",
   "targetImagePath": "/images/assessment/digraphs/ship.webp",
   "resolvedImageAssetKey": "ship",
-  "imageAlt": "Finish the word: __ip"
+  "imageAlt": "ship"
  },
  {
   "id": "lp3.digraphs.l1.A.sh.v4",
@@ -1220,14 +1209,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shirt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "shirt: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/shirt.webp",
@@ -1235,7 +1223,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shirt.webp",
   "targetImagePath": "/images/assessment/digraphs/shirt.webp",
   "resolvedImageAssetKey": "shirt",
-  "imageAlt": "Finish the word: __irt"
+  "imageAlt": "shirt"
  },
  {
   "id": "lp3.digraphs.l2.A.sh.v1",
@@ -1308,14 +1296,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fish",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fish: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/fish.webp",
@@ -1323,7 +1310,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/fish.webp",
   "targetImagePath": "/images/assessment/digraphs/fish.webp",
   "resolvedImageAssetKey": "fish",
-  "imageAlt": "Finish the word: fi__"
+  "imageAlt": "fish"
  },
  {
   "id": "lp3.digraphs.l2.B.sh.v2",
@@ -1396,14 +1383,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brush",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "brush: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/brush.webp",
@@ -1411,7 +1397,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
   "resolvedImageAssetKey": "brush",
-  "imageAlt": "Finish the word: bru__"
+  "imageAlt": "brush"
  },
  {
   "id": "lp3.digraphs.l2.C.sh.v3",
@@ -1482,14 +1468,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1600,14 +1585,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1718,14 +1702,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tooth STARTS with t — th is at its end, the classic position error",
   "imageCards": [
@@ -1836,14 +1819,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1956,14 +1938,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "thumb",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "thumb: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/thumb.webp",
@@ -1971,7 +1952,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/thumb.webp",
   "targetImagePath": "/images/assessment/digraphs/thumb.webp",
   "resolvedImageAssetKey": "thumb",
-  "imageAlt": "Finish the word: __umb"
+  "imageAlt": "thumb"
  },
  {
   "id": "lp3.digraphs.l1.A.th.v4",
@@ -2044,14 +2025,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "thorn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "thorn: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/thorn.webp",
@@ -2059,7 +2039,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/thorn.webp",
   "targetImagePath": "/images/assessment/digraphs/thorn.webp",
   "resolvedImageAssetKey": "thorn",
-  "imageAlt": "Finish the word: __orn"
+  "imageAlt": "thorn"
  },
  {
   "id": "lp3.digraphs.l2.A.th.v1",
@@ -2132,14 +2112,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tooth",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tooth: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/tooth.webp",
@@ -2147,7 +2126,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/tooth.webp",
   "targetImagePath": "/images/assessment/digraphs/tooth.webp",
   "resolvedImageAssetKey": "tooth",
-  "imageAlt": "Finish the word: too__"
+  "imageAlt": "tooth"
  },
  {
   "id": "lp3.digraphs.l2.B.th.v2",
@@ -2220,14 +2199,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bath",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bath: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/bath.webp",
@@ -2235,7 +2213,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/bath.webp",
   "targetImagePath": "/images/assessment/digraphs/bath.webp",
   "resolvedImageAssetKey": "bath",
-  "imageAlt": "Finish the word: ba__"
+  "imageAlt": "bath"
  },
  {
   "id": "lp3.digraphs.l2.C.th.v3",
@@ -2306,14 +2284,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2424,14 +2401,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2542,14 +2518,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2660,14 +2635,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2780,14 +2754,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "wheel",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wheel: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/wheel.webp",
@@ -2795,7 +2768,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/wheel.webp",
   "targetImagePath": "/images/assessment/digraphs/wheel.webp",
   "resolvedImageAssetKey": "wheel",
-  "imageAlt": "Finish the word: __eel"
+  "imageAlt": "wheel"
  },
  {
   "id": "lp3.digraphs.l1.A.wh.v4",
@@ -2868,14 +2841,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "whistle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "whistle: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/whistle.webp",
@@ -2883,7 +2855,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/whistle.webp",
   "targetImagePath": "/images/assessment/digraphs/whistle.webp",
   "resolvedImageAssetKey": "whistle",
-  "imageAlt": "Finish the word: __istle"
+  "imageAlt": "whistle"
  },
  {
   "id": "lp3.digraphs.l2.A.wh.v1",
@@ -2956,14 +2928,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "wheelbarrow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wheelbarrow: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/wheelbarrow.webp",
@@ -2971,7 +2942,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/wheelbarrow.webp",
   "targetImagePath": "/images/assessment/digraphs/wheelbarrow.webp",
   "resolvedImageAssetKey": "wheelbarrow",
-  "imageAlt": "Finish the word: __eelbarrow"
+  "imageAlt": "wheelbarrow"
  },
  {
   "id": "lp3.digraphs.l2.B.wh.v2",
@@ -3044,14 +3015,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "whisker",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "whisker: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/whisker.webp",
@@ -3059,7 +3029,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/whisker.webp",
   "targetImagePath": "/images/assessment/digraphs/whisker.webp",
   "resolvedImageAssetKey": "whisker",
-  "imageAlt": "Finish the word: __isker"
+  "imageAlt": "whisker"
  },
  {
   "id": "lp3.digraphs.l2.C.wh.v3",
@@ -3130,14 +3100,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3248,14 +3217,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "prompt avoids 'which' so no card outruns the anchor overlap",
   "imageCards": [
@@ -3366,14 +3334,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3484,14 +3451,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3604,14 +3570,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "phone",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "phone: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/phone.webp",
@@ -3619,7 +3584,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/phone.webp",
   "targetImagePath": "/images/assessment/digraphs/phone.webp",
   "resolvedImageAssetKey": "phone",
-  "imageAlt": "Finish the word: __one"
+  "imageAlt": "phone"
  },
  {
   "id": "lp3.digraphs.l1.A.ph.v4",
@@ -3692,14 +3657,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "photo",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "photo: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/photo.webp",
@@ -3707,7 +3671,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/photo.webp",
   "targetImagePath": "/images/assessment/digraphs/photo.webp",
   "resolvedImageAssetKey": "photo",
-  "imageAlt": "Finish the word: __oto"
+  "imageAlt": "photo"
  },
  {
   "id": "lp3.digraphs.l2.A.ph.v1",
@@ -3780,14 +3744,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dolphin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "dolphin: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/dolphin.webp",
@@ -3795,7 +3758,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/dolphin.webp",
   "targetImagePath": "/images/assessment/digraphs/dolphin.webp",
   "resolvedImageAssetKey": "dolphin",
-  "imageAlt": "Finish the word: dol__in"
+  "imageAlt": "dolphin"
  },
  {
   "id": "lp3.digraphs.l2.B.ph.v2",
@@ -3868,14 +3831,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "elephant",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "elephant: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/elephant.webp",
@@ -3883,7 +3845,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/elephant.webp",
   "targetImagePath": "/images/assessment/digraphs/elephant.webp",
   "resolvedImageAssetKey": "elephant",
-  "imageAlt": "Finish the word: ele__ant"
+  "imageAlt": "elephant"
  },
  {
   "id": "lp3.digraphs.l2.C.ph.v3",
@@ -3956,14 +3918,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "graph",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "graph is the rare real final-ph child word — bonus final exposure for an exempt unit",
   "imagePath": "/images/assessment/digraphs/graph.webp",
@@ -3971,7 +3932,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/graph.webp",
   "targetImagePath": "/images/assessment/digraphs/graph.webp",
   "resolvedImageAssetKey": "graph",
-  "imageAlt": "Finish the word: gra__"
+  "imageAlt": "graph"
  },
  {
   "id": "lp3.digraphs.l2.A.ph.v4",
@@ -4042,14 +4003,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4162,14 +4122,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "duck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "duck: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/duck.webp",
@@ -4177,7 +4136,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
   "resolvedImageAssetKey": "duck",
-  "imageAlt": "Finish the word: du__"
+  "imageAlt": "duck"
  },
  {
   "id": "lp3.digraphs.l1.B.ck.v2",
@@ -4250,14 +4209,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "sock: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -4265,7 +4223,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Finish the word: so__"
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.digraphs.l1.C.ck.v3",
@@ -4336,14 +4294,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "chip ties the which-overlap; -ock keys are avoided when the anchor is -ock",
   "imageCards": [
@@ -4454,14 +4411,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4574,14 +4530,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "brick: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/brick.webp",
@@ -4589,7 +4544,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
   "resolvedImageAssetKey": "brick",
-  "imageAlt": "Finish the word: bri__"
+  "imageAlt": "brick"
  },
  {
   "id": "lp3.digraphs.l2.B.ck.v2",
@@ -4662,14 +4617,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "clock: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/clock.webp",
@@ -4677,7 +4631,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
   "resolvedImageAssetKey": "clock",
-  "imageAlt": "Finish the word: clo__"
+  "imageAlt": "clock"
  },
  {
   "id": "lp3.digraphs.l2.C.ck.v3",
@@ -4750,14 +4704,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "neck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "neck: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/neck.webp",
@@ -4765,7 +4718,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/neck.webp",
   "targetImagePath": "/images/assessment/digraphs/neck.webp",
   "resolvedImageAssetKey": "neck",
-  "imageAlt": "Finish the word: ne__"
+  "imageAlt": "neck"
  },
  {
   "id": "lp3.digraphs.l2.A.ck.v4",
@@ -4836,14 +4789,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4956,14 +4908,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "chip",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "same blank as ship's item, different picture — a true minimal pair across sittings",
   "imagePath": "/images/assessment/digraphs/chip.webp",
@@ -4971,7 +4922,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/chip.webp",
   "targetImagePath": "/images/assessment/digraphs/chip.webp",
   "resolvedImageAssetKey": "chip",
-  "imageAlt": "Finish the word: __ip"
+  "imageAlt": "chip"
  },
  {
   "id": "lp3.digraphs.l2.R.ch.v8r",
@@ -5044,14 +4995,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lunch",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "lunch: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/lunch.webp",
@@ -5059,7 +5009,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/lunch.webp",
   "targetImagePath": "/images/assessment/digraphs/lunch.webp",
   "resolvedImageAssetKey": "lunch",
-  "imageAlt": "Finish the word: lun__"
+  "imageAlt": "lunch"
  },
  {
   "id": "lp3.digraphs.l1.R.sh.v7r",
@@ -5130,14 +5080,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5250,14 +5199,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dish",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "dish: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/dish.webp",
@@ -5265,7 +5213,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/dish.webp",
   "targetImagePath": "/images/assessment/digraphs/dish.webp",
   "resolvedImageAssetKey": "dish",
-  "imageAlt": "Finish the word: di__"
+  "imageAlt": "dish"
  },
  {
   "id": "lp3.digraphs.l1.R.th.v7r",
@@ -5338,14 +5286,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "three",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "three: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/three.webp",
@@ -5353,7 +5300,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/three.webp",
   "targetImagePath": "/images/assessment/digraphs/three.webp",
   "resolvedImageAssetKey": "three",
-  "imageAlt": "Finish the word: __ree"
+  "imageAlt": "three"
  },
  {
   "id": "lp3.digraphs.l2.R.th.v8r",
@@ -5426,14 +5373,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "moth",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "moth: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/moth.webp",
@@ -5441,7 +5387,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/moth.webp",
   "targetImagePath": "/images/assessment/digraphs/moth.webp",
   "resolvedImageAssetKey": "moth",
-  "imageAlt": "Finish the word: mo__"
+  "imageAlt": "moth"
  },
  {
   "id": "lp3.digraphs.l1.R.wh.v7r",
@@ -5514,14 +5460,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "wheat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wheat: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/wheat.webp",
@@ -5529,7 +5474,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/wheat.webp",
   "targetImagePath": "/images/assessment/digraphs/wheat.webp",
   "resolvedImageAssetKey": "wheat",
-  "imageAlt": "Finish the word: __eat"
+  "imageAlt": "wheat"
  },
  {
   "id": "lp3.digraphs.l2.R.wh.v8r",
@@ -5600,14 +5545,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5720,14 +5664,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "headphones",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "headphones: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/headphones.webp",
@@ -5735,7 +5678,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/headphones.webp",
   "targetImagePath": "/images/assessment/digraphs/headphones.webp",
   "resolvedImageAssetKey": "headphones",
-  "imageAlt": "Finish the word: head__ones"
+  "imageAlt": "headphones"
  },
  {
   "id": "lp3.digraphs.l2.R.ph.v8r",
@@ -5808,14 +5751,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "microphone",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "microphone: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/microphone.webp",
@@ -5823,7 +5765,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/microphone.webp",
   "targetImagePath": "/images/assessment/digraphs/microphone.webp",
   "resolvedImageAssetKey": "microphone",
-  "imageAlt": "Finish the word: micro__one"
+  "imageAlt": "microphone"
  },
  {
   "id": "lp3.digraphs.l1.R.ck.v7r",
@@ -5896,14 +5838,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "truck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "truck: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/truck.webp",
@@ -5911,7 +5852,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/truck.webp",
   "targetImagePath": "/images/assessment/digraphs/truck.webp",
   "resolvedImageAssetKey": "truck",
-  "imageAlt": "Finish the word: tru__"
+  "imageAlt": "truck"
  },
  {
   "id": "lp3.digraphs.l2.R.ck.v8r",
@@ -5984,14 +5925,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "stick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/digraphs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "stick: the blank hides the digraph, so nothing leaks in print",
   "imagePath": "/images/assessment/digraphs/stick.webp",
@@ -5999,6 +5939,6 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/stick.webp",
   "targetImagePath": "/images/assessment/digraphs/stick.webp",
   "resolvedImageAssetKey": "stick",
-  "imageAlt": "Finish the word: sti__"
+  "imageAlt": "stick"
  }
 ];

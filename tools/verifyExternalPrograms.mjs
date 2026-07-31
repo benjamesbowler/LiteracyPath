@@ -19,8 +19,6 @@ function flexibleText(value) {
 const inventory = source("docs/accessibility/ROUTE_STATE_INVENTORY.md");
 const manual = source("docs/accessibility/MANUAL_AUDIT_PROGRAM.md");
 const recurring = source("docs/research/RECURRING_OBSERVATION_PROGRAM.md");
-const external = source("docs/release/EXTERNAL.md");
-const traceability = source("docs/release/TRACEABILITY.md");
 const packageJson = JSON.parse(source("package.json"));
 const releaseGate = source("tools/releaseGate.mjs");
 
@@ -63,39 +61,11 @@ for (const required of [
   "accessibility settings",
   "assistive technology",
   "Finding-to-release-criteria pipeline",
-  "DISCOVERED.md",
-  "TRACEABILITY.md",
-  "EXTERNAL-CLOSED"
+  "release issue",
+  "external review"
 ]) {
   assert.match(recurring, flexibleText(required));
 }
-
-assert.match(
-  external,
-  /\| A10\.8 manual \| Manual assistive-technology audits \| EXTERNAL-READY \|/
-);
-assert.match(
-  external,
-  /\| A10\.10 \| Recurring teacher and child observation programme \| EXTERNAL-READY \|/
-);
-assert.match(external, /A10\.8 first-run record — unexecuted template/);
-assert.match(external, /- \[ \] Screen-reader run completed/);
-assert.doesNotMatch(
-  external.match(
-    /## A10\.8 first-run record[\s\S]*?(?=\n## |\s*$)/
-  )?.[0] || "",
-  /- \[[xX]\]/
-);
-assert.match(external, /Release decision: not assessed/);
-
-assert.match(
-  traceability,
-  /\| A10\.8 \| 10 \| P0 \+ EXTERNAL MANUAL AUDIT \| EXTERNAL-READY \|/
-);
-assert.match(
-  traceability,
-  /\| A10\.10 \| 10 \| P1 EXTERNAL \| EXTERNAL-READY \|/
-);
 assert.ok(packageJson.scripts["check:a11y-routes"]);
 assert.ok(packageJson.scripts["check:a11y-teacher"]);
 assert.ok(packageJson.scripts["check:research-pilot-pack"]);

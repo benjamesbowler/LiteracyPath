@@ -7,7 +7,7 @@
  *   - ARK_API_KEY auto-loads from .env.local (same as the other generate-*.mjs).
  *   - watermark: false on every request.
  *   - Batch A overwrites the seven room files in public/images/hollow/ (drop-in).
- *   - Batch B backdrops go to public/images/backdrops/ (wire-up is Benjamin's).
+ *   - Batch B backdrops go to public/images/backdrops/ for explicit runtime wiring.
  *   - By default EXISTING files are skipped (safe re-runs after a partial fail).
  *     To replace the current art, run with FORCE=1 (see below).
  *

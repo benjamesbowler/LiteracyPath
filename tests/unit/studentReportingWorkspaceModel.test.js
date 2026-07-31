@@ -234,7 +234,7 @@ test("EL Assessments 1 and 2 prefer completed history and only use legacy state 
   assert.equal(model.assessments[5].resultLabel, "Not checked");
   assert.equal(
     model.letterMatrix.find(row => row.letter === "m").uppercaseName.status,
-    "not_enough_evidence"
+    "mastered"
   );
   assert.equal(Array.isArray(model.advancedPhonicsMatrix), true);
   assert.equal(model.provenance.completedHistoryIsCanonical, true);
@@ -279,7 +279,7 @@ test("a saved partial manual assessment remains visible after reload without rep
   );
   assert.equal(
     partialOnly.letterMatrix.find(row => row.letter === "a").uppercaseName.status,
-    "not_enough_evidence"
+    "mastered"
   );
 
   const completedLetter = attempt({
@@ -1433,7 +1433,7 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   assert.equal(failedSkill.latestAttempt.attemptId, "latest-fail");
   assert.equal(
     failedSkill.currentStatus.id,
-    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+    REPORTING_STATUS_IDS.NEEDS_TEACHING
   );
   assert.equal(failedSkill.latestCorrectCount, 0);
   assert.equal(failedSkill.latestTotalQuestions, 1);

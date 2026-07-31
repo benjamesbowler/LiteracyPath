@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cats",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "what gifts at to both cats and cat — root tie by construction",
   "imagePath": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dogs",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "books",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "does carries es — safe here because no option ends in es",
   "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
@@ -332,14 +329,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cups",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/cup-cups-01.webp",
@@ -408,34 +404,26 @@ export const questions = [
    "cup": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Two ___ sat on the wall.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_s-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sat gifts at to cats and cat alike",
-  "imagePath": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
-  "resolvedImageAssetKey": "cats",
-  "imageAlt": "Two cats sat on the wall."
+  "notes": "sat gifts at to cats and cat alike"
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_s.v6",
@@ -496,34 +484,26 @@ export const questions = [
    "dog": "D-FUNCTION-SWAP",
    "hat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The three ___ wag their tails.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_s-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "resolvedImageAssetKey": "dogs",
-  "imageAlt": "The three dogs wag their tails."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_s.v7",
@@ -584,34 +564,26 @@ export const questions = [
    "desk": "D-SEMANTIC",
    "book": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Both ___ lay open on the desk.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_s-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "both gifts bo to books and book alike; desk's es chunk touches no option",
-  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-  "resolvedImageAssetKey": "books",
-  "imageAlt": "Both books lay open on the desk."
+  "notes": "both gifts bo to books and book alike; desk's es chunk touches no option"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_s.v8",
@@ -672,34 +644,26 @@ export const questions = [
    "dog": "D-SEMANTIC",
    "star": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Six ___ shine over the barn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_s-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "barn gifts ar to stars and star alike",
-  "imagePath": "/images/assessment/generated/concepts/shine.webp",
-  "imageUrl": "/images/assessment/generated/concepts/shine.webp",
-  "targetImage": "/images/assessment/generated/concepts/shine.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/shine.webp",
-  "resolvedImageAssetKey": "shine",
-  "imageAlt": "Six stars shine over the barn."
+  "notes": "barn gifts ar to stars and star alike"
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v1",
@@ -771,14 +735,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fits gifts ts to the distractor cats only — scanner picks a distractor, never the key",
   "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
@@ -858,14 +821,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dogs",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
@@ -945,14 +907,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hats",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "than gifts ha to hats and hat alike",
   "imagePath": "/images/assessment/language/variants/plurals/hat-hats-01.webp",
@@ -1032,14 +993,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "just gifts st to stars and star — a tied distractor pair, key untouched",
   "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
@@ -1108,34 +1068,26 @@ export const questions = [
    "hats": "D-SEMANTIC",
    "hens": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "I see one ___ by the door.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_concept-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
-  "imageAlt": "I see one hen by the door."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.C.plural_concept.v6",
@@ -1196,34 +1148,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "book": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Many ___ twinkle at night.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_concept-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "Many stars twinkle at night."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v7",
@@ -1284,34 +1228,26 @@ export const questions = [
    "frogs": "D-SEMANTIC",
    "hats": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "One ___ quacks as it floats on the pond.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_concept-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/duck.webp",
-  "imageUrl": "/images/assessment/digraphs/duck.webp",
-  "targetImage": "/images/assessment/digraphs/duck.webp",
-  "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "resolvedImageAssetKey": "duck",
-  "imageAlt": "One duck quacks as it floats on the pond."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.B.plural_concept.v8",
@@ -1372,34 +1308,26 @@ export const questions = [
    "fish": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Lots of ___ hop in the grass.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_concept-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "resolvedImageAssetKey": "lots",
-  "imageAlt": "Lots of frogs hop in the grass."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v1",
@@ -1471,14 +1399,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boxes",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
@@ -1558,14 +1485,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dishes",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
@@ -1645,14 +1571,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brushes",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
@@ -1721,34 +1646,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "hen": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We packed six ___ for the trip.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "resolvedImageAssetKey": "boxes",
-  "imageAlt": "We packed six boxes for the trip."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_es.v5",
@@ -1809,34 +1726,26 @@ export const questions = [
    "cup": "D-SEMANTIC",
    "hat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ from dinner included plates and bowls.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/dish-dishes-01.webp",
-  "resolvedImageAssetKey": "dishes",
-  "imageAlt": "The dishes from dinner included plates and bowls."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_es.v6",
@@ -1897,34 +1806,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "cat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Three ___ chugged up the hill.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/buses.webp",
-  "imageUrl": "/images/assessment/generated/concepts/buses.webp",
-  "targetImage": "/images/assessment/generated/concepts/buses.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/buses.webp",
-  "resolvedImageAssetKey": "buses",
-  "imageAlt": "Three buses chugged up the hill."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v7",
@@ -1985,34 +1886,26 @@ export const questions = [
    "fox": "D-SEMANTIC",
    "hat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ scrubbed the mud off our boots.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "scrubbed gifts ru to brushes and brush alike",
-  "imagePath": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/brush-brushes-01.webp",
-  "resolvedImageAssetKey": "brushes",
-  "imageAlt": "The brushes scrubbed the mud off our boots."
+  "notes": "scrubbed gifts ru to brushes and brush alike"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_es.v8",
@@ -2073,34 +1966,26 @@ export const questions = [
    "fox": "D-FUNCTION-SWAP",
    "cup": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Two red ___ hid in the den.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "resolvedImageAssetKey": "red",
-  "imageAlt": "Two red foxes hid in the den."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.A.plural_y_to_ies.v1",
@@ -2161,34 +2046,26 @@ export const questions = [
    "baby": "D-FUNCTION-SWAP",
    "lady": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The newborn ___ giggled in their cots.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "resolvedImageAssetKey": "babies",
-  "imageAlt": "The newborn babies giggled in their cots."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.B.plural_y_to_ies.v2",
@@ -2249,34 +2126,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "city": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Three ___ planned the fair.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "planned gifts la to ladies and lady alike",
-  "imagePath": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "resolvedImageAssetKey": "ladies",
-  "imageAlt": "Three ladies planned the fair."
+  "notes": "planned gifts la to ladies and lady alike"
  },
  {
   "id": "lp3.plurals.l2.C.plural_y_to_ies.v3",
@@ -2337,34 +2206,26 @@ export const questions = [
    "party": "D-FUNCTION-SWAP",
    "hat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We hung balloons for both birthday ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/party-parties-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/party-parties-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/party-parties-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/party-parties-01.webp",
-  "resolvedImageAssetKey": "parties",
-  "imageAlt": "We hung balloons for both birthday parties."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.A.plural_y_to_ies.v4",
@@ -2424,33 +2285,25 @@ export const questions = [
    "their": "D-PLAUSIBLE-UNSUPPORTED",
    "cots": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "babys is the attested error (approvedDevErrors); slept and their tie its chunk length",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: The babys slept in their cots."
+  "notes": "babys is the attested error (approvedDevErrors); slept and their tie its chunk length"
  },
  {
   "id": "lp3.plurals.l2.B.plural_y_to_ies.v5",
@@ -2510,33 +2363,25 @@ export const questions = [
    "night": "D-PLAUSIBLE-UNSUPPORTED",
    "Two": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "night ties citys at five letters",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: Two citys glow at night."
+  "notes": "night ties citys at five letters"
  },
  {
   "id": "lp3.plurals.l2.C.plural_y_to_ies.v6",
@@ -2596,33 +2441,25 @@ export const questions = [
    "stories": "D-SEMANTIC",
    "story": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the prompt names pony, so the scanner takes the bait word, not the key",
-  "imagePath": "/images/assessment/generated/concepts/ponies.webp",
-  "imageUrl": "/images/assessment/generated/concepts/ponies.webp",
-  "targetImage": "/images/assessment/generated/concepts/ponies.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/ponies.webp",
-  "resolvedImageAssetKey": "ponies",
-  "imageAlt": "Which is the plural of pony?"
+  "notes": "the prompt names pony, so the scanner takes the bait word, not the key"
  },
  {
   "id": "lp3.plurals.l2.A.plural_irregular.v1",
@@ -2683,34 +2520,26 @@ export const questions = [
    "tooth": "D-SEMANTIC",
    "woman": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ marched in the band.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "band and marched gift chunks to man and woman — a tied distractor pair",
-  "imagePath": "/images/assessment/rhyming/variants/en/men-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/men-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/men-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/men-02.webp",
-  "resolvedImageAssetKey": "men",
-  "imageAlt": "The men marched in the band."
+  "notes": "band and marched gift chunks to man and woman — a tied distractor pair"
  },
  {
   "id": "lp3.plurals.l2.B.plural_irregular.v2",
@@ -2771,34 +2600,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "woman": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Both six-year-old ___ lost a milk tooth today.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Both six-year-old children lost a milk tooth today."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.C.plural_irregular.v3",
@@ -2858,33 +2679,25 @@ export const questions = [
    "hid": "D-PLAUSIBLE-UNSUPPORTED",
    "The": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "kitchen outscores mouses, so the scanner lands on a correct word",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: The mouses hid in the kitchen."
+  "notes": "kitchen outscores mouses, so the scanner lands on a correct word"
  },
  {
   "id": "lp3.plurals.l2.A.plural_irregular.v4",
@@ -2944,33 +2757,25 @@ export const questions = [
    "Both": "D-PLAUSIBLE-UNSUPPORTED",
    "splashed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: Both foots splashed in the puddle."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.B.plural_irregular.v5",
@@ -3030,33 +2835,25 @@ export const questions = [
    "teeth": "D-SEMANTIC",
    "tooth": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Which is the plural of child?"
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.C.plural_irregular.v6",
@@ -3116,33 +2913,25 @@ export const questions = [
    "mouse": "D-SEMANTIC",
    "foot": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/feet.png",
-  "imageUrl": "/images/child-mode/initial-sounds/feet.png",
-  "targetImage": "/images/child-mode/initial-sounds/feet.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/feet.png",
-  "resolvedImageAssetKey": "feet",
-  "imageAlt": "Which is the plural of foot?"
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.A.plural_f_to_ves.v1",
@@ -3203,34 +2992,26 @@ export const questions = [
    "wolves": "D-SEMANTIC",
    "wolf": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Autumn ___ blew across the path.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "blew gifts le to leaves and leaf alike",
-  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "resolvedImageAssetKey": "leaves",
-  "imageAlt": "Autumn leaves blew across the path."
+  "notes": "blew gifts le to leaves and leaf alike"
  },
  {
   "id": "lp3.plurals.l2.B.plural_f_to_ves.v2",
@@ -3291,34 +3072,26 @@ export const questions = [
    "wolf": "D-FUNCTION-SWAP",
    "knives": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ howled on the hill.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/wolf-wolves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/wolf-wolves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/wolf-wolves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/wolf-wolves-01.webp",
-  "resolvedImageAssetKey": "wolves",
-  "imageAlt": "The wolves howled on the hill."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.C.plural_f_to_ves.v3",
@@ -3379,34 +3152,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "shelf": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The chef laid five ___ by the plates.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "five and plates gift iv/es to knives, shelves and shelf together — three-way tie",
-  "imagePath": "/images/assessment/language/variants/plurals/knife-knives-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/knife-knives-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/knife-knives-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/knife-knives-01.webp",
-  "resolvedImageAssetKey": "knives",
-  "imageAlt": "The chef laid five knives by the plates."
+  "notes": "five and plates gift iv/es to knives, shelves and shelf together — three-way tie"
  },
  {
   "id": "lp3.plurals.l2.A.plural_f_to_ves.v4",
@@ -3466,33 +3231,25 @@ export const questions = [
    "onto": "D-PLAUSIBLE-UNSUPPORTED",
    "drifted": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: The leafs drifted onto the doorstep."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.B.plural_f_to_ves.v5",
@@ -3552,33 +3309,25 @@ export const questions = [
    "window": "D-PLAUSIBLE-UNSUPPORTED",
    "howled": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "window",
-  "imageAlt": "Spot the wrong word: Wolfs howled outside the window."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.C.plural_f_to_ves.v6",
@@ -3638,33 +3387,25 @@ export const questions = [
    "knife": "D-SEMANTIC",
    "leaf": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/leaf-leaves-01.webp",
-  "resolvedImageAssetKey": "leaves",
-  "imageAlt": "Which is the plural of leaf?"
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.A.plural_in_sentence.v1",
@@ -3725,34 +3466,26 @@ export const questions = [
    "goose": "D-SEMANTIC",
    "plate": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "All the newborn ___ slept in the dog bed.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "asleep gifts ee to the distractor geese only — scanner picks a distractor",
-  "imagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "resolvedImageAssetKey": "puppies",
-  "imageAlt": "All the newborn puppies slept in the dog bed."
+  "notes": "asleep gifts ee to the distractor geese only — scanner picks a distractor"
  },
  {
   "id": "lp3.plurals.l2.B.plural_in_sentence.v2",
@@ -3813,34 +3546,26 @@ export const questions = [
    "loaves": "D-SEMANTIC",
    "berries": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "One ___ was left on the plate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/peach-peaches-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/peach-peaches-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/peach-peaches-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/peach-peaches-01.webp",
-  "resolvedImageAssetKey": "peach",
-  "imageAlt": "One peach was left on the plate."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.C.plural_in_sentence.v3",
@@ -3901,34 +3626,26 @@ export const questions = [
    "plate": "D-SEMANTIC",
    "basket": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Two ___ of bread sat in the basket.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "basket, not oven — oven gifts ve to the key",
-  "imagePath": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "resolvedImageAssetKey": "loaves",
-  "imageAlt": "Two loaves of bread sat in the basket."
+  "notes": "basket, not oven — oven gifts ve to the key"
  },
  {
   "id": "lp3.plurals.l2.A.plural_in_sentence.v4",
@@ -3988,33 +3705,25 @@ export const questions = [
    "Three": "D-PLAUSIBLE-UNSUPPORTED",
    "grazed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "grazed and meadow tie sheeps at six letters",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
-  "imageAlt": "Spot the wrong word: Three sheeps grazed in the meadow."
+  "notes": "grazed and meadow tie sheeps at six letters"
  },
  {
   "id": "lp3.plurals.l2.B.plural_in_sentence.v5",
@@ -4074,33 +3783,25 @@ export const questions = [
    "cherry": "D-FUNCTION-SWAP",
    "peach": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "only one plural in the set — are demands it; ripe and the gift chunks to key and two rivals",
-  "imagePath": "/images/assessment/language/variants/plurals/berry-berries-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/berry-berries-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/berry-berries-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/berry-berries-01.webp",
-  "resolvedImageAssetKey": "berries",
-  "imageAlt": "Which fits: The berries are ripe?"
+  "notes": "only one plural in the set — are demands it; ripe and the gift chunks to key and two rivals"
  },
  {
   "id": "lp3.plurals.l2.C.plural_in_sentence.v6",
@@ -4160,33 +3861,25 @@ export const questions = [
    "hats": "D-SEMANTIC",
    "dogs": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which fits: One dog is barking?"
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.R.plural_add_s.v9r",
@@ -4258,14 +3951,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cats",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/cat-cats-01.webp",
@@ -4334,34 +4026,26 @@ export const questions = [
    "dog": "D-FUNCTION-SWAP",
    "moon": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Ten ___ bark at the gate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_s-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "resolvedImageAssetKey": "dogs",
-  "imageAlt": "Ten dogs bark at the gate."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.R.plural_add_es.v9r",
@@ -4422,34 +4106,26 @@ export const questions = [
    "sun": "D-SEMANTIC",
    "fox": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Four ___ played near the barn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_add_es-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "four gifts fo to foxes and fox alike",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "resolvedImageAssetKey": "four",
-  "imageAlt": "Four foxes played near the barn."
+  "notes": "four gifts fo to foxes and fox alike"
  },
  {
   "id": "lp3.plurals.l1.R.plural_add_es.v10r",
@@ -4521,14 +4197,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boxes",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
@@ -4597,34 +4272,26 @@ export const questions = [
    "frogs": "D-SEMANTIC",
    "hens": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Just one ___ purred by the fire.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_concept-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
-  "imageAlt": "Just one cat purred by the fire."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l1.R.plural_concept.v10r",
@@ -4696,14 +4363,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "books",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
@@ -4772,34 +4438,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "pony": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Both ___ told long stories.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "stories gifts ie to ladies and ponies alike",
-  "imagePath": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/lady-ladies-01.webp",
-  "resolvedImageAssetKey": "ladies",
-  "imageAlt": "Both ladies told long stories."
+  "notes": "stories gifts ie to ladies and ponies alike"
  },
  {
   "id": "lp3.plurals.l2.R.plural_y_to_ies.v8r",
@@ -4859,33 +4517,25 @@ export const questions = [
    "trotted": "D-PLAUSIBLE-UNSUPPORTED",
    "around": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_y_to_ies-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
-  "imageAlt": "Spot the wrong word: The ponys trotted around the field."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.R.plural_irregular.v7r",
@@ -4946,34 +4596,26 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "man": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Two white ___ squeaked and nibbled the cheese.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cheese gifts se to the distractor mouse only — scanner picks a distractor",
-  "imagePath": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/mouse-mice-01.webp",
-  "resolvedImageAssetKey": "mice",
-  "imageAlt": "Two white mice squeaked and nibbled the cheese."
+  "notes": "cheese gifts se to the distractor mouse only — scanner picks a distractor"
  },
  {
   "id": "lp3.plurals.l2.R.plural_irregular.v8r",
@@ -5033,33 +4675,25 @@ export const questions = [
    "tooth": "D-FUNCTION-SWAP",
    "feet": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_irregular-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/tooth.webp",
-  "imageUrl": "/images/assessment/digraphs/tooth.webp",
-  "targetImage": "/images/assessment/digraphs/tooth.webp",
-  "targetImagePath": "/images/assessment/digraphs/tooth.webp",
-  "resolvedImageAssetKey": "tooth",
-  "imageAlt": "Which is the plural of tooth?"
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.R.plural_f_to_ves.v7r",
@@ -5120,34 +4754,26 @@ export const questions = [
    "plate": "D-SEMANTIC",
    "loaf": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The baker sliced two ___ for lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_f_to_ves-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/loaf-loaves-01.webp",
-  "resolvedImageAssetKey": "loaves",
-  "imageAlt": "The baker sliced two loaves for lunch."
+  "notes": ""
  },
  {
   "id": "lp3.plurals.l2.R.plural_in_sentence.v7r",
@@ -5208,33 +4834,25 @@ export const questions = [
    "hat": "D-SEMANTIC",
    "goose": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "All four ___ chirped at dawn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "plurals-plural_in_sentence-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/plurals.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "chirped gifts ch to chicks and chick alike",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "resolvedImageAssetKey": "four",
-  "imageAlt": "All four chicks chirped at dawn."
+  "notes": "chirped gifts ch to chicks and chick alike"
  }
 ];

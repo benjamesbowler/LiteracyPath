@@ -12,7 +12,7 @@ import { buildTrailSection } from "../src/utils/questHub.js";
 import { buildPhysicalTask } from "../src/utils/questPhysicalMechanics.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT = path.join(ROOT, "docs/previews/slice");
+const OUT = path.join(ROOT, ".artifacts/quest/slice");
 const PORT = await availableLoopbackPort();
 const BASE = `http://127.0.0.1:${PORT}`;
 const turnOnly = process.argv.includes("--turn-only");

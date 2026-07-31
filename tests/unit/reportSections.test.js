@@ -26,15 +26,15 @@ import { buildEngagementRow } from "../../src/utils/exportReportSections.js";
 test("getPassRule reads the tuned rule for configured skills", () => {
   const rule = getPassRule("Initial Sounds");
   assert.equal(rule.passScore, 7);
-  assert.equal(rule.roundLength, 8);
-  assert.equal(rule.text, "Pass: 7 of 8");
+  assert.equal(rule.roundLength, 10);
+  assert.equal(rule.text, "Pass: 7 of 10");
 });
 
 test("getPassRule falls back to the default rule for unlisted skills", () => {
   const rule = getPassRule("Completely Unlisted Skill");
-  assert.equal(rule.roundLength, 15);
-  assert.equal(rule.passScore, 12); // ceil(15 * 0.8)
-  assert.equal(rule.text, "Pass: 12 of 15");
+  assert.equal(rule.roundLength, 10);
+  assert.equal(rule.passScore, 7); // ceil(10 * 0.7)
+  assert.equal(rule.text, "Pass: 7 of 10");
 });
 
 // ── Same-day retake hint ─────────────────────────────────────────────────────

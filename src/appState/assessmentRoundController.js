@@ -1542,23 +1542,6 @@ export function createAssessmentRoundController(context) {
     };
   }
 
-  function isFormalStageMasteryComplete(stage, currentItemMasteryRow = null) {
-    const expectedKeys = getCoverageItemKeysForStage(stage, {});
-    if (!expectedKeys?.size) return false;
-    const overrides = {};
-    if (currentItemMasteryRow?.itemKey && currentItemMasteryRow?.itemType) {
-      overrides[getItemMasteryStateKey(
-        currentItemMasteryRow.itemKey,
-        currentItemMasteryRow.itemType
-      )] = currentItemMasteryRow;
-    }
-    const masteredKeys = getCoveredStageItemKeys(stage, {
-      itemMasteryOverrides: overrides
-    });
-    return Array.from(expectedKeys).every(key => masteredKeys.has(key));
-  }
-
-
   async function answerQuestion(choice) {
     if (!currentQuestion || answerInFlightRef.current) return;
     answerInFlightRef.current = true;
@@ -1661,14 +1644,13 @@ export function createAssessmentRoundController(context) {
     });
 
     let answerPersistence = { durable: true };
-    let itemPersistence = { row: null, durable: true, skipped: true };
     if (!isTargetedReview) {
       answerHistoryRef.current = [...answerHistoryRef.current, answerRecord];
       setAnswerHistory(answerHistoryRef.current);
       setTotalAnswered(n => n + 1);
       answerPersistence = await saveAnswerToSupabase(answerRecord);
       if (answerPersistence?.durable) {
-        itemPersistence = await updateItemMastery(
+        await updateItemMastery(
           { ...answeredQuestion, source: "assessment" },
           isCorrect
         );

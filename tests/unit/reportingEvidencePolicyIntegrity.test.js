@@ -16,9 +16,7 @@ import {
   buildStudentReportModel,
   normalizeItemMasteryRows
 } from "../../src/data/reportingSystem.js";
-import { getHfwRuntimeEligibilityIssues } from "../../src/data/hfwRuntimeEligibility.js";
 import { enrichQuestionWithExistingMedia } from "../../src/data/questionMediaResolver.js";
-import { grammarAssessmentQuestions } from "../../src/data/generated/grammarAssessmentQuestions.generated.js";
 
 const NOW = new Date("2026-07-27T12:00:00.000Z");
 
@@ -681,21 +679,6 @@ test("theme is not misrouted to a digraph activity", () => {
   assert.doesNotMatch(report.focusRows[0].suggestedAction, /ch\/sh\/th/i);
 });
 
-test("HFW runtime rejects a word assigned to the wrong approved band", () => {
-  const issues = getHfwRuntimeEligibilityIssues({
-    id: "wrong-band",
-    skillId: "hfw_1_25",
-    itemType: "sight_word",
-    targetWord: "all",
-    correctAnswer: "all",
-    formatType: "HFW_SENTENCE_CLOZE_L1P1_01",
-    sentence: "A cup ___ tea.",
-    answerOptions: ["all", "the", "to", "and"]
-  }, "hfw_1_25");
-
-  assert.ok(issues.some(issue => issue.includes('outside canonical hfw_1_25')));
-});
-
 test("no-audio HFW questions cannot regain target-word audio during media enrichment", () => {
   const enriched = enrichQuestionWithExistingMedia({
     id: "hfw-no-audio",
@@ -718,16 +701,4 @@ test("no-audio HFW questions cannot regain target-word audio during media enrich
   assert.equal(enriched.audioPath, undefined);
   assert.equal(enriched.answerOptions[0].audioPath, undefined);
   assert.equal(enriched.sentenceAudio, "The dog slept.");
-});
-
-test("disabling standalone grammar audio does not remove required answer-tile audio", () => {
-  const question = grammarAssessmentQuestions.find(
-    row => row.id === "grammar_nouns_l2_001"
-  );
-  assert.ok(question);
-  assert.equal(question.disableAudio, true);
-  assert.equal(question.requireOptionAudio, true);
-
-  const enriched = enrichQuestionWithExistingMedia(question);
-  assert.ok(enriched.answerOptions.every(option => option.audioPath));
 });

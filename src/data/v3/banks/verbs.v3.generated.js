@@ -69,14 +69,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -186,14 +185,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -303,14 +301,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the drum is the trap — you PLAY it, but the card names a thing",
   "imageCards": [
@@ -410,33 +407,25 @@ export const questions = [
    "bed": "D-FUNCTION-SWAP",
    "red": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_body-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v5",
@@ -496,33 +485,25 @@ export const questions = [
    "fun": "D-FUNCTION-SWAP",
    "bun": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_body-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "a rhyming panel — only the grammar separates them",
-  "imagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/run/run-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/run/run-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/run/run-02.webp",
-  "resolvedImageAssetKey": "run",
-  "imageAlt": "Which word is a doing word?"
+  "notes": "a rhyming panel — only the grammar separates them"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v6",
@@ -582,33 +563,25 @@ export const questions = [
    "sock": "D-FUNCTION-SWAP",
    "leg": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_body-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "resolvedImageAssetKey": "kick",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v7",
@@ -678,14 +651,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -785,33 +757,25 @@ export const questions = [
    "path": "D-FUNCTION-SWAP",
    "rope": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_body-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/skip.webp",
-  "imageUrl": "/images/assessment/generated/concepts/skip.webp",
-  "targetImage": "/images/assessment/generated/concepts/skip.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/skip.webp",
-  "resolvedImageAssetKey": "skip",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v1",
@@ -881,14 +845,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -998,14 +961,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1115,14 +1077,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "all three thing-cards are chewable — the action card still wins",
   "imageCards": [
@@ -1222,33 +1183,25 @@ export const questions = [
    "cot": "D-FUNCTION-SWAP",
    "cup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_object-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "resolvedImageAssetKey": "cut",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v5",
@@ -1308,33 +1261,25 @@ export const questions = [
    "milk": "D-FUNCTION-SWAP",
    "mug": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_object-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/pour.webp",
-  "imageUrl": "/images/assessment/generated/concepts/pour.webp",
-  "targetImage": "/images/assessment/generated/concepts/pour.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/pour.webp",
-  "resolvedImageAssetKey": "pour",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v6",
@@ -1394,33 +1339,25 @@ export const questions = [
    "flag": "D-FUNCTION-SWAP",
    "card": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_object-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/fold-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/fold-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/fold-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/fold-01.webp",
-  "resolvedImageAssetKey": "fold",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v7",
@@ -1490,14 +1427,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1597,33 +1533,25 @@ export const questions = [
    "apple": "D-FUNCTION-SWAP",
    "moon": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_object-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "resolvedImageAssetKey": "lift",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v1",
@@ -1693,14 +1621,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1810,14 +1737,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1927,14 +1853,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2034,33 +1959,25 @@ export const questions = [
    "song": "D-FUNCTION-SWAP",
    "sun": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_everyday-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/sing.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sing.webp",
-  "targetImage": "/images/assessment/generated/concepts/sing.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sing.webp",
-  "resolvedImageAssetKey": "sing",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v5",
@@ -2120,33 +2037,25 @@ export const questions = [
    "soap": "D-FUNCTION-SWAP",
    "tub": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_everyday-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/wash.webp",
-  "imageUrl": "/images/assessment/generated/concepts/wash.webp",
-  "targetImage": "/images/assessment/generated/concepts/wash.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/wash.webp",
-  "resolvedImageAssetKey": "wash",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v6",
@@ -2206,33 +2115,25 @@ export const questions = [
    "cot": "D-FUNCTION-SWAP",
    "rug": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_everyday-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "resolvedImageAssetKey": "nap",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v7",
@@ -2302,14 +2203,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "pin ties the in/doing overlap",
   "imageCards": [
@@ -2409,33 +2309,25 @@ export const questions = [
    "soap": "D-FUNCTION-SWAP",
    "hair": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_everyday-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no second action word competes with brush",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "Which word is a doing word?"
+  "notes": "no second action word competes with brush"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v1",
@@ -2496,34 +2388,26 @@ export const questions = [
    "rope": "D-FUNCTION-SWAP",
    "wet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We ___ the raft to the dock.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot",
-  "imagePath": "/images/assessment/generated/concepts/raft.webp",
-  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
-  "targetImage": "/images/assessment/generated/concepts/raft.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
-  "resolvedImageAssetKey": "raft",
-  "imageAlt": "We pull the raft to the dock."
+  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v2",
@@ -2584,34 +2468,26 @@ export const questions = [
    "mud": "D-FUNCTION-SWAP",
    "deep": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The twins ___ over the puddle.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/leap.webp",
-  "imageUrl": "/images/assessment/generated/concepts/leap.webp",
-  "targetImage": "/images/assessment/generated/concepts/leap.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/leap.webp",
-  "resolvedImageAssetKey": "leap",
-  "imageAlt": "The twins leap over the puddle."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v3",
@@ -2672,34 +2548,26 @@ export const questions = [
    "loud": "D-FUNCTION-SWAP",
    "hinge": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Please ___ the door quietly.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "resolvedImageAssetKey": "quietly",
-  "imageAlt": "Please shut the door quietly."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v4",
@@ -2760,34 +2628,26 @@ export const questions = [
    "sky": "D-FUNCTION-SWAP",
    "wing": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Owls ___ after dark.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk",
-  "imagePath": "/images/assessment/hfw/after.webp",
-  "imageUrl": "/images/assessment/hfw/after.webp",
-  "targetImage": "/images/assessment/hfw/after.webp",
-  "targetImagePath": "/images/assessment/hfw/after.webp",
-  "resolvedImageAssetKey": "after",
-  "imageAlt": "Owls hunt after dark."
+  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v5",
@@ -2847,33 +2707,25 @@ export const questions = [
    "its": "D-FUNCTION-SWAP",
    "pup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties",
-  "imagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "resolvedImageAssetKey": "pup",
-  "imageAlt": "Which word in this sentence is the doing word? \"The pup chased its dinner.\""
+  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties"
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v6",
@@ -2933,33 +2785,25 @@ export const questions = [
    "socks": "D-FUNCTION-SWAP",
    "thick": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "resolvedImageAssetKey": "socks",
-  "imageAlt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\""
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v7",
@@ -3020,34 +2864,26 @@ export const questions = [
    "shell": "D-FUNCTION-SWAP",
    "salt": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Crabs ___ across the sand.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/creep.webp",
-  "imageUrl": "/images/assessment/generated/concepts/creep.webp",
-  "targetImage": "/images/assessment/generated/concepts/creep.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/creep.webp",
-  "resolvedImageAssetKey": "creep",
-  "imageAlt": "Crabs creep across the sand."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v8",
@@ -3108,34 +2944,26 @@ export const questions = [
    "green": "D-FUNCTION-SWAP",
    "pot": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We ___ the seeds each morning.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "water the verb — the noun reading has no slot here",
-  "imagePath": "/images/assessment/generated/concepts/water.webp",
-  "imageUrl": "/images/assessment/generated/concepts/water.webp",
-  "targetImage": "/images/assessment/generated/concepts/water.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/water.webp",
-  "resolvedImageAssetKey": "water",
-  "imageAlt": "We water the seeds each morning."
+  "notes": "water the verb — the noun reading has no slot here"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v1",
@@ -3195,33 +3023,25 @@ export const questions = [
    "singer": "D-FUNCTION-SWAP",
    "band": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the whole word family in one set — only sing does",
-  "imagePath": "/images/assessment/generated/concepts/sing.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sing.webp",
-  "targetImage": "/images/assessment/generated/concepts/sing.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sing.webp",
-  "resolvedImageAssetKey": "sing",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": "the whole word family in one set — only sing does"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v2",
@@ -3281,33 +3101,25 @@ export const questions = [
    "bread": "D-FUNCTION-SWAP",
    "oven": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v3",
@@ -3367,33 +3179,25 @@ export const questions = [
    "class": "D-FUNCTION-SWAP",
    "desk": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v4",
@@ -3454,34 +3258,26 @@ export const questions = [
    "swim": "D-FUNCTION-SWAP",
    "swims": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ swims fifty laps a day.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the verb family competes — only the naming word follows The",
-  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
-  "resolvedImageAssetKey": "day",
-  "imageAlt": "The swimmer swims fifty laps a day."
+  "notes": "the verb family competes — only the naming word follows The"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v5",
@@ -3541,33 +3337,25 @@ export const questions = [
    "boots": "D-FUNCTION-SWAP",
    "rope": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v6",
@@ -3627,33 +3415,25 @@ export const questions = [
    "broom": "D-FUNCTION-SWAP",
    "dust": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v7",
@@ -3714,34 +3494,26 @@ export const questions = [
    "dancing": "D-FUNCTION-SWAP",
    "dances": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ twirled across the stage.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/dancer.webp",
-  "imageUrl": "/images/assessment/generated/concepts/dancer.webp",
-  "targetImage": "/images/assessment/generated/concepts/dancer.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/dancer.webp",
-  "resolvedImageAssetKey": "dancer",
-  "imageAlt": "The dancer twirled across the stage."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v8",
@@ -3801,33 +3573,25 @@ export const questions = [
    "colour": "D-FUNCTION-SWAP",
    "painter": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the past-tense form is unambiguously the action",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": "the past-tense form is unambiguously the action"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v1",
@@ -3888,34 +3652,26 @@ export const questions = [
    "slept": "D-PLAUSIBLE-UNSUPPORTED",
    "sat": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The frog ___ over the log in one big spring.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "all four are grammatical — one big spring pins jumped",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "The frog jumped over the log in one big spring."
+  "notes": "all four are grammatical — one big spring pins jumped"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v2",
@@ -3976,34 +3732,26 @@ export const questions = [
    "sat": "D-PLAUSIBLE-UNSUPPORTED",
    "spilled": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The soup ___ in the pot until bubbles rose.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "bubbles pin boiled",
-  "imagePath": "/images/assessment/long-vowels/rose.webp",
-  "imageUrl": "/images/assessment/long-vowels/rose.webp",
-  "targetImage": "/images/assessment/long-vowels/rose.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rose.webp",
-  "resolvedImageAssetKey": "rose",
-  "imageAlt": "The soup boiled in the pot until bubbles rose."
+  "notes": "bubbles pin boiled"
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v3",
@@ -4063,33 +3811,25 @@ export const questions = [
    "pour": "D-PLAUSIBLE-UNSUPPORTED",
    "splash": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap",
-  "imagePath": "/images/assessment/generated/concepts/water.webp",
-  "imageUrl": "/images/assessment/generated/concepts/water.webp",
-  "targetImage": "/images/assessment/generated/concepts/water.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/water.webp",
-  "resolvedImageAssetKey": "water",
-  "imageAlt": "Which doing word fits best for water falling drop by drop?"
+  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v4",
@@ -4150,34 +3890,26 @@ export const questions = [
    "read": "D-PLAUSIBLE-UNSUPPORTED",
    "wrote": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "She ___ the note in half and half again.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "in half and half again pins folded",
-  "imagePath": "/images/assessment/hfw/again.webp",
-  "imageUrl": "/images/assessment/hfw/again.webp",
-  "targetImage": "/images/assessment/hfw/again.webp",
-  "targetImagePath": "/images/assessment/hfw/again.webp",
-  "resolvedImageAssetKey": "again",
-  "imageAlt": "She folded the note in half and half again."
+  "notes": "in half and half again pins folded"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v5",
@@ -4238,34 +3970,26 @@ export const questions = [
    "hopped": "D-PLAUSIBLE-UNSUPPORTED",
    "flew": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The snail ___ along, leaving a silver line.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "resolvedImageAssetKey": "silver",
-  "imageAlt": "The snail crawled along, leaving a silver line."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v6",
@@ -4326,34 +4050,26 @@ export const questions = [
    "tied": "D-PLAUSIBLE-UNSUPPORTED",
    "popped": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "He ___ the balloon until it nearly burst.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "nearly burst pins blew — popped would mean it DID burst",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "resolvedImageAssetKey": "blew",
-  "imageAlt": "He blew the balloon until it nearly burst."
+  "notes": "nearly burst pins blew — popped would mean it DID burst"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v7",
@@ -4413,33 +4129,25 @@ export const questions = [
    "gallop": "D-PLAUSIBLE-UNSUPPORTED",
    "stomp": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/sneak.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sneak.webp",
-  "targetImage": "/images/assessment/generated/concepts/sneak.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sneak.webp",
-  "resolvedImageAssetKey": "sneak",
-  "imageAlt": "Which doing word fits best for moving on tiptoe without a sound?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v8",
@@ -4500,34 +4208,26 @@ export const questions = [
    "kicked": "D-PLAUSIBLE-UNSUPPORTED",
    "broke": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Dad ___ the squeaky wheel with oil.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/wheel.webp",
-  "imageUrl": "/images/assessment/digraphs/wheel.webp",
-  "targetImage": "/images/assessment/digraphs/wheel.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheel.webp",
-  "resolvedImageAssetKey": "wheel",
-  "imageAlt": "Dad fixed the squeaky wheel with oil."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_body.v9r",
@@ -4587,33 +4287,25 @@ export const questions = [
    "mat": "D-FUNCTION-SWAP",
    "chin": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_body-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "chin ties the ch/which overlap",
-  "imagePath": "/images/assessment/language/variants/verbs/stretch-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/stretch-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/stretch-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/stretch-01.webp",
-  "resolvedImageAssetKey": "stretch",
-  "imageAlt": "Which word is a doing word?"
+  "notes": "chin ties the ch/which overlap"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v9r",
@@ -4683,14 +4375,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4790,33 +4481,25 @@ export const questions = [
    "quilt": "D-FUNCTION-SWAP",
    "clock": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_everyday-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
-  "resolvedImageAssetKey": "yawn",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v9r",
@@ -4877,34 +4560,26 @@ export const questions = [
    "sweet": "D-FUNCTION-SWAP",
    "hive": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Bees ___ from rose to rose.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/rose.webp",
-  "imageUrl": "/images/assessment/long-vowels/rose.webp",
-  "targetImage": "/images/assessment/long-vowels/rose.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rose.webp",
-  "resolvedImageAssetKey": "rose",
-  "imageAlt": "Bees drift from rose to rose."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_vs_noun.v9r",
@@ -4964,33 +4639,25 @@ export const questions = [
    "stage": "D-FUNCTION-SWAP",
    "music": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_vs_noun-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v9r",
@@ -5051,34 +4718,26 @@ export const questions = [
    "sang": "D-PLAUSIBLE-UNSUPPORTED",
    "slept": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ice ___ slowly in the warm sun.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/slowly-01.webp",
-  "resolvedImageAssetKey": "slowly",
-  "imageAlt": "The ice melted slowly in the warm sun."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v10r",
@@ -5138,33 +4797,25 @@ export const questions = [
    "sun": "D-FUNCTION-SWAP",
    "hat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_action_object-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/wrap.webp",
-  "imageUrl": "/images/assessment/generated/concepts/wrap.webp",
-  "targetImage": "/images/assessment/generated/concepts/wrap.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/wrap.webp",
-  "resolvedImageAssetKey": "wrap",
-  "imageAlt": "Which word is a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v10r",
@@ -5234,14 +4885,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5342,34 +4992,26 @@ export const questions = [
    "line": "D-FUNCTION-SWAP",
    "damp": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The wind ___ the washing dry.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_in_sentence-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/wind.webp",
-  "imageUrl": "/images/assessment/generated/concepts/wind.webp",
-  "targetImage": "/images/assessment/generated/concepts/wind.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/wind.webp",
-  "resolvedImageAssetKey": "wind",
-  "imageAlt": "The wind blows the washing dry."
+  "notes": ""
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v10r",
@@ -5430,33 +5072,25 @@ export const questions = [
    "wept": "D-PLAUSIBLE-UNSUPPORTED",
    "slept": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The baby ___ at every funny face.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "verbs-verb_precision-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/verbs.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/every.webp",
-  "imageUrl": "/images/assessment/hfw/every.webp",
-  "targetImage": "/images/assessment/hfw/every.webp",
-  "targetImagePath": "/images/assessment/hfw/every.webp",
-  "resolvedImageAssetKey": "every",
-  "imageAlt": "The baby giggled at every funny face."
+  "notes": ""
  }
 ];

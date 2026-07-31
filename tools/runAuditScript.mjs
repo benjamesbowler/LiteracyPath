@@ -30,18 +30,9 @@ export function runAuditScript(argv = process.argv.slice(2), environment = proce
   const invocation = parseAuditInvocation(argv);
   const scriptId = path.basename(invocation.script, path.extname(invocation.script));
   const guardPath = path.join(repoRoot, "tools", "auditWriteGuard.mjs");
-  const artifactRoot = path.join(
-    repoRoot,
-    "docs",
-    "release",
-    "artifacts",
-    "audits",
-    scriptId
-  );
   const tempRoot = path.resolve(environment.TMPDIR || os.tmpdir());
-  if (invocation.mode === "check") {
-    fs.mkdirSync(artifactRoot, { recursive: true });
-  }
+  const artifactRoot = path.join(tempRoot, "literacypath-audits", scriptId, String(process.pid));
+  if (invocation.mode === "check") fs.mkdirSync(artifactRoot, { recursive: true });
   const inheritedNodeOptions = String(environment.NODE_OPTIONS || "").trim();
   const nodeOptions = invocation.mode === "check"
     ? [inheritedNodeOptions, `--import=${guardPath}`].filter(Boolean).join(" ")

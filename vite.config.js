@@ -186,23 +186,16 @@ export default defineConfig({
           if (id.includes('/src/data/publicMediaInventory')) {
             return 'admin-media-inventory'
           }
-          if (id.includes('/src/data/generated/kimiHighQualityMediaStyleManifest.generated')) {
-            return 'child-assets-kimi-style'
-          }
-          if (id.includes('/src/data/kimiVocabulary500AudioPreferences')) {
+          if (id.includes('/src/data/vocabularyAudioPreferences')) {
             return 'child-assets-vocabulary-audio'
           }
           if (id.includes('/src/data/generated/k3VocabularyMediaManifest.generated')) {
             return 'child-assets-k3-media'
           }
-          if (
-            id.includes('/src/data/kimiAssets2Manifest') ||
-            id.includes('/src/data/kimiAssets3Manifest') ||
-            id.includes('/src/data/kimiAssets4Manifest')
-          ) {
-            return 'child-assets-kimi-packs'
+          if (id.includes('/src/data/childWordMediaManifest')) {
+            return 'child-word-media'
           }
-          if (id.includes('/src/data/kimiCleanAudioManifest')) {
+          if (id.includes('/src/data/cleanAudioManifest')) {
             return 'child-assets-clean-audio'
           }
           if (
@@ -225,18 +218,15 @@ export default defineConfig({
           ) {
             return 'initial-sound-word-bank'
           }
-          // These two independent generated catalogues used to be hidden
-          // inside a 370 kB shared assessmentMediaRegistry chunk. Keep their
+          // These independent generated catalogues used to be hidden inside a
+          // large shared assessmentMediaRegistry chunk. Keep their
           // real data boundaries separate so neither crosses the 250 kB
           // new-chunk ceiling and consumers still fetch them only with the
           // assessment media registry.
-          if (id.includes('/src/data/generated/kimiVocabularyRuntime.generated')) {
-            return 'kimi-vocabulary-runtime'
+          if (id.includes('/src/data/generated/vocabularyRuntime.generated')) {
+            return 'vocabulary-runtime'
           }
-          if (
-            id.includes('/src/data/generated/assessmentImageVariants.generated') ||
-            id.includes('/src/data/generated/legacyInitialSoundImageRegistry.generated')
-          ) {
+          if (id.includes('/src/data/generated/assessmentImageVariants.generated')) {
             return 'assessment-image-variants'
           }
           // hfwAssessmentQuestions + hfwLevel2Questions are always co-imported

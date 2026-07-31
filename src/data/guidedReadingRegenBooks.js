@@ -314,7 +314,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-a-26"
   },
   {
@@ -623,7 +623,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-a-27"
   },
   {
@@ -915,7 +915,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-a-28"
   },
   {
@@ -1204,7 +1204,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-a-29"
   },
   {
@@ -1503,7 +1503,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-b-31"
   },
   {
@@ -1822,7 +1822,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-b-32"
   },
   {
@@ -2110,7 +2110,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-b-33"
   },
   {
@@ -2438,7 +2438,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-b-34"
   },
   {
@@ -2761,7 +2761,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-b-35"
   },
   {
@@ -3073,7 +3073,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-c-37"
   },
   {
@@ -3415,7 +3415,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-c-38"
   },
   {
@@ -3741,7 +3741,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-c-39"
   },
   {
@@ -4052,7 +4052,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-d-42"
   },
   {
@@ -4390,7 +4390,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-d-43"
   },
   {
@@ -4735,7 +4735,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-d-44"
   },
   {
@@ -5065,7 +5065,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-d-45"
   },
   {
@@ -5375,7 +5375,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-e-46"
   },
   {
@@ -5716,7 +5716,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-e-47"
   },
   {
@@ -6031,7 +6031,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-e-48"
   },
   {
@@ -6394,7 +6394,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-e-49"
   },
   {
@@ -6760,7 +6760,7 @@ export const guidedReadingRegenBooks = [
         ]
       }
     ],
-    "source": "kimi_guided_reading_regen_pack_2026_05_24",
+    "source": "guided_reading_regen_current",
     "sourceBookId": "gr-e-50"
   }
 ];

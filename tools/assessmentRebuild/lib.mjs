@@ -13,7 +13,7 @@ export const V3_SOURCE = V3_QUESTION_SOURCE;
 export const AUTHORING_DIR = path.join(ROOT, "tools", "assessmentRebuild", "authoring");
 export const BANKS_DIR = path.join(ROOT, "src", "data", "v3", "banks");
 export const STATUS_FILE = path.join(ROOT, "src", "content", "assessments", "v3", "assessmentRebuildStatus.generated.js");
-export const REPORT_DIR = path.join(ROOT, "docs", "validation");
+export const REPORT_DIR = path.join(ROOT, ".artifacts", "assessment-rebuild");
 
 export const RATIONALE_CODES = new Set([
   "KEY",
@@ -56,27 +56,6 @@ export const CLOSED_SET_FORMATS = new Set([
   "PREPOSITION_SENTENCE_FIT", "PREPOSITION_PRECISION"
 ]);
 
-// Chance a pure guesser answers an item correctly. Choice formats: 1/N.
-// Tile-arrange formats (PUT_SOUNDS_IN_ORDER): one ordering out of tiles!.
-export function guessProbability(item) {
-  if (Array.isArray(item.soundTiles) && item.soundTiles.length >= 2) {
-    let permutations = 1;
-    for (let i = 2; i <= item.soundTiles.length; i++) permutations *= i;
-    return 1 / permutations;
-  }
-  // Letter-bank builds: pick answer.length tiles from the bank in order —
-  // bank P len arrangements, one correct.
-  if (Array.isArray(item.letterTiles) && item.letterTiles.length >= 2) {
-    const len = String(item.answer || "").length || item.letterTiles.length;
-    let arrangements = 1;
-    for (let i = 0; i < Math.min(len, item.letterTiles.length); i++) {
-      arrangements *= (item.letterTiles.length - i);
-    }
-    return 1 / Math.max(2, arrangements);
-  }
-  return item.choices?.length ? 1 / item.choices.length : 0.1;
-}
-
 export function optionSetSignature(item) {
   // Tile-build items have no option SET — their single "choice" is the answer
   // and the variance lives in the tile bank, so set-uniqueness does not apply.
@@ -117,38 +96,6 @@ function rotate(values, offset) {
   return [...values.slice(offset), ...values.slice(0, offset)];
 }
 
-const SUPPORT_IMAGE_STOPWORDS = new Set([
-  "a", "an", "and", "are", "as", "at", "be", "because", "been", "best",
-  "but", "by", "can", "choose", "complete", "correct", "did", "do", "does",
-  "for", "from", "had", "has", "have", "he", "her", "here", "him", "his",
-  "how", "i", "image", "in", "into", "is", "it", "its", "listen", "match",
-  "matches", "my", "of", "on", "one", "or", "our", "out", "pick", "picture",
-  "pictures", "said", "says", "sentence", "she", "so", "start", "than", "that",
-  "the", "their", "them", "then", "there", "these", "they", "this", "those",
-  "three", "to", "two", "up", "was", "we", "were", "what", "when", "where",
-  "which", "who", "why", "will", "with", "word", "words", "you", "your"
-]);
-
-function semanticSupportImageCandidates(raw, answer) {
-  const content = [
-    raw.imgAlt,
-    raw.supportImageAlt,
-    raw.prompt,
-    raw.sentence,
-    raw.passage,
-    answer
-  ].filter(Boolean).join(" ");
-  const contentWords = (content.toLowerCase().match(/[a-z]+/g) || [])
-    .filter(word => word.length >= 2 && !SUPPORT_IMAGE_STOPWORDS.has(word))
-    .sort((a, b) => b.length - a.length);
-  return [...new Set([
-    raw.target,
-    answer,
-    raw.u,
-    ...contentWords
-  ].filter(Boolean))];
-}
-
 export function normalizeSpokenCloze(text) {
   return String(text || "")
     .replace(/\s*(?:_{3,}|\bhmm\b|\bblank\b)\s*/gi, " … ")
@@ -171,14 +118,8 @@ export function expandItem(raw, blueprint, imageResolver) {
   const hasChoiceImages =
     (Array.isArray(raw.cards) && raw.cards.length > 0)
     || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
-  const isComprehensionItem = String(raw.fmt || "").toUpperCase() === "COMPREHENSION";
-  const supportImageKey = raw.img || raw.supportImg || (
-    hasChoiceImages
-      ? ""
-      : isComprehensionItem
-        ? `${skillId}-l${level}-${raw.u}-v${raw.v}`
-        : `${skillId}-${raw.u}-v${raw.v}`
-  );
+  const supportImageKey = raw.img || raw.supportImg || "";
+  const mediaTier = raw.media || (hasChoiceImages || supportImageKey ? "image-required" : "text");
 
   const item = {
     id,
@@ -213,10 +154,9 @@ export function expandItem(raw, blueprint, imageResolver) {
     answer,
     correctAnswer: answer,
     distractorRationales: Object.fromEntries(choiceRows.filter(c => !c.k).map(c => [c.t, c.r])),
-    // Product law: every assessment question has meaningful visual support.
-    // Image-card items satisfy it through their answer cards; every other
-    // item receives an authored or deterministic support-image requirement.
-    mediaTier: "image-required",
+    // Media truth is authored, not guessed. A text question stays text unless
+    // its source explicitly declares an image/audio requirement.
+    mediaTier,
     phonicsPosition: raw.pos,
     hadPTD: Boolean(raw.hadPTD || raw.choices.some(c => c.r === "D-PATTERN-TRAP")),
     crossPatternGroup: raw.cross || undefined,
@@ -234,9 +174,14 @@ export function expandItem(raw, blueprint, imageResolver) {
     v3AuthoredMedia: { target: Boolean(supportImageKey), cards: hasChoiceImages },
     requiredImageAssetKey: supportImageKey || undefined,
     active: true,
-    qaStatus: "approved",
+    qaStatus: "verified",
     source: V3_SOURCE,
-    provenance: { author: "claude-fable-5", wave: raw.wave || "", date: "2026-07-29", reviewedBy: [], signedOffBy: null },
+    provenance: {
+      generatedBy: "assessment-rebuild-gate",
+      sourceFile: `tools/assessmentRebuild/authoring/${skillId}.mjs`,
+      wave: raw.wave || "",
+      standardVersion: "v3"
+    },
     notes: raw.note || ""
   };
 
@@ -277,19 +222,6 @@ export function expandItem(raw, blueprint, imageResolver) {
   if (supportImageKey && imageResolver) {
     let resolvedImageAssetKey = supportImageKey;
     let image = imageResolver(supportImageKey, skillId);
-    // Most banks can reuse an approved word/scene illustration already in the
-    // repository when a question-specific key has not been drawn yet. Spatial
-    // questions are deliberately excluded: a generic noun picture cannot
-    // prove "under", "between", "near", or another relationship.
-    if (!image && skillId !== "prepositions_of_place") {
-      for (const candidate of semanticSupportImageCandidates(raw, answer)) {
-        image = imageResolver(candidate, skillId);
-        if (image) {
-          resolvedImageAssetKey = candidate;
-          break;
-        }
-      }
-    }
     if (image) {
       item.imagePath = image;
       item.imageUrl = image;
@@ -297,11 +229,7 @@ export function expandItem(raw, blueprint, imageResolver) {
       item.targetImagePath = image;
       item.resolvedImageAssetKey = resolvedImageAssetKey;
     }
-    item.imageAlt = raw.imgAlt || raw.supportImageAlt || (
-      isComprehensionItem
-        ? `Illustration for ${raw.passage || raw.prompt}`
-        : String(raw.prompt || supportImageKey).replace("___", answer)
-    );
+    item.imageAlt = raw.imgAlt || raw.supportImageAlt || String(raw.target || supportImageKey);
   }
   return item;
 }

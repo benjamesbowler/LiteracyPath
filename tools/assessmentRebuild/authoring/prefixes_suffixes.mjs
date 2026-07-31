@@ -16,7 +16,7 @@ const choices = (key, distractors) => [
   ...distractors.map((text, index) => P(text, [OPP, PT, SEM][index] || SEM))
 ];
 
-const l1 = (u, ph, v, fmt, prompt, key, distractors, img) => ({
+const l1 = (u, ph, v, fmt, prompt, key, distractors) => ({
   u,
   lvl: 1,
   ph,
@@ -25,9 +25,7 @@ const l1 = (u, ph, v, fmt, prompt, key, distractors, img) => ({
   prompt,
   spoken: prompt,
   choices: choices(key, distractors),
-  media: "image-required",
-  img,
-  imgAlt: img.replace(/-/g, " "),
+  media: "text",
   // In the explicit un- unit, spotting un- is the taught construct rather
   // than an answer leak. Other morpheme units remain scanner-gated.
   scannerExpected: u === "prefix_un"
@@ -47,9 +45,7 @@ const build = (u, ph, v, prompt, key, distractors) => ({
     P(distractors[1], FS),
     P(distractors[2], PT)
   ],
-  media: "image-required",
-  img: `${u}-${v}`,
-  imgAlt: prompt.replace(/[.?!]/g, "")
+  media: "text"
 });
 
 const context = (u, ph, v, sentence, key, distractors, note = "") => ({
@@ -67,9 +63,7 @@ const context = (u, ph, v, sentence, key, distractors, note = "") => ({
     P(distractors[1], FS),
     P(distractors[2], PT)
   ],
-  media: "image-required",
-  img: `${u}-${v}`,
-  imgAlt: sentence.replace("___", key),
+  media: "text",
   note
 });
 
@@ -82,9 +76,7 @@ const transfer = (u, ph, v, prompt, key, distractors) => ({
   prompt,
   spoken: prompt,
   choices: choices(key, distractors),
-  media: "image-required",
-  img: `${u}-${v}`,
-  imgAlt: prompt
+  media: "text"
 });
 
 const levelOneItems = [

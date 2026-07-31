@@ -26,7 +26,6 @@ const ADMIN_AREAS = Object.freeze({
       guidedMediaQa: "Book media checks",
       coverage: "Lesson content checks",
       calibration: "Assessment consistency",
-      assessmentAudio: "Assessment audio",
       questionFlags: "Reported questions",
       mapStops: "Student map",
       hollowSpots: "Student rewards"
@@ -48,7 +47,6 @@ const ADMIN_SECTION_PATHS = Object.freeze({
   guidedMediaQa: "/admin/app/book-media-checks",
   coverage: "/admin/app/lesson-content-checks",
   calibration: "/admin/app/assessment-consistency",
-  assessmentAudio: "/admin/app/assessment-audio",
   questionFlags: "/admin/question-flags",
   mapStops: "/admin/app/student-map",
   hollowSpots: "/admin/app/student-rewards"

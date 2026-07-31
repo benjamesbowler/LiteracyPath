@@ -9,7 +9,7 @@ by construction (rubric P-E5, see tools/rubrics/).
 
     npm run export:practice-sheet -- --name "Sam" --targets sh,ch,e,ll,st --stop 13
 
-Output: docs/previews/practice-sheets/<name>-<date>/ — practice.json plus
+Output: .artifacts/practice-sheets/<name>-<date>/ — practice.json plus
 rendered .html previews and editable .docx per page.
 
 `render/` is vendored from anthropics/k12-teacher-skills (Apache-2.0,

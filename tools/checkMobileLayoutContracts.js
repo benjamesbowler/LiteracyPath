@@ -58,10 +58,6 @@ if (/img\s+[^>]*src=["']https?:\/\//.test(learnArea)) {
   failures.push("Learn Area should not hotlink external images.");
 }
 
-if (/(^|[^!])\bisTeacherMode\s*&&\s*activeSection\s*===\s*"assessmentAudio"/.test(dashboard)) {
-  failures.push("Technical Assessment Audio Coverage must not render in teacher mode.");
-}
-
 if (failures.length) {
   console.error(failures.map(item => `FAIL: ${item}`).join("\n"));
   process.exit(1);

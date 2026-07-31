@@ -1,7 +1,7 @@
 /* The persistent teacher context bar (teacher-area redesign v2, phase 1).
    Spec: sticky, white, 1px border-bottom, --lp-shadow-nav, 12px 24px padding,
    wraps on narrow windows. The cycle stepper is the teacher-set reference
-   Benjamin asked for - small previous/next buttons beside the value. */
+   current interaction: small previous/next buttons beside the value. */
 
 .teacher-context-bar {
   position: sticky;

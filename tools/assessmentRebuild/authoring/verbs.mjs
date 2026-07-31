@@ -8,12 +8,8 @@
 // mirror of nouns' layout). Child wording: "doing word".
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §16.
 
-import { makeImageResolver } from "../lib.mjs";
-
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
-
-const resolver = makeImageResolver(["language", "hfw", "cvc", "rhyming", "blends", "digraphs", "long-vowels"]);
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",

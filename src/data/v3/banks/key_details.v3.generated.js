@@ -61,33 +61,25 @@ export const questions = [
    "a cookbook about soup": "D-PLAUSIBLE-UNSUPPORTED",
    "a story about a lost puppy": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "resolvedImageAssetKey": "weather",
-  "imageAlt": "Illustration for Owen wanted a book about storms for his weather project. He looked on the science shelf but could not find one. The librarian showed him a basket of weather books near the window. Owen chose a book with photographs of lightning."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_002)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v2",
@@ -149,33 +141,25 @@ export const questions = [
    "green tree leaves": "D-PLAUSIBLE-UNSUPPORTED",
    "large black wheels": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)",
-  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "resolvedImageAssetKey": "silver",
-  "imageAlt": "Illustration for Leo painted a red fire truck during art class. His wide brush made the ladder look messy. Ms. Chen gave him a thinner brush from the art box. Leo used the new brush to paint neat silver ladder lines."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_004)"
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v3",
@@ -237,33 +221,25 @@ export const questions = [
    "it belonged to a shop": "D-PLAUSIBLE-UNSUPPORTED",
    "it was painted blue": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)",
-  "imagePath": "/images/assessment/generated/concepts/leave.webp",
-  "imageUrl": "/images/assessment/generated/concepts/leave.webp",
-  "targetImage": "/images/assessment/generated/concepts/leave.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/leave.webp",
-  "resolvedImageAssetKey": "leave",
-  "imageAlt": "Illustration for Jonah walked on the beach with his aunt. They collected empty shells for a science tray. One shell had a tiny crab tucked inside it. Jonah left that shell on the sand and chose three empty shells instead."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_005)"
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v4",
@@ -325,33 +301,25 @@ export const questions = [
    "it fell into water": "D-PLAUSIBLE-UNSUPPORTED",
    "it turned blue": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Arlo carried warm rolls from the bakery counter. The paper bag tore before he reached the door. Two rolls slipped onto a clean tray near the counter. Baker Tom gave Arlo a stronger bag."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_006)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v5",
@@ -413,33 +381,25 @@ export const questions = [
    "the tire was purple": "D-PLAUSIBLE-UNSUPPORTED",
    "the path was closed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/loose-tight-01.webp",
-  "resolvedImageAssetKey": "loose",
-  "imageAlt": "Illustration for Nina rode her bike along the park path. A loose chain made the pedals stop turning. She walked the bike to a repair bench near the gate. Her dad fixed the chain with a small tool."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_007)"
  },
  {
   "id": "lp3.key_details.l1.C.what_happened.v6",
@@ -501,33 +461,25 @@ export const questions = [
    "a pencil": "D-PLAUSIBLE-UNSUPPORTED",
    "a sandwich": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_009)",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for Eli saw a small squirrel near the park bench. It held an acorn and stayed very still. Park Ranger Kim asked the children to step back quietly. After a minute, the squirrel ran up the tree."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_009)"
  },
  {
   "id": "lp3.key_details.l1.A.what_happened.v7",
@@ -589,33 +541,25 @@ export const questions = [
    "Monday": "D-PLAUSIBLE-UNSUPPORTED",
    "Sunday": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_010)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Nora was in charge of the class calendar. She crossed off Monday after morning meeting. Then she circled Friday because the class trip was on Friday. Several students asked how many days were left."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_010)"
  },
  {
   "id": "lp3.key_details.l1.B.what_happened.v8",
@@ -677,33 +621,25 @@ export const questions = [
    "so the shelf would move": "D-PLAUSIBLE-UNSUPPORTED",
    "so the bag would turn blue": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/unpack-01.webp",
-  "resolvedImageAssetKey": "unpack",
-  "imageAlt": "Illustration for Lucas helped unpack groceries after school. The eggs were in a carton at the top of the bag. Lucas lifted them out first so they would not crack. Then he put the heavier cans on the shelf."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_011)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v1",
@@ -765,33 +701,25 @@ export const questions = [
    "inside her backpack": "D-PLAUSIBLE-UNSUPPORTED",
    "under her desk": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Maya planted sunflower seeds in a small pot. She wrote her name on a paper label and pushed it into the soil. After watering the pot, she placed it on the sunny classroom window ledge. On Friday, a tiny green shoot appeared."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_001)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v2",
@@ -853,33 +781,25 @@ export const questions = [
    "behind the shed": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the road": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_008)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Ruby watched dark clouds gather over the field. Her class had planned to eat lunch outside. Miss Green heard thunder in the distance. She moved everyone into the hall before the rain began."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_008)"
  },
  {
   "id": "lp3.key_details.l1.C.where.v3",
@@ -941,33 +861,25 @@ export const questions = [
    "under the rug": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the sink": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_013)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Finn helped his neighbor carry books to a little free library. The shelf was almost full. Finn placed the small books upright and stacked the large books on the bottom. Then there was room for the whole pile."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_013)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v4",
@@ -1029,33 +941,25 @@ export const questions = [
    "inside the shop": "D-PLAUSIBLE-UNSUPPORTED",
    "behind the bus stop": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_022)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Dylan studied a map before the museum trip. He found the dinosaur room beside the stairs. He showed the map to his partner on the bus. When they arrived, they walked straight to the dinosaur room."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_022)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v5",
@@ -1117,33 +1021,25 @@ export const questions = [
    "under the rug": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the door": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_026)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Hana sorted classroom games after indoor recess. She put puzzles on the top shelf and card games in the red bin. One puzzle box was open, so she checked that every piece was inside. Then she closed the lid."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_026)"
  },
  {
   "id": "lp3.key_details.l1.C.where.v6",
@@ -1205,33 +1101,25 @@ export const questions = [
    "inside a lunch tray": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the teacher's desk": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Toby brought a striped towel to swimming class. He folded it on the bench before getting into the pool. After the lesson, he dried his hair with the towel. Then he packed it in the side pocket of his bag."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_061)"
  },
  {
   "id": "lp3.key_details.l1.A.where.v7",
@@ -1293,33 +1181,25 @@ export const questions = [
    "under the rug": "D-PLAUSIBLE-UNSUPPORTED",
    "on the lunch table": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_062)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for Ivy found a coin near the classroom door. She did not put it in her pocket. She gave it to Ms. Lopez, who placed it in the lost property box. At the end of the day, Omar came back to look for it."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_062)"
  },
  {
   "id": "lp3.key_details.l1.B.where.v8",
@@ -1381,33 +1261,25 @@ export const questions = [
    "on the bus seat": "D-PLAUSIBLE-UNSUPPORTED",
    "inside the office drawer": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_063)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for A red glove was lying beside the playground gate. Hassan picked it up before the wind blew it away. He took it to the office after recess. The secretary pinned it to the lost items board."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_063)"
  },
  {
   "id": "lp3.key_details.l1.A.who.v1",
@@ -1469,33 +1341,25 @@ export const questions = [
    "her brother": "D-PLAUSIBLE-UNSUPPORTED",
    "the librarian": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_003)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for The playground ball rolled under the bench during recess. Ava saw it before anyone stepped on it. She picked it up and gave it to Coach Lee. Coach Lee put the ball back in the equipment basket."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_003)"
  },
  {
   "id": "lp3.key_details.l1.B.who.v2",
@@ -1557,33 +1421,25 @@ export const questions = [
    "the bus driver": "D-PLAUSIBLE-UNSUPPORTED",
    "Miles": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_016)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for Miles helped his grandad rake leaves. The wind blew leaves back across the path. Grandad held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_016)"
  },
  {
   "id": "lp3.key_details.l1.C.who.v3",
@@ -1645,33 +1501,25 @@ export const questions = [
    "her teacher": "D-PLAUSIBLE-UNSUPPORTED",
    "Maya": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_020)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for Grace opened her pencil box during writing time. Her red pencil was missing, but a blue pencil was still inside. She borrowed a red pencil from Noah. At the end of class, she returned it to him."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_020)"
  },
  {
   "id": "lp3.key_details.l1.A.who.v4",
@@ -1733,33 +1581,25 @@ export const questions = [
    "a park ranger": "D-PLAUSIBLE-UNSUPPORTED",
    "her neighbor": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_028)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for At the family picnic, Rosa brought a beach ball. A gust of wind pushed it toward the pond. Her cousin caught it before it reached the water. Rosa thanked him and put the ball under the picnic blanket."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_028)"
  },
  {
   "id": "lp3.key_details.l1.B.who.v5",
@@ -1821,33 +1661,25 @@ export const questions = [
    "her cousin": "D-PLAUSIBLE-UNSUPPORTED",
    "the librarian": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for Dad printed a photo from the school concert. It showed Zoe standing beside the choir teacher. Zoe placed the photo in a yellow frame. She put the frame on the shelf above her desk."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_072)"
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v1",
@@ -1909,33 +1741,25 @@ export const questions = [
    "three": "D-PLAUSIBLE-UNSUPPORTED",
    "eight": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_014)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "two",
-  "imageAlt": "Illustration for Mara helped set out cups for the school picnic. She counted twenty students but placed only eighteen cups. Her friend noticed the mistake before lunch began. Mara added two more cups to the table."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_014)"
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v2",
@@ -1997,33 +1821,25 @@ export const questions = [
    "five": "D-PLAUSIBLE-UNSUPPORTED",
    "eight": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_064)",
-  "imagePath": "/images/assessment/digraphs/three.webp",
-  "imageUrl": "/images/assessment/digraphs/three.webp",
-  "targetImage": "/images/assessment/digraphs/three.webp",
-  "targetImagePath": "/images/assessment/digraphs/three.webp",
-  "resolvedImageAssetKey": "three",
-  "imageAlt": "Illustration for Lena listened carefully during music class. Mr. Hill played three high notes on the piano. Then Lena copied the notes on a small keyboard. Mr. Hill smiled because she played them in the correct order."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_064)"
  },
  {
   "id": "lp3.key_details.l1.C.number_detail.v3",
@@ -2085,33 +1901,25 @@ export const questions = [
    "one": "D-PLAUSIBLE-UNSUPPORTED",
    "four": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_073)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "two",
-  "imageAlt": "Illustration for The reading corner felt cold after the window was opened. Max carried two cushions from the shelf. He put one cushion on the blue chair and one on the rug. His group sat there during story time."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_073)"
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v4",
@@ -2173,33 +1981,25 @@ export const questions = [
    "during assembly": "D-PLAUSIBLE-UNSUPPORTED",
    "after home time": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for The classroom clock stopped during maths. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v1",
@@ -2261,33 +2061,25 @@ export const questions = [
    "the plain rolls": "D-PLAUSIBLE-UNSUPPORTED",
    "the burnt rolls": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_032)",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Before the bakery opened, Talia helped stack trays of rolls. One tray held plain rolls, and another held rolls with seeds on top. Baker Tom asked her to put the seeded rolls near the front counter. Customers usually bought those first."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_032)"
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v2",
@@ -2349,33 +2141,25 @@ export const questions = [
    "the tomato plants": "D-PLAUSIBLE-UNSUPPORTED",
    "the apple tree": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_033)",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
-  "imageAlt": "Illustration for The school garden club checked the vegetable beds after a hot weekend. The lettuce leaves looked limp, but the tomato plants were still strong. Mr. Hayes asked the students to water the lettuce first. Then they wrote the change in the garden notebook."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_033)"
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v3",
@@ -2437,33 +2221,25 @@ export const questions = [
    "Amira's": "D-PLAUSIBLE-UNSUPPORTED",
    "the librarian's": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_034)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "whose",
-  "imageAlt": "Illustration for During reading time, Amira found a bookmark on the floor near the mystery shelf. The bookmark had Daniel's name written in blue ink. Amira gave it to the librarian instead of keeping it. The librarian placed it in Daniel's book box."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_034)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v4",
@@ -2525,33 +2301,25 @@ export const questions = [
    "the middle drumbeat": "D-PLAUSIBLE-UNSUPPORTED",
    "the title": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_039)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/hard-difficult-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/hard-difficult-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/hard-difficult-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/hard-difficult-01.webp",
-  "resolvedImageAssetKey": "difficult",
-  "imageAlt": "Illustration for Sofia practiced piano before the school concert. She kept missing the last note of the song. Her teacher asked her to play the final line slowly three times. After that, Sofia played the ending without stopping."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_039)"
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v5",
@@ -2613,33 +2381,25 @@ export const questions = [
    "the lunch menu": "D-PLAUSIBLE-UNSUPPORTED",
    "the chess board under a chair": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_058)",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "Illustration for Nadia took photographs for the class newsletter. She photographed the chess club, the art display, and the garden team. Her clearest picture showed the garden team holding fresh carrots. The teacher chose that picture for the front page."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_058)"
  },
  {
   "id": "lp3.key_details.l2.C.precise_detail.v6",
@@ -2701,33 +2461,25 @@ export const questions = [
    "the soil in the bag": "D-PLAUSIBLE-UNSUPPORTED",
    "the soil on the shelf": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_080)",
-  "imagePath": "/images/assessment/generated/concepts/felt.webp",
-  "imageUrl": "/images/assessment/generated/concepts/felt.webp",
-  "targetImage": "/images/assessment/generated/concepts/felt.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/felt.webp",
-  "resolvedImageAssetKey": "felt",
-  "imageAlt": "Illustration for In the science corner, two cups held the same kind of soil. One cup was dry, and the other had been watered. Priya pressed a finger gently into each cup. The watered soil felt softer than the dry soil."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_080)"
  },
  {
   "id": "lp3.key_details.l2.A.precise_detail.v7",
@@ -2789,33 +2541,25 @@ export const questions = [
    "sandwich wrappers": "D-PLAUSIBLE-UNSUPPORTED",
    "paper napkins": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_089)",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for The class made a snack chart for the field trip. Apples and cheese went in the fridge until morning. Crackers stayed in a sealed box on the counter. Ms. Reed checked both places before loading the cooler."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_089)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v9r",
@@ -2877,33 +2621,25 @@ export const questions = [
    "a bike beside a gate": "D-PLAUSIBLE-UNSUPPORTED",
    "a bowl of soup": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "Illustration for Priya made a poster about sea turtles. She wrote the title at the top in large letters. Then she drew a turtle crawling toward the water. Her teacher asked her to label the beach and the ocean."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_012)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v10r",
@@ -2965,33 +2701,25 @@ export const questions = [
    "it had no sleeves": "D-PLAUSIBLE-UNSUPPORTED",
    "it was kept in a lunch box": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_015)",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "resolvedImageAssetKey": "jacket",
-  "imageAlt": "Illustration for Sienna visited the fire station with her class. A firefighter showed them a heavy jacket and helmet. Sienna tried to lift the jacket with both hands. She was surprised because it weighed more than her school bag."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_015)"
  },
  {
   "id": "lp3.key_details.l1.R.what_happened.v11r",
@@ -3053,33 +2781,25 @@ export const questions = [
    "a paper plate": "D-PLAUSIBLE-UNSUPPORTED",
    "a green brush": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-what_happened-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_017)",
-  "imagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "resolvedImageAssetKey": "tables",
-  "imageAlt": "Illustration for Jalen helped clean the lunch tables. He sprayed the first table and wiped it with a blue cloth. A sticky spot was still there, so he wiped it again. When the spot was gone, he moved to the next table."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_017)"
  },
  {
   "id": "lp3.key_details.l1.R.where.v12r",
@@ -3141,33 +2861,25 @@ export const questions = [
    "under her chair": "D-PLAUSIBLE-UNSUPPORTED",
    "on the classroom door": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v12",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_069)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for After reading time, Nora chose a silver sticker from the reward box. She placed it on the front of her notebook. Her friend chose a star-shaped sticker. Nora showed her notebook to her mother after school."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_069)"
  },
  {
   "id": "lp3.key_details.l1.R.where.v13r",
@@ -3229,33 +2941,25 @@ export const questions = [
    "on the playground": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the bus": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-where-v13",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_076)",
-  "imagePath": "/images/assessment/hfw/where.webp",
-  "imageUrl": "/images/assessment/hfw/where.webp",
-  "targetImage": "/images/assessment/hfw/where.webp",
-  "targetImagePath": "/images/assessment/hfw/where.webp",
-  "resolvedImageAssetKey": "where",
-  "imageAlt": "Illustration for During music practice, Amara forgot her flute case under the chair. Jacob saw it after the lesson ended. He carried it to Amara before she reached the hallway. Amara thanked him and zipped the case closed."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_076)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v9r",
@@ -3317,33 +3021,25 @@ export const questions = [
    "under a playground slide": "D-PLAUSIBLE-UNSUPPORTED",
    "beside the lunchroom door": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_031)",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "Illustration for Marcus joined his class for a river study. The teacher gave each group a clear jar and a label. Marcus filled his jar where the water moved slowly near the reeds. Back at school, his group compared the river water with tap water."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_031)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v10r",
@@ -3405,33 +3101,25 @@ export const questions = [
    "a sleeping dog beside the path": "D-PLAUSIBLE-UNSUPPORTED",
    "a red backpack against the railing": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_035)",
-  "imagePath": "/images/assessment/language/variants/verbs/notice-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/notice-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/notice-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/notice-01.webp",
-  "resolvedImageAssetKey": "notice",
-  "imageAlt": "Illustration for Noah crossed the old stone bridge with his uncle. Halfway across, they saw a loose board beside the railing. His uncle called the park office from his phone. A worker arrived and closed that side of the bridge."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p1_035)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v11r",
@@ -3493,33 +3181,25 @@ export const questions = [
    "a folded visitor map from the zoo": "D-PLAUSIBLE-UNSUPPORTED",
    "a laminated pass for the lunchroom": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_036)",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
-  "resolvedImageAssetKey": "jacket",
-  "imageAlt": "Illustration for The firefighters showed the class how they prepare for a call. First, they checked the oxygen tanks on the truck. Then one firefighter clipped a radio to her jacket. She explained that the radio helped the team hear directions."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_036)"
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v12r",
@@ -3581,33 +3261,25 @@ export const questions = [
    "nine": "D-PLAUSIBLE-UNSUPPORTED",
    "twelve": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v12",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "Numeric detail extraction legitimately repeats the stated number.",
-  "imagePath": "/images/assessment/long-vowels/five.webp",
-  "imageUrl": "/images/assessment/long-vowels/five.webp",
-  "targetImage": "/images/assessment/long-vowels/five.webp",
-  "targetImagePath": "/images/assessment/long-vowels/five.webp",
-  "resolvedImageAssetKey": "five",
-  "imageAlt": "Illustration for On the meadow walk, Chloe carried a small field guide. She saw yellow butterflies landing on purple flowers. Her partner counted five butterflies before they flew away. Chloe wrote the number beside a quick drawing in her guide."
+  "notes": "Numeric detail extraction legitimately repeats the stated number."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v13r",
@@ -3669,33 +3341,25 @@ export const questions = [
    "eleven forty": "D-PLAUSIBLE-UNSUPPORTED",
    "eight o'clock": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v13",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "Time-detail extraction legitimately repeats the stated time.",
-  "imagePath": "/images/assessment/long-vowels/train.webp",
-  "imageUrl": "/images/assessment/long-vowels/train.webp",
-  "targetImage": "/images/assessment/long-vowels/train.webp",
-  "targetImagePath": "/images/assessment/long-vowels/train.webp",
-  "resolvedImageAssetKey": "train",
-  "imageAlt": "Illustration for Ethan waited at the station with his grandmother. Their train was late because workers were checking the track. A message on the screen said the train would arrive at ten thirty. Ethan read the time aloud so his grandmother could hear it."
+  "notes": "Time-detail extraction legitimately repeats the stated time."
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v14r",
@@ -3757,33 +3421,25 @@ export const questions = [
    "plastic spoons": "D-PLAUSIBLE-UNSUPPORTED",
    "muddy shoes": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v14",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_040)",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "Illustration for The class cleaned the playground after the spring fair. Mateo found paper cups near the fence and plastic spoons under a table. He put the cups in the recycling bag. The spoons went into the trash bag because they were dirty."
+  "notes": "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l2_p2_040)"
  },
  {
   "id": "lp3.key_details.l1.C.who.v6",
@@ -3845,33 +3501,25 @@ export const questions = [
    "the taxi driver": "D-PLAUSIBLE-UNSUPPORTED",
    "the caretaker": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for The class guinea pig needed a holiday home for half term. Four children offered. Miss Adu picked names from a cup, and the folded paper said 'Femi'. Femi carried the travel cage to the taxi very, very slowly."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.A.who.v7",
@@ -3933,33 +3581,25 @@ export const questions = [
    "the winner": "D-PLAUSIBLE-UNSUPPORTED",
    "a parent": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for The whistle for the sack race was lost. Mr Pole checked his pockets twice. In the end, little Sana lent him the silver whistle from her charm bracelet, and the race began only one minute late."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.who.v8",
@@ -4021,33 +3661,25 @@ export const questions = [
    "Priya": "D-PLAUSIBLE-UNSUPPORTED",
    "the head teacher": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for On wet Wednesdays, someone always mopped the puddle by the school door before the bell. Nobody knew who. One early morning, Priya spotted the mystery mopper through the window: it was Bill, the bus driver, mop in one hand, tea in the other."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v5",
@@ -4109,33 +3741,25 @@ export const questions = [
    "one": "D-SEQUENCE-SWAP",
    "ten": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp",
-  "resolvedImageAssetKey": "small",
-  "imageAlt": "Illustration for Gran's shopping list was short: six eggs, two lemons, and one small bag of sugar. Tayo repeated it all the way to the shop like a song. He came home with everything on the list — and one free sticker from the shopkeeper."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.C.number_detail.v6",
@@ -4197,33 +3821,25 @@ export const questions = [
    "one": "D-SEQUENCE-SWAP",
    "seven": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/three.webp",
-  "imageUrl": "/images/assessment/digraphs/three.webp",
-  "targetImage": "/images/assessment/digraphs/three.webp",
-  "targetImagePath": "/images/assessment/digraphs/three.webp",
-  "resolvedImageAssetKey": "three",
-  "imageAlt": "Illustration for The nature walk had a counting game. Class 2 counted five snails on the wall, three white butterflies by the hedge, and one very slow worm crossing the path. The worm got a round of applause when it finally made it."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.A.number_detail.v7",
@@ -4285,33 +3901,25 @@ export const questions = [
    "at eleven": "D-SEQUENCE-SWAP",
    "at lunchtime": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "Illustration for The bake sale opened at ten o'clock sharp. By half past ten every flapjack was gone. The last brownie survived until eleven, when the head teacher bought it 'for research'."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.B.number_detail.v8",
@@ -4373,33 +3981,25 @@ export const questions = [
    "forty": "D-PLAUSIBLE-UNSUPPORTED",
    "twenty": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "Illustration for Nita's tower used every block in the box: twenty red ones for the bottom, ten blue ones for the middle, and four yellow ones balanced on top. It stood for one glorious minute before the cat inspected it."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.precise_detail.v8",
@@ -4461,33 +4061,25 @@ export const questions = [
    "it had a rocket sticker": "D-DETAIL-AS-MAIN",
    "it had his name on it": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-precise_detail-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
-  "resolvedImageAssetKey": "rocket",
-  "imageAlt": "Illustration for Two lunchboxes sat on the bench, nearly twins. Both were blue, both had a rocket sticker. But Cal's had a dent in one corner from the great playground drop, and Robi's still smelled faintly of yesterday's orange. Cal checked for the dent, took his box, and left the orange-smelling twin for Robi."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v1",
@@ -4549,33 +4141,25 @@ export const questions = [
    "until the next morning": "D-SEQUENCE-SWAP",
    "exactly one hour": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "answer assembled from first and third sentences",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "resolvedImageAssetKey": "filled",
-  "imageAlt": "Illustration for Ola filled the bird feeder with seeds at breakfast. At lunchtime the feeder was already half empty. By home time only dust was left, and one very round pigeon sat on the fence looking innocent."
+  "notes": "answer assembled from first and third sentences"
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v2",
@@ -4637,33 +4221,25 @@ export const questions = [
    "the water bottle": "D-SEQUENCE-SWAP",
    "a woolly hat": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "resolvedImageAssetKey": "dinosaur",
-  "imageAlt": "Illustration for The lost property box gave up three treasures on Friday. Jun claimed the stripy scarf at morning break. The water bottle went home with Ivy after lunch. The dinosaur glove stayed unclaimed, so it guarded the box all weekend."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v3",
@@ -4725,33 +4301,25 @@ export const questions = [
    "Dad's": "D-PLAUSIBLE-UNSUPPORTED",
    "Asha's": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/tallest-01.webp",
-  "resolvedImageAssetKey": "tallest",
-  "imageAlt": "Illustration for Dad planted a tree when each child was born. Asha's cherry tree is the tallest now. Ben's apple tree gives the most fruit. The plum tree, the youngest, belongs to baby Mo — it is still shorter than the garden fence."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v4",
@@ -4813,33 +4381,25 @@ export const questions = [
    "the staff room": "D-SEQUENCE-SWAP",
    "the art shop": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for The school play needed props from three places. The crown came from Nell's dressing-up box. The cardboard sword came from Raj's recycling pile. The throne was two chairs from the staff room, taped together and painted gold by the whole class."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v5",
@@ -4901,33 +4461,25 @@ export const questions = [
    "stay where she can stand": "D-SEQUENCE-SWAP",
    "dive from the high board": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "needs the group rules AND her promotion",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "Illustration for Monday's swimming lesson had a ladder of groups. Beginners stayed where they could stand. Improvers swam widths with a float. The sharks — the top group — swam whole lengths, no floats allowed. Keya, an improver since spring, finally moved up on Monday, and handed her float to a beginner on the way."
+  "notes": "needs the group rules AND her promotion"
  },
  {
   "id": "lp3.key_details.l2.C.detail_across_sentences.v6",
@@ -4989,33 +4541,25 @@ export const questions = [
    "ten pounds": "D-SEQUENCE-SWAP",
    "nothing at all": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "arithmetic across sentences",
-  "imagePath": "/images/assessment/hfw/round.webp",
-  "imageUrl": "/images/assessment/hfw/round.webp",
-  "targetImage": "/images/assessment/hfw/round.webp",
-  "targetImagePath": "/images/assessment/hfw/round.webp",
-  "resolvedImageAssetKey": "round",
-  "imageAlt": "Illustration for The twins divided the paper-round money the same way every week. Half went into the shared bike jar on the shelf. The rest they split evenly between them. This week the round paid ten pounds, so five went into the jar, and each twin pocketed exactly the same as the other."
+  "notes": "arithmetic across sentences"
  },
  {
   "id": "lp3.key_details.l2.A.detail_across_sentences.v7",
@@ -5077,33 +4621,25 @@ export const questions = [
    "the can was lost": "D-PLAUSIBLE-UNSUPPORTED",
    "it was a feeding day instead": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rule sentence + weather sentence must combine",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for The window box plan was strict: water on Mondays and Thursdays, feed on the first Monday of the month, and never water on a day when it had rained. This Thursday the sky poured all morning. Priya looked at the streaming glass, put the watering can back under the sink, and ticked the chart anyway."
+  "notes": "rule sentence + weather sentence must combine"
  },
  {
   "id": "lp3.key_details.l2.B.detail_across_sentences.v8",
@@ -5165,33 +4701,25 @@ export const questions = [
    "no bench has one": "D-OPPOSITE",
    "the oak bench, because of Captain Reya": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/remember-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
-  "resolvedImageAssetKey": "remember",
-  "imageAlt": "Illustration for Every bench in the park remembers somebody. The oak bench by the pond remembers Captain Reya. The curly iron bench remembers the twins' great-grandmother. And the newest bench, still smelling of paint, remembers Mr Alam, who fed the sparrows here for forty years — which is why the carpenter cut a little seed dish into its arm."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v1",
@@ -5253,33 +4781,25 @@ export const questions = [
    "the fish waited in a bucket": "D-DETAIL-AS-MAIN",
    "the gravel was rinsed": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the key is plausible but absent — verbatim matchers pick a true fact and miss",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "Illustration for The class aquarium got its spring clean on Friday. The gravel was rinsed in a sieve. The glass was wiped inside and out. The plastic castle came back shinier than ever, and the fish watched the whole operation from a bucket."
+  "notes": "the key is plausible but absent — verbatim matchers pick a true fact and miss"
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v2",
@@ -5341,33 +4861,25 @@ export const questions = [
    "the megaphone was tested": "D-DETAIL-AS-MAIN",
    "lanes were painted": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Sports day morning was all preparation. Lanes were painted white on the grass. Bean bags were counted into buckets. The finishing tape was tied between two posts, and somebody tested the megaphone by saying 'sausages' across the whole field."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v3",
@@ -5429,33 +4941,25 @@ export const questions = [
    "a torch": "D-DETAIL-AS-MAIN",
    "a raincoat": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for The night before the trip, Amir packed like an explorer. Raincoat, rolled tight. Sandwiches, wrapped and slightly squashed by the water bottle. Notebook and pencil, for bird spotting. His torch went in last, right at the top, in case of tunnels."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v4",
@@ -5517,33 +5021,25 @@ export const questions = [
    "jars of screws": "D-DETAIL-AS-MAIN",
    "a radio by the door": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "window",
-  "imageAlt": "Illustration for Grandpa's shed had a place for everything. Screwdrivers hung on hooks in size order. Jam jars of screws lined the window shelf. The lawnmower lived under a blanket like a pet, and the radio kept its place by the door, always tuned to the cricket."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v5",
@@ -5605,33 +5101,25 @@ export const questions = [
    "an author signed books": "D-DETAIL-AS-MAIN",
    "reading tokens counted double": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "resolvedImageAssetKey": "filled",
-  "imageAlt": "Illustration for The book fair filled the hall for one whole day. Tables sagged under picture books and joke books. A signing corner had a real author with a real fountain pen. Tokens from the summer reading club counted double, and the librarian wore her legendary book-print dress."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.C.which_is_not.v6",
@@ -5693,33 +5181,25 @@ export const questions = [
    "a guitar played requests": "D-DETAIL-AS-MAIN",
    "the chip van kept selling": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
-  "resolvedImageAssetKey": "guitar",
-  "imageAlt": "Illustration for When the lights went out on the street, the neighbours made their own evening. Candles appeared in jam jars on doorsteps. Mr Okoye carried his guitar to the wall and played requests. The chip van, which ran on its own gas, did the best business of its life."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.A.which_is_not.v7",
@@ -5781,33 +5261,25 @@ export const questions = [
    "whisper": "D-DETAIL-AS-MAIN",
    "no flash photographs": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "resolvedImageAssetKey": "dinosaur",
-  "imageAlt": "Illustration for The museum's new dinosaur room opened with three rules on the door. Walk, don't run, because the floor was polished like ice. Whisper, because sound bounced off the bones. And photographs were welcome — but only without the flash, which was hard on the painted cave-wall copy."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.B.which_is_not.v8",
@@ -5869,33 +5341,25 @@ export const questions = [
    "potatoes were hunted": "D-DETAIL-AS-MAIN",
    "the marrow rode the wheelbarrow": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "imageUrl": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImage": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "resolvedImageAssetKey": "wheelbarrow",
-  "imageAlt": "Illustration for Harvest week at the allotment brought jobs for everyone. The tall cousins picked the runner beans. The small cousins hunted potatoes with trowels, shouting at every find. Gran weighed everything on her old kitchen scales, and the biggest marrow rode home in the wheelbarrow with a seatbelt of garden string."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.R.who.v12r",
@@ -5957,33 +5421,25 @@ export const questions = [
    "the rain": "D-PLAUSIBLE-UNSUPPORTED",
    "nobody": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-who-v12",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/whose-who-s-01.webp",
-  "resolvedImageAssetKey": "who",
-  "imageAlt": "Illustration for The classroom plants drooped over the holidays until the secret waterer struck. On the first day back, the soil was damp and a tiny note said 'You are welcome — G.' Gita went pink when everyone looked at her."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l1.R.number_detail.v12r",
@@ -6045,33 +5501,25 @@ export const questions = [
    "half an hour": "D-SEQUENCE-SWAP",
    "an afternoon": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l1-number_detail-v12",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "resolvedImageAssetKey": "whole",
-  "imageAlt": "Illustration for The ferry to the island takes twenty minutes. The bus from the harbour takes ten more. Door to door, Nan's visit is half an hour of travelling and a whole afternoon of cake."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.R.which_is_not.v9r",
@@ -6133,33 +5581,25 @@ export const questions = [
    "board games": "D-DETAIL-AS-MAIN",
    "dinosaur figures": "D-DETAIL-AS-MAIN"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-which_is_not-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/carefully-01.webp",
-  "resolvedImageAssetKey": "carefully",
-  "imageAlt": "Illustration for The car boot sale table was carefully arranged. Board games with all their pieces, checked twice. A shoebox of dinosaur figures, priced per dinosaur. The outgrown wellies stood in a row, smallest to biggest, and the old toy till sat ready to be the real till."
+  "notes": ""
  },
  {
   "id": "lp3.key_details.l2.R.detail_across_sentences.v15r",
@@ -6221,32 +5661,24 @@ export const questions = [
    "he was the captain": "D-PLAUSIBLE-UNSUPPORTED",
    "his starts were lightning": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "key_details-l2-detail_across_sentences-v15",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/key_details.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "resolvedImageAssetKey": "third",
-  "imageAlt": "Illustration for The relay team ran in a fixed order. Jaya started, because her starts were lightning. Ben ran second and Priw third, keeping the pace steady. The last leg belonged to Omar — not the fastest starter, but nobody, ever, caught him from in front."
+  "notes": ""
  }
 ];

@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-// 2026-07-27: `assessments?` removed from the teacher ban. Ben's explicit call, same
+// Current policy: `assessments?` is not in the teacher ban, for the same
 // reasoning as `students?` before it — teachers say "assessments", and banning the word
 // forced the funnel to be labelled "Checks" against the name he asked for. It stays
 // banned for CHILD copy, where a five-year-old should never see it.

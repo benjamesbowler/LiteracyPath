@@ -1,5 +1,5 @@
 // Single source of truth for the wide (horizontal) Skills Quest map stop
-// positions. Defaults below were placed by Benjamin with the click-to-place
+// positions. Defaults below were set with the click-to-place
 // tool. An admin can override them live in the in-app Map Stops editor; those
 // overrides are stored in Supabase app_config and cached in localStorage.
 import { supabase } from "../supabaseClient.js";

@@ -36,5 +36,5 @@ proves:
 Automated checks do not replace an independent privacy/security review of the
 deployed RPC, product copy, school governance, telemetry, and operational
 configuration. The prepared implementation is tracked as A8.2 in
-`docs/release/EXTERNAL.md`; it must not be marked externally closed without
+the current release issue; it must not be marked externally closed without
 reviewer evidence.

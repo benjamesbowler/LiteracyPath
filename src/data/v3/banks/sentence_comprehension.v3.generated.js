@@ -61,33 +61,25 @@ export const questions = [
    "nobody did": "D-OPPOSITE",
    "the gardener": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/objects/path.png",
-  "imageUrl": "/images/objects/path.png",
-  "targetImage": "/images/objects/path.png",
-  "targetImagePath": "/images/objects/path.png",
-  "resolvedImageAssetKey": "path",
-  "imageAlt": "Illustration for Granny Bola planted red tulips along the garden path."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v2",
@@ -149,33 +141,25 @@ export const questions = [
    "nothing at all": "D-OPPOSITE",
    "a new toothbrush": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/green.webp",
-  "imageUrl": "/images/assessment/blends/green.webp",
-  "targetImage": "/images/assessment/blends/green.webp",
-  "targetImagePath": "/images/assessment/blends/green.webp",
-  "resolvedImageAssetKey": "green",
-  "imageAlt": "Illustration for The dentist gave Milo a green sticker for brave sitting."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v3",
@@ -237,33 +221,25 @@ export const questions = [
    "the radio": "D-PLAUSIBLE-UNSUPPORTED",
    "the milkman": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hole-whole-01.webp",
-  "resolvedImageAssetKey": "whole",
-  "imageAlt": "Illustration for Our postlady whistles show tunes on her whole round."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v4",
@@ -325,33 +301,25 @@ export const questions = [
    "story books": "D-PLAUSIBLE-UNSUPPORTED",
    "shoe boxes": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/blocks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/blocks-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/blocks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/blocks-01.webp",
-  "resolvedImageAssetKey": "blocks",
-  "imageAlt": "Illustration for Baby Ren stacked four wooden blocks all by himself."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v5",
@@ -413,33 +381,25 @@ export const questions = [
    "the soup": "D-PLAUSIBLE-UNSUPPORTED",
    "his hand": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Uncle Dip burned the toast twice before breakfast."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v6",
@@ -501,33 +461,25 @@ export const questions = [
    "a decorator": "D-PLAUSIBLE-UNSUPPORTED",
    "the neighbours": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/bright.webp",
-  "imageUrl": "/images/assessment/generated/concepts/bright.webp",
-  "targetImage": "/images/assessment/generated/concepts/bright.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/bright.webp",
-  "resolvedImageAssetKey": "bright",
-  "imageAlt": "Illustration for The twins painted their bedroom door bright orange."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v7",
@@ -589,33 +541,25 @@ export const questions = [
    "a silver ring": "D-PLAUSIBLE-UNSUPPORTED",
    "a garden glove": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/steal-steel-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/steal-steel-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/steal-steel-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/steal-steel-01.webp",
-  "resolvedImageAssetKey": "steal",
-  "imageAlt": "Illustration for A magpie stole the shiny bottle top from our step."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v8",
@@ -677,33 +621,25 @@ export const questions = [
    "a hammer": "D-PLAUSIBLE-UNSUPPORTED",
    "string": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
-  "resolvedImageAssetKey": "table",
-  "imageAlt": "Illustration for Miss Faro fixed the wobbly table with folded card."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v1",
@@ -765,33 +701,25 @@ export const questions = [
    "every morning": "D-PLAUSIBLE-UNSUPPORTED",
    "on Saturdays": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/every.webp",
-  "imageUrl": "/images/assessment/hfw/every.webp",
-  "targetImage": "/images/assessment/hfw/every.webp",
-  "targetImagePath": "/images/assessment/hfw/every.webp",
-  "resolvedImageAssetKey": "every",
-  "imageAlt": "Illustration for The choir practises in the hall every Tuesday."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v2",
@@ -853,33 +781,25 @@ export const questions = [
    "on his desk": "D-PLAUSIBLE-UNSUPPORTED",
    "in the car": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/fruit.webp",
-  "imageUrl": "/images/assessment/long-vowels/fruit.webp",
-  "targetImage": "/images/assessment/long-vowels/fruit.webp",
-  "targetImagePath": "/images/assessment/long-vowels/fruit.webp",
-  "resolvedImageAssetKey": "fruit",
-  "imageAlt": "Illustration for Dad keeps his glasses in the fruit bowl, for some reason."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v3",
@@ -941,33 +861,25 @@ export const questions = [
    "behind a rock": "D-PLAUSIBLE-UNSUPPORTED",
    "in the reeds": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "resolvedImageAssetKey": "biggest",
-  "imageAlt": "Illustration for The frog hid under the biggest lily pad."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v4",
@@ -1029,33 +941,25 @@ export const questions = [
    "at bedtime": "D-PLAUSIBLE-UNSUPPORTED",
    "in the morning": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "resolvedImageAssetKey": "straight",
-  "imageAlt": "Illustration for Swimming lessons start straight after lunch on Fridays."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v5",
@@ -1117,33 +1021,25 @@ export const questions = [
    "under a cover": "D-PLAUSIBLE-UNSUPPORTED",
    "inside the shed": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/bike.webp",
-  "imageUrl": "/images/assessment/long-vowels/bike.webp",
-  "targetImage": "/images/assessment/long-vowels/bike.webp",
-  "targetImagePath": "/images/assessment/long-vowels/bike.webp",
-  "resolvedImageAssetKey": "bike",
-  "imageAlt": "Illustration for Mum parks the bike behind the recycling bins."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v6",
@@ -1205,33 +1101,25 @@ export const questions = [
    "after school": "D-OPPOSITE",
    "at nine": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for The market opens at seven, long before school."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v7",
@@ -1293,33 +1181,25 @@ export const questions = [
    "in the hammock": "D-PLAUSIBLE-UNSUPPORTED",
    "at the kitchen table": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/nap-02.webp",
-  "resolvedImageAssetKey": "nap",
-  "imageAlt": "Illustration for Grandpa naps in the striped deckchair by the roses."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v8",
@@ -1381,33 +1261,25 @@ export const questions = [
    "up a tree": "D-PLAUSIBLE-UNSUPPORTED",
    "next door": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/top-bottom-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/top-bottom-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/top-bottom-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/top-bottom-01.webp",
-  "resolvedImageAssetKey": "bottom",
-  "imageAlt": "Illustration for The lost kitten was found at the bottom of the airing cupboard."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v1",
@@ -1469,33 +1341,25 @@ export const questions = [
    "A girl sleeps in her warm bed.": "D-PLAUSIBLE-UNSUPPORTED",
    "A boy in wellies fills a puddle.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: a girl in wellies jumping over a puddle."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v2",
@@ -1557,33 +1421,25 @@ export const questions = [
    "One boy climbs a ladder at home.": "D-VISUAL-NEIGHBOR",
    "Two bakers carry a table.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: two boys carrying a long ladder past a bakery."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.picture_match.v3",
@@ -1645,33 +1501,25 @@ export const questions = [
    "A cat hides from the rain indoors.": "D-TOPIC-ADJACENT",
    "A dog sleeps under an umbrella.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/umbrella.png",
-  "imageUrl": "/images/child-mode/initial-sounds/umbrella.png",
-  "targetImage": "/images/child-mode/initial-sounds/umbrella.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/umbrella.png",
-  "resolvedImageAssetKey": "umbrella",
-  "imageAlt": "Illustration for Scene: a cat asleep inside an open umbrella."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v4",
@@ -1733,33 +1581,25 @@ export const questions = [
    "Two children fly two kites.": "D-VISUAL-NEIGHBOR",
    "Grandad reads about kites.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for Scene: a grandad and a child flying one red kite together."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v5",
@@ -1821,33 +1661,25 @@ export const questions = [
    "The empty line swings in the wind.": "D-VISUAL-NEIGHBOR",
    "Someone irons a red shirt.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: a full washing line with one red sock dropping to the grass."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.picture_match.v6",
@@ -1909,33 +1741,25 @@ export const questions = [
    "An ice-cream van drives past a farm.": "D-TOPIC-ADJACENT",
    "One duck swims away from a boat.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: three ducks queuing at an ice-cream van."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v7",
@@ -1997,33 +1821,25 @@ export const questions = [
    "A chef drops a tall cake.": "D-VISUAL-NEIGHBOR",
    "A boy washes a tall glass.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: a boy proudly holding up a wobbly jelly taller than his head."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v8",
@@ -2085,33 +1901,25 @@ export const questions = [
    "A snowman melts away in the rain.": "D-VISUAL-NEIGHBOR",
    "A child wears sunglasses at the beach.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/vocabulary/winter.png",
-  "imageUrl": "/images/vocabulary/winter.png",
-  "targetImage": "/images/vocabulary/winter.png",
-  "targetImagePath": "/images/vocabulary/winter.png",
-  "resolvedImageAssetKey": "winter",
-  "imageAlt": "Illustration for Scene: a snowman wearing sunglasses on a sunny winter day."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v1",
@@ -2173,33 +1981,25 @@ export const questions = [
    "fed the dog": "D-PLAUSIBLE-UNSUPPORTED",
    "ran to the park": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "resolvedImageAssetKey": "past",
-  "imageAlt": "Illustration for Pia tiptoed past the sleeping dog."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v2",
@@ -2261,33 +2061,25 @@ export const questions = [
    "washed the dishes": "D-PLAUSIBLE-UNSUPPORTED",
    "wrote down an order": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-  "resolvedImageAssetKey": "plates",
-  "imageAlt": "Illustration for The waiter balanced six plates on one arm."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v3",
@@ -2349,33 +2141,25 @@ export const questions = [
    "drank the lemonade": "D-SEQUENCE-SWAP",
    "bought some oranges": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/squeezed-lemons.webp",
-  "imageUrl": "/images/assessment/generated/concepts/squeezed-lemons.webp",
-  "targetImage": "/images/assessment/generated/concepts/squeezed-lemons.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/squeezed-lemons.webp",
-  "resolvedImageAssetKey": "squeezed lemons",
-  "imageAlt": "Illustration for Nan squeezed three fat lemons for the lemonade."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v4",
@@ -2437,33 +2221,25 @@ export const questions = [
    "blew the whistle": "D-PLAUSIBLE-UNSUPPORTED",
    "let the ball in": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "resolvedImageAssetKey": "ball",
-  "imageAlt": "Illustration for The goalkeeper tipped the ball over the bar."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v5",
@@ -2525,33 +2301,25 @@ export const questions = [
    "drew a new map": "D-PLAUSIBLE-UNSUPPORTED",
    "folded the map away": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for Kofi taped the torn map back together."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v6",
@@ -2613,33 +2381,25 @@ export const questions = [
    "slept on its perch": "D-OPPOSITE",
    "sang a sailor song": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Illustration for The parrot copied Grandpa's cough all afternoon."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v7",
@@ -2701,33 +2461,25 @@ export const questions = [
    "threw a small snowball": "D-VISUAL-NEIGHBOR",
    "shovelled the path": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "resolvedImageAssetKey": "biggest",
-  "imageAlt": "Illustration for Ada rolled the biggest snowball in the whole street."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v8",
@@ -2789,33 +2541,25 @@ export const questions = [
    "lost the book": "D-PLAUSIBLE-UNSUPPORTED",
    "read the book aloud": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/mistake-01.webp",
-  "resolvedImageAssetKey": "mistake",
-  "imageAlt": "Illustration for The librarian stamped the book with tomorrow's date by mistake."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v1",
@@ -2877,33 +2621,25 @@ export const questions = [
    "they liked climbing stairs": "D-PLAUSIBLE-UNSUPPORTED",
    "the lift was full": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/raise-lift-01.webp",
-  "resolvedImageAssetKey": "lift",
-  "imageAlt": "Illustration for Because the lift was broken, the removal men used the stairs."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v2",
@@ -2965,33 +2701,25 @@ export const questions = [
    "the mud made the footprints deep": "D-PLAUSIBLE-UNSUPPORTED",
    "a giant walked down the road": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/boots.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boots.webp",
-  "targetImage": "/images/assessment/generated/concepts/boots.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boots.webp",
-  "resolvedImageAssetKey": "boots",
-  "imageAlt": "Illustration for Rosa wore her brother's boots, so her footprints looked enormous."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v3",
@@ -3053,33 +2781,25 @@ export const questions = [
    "they cancelled the picnic straight away": "D-OPPOSITE",
    "they forgot the cake": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/people.webp",
-  "imageUrl": "/images/assessment/generated/concepts/people.webp",
-  "targetImage": "/images/assessment/generated/concepts/people.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/people.webp",
-  "resolvedImageAssetKey": "people",
-  "imageAlt": "Illustration for The picnic moved indoors, but nobody minded because of the cake."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v4",
@@ -3141,33 +2861,25 @@ export const questions = [
    "the beach was closing for winter": "D-PLAUSIBLE-UNSUPPORTED",
    "a race was starting": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageUrl": "/images/assessment/long-vowels/beach.webp",
-  "targetImage": "/images/assessment/long-vowels/beach.webp",
-  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "resolvedImageAssetKey": "beach",
-  "imageAlt": "Illustration for Although the sea looked calm, the flag on the beach was red."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v5",
@@ -3229,33 +2941,25 @@ export const questions = [
    "to ride the bus every month": "D-OPPOSITE",
    "because he lost his money": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/could.webp",
-  "imageUrl": "/images/assessment/hfw/could.webp",
-  "targetImage": "/images/assessment/hfw/could.webp",
-  "targetImagePath": "/images/assessment/hfw/could.webp",
-  "resolvedImageAssetKey": "could",
-  "imageAlt": "Illustration for Jin saved his bus money all month so that he could buy Mum's birthday plant."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v6",
@@ -3317,33 +3021,25 @@ export const questions = [
    "to celebrate a holiday": "D-PLAUSIBLE-UNSUPPORTED",
    "because a race finished there": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for The paint was still wet, so the bench wore a little paper flag all day."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v7",
@@ -3405,33 +3101,25 @@ export const questions = [
    "refereed the match": "D-PLAUSIBLE-UNSUPPORTED",
    "played in goal": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/every.webp",
-  "imageUrl": "/images/assessment/hfw/every.webp",
-  "targetImage": "/images/assessment/hfw/every.webp",
-  "targetImagePath": "/images/assessment/hfw/every.webp",
-  "resolvedImageAssetKey": "every",
-  "imageAlt": "Illustration for Even though Tara practised in goal every day, she chose to play striker in the final."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v8",
@@ -3493,33 +3181,25 @@ export const questions = [
    "nobody was hungry": "D-PLAUSIBLE-UNSUPPORTED",
    "it smelled bad": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/wonderful-01.webp",
-  "resolvedImageAssetKey": "wonderful",
-  "imageAlt": "Illustration for The bread smelled wonderful, but it was for the fair, so nobody got a slice."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v1",
@@ -3581,33 +3261,25 @@ export const questions = [
    "Elena": "D-PLAUSIBLE-UNSUPPORTED",
    "the painter": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "resolve 'she' against the handing direction",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "Illustration for Maya handed the brush to Elena because she wanted the fence painted blue."
+  "notes": "resolve 'she' against the handing direction"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v2",
@@ -3669,33 +3341,25 @@ export const questions = [
    "a ferry": "D-PLAUSIBLE-UNSUPPORTED",
    "the harbour master": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "resolve 'it' — seagulls fly, boats sail",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "Illustration for The seagull followed the fishing boat until it sailed out of the bay."
+  "notes": "resolve 'it' — seagulls fly, boats sail"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v3",
@@ -3757,33 +3421,25 @@ export const questions = [
    "Ollie's": "D-VISUAL-NEIGHBOR",
    "the teacher's": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/pencil-pencils-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/pencil-pencils-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/pencil-pencils-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/pencil-pencils-01.webp",
-  "resolvedImageAssetKey": "pencil",
-  "imageAlt": "Illustration for Sam lent Ollie his lucky pencil, and it came back with teeth marks."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v4",
@@ -3845,33 +3501,25 @@ export const questions = [
    "their mother": "D-PLAUSIBLE-UNSUPPORTED",
    "a grandparent": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "resolvedImageAssetKey": "game",
-  "imageAlt": "Illustration for When the twins visited Auntie Vee, she taught them a card game from her childhood."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v5",
@@ -3933,33 +3581,25 @@ export const questions = [
    "the shelf": "D-PLAUSIBLE-UNSUPPORTED",
    "a sunflower": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cactuses stay small; the planted-and-growing one is the seedling",
-  "imagePath": "/images/assessment/blends/shelf.webp",
-  "imageUrl": "/images/assessment/blends/shelf.webp",
-  "targetImage": "/images/assessment/blends/shelf.webp",
-  "targetImagePath": "/images/assessment/blends/shelf.webp",
-  "resolvedImageAssetKey": "shelf",
-  "imageAlt": "Illustration for Nia put the seedling next to the cactus, but it soon grew too tall for the shelf."
+  "notes": "cactuses stay small; the planted-and-growing one is the seedling"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v6",
@@ -4021,33 +3661,25 @@ export const questions = [
    "her dad": "D-PLAUSIBLE-UNSUPPORTED",
    "a toymaker": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "resolve 'she' — Grandpa cannot be 'she'",
-  "imagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/box-boxes-01.webp",
-  "resolvedImageAssetKey": "boxes",
-  "imageAlt": "Illustration for Carmen showed Grandpa the robot she had built out of cereal boxes."
+  "notes": "resolve 'she' — Grandpa cannot be 'she'"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v7",
@@ -4109,33 +3741,25 @@ export const questions = [
    "the keepers": "D-PLAUSIBLE-UNSUPPORTED",
    "the seals": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "resolvedImageAssetKey": "sleepy",
-  "imageAlt": "Illustration for The keeper fed the penguins before the visitors arrived, so they were already full and sleepy."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v8",
@@ -4197,33 +3821,25 @@ export const questions = [
    "her cousin": "D-VISUAL-NEIGHBOR",
    "both of them": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/train.webp",
-  "imageUrl": "/images/assessment/long-vowels/train.webp",
-  "targetImage": "/images/assessment/long-vowels/train.webp",
-  "targetImagePath": "/images/assessment/long-vowels/train.webp",
-  "resolvedImageAssetKey": "train",
-  "imageAlt": "Illustration for Effie waved at her cousin from the train until she could not see the platform any more."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v1",
@@ -4285,33 +3901,25 @@ export const questions = [
    "The puppet show was cancelled at lunch.": "D-OPPOSITE",
    "Many tickets were left after lunch.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Not a single ticket for the puppet show was left by lunchtime."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v2",
@@ -4373,33 +3981,25 @@ export const questions = [
    "Ravi swims with his eyes shut.": "D-VISUAL-NEIGHBOR",
    "Ravi keeps getting lost.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "resolvedImageAssetKey": "knows",
-  "imageAlt": "Illustration for Ravi knows the way to the pool with his eyes shut."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v3",
@@ -4461,33 +4061,25 @@ export const questions = [
    "Everyone left before the match ended.": "D-VISUAL-NEIGHBOR",
    "The class sat quietly to the end.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/whistle.webp",
-  "imageUrl": "/images/assessment/digraphs/whistle.webp",
-  "targetImage": "/images/assessment/digraphs/whistle.webp",
-  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
-  "resolvedImageAssetKey": "whistle",
-  "imageAlt": "Illustration for The whole class was on its feet before the final whistle."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v4",
@@ -4549,33 +4141,25 @@ export const questions = [
    "Gran cooks while the street sleeps.": "D-VISUAL-NEIGHBOR",
    "Dad dislikes Gran's soup.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-  "resolvedImageAssetKey": "sleepy",
-  "imageAlt": "Illustration for Gran's soup could wake up a sleepy street, Dad always says."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v5",
@@ -4637,33 +4221,25 @@ export const questions = [
    "The bus never appeared at all.": "D-OPPOSITE",
    "Omar ran after the bus.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/patient-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/patient-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/patient-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/patient-01.webp",
-  "resolvedImageAssetKey": "patient",
-  "imageAlt": "Illustration for By the time the bus appeared, Omar's patience had completely run out."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v6",
@@ -4725,33 +4301,25 @@ export const questions = [
    "The puppy had its own toys.": "D-OPPOSITE",
    "The house needed new carpets.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/puppy-puppies-01.webp",
-  "resolvedImageAssetKey": "puppy",
-  "imageAlt": "Illustration for The new puppy treated every shoe in the house as a chew toy."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v7",
@@ -4813,33 +4381,25 @@ export const questions = [
    "Lila forgot the secret by Friday.": "D-VISUAL-NEIGHBOR",
    "Lila finished her work on Friday.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/found.webp",
-  "imageUrl": "/images/assessment/hfw/found.webp",
-  "targetImage": "/images/assessment/hfw/found.webp",
-  "targetImagePath": "/images/assessment/hfw/found.webp",
-  "resolvedImageAssetKey": "found",
-  "imageAlt": "Illustration for Keeping the secret until Friday nearly finished poor Lila off."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v8",
@@ -4901,33 +4461,25 @@ export const questions = [
    "The trampoline blew away in the storm.": "D-PLAUSIBLE-UNSUPPORTED",
    "The children made popcorn indoors.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/over.webp",
-  "imageUrl": "/images/assessment/hfw/over.webp",
-  "targetImage": "/images/assessment/hfw/over.webp",
-  "targetImagePath": "/images/assessment/hfw/over.webp",
-  "resolvedImageAssetKey": "over",
-  "imageAlt": "Illustration for The hailstorm turned the trampoline into a giant popcorn machine."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v9r",
@@ -4989,33 +4541,25 @@ export const questions = [
    "the judge": "D-PLAUSIBLE-UNSUPPORTED",
    "next door's gardener": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/biggest-01.webp",
-  "resolvedImageAssetKey": "biggest",
-  "imageAlt": "Illustration for Auntie Meg won the biggest marrow prize at the village show."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v10r",
@@ -5077,33 +4621,25 @@ export const questions = [
    "at lunchtime": "D-PLAUSIBLE-UNSUPPORTED",
    "on Mondays": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
-  "imageAlt": "Illustration for The school hamster sleeps all day and runs all night."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v9r",
@@ -5165,33 +4701,25 @@ export const questions = [
    "A man buys a dog lead.": "D-TOPIC-ADJACENT",
    "A tall man carries a small dog.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/about.webp",
-  "imageUrl": "/images/assessment/generated/concepts/about.webp",
-  "targetImage": "/images/assessment/generated/concepts/about.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/about.webp",
-  "resolvedImageAssetKey": "about",
-  "imageAlt": "Illustration for Scene: a very small dog walking a very tall man on a lead."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_action.v10r",
@@ -5253,33 +4781,25 @@ export const questions = [
    "counted his money": "D-TOPIC-ADJACENT",
    "ate a hundred buns": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/baker.webp",
-  "imageUrl": "/images/assessment/generated/concepts/baker.webp",
-  "targetImage": "/images/assessment/generated/concepts/baker.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/baker.webp",
-  "resolvedImageAssetKey": "baker",
-  "imageAlt": "Illustration for The baker hid a lucky coin inside one of the hundred buns."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
@@ -5341,33 +4861,25 @@ export const questions = [
    "the vet": "D-PLAUSIBLE-UNSUPPORTED",
    "the parrot learned alone": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_who_what-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Little Ivo taught the parrot to say 'good morning' in a week."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v9r",
@@ -5429,33 +4941,25 @@ export const questions = [
    "at school": "D-PLAUSIBLE-UNSUPPORTED",
    "in the wash": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_where_when-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/life-lives-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/life-lives-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/life-lives-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/life-lives-01.webp",
-  "resolvedImageAssetKey": "lives",
-  "imageAlt": "Illustration for Sports kit lives in the blue drawer under Robi's bed."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v10r",
@@ -5517,33 +5021,25 @@ export const questions = [
    "One child watches cartoons at breakfast.": "D-PLAUSIBLE-UNSUPPORTED",
    "The family cheers at the film's ending.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-picture_match-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/family-families-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/family-families-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/family-families-01.webp",
-  "resolvedImageAssetKey": "family",
-  "imageAlt": "Illustration for Scene: a whole family asleep on the sofa while the film credits roll."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_action.v9r",
@@ -5605,33 +5101,25 @@ export const questions = [
    "bought a new football": "D-PLAUSIBLE-UNSUPPORTED",
    "threw the ball onto the roof": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l1-literal_action-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
-  "imageAlt": "Illustration for Mrs Cho rescued the football from the school roof with a mop."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
@@ -5693,33 +5181,25 @@ export const questions = [
    "they burned down to stubs": "D-PLAUSIBLE-UNSUPPORTED",
    "the party started again": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/baby-babies-01.webp",
-  "resolvedImageAssetKey": "baby",
-  "imageAlt": "Illustration for The candles were relit twice, because baby Bo blew them out from Mum's lap both times."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v10r",
@@ -5781,33 +5261,25 @@ export const questions = [
    "the queue was far too long to bother": "D-OPPOSITE",
    "the dumplings were disappointing": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-two_clause-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
-  "imageAlt": "Illustration for Although the queue curled twice around the square, Nan said the dumplings were worth every minute."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v9r",
@@ -5869,33 +5341,25 @@ export const questions = [
    "their mother": "D-PLAUSIBLE-UNSUPPORTED",
    "Priya": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/awake-asleep-01.webp",
-  "resolvedImageAssetKey": "asleep",
-  "imageAlt": "Illustration for Priya read to her little brother until he finally fell asleep."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v10r",
@@ -5957,33 +5421,25 @@ export const questions = [
    "the groundskeeper": "D-PLAUSIBLE-UNSUPPORTED",
    "the coach": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/packed.webp",
-  "imageUrl": "/images/assessment/generated/concepts/packed.webp",
-  "targetImage": "/images/assessment/generated/concepts/packed.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/packed.webp",
-  "resolvedImageAssetKey": "packed",
-  "imageAlt": "Illustration for The coach thanked the parents after they had packed away every last cone and bib."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v10r",
@@ -6045,33 +5501,25 @@ export const questions = [
    "Someone ate tea on the sandcastle.": "D-VISUAL-NEIGHBOR",
    "The castle was rebuilt at tea time.": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
-  "imageAlt": "Illustration for The tide had swallowed the whole sandcastle by tea time."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
@@ -6133,33 +5581,25 @@ export const questions = [
    "The kitchen windows were broken.": "D-PLAUSIBLE-UNSUPPORTED",
    "The cheese was served right beside the window.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-best_restatement-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "windows",
-  "imageAlt": "Illustration for One sniff of the cheese sent the whole kitchen running for the windows."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.literal_action.v11r",
@@ -6221,33 +5661,25 @@ export const questions = [
    "dropped his squeegee": "D-PLAUSIBLE-UNSUPPORTED",
    "cleaned the bus windows": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": true,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-literal_action-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
-  "imageAlt": "Illustration for The window cleaner waved his squeegee at every child on the top deck of the bus."
+  "notes": ""
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v11r",
@@ -6309,32 +5741,24 @@ export const questions = [
    "Gran": "D-VISUAL-NEIGHBOR",
    "a birdwatcher": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sentence_comprehension-l2-pronoun_reference-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sentence_comprehension.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "resolvedImageAssetKey": "spotted",
-  "imageAlt": "Illustration for Gran passed Jonah the binoculars just as he spotted the heron landing."
+  "notes": ""
  }
 ];

@@ -4,7 +4,6 @@
 // consumers share it, so they can never drift apart:
 //
 //   src/components/quest/CreatureFigure.jsx   (the live renderer)
-//   tools/buildCreatureContactSheet.mjs       (the static preview Benjamin opens)
 //
 // If the contact sheet and the app ever disagreed about where a hat sits, the
 // preview would be worthless — you'd be approving art you weren't going to get.

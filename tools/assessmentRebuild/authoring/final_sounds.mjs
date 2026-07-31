@@ -31,7 +31,7 @@ const resolver = makeImageResolver(["digraphs", "blends", "long-vowels", "hfw"])
 // is deliberately terse: "ending", "finishes" and "the" contain ng/nd/sh/th, so
 // a wordier frame would hand pattern keys to any letter-chunk scanner. The full
 // instruction lives in the spoken line (instruction audio ships via
-// MEDIA_REQUEST for every item).
+// current production-audio coverage for every item).
 const es = (u, lvl, ph, v, word, blanked, choices, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "ENDING_SOUND",
   prompt: `Complete: ${blanked}`,
