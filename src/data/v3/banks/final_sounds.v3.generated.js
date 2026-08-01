@@ -1383,7 +1383,7 @@ export const questions = [
   "choices": [
    "moon",
    "pool",
-   "door",
+   "cat",
    "leaf"
   ],
   "answerOptions": [
@@ -1398,9 +1398,9 @@ export const questions = [
     "text": "pool"
    },
    {
-    "value": "door",
-    "label": "door",
-    "text": "door"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    },
    {
     "value": "leaf",
@@ -1411,7 +1411,7 @@ export const questions = [
   "answer": "pool",
   "correctAnswer": "pool",
   "distractorRationales": {
-   "door": "D-RIME-NEAR",
+   "cat": "D-RIME-NEAR",
    "leaf": "D-POSITION",
    "moon": "D-RIME-NEAR"
   },

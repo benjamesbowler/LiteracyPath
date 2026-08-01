@@ -888,20 +888,11 @@ export const questions = [
   "itemKey": "short_a",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "flag. Put the sounds in order to build flag.",
-  "choices": [
-   "flag"
-  ],
-  "answerOptions": [
-   {
-    "value": "flag",
-    "label": "flag",
-    "text": "flag"
-   }
-  ],
+  "choices": [],
   "answer": "flag",
   "correctAnswer": "flag",
   "distractorRationales": {},
@@ -959,20 +950,11 @@ export const questions = [
   "itemKey": "short_a",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "crab. Put the sounds in order to build crab.",
-  "choices": [
-   "crab"
-  ],
-  "answerOptions": [
-   {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
-   }
-  ],
+  "choices": [],
   "answer": "crab",
   "correctAnswer": "crab",
   "distractorRationales": {},
@@ -1898,20 +1880,11 @@ export const questions = [
   "itemKey": "short_e",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "nest. Put the sounds in order to build nest.",
-  "choices": [
-   "nest"
-  ],
-  "answerOptions": [
-   {
-    "value": "nest",
-    "label": "nest",
-    "text": "nest"
-   }
-  ],
+  "choices": [],
   "answer": "nest",
   "correctAnswer": "nest",
   "distractorRationales": {},
@@ -1969,20 +1942,11 @@ export const questions = [
   "itemKey": "short_e",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "vest. Put the sounds in order to build vest.",
-  "choices": [
-   "vest"
-  ],
-  "answerOptions": [
-   {
-    "value": "vest",
-    "label": "vest",
-    "text": "vest"
-   }
-  ],
+  "choices": [],
   "answer": "vest",
   "correctAnswer": "vest",
   "distractorRationales": {},
@@ -2908,20 +2872,11 @@ export const questions = [
   "itemKey": "short_i",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "swim. Put the sounds in order to build swim.",
-  "choices": [
-   "swim"
-  ],
-  "answerOptions": [
-   {
-    "value": "swim",
-    "label": "swim",
-    "text": "swim"
-   }
-  ],
+  "choices": [],
   "answer": "swim",
   "correctAnswer": "swim",
   "distractorRationales": {},
@@ -2979,20 +2934,11 @@ export const questions = [
   "itemKey": "short_i",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "fish. Put the sounds in order to build fish.",
-  "choices": [
-   "fish"
-  ],
-  "answerOptions": [
-   {
-    "value": "fish",
-    "label": "fish",
-    "text": "fish"
-   }
-  ],
+  "choices": [],
   "answer": "fish",
   "correctAnswer": "fish",
   "distractorRationales": {},
@@ -3917,20 +3863,11 @@ export const questions = [
   "itemKey": "short_o",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "frog. Put the sounds in order to build frog.",
-  "choices": [
-   "frog"
-  ],
-  "answerOptions": [
-   {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
-   }
-  ],
+  "choices": [],
   "answer": "frog",
   "correctAnswer": "frog",
   "distractorRationales": {},
@@ -3988,20 +3925,11 @@ export const questions = [
   "itemKey": "short_o",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "sock. Put the sounds in order to build sock.",
-  "choices": [
-   "sock"
-  ],
-  "answerOptions": [
-   {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
-   }
-  ],
+  "choices": [],
   "answer": "sock",
   "correctAnswer": "sock",
   "distractorRationales": {},
@@ -4926,20 +4854,11 @@ export const questions = [
   "itemKey": "short_u",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "drum. Put the sounds in order to build drum.",
-  "choices": [
-   "drum"
-  ],
-  "answerOptions": [
-   {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
-   }
-  ],
+  "choices": [],
   "answer": "drum",
   "correctAnswer": "drum",
   "distractorRationales": {},
@@ -4997,20 +4916,11 @@ export const questions = [
   "itemKey": "short_u",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "brush. Put the sounds in order to build brush.",
-  "choices": [
-   "brush"
-  ],
-  "answerOptions": [
-   {
-    "value": "brush",
-    "label": "brush",
-    "text": "brush"
-   }
-  ],
+  "choices": [],
   "answer": "brush",
   "correctAnswer": "brush",
   "distractorRationales": {},
@@ -5675,20 +5585,11 @@ export const questions = [
   "itemKey": "short_u",
   "formatType": "PUT_SOUNDS_IN_ORDER",
   "templateType": "PUT_SOUNDS_IN_ORDER",
-  "questionType": "multiple_choice",
+  "questionType": "sound_build",
   "prompt": "Put the sounds in order to build the picture's word.",
   "question": "Put the sounds in order to build the picture's word.",
   "spokenPrompt": "plug. Put the sounds in order to build plug.",
-  "choices": [
-   "plug"
-  ],
-  "answerOptions": [
-   {
-    "value": "plug",
-    "label": "plug",
-    "text": "plug"
-   }
-  ],
+  "choices": [],
   "answer": "plug",
   "correctAnswer": "plug",
   "distractorRationales": {},

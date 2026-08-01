@@ -82,6 +82,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v1",
   "imageAlt": "Illustration for Jory borrowed Ann's comic and left it out in the rain. The pages wrinkled like crisps. He wanted to hide it under his bed. Instead he showed Ann, said sorry, and spent his pocket money on a new copy. Ann was sad about the comic — but glad he had told the truth."
  },
  {
@@ -165,6 +170,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v2",
   "imageAlt": "Illustration for Bel's first batch of biscuits came out black as coal. She nearly threw her apron in the bin. Instead she read the recipe again and found her mistake — the oven had been far too hot. The second batch came out golden, and the kitchen smelled like a hug."
  },
  {
@@ -248,6 +258,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v3",
   "imageAlt": "Illustration for Kit snapped the blue crayon and quickly slid it back in the tin, broken ends together. All morning it bothered him like a stone in a shoe. At last he told Miss May. She smiled, taped the crayon, and said broken things mend easier than secrets."
  },
  {
@@ -331,6 +346,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v4",
   "imageAlt": "Illustration for Ravi got off the bus one stop early to avoid sitting next to a new boy. The walk was long, his bag was heavy, and he still met the new boy at the school gate — who grinned and carried the bag the last stretch. The next day they sat together."
  },
  {
@@ -414,6 +434,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v5",
   "imageAlt": "Illustration for Lena bragged that her wobbly tooth would come out first, before Sam's. She wiggled it all day just to win. It came out at last — but it hurt, and there was no prize, only Sam saying 'well done' kindly. Lena wished she had let it happen in its own time."
  },
  {
@@ -497,6 +522,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v6",
   "imageAlt": "Illustration for Min fed the class goldfish twice, then once more, because it always looked hungry. The tank turned cloudy and the fish went slow and sad. The pet-shop lady explained: too much food is its own kind of unkindness. Min learned to feed a pinch, no more, and the water cleared."
  },
  {
@@ -580,6 +610,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v7",
   "imageAlt": "Illustration for In the quiet library, Posy whispered a joke, then a story, then a song. The librarian did not scold. She just pointed at the reading corner, where a small boy had lost his place three times. Posy saw his cross little face — and understood without one word being said."
  },
  {
@@ -663,6 +698,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v8",
   "imageAlt": "Illustration for Dara promised to water next-door's plum tree during the holiday, then forgot for a whole hot week. The leaves curled. She watered it every evening after that, twice on the hottest days, and by the end of summer the tree stood green again — and Dara never made a promise carelessly again."
  },
  {
@@ -746,6 +786,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v1",
   "imageAlt": "Illustration for Every wet morning, Iris carried her little brother's boots so he could climb the bus steps. One icy day, Iris slipped and her books flew everywhere. Before she could blink, her brother and three of his small friends were gathering pages from every puddle."
  },
  {
@@ -829,6 +874,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v2",
   "imageAlt": "Illustration for The new girl ate lunch alone, so Bo moved his tray next to hers and shared his grapes. Weeks later, when Bo broke his arm and could not cut his food, a tray slid quietly next to his — and the new girl cut his dinner into pieces without being asked."
  },
  {
@@ -912,6 +962,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v3",
   "imageAlt": "Illustration for Grandpa Tan fixed umbrellas for the whole street and never took a penny. 'Rain falls on everyone,' he said. When his roof leaked in the big storm, half the street appeared at his door with ladders, buckets, and a hot dinner in a basket."
  },
  {
@@ -995,6 +1050,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v4",
   "imageAlt": "Illustration for At the fair, Nia's last coin rolled under the lost-and-found table. The boy behind the table crawled in the dust to fetch it, and Nia used it to buy two toffee apples — one for herself, and one for a dusty, grinning boy."
  },
  {
@@ -1078,6 +1138,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v5",
   "imageAlt": "Illustration for Wren was the quietest singer in choir, so quiet her words were mostly shapes. Ana stood beside her every week and sang a little softer, so Wren could hear her own voice. At the concert, two voices rose together — and one of them had never sounded so brave."
  },
  {
@@ -1161,6 +1226,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v6",
   "imageAlt": "Illustration for Old Mr Price's tractor sank in the mud, and he sat a long time, too proud to wave for help. The Okafor children saw anyway. They fetched planks, their mother, and a rope — and afterwards Mr Price's orchard gate, locked for years, stood open with a sign: APPLES, HELP YOURSELVES."
  },
  {
@@ -1244,6 +1314,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v7",
   "imageAlt": "Illustration for Jude found a splinter of glass on the slide and spent his whole break carefully clearing every piece, missing the football game. Nobody noticed — he thought. On Friday, a note appeared in his tray: 'Thank you from the little ones. You didn't know we saw.'"
  },
  {
@@ -1327,6 +1402,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v8",
   "imageAlt": "Illustration for One skipping rope, eleven children. Quarrels every break — until Fern started counting everyone in: two turns each, jumpers become turners, turners become jumpers. The rope never rested, the queue sang the counting song, and break time stopped ending in tears."
  },
  {
@@ -1410,6 +1490,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v1",
   "imageAlt": "Illustration for Pip's sunflower seed sat in the soil doing nothing while Marco's shot up like a green rocket. Pip watered anyway, every day, even when it felt silly. In week five, a late little stem appeared — and by August, Pip's flower was the tallest in the whole garden."
  },
  {
@@ -1493,6 +1578,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v2",
   "imageAlt": "Illustration for The monkey bars defeated Ola all autumn. Each break she got one bar farther before dropping. Winter gloves, spring blisters, a hundred small tries. On the last day of term she swung across the whole row — and the playground burst into cheering she never expected."
  },
  {
@@ -1576,6 +1666,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v3",
   "imageAlt": "Illustration for Tam wanted to fold one hundred paper cranes like the ones in the library book. By crane twenty his folds were crooked; by fifty, his thumbs ached. He folded on the bus, at breakfast, in the bath queue. Crane one hundred sat perfectly on his windowsill before his birthday."
  },
  {
@@ -1659,6 +1754,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v4",
   "imageAlt": "Illustration for Nobody wanted goalkeeper, so quiet Emil took the gloves. He practised alone against the garage wall all season — thud, catch, thud, catch. In the last match, with the score level, Emil flew sideways and tipped the ball over the bar, and his name was the loudest word on the pitch."
  },
  {
@@ -1742,6 +1842,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v5",
   "imageAlt": "Illustration for The first snow would not stick, and Ceri checked the window a hundred times. Gran said watching would not hurry the sky, so Ceri stopped watching and got ready instead: gloves dried, sledge waxed, carrot saved. When the deep snow finally came, she was first — and readiest — on the hill."
  },
  {
@@ -1825,6 +1930,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v6",
   "imageAlt": "Illustration for The jigsaw's last corner piece was missing, and everyone gave up — except Ash, who liked finishing things. He searched the sofa, the stairs, the dog's basket, and finally the turn-up of Grandad's trouser leg. The picture on the table was complete because one person would not stop looking."
  },
  {
@@ -1908,6 +2018,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v7",
   "imageAlt": "Illustration for Grandpa's watch ran five minutes slow, and he liked it that way — but the mending of it became Suvi's winter project. Springs, screws, a magnifying glass, three failed tries, one bent tool. When the watch finally ticked true, Grandpa wore it proudly... set five minutes slow again, for old times' sake."
  },
  {
@@ -1991,6 +2106,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v8",
   "imageAlt": "Illustration for The school's litter-picking robot kept jamming, and Class 5 kept unjamming it — new wheels from a skateboard, a brush from the lost kit box, tape, more tape. The head teacher said buy a new one. Class 5 said their patched robot, wobbling proudly down the corridor, was already the best one in the world."
  },
  {
@@ -2074,6 +2194,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v1",
   "imageAlt": "Illustration for Two ladders leaned on the orchard wall: Jo's new silver one and the old wooden one Jo's mum had climbed as a girl. Jo always chose the silver ladder — until the day it slid on wet grass and the wooden one, with its worn, deep-gripped rungs, carried her safely up to the highest apples. That autumn Jo oiled the old ladder's joints herself, and the silver one waited under a sheet."
  },
  {
@@ -2157,6 +2282,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v2",
   "imageAlt": "Illustration for Yusuf practised the trumpet loudly and often, and told everyone about the concert. His sister Amal practised the harp quietly behind a closed door, and told no one. At the concert Yusuf played brilliantly and bowed twice. Amal played one simple tune so beautifully that the hall forgot to clap for a moment. On the way home, Yusuf asked, for the first time, if she would teach him the quiet way of practising."
  },
  {
@@ -2240,6 +2370,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v3",
   "imageAlt": "Illustration for The night-light argument ran all week: Dad said seven-year-olds do not need one, and Milo said the dark had shapes in it. The compromise was a torch on the pillow, 'for emergencies'. Milo used it the first night, held it the second, and by Friday it lay under the bed, forgotten — because knowing he COULD switch it on had quietly shrunk every shape in the dark."
  },
  {
@@ -2323,6 +2458,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v4",
   "imageAlt": "Illustration for Priya found the spelling list for Friday's test lying by the photocopier — every word, a day early. She looked at it a long moment, then posted it back under the staffroom door. Her score on Friday was seven out of ten, her ordinary score. But when Mr Field told the class someone had returned the list unread, Priya sat a little taller than any ten out of ten had ever made her sit."
  },
  {
@@ -2406,6 +2546,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v5",
   "imageAlt": "Illustration for When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp."
  },
  {
@@ -2489,6 +2634,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v6",
   "imageAlt": "Illustration for The junior bake-off allowed one entry each. Zeke's jam roll collapsed an hour before judging, and he stood in the wreckage of sponge, out of time and out of hope. Nell looked at her own perfect lemon cake, then cut it in half, plated the halves separately, and told the judges the second entry was Zeke's idea as much as hers. They did not win. Neither of them ever called it a loss."
  },
  {
@@ -2572,6 +2722,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v7",
   "imageAlt": "Illustration for Every evening, Kofi's echo game in the stairwell — HELLO... hello... hello — annoyed the third floor. Mrs Adjei came down, and everyone waited for the telling-off. Instead she taught him the trick her own father taught her: the softer you call, the closer the echo leans in to listen. After that, the stairwell heard whisper-games, and the third floor heard nothing at all."
  },
  {
@@ -2655,6 +2810,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v8",
   "imageAlt": "Illustration for The class voted to spend the prize money on a party. Robin alone voted for new goal nets, and lost, nineteen to one. At the party, Robin neither sulked in the corner nor pretended the nets had been a silly idea. He handed out cake, laughed at the games — and in spring, when the nets budget came round again, nineteen hands remembered his good grace and went up with his."
  },
  {
@@ -2738,6 +2898,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "theme vs three plot restatements — the defining discrimination",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v1",
   "imageAlt": "Illustration for Sana's telescope was the envy of the street, and she guarded it jealously — until the comet week, when she discovered that a wonder seen alone goes quiet quickly. She chalked VIEWINGS, FREE on the pavement. Neighbours queued past bedtime, gasping in turn, and Sana found that the comet grew more amazing every time someone new cried out at it."
  },
  {
@@ -2821,6 +2986,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v2",
   "imageAlt": "Illustration for The wrong bus stop turned out to be the right one. Dropped a street early by a rain-blind driver, Marisol sheltered in a doorway that happened to belong to the town's tiny museum — free on Thursdays. She spent the hour among ship models and whale bones she had never known existed, and afterwards she sometimes got off early on purpose, just to see what else the town was hiding."
  },
  {
@@ -2904,6 +3074,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v3",
   "imageAlt": "Illustration for Every apology Tom had ever given was a mumbled 'sorry' with his eyes on his shoes. But breaking Gran's teapot — the one from her wedding — mumbled words felt too small. He wrote a letter instead: what he did, why it was careless, what he would save up to mend. Gran kept the taped-together teapot on the shelf. The letter she kept in her purse, for years."
  },
  {
@@ -2987,6 +3162,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v4",
   "imageAlt": "Illustration for The lighthouse keeper kept a list of every ship that passed safely in the night. Nobody asked him to; the ships never knew. When he retired after forty years, the harbourmaster read the list's last page aloud — four thousand names — and the whole quay stood silent, understanding at last what steady, unseen work had been holding their sea-road open."
  },
  {
@@ -3070,6 +3250,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v5",
   "imageAlt": "Illustration for At the lantern festival, the prize always went to the biggest lantern — until the year of the great wind. One by one the giant paper palaces guttered and tore, while Amaya's stubby little lantern, built low and snug around its flame, bobbed on through the dark like a heartbeat. It crossed the finish line alone, the only light left on the river."
  },
  {
@@ -3153,6 +3338,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v6",
   "imageAlt": "Illustration for Priw the goldfish ate everything first — flakes meant for three fish vanished into one round mouth. He grew grand and golden while Tup and Lin thinned behind the pump. Then came the week the family forgot the flakes. Priw, who had never learned to hunt the tank's green threads, drifted hungry — and it was quick little Tup and Lin who nosed him toward the water-weed and showed him how."
  },
  {
@@ -3236,6 +3426,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v7",
   "imageAlt": "Illustration for Mud season ruined every shoe in the village school, and the cloakroom filled with squelching and complaints. Little Ede said nothing. Each break, she simply lined the worst boots by the radiator and turned them as they dried. Nobody knew for weeks. When the head finally caught her at it and asked why, Ede shrugged: warm boots made people kinder all afternoon, and she liked the school kinder."
  },
  {
@@ -3319,6 +3514,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v8",
   "imageAlt": "Illustration for The twins divided the attic with a chalk line the day they stopped sharing: her books that side, his models this side. The line worked perfectly. It kept out borrowing, and mess, and quarrels — and stories read aloud, and glue passed at the right moment, and company on rainy days. By October the attic was the tidiest, quietest, loneliest room in the house, and the chalk was the first thing they washed away together."
  },
  {
@@ -3402,6 +3602,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v1.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v1.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v1.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v1",
   "imageAlt": "Illustration for Remember Pip, who watered a seed that showed nothing for five weeks and grew the garden's tallest sunflower? Keep Pip's lesson in mind."
  },
  {
@@ -3485,6 +3690,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v2.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v2.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v2.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v2",
   "imageAlt": "Illustration for Remember Jory, who ruined Ann's comic in the rain and chose telling the truth over hiding it. Keep that lesson in mind."
  },
  {
@@ -3568,6 +3778,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v3.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v3.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v3.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v3",
   "imageAlt": "Illustration for Remember Etta and the fallen nest: her grandmother taught her to 'help small, not big', wedging the nest back and letting the mother bird do the rest. Keep that lesson in mind."
  },
  {
@@ -3651,6 +3866,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v4.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v4.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v4.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v4",
   "imageAlt": "Illustration for Remember the lighthouse keeper's list — forty years of steady, unseen work that kept the sea-road open. Keep that lesson in mind."
  },
  {
@@ -3734,6 +3954,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v5.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v5.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v5.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v5",
   "imageAlt": "Illustration for Remember Nell at the bake-off, who cut her perfect cake in half so her friend still had an entry, and never called it a loss. Keep that lesson in mind."
  },
  {
@@ -3817,6 +4042,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v6.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v6.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v6.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v6",
   "imageAlt": "Illustration for Remember Amaya's little lantern, built low and snug around its flame, still burning when the grand paper palaces had torn. Keep that lesson in mind."
  },
  {
@@ -3900,6 +4130,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v7.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v7.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v7.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v7",
   "imageAlt": "Illustration for Remember Priya and the spelling list she posted back under the staffroom door unread, and how seven honest marks felt taller than ten unfair ones. Keep that lesson in mind."
  },
  {
@@ -3983,6 +4218,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v8.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v8.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v8.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v8",
   "imageAlt": "Illustration for Remember the twins' chalk line — how a wall that kept out mess and quarrels kept out company too, until washing it away was the happiest chore in the house. Keep that lesson in mind."
  },
  {
@@ -4066,6 +4306,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v9.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v9.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v9.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v9",
   "imageAlt": "Illustration for Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one."
  },
  {
@@ -4149,6 +4394,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v10.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v10.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v10.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v10",
   "imageAlt": "Illustration for On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway."
  },
  {
@@ -4232,6 +4482,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v9.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v9.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v9.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v9",
   "imageAlt": "Illustration for Rosa could not swim a stroke in June. She would not go in past her waist. All summer she practised floating, then kicking, then one arm, then the other. On the last beach day, she swam out to the yellow buoy and back — not fast, not far, but every metre of it hers."
  },
  {
@@ -4315,6 +4570,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v10.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v10.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v10.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v10",
   "imageAlt": "Illustration for Ben teased Ollie about his taped glasses, and the laugh he expected never came — only a horrible quiet. Sorry felt impossible to say, so Ben did it the slow way: a saved seat, a defending word at football, and at last the words themselves. 'Took you long enough,' said Ollie — and shoved up to make room."
  },
  {
@@ -4398,6 +4658,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v11.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v11.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v11.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v11",
   "imageAlt": "Illustration for The lunch queue crush always squeezed out little Yani, last and smallest. Big Aron noticed, and simply stood behind him each day like a friendly wall. Years later — Aron on crutches after his accident, the corridor crowded — it was a much taller Yani who walked behind him, all the way, like a friendly wall."
  },
  {
@@ -4481,6 +4746,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v11.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v11.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_effort_pays-v11.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_effort_pays-v11",
   "imageAlt": "Illustration for The recorder squeaked for everyone, but for Dot it SCREECHED. Her family bought earplugs; the dog left the room. Dot practised in the shed, ten minutes a day, no more, no matter what. By the spring concert, the screech had worn away like a rough edge, and the shed concerts had quietly become rather good."
  },
  {
@@ -4564,6 +4834,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v11.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v11.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_mistake_fixed-v11.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_mistake_fixed-v11",
   "imageAlt": "Illustration for Nobody saw Wolf knock the class globe off its stand — but Wolf saw the dent, and Wolf knew. The secret felt like a marble in his shoe. When he finally told Mr Otieno, the telling took ten seconds, the gluing five minutes, and the marble was gone by lunch."
  },
  {
@@ -4647,6 +4922,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v12.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v12.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v12.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l1-lesson_kindness_returned-v12.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l1-lesson_kindness_returned-v12",
   "imageAlt": "Illustration for Half Moon Lane flooded, and the corner shop stood in brown water. Mrs Vo had given credit, sweets, and kind words for twenty years. By noon, without one phone call, the lane filled with neighbours in wellies, carrying and mopping — and by evening the shop's OPEN sign was the driest thing on the street."
  },
  {
@@ -4730,6 +5010,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v9.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v9.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v9.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v9",
   "imageAlt": "Illustration for The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more."
  },
  {
@@ -4813,6 +5098,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v10.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v10.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v10.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v10",
   "imageAlt": "Illustration for Papa's garden was chaos — beans in with roses, pumpkins wandering the path — and next door's garden was ruler-straight rows. Next door teased; Papa just picked. When blight took the whole street's tomatoes, it hopped easily down next door's tidy tomato rows but got lost in Papa's jumble, where marigolds and garlic broke its path. That autumn, next door's rows had two new residents: marigolds, and a little wandering pumpkin."
  },
  {
@@ -4896,6 +5186,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v9.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v9.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v9.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v9",
   "imageAlt": "Illustration for The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends."
  },
  {
@@ -4979,6 +5274,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v10.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v10.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_vs_plot-v10.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_vs_plot-v10",
   "imageAlt": "Illustration for Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been."
  },
  {
@@ -5062,6 +5362,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v9.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v9.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v9.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v9",
   "imageAlt": "Illustration for Remember Wolf and the dented globe — how confessing took ten seconds and carrying the secret had felt like a marble in his shoe. Keep that lesson in mind."
  },
  {
@@ -5145,6 +5450,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v10.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v10.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v10.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v10",
   "imageAlt": "Illustration for Remember Ede drying the village school's boots by the radiator — small quiet care that made a whole school kinder. Keep that lesson in mind."
  },
  {
@@ -5228,6 +5538,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v11.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v11.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-theme_among_rivals-v11.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-theme_among_rivals-v11",
   "imageAlt": "Illustration for The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did."
  },
  {
@@ -5311,6 +5626,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
+  "imagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v11.webp",
+  "imageUrl": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v11.webp",
+  "targetImage": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/theme_higher_comprehension-l2-apply_theme-v11.webp",
+  "resolvedImageAssetKey": "theme_higher_comprehension-l2-apply_theme-v11",
   "imageAlt": "Illustration for Remember the little lantern that finished alone because it was built for the wind, not for the judges. Keep that lesson in mind."
  }
 ];

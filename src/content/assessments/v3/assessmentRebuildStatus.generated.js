@@ -19,8 +19,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.191Z",
+  "commit": "cb367047"
  },
  "antonyms_synonyms": {
   "skillId": "antonyms_synonyms",
@@ -40,8 +40,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "blends": {
   "skillId": "blends",
@@ -61,8 +61,50 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
+ },
+ "cause_effect": {
+  "skillId": "cause_effect",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 24,
+   "level2": 24,
+   "retention": 16
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass"
+  },
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
+ },
+ "context_clues": {
+  "skillId": "context_clues",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 28,
+   "level2": 28,
+   "retention": 8
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass"
+  },
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "cvc_short_vowels": {
   "skillId": "cvc_short_vowels",
@@ -82,8 +124,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "digraphs": {
   "skillId": "digraphs",
@@ -103,8 +145,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "final_sounds": {
   "skillId": "final_sounds",
@@ -124,8 +166,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "hfw_1_25": {
   "skillId": "hfw_1_25",
@@ -145,8 +187,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "hfw_26_50": {
   "skillId": "hfw_26_50",
@@ -166,8 +208,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "hfw_51_75": {
   "skillId": "hfw_51_75",
@@ -187,8 +229,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "hfw_76_100": {
   "skillId": "hfw_76_100",
@@ -208,8 +250,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "homophones_homonyms": {
   "skillId": "homophones_homonyms",
@@ -229,8 +271,29 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
+ },
+ "inference": {
+  "skillId": "inference",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 28,
+   "level2": 28,
+   "retention": 8
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass"
+  },
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "initial_sounds": {
   "skillId": "initial_sounds",
@@ -250,8 +313,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "long_vowels_silent_e": {
   "skillId": "long_vowels_silent_e",
@@ -271,8 +334,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "nouns": {
   "skillId": "nouns",
@@ -292,8 +355,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "plurals": {
   "skillId": "plurals",
@@ -313,8 +376,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "prefixes_suffixes": {
   "skillId": "prefixes_suffixes",
@@ -334,8 +397,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "prepositions_of_place": {
   "skillId": "prepositions_of_place",
@@ -355,8 +418,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "r_controlled_vowels": {
   "skillId": "r_controlled_vowels",
@@ -376,8 +439,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "rhyming": {
   "skillId": "rhyming",
@@ -397,8 +460,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "short_vowel_discrimination": {
   "skillId": "short_vowel_discrimination",
@@ -418,8 +481,29 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
+ },
+ "theme_higher_comprehension": {
+  "skillId": "theme_higher_comprehension",
+  "cutover": true,
+  "standardVersion": "v3-2026.08",
+  "counts": {
+   "total": 64,
+   "level1": 28,
+   "level2": 28,
+   "retention": 8
+  },
+  "gates": {
+   "G1_structure": "pass",
+   "G2_originality": "pass",
+   "G3_answer_integrity": "pass",
+   "G4_mastery_logic": "pass",
+   "G5_no_repeats": "pass",
+   "G6_one_report": "pass"
+  },
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "verbs": {
   "skillId": "verbs",
@@ -439,8 +523,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  },
  "vowel_teams": {
   "skillId": "vowel_teams",
@@ -460,7 +544,7 @@ export const assessmentRebuildStatusBySkillId = {
    "G5_no_repeats": "pass",
    "G6_one_report": "pass"
   },
-  "generatedAt": "2026-08-01T03:30:56.412Z",
-  "commit": "e3331de6"
+  "generatedAt": "2026-08-01T11:42:20.195Z",
+  "commit": "cb367047"
  }
 };
