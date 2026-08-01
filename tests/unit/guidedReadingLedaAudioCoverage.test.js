@@ -81,7 +81,14 @@ test("whole-book mode keeps child-paced narration and automatic page turns", asy
     new URL("../../src/components/guided-reading/GuidedReadingPage.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(source, /const GUIDED_READING_NARRATION_RATE = 0\.88/);
+  assert.match(source, /GUIDED_READING_PAGE_LEAD_IN_MS/);
+  assert.match(source, /GUIDED_READING_PAGE_LEAD_OUT_MS/);
   assert.match(source, /audio\.playbackRate = GUIDED_READING_NARRATION_RATE/);
-  assert.match(source, /audio\.onended = \(\) => \{[\s\S]*readWholeBookFrom\(startIndex \+ 1\)/);
+  assert.match(source, /audio\.onended = async \(\) => \{[\s\S]*readWholeBookFrom\(startIndex \+ 1, controller\)/);
+  assert.match(source, /wholeBookAbortRef\.current\?\.abort\(\)/);
+  assert.match(source, /if \(currentPageIndex === nextPageIndex\) return currentPageIndex/);
+  assert.ok(
+    source.indexOf("if (allPagesHaveAudio)") < source.indexOf("if (fullBookAudioPath)"),
+    "verified page narration must be preferred so page pauses are preserved"
+  );
 });

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-d-44",
-  "contentHash": "sha256:3b2346c3769375ac23dceb1a5f2e191ee023e75909fbd56f86bebea87f35834e",
+  "contentHash": "sha256:52185faf4e9fab12f14bd5bd4c3e900cfcad8690ab2ee519ad7406d439beb3f3",
   "questions": [
     {
       "id": "gr-d-44-q1",
-      "prompt": "Where does a bird live?",
+      "prompt": "Which fact about many birds is given in Animal Shelters and Habitats?",
       "choices": [
-        "in a nest",
-        "in a cave",
-        "in a web"
+        "Many birds build nests for young.",
+        "Ponds provide fish food and shelter.",
+        "Habitats provide food water and shelter."
       ],
-      "answer": "in a nest",
+      "answer": "Many birds build nests for young.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A bird lives in a nest."
+      "evidenceText": "Many birds build nests for young."
     },
     {
       "id": "gr-d-44-q2",
-      "prompt": "Who sleeps in a cave?",
+      "prompt": "Which fact about ponds is given in Animal Shelters and Habitats?",
       "choices": [
-        "a bear",
-        "a fish",
-        "a spider"
+        "Ponds provide fish food and shelter.",
+        "Many birds build nests for young.",
+        "Habitats provide food water and shelter."
       ],
-      "answer": "a bear",
+      "answer": "Ponds provide fish food and shelter.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A bear sleeps in a cave."
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "Ponds provide fish food and shelter."
     },
     {
       "id": "gr-d-44-q3",
-      "prompt": "What do all the animals in this book need?",
+      "prompt": "Which statement gives the main idea of Animal Shelters and Habitats?",
       "choices": [
-        "a home",
-        "a nest",
-        "a pond"
+        "Habitats provide food water and shelter.",
+        "Many birds build nests for young.",
+        "Ponds provide fish food and shelter."
       ],
-      "answer": "a home",
+      "answer": "Habitats provide food water and shelter.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Habitats provide food water and shelter. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "All animals need a home!"
+      "evidenceText": "Habitats provide food water and shelter."
     }
   ]
 }

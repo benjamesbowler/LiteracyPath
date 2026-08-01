@@ -1,61 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-16-chompy-and-grumpys-day-out",
-  "contentHash": "sha256:9c0fe9bb097459d684b4c2b4be8860fb3e4274a726008bed766436004136f2b2",
+  "contentHash": "sha256:964e437cf256091bce9fa676bb917c220d13b12451c57080114e8d822979b587",
   "questions": [
     {
       "id": "dino-pals-16-chompy-and-grumpys-day-out-q1",
-      "prompt": "Why did Grumpy want to visit the Long Meadow?",
+      "prompt": "Which event begins Chompy and Grumpy's Day Out?",
       "choices": [
-        "It had a peaceful flat rock.",
-        "It had a noisy race.",
-        "It had a new cave to build."
+        "Grumpy walks toward a quiet Long Meadow rock.",
+        "Chompy falls into a ditch and slides back twice.",
+        "Chompy grips it. Grumpy pulls him free."
       ],
-      "answer": "It had a peaceful flat rock.",
+      "answer": "Grumpy walks toward a quiet Long Meadow rock.",
       "kind": "text",
-      "skill": "motivation",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "There is a good flat rock there. Peaceful. No one around."
+      "evidenceText": "Grumpy walks toward a quiet Long Meadow rock."
     },
     {
       "id": "dino-pals-16-chompy-and-grumpys-day-out-q2",
-      "prompt": "How did Grumpy pull Chompy from the ditch?",
+      "prompt": "Which event shows the first plan fails in Chompy and Grumpy's Day Out?",
       "choices": [
-        "with a long rope",
-        "with a club tail",
-        "with a tree branch"
+        "Chompy falls into a ditch and slides back twice.",
+        "Grumpy walks toward a quiet Long Meadow rock.",
+        "Chompy grips it. Grumpy pulls him free."
       ],
-      "answer": "with a club tail",
+      "answer": "Chompy falls into a ditch and slides back twice.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 9,
-      "evidenceText": "Grumpy's club tail lowered into the ditch. Chompy grabbed on. Grumpy pulled."
+      "rationale": "Chompy falls into a ditch and slides back twice. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Chompy falls into a ditch and slides back twice."
     },
     {
       "id": "dino-pals-16-chompy-and-grumpys-day-out-q3",
-      "prompt": "What does Grumpy calling out about another bush show?",
+      "prompt": "Which event solves the problem in Chompy and Grumpy's Day Out?",
       "choices": [
-        "Grumpy wanted Chompy to leave forever.",
-        "Grumpy had forgotten where Chompy was.",
-        "Grumpy cared about Chompy's happiness."
+        "Chompy grips it. Grumpy pulls him free.",
+        "Grumpy walks toward a quiet Long Meadow rock.",
+        "Chompy falls into a ditch and slides back twice."
       ],
-      "answer": "Grumpy cared about Chompy's happiness.",
+      "answer": "Chompy grips it. Grumpy pulls him free.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Grumpy pulls Chompy from the ditch, shares the rock with him, and later points out another berry bush; these helpful choices and his slight smile show that Grumpy cares about Chompy's happiness.",
-      "evidencePage": 12,
-      "evidenceText": "But after a while, Grumpy called: There is a good-looking bush to your left. Thanks, Grumpy! said Chompy. Grumpy said nothing. But the corner of the mouth went up. Just slightly.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 9,
-          "evidenceText": "Grumpy pulled. Chompy came out covered in mud."
-        },
-        {
-          "evidencePage": 10,
-          "evidenceText": "They sat on the rock together. Less peaceful with Chompy. But not actually terrible."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Chompy grips it. Grumpy pulls him free. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Chompy grips it. Grumpy pulls him free."
     }
   ]
 }

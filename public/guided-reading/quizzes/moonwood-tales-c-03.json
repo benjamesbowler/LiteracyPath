@@ -1,68 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-03",
-  "contentHash": "sha256:1aff73323bdaab941ecaba4103f19d8a48da6e01301ce7a9f528603b00a414e5",
+  "contentHash": "sha256:7922f48154bd574a918ab481ab756f2f8c13a67f1d6f3160f157e04b83c811ef",
   "questions": [
     {
       "id": "moonwood-tales-c-03-q1",
-      "prompt": "What does Stone do after seeing Burrow stranded across the stream?",
+      "prompt": "Which event introduces the situation in Stone Crosses the Bridge?",
       "choices": [
-        "Stone steps onto the rope bridge.",
-        "Stone swims underneath the bridge.",
-        "Stone waits for Pip to cross first."
+        "Everyone crosses the Crystal Stream bridge except Stone.",
+        "Stone tries one step. The bridge sways, so Stone steps back.",
+        "They cross back, one rope and one careful step at a time."
       ],
-      "answer": "Stone steps onto the rope bridge.",
+      "answer": "Everyone crosses the Crystal Stream bridge except Stone.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "Stone stepped onto the bridge. It creaked under Stone's weight. Stone kept going."
+      "evidencePage": 1,
+      "evidenceText": "Everyone crosses the Crystal Stream bridge except Stone."
     },
     {
       "id": "moonwood-tales-c-03-q2",
-      "prompt": "Why does Stone face the bridge even though Stone is afraid?",
+      "prompt": "Which event shows that the first attempt fails in Stone Crosses the Bridge?",
       "choices": [
-        "Burrow cannot find the tunnel.",
-        "Pip has hidden a prize across the stream.",
-        "The bridge is about to drift downstream."
+        "Stone tries one step. The bridge sways, so Stone steps back.",
+        "Everyone crosses the Crystal Stream bridge except Stone.",
+        "They cross back, one rope and one careful step at a time."
       ],
-      "answer": "Burrow cannot find the tunnel.",
+      "answer": "Stone tries one step. The bridge sways, so Stone steps back.",
       "kind": "text",
-      "skill": "motivation",
-      "evidencePage": 5,
-      "evidenceText": "\"Help!\" called Burrow. \"I cannot find the tunnel. Everything looks the same to me!\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "Stone would not cross the bridge. \"There is a troll under the bridge,\" said Stone. \"I do not want to meet it.\""
-        },
-        {
-          "evidencePage": 7,
-          "evidenceText": "Stone stepped onto the bridge. It creaked under Stone's weight. Stone kept going."
-        }
-      ],
-      "rationale": "Stone says he does not want to cross the bridge, but when Burrow cannot find the tunnel, Stone steps onto the bridge and keeps going; helping Burrow motivates Stone to face the bridge despite being afraid."
+      "skill": "problem_solution",
+      "rationale": "Stone tries one step. The bridge sways, so Stone steps back. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Stone tries one step. The bridge sways, so Stone steps back."
     },
     {
       "id": "moonwood-tales-c-03-q3",
-      "prompt": "What lesson does Stone's careful return across the bridge show?",
+      "prompt": "Which event resolves the central problem in Stone Crosses the Bridge?",
       "choices": [
-        "A frightening task can be managed one step at a time.",
-        "Looking ahead made the bridge stop moving under Stone.",
-        "Walking with Burrow removed all of Stone's fear."
+        "They cross back, one rope and one careful step at a time.",
+        "Everyone crosses the Crystal Stream bridge except Stone.",
+        "Stone tries one step. The bridge sways, so Stone steps back."
       ],
-      "answer": "A frightening task can be managed one step at a time.",
+      "answer": "They cross back, one rope and one careful step at a time.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Stone steps onto the creaking bridge and later crosses by looking at the far end, one step then another; this shows a frightening task can be managed one step at a time.",
+      "skill": "outcome",
+      "rationale": "They cross back, one rope and one careful step at a time. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Stone did not look at the water. Stone looked at the far end of the bridge. One step, then another.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "Stone stepped onto the bridge. It creaked under Stone's weight. Stone kept going."
-        }
-      ]
+      "evidenceText": "They cross back, one rope and one careful step at a time."
     }
   ]
 }

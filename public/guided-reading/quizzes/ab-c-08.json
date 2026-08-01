@@ -1,68 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-08",
-  "contentHash": "sha256:a32dea5cf5fe1c1207acdbe5558723f43cef30453f7e0a0b277f413e344c760d",
+  "contentHash": "sha256:5b57cea7e9573fa8b6a4bdda3e918ef68e8f0725b870f00ff7440179658a7442",
   "questions": [
     {
       "id": "ab-c-08-q1",
-      "prompt": "Why did Aiden go home feeling upset?",
+      "prompt": "Which event introduces the situation in Aiden and Betty and the Bully?",
       "choices": [
-        "Marcus kept calling him a silly name.",
-        "Betty would not speak to him.",
-        "He had lost Socks at school."
+        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+        "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
+        "He walked away with Betty and reported every incident to Miss Okafor."
       ],
-      "answer": "Marcus kept calling him a silly name.",
+      "answer": "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Marcus kept calling Aiden a silly name, and the next page says Aiden went home upset, so the repeated name-calling caused his upset feelings.",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "He kept calling Aiden a silly name. Aiden did not like it.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "Aiden went home feeling quiet and upset."
-        }
-      ]
+      "evidenceText": "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop."
     },
     {
       "id": "ab-c-08-q2",
-      "prompt": "What plan helped Aiden respond to the bullying?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Bully?",
       "choices": [
-        "Call Marcus a name, then hide from the class.",
-        "Speak clearly, walk away, and tell Miss Okafor.",
-        "Stay silent, leave school, and solve it alone."
+        "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
+        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+        "He walked away with Betty and reported every incident to Miss Okafor."
       ],
-      "answer": "Speak clearly, walk away, and tell Miss Okafor.",
+      "answer": "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Aiden planned to speak clearly, walk away, and tell Miss Okafor; pages 7 and 8 show him doing each step when Marcus used the name again, so the plan guided his response.",
-      "evidencePage": 4,
-      "evidenceText": "He would speak clearly, walk away, and tell Miss Okafor.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "Aiden faced him. \"My name is Aiden. Stop,\" he said in a clear voice."
-        },
-        {
-          "evidencePage": 8,
-          "evidenceText": "Aiden walked away with Betty. They told Miss Okafor what had happened."
-        }
-      ]
+      "rationale": "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.” This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”"
     },
     {
       "id": "ab-c-08-q3",
-      "prompt": "What is the most important lesson about bullying?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty and the Bully?",
       "choices": [
-        "Bullying should be kept secret.",
-        "Bullying ends if you ignore every adult.",
-        "Bullying is never your fault."
+        "He walked away with Betty and reported every incident to Miss Okafor.",
+        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+        "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”"
       ],
-      "answer": "Bullying is never your fault.",
+      "answer": "He walked away with Betty and reported every incident to Miss Okafor.",
       "kind": "text",
-      "skill": "theme",
-      "evidencePage": 13,
-      "evidenceText": "\"Bullying is never your fault.\" Aiden remembered her words."
+      "skill": "outcome",
+      "rationale": "He walked away with Betty and reported every incident to Miss Okafor. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "He walked away with Betty and reported every incident to Miss Okafor."
     }
   ]
 }

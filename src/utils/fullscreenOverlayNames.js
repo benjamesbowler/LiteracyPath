@@ -20,7 +20,7 @@ export function questFullscreenSurfaceName({
 } = {}) {
   switch (view) {
     case "creator":
-      return hatched ? "Change your creature" : "Make your creature";
+      return hatched ? "Change your book character" : "Choose your book character";
     case "den":
       return "Your Den";
     case "map":

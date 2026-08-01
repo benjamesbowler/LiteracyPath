@@ -139,7 +139,7 @@ export default {
       ["sing", "song", "singer", "band"], [FS, FS, FS],
       "the whole word family in one set — only sing does"),
     gct("verb_vs_noun", 2, 1, 2, "Which word is a doing word, not a naming word?",
-      ["bake", "baker", "bread", "oven"], [FS, FS, FS]),
+      ["bake", "baker", "bread", "pan"], [FS, FS, FS]),
     gct("verb_vs_noun", 2, 1, 3, "Which word is a doing word, not a naming word?",
       ["teach", "teacher", "class", "desk"], [FS, FS, FS]),
     gsf("verb_vs_noun", 2, 1, 4, "The ___ swims fifty laps a day.",

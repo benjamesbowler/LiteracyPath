@@ -1,73 +1,73 @@
 {
-  "generatedAt": "2026-07-21T14:41:19.587Z",
+  "generatedAt": "2026-07-31T16:42:23.310Z",
   "activeBooksScanned": 176,
-  "totalPagesScanned": 1616,
-  "totalUniqueWords": 2833,
-  "uniqueWordsWithAudio": 2668,
-  "uniqueWordsMissingAudio": 165,
-  "totalMissingWordOccurrences": 207,
-  "booksWithMissingWordAudio": 26,
+  "totalPagesScanned": 1617,
+  "totalUniqueWords": 2834,
+  "uniqueWordsWithAudio": 0,
+  "uniqueWordsMissingAudio": 2834,
+  "totalMissingWordOccurrences": 25656,
+  "booksWithMissingWordAudio": 176,
   "invalidWordAudioPathCount": 0,
   "worstAffectedBooks": [
     {
       "bookId": "ab-c-04",
       "title": "Aiden and Betty and Socks",
-      "missingWordCount": 27,
-      "missingOccurrences": 32
+      "missingWordCount": 336,
+      "missingOccurrences": 677
     },
     {
       "bookId": "ab-c-05",
       "title": "Socks Goes Missing",
-      "missingWordCount": 17,
-      "missingOccurrences": 24
+      "missingWordCount": 324,
+      "missingOccurrences": 659
     },
     {
-      "bookId": "level-c-nonfiction-10-frogs",
-      "title": "Frogs",
-      "missingWordCount": 15,
-      "missingOccurrences": 20
+      "bookId": "ab-c-03",
+      "title": "Aiden and Betty go on Holiday",
+      "missingWordCount": 307,
+      "missingOccurrences": 633
     },
     {
-      "bookId": "level-c-nonfiction-06-spiders",
-      "title": "Spiders",
-      "missingWordCount": 12,
-      "missingOccurrences": 13
+      "bookId": "ab-c-02",
+      "title": "Aiden and Betty have a Yard Sale",
+      "missingWordCount": 311,
+      "missingOccurrences": 608
     },
     {
-      "bookId": "level-c-nonfiction-08-butterflies",
-      "title": "Butterflies",
-      "missingWordCount": 11,
-      "missingOccurrences": 13
+      "bookId": "ab-c-07",
+      "title": "Aiden, Betty and Socks's Big Adventure",
+      "missingWordCount": 279,
+      "missingOccurrences": 544
     },
     {
-      "bookId": "ab-c-10",
-      "title": "Aiden and Betty and the Castle",
-      "missingWordCount": 8,
-      "missingOccurrences": 12
+      "bookId": "ab-c-01",
+      "title": "Aiden and Betty Start Grade 1",
+      "missingWordCount": 263,
+      "missingOccurrences": 497
     },
     {
-      "bookId": "level-c-nonfiction-04-the-moon",
-      "title": "The Moon",
-      "missingWordCount": 11,
-      "missingOccurrences": 11
+      "bookId": "ab-c-06",
+      "title": "Aiden and Betty and the Science Fair",
+      "missingWordCount": 239,
+      "missingOccurrences": 475
     },
     {
-      "bookId": "ab-c-08",
-      "title": "Aiden and Betty and the Bully",
-      "missingWordCount": 9,
-      "missingOccurrences": 11
+      "bookId": "moonwood-tales-c-23",
+      "title": "The Fog Marsh Mystery",
+      "missingWordCount": 157,
+      "missingOccurrences": 335
     },
     {
-      "bookId": "level-c-nonfiction-09-caves",
-      "title": "Caves",
-      "missingWordCount": 9,
-      "missingOccurrences": 10
+      "bookId": "moonwood-tales-c-10",
+      "title": "What Luna Forgot",
+      "missingWordCount": 156,
+      "missingOccurrences": 330
     },
     {
-      "bookId": "moonwood-tales-c-24",
-      "title": "Glimmer Breathes Fire at Last",
-      "missingWordCount": 7,
-      "missingOccurrences": 8
+      "bookId": "dino-pals-17-the-sunny-hollow-games",
+      "title": "The Sunny Hollow Games",
+      "missingWordCount": 179,
+      "missingOccurrences": 329
     }
   ]
 }

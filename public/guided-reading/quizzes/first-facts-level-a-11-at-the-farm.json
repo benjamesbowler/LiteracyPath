@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-11-at-the-farm",
-  "contentHash": "sha256:ae6688f989c1474993d7f35ba0d6b19eb28bdbf899b13798bcbcb96446cac49f",
+  "contentHash": "sha256:709fb93ac524990e05aae0b0465cc4a45cd42da7984a471bfb10913c7d7ec4ea",
   "questions": [
     {
       "id": "first-facts-level-a-11-at-the-farm-q1",
-      "prompt": "What color is the barn?",
+      "prompt": "What do we learn about a red barn?",
       "choices": [
-        "red",
-        "blue",
-        "green"
+        "A red barn stands tall.",
+        "A chick says peep.",
+        "There is much to see."
       ],
-      "answer": "red",
-      "kind": "word",
+      "answer": "A red barn stands tall.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "I see a big red barn."
+      "evidenceText": "A red barn stands tall."
     },
     {
       "id": "first-facts-level-a-11-at-the-farm-q2",
-      "prompt": "Who says peep?",
+      "prompt": "What do we learn about a chick?",
       "choices": [
-        "the chick",
-        "the cow",
-        "the pig"
+        "A chick says peep.",
+        "A red barn stands tall.",
+        "There is much to see."
       ],
-      "answer": "the chick",
+      "answer": "A chick says peep.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "I see a little chick.\nPeep!"
+      "evidenceText": "A chick says peep."
     },
     {
       "id": "first-facts-level-a-11-at-the-farm-q3",
-      "prompt": "What runs fast at the farm?",
+      "prompt": "What is the big idea in At the Farm?",
       "choices": [
-        "the dog",
-        "the hay",
-        "the barn"
+        "There is much to see.",
+        "A red barn stands tall.",
+        "A chick says peep."
       ],
-      "answer": "the dog",
+      "answer": "There is much to see.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "I see a big dog.\nIt runs fast."
+      "skill": "main_idea",
+      "rationale": "There is much to see. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "There is much to see."
     }
   ]
 }

@@ -1,0 +1,220 @@
+{
+  "records": [
+    {
+      "bookId": "gr-a-26",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/regen/pages/gr-a-26-page-03.png",
+      "imageSha256": "ddcbecf8076c4fb4aede026f47cf3d1369df64aef51d17ba89fcdaefda874d92",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show one fish in a properly sized, filtered, enriched aquarium with plants, cover and clean water; keep the page simple and naturalistic."
+    },
+    {
+      "bookId": "gr-a-27",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/regen/pages/gr-a-27-page-03.png",
+      "imageSha256": "bb4cbe90be23376b006b0791484a9833f08089a509e610ecdee9ab9c4ba143fa",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show sunlight falling on both a clear patch of land and a visible body of water in one natural scene; the Sun must not have a face."
+    },
+    {
+      "bookId": "gr-a-27",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/regen/pages/gr-a-27-page-04.png",
+      "imageSha256": "56522b3f3e9b66b4a3f47c418e91ec704c406018668a7d366b8ac2f232f2658a",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Make a healthy plant actively growing in strong natural sunlight the clear focal subject, with visible leaves and roots/soil."
+    },
+    {
+      "bookId": "gr-a-27",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/regen/pages/gr-a-27-page-06.png",
+      "imageSha256": "f25c7ba12f42a20e21023e8287c744d2b376d8b7c2350c6162c1d5b11e702f02",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Create a scientifically accurate Earth-and-Sun composition that clearly communicates Earth orbiting the Sun without decorative or misleading symbols."
+    },
+    {
+      "bookId": "gr-b-32",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/regen/pages/gr-b-32-page-02.png",
+      "imageSha256": "19df80c6d0ca1b082c8d6935c474581f53e84b057cc49ecc8d151055fb873c95",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show one clearly isolated banana only."
+    },
+    {
+      "bookId": "gr-b-32",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/regen/pages/gr-b-32-page-06.png",
+      "imageSha256": "9b4595dbda3d685f19fdb9a21adda774649d07068ac63efb93e3b8cc98071513",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a flowering plant branch with a flower and a developing fruit in a scientifically natural progression."
+    },
+    {
+      "bookId": "gr-b-33",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/regen/pages/gr-b-33-page-06.png",
+      "imageSha256": "5188c3b638fb34446a79d69c126e2a49f0263e440b62462f2289fd04f4201106",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show an adult safely using one age-appropriate tool with correct hand position and suitable protective equipment; no child operates the tool."
+    },
+    {
+      "bookId": "gr-b-34",
+      "pageNumber": 1,
+      "imagePath": "/guided-reading/regen/pages/gr-b-34-page-01.png",
+      "imageSha256": "2ebd014d6579a9207e5d4279cea4e5161c8296c9bc3ba9bf4dce437e44efeb51",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show one globe half lit by sunlight and half dark, establishing day and night. Keep the globe, observer marker, lighting direction and visual style continuous across pages 1, 3, 4 and 6; avoid decorative arrows."
+    },
+    {
+      "bookId": "gr-b-34",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/regen/pages/gr-b-34-page-03.png",
+      "imageSha256": "66a4c97ec4230cb4d98bf52c75562fdb3582f8a18e00e2a1cd55e5e73cc027e5",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Continue the same globe sequence and show Earth rotating, with a fixed Sun direction. Keep the globe, observer marker, lighting direction and visual style continuous across pages 1, 3, 4 and 6; avoid decorative arrows."
+    },
+    {
+      "bookId": "gr-b-34",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/regen/pages/gr-b-34-page-04.png",
+      "imageSha256": "10b4c5ad3334064605c5bc70f5066070c1bf53abaf97ca538e5f2fe3d906f0a0",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the same observer location rotating away from sunlight into darkness. Keep the globe, observer marker, lighting direction and visual style continuous across pages 1, 3, 4 and 6; avoid decorative arrows."
+    },
+    {
+      "bookId": "gr-b-34",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/regen/pages/gr-b-34-page-06.png",
+      "imageSha256": "9e7aef546436c422313890d1627860beb9e05906444fa3930ce511b58dac84ee",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the same location rotating back toward sunlight and returning to daylight. Keep the globe, observer marker, lighting direction and visual style continuous across pages 1, 3, 4 and 6; avoid decorative arrows."
+    },
+    {
+      "bookId": "gr-b-35",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/regen/pages/gr-b-35-page-05.png",
+      "imageSha256": "af13a22355dbd926409b4a1e113113f2d610842f03c8a056425553142634d57b",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a calm, child-safe police emergency response to a road hazard, with no weapons or frightening threat."
+    },
+    {
+      "bookId": "gr-c-37",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/regen/pages/gr-c-37-page-03.png",
+      "imageSha256": "844cbec6442d11ef82717d1b28c47b6a7988a7d2dfdcf786f263e0dfc4328382",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show evaporation from warm water through context and surface change without drawing water vapour as a visible cloud."
+    },
+    {
+      "bookId": "gr-e-47",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/regen/pages/gr-e-47-page-02.png",
+      "imageSha256": "ba9de12970102dfc91db136f246fb5835b3101891af9dd99666dceda970434c4",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a growing plant receiving sunlight, water at the roots and nutrients from soil in a natural, uncluttered scene."
+    },
+    {
+      "bookId": "gr-e-47",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/regen/pages/gr-e-47-page-06.png",
+      "imageSha256": "af2e17d9effefb013b2c92226dfffce7556e82ea674325bdab5570cabeec3123",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Use a clean comparison: a seedling growing larger beside a tadpole-to-frog or caterpillar-to-butterfly metamorphosis sequence."
+    },
+    {
+      "bookId": "gr-e-48",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/regen/pages/gr-e-48-page-02.png",
+      "imageSha256": "38016b0373371e3d1512cac5743be06a4621661ed889a6e6c4c019018c2b918c",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Replace the nails with blunt paperclips or large metal washers, with the magnet used safely on a clear table."
+    },
+    {
+      "bookId": "gr-e-50",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/regen/pages/gr-e-50-page-02.png",
+      "imageSha256": "0162f8c72324a322b8c20feff81a134ce5b1ed8f849a59c99464ee1969ef7255",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a child listening attentively to a real sound source using expression and pose only; include no notes, letters or symbols."
+    },
+    {
+      "bookId": "first-facts-level-a-03-big-and-little",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-03/page-004.webp",
+      "imageSha256": "59371ec91965d02a272a4be5f0df03d67d4954c5137ebacec664fe3cb69ec750",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the big tree and little seed side by side with clear natural scale and no arrows, labels or decorative symbols."
+    },
+    {
+      "bookId": "first-facts-level-a-06-animals-can",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/nonfiction/first-facts-level-a/book-06/page-007.webp",
+      "imageSha256": "7cc04d24b027e164322240bc2b80cc5593a0f96b29bb98115b24a5ed75140e6b",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the child narrator moving—walking, running or jumping—as the focal subject, with animals optional in the background."
+    },
+    {
+      "bookId": "first-facts-a-11-pets-we-love",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-11/page-004.webp",
+      "imageSha256": "08519383904c4481eb57d9ee9e90800bbdc8ad3b030713c9d0851be8a5f597ae",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a compatible bonded pair of rabbits in a spacious enriched enclosure with hay, a hide and clean water."
+    },
+    {
+      "bookId": "first-facts-a-12-shapes-everywhere",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-12/page-003.webp",
+      "imageSha256": "91374e91e9996d61d2df2c5debec0082481ceeee4b2fe17e474404a97b587d24",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Make a clear triangular roof edge the unmistakable focal example; remove the unrelated pizza-shape distraction."
+    },
+    {
+      "bookId": "first-facts-a-13-big-and-small",
+      "pageNumber": 1,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-13/page-001.webp",
+      "imageSha256": "39b8012f4ec9357d7c73aa828ffd724212aaae527f125be95de53e1cb64ea832",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the elephant and mouse together in one grounded frame with believable relative scale and the elephant clearly larger."
+    },
+    {
+      "bookId": "first-facts-a-13-big-and-small",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-13/page-002.webp",
+      "imageSha256": "cbf83fcd02451807f7349fbbe3cddfdbe861768cb184927498bdae75b5eed0a9",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the same elephant and mouse together in the same setting, with the mouse clearly smaller; preserve scale and character continuity from page 1."
+    },
+    {
+      "bookId": "first-facts-a-17-hello-sun",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-17/page-007.webp",
+      "imageSha256": "380c8047a6cf61facab3eafc54145d0f012c8566a5331584e362e08c1430c47f",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show the observer on a rotating Earth with a fixed sunlight direction, using a scientifically accurate composition and no decorative arrows."
+    },
+    {
+      "bookId": "first-facts-a-18-the-moon",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-18/page-007.webp",
+      "imageSha256": "0fb4d5266889ad2a2800d47b054495b052d7808e5ec58e168886d0aed81c3929",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show a clear paired natural view of the Moon visible in daylight and at night, with consistent lunar appearance and no labels."
+    },
+    {
+      "bookId": "first-facts-a-19-day-and-night",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-19/page-006.webp",
+      "imageSha256": "3bb8f39ac7bff9c3cbc1341c59977f24cfdce7c2dd001a8abadfa09dc585bd7a",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show an accurate half-lit globe and a restrained sequence cue; remove glowing trails, rings and decorative symbols."
+    },
+    {
+      "bookId": "first-facts-a-24-rocks-and-pebbles",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/nonfiction/first-facts/book-24/page-003.webp",
+      "imageSha256": "b5e303d791d925fa1ae120d023d76b9be7c3c8d2f4b7f3c06fa28993b1ad598e",
+      "status": "approved",
+      "completionNote": "Verified replacement fulfils the exact page text and audit brief: Show rounded pebbles in a moving river or shore wash, with water visibly flowing around them and no decorative weather symbols."
+    }
+  ]
+}

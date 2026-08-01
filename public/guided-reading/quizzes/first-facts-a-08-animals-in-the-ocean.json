@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-08-animals-in-the-ocean",
-  "contentHash": "sha256:cd88e1017a22100f2b91176eb3eab8de90850312662954851cf32766a06e2a0d",
+  "contentHash": "sha256:04c29eefd702ccb8101a4f55241af5f0eed81d3cbed612f23c39f4ff9997deee",
   "questions": [
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q1",
-      "prompt": "How do fins help fish?",
+      "prompt": "Which fact about fish is given in Animals in the Ocean?",
       "choices": [
-        "they help fish swim",
-        "they help fish breathe",
-        "they help fish hide"
+        "Fish use fins to move through water.",
+        "An octopus has eight arms and can change colour.",
+        "Ocean animals survive in many different ways."
       ],
-      "answer": "they help fish swim",
+      "answer": "Fish use fins to move through water.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 2,
-      "evidenceText": "A fish has fins. Fins help fish swim."
+      "evidenceText": "Fish use fins to move through water."
     },
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q2",
-      "prompt": "Why do whales swim to the top?",
+      "prompt": "Which fact about an octopus is given in Animals in the Ocean?",
       "choices": [
-        "to breathe",
-        "to hide in rocks",
-        "to hold on to plants"
+        "An octopus has eight arms and can change colour.",
+        "Fish use fins to move through water.",
+        "Ocean animals survive in many different ways."
       ],
-      "answer": "to breathe",
+      "answer": "An octopus has eight arms and can change colour.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 3,
-      "evidenceText": "Whales swim to the top to breathe."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "An octopus has eight arms and can change colour."
     },
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q3",
-      "prompt": "What main idea does the book show about the sea?",
+      "prompt": "Which statement gives the main idea of Animals in the Ocean?",
       "choices": [
-        "many animals live in the sea",
-        "only fish live in the sea",
-        "no animals live in the sea"
+        "Ocean animals survive in many different ways.",
+        "Fish use fins to move through water.",
+        "An octopus has eight arms and can change colour."
       ],
-      "answer": "many animals live in the sea",
+      "answer": "Ocean animals survive in many different ways.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Ocean animals survive in many different ways. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "So many animals live in the sea! The ocean is amazing."
+      "evidenceText": "Ocean animals survive in many different ways."
     }
   ]
 }

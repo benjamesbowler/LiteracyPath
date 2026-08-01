@@ -1,332 +1,103 @@
 import { starRubric } from "./starRubric.js";
 
+const level = (word, segments, options, cue) => ({
+  type: "spelling",
+  prompt: "Listen. Collect the sounds in order.",
+  sentence: segments.map(() => "_").join("  "),
+  audioWord: word,
+  segments,
+  correct: word,
+  options,
+  cue,
+  focus: segments.length === 1 ? "Whole-word spelling" : `Build ${segments.length} sound parts`,
+  teaching: cue,
+  success: `${segments.join(" + ")} spells ${word}.`,
+  wrongHint: `Blend ${segments.join(" + ")} and look for ${word}.`
+});
+
 const EASY = [
-  {
-    type: "punctuation",
-    prompt: "Fix the sentence ending.",
-    sentence: "The dog can run _",
-    cue: "A telling sentence ends with a full stop.",
-    correct: ".",
-    options: [".", "?", "!"]
-  },
-  {
-    type: "capital",
-    prompt: "Choose the correct sentence start.",
-    sentence: "_e can see a frog.",
-    cue: "The first word in a sentence starts with a capital letter.",
-    correct: "We",
-    options: ["We", "we", "WE"]
-  },
-  {
-    type: "properNoun",
-    prompt: "Choose the correct name.",
-    sentence: "_ went to school.",
-    cue: "A person's name starts with a capital letter.",
-    correct: "Maya",
-    options: ["maya", "Maya", "MAYA"]
-  },
-  {
-    type: "punctuation",
-    prompt: "Choose the question ending.",
-    sentence: "Can you find it _",
-    cue: "A question ends with a question mark.",
-    correct: "?",
-    options: [".", "?", "!"]
-  },
-  {
-    type: "comma",
-    prompt: "Choose the missing comma.",
-    sentence: "Yes _ I can help.",
-    cue: "Use a comma after yes or no at the start.",
-    correct: ",",
-    options: [",", ".", "?"]
-  },
-  {
-    type: "punctuation",
-    prompt: "Choose the calm ending.",
-    sentence: "The sun is hot _",
-    cue: "This is a telling sentence, not a question.",
-    correct: ".",
-    options: ["!", ".", "?"]
-  },
-  {
-    type: "punctuation",
-    prompt: "Choose the excited ending.",
-    sentence: "Wow _",
-    cue: "A strong feeling can end with an exclamation mark.",
-    correct: "!",
-    options: [".", "?", "!"]
-  },
-  {
-    type: "conjunction",
-    prompt: "Join the two ideas.",
-    sentence: "I like red _ blue.",
-    cue: "Choose the joining word that lists two things.",
-    correct: "and",
-    options: ["and", "because", "but"]
-  },
-  {
-    type: "tense",
-    prompt: "Choose the past tense verb.",
-    sentence: "Yesterday I _ to the park.",
-    cue: "Yesterday tells us the action happened in the past.",
-    correct: "went",
-    options: ["go", "went", "going"]
-  },
-  {
-    type: "capital",
-    prompt: "Name the sentence rule.",
-    sentence: "A sentence starts with a _ letter.",
-    cue: "The first letter in a sentence should be uppercase.",
-    correct: "capital",
-    options: ["small", "capital", "quiet"]
-  }
+  level("cat", ["c", "a", "t"], ["cat", "cap", "cot"], "Collect c, a, t. Blend them: cat."),
+  level("sun", ["s", "u", "n"], ["sun", "sit", "run"], "Collect s, u, n. Blend them: sun."),
+  level("map", ["m", "a", "p"], ["map", "mat", "mop"], "Collect m, a, p. Blend them: map."),
+  level("dog", ["d", "o", "g"], ["dog", "dig", "dot"], "Collect d, o, g. Blend them: dog."),
+  level("fish", ["f", "i", "sh"], ["fish", "fin", "dish"], "The final sound /sh/ is written with two letters."),
+  level("chip", ["ch", "i", "p"], ["chip", "chop", "ship"], "The first sound /ch/ is written with two letters."),
+  level("ring", ["r", "i", "ng"], ["ring", "rang", "sing"], "The final sound /ng/ is written with two letters."),
+  level("duck", ["d", "u", "ck"], ["duck", "dock", "luck"], "At the end, /k/ is written ck."),
+  level("shop", ["sh", "o", "p"], ["shop", "ship", "chop"], "Start with the two-letter sound sh."),
+  level("thin", ["th", "i", "n"], ["thin", "this", "chin"], "Start with the two-letter sound th.")
 ];
 
 const MEDIUM = [
-  {
-    type: "agreement",
-    prompt: "Choose the verb that agrees.",
-    sentence: "Right now, the birds _ in the tree.",
-    cue: "Right now means it is happening now, and birds is plural, so use sing.",
-    correct: "sing",
-    options: ["sing", "sings", "sang"]
-  },
-  {
-    type: "tense",
-    prompt: "Choose the past tense verb.",
-    sentence: "Last night we _ pizza.",
-    cue: "Last night tells us to use the past tense.",
-    correct: "ate",
-    options: ["eat", "ate", "eating"]
-  },
-  {
-    type: "conjunction",
-    prompt: "Choose the reason word.",
-    sentence: "I wore boots _ it was raining.",
-    cue: "The second idea explains the reason.",
-    correct: "because",
-    options: ["but", "because", "and"]
-  },
-  {
-    type: "wordClass",
-    prompt: "Choose an adjective.",
-    sentence: "The _ dragon slept.",
-    cue: "An adjective describes a noun.",
-    correct: "green",
-    options: ["green", "quickly", "under"]
-  },
-  {
-    type: "wordClass",
-    prompt: "Choose an adverb.",
-    sentence: "The rabbit hopped _.",
-    cue: "An adverb can tell how an action happens.",
-    correct: "quickly",
-    options: ["quickly", "fluffy", "under"]
-  },
-  {
-    type: "prefix",
-    prompt: "Choose the word that means not happy.",
-    sentence: "not happy = _",
-    cue: "The prefix un- can mean not.",
-    correct: "unhappy",
-    options: ["rehappy", "unhappy", "happily"]
-  },
-  {
-    type: "suffix",
-    prompt: "Choose the person word.",
-    sentence: "A person who teaches is a _.",
-    cue: "The suffix -er can mean a person who does something.",
-    correct: "teacher",
-    options: ["teaching", "teach", "teacher"]
-  },
-  {
-    type: "possessive",
-    prompt: "Show who owns the bowl.",
-    sentence: "The dog owns it: the _ bowl.",
-    cue: "Use apostrophe s to show one owner.",
-    correct: "dog's",
-    options: ["dogs", "dog's", "dogs'"]
-  },
-  {
-    type: "plural",
-    prompt: "Choose the irregular plural.",
-    sentence: "One child, two _.",
-    cue: "Child has an irregular plural.",
-    correct: "children",
-    options: ["childs", "childes", "children"]
-  },
-  {
-    type: "comparison",
-    prompt: "Complete the comparison.",
-    sentence: "big, bigger, _",
-    cue: "The last word compares the most.",
-    correct: "biggest",
-    options: ["biggest", "bigly", "more big"]
-  }
+  level("hand", ["h", "a", "nd"], ["hand", "sand", "hunt"], "Keep the final blend nd together."),
+  level("frog", ["f", "r", "o", "g"], ["frog", "from", "fog"], "Hear both sounds in the starting blend fr."),
+  level("black", ["b", "l", "a", "ck"], ["black", "block", "back"], "Blend b and l, then finish with ck."),
+  level("train", ["tr", "ai", "n"], ["train", "trail", "rain"], "The middle long-a sound is the vowel team ai."),
+  level("sheep", ["sh", "ee", "p"], ["sheep", "ship", "sheet"], "The long-e sound in sheep is written ee."),
+  level("boat", ["b", "oa", "t"], ["boat", "boot", "coat"], "The long-o sound in boat is written oa."),
+  level("light", ["l", "igh", "t"], ["light", "night", "lit"], "The long-i sound is written igh."),
+  level("moon", ["m", "oo", "n"], ["moon", "soon", "moan"], "The long /oo/ sound uses the vowel team oo."),
+  level("play", ["p", "l", "ay"], ["play", "plan", "stay"], "At the end of a word, long a can be written ay."),
+  level("coin", ["c", "oi", "n"], ["coin", "join", "corn"], "The middle /oy/ sound is written oi.")
 ];
 
 const HARD = [
-  {
-    type: "conjunction",
-    prompt: "Choose the result word.",
-    sentence: "I studied, _ I passed.",
-    cue: "The second clause is the result.",
-    correct: "so",
-    options: ["but", "so", "because"]
-  },
-  {
-    type: "comma",
-    prompt: "Choose the punctuation after the opener.",
-    sentence: "After lunch _ we played outside.",
-    cue: "Use a comma after an introductory phrase.",
-    correct: ",",
-    options: [",", ".", ";"]
-  },
-  {
-    type: "agreement",
-    prompt: "Choose the verb that agrees.",
-    sentence: "Neither the cats nor the dog _ outside.",
-    cue: "The nearest subject is dog, so use is.",
-    correct: "is",
-    options: ["are", "is", "were"]
-  },
-  {
-    type: "agreement",
-    prompt: "Choose the verb that agrees.",
-    sentence: "My two brothers _ soccer every weekend.",
-    cue: "Brothers is more than one, and every weekend means it happens again and again, so use play.",
-    correct: "play",
-    options: ["play", "plays", "playing"]
-  },
-  {
-    type: "pronoun",
-    prompt: "Choose the best pronoun.",
-    sentence: "Mia and I packed _ bags.",
-    cue: "Mia and I means we, so the bags are ours.",
-    correct: "our",
-    options: ["their", "our", "his"]
-  },
-  {
-    type: "relative",
-    prompt: "Choose the owner word.",
-    sentence: "The book, _ cover is blue, is mine.",
-    cue: "Whose shows ownership.",
-    correct: "whose",
-    options: ["who", "whose", "which"]
-  },
-  {
-    type: "conditional",
-    prompt: "Choose the verb for the condition.",
-    sentence: "I would have gone if I _ time.",
-    cue: "Would have gone pairs with had.",
-    correct: "had",
-    options: ["have", "had", "has"]
-  },
-  {
-    type: "vocabulary",
-    prompt: "Choose the strongest verb.",
-    sentence: "The eagle _ over the cliffs.",
-    cue: "Choose the vivid verb that means flew high.",
-    correct: "soared",
-    options: ["did", "went", "soared"]
-  },
-  {
-    type: "fragment",
-    prompt: "Fix the fragment.",
-    sentence: "Because it rained, _.",
-    cue: "The sentence needs a complete main clause.",
-    correct: "we stayed inside",
-    options: ["we stayed inside", "after lunch", "because wet"]
-  },
-  {
-    type: "colon",
-    prompt: "Choose the punctuation for a list.",
-    sentence: "Bring three things _ a hat, a coat, and a snack.",
-    cue: "A colon can introduce a list.",
-    correct: ":",
-    options: [":", ",", "?"]
-  }
+  level("cake", ["c", "a_e", "k"], ["cake", "cape", "make"], "The split digraph a-e makes the long-a sound."),
+  level("shine", ["sh", "i_e", "n"], ["shine", "shone", "shin"], "The split digraph i-e makes the long-i sound."),
+  level("stone", ["st", "o_e", "n"], ["stone", "stove", "tone"], "The split digraph o-e makes the long-o sound."),
+  level("cube", ["c", "u_e", "b"], ["cube", "tube", "cub"], "The split digraph u-e makes the /yoo/ sound."),
+  level("star", ["st", "ar"], ["star", "start", "stir"], "The r-controlled spelling ar makes the sound in star."),
+  level("storm", ["st", "or", "m"], ["storm", "store", "form"], "The middle spelling or makes the sound in storm."),
+  level("fern", ["f", "er", "n"], ["fern", "turn", "farm"], "The middle spelling er makes the sound in fern."),
+  level("cloud", ["cl", "ou", "d"], ["cloud", "could", "clown"], "The middle spelling ou makes the sound in cloud."),
+  level("chair", ["ch", "air"], ["chair", "chain", "cheer"], "The ending air makes the sound in chair."),
+  level("bright", ["br", "igh", "t"], ["bright", "brought", "right"], "Blend br, then igh, then t.")
 ];
 
-const LEVELS = {
-  easy: EASY,
-  medium: MEDIUM,
-  hard: HARD
-};
-
-const FOCUS_BY_TYPE = {
-  agreement: "Subject and verb agreement",
-  capital: "Capital letters",
-  colon: "List punctuation",
-  comma: "Comma placement",
-  comparison: "Comparing words",
-  conditional: "Condition grammar",
-  conjunction: "Joining ideas",
-  fragment: "Complete sentences",
-  plural: "Plural words",
-  possessive: "Apostrophes for ownership",
-  prefix: "Prefix meaning",
-  pronoun: "Pronoun choice",
-  properNoun: "Names and capitals",
-  punctuation: "Sentence endings",
-  relative: "Relative words",
-  suffix: "Suffix meaning",
-  tense: "Verb tense",
-  vocabulary: "Precise verbs",
-  wordClass: "Word classes"
-};
-
-const TEACHING_BY_TYPE = {
-  agreement: "Check the subject first, then choose the verb form that belongs with it.",
-  capital: "A complete sentence starts with a capital letter.",
-  colon: "A colon can point forward to a list that explains what comes next.",
-  comma: "Small pause words and opening phrases often need a comma before the main idea.",
-  comparison: "Comparing three or more things often uses the strongest ending, like -est.",
-  conditional: "Condition sentences need matching verb forms on both sides of the idea.",
-  conjunction: "The joining word should explain the relationship between the two ideas.",
-  fragment: "A full sentence needs a complete main clause, not just an unfinished thought.",
-  plural: "Some plural words change shape instead of just adding s.",
-  possessive: "Use an apostrophe to show ownership, then check whether there is one owner or many.",
-  prefix: "A prefix changes the meaning at the start of a word.",
-  pronoun: "Replace the people with the matching pronoun before choosing the answer.",
-  properNoun: "A person's name is a proper noun, so it starts with a capital letter.",
-  punctuation: "Read the sentence job: statement, question, or strong feeling.",
-  relative: "Use whose when the sentence is showing ownership.",
-  suffix: "A suffix changes the job or meaning at the end of a word.",
-  tense: "Time words like yesterday and last night tell you which verb tense to use.",
-  vocabulary: "Choose the word with the exact meaning, not the empty filler word.",
-  wordClass: "Ask what job the missing word is doing in the sentence."
-};
+const LEVELS = Object.freeze({ easy: EASY, medium: MEDIUM, hard: HARD });
 
 export const GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY = 10;
 
 export function grammarGrindLadder(difficulty = "easy") {
   const key = Object.hasOwn(LEVELS, difficulty) ? difficulty : "easy";
-  return LEVELS[key].map((level, index) => ({
-    ...level,
+  return LEVELS[key].map((item, index) => ({
+    ...item,
     level: index,
     difficulty: key,
-    focus: level.focus || FOCUS_BY_TYPE[level.type] || "Grammar choice",
-    teaching: level.teaching || TEACHING_BY_TYPE[level.type] || level.cue,
-    success: level.success || `Good grammar: ${level.cue}`,
-    wrongHint: level.wrongHint || TEACHING_BY_TYPE[level.type] || level.cue,
-    options: [...level.options]
+    segments: [...item.segments],
+    options: [...item.options]
   }));
 }
 
-export function grammarGrindIsCorrect(choice, level) {
-  return String(choice) === String(level?.correct ?? "");
+export function grammarGrindIsCorrect(choice, currentLevel) {
+  return String(choice) === String(currentLevel?.correct ?? "");
 }
 
-export function grammarGrindChoiceFeedback(choice, level, { reveal = false } = {}) {
-  if (!level) return "Read the sentence again, then choose the grammar that fits.";
-  if (grammarGrindIsCorrect(choice, level)) return level.success || level.cue || "That choice fits the sentence.";
+export function grammarGrindChoiceFeedback(choice, currentLevel, { reveal = false } = {}) {
+  if (!currentLevel) return "Listen again, then blend the sounds you collected.";
+  if (grammarGrindIsCorrect(choice, currentLevel)) return currentLevel.success;
   const chosen = String(choice);
-  const cue = level.cue || level.teaching || TEACHING_BY_TYPE[level.type] || "Use the rule shown in the sentence.";
-  if (!reveal) return `"${chosen}" does not fit here. ${cue}`;
-  const correct = String(level.correct ?? "");
-  return `"${chosen}" does not fit here. ${cue} Aim for "${correct}".`;
+  const hint = currentLevel.wrongHint || currentLevel.cue;
+  return reveal
+    ? `"${chosen}" is not the word. ${hint} Choose "${currentLevel.correct}".`
+    : `"${chosen}" is not the word. ${hint}`;
+}
+
+export function grammarGrindSegmentChoices(currentLevel, ladder, stepIndex = 0, seedOffset = 0) {
+  const expected = currentLevel?.segments?.[stepIndex];
+  if (!expected) return [];
+  const pool = [...new Set((ladder || []).flatMap(item => item?.segments || []))]
+    .filter(segment => segment && segment !== expected);
+  const start = Math.abs((Number(seedOffset) || 0) * 5 + stepIndex * 3) % Math.max(1, pool.length);
+  const distractors = [];
+  for (let index = 0; index < pool.length && distractors.length < 2; index += 1) {
+    const candidate = pool[(start + index) % pool.length];
+    if (!distractors.includes(candidate)) distractors.push(candidate);
+  }
+  const choices = [expected, ...distractors];
+  while (choices.length < 3) choices.push(`?${choices.length}`);
+  const shift = Math.abs((Number(seedOffset) || 0) + stepIndex) % choices.length;
+  return [...choices.slice(shift), ...choices.slice(0, shift)];
 }
 
 export function grammarGrindStars(result = {}) {

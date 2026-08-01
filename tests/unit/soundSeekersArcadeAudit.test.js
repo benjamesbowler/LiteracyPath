@@ -174,3 +174,39 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
   assert.match(reward, /timers\.forEach\(timer => clearTimeout\(timer\)\);\s*stopCueAudio\(\)/);
   assert.match(reward, /aria-hidden="true">(?:→|➜|▶)/);
 });
+
+test("the early adventure and skate routes stay book-led, physical, and recoverable", async () => {
+  const [creator, avatarPolicy, trail, questCss, skate, chapters] = await Promise.all([
+    source("src/components/quest/CreatureCreator.jsx"),
+    source("src/components/quest/bookCharacterAvatar.js"),
+    source("src/components/quest/world/QuestTrail2D.jsx"),
+    source("src/styles/quest.css"),
+    source("src/components/learn/games/games/GrammarGrindGame.jsx"),
+    source("src/data/questChapters.js")
+  ]);
+
+  assert.match(creator, /BookCharacterAvatar/);
+  assert.match(creator, /Pick a book friend, then choose a real illustrated colour, mood, pose or outfit/);
+  assert.match(avatarPolicy, /sound-seekers\/characters\/muddy/);
+  assert.match(avatarPolicy, /painted artwork, never a Phaser\/CSS tint/);
+  assert.doesNotMatch(creator, /Your adventure look/);
+  assert.match(trail, /<BookCharacterAvatar/);
+  assert.match(trail, /creature=\{state\.creature\}/);
+  assert.match(trail, /parentElement\.scrollTop = 0/);
+  assert.match(trail, /className="q2d-resident is-guide"/);
+  assert.match(questCss, /data-mechanic="sound-hunt"/);
+  assert.match(questCss, /seed-lantern\.png/);
+
+  assert.match(skate, /MAX_SPEED = \{ easy: 9,/);
+  assert.match(skate, /TOKEN_COUNT = \{ easy: 0,/);
+  assert.match(skate, /Explore the skate park\. Find each sound in order/);
+  assert.match(skate, /grammarGrindSegmentChoices/);
+  assert.match(skate, /rebuildLineChoices\(\)/);
+  assert.match(skate, /Move forward/);
+  assert.match(skate, /Move back/);
+  assert.match(skate, /player\.pos\.set\(0, 0, 24\)/);
+  assert.doesNotMatch(skate, /easyLaneChosen/);
+  assert.doesNotMatch(skate, /The skater moves for you/);
+  assert.match(chapters, /guide: \{ name: "Bouncy", role: "lantern keeper"/);
+  assert.doesNotMatch(chapters, /guide: \{ name: "Pip", role: "lantern keeper"/);
+});

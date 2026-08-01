@@ -1,64 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-23",
-  "contentHash": "sha256:bb8aa974ab92597122ffebdc2801284e2cb2b14061156b119614298089e8d592",
+  "contentHash": "sha256:8c662145fae40ae0f219f3450a95ef60a723bafe25bfd05992c770934509fddc",
   "questions": [
     {
       "id": "moonwood-tales-c-23-q1",
-      "prompt": "What early clue shows Pip that the Fog Marsh is spreading?",
+      "prompt": "Which event introduces the situation in The Fog Marsh Mystery?",
       "choices": [
-        "The mushrooms at the edge were going out.",
-        "New trees at the edge were growing taller.",
-        "The Crystal Stream was flowing backward."
+        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
+        "Days later, fog crosses his stick while edge mushrooms go dark.",
+        "Fog holds behind the line as edge mushrooms relight one by one."
       ],
-      "answer": "The mushrooms at the edge were going out.",
+      "answer": "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "The fog had crept closer and was not stopping while the mushrooms at its edge went out; these changes at the boundary show Pip that the Fog Marsh was spreading.",
-      "evidencePage": 2,
-      "evidenceText": "By the end of the week, the fog had crept closer. The mushrooms at the edge were going out. One by one. The fog was not stopping."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak."
     },
     {
       "id": "moonwood-tales-c-23-q2",
-      "prompt": "Why has the marsh spirit's home grown smaller each year?",
+      "prompt": "Which event shows that the first attempt fails in The Fog Marsh Mystery?",
       "choices": [
-        "Moonwood creatures left more things at its edges every year.",
-        "The spirit moved its boundary toward the Oak each year.",
-        "Pip took away the stones at its boundary each year."
+        "Days later, fog crosses his stick while edge mushrooms go dark.",
+        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
+        "Fog holds behind the line as edge mushrooms relight one by one."
       ],
-      "answer": "Moonwood creatures left more things at its edges every year.",
+      "answer": "Days later, fog crosses his stick while edge mushrooms go dark.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 8,
-      "evidenceText": "\"We left things without thinking,\" said Fern.\nThe spirit looked at them.\n\"Every year, more things.\"\n\"Every year, a little smaller.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "The spirit pointed to the edges.\nThey looked.\nThere were things left behind.\nA rope.\nAn old lamp.\nA pile of mushroom caps.\nLeft by Moonwood creatures."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "Days later, fog crosses his stick while edge mushrooms go dark. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Days later, fog crosses his stick while edge mushrooms go dark."
     },
     {
       "id": "moonwood-tales-c-23-q3",
-      "prompt": "What do the stones around the marsh help everyone remember?",
+      "prompt": "Which event resolves the central problem in The Fog Marsh Mystery?",
       "choices": [
-        "Sharing a forest means respecting each home's space.",
-        "The fog stopped because the marsh spirit moved away.",
-        "The new boundary gave Moonwood more room than the marsh."
+        "Fog holds behind the line as edge mushrooms relight one by one.",
+        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
+        "Days later, fog crosses his stick while edge mushrooms go dark."
       ],
-      "answer": "Sharing a forest means respecting each home's space.",
+      "answer": "Fog holds behind the line as edge mushrooms relight one by one.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Fern admits that Moonwood creatures left things without thinking, and Luna marks a boundary so they leave space for both places; this shows sharing a forest means respecting each home's space.",
-      "evidencePage": 11,
-      "evidenceText": "\"The marsh is the marsh,\" said Luna.\n\"Moonwood is Moonwood.\"\n\"And we leave space for both.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 8,
-          "evidenceText": "\"We didn't know,\" said Pip.\n\"We left things without thinking,\" said Fern."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Fog holds behind the line as edge mushrooms relight one by one. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "Fog holds behind the line as edge mushrooms relight one by one."
     }
   ]
 }

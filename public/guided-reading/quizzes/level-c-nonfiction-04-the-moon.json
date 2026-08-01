@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-04-the-moon",
-  "contentHash": "sha256:51b4f8723fcc042cf0207d71b96118393a88a0cd2212cb7b7fb559d16d3e2912",
+  "contentHash": "sha256:0c593e016bce2ba0d70f752c6b3c6ea6c8362bab8e262987f2dd1e54fd871db6",
   "questions": [
     {
       "id": "level-c-nonfiction-04-the-moon-q1",
-      "prompt": "Why does the Moon look bright?",
+      "prompt": "Which fact is introduced first in The Moon?",
       "choices": [
-        "sunlight reflects from its surface",
-        "light is made inside the Moon",
-        "starlight shines through the Moon"
+        "The rocky Moon orbits Earth about once each month.",
+        "Apollo 11 astronauts first walked on the Moon in 1969.",
+        "Visible or hidden the Moon continues travelling around Earth."
       ],
-      "answer": "sunlight reflects from its surface",
+      "answer": "The rocky Moon orbits Earth about once each month.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "The light we see is sunlight reflected from the Moon's surface."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "The rocky Moon orbits Earth about once each month."
     },
     {
       "id": "level-c-nonfiction-04-the-moon-q2",
-      "prompt": "What are the Moon's changing shapes called?",
+      "prompt": "Which fact about apollo 11 astronauts is given in The Moon?",
       "choices": [
-        "craters",
-        "phases",
-        "tides"
+        "Apollo 11 astronauts first walked on the Moon in 1969.",
+        "The rocky Moon orbits Earth about once each month.",
+        "Visible or hidden the Moon continues travelling around Earth."
       ],
-      "answer": "phases",
-      "kind": "word",
-      "skill": "vocabulary",
-      "evidencePage": 3,
-      "evidenceText": "These shapes are called the phases of the Moon."
+      "answer": "Apollo 11 astronauts first walked on the Moon in 1969.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 5,
+      "evidenceText": "Apollo 11 astronauts first walked on the Moon in 1969."
     },
     {
       "id": "level-c-nonfiction-04-the-moon-q3",
-      "prompt": "What is the Moon's gravity mainly responsible for?",
+      "prompt": "Which statement gives the main idea of The Moon?",
       "choices": [
-        "Earth's seasons",
-        "Earth's daylight",
-        "Earth's tides"
+        "Visible or hidden the Moon continues travelling around Earth.",
+        "The rocky Moon orbits Earth about once each month.",
+        "Apollo 11 astronauts first walked on the Moon in 1969."
       ],
-      "answer": "Earth's tides",
+      "answer": "Visible or hidden the Moon continues travelling around Earth.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "The Moon's gravity is the main force behind Earth's tides."
+      "skill": "main_idea",
+      "rationale": "Visible or hidden the Moon continues travelling around Earth. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Visible or hidden the Moon continues travelling around Earth."
     }
   ]
 }

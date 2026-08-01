@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-16-push-and-pull",
-  "contentHash": "sha256:1d961ac53e99d80d397a5a6014bd6e0fdc3ea851167324418934d68c2e53a502",
+  "contentHash": "sha256:559a44025a496a101e27bb6355b1bd86e9dfb06a3514262b873e16e06b379beb",
   "questions": [
     {
       "id": "first-facts-a-16-push-and-pull-q1",
-      "prompt": "What does a push do?",
+      "prompt": "Which fact about a is given in Push and Pull?",
       "choices": [
-        "moves things away",
-        "brings things closer",
-        "keeps things still"
+        "A push can move something away.",
+        "Doors can move with pushes or pulls.",
+        "Forces can change an object's motion."
       ],
-      "answer": "moves things away",
+      "answer": "A push can move something away.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A push moves things away."
+      "evidenceText": "A push can move something away."
     },
     {
       "id": "first-facts-a-16-push-and-pull-q2",
-      "prompt": "What happens when you pull a zip?",
+      "prompt": "Which fact about doors is given in Push and Pull?",
       "choices": [
-        "it opens",
-        "it stays shut",
-        "it moves away"
+        "Doors can move with pushes or pulls.",
+        "A push can move something away.",
+        "Forces can change an object's motion."
       ],
-      "answer": "it opens",
+      "answer": "Doors can move with pushes or pulls.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "You pull a zip. The zip opens up."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Doors can move with pushes or pulls."
     },
     {
       "id": "first-facts-a-16-push-and-pull-q3",
-      "prompt": "What are pushes and pulls?",
+      "prompt": "Which statement gives the main idea of Push and Pull?",
       "choices": [
-        "games",
-        "doors",
-        "forces"
+        "Forces can change an object's motion.",
+        "A push can move something away.",
+        "Doors can move with pushes or pulls."
       ],
-      "answer": "forces",
-      "kind": "word",
-      "skill": "vocabulary",
+      "answer": "Forces can change an object's motion.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Forces can change an object's motion. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "Push and pull are forces."
+      "evidenceText": "Forces can change an object's motion."
     }
   ]
 }

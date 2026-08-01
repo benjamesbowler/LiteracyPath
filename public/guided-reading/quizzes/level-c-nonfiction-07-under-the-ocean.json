@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-07-under-the-ocean",
-  "contentHash": "sha256:3db37a982ec7c3c79d355cc10c345b0a5b24ee5937d2c173885c375df654fc54",
+  "contentHash": "sha256:5213f0382976816004a831670f9f128b64b912863d5cd150a6be7383a668bce1",
   "questions": [
     {
       "id": "level-c-nonfiction-07-under-the-ocean-q1",
-      "prompt": "Why is the ocean below 200 metres dark?",
+      "prompt": "Which fact is introduced first in Under the Ocean?",
       "choices": [
-        "no sunlight reaches it",
-        "the Sun sets earlier there",
-        "clouds cover the surface"
+        "Oceans cover over two thirds of Earth and remain largely unexplored.",
+        "Tiny coral animals build hard skeletons that can form reefs.",
+        "More than eighty percent of the ocean remains unmapped or unobserved."
       ],
-      "answer": "no sunlight reaches it",
+      "answer": "Oceans cover over two thirds of Earth and remain largely unexplored.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "Below 200 metres, no sunlight reaches at all."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Oceans cover over two thirds of Earth and remain largely unexplored."
     },
     {
       "id": "level-c-nonfiction-07-under-the-ocean-q2",
-      "prompt": "What is bioluminescence?",
+      "prompt": "Which fact about Tiny coral animals is given in Under the Ocean?",
       "choices": [
-        "reflecting sunlight",
-        "making your own light",
-        "warming the water"
+        "Tiny coral animals build hard skeletons that can form reefs.",
+        "Oceans cover over two thirds of Earth and remain largely unexplored.",
+        "More than eighty percent of the ocean remains unmapped or unobserved."
       ],
-      "answer": "making your own light",
+      "answer": "Tiny coral animals build hard skeletons that can form reefs.",
       "kind": "text",
-      "skill": "vocabulary",
-      "evidencePage": 6,
-      "evidenceText": "In the deepest, darkest water, some creatures make their own light. This is called bioluminescence."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Tiny coral animals build hard skeletons that can form reefs."
     },
     {
       "id": "level-c-nonfiction-07-under-the-ocean-q3",
-      "prompt": "How does the ocean help us breathe?",
+      "prompt": "Which statement gives the main idea of Under the Ocean?",
       "choices": [
-        "fish breathe out oxygen",
-        "waves pull oxygen from rocks",
-        "phytoplankton make oxygen"
+        "More than eighty percent of the ocean remains unmapped or unobserved.",
+        "Oceans cover over two thirds of Earth and remain largely unexplored.",
+        "Tiny coral animals build hard skeletons that can form reefs."
       ],
-      "answer": "phytoplankton make oxygen",
+      "answer": "More than eighty percent of the ocean remains unmapped or unobserved.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 8,
-      "evidenceText": "Tiny plants called phytoplankton float near the surface. They use sunlight to make oxygen."
+      "skill": "main_idea",
+      "rationale": "More than eighty percent of the ocean remains unmapped or unobserved. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "More than eighty percent of the ocean remains unmapped or unobserved."
     }
   ]
 }

@@ -101,4 +101,4 @@
 
 ## Family DoD addition
 
-Beyond the standard gates: a **comprehension double review** (editorial + measurement, AUTHORING_STANDARDS §7) per skill, and the cross-skill topic-registry check (no passage topic reused across the 8 skills' 512 passages — the registry is one shared file).
+Beyond the standard gates: generate editorial and measurement evidence in the review pack, and run the cross-skill topic-registry check (no passage topic reused across the 8 skills' passages — the registry is one shared file). Named human sign-off is optional rather than a universal publication gate.

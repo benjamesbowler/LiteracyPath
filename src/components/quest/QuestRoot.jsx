@@ -13,11 +13,10 @@ import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "rea
 import { createPortal } from "react-dom";
 import { ErrorBoundary } from "../ErrorBoundary.jsx";
 import CreatureCreator from "./CreatureCreator.jsx";
-import DenScreen from "./DenScreen.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
-import CreatureFigure from "./CreatureFigure.jsx";
+import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import TradingPost from "./TradingPost.jsx";
 import {
   loadQuestProgress,
@@ -34,12 +33,11 @@ import {
   saveQuestCheckpoint,
   ownedPieces,
   chapterRewardForStop,
-  availableSparks,
-  restartQuestProgress
+  availableSparks
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
 import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
-import { CREATURE_GEAR, defaultCreature } from "../../data/creatureParts.js";
+import { CREATURE_GEAR } from "../../data/creatureParts.js";
 import { chapterForStop } from "../../data/questChapters.js";
 import { seedwakeStopSpec } from "../../data/questChapterOne.js";
 import {
@@ -183,7 +181,9 @@ export default function QuestRoot({
     }
     : null;
   const [view, setView] = useState(
-    () => initialView || (state.hatched ? VIEW.DEN : VIEW.CREATOR)
+    () => initialView === VIEW.DEN
+      ? VIEW.MAP
+      : initialView || (state.hatched ? VIEW.MAP : VIEW.CREATOR)
   );
   const [activeStop, setActiveStop] = useState(() => (
     [VIEW.WORLD, VIEW.CEREMONY].includes(initialView) ? initialStop : null
@@ -348,7 +348,7 @@ export default function QuestRoot({
       // A child parked on the hatch screen whose cloud save turns out to have a
       // creature should not be asked to make a second one.
       if (wasUnhatched && merged.hatched) {
-        setView(current => (current === VIEW.CREATOR ? VIEW.DEN : current));
+        setView(current => (current === VIEW.CREATOR ? VIEW.MAP : current));
       }
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
@@ -510,7 +510,7 @@ export default function QuestRoot({
   }, [musicChapter?.id, musicMode, soundscapeEnabled]);
 
   useEffect(() => {
-    if (!import.meta.env.PROD || ![VIEW.DEN, VIEW.MAP, VIEW.WORLD, VIEW.CEREMONY].includes(view)) return undefined;
+    if (!import.meta.env.PROD || ![VIEW.MAP, VIEW.WORLD, VIEW.CEREMONY].includes(view)) return undefined;
     const timer = window.setTimeout(() => {
       if (typeof performance.getEntriesByType !== "function") return;
       const urls = performance.getEntriesByType("resource")
@@ -737,7 +737,7 @@ export default function QuestRoot({
       commit(endQuestSession(next, { reason: "trail_complete" }));
       setActiveStop(null);
       setWorldLayers([]);
-      setView(VIEW.DEN);
+      setView(VIEW.MAP);
     }
     notifyMissionTaskDone(progressScopeKey, "quest");
     logStudentActivity("phonics_quest", finishedStopId, "stop_complete", {
@@ -759,12 +759,12 @@ export default function QuestRoot({
   const quitWorld = useCallback(() => {
     // Leaving the land keeps its position and completed requests.
     try { hushCue(); } catch { /* audio cleanup must never block navigation */ }
-    const next = endQuestSession(stateRef.current, { reason: "return_to_den" });
+    const next = endQuestSession(stateRef.current, { reason: "return_to_map" });
     if (next !== stateRef.current) commit(next);
     setWorldLayers([]);
     setActiveStop(null);
     setJourneyMode({ kind: "journey", targets: null });
-    setView(VIEW.DEN);
+    setView(VIEW.MAP);
   }, [commit]);
 
   const enterWorld = useCallback((nextState, options = {}) => {
@@ -803,12 +803,6 @@ export default function QuestRoot({
       qualityTier: activeQuality.id
     });
   }, [activeQuality.id, commit]);
-
-  const openMap = useCallback(() => {
-    const next = nextStopAfter(stateRef.current);
-    setMapChapter(chapterForStop(next)?.index || 1);
-    setView(VIEW.MAP);
-  }, []);
 
   const enterReview = useCallback(() => {
     const plan = freeRoamReviewPlan(stateRef.current);
@@ -858,53 +852,6 @@ export default function QuestRoot({
     setView(VIEW.POST);
   }, []);
 
-  const updateAccessibilitySetting = useCallback((key, value) => {
-    const current = stateRef.current;
-    commit({ ...current, settings: { ...current.settings, [key]: Boolean(value) }, settingsAt: new Date().toISOString() });
-    setForce2d(false);
-    setRuntimeQualityId(null);
-  }, [commit]);
-
-  // ── START AGAIN ────────────────────────────────────────────────────────────
-  //
-  // Two doors, because they are two different regrets and only one of them is
-  // expensive.
-  //
-  // A child who dislikes their creature must be able to make another one for
-  // free. Their mastery, stones, stars, sparks and trail position are evidence
-  // of what they have LEARNT and have nothing to do with what their beastie
-  // looks like — tying the two together would mean a child keeps a creature
-  // they don't like, or throws away a term of reading to change it.
-  const resetCreature = useCallback(() => {
-    const current = stateRef.current;
-    commit({ ...current, creature: defaultCreature(), hatched: false, creatureAt: new Date().toISOString() });
-    setView(VIEW.CREATOR);
-  }, [commit]);
-
-  // Starting the adventure over is the destructive one, and it goes through
-  // restartQuestProgress so a wipe can never leave a half-cleared save: no
-  // lingering checkpoint pointing at a stop that is no longer done, no
-  // orphaned mastery, and a newer reset generation stale saves cannot undo.
-  // Purchases go too — sparks are DERIVED from stars (questProgress rule #1),
-  // so keeping a ledger against zero stars would leave the child in debt.
-  const resetProgress = useCallback(() => {
-    const current = stateRef.current;
-    const at = new Date().toISOString();
-    const resetId = globalThis.crypto?.randomUUID?.()
-      || `reset-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-    const fresh = restartQuestProgress(current, { at, resetId });
-    latestCheckpointRef.current = null;
-    setCeremony(null);
-    setCeremonyOverlayVisible(false);
-    setWorldLayers([]);
-    setActiveStop(null);
-    setTrailNotice(null);
-    setJourneyMode({ kind: "journey", targets: null });
-    commit(fresh);
-    logStudentActivity("phonics_quest", null, "reset_progress", {});
-    setView(VIEW.CREATOR);
-  }, [commit]);
-
   const closeQuest = useCallback(() => {
     const checkpointed = latestCheckpointRef.current
       ? saveQuestCheckpoint(stateRef.current, latestCheckpointRef.current)
@@ -929,11 +876,9 @@ export default function QuestRoot({
       aria-modal="true"
       aria-label={activeQuestSurfaceName}
     >
-      {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
-          leaving the whole mode is a Den decision. Everywhere else the only
-          way out is "Back to the Den", so a child is never shown two doors
-          marked leave and asked to know the difference. */}
-      {[VIEW.DEN, VIEW.CREATOR].includes(view) && (
+      {/* The creator owns a single global Close control. The playable map puts
+          its one Close action in the map header, beside its other navigation. */}
+      {view === VIEW.CREATOR && (
         <button
           type="button"
           className="q-exit"
@@ -953,33 +898,14 @@ export default function QuestRoot({
           isSoundEnabled={isSoundEnabled}
           onChange={creature => commit({ ...state, creature, creatureAt: new Date().toISOString() })}
           onDone={() => {
+            const wasAlreadyHatched = Boolean(state.hatched);
             const hatched = commit({ ...state, hatched: true, creatureAt: new Date().toISOString() });
-            // FIRST-RUN EXPRESS: a brand-new child goes from hatching straight
-            // into trail 1 - not through five text-navigation screens. The Den
-            // is one tap away the moment they leave the world.
-            if (!hatched.trail?.stopsDone?.length) enterWorld(hatched, { source: "first-run" });
-            else setView(VIEW.DEN);
+            // FIRST-RUN EXPRESS: a brand-new child goes from choosing a book
+            // friend straight into level 1. Returning from play opens the one
+            // real chapter map, never an intermediate room.
+            if (!wasAlreadyHatched) enterWorld(hatched, { source: "first-run" });
+            else setView(VIEW.MAP);
           }}
-        />
-      )}
-
-      {view === VIEW.DEN && (
-        <DenScreen
-          state={state}
-          reducedMotion={Boolean(state.settings?.reducedMotion || learnerAccessibility.reducedEffects)}
-          highContrast={Boolean(state.settings?.highContrast)}
-          quietSoundscape={Boolean(state.settings?.quietSoundscape)}
-          soundEnabled={state.settings?.soundEnabled !== false}
-          onResetCreature={resetCreature}
-          onResetProgress={resetProgress}
-          onReducedMotion={value => updateAccessibilitySetting("reducedMotion", value)}
-          onHighContrast={value => updateAccessibilitySetting("highContrast", value)}
-          onQuietSoundscape={value => updateAccessibilitySetting("quietSoundscape", value)}
-          onSoundEnabled={value => updateAccessibilitySetting("soundEnabled", value)}
-          onWalk={openMap}
-          onReview={enterReview}
-          onEditCreature={() => setView(VIEW.CREATOR)}
-          onTradingPost={() => setView(VIEW.POST)}
         />
       )}
 
@@ -991,7 +917,9 @@ export default function QuestRoot({
           onEnterStop={stopId => enterWorld(stateRef.current, { stopId })}
           onFreeRoam={enterReview}
           onShortcut={enterShortcut}
-          onBack={() => setView(VIEW.DEN)}
+          onBack={closeQuest}
+          onEditCharacter={() => setView(VIEW.CREATOR)}
+          onTradingPost={() => setView(VIEW.POST)}
           isSoundEnabled={isSoundEnabled}
         />
       )}
@@ -1001,7 +929,7 @@ export default function QuestRoot({
           state={state}
           isSoundEnabled={isSoundEnabled}
           onBuy={next => commit(next)}
-          onBack={() => setView(VIEW.DEN)}
+          onBack={() => setView(VIEW.MAP)}
         />
       )}
 
@@ -1115,14 +1043,14 @@ export default function QuestRoot({
       {view === VIEW.WORLD && trailCheer && (
         <div className="q-trail-cheer" role="status" onClick={() => setTrailCheer(null)}>
           <div className="q-trail-cheer-card">
-            <CreatureFigure creature={state.creature} mood="cheer" size={92} />
+            <BookCharacterAvatar creature={state.creature} pose="jump" size={92} decorative />
             <strong>{trailCheer.stop?.name || "Trail"} complete!</strong>
             <span className="q-trail-cheer-stars" aria-label={`${trailCheer.stars} stars`}>
               {[0, 1, 2].map(slot => (
                 <em key={slot} className={slot < trailCheer.stars ? "is-lit" : ""}>&#9733;</em>
               ))}
             </span>
-            {trailCheer.gear && <small>New gear for your Beastie!</small>}
+            {trailCheer.gear && <small>New gear for your character!</small>}
           </div>
         </div>
       )}

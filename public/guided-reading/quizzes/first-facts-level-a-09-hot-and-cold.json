@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-09-hot-and-cold",
-  "contentHash": "sha256:698cd34a7c06c4545896581d91e99ce33a9d6a5b065b299f40b616cbf1eb472c",
+  "contentHash": "sha256:a6640bf339e0c2ceb3332f27bf9d9e241cb6c8a350ab2cc33362b96466284efd",
   "questions": [
     {
       "id": "first-facts-level-a-09-hot-and-cold-q1",
-      "prompt": "Is the sun hot or cold?",
+      "prompt": "What do we learn about the Sun?",
       "choices": [
-        "hot",
-        "cold",
-        "wet"
+        "The Sun feels hot.",
+        "Fire feels very hot.",
+        "Hot and cold feel different."
       ],
-      "answer": "hot",
-      "kind": "word",
-      "skill": "comparison",
+      "answer": "The Sun feels hot.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The sun is hot.\nIt is very hot."
+      "evidenceText": "The Sun feels hot."
     },
     {
       "id": "first-facts-level-a-09-hot-and-cold-q2",
-      "prompt": "What is cold and white?",
+      "prompt": "What do we learn about fire?",
       "choices": [
-        "snow",
-        "fire",
-        "soup"
+        "Fire feels very hot.",
+        "The Sun feels hot.",
+        "Hot and cold feel different."
       ],
-      "answer": "snow",
-      "kind": "word",
+      "answer": "Fire feels very hot.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "Snow is cold.\nIt is white."
+      "evidencePage": 3,
+      "evidenceText": "Fire feels very hot."
     },
     {
       "id": "first-facts-level-a-09-hot-and-cold-q3",
-      "prompt": "How is the milk described in the book?",
+      "prompt": "What is the big idea in Hot and Cold?",
       "choices": [
-        "cold",
-        "hot",
-        "dry"
+        "Hot and cold feel different.",
+        "The Sun feels hot.",
+        "Fire feels very hot."
       ],
-      "answer": "cold",
-      "kind": "word",
-      "skill": "comparison",
-      "evidencePage": 6,
-      "evidenceText": "Cold milk!\nIt is cold. Yum!"
+      "answer": "Hot and cold feel different.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Hot and cold feel different. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Hot and cold feel different."
     }
   ]
 }

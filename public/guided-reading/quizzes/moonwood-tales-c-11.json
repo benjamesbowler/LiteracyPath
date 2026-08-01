@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-11",
-  "contentHash": "sha256:000f4818336b4510c6d5b2f50e1e5e7de1c72837f583f783726c7218451240eb",
+  "contentHash": "sha256:d7f6532ba26d3b216bb306061769807a10948d2c0238acc72e8ae15dd7f3a89c",
   "questions": [
     {
       "id": "moonwood-tales-c-11-q1",
-      "prompt": "What do Pip and Stone find when they reach the loud noise?",
+      "prompt": "Which event introduces the situation in Pip and Stone and the Loud Thing?",
       "choices": [
-        "A very small toadling with its mouth wide open.",
-        "A huge troll shaking the marsh trees.",
-        "A family of foxes splashing in the water."
+        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
+        "His first boom makes it hide. Three softer calls bring three answers.",
+        "Back home, Pip and Stone hear the reunited marsh family singing."
       ],
-      "answer": "A very small toadling with its mouth wide open.",
+      "answer": "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "On a mossy stone in the marsh sat a toadling.\nIt was very small.\nIts mouth was very wide open.\nAll the noise was coming from it."
+      "evidencePage": 1,
+      "evidenceText": "A huge sound rolls from Fog Marsh while Pip and Stone sit outside."
     },
     {
       "id": "moonwood-tales-c-11-q2",
-      "prompt": "Why has the little toadling been making such a loud sound?",
+      "prompt": "Which event shows that the first attempt fails in Pip and Stone and the Loud Thing?",
       "choices": [
-        "It is lost and calling for its family.",
-        "It is warning everyone away from the marsh.",
-        "It is practising for a singing contest."
+        "His first boom makes it hide. Three softer calls bring three answers.",
+        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
+        "Back home, Pip and Stone hear the reunited marsh family singing."
       ],
-      "answer": "It is lost and calling for its family.",
+      "answer": "His first boom makes it hide. Three softer calls bring three answers.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 9,
-      "evidenceText": "\"I am lost,\" it said.\n\"I was calling for my family.\""
+      "skill": "problem_solution",
+      "rationale": "His first boom makes it hide. Three softer calls bring three answers. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 11,
+      "evidenceText": "His first boom makes it hide. Three softer calls bring three answers."
     },
     {
       "id": "moonwood-tales-c-11-q3",
-      "prompt": "What lesson does Stone's response to the frightened toadling show?",
+      "prompt": "Which event resolves the central problem in Pip and Stone and the Loud Thing?",
       "choices": [
-        "Someone can be large and gentle at the same time.",
-        "Stone thinks becoming smaller is the best way to help.",
-        "Stone thinks Pip should lead because Pip looks less scary."
+        "Back home, Pip and Stone hear the reunited marsh family singing.",
+        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
+        "His first boom makes it hide. Three softer calls bring three answers."
       ],
-      "answer": "Someone can be large and gentle at the same time.",
+      "answer": "Back home, Pip and Stone hear the reunited marsh family singing.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Stone says he is large but gentle, then uses his own very loud voice to call for the toadling's family; this shows someone can be large and gentle at the same time.",
-      "evidencePage": 10,
-      "evidenceText": "\"You are very large,\" said the toadling.\n\"Yes,\" said Stone.\n\"But I am gentle.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "Stone stood up and called out across the marsh.\nIt was the loudest sound Pip had ever heard.\nLouder than the toadling.\nMuch louder.\nSomething answered from the far side of the marsh."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Back home, Pip and Stone hear the reunited marsh family singing. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "Back home, Pip and Stone hear the reunited marsh family singing."
     }
   ]
 }

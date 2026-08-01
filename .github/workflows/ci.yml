@@ -45,6 +45,14 @@ jobs:
         run: npm run check:quest
       - name: Content rubric gate (no three-cueing — tools/rubrics P-E4)
         run: npm run check:content-rubric
+      - name: Narrative-content admission and evidence gate
+        run: npm run check:story-content-policy
+      - name: Guided Reading Story Bible, level and exact-audio gate
+        run: npm run check:guided-reading-story-bible
+      - name: Guided Reading illustration alignment gate
+        run: npm run check:guided-reading-visual-alignment
+      - name: Guided Reading evidence-question gate
+        run: npm run check:validate:guided-reading-questions
       - name: Quest chapter-one release gate
         run: npm run check:quest-chapter-one
       - name: Quest 3D asset gate

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-01-colors",
-  "contentHash": "sha256:5e124be8bb481ace597d9513ca9e669ff0a0337e3c9a40545eb68fb8cc646b7e",
+  "contentHash": "sha256:4354e2b285479317dc2fde315b12fe026eb9e880806eda6297ff60290595d42a",
   "questions": [
     {
       "id": "first-facts-level-a-01-colors-q1",
-      "prompt": "What color is the frog?",
+      "prompt": "What do we learn about a ball and hat?",
       "choices": [
-        "green",
-        "red",
-        "pink"
+        "A ball and hat are red.",
+        "The bright sun is yellow.",
+        "We can see many colours!"
       ],
-      "answer": "green",
-      "kind": "word",
+      "answer": "A ball and hat are red.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "A green frog.\nIt is green."
+      "evidencePage": 1,
+      "evidenceText": "A ball and hat are red."
     },
     {
       "id": "first-facts-level-a-01-colors-q2",
-      "prompt": "What color is the pig?",
+      "prompt": "What do we learn about the bright sun?",
       "choices": [
-        "pink",
-        "black",
-        "blue"
+        "The bright sun is yellow.",
+        "A ball and hat are red.",
+        "We can see many colours!"
       ],
-      "answer": "pink",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "A pink pig.\nA pink flower."
-    },
-    {
-      "id": "first-facts-level-a-01-colors-q3",
-      "prompt": "What is big and yellow?",
-      "choices": [
-        "the sun",
-        "the cat",
-        "the cup"
-      ],
-      "answer": "the sun",
+      "answer": "The bright sun is yellow.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "A big sun.\nIt is yellow."
+      "evidenceText": "The bright sun is yellow."
+    },
+    {
+      "id": "first-facts-level-a-01-colors-q3",
+      "prompt": "What is the big idea in Colors?",
+      "choices": [
+        "We can see many colours!",
+        "A ball and hat are red.",
+        "The bright sun is yellow."
+      ],
+      "answer": "We can see many colours!",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "We can see many colours! This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "We can see many colours!"
     }
   ]
 }

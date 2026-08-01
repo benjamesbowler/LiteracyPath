@@ -243,7 +243,7 @@ function physicalVerbPattern(mechanic, verbRecipe) {
   if (["bridge-build", "sequence-build", "echo-sequence"].includes(mechanic)) return "assembly";
   if (mechanic === "herd-and-sort") return "sort";
   if (mechanic === "story-choice") return "route";
-  if (mechanic === "gate-chorus") return "rhythm";
+  if (mechanic === "gate-chorus") return "single";
   return "single";
 }
 
@@ -381,7 +381,9 @@ export function stageCueNamesAnswer(stage) {
 
 function letterSoundPrompt(beat, stageIndex = 0, stageCount = 1) {
   if (beat?.cue?.kind === "word" && beat.cue.word) {
-    return `Find the ${beat.cuePosition || "matching"} sound in '${beat.cue.word}'`;
+    const target = String(beatAnswers(beat)[stageIndex] || beatAnswers(beat)[0] || "");
+    const unit = target.replace(/^hw:/, "").length > 1 ? "letters" : "sound";
+    return `Find the ${beat.cuePosition || "matching"} ${unit} in '${beat.cue.word}'`;
   }
   if (!beat?.word) return "Find the letter that matches the sound";
   return stageCount > 1 && stageIndex > 0
@@ -421,7 +423,7 @@ function sequenceSoundPrompt(beat, stageIndex = 0) {
 //   s2 Fern Steps    land and stay  press down on the bloom to make it bounce
 //   s3 Rook Stones   carry          pick a sound up and take it somewhere
 //   s4 Otter Ford    sustained work hammer the plank until it sets
-//   s5 Bramble Gate  timed hold     hold the note ON the beat
+//   s5 Bramble Gate  choose          match the written sound
 //
 // Stop 1 stays a plain touch on purpose. It is the first thing a four-year-old
 // ever does in this game and it should ask for nothing but "go to that one".
@@ -430,7 +432,7 @@ const SEEDWAKE_INTERACTION = Object.freeze({
   "sound-hunt": null,                                        // plain touch
   "flower-jump": { role: "climb-hold", climbHoldMs: 420 },   // land and stay
   "bridge-build": { role: "tool-work", toolHoldMs: 900 },    // sustained work
-  "gate-chorus": { role: "signal-pad", signalHoldMs: 620 }   // hold on the beat
+  "gate-chorus": null
 });
 
 function seedwakeStageSeries(section, encounter, beat, beatIndex, {
@@ -625,12 +627,8 @@ function seedwakeChorusStages(section, encounter, beat, beatIndex) {
       answer,
       shape: "chorus-lantern",
       layout: "circle",
-      // Bramble Gate is the RHYTHM stop: a note is held on the pulse. The
-      // signal-pad interaction gives it its own pulsing feedback, so choosing
-      // here already feels unlike touching a lantern at stop 1.
       decorate: choice => ({
-        role: "signal-pad",
-        signalHoldMs: 620,
+        role: "touch",
         answerRole: choice === answer ? "target" : "distractor"
       })
     });
@@ -639,7 +637,7 @@ function seedwakeChorusStages(section, encounter, beat, beatIndex) {
       {
         id: `chorus-choose-${chooseStage}`,
         prompt: letterSoundPrompt(beat, answerIndex, answers.length),
-        help: "Listen, then choose the matching lantern.",
+        help: "Listen, then choose the matching letter lantern.",
         playerAction: "choose-note",
         layout: "circle",
         audioCue: seedwakeAudioCue(beat),
@@ -647,27 +645,28 @@ function seedwakeChorusStages(section, encounter, beat, beatIndex) {
       },
       {
         id: `chorus-conduct-${conductStage}`,
-        prompt: "Tap when it glows",
-        help: "Wait for the lantern's bright pulse, then tap it.",
+        prompt: "Tap the lit lantern when it glows",
+        help: "Wait for the glow, then tap the same letter lantern.",
         playerAction: "conduct",
-        layout: "rhythm",
-        rhythm: true,
+        layout: "circle",
         audioCue: null,
-        items: [{
+        rhythm: true,
+        selectedFromStage: chooseStage,
+        items: selected ? [{
           ...selected,
-          id: `${selected.id}-rhythm`,
+          id: `${selected.id}-conduct`,
           stage: conductStage,
-          layout: "rhythm",
-          role: "rhythm-note"
-        }],
-        completion: {
+          role: "rhythm",
+          answerRole: "target"
+        }] : [],
+        completion: selected ? {
           ...completionFor(section, encounter, beatIndex, conductStage, answers.length * 2, answer, "lit-chorus-lantern"),
           progress: selected.progress,
           x: selected.x,
           y: selected.y,
           z: selected.z,
           revealStage: conductStage
-        }
+        } : null
       }
     ];
   });
@@ -846,43 +845,35 @@ function chapterAssemblyStages(section, encounter, beat, beatIndex, mechanic, ve
 function chapterRhythmStages(section, encounter, beat, beatIndex, mechanic, verbRecipe) {
   const answers = chapterAnswers(beat, verbRecipe.pattern);
   const choices = beatChoices(beat);
-  const [chooseAction, pulseAction] = verbRecipe.actions;
-  return answers.flatMap((answer, answerIndex) => {
-    const chooseStage = answerIndex * 2;
-    const pulseStage = chooseStage + 1;
-    const chooseItems = positionedItems(section, encounter, beatIndex, chooseStage, choices, {
+  const [chooseAction] = verbRecipe.actions;
+  return answers.map((answer, answerIndex) => {
+    const chooseItems = positionedItems(section, encounter, beatIndex, answerIndex, choices, {
       answer,
       shape: verbRecipe.shape,
       layout: verbRecipe.layout,
-      decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+      decorate: choice => ({
+        role: "touch",
+        answerRole: choice === answer ? "target" : "distractor"
+      })
     });
     const selected = chooseItems.find(item => item.correct);
-    return [{
-      id: `${mechanic}-choose-${chooseStage}`,
+    return {
+      id: `${mechanic}-choose-${answerIndex}`,
       prompt: letterSoundPrompt(beat, answerIndex, answers.length),
-      help: verbRecipe.mission,
+      help: "Listen, then choose the matching letter.",
       playerAction: chooseAction,
       layout: verbRecipe.layout,
       audioCue: seedwakeAudioCue(beat),
-      items: chooseItems
-    }, {
-      id: `${mechanic}-pulse-${pulseStage}`,
-      prompt: "Tap when it glows",
-      help: verbRecipe.mission,
-      playerAction: pulseAction,
-      layout: "rhythm",
-      rhythm: true,
-      audioCue: null,
-      items: [{ ...selected, id: `${selected.id}-pulse`, stage: pulseStage, layout: "rhythm", role: "rhythm-note" }],
-      completion: {
-        ...completionFor(section, encounter, beatIndex, pulseStage, answers.length * 2, answer, verbRecipe.completionShape),
+      items: chooseItems,
+      completion: selected ? {
+        ...completionFor(section, encounter, beatIndex, answerIndex, answers.length, answer, verbRecipe.completionShape),
         progress: selected.progress,
         x: selected.x,
         y: selected.y,
         z: selected.z,
-        revealStage: pulseStage
-      }
-    }];
+        revealStage: answerIndex
+      } : null
+    };
   });
 }
 

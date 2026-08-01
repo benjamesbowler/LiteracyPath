@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-03-little-seeds-grow",
-  "contentHash": "sha256:f588bd4aa5a522879c438a7bee2e77239efcd831c990c57fde8611df06805b5d",
+  "contentHash": "sha256:e3ae2eaa354d8dcadd10643c2a2d304fbcfc7df5e80065ef0254d00ea08734aa",
   "questions": [
     {
       "id": "first-facts-a-03-little-seeds-grow-q1",
-      "prompt": "Where does the book say to put the seed?",
+      "prompt": "Which fact is introduced first in A Seed Germinates?",
       "choices": [
-        "in soil",
-        "in snow",
-        "in a box"
+        "This tiny seed holds a young plant.",
+        "Water enters the seed and starts germination.",
+        "The growing plant can produce a flower."
       ],
-      "answer": "in soil",
+      "answer": "This tiny seed holds a young plant.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "Put the seed in soil. Pat it down gently."
+      "evidencePage": 1,
+      "evidenceText": "This tiny seed holds a young plant."
     },
     {
       "id": "first-facts-a-03-little-seeds-grow-q2",
-      "prompt": "What does the seed drink?",
+      "prompt": "Which fact about water is given in A Seed Germinates?",
       "choices": [
-        "water",
-        "milk",
-        "honey"
+        "Water enters the seed and starts germination.",
+        "This tiny seed holds a young plant.",
+        "The growing plant can produce a flower."
       ],
-      "answer": "water",
-      "kind": "word",
-      "skill": "function",
+      "answer": "Water enters the seed and starts germination.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Add some water. The seed drinks it up."
+      "evidenceText": "Water enters the seed and starts germination."
     },
     {
       "id": "first-facts-a-03-little-seeds-grow-q3",
-      "prompt": "What blooms at the end?",
+      "prompt": "Which statement gives the main idea of A Seed Germinates?",
       "choices": [
-        "a flower",
-        "a tree",
-        "a bug"
+        "The growing plant can produce a flower.",
+        "This tiny seed holds a young plant.",
+        "Water enters the seed and starts germination."
       ],
-      "answer": "a flower",
+      "answer": "The growing plant can produce a flower.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "main_idea",
+      "rationale": "The growing plant can produce a flower. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "A flower blooms! The seed has grown into a plant."
+      "evidenceText": "The growing plant can produce a flower."
     }
   ]
 }

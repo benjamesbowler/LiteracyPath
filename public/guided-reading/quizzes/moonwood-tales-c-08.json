@@ -1,64 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-08",
-  "contentHash": "sha256:3e0993a253ec567aa2d63f8f84c0597ea4ec8551b0cca6e6b6f8ab599ec58032",
+  "contentHash": "sha256:1efe4f4b876e3a9ffeb270acf43f1057fa15821c445003eadbcbc8d88b2c091b",
   "questions": [
     {
       "id": "moonwood-tales-c-08-q1",
-      "prompt": "What do the friends find after Burrow opens the old door?",
+      "prompt": "Which event introduces the situation in Burrow Finds a Door?",
       "choices": [
-        "A round room covered in glowing drawings.",
-        "A tunnel filled with buried treasure.",
-        "A cave where the Crystal Stream begins."
+        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
+        "She traces each root. The door remains shut.",
+        "The door opens onto glowing pictures of Moonwood's living past."
       ],
-      "answer": "A round room covered in glowing drawings.",
+      "answer": "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 9,
-      "evidenceText": "Inside was a small round room. The walls were covered in tiny glowing drawings."
+      "evidencePage": 1,
+      "evidenceText": "Burrow's spade strikes old wood beneath Hollow Oak's roots."
     },
     {
       "id": "moonwood-tales-c-08-q2",
-      "prompt": "Why is Luna able to name the room after entering it?",
+      "prompt": "Which event shows that the first attempt fails in Burrow Finds a Door?",
       "choices": [
-        "She remembers the Memory Room from long ago.",
-        "She reads its name on Burrow's new map.",
-        "She hears the creatures inside call its name."
+        "She traces each root. The door remains shut.",
+        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
+        "The door opens onto glowing pictures of Moonwood's living past."
       ],
-      "answer": "She remembers the Memory Room from long ago.",
+      "answer": "She traces each root. The door remains shut.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Before entering, Luna says she knows the door from a very long time ago; inside, she names the Memory Room and says, \"I remember now,\" showing she remembers the Memory Room from long ago.",
-      "evidencePage": 11,
-      "evidenceText": "The memory room, said Luna. That is what it was called. She touched the wall very gently. I remember now.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 6,
-          "evidenceText": "Luna looked at it for a long time. I know this door, she said slowly. I think. A very long time ago."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "She traces each root. The door remains shut. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "She traces each root. The door remains shut."
     },
     {
       "id": "moonwood-tales-c-08-q3",
-      "prompt": "What does Burrow add by drawing the Hollow Oak on the blank wall?",
+      "prompt": "Which event resolves the central problem in Burrow Finds a Door?",
       "choices": [
-        "Their own story becomes part of Moonwood's memory.",
-        "The drawing marks the quickest tunnel back to the Oak.",
-        "The blank wall replaces the stories Luna had forgotten."
+        "The door opens onto glowing pictures of Moonwood's living past.",
+        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
+        "She traces each root. The door remains shut."
       ],
-      "answer": "Their own story becomes part of Moonwood's memory.",
+      "answer": "The door opens onto glowing pictures of Moonwood's living past.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "The room's walls hold drawings of every living thing that has been in Moonwood; when Burrow draws the Hollow Oak and says, \"Now we are in it too,\" this shows their own story becomes part of Moonwood's memory.",
-      "evidencePage": 13,
-      "evidenceText": "Very carefully, he drew the Hollow Oak. Now we are in it too, he said.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 9,
-          "evidenceText": "The walls were covered in tiny glowing drawings. Trees and streams. Creatures and old paths. Every living thing that had ever been in Moonwood."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "The door opens onto glowing pictures of Moonwood's living past. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "The door opens onto glowing pictures of Moonwood's living past."
     }
   ]
 }

@@ -13,22 +13,27 @@ const SIMPLE_WORDS_BY_SKILL = {
     "tree", "beach", "rain", "train", "boat", "green", "sheep", "peach", "leaf", "coat",
     "goat", "seed", "feet", "road", "soap", "oak", "bead", "beak", "bean", "beehive",
     "beef", "beet", "beetle", "blue", "bright", "chain", "cheese", "clay", "eel", "hay",
-    "loaf", "pail", "paint"
+    "loaf", "pail", "paint", "snail", "play", "tray", "day", "stay", "bee", "meat",
+    "bread", "dead", "light", "night"
   ]),
   r_controlled: new Set([
     "car", "star", "farm", "arm", "bark", "barn", "card", "bird", "girl", "shirt",
     "bluebird", "corn", "fork", "horse", "butter", "berry", "turtle", "nurse", "purse",
-    "bar", "burn", "curl", "dirt", "fern", "horn", "turn"
+    "bar", "burn", "curl", "dirt", "fern", "horn", "turn", "shark", "yarn", "park",
+    "storm", "her", "herd", "tiger", "flower", "spider", "hurt", "surf"
   ]),
   plurals: new Set([
     "cats", "dogs", "cups", "hats", "books", "cars", "balls", "ducks", "birds", "bags",
     "boxes", "buses", "dishes", "puppies", "leaves", "foxes", "benches", "bats", "beds",
-    "clocks", "flags", "frogs", "grapes", "hens", "maps", "pens", "pigs", "planes", "stars"
+    "clocks", "flags", "frogs", "grapes", "hens", "maps", "pens", "pigs", "planes", "stars",
+    "cat", "cup", "hen", "duck", "brushes"
   ]),
   antonyms_synonyms: new Set([
     "hot", "cold", "big", "small", "happy", "sad", "wet", "dry", "open", "closed",
     "full", "empty", "clean", "dirty", "fast", "slow", "tall", "short", "up", "down",
-    "day", "hard", "high", "light", "long", "loud", "near", "old", "same", "strong"
+    "day", "hard", "high", "light", "long", "loud", "near", "old", "same", "strong",
+    "whale", "shout", "begin", "sea", "rain", "night", "new", "sun", "rock", "snow",
+    "ant", "quick", "sleepy"
   ])
 };
 

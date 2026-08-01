@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-09-animals-at-night",
-  "contentHash": "sha256:70cf7c4b8d1b991996509c8ab20f99cfe01c64f327e30bc3df2da04fbeef9bed",
+  "contentHash": "sha256:03b1d89dae4a1259249b18179a18db814b793274fba3625bd09dc120769108b9",
   "questions": [
     {
       "id": "first-facts-a-09-animals-at-night-q1",
-      "prompt": "When do nocturnal animals wake up?",
+      "prompt": "Which fact about nocturnal animals is given in Animals at Night?",
       "choices": [
-        "at night",
-        "in the day",
-        "in spring"
+        "Nocturnal animals are active mostly at night.",
+        "Many bats use echoes to find flying insects.",
+        "Different animals become busy after sunset."
       ],
-      "answer": "at night",
+      "answer": "Nocturnal animals are active mostly at night.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Some animals sleep in the day. They wake up at night. They are nocturnal."
+      "evidenceText": "Nocturnal animals are active mostly at night."
     },
     {
       "id": "first-facts-a-09-animals-at-night-q2",
-      "prompt": "Who can see in the dark?",
+      "prompt": "Which fact about many bats is given in Animals at Night?",
       "choices": [
-        "the owl",
-        "the lamb",
-        "the duck"
+        "Many bats use echoes to find flying insects.",
+        "Nocturnal animals are active mostly at night.",
+        "Different animals become busy after sunset."
       ],
-      "answer": "the owl",
+      "answer": "Many bats use echoes to find flying insects.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "An owl can see in the dark. It hunts at night. Twit-twoo!"
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "Many bats use echoes to find flying insects."
     },
     {
       "id": "first-facts-a-09-animals-at-night-q3",
-      "prompt": "What do bats eat?",
+      "prompt": "Which statement gives the main idea of Animals at Night?",
       "choices": [
-        "insects",
-        "grass",
-        "nuts"
+        "Different animals become busy after sunset.",
+        "Nocturnal animals are active mostly at night.",
+        "Many bats use echoes to find flying insects."
       ],
-      "answer": "insects",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 3,
-      "evidenceText": "A bat flies at night. It finds food in the dark. Bats eat insects."
+      "answer": "Different animals become busy after sunset.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Different animals become busy after sunset. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "Different animals become busy after sunset."
     }
   ]
 }

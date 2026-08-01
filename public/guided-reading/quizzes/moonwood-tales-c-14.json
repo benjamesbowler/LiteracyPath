@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-14",
-  "contentHash": "sha256:801ec1aba5350463a20a4079cf7c497639eaf3210173f94af7452cec4b3c22fb",
+  "contentHash": "sha256:546392fa853e1b684563f6c6700c0605787e8d0a3c6febf790211ea0950e84b6",
   "questions": [
     {
       "id": "moonwood-tales-c-14-q1",
-      "prompt": "Which way do Wren and Flint choose when the map and spell disagree?",
+      "prompt": "Which event introduces the situation in Wren and Flint Get Lost?",
       "choices": [
-        "straight ahead",
-        "left with the map",
-        "right with the spell"
+        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
+        "Seven spare maps show other places, old turns, or upside-down routes.",
+        "They follow the living light until golden meadow opens ahead."
       ],
-      "answer": "straight ahead",
+      "answer": "Wren and Flint set out for Whispering Meadow with map and direction spell.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "\"Straight ahead,\" they agreed.\nThis turned out to be wrong."
+      "evidencePage": 1,
+      "evidenceText": "Wren and Flint set out for Whispering Meadow with map and direction spell."
     },
     {
       "id": "moonwood-tales-c-14-q2",
-      "prompt": "How do Wren and Flint finally find the Whispering Meadow?",
+      "prompt": "Which event shows that the first attempt fails in Wren and Flint Get Lost?",
       "choices": [
-        "They follow the mushroom trail.",
-        "They choose the oldest map in Flint's bag.",
-        "They wait for Wren's spinning arrow to stop."
+        "Seven spare maps show other places, old turns, or upside-down routes.",
+        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
+        "They follow the living light until golden meadow opens ahead."
       ],
-      "answer": "They follow the mushroom trail.",
+      "answer": "Seven spare maps show other places, old turns, or upside-down routes.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 10,
-      "evidenceText": "Wren and Flint followed the mushroom trail."
+      "rationale": "Seven spare maps show other places, old turns, or upside-down routes. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Seven spare maps show other places, old turns, or upside-down routes."
     },
     {
       "id": "moonwood-tales-c-14-q3",
-      "prompt": "What lesson does reaching the meadow by the mushroom trail show?",
+      "prompt": "Which event resolves the central problem in Wren and Flint Get Lost?",
       "choices": [
-        "Help can come from an unexpected place.",
-        "Flint's oldest map led them out of the fog.",
-        "Wren's spinning arrow pointed straight to the meadow."
+        "They follow the living light until golden meadow opens ahead.",
+        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
+        "Seven spare maps show other places, old turns, or upside-down routes."
       ],
-      "answer": "Help can come from an unexpected place.",
+      "answer": "They follow the living light until golden meadow opens ahead.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "After the map and spell fail, Wren asks a mushroom for the way, and its trail leads them to the meadow; this unexpected help shows that help can come from an unexpected place.",
+      "skill": "outcome",
+      "rationale": "They follow the living light until golden meadow opens ahead. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Wren and Flint followed the mushroom trail.\nThe forest opened up.\nThe golden light of the Whispering Meadow was ahead.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 8,
-          "evidenceText": "She spoke to the mushroom.\nVery quietly.\nShe asked it the way."
-        }
-      ]
+      "evidenceText": "They follow the living light until golden meadow opens ahead."
     }
   ]
 }

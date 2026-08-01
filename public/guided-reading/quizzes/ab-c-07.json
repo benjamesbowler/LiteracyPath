@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-07",
-  "contentHash": "sha256:1cf70a63e73d338e0d2f9850b81712a95cc300728f7b258eecf20ec9f1b2f105",
+  "contentHash": "sha256:8213e523f8e0e564a2bb7b3e1aca2126b9a33d9570941fa81c37e830832e5fbd",
   "questions": [
     {
       "id": "ab-c-07-q1",
-      "prompt": "What special bird did Betty spot?",
+      "prompt": "Which event introduces the situation in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "a robin",
-        "an owl",
-        "a kingfisher"
+        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
+        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
+        "Back at the hide, Betty logged every species while Uncle Eddie checked names."
       ],
-      "answer": "a kingfisher",
+      "answer": "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blue-orange above the water, there and then gone."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles."
     },
     {
       "id": "ab-c-07-q2",
-      "prompt": "How did Uncle Eddie make crossing the bridge safer?",
+      "prompt": "Which event shows that the first attempt fails in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "He checked the map and clipped on Socks's lead.",
-        "He carried everyone across the river.",
-        "He waited for the water to disappear."
+        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
+        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
+        "Back at the hide, Betty logged every species while Uncle Eddie checked names."
       ],
-      "answer": "He checked the map and clipped on Socks's lead.",
+      "answer": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 6,
-      "evidenceText": "Aiden wanted to follow. Uncle Eddie checked the map and clipped on Socks's lead. Then they crossed together."
+      "rationale": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more."
     },
     {
       "id": "ab-c-07-q3",
-      "prompt": "What did Aiden and Betty conclude about Socks's home?",
+      "prompt": "Which event resolves the central problem in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "He wanted to live at the reserve.",
-        "He had chosen their home.",
-        "He planned to leave with Uncle Eddie."
+        "Back at the hide, Betty logged every species while Uncle Eddie checked names.",
+        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
+        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more."
       ],
-      "answer": "He had chosen their home.",
+      "answer": "Back at the hide, Betty logged every species while Uncle Eddie checked names.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Betty says Socks has decided this is home, and Aiden agrees, which shows they believe he has chosen their home.",
-      "evidencePage": 13,
-      "evidenceText": "\"I think he's decided this is home,\" she said. Aiden looked at Socks curled at his feet. \"Yeah,\" he said. \"I think so too.\""
+      "skill": "outcome",
+      "rationale": "Back at the hide, Betty logged every species while Uncle Eddie checked names. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Back at the hide, Betty logged every species while Uncle Eddie checked names."
     }
   ]
 }

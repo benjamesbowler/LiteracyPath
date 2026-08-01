@@ -60,6 +60,10 @@
   gap: var(--kg-space-16);
 }
 
+.kg-stage .kg-books-head > .kg-spacer {
+  min-width: 0;
+}
+
 .kg-stage .kg-books-headline {
   margin: 2px 0 0;
   font-size: 16.5px;
@@ -111,6 +115,48 @@
   border-radius: 50%;
   background: var(--kg-segment-dot, var(--kg-sage));
   flex: 0 0 auto;
+}
+
+/* Collections sit beside the reading level because they are the second half
+   of the same choice: difficulty first, book family second. The tray scrolls
+   sideways on smaller laptops rather than making the page taller or cutting
+   a shelf off the bottom. */
+.kg-stage .kg-collection-tray {
+  display: flex;
+  min-width: 0;
+  max-width: min(620px, 42vw);
+  gap: 5px;
+  padding: 5px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  border-radius: 18px;
+}
+
+.kg-stage .kg-collection-tray::-webkit-scrollbar {
+  display: none;
+}
+
+.kg-stage .kg-collection-chip {
+  flex: 0 0 auto;
+  min-height: var(--kg-hit);
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--kg-radius-market);
+  background: transparent;
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-display);
+  font-size: 15px;
+  font-weight: 750;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.kg-stage .kg-collection-chip.is-active {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(216, 238, 226, 0.92);
+  color: var(--kg-ink-deep);
+  box-shadow: 0 8px 18px -14px rgba(20, 45, 38, 0.65);
 }
 
 /* The spec's 50px / radius-18 glass button. .kg-button--sm is 50px at radius

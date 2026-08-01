@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-01-chompys-big-lunch",
-  "contentHash": "sha256:b64279140bc516fe58d33980c040e2aeed39e1bf6e7d217070632cfa0f1e2b7c",
+  "contentHash": "sha256:cfb6f995edfb15cc41e0d243bb11912c0af0c0b379ff7ec66fed7fb67ef70820",
   "questions": [
     {
       "id": "dino-pals-01-chompys-big-lunch-q1",
-      "prompt": "What did Chompy eat first?",
+      "prompt": "Which event begins Chompy's Big Lunch?",
       "choices": [
-        "berries",
-        "leaves",
-        "breakfast"
+        "Chompy wakes with a loud, hungry tummy.",
+        "He munches leaves. The rumble stays.",
+        "Chompy slows down. His friends count each bite."
       ],
-      "answer": "berries",
-      "kind": "word",
+      "answer": "Chompy wakes with a loud, hungry tummy.",
+      "kind": "text",
       "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "Chompy ate some berries."
+      "evidencePage": 1,
+      "evidenceText": "Chompy wakes with a loud, hungry tummy."
     },
     {
       "id": "dino-pals-01-chompys-big-lunch-q2",
-      "prompt": "Who shared lunch with Chompy?",
+      "prompt": "Which event shows the first plan fails in Chompy's Big Lunch?",
       "choices": [
-        "Dozy",
-        "Sunny",
-        "Grumpy"
+        "He munches leaves. The rumble stays.",
+        "Chompy wakes with a loud, hungry tummy.",
+        "Chompy slows down. His friends count each bite."
       ],
-      "answer": "Sunny",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "Sunny shared her lunch."
+      "answer": "He munches leaves. The rumble stays.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "He munches leaves. The rumble stays. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "He munches leaves. The rumble stays."
     },
     {
       "id": "dino-pals-01-chompys-big-lunch-q3",
-      "prompt": "What does Chompy wondering about breakfast show?",
+      "prompt": "Which event solves the problem in Chompy's Big Lunch?",
       "choices": [
-        "He plans to skip the next meal.",
-        "He thinks breakfast has already been served.",
-        "He still loves thinking about food."
+        "Chompy slows down. His friends count each bite.",
+        "Chompy wakes with a loud, hungry tummy.",
+        "He munches leaves. The rumble stays."
       ],
-      "answer": "He still loves thinking about food.",
+      "answer": "Chompy slows down. His friends count each bite.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Chompy is already wondering about breakfast, which shows that he still loves thinking about food.",
-      "evidencePage": 8,
-      "evidenceText": "I wonder what breakfast will be, said Chompy."
+      "skill": "outcome",
+      "rationale": "Chompy slows down. His friends count each bite. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Chompy slows down. His friends count each bite."
     }
   ]
 }

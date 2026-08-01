@@ -349,7 +349,7 @@ test("the map's three lands agree with the bands the rest of the app uses", () =
 // ── The screens ─────────────────────────────────────────────────────────────
 
 test("each screen has exactly one primary call to action", () => {
-  for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
+  for (const [name, code] of [["Adventure Map", mapCode]]) {
     assert.equal(
       (code.match(/data-child-primary/g) || []).length,
       1,
@@ -365,14 +365,18 @@ test("each screen has exactly one primary call to action", () => {
       `${name}: the primary needs exactly one named cue`
     );
   }
-  assert.match(trailCode, /data-child-emphasis="primary"[\s\S]{0,400}Go</);
+  // The duplicate Sound Trail summary/map was deliberately removed. Its route
+  // now opens the playable quest directly, so it must not add a second CTA.
+  assert.equal((trailCode.match(/data-child-primary/g) || []).length, 0);
+  assert.match(trailCode, /return renderQuest\(/);
 });
 
 test("motion is reserved for the one next marker, and is all system classes", () => {
-  for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
+  for (const [name, code] of [["Adventure Map", mapCode]]) {
     assert.equal((code.match(/kg-halo/g) || []).length, 1, `${name}: one pulsing marker only`);
     assert.equal((code.match(/kg-bob/g) || []).length, 1, `${name}: one bobbing sprite only`);
   }
+  assert.equal(/kg-halo|kg-bob/.test(trailCode), false, "the removed duplicate trail has no decorative motion");
   // Every animation on these screens is a kids-glass class, so the
   // prefers-reduced-motion block there already covers them. A screen stylesheet
   // that declared its own would escape it silently.
@@ -385,7 +389,7 @@ test("motion is reserved for the one next marker, and is all system classes", ()
 });
 
 test("the animated sprite never carries the centring transform", () => {
-  for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
+  for (const [name, code] of [["Adventure Map", mapCode]]) {
     // The wrapper is .kg-sprite (negative margins, no transform); .kg-bob is on
     // the inner <img>. Merged, kgBob overwrites the centring and the companion
     // lands in the wrong place.
@@ -403,16 +407,11 @@ test("both scenes carry a scrim, and the trail stands its pal on a clean plate",
   // The map plate is bright and every overlay on it is white; the spec makes the
   // scrim mandatory there.
   assert.match(mapCode, /kg-node-scene kg-scrim kg-map-scene/);
-  assert.match(trailCode, /kg-node-scene kg-scrim kg-scrim--trail kg-trail-scene/);
-  // world.backdrop is the character-free plate. world.banner (the panorama)
-  // already has two pals walking the path, and this screen stands a beastie on
-  // top of whatever it uses.
-  assert.match(trailCode, /src=\{world\.backdrop\}/);
-  assert.equal(/world\.banner|panorama/.test(trailCode), false);
+  assert.equal(/kg-node-scene|world\.backdrop|world\.banner|panorama/.test(trailCode), false);
 });
 
 test("only stars and coins are countable on either screen", () => {
-  for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
+  for (const [name, code] of [["Adventure Map", mapCode]]) {
     // Two exemptions, both for the word "points" as CODE rather than as copy:
     // `points=` is the SVG polyline attribute, and `points: <identifier>` is the
     // Adventure Map handing the admin's coordinates to the scene builder. A
@@ -424,30 +423,27 @@ test("only stars and coins are countable on either screen", () => {
     );
     assert.equal(hit, null, `${name} surfaced "${hit?.[0]}"; the cap is stars and coins`);
   }
-  // The beastie pill is the obvious place a third counter would appear. It
-  // names the growth stage ("Young"), never a stage number.
-  assert.match(trailCode, /beastie\.growth\?\.name/);
-  assert.equal(/stage \{|stage \$\{/.test(trailCode), false);
+  assert.equal(/streak|flame|gems?|\bxp\b|combo|high ?score/i.test(trailCode), false);
 });
 
 test("a read that failed says so instead of drawing an empty journey", () => {
-  for (const [name, code] of [["Sound Trail", trailCode], ["Adventure Map", mapCode]]) {
+  for (const [name, code] of [["Adventure Map", mapCode]]) {
     assert.match(code, /ok:\s*false/, `${name} must be able to report an unreadable record`);
     assert.match(code, /data-read-state=\{read\.ok \? "ready" : "unreadable"\}/, name);
     assert.match(code, /We could not open your/, name);
   }
-  // ...and the count beside "Sounds you own" only speaks when the read worked.
-  assert.match(trailCode, /read\.ok && sounds\.ownedCount > 0/);
+  // Sound Trail no longer reads or redraws progress. The quest owns its own
+  // loading/error state, avoiding two screens that can disagree.
+  assert.equal(/loadQuestState|buildSoundTrailScene|data-read-state/.test(trailCode), false);
 });
 
-test("every displayed value on the Sound Trail comes from a named source", () => {
-  assert.match(trailCode, /currentStopIndex\(state\)/);
-  assert.match(trailCode, /state\.trail\?\.stopsDone/);
-  assert.match(trailCode, /stopAtIndex\(nextIndex\)/);
-  assert.match(trailCode, /chapterForStop\(/);
-  assert.match(trailCode, /taughtThrough\(/);
-  assert.match(trailCode, /isMastered\(mastery, id\)/);
-  assert.match(trailCode, /computeHollow\(loadHollowLedger/);
+test("Sound Trail delegates to the one playable quest instead of drawing a duplicate map", () => {
+  assert.match(trailCode, /if \(!renderQuest\) return null/);
+  assert.match(trailCode, /return renderQuest\(\{/);
+  assert.match(trailCode, /onExit:/);
+  assert.match(trailCode, /onHome\(\)/);
+  assert.match(trailCode, /onNavigate\?\.\("home"\)/);
+  assert.equal(/buildSoundTrailScene|TRAIL_NODE_POINTS|kg-trail-scene/.test(trailCode), false);
 });
 
 test("every displayed value on the Adventure Map comes from a named source", () => {
@@ -459,7 +455,8 @@ test("every displayed value on the Adventure Map comes from a named source", () 
 
 test("neither screen culls the mode it fronts", () => {
   // The front door launches the real thing; it does not reimplement it.
-  assert.match(trailCode, /renderQuest\(\{ onExit: \(\) => setPlaying\(false\) \}\)/);
+  assert.match(trailCode, /return renderQuest\(\{/);
+  assert.match(trailCode, /onExit:/);
   assert.match(mapCode, /renderQuest\(\{ cycleId: openCycleId/);
   // ...and the Skills Quest opens AT the stop the child tapped rather than
   // showing a second map of the same journey.

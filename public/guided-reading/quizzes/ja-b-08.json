@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-08",
-  "contentHash": "sha256:925cf1f67ccbd003b745097a46dab318f9b68cec13353dc53a8fd639a756a6a6",
+  "contentHash": "sha256:d087ededeb906d87279307a77aaa6921e84a19d453b540df5aa2f6dd4f1fbfaf",
   "questions": [
     {
       "id": "ja-b-08-q1",
-      "prompt": "What did Chips and Bella do in the garden?",
+      "prompt": "Which event begins Chips's Play Date?",
       "choices": [
-        "Bella watched Chips, and Chips went to sleep.",
-        "Bella hid from Chips, and Chips left the garden.",
-        "Bella chased Chips, and Chips chased Bella."
+        "Mrs Chen brings bouncy Bella to meet Chips.",
+        "Then both pets leap through the flower bed, scattering petals.",
+        "Next time, James and Anna begin with bowls and a rest area."
       ],
-      "answer": "Bella chased Chips, and Chips chased Bella.",
+      "answer": "Mrs Chen brings bouncy Bella to meet Chips.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "Bella chased Chips. Chips chased Bella. They ran round and round the garden at an absolutely ridiculous speed."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Mrs Chen brings bouncy Bella to meet Chips."
     },
     {
       "id": "ja-b-08-q2",
-      "prompt": "Why were James and Anna soaked?",
+      "prompt": "Which event shows the first plan fails in Chips's Play Date?",
       "choices": [
-        "Bella crashed into the pool.",
-        "Rain fell on the garden.",
-        "Chips tipped over a bowl."
+        "Then both pets leap through the flower bed, scattering petals.",
+        "Mrs Chen brings bouncy Bella to meet Chips.",
+        "Next time, James and Anna begin with bowls and a rest area."
       ],
-      "answer": "Bella crashed into the pool.",
+      "answer": "Then both pets leap through the flower bed, scattering petals.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 6,
-      "evidenceText": "Bella crashed into the paddling pool. Water exploded in every direction. James and Anna were completely soaked."
+      "skill": "problem_solution",
+      "rationale": "Then both pets leap through the flower bed, scattering petals. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Then both pets leap through the flower bed, scattering petals."
     },
     {
       "id": "ja-b-08-q3",
-      "prompt": "What showed that Chips and Bella liked each other?",
+      "prompt": "Which event solves the problem in Chips's Play Date?",
       "choices": [
-        "Chips hid from Bella, and Bella left the garden.",
-        "Chips licked Bella, and Bella licked Chips.",
-        "Chips growled at Bella, and Bella growled back."
+        "Next time, James and Anna begin with bowls and a rest area.",
+        "Mrs Chen brings bouncy Bella to meet Chips.",
+        "Then both pets leap through the flower bed, scattering petals."
       ],
-      "answer": "Chips licked Bella, and Bella licked Chips.",
+      "answer": "Next time, James and Anna begin with bowls and a rest area.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Chips and Bella lick each other, and Anna then says she thinks they like each other, so the mutual licks show friendly affection.",
-      "evidencePage": 9,
-      "evidenceText": "At last, both Chips and Bella lay down on the lawn side by side, panting. Chips licked Bella's ear. Bella licked Chips's nose.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 10,
-          "evidenceText": "I think they like each other"
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Next time, James and Anna begin with bowls and a rest area. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "Next time, James and Anna begin with bowls and a rest area."
     }
   ]
 }

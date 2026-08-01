@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-13",
-  "contentHash": "sha256:0e0d931ba952833fb5d1023f8ed11d05221f4dad425f6e6bfcacaca22c7687cc",
+  "contentHash": "sha256:dafb97c4da630b11373181dab0134fd82d18d4c5b37ea3b526820196a14db347",
   "questions": [
     {
       "id": "moonwood-tales-c-13-q1",
-      "prompt": "What happened when Spark first tried Glimmer's flying lesson?",
+      "prompt": "Which event introduces the situation in Glimmer and Spark Make a Deal?",
       "choices": [
-        "Sparkles shot everywhere, his hat fell off, and his feet stayed on the ground.",
-        "He glided five steps and landed beside Glimmer.",
-        "He floated upward while his notes stayed on the ground."
+        "Spark offers fire lessons if Glimmer helps test a floating spell.",
+        "More charts add pressure, angles, and numbers without changing either result.",
+        "No flame appears, and Spark cannot float yet, but both mark exact progress."
       ],
-      "answer": "Sparkles shot everywhere, his hat fell off, and his feet stayed on the ground.",
+      "answer": "Spark offers fire lessons if Glimmer helps test a floating spell.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 5,
-      "evidenceText": "Sparkles shot everywhere.\nHis hat fell off.\nHis feet stayed on the ground."
+      "evidencePage": 1,
+      "evidenceText": "Spark offers fire lessons if Glimmer helps test a floating spell."
     },
     {
       "id": "moonwood-tales-c-13-q2",
-      "prompt": "What change helped Spark produce a small real flame?",
+      "prompt": "Which event shows that the first attempt fails in Glimmer and Spark Make a Deal?",
       "choices": [
-        "He put down his wand and notes, stood very still, and stopped thinking.",
-        "He drew more diagrams, waved his wand, and read every note.",
-        "He asked Glimmer for a flame and copied it with his wand."
+        "More charts add pressure, angles, and numbers without changing either result.",
+        "Spark offers fire lessons if Glimmer helps test a floating spell.",
+        "No flame appears, and Spark cannot float yet, but both mark exact progress."
       ],
-      "answer": "He put down his wand and notes, stood very still, and stopped thinking.",
+      "answer": "More charts add pressure, angles, and numbers without changing either result.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 8,
-      "evidenceText": "Spark put down his wand.\nHe put down his notes.\nHe stood very still.\nHe stopped thinking.\nA small real flame came."
+      "skill": "problem_solution",
+      "rationale": "More charts add pressure, angles, and numbers without changing either result. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "More charts add pressure, angles, and numbers without changing either result."
     },
     {
       "id": "moonwood-tales-c-13-q3",
-      "prompt": "What do their smiles and plan to try again show?",
+      "prompt": "Which event resolves the central problem in Glimmer and Spark Make a Deal?",
       "choices": [
-        "They feel encouraged enough to keep practising.",
-        "They think both skills are finished now.",
-        "They plan to practise different skills alone."
+        "No flame appears, and Spark cannot float yet, but both mark exact progress.",
+        "Spark offers fire lessons if Glimmer helps test a floating spell.",
+        "More charts add pressure, angles, and numbers without changing either result."
       ],
-      "answer": "They feel encouraged enough to keep practising.",
+      "answer": "No flame appears, and Spark cannot float yet, but both mark exact progress.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Although neither friend has mastered the new skill, they agree to try again tomorrow and smile; this shows they feel encouraged enough to keep practising.",
-      "evidencePage": 12,
-      "evidenceText": "\"Let's try again tomorrow.\"\n\"Yes,\" said Spark.\nThey both smiled.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "Spark could not fly.\nGlimmer had not breathed fire properly yet.\nBut something was different."
-        }
-      ]
+      "rationale": "No flame appears, and Spark cannot float yet, but both mark exact progress. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "No flame appears, and Spark cannot float yet, but both mark exact progress."
     }
   ]
 }

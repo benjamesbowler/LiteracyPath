@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
-  "contentHash": "sha256:4a694d371b5d1776e69e2b73112ac339b6d51f29e5e2d901a167c65b11dce936",
+  "contentHash": "sha256:1d1a6ea3bad2bb064219ea88eee04b69d7632d2225a33559d2177e1df87491c1",
   "questions": [
     {
       "id": "meadow-pals-21-woolly-and-grumpy-are-stuck-q1",
-      "prompt": "Who gets the wool off Grumpy's horn?",
+      "prompt": "What happens first in Woolly and Grumpy Are Stuck?",
       "choices": [
-        "Tiny",
-        "Bouncy",
-        "Clucky"
+        "Woolly and Grumpy are stuck.",
+        "The knot gets tighter.",
+        "They walk different ways."
       ],
-      "answer": "Tiny",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "Tiny got the wool off."
+      "answer": "Woolly and Grumpy are stuck.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Woolly and Grumpy are stuck."
     },
     {
       "id": "meadow-pals-21-woolly-and-grumpy-are-stuck-q2",
-      "prompt": "Why are Woolly and Grumpy stuck?",
+      "prompt": "What goes wrong in Woolly and Grumpy Are Stuck?",
       "choices": [
-        "Woolly's wool is on Grumpy's horn.",
-        "Clucky's hat is on Woolly's head.",
-        "Tiny's bag is under Grumpy's foot."
+        "The knot gets tighter.",
+        "Woolly and Grumpy are stuck.",
+        "They walk different ways."
       ],
-      "answer": "Woolly's wool is on Grumpy's horn.",
+      "answer": "The knot gets tighter.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "Woolly's wool is on Grumpy's horn."
+      "skill": "problem_solution",
+      "rationale": "The knot gets tighter. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "The knot gets tighter."
     },
     {
       "id": "meadow-pals-21-woolly-and-grumpy-are-stuck-q3",
-      "prompt": "What happened after Tiny freed Woolly and Grumpy?",
+      "prompt": "What happens at the end of Woolly and Grumpy Are Stuck?",
       "choices": [
-        "Grumpy ran. Woolly ran. Not the same way.",
-        "Grumpy sat. Woolly sat. In the same place.",
-        "Grumpy pulled. Woolly pulled. On the same wool."
+        "They walk different ways.",
+        "Woolly and Grumpy are stuck.",
+        "The knot gets tighter."
       ],
-      "answer": "Grumpy ran. Woolly ran. Not the same way.",
+      "answer": "They walk different ways.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They walk different ways. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Grumpy ran. Woolly ran. Not the same way."
+      "evidenceText": "They walk different ways."
     }
   ]
 }

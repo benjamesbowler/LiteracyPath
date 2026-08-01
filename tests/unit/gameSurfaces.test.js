@@ -13,7 +13,8 @@ import {
   GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY,
   grammarGrindChoiceFeedback,
   grammarGrindIsCorrect,
-  grammarGrindLadder
+  grammarGrindLadder,
+  grammarGrindSegmentChoices
 } from "../../src/utils/grammarGrindLevels.js";
 
 const isArcade = game => (game.surfaces || []).includes("arcade");
@@ -99,15 +100,16 @@ test("Reel & Read uses the shared star rubric", () => {
   assert.equal(reelReadStars({ correct: 6, total: 10, mistakes: 4 }), 1);
 });
 
-test("Grammar Grind has ten unambiguous grammar skate levels per difficulty", () => {
+test("Spell & Skate has ten unambiguous spelling levels per difficulty", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
     const ladder = grammarGrindLadder(difficulty);
-    const types = new Set(ladder.map(level => level.type));
     assert.equal(ladder.length, GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY, `${difficulty} should have ten levels`);
-    assert.ok(types.size >= 6, `${difficulty} should test a varied grammar skill mix`);
     for (const level of ladder) {
       assert.ok(level.prompt, `${difficulty} level ${level.level + 1} needs a prompt`);
       assert.ok(level.sentence.includes("_"), `${difficulty} level ${level.level + 1} should show the missing part`);
+      assert.equal(level.type, "spelling", `${difficulty} level ${level.level + 1} should build a word`);
+      assert.ok(level.audioWord, `${difficulty} level ${level.level + 1} needs a spoken target word`);
+      assert.ok(level.segments.length >= 2, `${difficulty} level ${level.level + 1} needs ordered sound parts`);
       assert.ok(level.cue, `${difficulty} level ${level.level + 1} needs a cue`);
       assert.ok(level.focus, `${difficulty} level ${level.level + 1} needs a skill focus`);
       assert.ok(level.teaching, `${difficulty} level ${level.level + 1} needs a teaching hint`);
@@ -116,7 +118,6 @@ test("Grammar Grind has ten unambiguous grammar skate levels per difficulty", ()
       assert.equal(new Set(level.options).size, level.options.length, `${difficulty} level ${level.level + 1} repeats an option`);
       assert.ok(level.options.includes(level.correct), `${difficulty} level ${level.level + 1} is missing its correct option`);
       assert.equal(level.options.filter(option => grammarGrindIsCorrect(option, level)).length, 1, `${difficulty} level ${level.level + 1} should have one correct gate`);
-      assert.notEqual(level.type, "startsWith", `${difficulty} level ${level.level + 1} should not be an initial-sound task`);
       for (const option of level.options.filter(option => !grammarGrindIsCorrect(option, level))) {
         const firstMiss = grammarGrindChoiceFeedback(option, level);
         assert.ok(firstMiss.includes(String(option)), `${difficulty} level ${level.level + 1} feedback should name the picked option`);
@@ -124,6 +125,22 @@ test("Grammar Grind has ten unambiguous grammar skate levels per difficulty", ()
         const repeatMiss = grammarGrindChoiceFeedback(option, level, { reveal: true });
         assert.ok(repeatMiss.includes(String(level.correct)), `${difficulty} level ${level.level + 1} second miss should point back to the right choice`);
       }
+    }
+  }
+  assert.ok(grammarGrindLadder("medium").some(level => level.segments.some(segment => ["ai", "ee", "oa", "igh", "oo", "ay", "oi"].includes(segment))), "medium should introduce vowel teams");
+  assert.ok(grammarGrindLadder("hard").some(level => level.segments.some(segment => segment.includes("_e"))), "hard should introduce split digraphs");
+});
+
+test("Spell & Skate rebuilds three unambiguous sound choices for every word step", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const ladder = grammarGrindLadder(difficulty);
+    for (const level of ladder) {
+      level.segments.forEach((expected, stepIndex) => {
+        const choices = grammarGrindSegmentChoices(level, ladder, stepIndex, level.level);
+        assert.equal(choices.length, 3, `${difficulty} ${level.audioWord} step ${stepIndex + 1} needs three tiles`);
+        assert.equal(new Set(choices).size, 3, `${difficulty} ${level.audioWord} step ${stepIndex + 1} repeats a tile`);
+        assert.equal(choices.filter(choice => choice === expected).length, 1, `${difficulty} ${level.audioWord} step ${stepIndex + 1} needs one answer`);
+      });
     }
   }
 });

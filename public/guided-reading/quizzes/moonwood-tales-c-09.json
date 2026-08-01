@@ -1,68 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-09",
-  "contentHash": "sha256:9a485c6ba14671c8889a95995504cdea77000af6252edb930e23581b2391a17a",
+  "contentHash": "sha256:8ffc9a2a35de3207f7bbe6298ee31eae27fdecdd5f7f3f8baf95eab649287634",
   "questions": [
     {
       "id": "moonwood-tales-c-09-q1",
-      "prompt": "What happened when Spark sneezed beside the Crystal Stream?",
+      "prompt": "Which event introduces the situation in Spark's Very Big Sneeze?",
       "choices": [
-        "The fish turned purple, and the water sang in a different key.",
-        "The stream froze, and the fish fell asleep.",
-        "The pebbles flew up, and the water disappeared."
+        "Spark catches a cold, and every sneeze carries loose wand magic.",
+        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
+        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
       ],
-      "answer": "The fish turned purple, and the water sang in a different key.",
+      "answer": "Spark catches a cold, and every sneeze carries loose wand magic.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 9,
-      "evidenceText": "Every fish in the stream turned purple. The water sang in a different key."
+      "evidencePage": 1,
+      "evidenceText": "Spark catches a cold, and every sneeze carries loose wand magic."
     },
     {
       "id": "moonwood-tales-c-09-q2",
-      "prompt": "Why is Spark's cold a big problem?",
+      "prompt": "Which event shows that the first attempt fails in Spark's Very Big Sneeze?",
       "choices": [
-        "His magic changes things whenever he sneezes.",
-        "His cold makes everyone else lose their voice.",
-        "His magic vanishes whenever he rests in bed."
+        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
+        "Spark catches a cold, and every sneeze carries loose wand magic.",
+        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
       ],
-      "answer": "His magic changes things whenever he sneezes.",
+      "answer": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Spark's breakfast sneeze turns porridge into a bird, and his meadow sneeze changes every flower's colour; because different sneezes cause different magical changes, his cold is a big problem whenever he sneezes.",
-      "evidencePage": 2,
-      "evidenceText": "He sneezed at breakfast. The porridge turned into a bird. The bird flew out of the window. Spark stared at his empty bowl.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 1,
-          "evidenceText": "But Spark's magic crackled around him all the time. A cold, for Spark, was a very big problem."
-        },
-        {
-          "evidencePage": 4,
-          "evidenceText": "He sneezed in the Whispering Meadow. Every flower changed colour at the same moment. The meadow turned entirely blue."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 9,
+      "evidenceText": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog."
     },
     {
       "id": "moonwood-tales-c-09-q3",
-      "prompt": "What did Wren's cold remedy accomplish?",
+      "prompt": "Which event resolves the central problem in Spark's Very Big Sneeze?",
       "choices": [
-        "Spark's cold was gone, and the flowers and fish returned to normal.",
-        "Spark's cold stayed, and the flowers and fish changed forever.",
-        "Spark controlled every sneeze, and nothing else returned to normal."
+        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish.",
+        "Spark catches a cold, and every sneeze carries loose wand magic.",
+        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog."
       ],
-      "answer": "Spark's cold was gone, and the flowers and fish returned to normal.",
+      "answer": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Wren finds a cold remedy, and then Spark's cold is gone while the flowers and fish return to normal; this shows the remedy cured the cold and reversed those earlier changes.",
-      "evidencePage": 13,
-      "evidenceText": "The remedy worked. Spark's cold was gone. The flowers slowly turned back to their usual colours. The fish returned to normal.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 12,
-          "evidenceText": "Wren found a cold remedy in her spell book. She read it very, very carefully."
-        }
-      ]
+      "rationale": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish. This event shows how the central problem is resolved.",
+      "evidencePage": 14,
+      "evidenceText": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
     }
   ]
 }

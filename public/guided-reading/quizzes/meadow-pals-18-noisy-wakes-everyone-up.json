@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-18-noisy-wakes-everyone-up",
-  "contentHash": "sha256:f86dac38cee89ba70aca437966c06fe4e2a341d684b2717c8a3e41a3068e4c1c",
+  "contentHash": "sha256:fe636823946e8e548b25fee4525f3b7f60d0556e2aee359c6ded49fbf140cbce",
   "questions": [
     {
       "id": "meadow-pals-18-noisy-wakes-everyone-up-q1",
-      "prompt": "Which three friends wake up first?",
+      "prompt": "What happens first in Noisy Wakes Everyone Up?",
       "choices": [
-        "Grumpy, Woolly, and Clucky",
-        "Sleepy, Tiny, and Shy",
-        "Muddy, Splashy, and Cuddly"
+        "The meadow is dark.",
+        "Noisy calls very loudly.",
+        "Noisy waits for sunrise."
       ],
-      "answer": "Grumpy, Woolly, and Clucky",
+      "answer": "The meadow is dark.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "Grumpy woke up. Woolly woke up. Clucky woke up."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "The meadow is dark."
     },
     {
       "id": "meadow-pals-18-noisy-wakes-everyone-up-q2",
-      "prompt": "What is it like outside when Noisy calls?",
+      "prompt": "What goes wrong in Noisy Wakes Everyone Up?",
       "choices": [
-        "still dark",
-        "bright and sunny",
-        "warm and windy"
+        "Noisy calls very loudly.",
+        "The meadow is dark.",
+        "Noisy waits for sunrise."
       ],
-      "answer": "still dark",
+      "answer": "Noisy calls very loudly.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 8,
-      "evidenceText": "It is still dark."
+      "skill": "problem_solution",
+      "rationale": "Noisy calls very loudly. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Noisy calls very loudly."
     },
     {
       "id": "meadow-pals-18-noisy-wakes-everyone-up-q3",
-      "prompt": "What happens after Noisy calls again?",
+      "prompt": "What happens at the end of Noisy Wakes Everyone Up?",
       "choices": [
-        "Sleepy woke up.",
-        "Everyone went home.",
-        "The sun came out."
+        "Noisy waits for sunrise.",
+        "The meadow is dark.",
+        "Noisy calls very loudly."
       ],
-      "answer": "Sleepy woke up.",
+      "answer": "Noisy waits for sunrise.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 7,
-      "evidenceText": "Sleepy woke up."
+      "rationale": "Noisy waits for sunrise. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Noisy waits for sunrise."
     }
   ]
 }

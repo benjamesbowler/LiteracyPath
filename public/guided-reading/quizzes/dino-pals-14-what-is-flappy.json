@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-14-what-is-flappy",
-  "contentHash": "sha256:ccda04ad122240477bbdb6ec3c2e697a7164aefdadd7fd9b557f022d86dceb37",
+  "contentHash": "sha256:fbc8a6dfd469446fba92c02d851488bccbbb67559a49c5d1e6b5a422a864121f",
   "questions": [
     {
       "id": "dino-pals-14-what-is-flappy-q1",
-      "prompt": "Why was Flappy confused about whether they could fly?",
+      "prompt": "Which event begins What is Flappy??",
       "choices": [
-        "Flappy had wings, but Grumpy said dinosaurs do not fly.",
-        "Flappy had feathers, but Sunny said birds could not nest.",
-        "Flappy had small feet, but Bossy said every dinosaur stomps."
+        "Flappy flaps toward a branch, then lands in mud.",
+        "Flappy tries stomping. Small feet make small thumps.",
+        "The wings catch insects during one short glide."
       ],
-      "answer": "Flappy had wings, but Grumpy said dinosaurs do not fly.",
+      "answer": "Flappy flaps toward a branch, then lands in mud.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Flappy flaps toward a branch, then lands in mud."
     },
     {
       "id": "dino-pals-14-what-is-flappy-q2",
-      "prompt": "Which new activity worked well for Flappy?",
+      "prompt": "Which event shows the first plan fails in What is Flappy??",
       "choices": [
-        "stomping loudly",
-        "roaring like a dinosaur",
-        "nesting in a tree"
+        "Flappy tries stomping. Small feet make small thumps.",
+        "Flappy flaps toward a branch, then lands in mud.",
+        "The wings catch insects during one short glide."
       ],
-      "answer": "nesting in a tree",
+      "answer": "Flappy tries stomping. Small feet make small thumps.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 7,
-      "evidenceText": "Flappy tried nesting in a tree. This part actually worked quite well."
+      "skill": "problem_solution",
+      "rationale": "Flappy tries stomping. Small feet make small thumps. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Flappy tries stomping. Small feet make small thumps."
     },
     {
       "id": "dino-pals-14-what-is-flappy-q3",
-      "prompt": "What message did Grumpy give Flappy?",
+      "prompt": "Which event solves the problem in What is Flappy??",
       "choices": [
-        "You are Flappy. That is enough.",
-        "Your best skill decides who you are.",
-        "You must choose between nesting and roaring."
+        "The wings catch insects during one short glide.",
+        "Flappy flaps toward a branch, then lands in mud.",
+        "Flappy tries stomping. Small feet make small thumps."
       ],
-      "answer": "You are Flappy. That is enough.",
+      "answer": "The wings catch insects during one short glide.",
       "kind": "text",
-      "skill": "theme",
-      "evidencePage": 9,
-      "evidenceText": "You are Flappy, said Grumpy. That is enough."
+      "skill": "outcome",
+      "rationale": "The wings catch insects during one short glide. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "The wings catch insects during one short glide."
     }
   ]
 }

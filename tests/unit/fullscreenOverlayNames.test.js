@@ -13,7 +13,7 @@ import {
 
 test("every Sound Seekers fullscreen view has one specific active-surface name", () => {
   const expected = {
-    creator: "Make your creature",
+    creator: "Choose your book character",
     den: "Your Den",
     map: "Trail map",
     world: "Meadow Gate trail",
@@ -30,7 +30,7 @@ test("every Sound Seekers fullscreen view has one specific active-surface name",
   }
   assert.equal(
     questFullscreenSurfaceName({ view: "creator", hatched: true }),
-    "Change your creature"
+    "Change your book character"
   );
 });
 

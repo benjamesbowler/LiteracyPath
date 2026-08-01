@@ -1,57 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-21-how-i-grow",
-  "contentHash": "sha256:dad3611e7336828e44f3dd12c1fe7bff3af3b3ebd974d870d6ab3637c7ddf0c2",
+  "contentHash": "sha256:09a77bec348a621ca836072cced2f3d46524ed74de916af3dc3b1a69447d69a3",
   "questions": [
     {
       "id": "first-facts-a-21-how-i-grow-q1",
-      "prompt": "What did the child learn before running and jumping?",
+      "prompt": "Which fact is introduced first in Ways I Grow?",
       "choices": [
-        "sit up and crawl",
-        "read and write",
-        "swim and dive"
+        "As a baby I needed help moving.",
+        "Now I can do more things.",
+        "People grow in different ways and times."
       ],
-      "answer": "sit up and crawl",
+      "answer": "As a baby I needed help moving.",
       "kind": "text",
-      "skill": "sequence",
-      "rationale": "Page 2 says the child could sit up and crawl, while page 4 later says the child learned to run and jump.",
-      "evidencePage": 2,
-      "evidenceText": "I grew bigger. I could sit up and crawl.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 4,
-          "evidenceText": "I learned to run and jump. I grew more every day."
-        }
-      ]
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "As a baby I needed help moving."
     },
     {
       "id": "first-facts-a-21-how-i-grow-q2",
-      "prompt": "According to the book, what helps the body grow big and strong?",
+      "prompt": "Which fact about now I is given in Ways I Grow?",
       "choices": [
-        "sleep",
-        "food",
-        "sunlight"
+        "Now I can do more things.",
+        "As a baby I needed help moving.",
+        "People grow in different ways and times."
       ],
-      "answer": "food",
-      "kind": "word",
-      "skill": "cause_effect",
-      "evidencePage": 6,
-      "evidenceText": "Food helps my body get big and strong."
+      "answer": "Now I can do more things.",
+      "kind": "text",
+      "skill": "comparison",
+      "evidencePage": 5,
+      "evidenceText": "Now I can do more things."
     },
     {
       "id": "first-facts-a-21-how-i-grow-q3",
-      "prompt": "What does the child say will happen one day?",
+      "prompt": "Which statement gives the main idea of Ways I Grow?",
       "choices": [
-        "they will stay tiny",
-        "they will stop growing",
-        "they will be tall"
+        "People grow in different ways and times.",
+        "As a baby I needed help moving.",
+        "Now I can do more things."
       ],
-      "answer": "they will be tall",
+      "answer": "People grow in different ways and times.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "People grow in different ways and times. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "One day I will be tall!"
+      "evidenceText": "People grow in different ways and times."
     }
   ]
 }

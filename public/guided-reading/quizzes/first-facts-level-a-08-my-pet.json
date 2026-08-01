@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-08-my-pet",
-  "contentHash": "sha256:54c2bfc40f6533d65a066fafaea1014041f604d0f01873da0e6213cb617d76d1",
+  "contentHash": "sha256:7422c92ff076f0d6d63231927a63e3afa32037c600e51d3dfb4f322f455e6f44",
   "questions": [
     {
       "id": "first-facts-level-a-08-my-pet-q1",
-      "prompt": "What does my dog have?",
+      "prompt": "Which fact is introduced first in Pets We Care For?",
       "choices": [
-        "a bed",
-        "a tank",
-        "a cage"
+        "A dog sleeps in a bed.",
+        "A fish swims in a tank.",
+        "Every pet needs gentle care."
       ],
-      "answer": "a bed",
+      "answer": "A dog sleeps in a bed.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "My dog has a bed.\nIt is soft."
+      "evidenceText": "A dog sleeps in a bed."
     },
     {
       "id": "first-facts-level-a-08-my-pet-q2",
-      "prompt": "Who has a tank?",
+      "prompt": "What do we learn about a fish?",
       "choices": [
-        "my fish",
-        "my cat",
-        "my rabbit"
+        "A fish swims in a tank.",
+        "A dog sleeps in a bed.",
+        "Every pet needs gentle care."
       ],
-      "answer": "my fish",
+      "answer": "A fish swims in a tank.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "My fish has a tank.\nIt is wet."
+      "evidenceText": "A fish swims in a tank."
     },
     {
       "id": "first-facts-level-a-08-my-pet-q3",
-      "prompt": "What is my pet?",
+      "prompt": "What is the big idea in Pets We Care For?",
       "choices": [
-        "my friend",
-        "my toy",
-        "my hat"
+        "Every pet needs gentle care.",
+        "A dog sleeps in a bed.",
+        "A fish swims in a tank."
       ],
-      "answer": "my friend",
+      "answer": "Every pet needs gentle care.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "main_idea",
+      "rationale": "Every pet needs gentle care. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "My pet is my friend!"
+      "evidenceText": "Every pet needs gentle care."
     }
   ]
 }

@@ -34,6 +34,13 @@ import { getClassDashboardReadView } from "../appState/classDashboardReadState.j
 
 const TODAY_ZONE_PREVIEW = 3;
 
+function verifiedClassStudentCount(classRow = {}) {
+  const raw = classRow.studentCount ?? classRow.student_count;
+  if (raw === null || raw === undefined || raw === "") return null;
+  const count = Number(raw);
+  return Number.isFinite(count) && count >= 0 ? count : null;
+}
+
 // "Today · Tuesday 28 July" — the header kicker names the day the briefing
 // describes, in the reader's own timezone.
 function todayKicker(now = new Date()) {
@@ -753,22 +760,23 @@ export function TeacherTodayPage({
             <span>Choose a class to see today’s dashboard, priorities and student results.</span>
           </div>
           <div className="teacher-class-gate-grid">
-            {visibleClassList.map((classRow, index) => (
-              <button
-                key={classRow.id}
-                type="button"
-                className={index === 0 ? "is-first" : ""}
-                onClick={() => onSelectClass?.(classRow.id)}
-              >
-                <strong>{classRow.name || "Untitled class"}</strong>
-                <span>
-                  {Number(classRow.studentCount ?? classRow.student_count ?? 0)} student{
-                    Number(classRow.studentCount ?? classRow.student_count ?? 0) === 1 ? "" : "s"
-                  }
-                </span>
-                <em>Open class →</em>
-              </button>
-            ))}
+            {visibleClassList.map((classRow, index) => {
+              const count = verifiedClassStudentCount(classRow);
+              return (
+                <button
+                  key={classRow.id}
+                  type="button"
+                  className={index === 0 ? "is-first" : ""}
+                  onClick={() => onSelectClass?.(classRow.id)}
+                >
+                  <strong>{classRow.name || "Untitled class"}</strong>
+                  {count !== null && (
+                    <span>{count} student{count === 1 ? "" : "s"}</span>
+                  )}
+                  <em>Open class →</em>
+                </button>
+              );
+            })}
           </div>
         </section>
       )}

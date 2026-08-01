@@ -1,64 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-25",
-  "contentHash": "sha256:2aae1d535cbb4c5ab86b305397b27f9d75fb1584109b531191a7e505c5101aa4",
+  "contentHash": "sha256:2f394fd04d6f8d492fce88e593cd2bdafc6700d13b129b9a9e0331f0e5a40ddf",
   "questions": [
     {
       "id": "moonwood-tales-c-25-q1",
-      "prompt": "How did Luna and Glimmer help the group travel into the Deep Dark?",
+      "prompt": "Which event introduces the situation in One Night in the Deep Dark?",
       "choices": [
-        "Luna led because her eyes could see in any dark, and Glimmer breathed a small flame for the path.",
-        "Luna drew a map of every dark path, and Glimmer carried everyone through the forest.",
-        "Luna opened a tunnel under the trees, and Glimmer stayed behind to guard the Hollow Oak."
+        "Deep at night, a small sound reaches the clearing edge.",
+        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
+        "The creature runs to its family, who gather around without fear."
       ],
-      "answer": "Luna led because her eyes could see in any dark, and Glimmer breathed a small flame for the path.",
+      "answer": "Deep at night, a small sound reaches the clearing edge.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 7,
-      "evidenceText": "Luna led — her eyes could see in any dark.\nGlimmer breathed a small flame for the path."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Deep at night, a small sound reaches the clearing edge."
     },
     {
       "id": "moonwood-tales-c-25-q2",
-      "prompt": "Why does the whole group enter the Deep Dark together?",
+      "prompt": "Which event shows that the first attempt fails in One Night in the Deep Dark?",
       "choices": [
-        "to take the creature home",
-        "to collect the silver moss",
-        "to race through the darkness"
+        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
+        "Deep at night, a small sound reaches the clearing edge.",
+        "The creature runs to its family, who gather around without fear."
       ],
-      "answer": "to take the creature home",
+      "answer": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
       "kind": "text",
-      "skill": "motivation",
-      "rationale": "Pip promises to take the frightened creature home, and the group agrees to go together; returning the creature home is why the whole group enters the Deep Dark.",
-      "evidencePage": 6,
-      "evidenceText": "\"We'll take you home,\" said Pip.\n\"But the Deep Dark—\" said Wren.\n\"We'll go together,\" said Pip.\nEveryone looked at each other.\n\"Together,\" said Stone.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "A small creature was at the edge of the clearing.\nIt had very large silver eyes.\nIt was frightened."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing."
     },
     {
       "id": "moonwood-tales-c-25-q3",
-      "prompt": "What lesson does Pip draw from the creature's journey home?",
+      "prompt": "Which event resolves the central problem in One Night in the Deep Dark?",
       "choices": [
-        "Bravery can mean finding your way back to safety.",
-        "Glimmer's flame was what made the creature brave.",
-        "The creature proved its bravery by leaving home."
+        "The creature runs to its family, who gather around without fear.",
+        "Deep at night, a small sound reaches the clearing edge.",
+        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing."
       ],
-      "answer": "Bravery can mean finding your way back to safety.",
+      "answer": "The creature runs to its family, who gather around without fear.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "The creature reaches its waiting family, and Pip calls its run home \"the bravest kind\"; this shows bravery can mean finding your way back to safety.",
-      "evidencePage": 12,
-      "evidenceText": "\"Yes,\" he said. \"It ran home.\"\n\"That's the bravest kind.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "The creature ran to its family.\nThe family gathered around it."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "The creature runs to its family, who gather around without fear. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "The creature runs to its family, who gather around without fear."
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-13-clumsy-to-the-rescue",
-  "contentHash": "sha256:56ed3e15dd1aab0168070b2de5dd38422b7075315abf9ab3c093f1e7124bd79f",
+  "contentHash": "sha256:a027a4e52f50e2c9012ba7245764bbfa2e5e76c5fd9a5f3eab89b4d03725557d",
   "questions": [
     {
       "id": "dino-pals-13-clumsy-to-the-rescue-q1",
-      "prompt": "Why could Clumsy search farther than the others?",
+      "prompt": "Which event begins Clumsy to the Rescue?",
       "choices": [
-        "Clumsy could see over the ferns.",
-        "Clumsy knew every hiding place.",
-        "Clumsy could swim underwater."
+        "Dozy cannot find his blue pillow anywhere.",
+        "Clumsy scans beyond the ferns and waterfall.",
+        "Bouncy remembers knocking it downstream."
       ],
-      "answer": "Clumsy could see over the ferns.",
+      "answer": "Dozy cannot find his blue pillow anywhere.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "Clumsy could see over all the ferns, past the waterfall, all the way to the Long Meadow and beyond."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Dozy cannot find his blue pillow anywhere."
     },
     {
       "id": "dino-pals-13-clumsy-to-the-rescue-q2",
-      "prompt": "Where did Clumsy spot Dozy's pillow?",
+      "prompt": "Which event shows the first plan fails in Clumsy to the Rescue?",
       "choices": [
-        "under a berry bush",
-        "in the waterfall",
-        "inside a cave"
+        "Clumsy scans beyond the ferns and waterfall.",
+        "Dozy cannot find his blue pillow anywhere.",
+        "Bouncy remembers knocking it downstream."
       ],
-      "answer": "in the waterfall",
+      "answer": "Clumsy scans beyond the ferns and waterfall.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 7,
-      "evidenceText": "It is in the waterfall."
+      "skill": "problem_solution",
+      "rationale": "Clumsy scans beyond the ferns and waterfall. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Clumsy scans beyond the ferns and waterfall."
     },
     {
       "id": "dino-pals-13-clumsy-to-the-rescue-q3",
-      "prompt": "What did Dozy do after thanking Clumsy and Wiggly?",
+      "prompt": "Which event solves the problem in Clumsy to the Rescue?",
       "choices": [
-        "fell asleep on the spot",
-        "ran back to the waterfall",
-        "gave the pillow to Bossy"
+        "Bouncy remembers knocking it downstream.",
+        "Dozy cannot find his blue pillow anywhere.",
+        "Clumsy scans beyond the ferns and waterfall."
       ],
-      "answer": "fell asleep on the spot",
+      "answer": "Bouncy remembers knocking it downstream.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 11,
-      "evidenceText": "Thank you, said Dozy. Both of you. Then Dozy fell asleep, right there, on the spot."
+      "rationale": "Bouncy remembers knocking it downstream. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Bouncy remembers knocking it downstream."
     }
   ]
 }

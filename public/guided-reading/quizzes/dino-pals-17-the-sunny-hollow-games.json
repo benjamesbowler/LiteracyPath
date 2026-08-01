@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-17-the-sunny-hollow-games",
-  "contentHash": "sha256:d334dbc9b82738ee8174009117ecd626f99cae972a2575f4ca04c5c8220d10cd",
+  "contentHash": "sha256:7ad83988a0b2e6f87cd3f1b6951576ab594ea764ca895671027fc1e6d44fe1dc",
   "questions": [
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q1",
-      "prompt": "Who won the running race?",
+      "prompt": "Which event begins The Sunny Hollow Games?",
       "choices": [
-        "Bouncy",
-        "Zippy",
-        "Honky"
+        "Bossy opens the first Sunny Hollow Games.",
+        "Wiggly's tail ruins the tidy corner.",
+        "Cheeky records Grumpy's strongest grumpy face."
       ],
-      "answer": "Zippy",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "Zippy won the running race before anyone else had started."
+      "answer": "Bossy opens the first Sunny Hollow Games.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bossy opens the first Sunny Hollow Games."
     },
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q2",
-      "prompt": "Why did Wiggly give himself zero points for tidiness?",
+      "prompt": "Which event shows the first plan fails in The Sunny Hollow Games?",
       "choices": [
-        "He slept through the event.",
-        "He hid the prize pebbles.",
-        "His tail knocked everything over."
+        "Wiggly's tail ruins the tidy corner.",
+        "Bossy opens the first Sunny Hollow Games.",
+        "Cheeky records Grumpy's strongest grumpy face."
       ],
-      "answer": "His tail knocked everything over.",
+      "answer": "Wiggly's tail ruins the tidy corner.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "problem_solution",
+      "rationale": "Wiggly's tail ruins the tidy corner. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "The tail knocked everything over while tidying. I am giving myself zero points, said Wiggly."
+      "evidenceText": "Wiggly's tail ruins the tidy corner."
     },
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q3",
-      "prompt": "What did Bossy say was the point of the Games?",
+      "prompt": "Which event solves the problem in The Sunny Hollow Games?",
       "choices": [
-        "Everyone won something.",
-        "Only the fastest Pal won something.",
-        "One Pal won every event."
+        "Cheeky records Grumpy's strongest grumpy face.",
+        "Bossy opens the first Sunny Hollow Games.",
+        "Wiggly's tail ruins the tidy corner."
       ],
-      "answer": "Everyone won something.",
+      "answer": "Cheeky records Grumpy's strongest grumpy face.",
       "kind": "text",
-      "skill": "theme",
-      "evidencePage": 12,
-      "evidenceText": "Everyone won something, said Bossy. That is the point."
+      "skill": "outcome",
+      "rationale": "Cheeky records Grumpy's strongest grumpy face. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Cheeky records Grumpy's strongest grumpy face."
     }
   ]
 }

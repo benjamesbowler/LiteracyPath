@@ -43,6 +43,30 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 2, 3, 5, 6, 7, 10]
   },
   {
+    id: "story-content-policy",
+    label: "Registered narrative content, exact source fingerprints, and supported approval claims",
+    command: ["npm", "run", "check:story-content-policy"],
+    areas: [1, 2, 3, 4, 10]
+  },
+  {
+    id: "guided-reading-story-bible",
+    label: "Guided Reading Story Bible, level ladder, exact narration, and locked manuscript review",
+    command: ["npm", "run", "check:guided-reading-story-bible"],
+    areas: [1, 2, 3, 4, 10]
+  },
+  {
+    id: "guided-reading-visual-alignment",
+    label: "Every Guided Reading page has hash-locked Story-Bible-aligned illustration approval",
+    command: ["npm", "run", "check:guided-reading-visual-alignment"],
+    areas: [1, 3, 4, 10]
+  },
+  {
+    id: "guided-reading-evidence-questions",
+    label: "Every Guided Reading book has three evidence-grounded, unambiguous questions",
+    command: ["npm", "run", "check:validate:guided-reading-questions"],
+    areas: [1, 2, 4, 10]
+  },
+  {
     id: "public-source-maps",
     label: "Public build contains no source maps or map references",
     command: ["npm", "run", "check:public-source-maps"],
@@ -59,6 +83,18 @@ export const RELEASE_GATES = Object.freeze([
     label: "Current v3 assessment structure, originality, answer integrity, progression, repeat safety, and reporting",
     command: ["npm", "run", "check:assessment-question-integrity"],
     areas: [1, 4, 10]
+  },
+  {
+    id: "question-design-policy",
+    label: "Research-backed question design across assessments, reading, quests, games, and worksheets",
+    command: ["npm", "run", "check:question-design-policy"],
+    areas: [1, 2, 3, 4, 8, 10]
+  },
+  {
+    id: "learn-games",
+    label: "Arcade literacy mechanics, recorded cues, media, and integration",
+    command: ["npm", "run", "check:learn-games"],
+    areas: [1, 2, 3, 4, 8, 10]
   },
   {
     id: "guided-reading-decoding-support",

@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-20",
-  "contentHash": "sha256:f6dd110f8832428b503b9ce095d98b71a33006f199ce0f3cbabae66446f51eb7",
+  "contentHash": "sha256:9b4121593c94526c959b0051c09682bb6a379db76bbe18c25f90888292cffc35",
   "questions": [
     {
       "id": "moonwood-tales-c-20-q1",
-      "prompt": "Which description matches the star spirits after they landed?",
+      "prompt": "Which event introduces the situation in The Night the Stars Fell?",
       "choices": [
-        "They bounced, giggled, and left gold trails.",
-        "They crawled silently and left muddy tracks.",
-        "They flew in circles and dropped blue feathers."
+        "Near midnight, small gold lights fall from the sky into Moonwood.",
+        "Pip lifts one from ground level. The sky does not pull it.",
+        "The last spirit blinks at Stone, then rises before dawn."
       ],
-      "answer": "They bounced, giggled, and left gold trails.",
+      "answer": "Near midnight, small gold lights fall from the sky into Moonwood.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "The small things landed and bounced.\nThey bounced along the ground.\nThey made a sound like giggling.\nThey left gold trails where they bounced."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Near midnight, small gold lights fall from the sky into Moonwood."
     },
     {
       "id": "moonwood-tales-c-20-q2",
-      "prompt": "Why must the star spirits be taken to Moonwood's highest point?",
+      "prompt": "Which event shows that the first attempt fails in The Night the Stars Fell?",
       "choices": [
-        "They need height.",
-        "They need cold.",
-        "They need darkness."
+        "Pip lifts one from ground level. The sky does not pull it.",
+        "Near midnight, small gold lights fall from the sky into Moonwood.",
+        "The last spirit blinks at Stone, then rises before dawn."
       ],
-      "answer": "They need height.",
+      "answer": "Pip lifts one from ground level. The sky does not pull it.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 7,
-      "evidenceText": "\"They need height,\" said Luna.\n\"The highest point in Moonwood.\""
+      "skill": "problem_solution",
+      "rationale": "Pip lifts one from ground level. The sky does not pull it. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Pip lifts one from ground level. The sky does not pull it."
     },
     {
       "id": "moonwood-tales-c-20-q3",
-      "prompt": "What lesson is shown when Stone, Pip, and Spark lift the spirits together?",
+      "prompt": "Which event resolves the central problem in The Night the Stars Fell?",
       "choices": [
-        "Friends can help the spirits by working together.",
-        "Stone should send every spirit back alone.",
-        "The spirits do not need anyone's help."
+        "The last spirit blinks at Stone, then rises before dawn.",
+        "Near midnight, small gold lights fall from the sky into Moonwood.",
+        "Pip lifts one from ground level. The sky does not pull it."
       ],
-      "answer": "Friends can help the spirits by working together.",
+      "answer": "The last spirit blinks at Stone, then rises before dawn.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Stone raises the star spirits while Pip and Spark add a push, and the spirits then reach their places in the sky; this shows friends can help the spirits by working together.",
-      "evidencePage": 10,
-      "evidenceText": "Stone raised their hands high.\nPip and Spark added a little push.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "The star spirits went up.\nSlowly at first.\nThen faster.\nOne by one they found their places."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "The last spirit blinks at Stone, then rises before dawn. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "The last spirit blinks at Stone, then rises before dawn."
     }
   ]
 }

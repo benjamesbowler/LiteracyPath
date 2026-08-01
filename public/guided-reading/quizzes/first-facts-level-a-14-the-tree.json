@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-14-the-tree",
-  "contentHash": "sha256:b116b9f96e244f3dc8976dcacdbbeadff6dca83f229e97b18db3152f9bfda3d3",
+  "contentHash": "sha256:f1fd3dc4f30fb6f5197bcd871597559ca1c8f0e4f6970c8f50621eef7a56bcbc",
   "questions": [
     {
       "id": "first-facts-level-a-14-the-tree-q1",
-      "prompt": "Is the tree big or little?",
+      "prompt": "What do we learn about the tree?",
       "choices": [
-        "big",
-        "little",
-        "flat"
+        "The tree grows tall.",
+        "The trunk holds the tree.",
+        "Every part helps the tree."
       ],
-      "answer": "big",
-      "kind": "word",
-      "skill": "comparison",
+      "answer": "The tree grows tall.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The tree is big.\nIt is tall."
+      "evidenceText": "The tree grows tall."
     },
     {
       "id": "first-facts-level-a-14-the-tree-q2",
-      "prompt": "What goes down into the ground?",
+      "prompt": "What do we learn about the trunk?",
       "choices": [
-        "the roots",
-        "the leaves",
-        "the apples"
+        "The trunk holds the tree.",
+        "The tree grows tall.",
+        "Every part helps the tree."
       ],
-      "answer": "the roots",
+      "answer": "The trunk holds the tree.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "The tree has roots.\nThey go down."
+      "evidencePage": 3,
+      "evidenceText": "The trunk holds the tree."
     },
     {
       "id": "first-facts-level-a-14-the-tree-q3",
-      "prompt": "What does the book say can be picked from the tree?",
+      "prompt": "What is the big idea in The Apple Tree?",
       "choices": [
-        "an apple",
-        "a leaf",
-        "a root"
+        "Every part helps the tree.",
+        "The tree grows tall.",
+        "The trunk holds the tree."
       ],
-      "answer": "an apple",
+      "answer": "Every part helps the tree.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "The tree has red apples.\nI can pick one."
+      "skill": "main_idea",
+      "rationale": "Every part helps the tree. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Every part helps the tree."
     }
   ]
 }

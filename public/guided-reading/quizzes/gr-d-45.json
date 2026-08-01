@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-d-45",
-  "contentHash": "sha256:738f0b3532d6e176f2bb225a1c1d999b14d2b75958bbf18b2c6b76b5adf006d8",
+  "contentHash": "sha256:0d1cc233adadc85c8864c6ae9435d2043c616b0746f83699773a513afb0acc4d",
   "questions": [
     {
       "id": "gr-d-45-q1",
-      "prompt": "What is the sun?",
+      "prompt": "Which fact about the Sun is given in Space?",
       "choices": [
-        "a big star",
-        "a planet",
-        "a cloud"
+        "The Sun is our nearest star.",
+        "The Moon travels around Earth.",
+        "Space extends far beyond our view."
       ],
-      "answer": "a big star",
+      "answer": "The Sun is our nearest star.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The sun is a big star."
+      "evidenceText": "The Sun is our nearest star."
     },
     {
       "id": "gr-d-45-q2",
-      "prompt": "What moves around Earth?",
+      "prompt": "Which fact about the Moon is given in Space?",
       "choices": [
-        "the moon",
-        "the sun",
-        "a jet"
+        "The Moon travels around Earth.",
+        "The Sun is our nearest star.",
+        "Space extends far beyond our view."
       ],
-      "answer": "the moon",
+      "answer": "The Moon travels around Earth.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "The moon moves around Earth."
+      "evidenceText": "The Moon travels around Earth."
     },
     {
       "id": "gr-d-45-q3",
-      "prompt": "What moves around the sun?",
+      "prompt": "Which statement gives the main idea of Space?",
       "choices": [
-        "Earth",
-        "the moon",
-        "the stars"
+        "Space extends far beyond our view.",
+        "The Sun is our nearest star.",
+        "The Moon travels around Earth."
       ],
-      "answer": "Earth",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "Earth moves around the sun."
+      "answer": "Space extends far beyond our view.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Space extends far beyond our view. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "Space extends far beyond our view."
     }
   ]
 }

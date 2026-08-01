@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-23-my-body",
-  "contentHash": "sha256:b6c7577cd9cfb18ad13c086f53444258b6ab0a39bce438687c68e0030dcf99c0",
+  "contentHash": "sha256:23d564dd4ddb919d7fd8ce148337c31faf74699cb28fdcc4a158617fe1a0380f",
   "questions": [
     {
       "id": "first-facts-a-23-my-body-q1",
-      "prompt": "What can the speaker do with their hands?",
+      "prompt": "Which fact about my head is given in My Body?",
       "choices": [
-        "clap",
-        "smell",
-        "kick"
+        "My head holds my face and brain.",
+        "My legs and feet help me move.",
+        "My body belongs to me."
       ],
-      "answer": "clap",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "I have two arms. I have two hands. I can clap!"
+      "answer": "My head holds my face and brain.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "My head holds my face and brain."
     },
     {
       "id": "first-facts-a-23-my-body-q2",
-      "prompt": "Where does the speaker say food goes?",
+      "prompt": "Which fact about my legs and feet is given in My Body?",
       "choices": [
-        "into their head",
-        "into their tummy",
-        "into their hands"
+        "My legs and feet help me move.",
+        "My head holds my face and brain.",
+        "My body belongs to me."
       ],
-      "answer": "into their tummy",
+      "answer": "My legs and feet help me move.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "Food goes into my tummy."
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "My legs and feet help me move."
     },
     {
       "id": "first-facts-a-23-my-body-q3",
-      "prompt": "What does the speaker say they do for their body?",
+      "prompt": "Which statement gives the main idea of My Body?",
       "choices": [
-        "keep it safe and strong",
-        "make it hop, skip, and spin",
-        "use it only to clap and kick"
+        "My body belongs to me.",
+        "My head holds my face and brain.",
+        "My legs and feet help me move."
       ],
-      "answer": "keep it safe and strong",
+      "answer": "My body belongs to me.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "My body belongs to me. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "I keep it safe and strong."
+      "evidenceText": "My body belongs to me."
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-12-hungry-eats-everything",
-  "contentHash": "sha256:3a0641e974b911461e141beea58ec6f2a25ca88619ac07d1fac72c420b03249f",
+  "contentHash": "sha256:2a53e902212733bf70ed7f70c5085894f437e5dedb593126334e7db4229a307f",
   "questions": [
     {
       "id": "meadow-pals-12-hungry-eats-everything-q1",
-      "prompt": "Who brings Hungry some fresh hay?",
+      "prompt": "What happens first in Hungry Finds Lunch?",
       "choices": [
-        "the farmer",
-        "the baker",
-        "the vet"
+        "Hungry eats some grass.",
+        "Hungry is still hungry.",
+        "Hungry feels full now."
       ],
-      "answer": "the farmer",
+      "answer": "Hungry eats some grass.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "The farmer brought fresh hay."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Hungry eats some grass."
     },
     {
       "id": "meadow-pals-12-hungry-eats-everything-q2",
-      "prompt": "Where does Hungry go while looking for more food?",
+      "prompt": "What goes wrong in Hungry Finds Lunch?",
       "choices": [
-        "the farm gate",
-        "the big hill",
-        "the muddy pond"
+        "Hungry is still hungry.",
+        "Hungry eats some grass.",
+        "Hungry feels full now."
       ],
-      "answer": "the farm gate",
+      "answer": "Hungry is still hungry.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 4,
-      "evidenceText": "Hungry went to the farm gate."
+      "skill": "problem_solution",
+      "rationale": "Hungry is still hungry. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Hungry is still hungry."
     },
     {
       "id": "meadow-pals-12-hungry-eats-everything-q3",
-      "prompt": "How does Hungry feel after eating and drinking?",
+      "prompt": "What happens at the end of Hungry Finds Lunch?",
       "choices": [
-        "full",
-        "hungry",
-        "sleepy"
+        "Hungry feels full now.",
+        "Hungry eats some grass.",
+        "Hungry is still hungry."
       ],
-      "answer": "full",
-      "kind": "word",
+      "answer": "Hungry feels full now.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Hungry feels full now. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "\"I am full now,\" said Hungry."
+      "evidenceText": "Hungry feels full now."
     }
   ]
 }

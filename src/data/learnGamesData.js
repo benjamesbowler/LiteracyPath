@@ -413,12 +413,12 @@ export const GAME_LIST = [
   },
   {
     id: "grammar-grind",
-    title: "Grammar Grind",
-    skill: "Skate through grammar gates",
-    category: "Grammar",
+    title: "Spell & Skate",
+    skill: "Build words from sounds",
+    category: "Spelling",
     ...GAME_ACCENTS.amber,
     icon: "/images/learn-games/art/grammar-grind.webp",
-    description: "Push, jump, grind rails, and ride through the gate that fixes the sentence.",
+    description: "Collect graphemes in order, blend the word, then skate through the matching gate.",
     is3D: true,
     fullBleed: true,
     surfaces: ["arcade"]

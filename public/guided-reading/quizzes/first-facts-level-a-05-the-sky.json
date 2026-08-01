@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-05-the-sky",
-  "contentHash": "sha256:1b0531bb8d4d6f82642f819afa8c32951cdd2655fc8bfe33907b4ea7012194d2",
+  "contentHash": "sha256:fbe33496c84b1ca6fdd82ccd4394a1a98bf4be0f6d31ae9f5b27562c01998935",
   "questions": [
     {
       "id": "first-facts-level-a-05-the-sky-q1",
-      "prompt": "What is hot in the sky?",
+      "prompt": "What do we learn about the Sun?",
       "choices": [
-        "the sun",
-        "the moon",
-        "a cloud"
+        "The Sun shines above us.",
+        "Stars shine at night.",
+        "Look up at the wide sky."
       ],
-      "answer": "the sun",
+      "answer": "The Sun shines above us.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The sun is up.\nIt is hot."
+      "evidenceText": "The Sun shines above us."
     },
     {
       "id": "first-facts-level-a-05-the-sky-q2",
-      "prompt": "What does the moon do?",
+      "prompt": "What do we learn about stars?",
       "choices": [
-        "it rains",
-        "it glows",
-        "it flies"
+        "Stars shine at night.",
+        "The Sun shines above us.",
+        "Look up at the wide sky."
       ],
-      "answer": "it glows",
+      "answer": "Stars shine at night.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "The moon is up.\nIt glows."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Stars shine at night."
     },
     {
       "id": "first-facts-level-a-05-the-sky-q3",
-      "prompt": "What is white in the sky?",
+      "prompt": "What is the big idea in The Sky?",
       "choices": [
-        "a star",
-        "a bat",
-        "a cloud"
+        "Look up at the wide sky.",
+        "The Sun shines above us.",
+        "Stars shine at night."
       ],
-      "answer": "a cloud",
+      "answer": "Look up at the wide sky.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "A cloud is up.\nIt is white."
+      "skill": "main_idea",
+      "rationale": "Look up at the wide sky. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Look up at the wide sky."
     }
   ]
 }

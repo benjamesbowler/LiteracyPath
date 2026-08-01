@@ -412,9 +412,11 @@ function buildEncounter(kind, ctx) {
     case "flower-patch": {
       // THREE flowers, one after another. Not "question 1 of 3" — a patch of
       // flowers you walk into, and each one opens when you find its sound.
-      const rounds = (flowerTargets || [])
-        .map(t => buildAudibleLetterRound(buildSoundStonesRound, t, { stopIndex, mastery, rng, choices: 3 }))
-        .filter(Boolean);
+      const rounds = buildChangingLetterRounds(
+        buildSoundStonesRound,
+        flowerTargets,
+        { stopIndex, mastery, rng, choices: 3 }
+      );
       if (!rounds.length) return null;
       return {
         kind,
@@ -423,9 +425,11 @@ function buildEncounter(kind, ctx) {
     }
 
     case "hungry-beast": {
-      const rounds = (beastTargets || [])
-        .map(t => buildAudibleLetterRound(buildBeastFeedRound, t, { stopIndex, mastery, rng, choices: 3 }))
-        .filter(Boolean);
+      const rounds = buildChangingLetterRounds(
+        buildBeastFeedRound,
+        beastTargets,
+        { stopIndex, mastery, rng, choices: 3 }
+      );
       if (!rounds.length) return null;
       return {
         kind,
@@ -436,9 +440,11 @@ function buildEncounter(kind, ctx) {
     case "trail-run": {
       // Fluency remains audio-led. Where a clean isolated phoneme has not yet
       // been recorded, a clean example word supplies an honest position cue.
-      const rounds = (runTargets || [])
-        .map(t => buildAudibleLetterRound(buildTrailRunRound, t, { stopIndex, mastery, rng, choices: 3 }))
-        .filter(Boolean);
+      const rounds = buildChangingLetterRounds(
+        buildTrailRunRound,
+        runTargets,
+        { stopIndex, mastery, rng, choices: 3 }
+      );
       if (!rounds.length) return null;
       return {
         kind,
@@ -518,6 +524,21 @@ function buildEncounter(kind, ctx) {
     default:
       return null;
   }
+}
+
+function buildChangingLetterRounds(builder, targets = [], options) {
+  let previousChoices = [];
+  const rounds = [];
+  for (const target of targets || []) {
+    const round = buildAudibleLetterRound(builder, target, {
+      ...options,
+      avoidChoices: previousChoices
+    });
+    if (!round) continue;
+    rounds.push(round);
+    previousChoices = round.choices || [];
+  }
+  return rounds;
 }
 
 function buildAudibleLetterRound(builder, target, options) {

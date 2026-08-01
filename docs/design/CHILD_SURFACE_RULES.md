@@ -24,6 +24,9 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   viewport the browser page, glass stage, content pane and route root must all
   have equal client and scroll dimensions. The marketing landing page is the
   explicit scrolling exception.
+- Arcade and Letters must additionally prove complete-content fit at the common
+  1366×768 laptop viewport: every Arcade title and star row, all 26 letter
+  choices, and the Letters progress panel remain above the persistent tab bar.
 - The stage keeps a fixed 834-design-pixel height but follows the available
   viewport width. A narrow centred band or decorative empty side gutters on an
   ordinary laptop, tablet or 21:9 review display are defects.
@@ -78,4 +81,6 @@ library hierarchy, Beastie nook and teacher class-entry contracts. The browser
 contract mounts the real component for all nine child rows and requires the
 route root, all five visible regions, exactly one `h1`, exactly one primary
 action, and zero page errors. The 1280×720 ship check additionally requires
-equal client and scroll dimensions for every signed-in child hub.
+equal client and scroll dimensions for every signed-in child hub. The visual
+regression contract separately measures Arcade and Letters at 1366×768 and
+fails if any named tile, progress row, or letter choice is clipped.

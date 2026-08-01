@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-19-day-and-night",
-  "contentHash": "sha256:16b9e90248bea8d2df99fb6675732c0286fd65fe2e41d589491b2c4c556a9960",
+  "contentHash": "sha256:176d1d7c68e22c486974829d5905ef33e3f6a2b4738e0deba083fc1652f03b74",
   "questions": [
     {
       "id": "first-facts-level-a-19-day-and-night-q1",
-      "prompt": "What color is the sky in the day?",
+      "prompt": "Which fact is introduced first in Day and Night?",
       "choices": [
-        "blue",
-        "dark",
-        "red"
+        "The Sun lights the blue sky.",
+        "Daytime is bright.",
+        "Day and night take turns."
       ],
-      "answer": "blue",
-      "kind": "word",
+      "answer": "The Sun lights the blue sky.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The sun is up.\nThe sky is blue."
+      "evidenceText": "The Sun lights the blue sky."
     },
     {
       "id": "first-facts-level-a-19-day-and-night-q2",
-      "prompt": "Who sings in the day?",
+      "prompt": "What do we learn about daytime?",
       "choices": [
-        "birds",
-        "stars",
-        "the moon"
+        "Daytime is bright.",
+        "The Sun lights the blue sky.",
+        "Day and night take turns."
       ],
-      "answer": "birds",
-      "kind": "word",
+      "answer": "Daytime is bright.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "Birds sing in the day."
+      "evidencePage": 2,
+      "evidenceText": "Daytime is bright."
     },
     {
       "id": "first-facts-level-a-19-day-and-night-q3",
-      "prompt": "What comes out at night?",
+      "prompt": "What is the big idea in Day and Night?",
       "choices": [
-        "stars",
-        "the sun",
-        "birds"
+        "Day and night take turns.",
+        "The Sun lights the blue sky.",
+        "Daytime is bright."
       ],
-      "answer": "stars",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "Stars come out.\nThey are bright."
+      "answer": "Day and night take turns.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Day and night take turns. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Day and night take turns."
     }
   ]
 }

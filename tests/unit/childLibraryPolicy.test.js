@@ -16,6 +16,8 @@ import {
   BOOK_SHELF_SLOTS,
   QUEST_GRID_SLOTS,
   STORY_WORLDS,
+  bookCollectionId,
+  bookCollectionsForLevel,
   bookCoverSrc,
   bookReadingProgress,
   bookStars,
@@ -167,6 +169,31 @@ test("shelf one is the child's own level, ordered by the app's recommender", () 
   assert.equal(shelf.note, "Level A");
 });
 
+test("book collections organise each level without changing its reading difficulty", () => {
+  const books = [
+    book("bob-and-nan-01", "A"),
+    book("meadow-pals-01-muddy-has-a-bath", "A"),
+    book("first-facts-level-a-01-colors", "A"),
+    book("dino-pals-01-chompys-big-lunch", "B"),
+    book("first-facts-a-01-look-at-the-colours", "B"),
+    book("moonwood-tales-c-01", "C")
+  ];
+
+  assert.equal(bookCollectionId(books[0]), "bob-and-nan");
+  assert.equal(bookCollectionId(books[1]), "meadow-pals");
+  assert.equal(bookCollectionId(books[2]), "science-and-facts");
+  assert.equal(bookCollectionId(books[3]), "dino-pals");
+  assert.equal(bookCollectionId(books[5]), "moonwood-tales");
+  assert.deepEqual(
+    bookCollectionsForLevel(books, "A").map(collection => collection.label),
+    ["Bob & Nan", "Meadow Pals", "Science & Facts"]
+  );
+  assert.deepEqual(
+    bookCollectionsForLevel(books, "B").map(collection => collection.label),
+    ["Dino Pals", "Science & Facts"]
+  );
+});
+
 test("a cover is read off the same book object as the title", () => {
   const target = book("rain", "A");
   assert.equal(bookCoverSrc(target), "/covers/rain.webp");
@@ -250,15 +277,14 @@ test("a quest badge says what to do, and the note under it is true", () => {
   assert.equal(startedAhead.badge, "Carry on");
 });
 
-test("the quest grid is always full, and a borrowed story keeps its own badge", () => {
+test("the quest grid never borrows stories from another world", () => {
   for (const world of STORY_WORLDS) {
     const cards = buildQuestGrid({ quests: storyQuests, progress: {}, world: world.id });
-    assert.equal(
-      cards.length,
-      QUEST_GRID_SLOTS,
-      `${world.id} must fill all six cells — a hole in the grid is the half-empty panel the spec forbids`
+    assert.ok(cards.length > 0 && cards.length <= QUEST_GRID_SLOTS);
+    assert.ok(
+      cards.every(card => card.world === world.id),
+      `${world.id} must not show a story from another world`
     );
-    assert.equal(cards[0].world, world.id, "the chosen world comes first");
   }
 
   const finished = storyQuests.find(quest => questWorldId(quest) === "meadow");
@@ -268,8 +294,7 @@ test("the quest grid is always full, and a borrowed story keeps its own badge", 
     world: "moonwood",
     reachedWorld: "moonwood"
   });
-  const borrowed = cards.find(card => card.id === finished.id);
-  if (borrowed) assert.equal(borrowed.badge, "Done");
+  assert.equal(cards.some(card => card.id === finished.id), false);
 });
 
 test("the story you are in is the one the grid puts first", () => {

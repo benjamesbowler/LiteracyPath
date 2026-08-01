@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-25-water-everywhere",
-  "contentHash": "sha256:7451a7bb7f7c2c8f1f6c39489dcc83e20988b598eb48542225a680e3111a1354",
+  "contentHash": "sha256:d2c35573ef29bb78037c83756d332cf69234f367eb1a9bd7299ee7ceac9c4517",
   "questions": [
     {
       "id": "first-facts-a-25-water-everywhere-q1",
-      "prompt": "According to the book, where does rain fall from?",
+      "prompt": "Which fact is introduced first in Water Everywhere?",
       "choices": [
-        "clouds",
-        "rocks",
-        "trees"
+        "Water fills oceans rivers and clouds.",
+        "People drink water every day.",
+        "Water shapes our blue planet."
       ],
-      "answer": "clouds",
-      "kind": "word",
+      "answer": "Water fills oceans rivers and clouds.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "Rain falls from the clouds."
+      "evidencePage": 1,
+      "evidenceText": "Water fills oceans rivers and clouds."
     },
     {
       "id": "first-facts-a-25-water-everywhere-q2",
-      "prompt": "What does the book say drinking water does for us?",
+      "prompt": "Which fact about people is given in Water Everywhere?",
       "choices": [
-        "keeps us healthy",
-        "fills rivers and lakes",
-        "helps keep us clean"
+        "People drink water every day.",
+        "Water fills oceans rivers and clouds.",
+        "Water shapes our blue planet."
       ],
-      "answer": "keeps us healthy",
+      "answer": "People drink water every day.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "key_detail",
       "evidencePage": 4,
-      "evidenceText": "We drink water every day. Water keeps us healthy."
+      "evidenceText": "People drink water every day."
     },
     {
       "id": "first-facts-a-25-water-everywhere-q3",
-      "prompt": "What forms can water take?",
+      "prompt": "Which statement gives the main idea of Water Everywhere?",
       "choices": [
-        "liquid, solid ice, or water vapour",
-        "liquid, solid rock, or water vapour",
-        "rain, solid ice, or dry air"
+        "Water shapes our blue planet.",
+        "Water fills oceans rivers and clouds.",
+        "People drink water every day."
       ],
-      "answer": "liquid, solid ice, or water vapour",
+      "answer": "Water shapes our blue planet.",
       "kind": "text",
-      "skill": "vocabulary",
-      "evidencePage": 7,
-      "evidenceText": "Water can be liquid, solid ice, or water vapour."
+      "skill": "main_idea",
+      "rationale": "Water shapes our blue planet. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Water shapes our blue planet."
     }
   ]
 }

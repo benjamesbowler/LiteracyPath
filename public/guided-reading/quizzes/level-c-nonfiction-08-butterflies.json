@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-08-butterflies",
-  "contentHash": "sha256:eba97d856c39ec683dd133a2d95442f3b08fa643b94fb0ed1a432e3ff8fd72e3",
+  "contentHash": "sha256:96c188f81e260bbcf0298aaecdcd8b659b99caef69f50e334e7c4b58a07b00a7",
   "questions": [
     {
       "id": "level-c-nonfiction-08-butterflies-q1",
-      "prompt": "How many stages are in a butterfly's life cycle?",
+      "prompt": "Which fact about butterflies is given in The Monarch Butterfly Life Cycle?",
       "choices": [
-        "four",
-        "six",
-        "eight"
+        "Butterflies are six-legged insects with four wings and two antennae.",
+        "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
+        "Several monarch generations complete the vast yearly migration cycle."
       ],
-      "answer": "four",
-      "kind": "word",
+      "answer": "Butterflies are six-legged insects with four wings and two antennae.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A butterfly's life has four stages."
+      "evidencePage": 1,
+      "evidenceText": "Butterflies are six-legged insects with four wings and two antennae."
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q2",
-      "prompt": "What happens inside the chrysalis?",
+      "prompt": "Which fact about the caterpillar is given in The Monarch Butterfly Life Cycle?",
       "choices": [
-        "an egg changes straight into a butterfly",
-        "a caterpillar changes into a butterfly",
-        "a butterfly changes into a caterpillar"
+        "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
+        "Butterflies are six-legged insects with four wings and two antennae.",
+        "Several monarch generations complete the vast yearly migration cycle."
       ],
-      "answer": "a caterpillar changes into a butterfly",
+      "answer": "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "Inside the chrysalis, the caterpillar's body changes into a butterfly."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q3",
-      "prompt": "What does a butterfly use its proboscis for?",
+      "prompt": "Which statement gives the main idea of The Monarch Butterfly Life Cycle?",
       "choices": [
-        "to smell flowers",
-        "to taste with its feet",
-        "to drink nectar"
+        "Several monarch generations complete the vast yearly migration cycle.",
+        "Butterflies are six-legged insects with four wings and two antennae.",
+        "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
       ],
-      "answer": "to drink nectar",
+      "answer": "Several monarch generations complete the vast yearly migration cycle.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 8,
-      "evidenceText": "Butterflies drink nectar through a long tube called a proboscis."
+      "skill": "main_idea",
+      "rationale": "Several monarch generations complete the vast yearly migration cycle. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Several monarch generations complete the vast yearly migration cycle."
     }
   ]
 }

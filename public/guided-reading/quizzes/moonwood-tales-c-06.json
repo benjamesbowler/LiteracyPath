@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-06",
-  "contentHash": "sha256:4aa4f0ebdb631478402553e66766e3d532189ddab6ae5a97460092f722e10e76",
+  "contentHash": "sha256:874114241485bc1e708c946aadbfb70a5b77330f36150c4a6bee338ac3d5c9d4",
   "questions": [
     {
       "id": "moonwood-tales-c-06-q1",
-      "prompt": "What does Flint notice when he looks up from his finished map?",
+      "prompt": "Which event introduces the situation in Flint Makes a Map?",
       "choices": [
-        "The forest looks different from his map.",
-        "Everyone is waiting to praise his map.",
-        "The map has disappeared from his hands."
+        "Flint leaves Hollow Oak to map every Moonwood path.",
+        "The surrounding trees do not match his drawing.",
+        "Outside, paths shift. Flint adds today's line to his growing atlas."
       ],
-      "answer": "The forest looks different from his map.",
+      "answer": "Flint leaves Hollow Oak to map every Moonwood path.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 5,
-      "evidenceText": "The forest around him looked very different to the forest on his map."
+      "evidencePage": 1,
+      "evidenceText": "Flint leaves Hollow Oak to map every Moonwood path."
     },
     {
       "id": "moonwood-tales-c-06-q2",
-      "prompt": "Why is Flint's beautiful first map already wrong?",
+      "prompt": "Which event shows that the first attempt fails in Flint Makes a Map?",
       "choices": [
-        "The paths had moved.",
-        "Rain had washed away the ink.",
-        "Pip had drawn extra paths on it."
+        "The surrounding trees do not match his drawing.",
+        "Flint leaves Hollow Oak to map every Moonwood path.",
+        "Outside, paths shift. Flint adds today's line to his growing atlas."
       ],
-      "answer": "The paths had moved.",
+      "answer": "The surrounding trees do not match his drawing.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 6,
-      "evidenceText": "The paths had moved."
+      "skill": "problem_solution",
+      "rationale": "The surrounding trees do not match his drawing. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "The surrounding trees do not match his drawing."
     },
     {
       "id": "moonwood-tales-c-06-q3",
-      "prompt": "What does Flint's choice to start another map show?",
+      "prompt": "Which event resolves the central problem in Flint Makes a Map?",
       "choices": [
-        "He can enjoy the work even when the forest changes.",
-        "He expects his second map to stay correct forever.",
-        "He keeps mapping only so he will never get lost."
+        "Outside, paths shift. Flint adds today's line to his growing atlas.",
+        "Flint leaves Hollow Oak to map every Moonwood path.",
+        "The surrounding trees do not match his drawing."
       ],
-      "answer": "He can enjoy the work even when the forest changes.",
+      "answer": "Outside, paths shift. Flint adds today's line to his growing atlas.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Flint is not upset when he starts a new map, and later he is already very happy as the paths rearrange; this shows he can enjoy the mapping work even when the forest changes.",
-      "evidencePage": 8,
-      "evidenceText": "Flint took out a new piece of parchment. \"I'll make another one,\" he said. He was not upset about this.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 12,
-          "evidenceText": "Then Flint started on the next map. He was already very happy. Outside, the paths rearranged themselves quietly."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Outside, paths shift. Flint adds today's line to his growing atlas. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "Outside, paths shift. Flint adds today's line to his growing atlas."
     }
   ]
 }

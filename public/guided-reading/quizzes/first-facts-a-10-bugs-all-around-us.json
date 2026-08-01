@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-10-bugs-all-around-us",
-  "contentHash": "sha256:d94bde40273510752f6a320d4dfee48012552b133eff16a5d0db5a32d671b228",
+  "contentHash": "sha256:84790a36600b05a373115ccc6ad5598f3b79e8eb78dd4b58ef072ee47ad55f81",
   "questions": [
     {
       "id": "first-facts-a-10-bugs-all-around-us-q1",
-      "prompt": "What do bees make?",
+      "prompt": "Which fact about many small creatures is given in Small Creatures Around Us?",
       "choices": [
-        "honey",
-        "webs",
-        "milk"
+        "Many small creatures live near us.",
+        "Ladybirds are insects that eat aphids.",
+        "Small creatures perform many ecosystem jobs."
       ],
-      "answer": "honey",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 3,
-      "evidenceText": "A bee collects pollen. Bees make honey. Bees are important."
+      "answer": "Many small creatures live near us.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Many small creatures live near us."
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q2",
-      "prompt": "How do worms help?",
+      "prompt": "Which fact about ladybirds is given in Small Creatures Around Us?",
       "choices": [
-        "they help plants grow",
-        "they make honey",
-        "they carry food"
+        "Ladybirds are insects that eat aphids.",
+        "Many small creatures live near us.",
+        "Small creatures perform many ecosystem jobs."
       ],
-      "answer": "they help plants grow",
+      "answer": "Ladybirds are insects that eat aphids.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "A worm lives in the soil. Worms help plants grow."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Ladybirds are insects that eat aphids."
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q3",
-      "prompt": "What main idea does the book show about bugs?",
+      "prompt": "Which statement gives the main idea of Small Creatures Around Us?",
       "choices": [
-        "bugs help our world",
-        "bugs all make honey",
-        "bugs all live in the soil"
+        "Small creatures perform many ecosystem jobs.",
+        "Many small creatures live near us.",
+        "Ladybirds are insects that eat aphids."
       ],
-      "answer": "bugs help our world",
+      "answer": "Small creatures perform many ecosystem jobs.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Small creatures perform many ecosystem jobs. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "Bugs help our world. They are very important!"
+      "evidenceText": "Small creatures perform many ecosystem jobs."
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-09",
-  "contentHash": "sha256:bef2899d77e529d75b48ed70c0743057704fb7bcf5d9d142d706d5ecb91a5579",
+  "contentHash": "sha256:cc16a20363b73b40c83511cf8fa8225b1d3972baca8bc2ead6b531d377cd46b8",
   "questions": [
     {
       "id": "ja-b-09-q1",
-      "prompt": "What helped Anna ride without wobbling?",
+      "prompt": "Which event begins James and Anna's New Bikes?",
       "choices": [
-        "She kept her eyes where she wanted to go.",
-        "She kept her eyes on the ground by the wheel.",
-        "She kept her eyes closed as she pedalled."
+        "James receives a red bike. Anna receives a purple one.",
+        "James stares down, wobbles and tumbles softly into the hedge.",
+        "Keeping both hands on, they ride with Dad to the pond."
       ],
-      "answer": "She kept her eyes where she wanted to go.",
+      "answer": "James receives a red bike. Anna receives a purple one.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "\"How did you DO that?\" said James. \"I kept my eyes on where I wanted to go,\" said Anna. \"Don't look at the ground.\""
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "James receives a red bike. Anna receives a purple one."
     },
     {
       "id": "ja-b-09-q2",
-      "prompt": "What happened when James rode with no hands?",
+      "prompt": "Which event shows the first plan fails in James and Anna's New Bikes?",
       "choices": [
-        "He won the race.",
-        "He headed straight into the bush.",
-        "He reached the pond."
+        "James stares down, wobbles and tumbles softly into the hedge.",
+        "James receives a red bike. Anna receives a purple one.",
+        "Keeping both hands on, they ride with Dad to the pond."
       ],
-      "answer": "He headed straight into the bush.",
+      "answer": "James stares down, wobbles and tumbles softly into the hedge.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 8,
-      "evidenceText": "Then James tried riding with NO hands. He made it exactly three seconds before heading straight into the same bush."
+      "skill": "problem_solution",
+      "rationale": "James stares down, wobbles and tumbles softly into the hedge. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "James stares down, wobbles and tumbles softly into the hedge."
     },
     {
       "id": "ja-b-09-q3",
-      "prompt": "How did their race home finish?",
+      "prompt": "Which event solves the problem in James and Anna's New Bikes?",
       "choices": [
-        "James won.",
-        "Anna won.",
-        "It was a tie."
+        "Keeping both hands on, they ride with Dad to the pond.",
+        "James receives a red bike. Anna receives a purple one.",
+        "James stares down, wobbles and tumbles softly into the hedge."
       ],
-      "answer": "It was a tie.",
+      "answer": "Keeping both hands on, they ride with Dad to the pond.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 12,
-      "evidenceText": "On the way home, James and Anna raced. They crossed the gate post at exactly the same time. A perfect tie."
+      "rationale": "Keeping both hands on, they ride with Dad to the pond. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Keeping both hands on, they ride with Dad to the pond."
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-04-grumpy-needs-help",
-  "contentHash": "sha256:426c21c437c6d2bd2a8d8e86b16977035d6ded2681977c60dcf6a88468b513a3",
+  "contentHash": "sha256:94c5bc278f8ba08380755208a98d5ad4275a25e72b42bdfa960d5bb5091e2a15",
   "questions": [
     {
       "id": "dino-pals-04-grumpy-needs-help-q1",
-      "prompt": "Why was Grumpy stuck?",
+      "prompt": "Which event begins Grumpy Needs Help?",
       "choices": [
-        "His tail was caught under a big rock.",
-        "A branch blocked his cave.",
-        "Mud held his feet."
+        "A heavy rock traps Grumpy's club tail.",
+        "Grumpy pulls. The rock sinks deeper.",
+        "\"Push here together,\" says Grumpy. His tail springs free."
       ],
-      "answer": "His tail was caught under a big rock.",
+      "answer": "A heavy rock traps Grumpy's club tail.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "His tail was caught under a big rock."
+      "evidenceText": "A heavy rock traps Grumpy's club tail."
     },
     {
       "id": "dino-pals-04-grumpy-needs-help-q2",
-      "prompt": "How did the Dino Pals free Grumpy?",
+      "prompt": "Which event shows the first plan fails in Grumpy Needs Help?",
       "choices": [
-        "They waited for rain.",
-        "They pushed together.",
-        "They dug a new path."
+        "Grumpy pulls. The rock sinks deeper.",
+        "A heavy rock traps Grumpy's club tail.",
+        "\"Push here together,\" says Grumpy. His tail springs free."
       ],
-      "answer": "They pushed together.",
+      "answer": "Grumpy pulls. The rock sinks deeper.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 7,
-      "evidenceText": "The Dino Pals pushed together. His tail sprang free!"
+      "rationale": "Grumpy pulls. The rock sinks deeper. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Grumpy pulls. The rock sinks deeper."
     },
     {
       "id": "dino-pals-04-grumpy-needs-help-q3",
-      "prompt": "What did Grumpy admit after the Pals freed him?",
+      "prompt": "Which event solves the problem in Grumpy Needs Help?",
       "choices": [
-        "I did need some help.",
-        "I moved the rock alone.",
-        "I was never really stuck."
+        "\"Push here together,\" says Grumpy. His tail springs free.",
+        "A heavy rock traps Grumpy's club tail.",
+        "Grumpy pulls. The rock sinks deeper."
       ],
-      "answer": "I did need some help.",
+      "answer": "\"Push here together,\" says Grumpy. His tail springs free.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 8,
-      "evidenceText": "I did need some help."
+      "rationale": "\"Push here together,\" says Grumpy. His tail springs free. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "\"Push here together,\" says Grumpy. His tail springs free."
     }
   ]
 }

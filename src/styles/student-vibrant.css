@@ -740,8 +740,8 @@
 }
 
 @keyframes kid-toast-in {
-  from { transform: translate(-50%, 120%); opacity: 0; }
-  to { transform: translate(-50%, 0); opacity: 1; }
+  from { transform: translate(-50%, 120%); }
+  to { transform: translate(-50%, 0); }
 }
 
 .kid-reward-toast-icon {

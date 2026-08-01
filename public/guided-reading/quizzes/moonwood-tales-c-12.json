@@ -1,61 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-12",
-  "contentHash": "sha256:91647b5d4dd1ee2ffccdb257a2ff8592ccddb110bf93c3d54806747eddb782f4",
+  "contentHash": "sha256:dd186605b09797820fc8da9a8c91cd4379345925608436578f8113e5618bbd59",
   "questions": [
     {
       "id": "moonwood-tales-c-12-q1",
-      "prompt": "What do Fern and Dewdrop find at the source of the silent stream?",
+      "prompt": "Which event introduces the situation in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "A great boulder lay across the singing stones.",
-        "The singing stones had floated downstream.",
-        "A fallen tree had dried up all the water."
+        "Fern hears that Crystal Stream still flows but no longer sings.",
+        "Fern pushes with both hands. Mud grips the stone tighter.",
+        "Current rushes over the stones until their clear notes return."
       ],
-      "answer": "A great boulder lay across the singing stones.",
+      "answer": "Fern hears that Crystal Stream still flows but no longer sings.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 5,
-      "evidenceText": "A great boulder had fallen.\nIt lay across the singing stones."
+      "evidencePage": 1,
+      "evidenceText": "Fern hears that Crystal Stream still flows but no longer sings."
     },
     {
       "id": "moonwood-tales-c-12-q2",
-      "prompt": "How did Fern and Dewdrop combine their abilities to free the stones?",
+      "prompt": "Which event shows that the first attempt fails in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "Fern grew a vine around the boulder while Dewdrop sent water under it.",
-        "Fern sang to the boulder while Dewdrop carried it away.",
-        "Fern dug a tunnel while Dewdrop froze the rock."
+        "Fern pushes with both hands. Mud grips the stone tighter.",
+        "Fern hears that Crystal Stream still flows but no longer sings.",
+        "Current rushes over the stones until their clear notes return."
       ],
-      "answer": "Fern grew a vine around the boulder while Dewdrop sent water under it.",
+      "answer": "Fern pushes with both hands. Mud grips the stone tighter.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 8,
-      "evidenceText": "Fern grew a strong vine around the boulder.\nDewdrop sent water under it to loosen the mud."
+      "rationale": "Fern pushes with both hands. Mud grips the stone tighter. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Fern pushes with both hands. Mud grips the stone tighter."
     },
     {
       "id": "moonwood-tales-c-12-q3",
-      "prompt": "What lesson does Fern understand before they move the boulder?",
+      "prompt": "Which event resolves the central problem in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "Some problems are easier when friends work together.",
-        "Dewdrop's water was strong enough to move it alone.",
-        "Fern's vine moved the boulder without any water."
+        "Current rushes over the stones until their clear notes return.",
+        "Fern hears that Crystal Stream still flows but no longer sings.",
+        "Fern pushes with both hands. Mud grips the stone tighter."
       ],
-      "answer": "Some problems are easier when friends work together.",
+      "answer": "Current rushes over the stones until their clear notes return.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Fern says they need each other, then Fern's vine and Dewdrop's water work together to move the boulder; this shows some problems are easier when friends work together.",
-      "evidencePage": 7,
-      "evidenceText": "\"We need each other,\" said Fern.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 8,
-          "evidenceText": "Fern grew a strong vine around the boulder.\nDewdrop sent water under it to loosen the mud."
-        },
-        {
-          "evidencePage": 9,
-          "evidenceText": "They pushed and pulled together.\nThe boulder shifted.\nThe mud let go.\nThe boulder rolled aside."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Current rushes over the stones until their clear notes return. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Current rushes over the stones until their clear notes return."
     }
   ]
 }

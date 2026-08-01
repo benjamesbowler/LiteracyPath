@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "series": "James and Anna; Aiden and Betty human-series tail",
+  "auditSource": "guided_reading_story_bible_visual_alignment_audit_2026-08-01.json",
+  "approvedAt": "2026-08-01",
+  "approvalMethod": "Installed at the existing public path and visually inspected at full output size against displayed text, regeneration brief, adjacent-page continuity, safe action staging and canonical human-series character identity.",
+  "summary": {
+    "assigned": 8,
+    "approved": 8,
+    "regenerated": 8,
+    "retainedAfterReinspection": 0,
+    "remaining": 0
+  },
+  "approvals": [
+    {
+      "bookId": "ja-b-06",
+      "pageNumber": 10,
+      "imagePath": "/guided-reading/series/james-and-anna/book-06/page-010.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "05877df82d390445a1f5f9910f13f4b1a7fecb83f0bc7917ce3ad599e552d046",
+      "completionNote": "Grandma visibly closes and latches the final bean-garden gate while leading Chips away; the other farm gates are already secured and the children assist safely."
+    },
+    {
+      "bookId": "ja-b-06",
+      "pageNumber": 12,
+      "imagePath": "/guided-reading/series/james-and-anna/book-06/page-012.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "053a91fff097a8d496ac4494dd87acf1fdca1a17a453d2590840a59305d40d83",
+      "completionNote": "Chips begins chewing the continuous brown fence rail while James approaches with a clearly separate bundle of safe hay."
+    },
+    {
+      "bookId": "ja-b-07",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/james-and-anna/book-07/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "2460ce0ddae8f1ba2bd9036eae4f5a523027598702bcee6fe95c8f0655c24e14",
+      "completionNote": "James practises his playful roar at a safe distance while Mum wears large, unmistakable hearing-protection earmuffs."
+    },
+    {
+      "bookId": "ja-b-09",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/series/james-and-anna/book-09/page-002.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "f835ba881de3a07e4dcbdb008406bad77e01dd7b5423a25c1a566a71c6e071ba",
+      "completionNote": "Anna remains stationary with both feet grounded and both hands testing two visible brake levers before riding; both children wear fitted helmets."
+    },
+    {
+      "bookId": "ja-b-10",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/series/james-and-anna/book-10/page-002.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "748451772997dc3c60a0b6b030c09913a2c18d04fd7251f1f36c28e6b8fc4df0",
+      "completionNote": "Dad safely removes the loose tent peg from Chips while James and Anna stand back from the removal and campsite tools."
+    },
+    {
+      "bookId": "ja-b-10",
+      "pageNumber": 10,
+      "imagePath": "/guided-reading/series/james-and-anna/book-10/page-010.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "d03739f7af02b2dc140bc843c9de822667de4fd14f4ae0fcb6c48037e899720a",
+      "completionNote": "The fox retreats through the distant garden gate while Dad startles at Anna's safely directed horn and James and Chips stay sheltered in the tent."
+    },
+    {
+      "bookId": "ja-b-10",
+      "pageNumber": 14,
+      "imagePath": "/guided-reading/series/james-and-anna/book-10/page-014.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "bcbf01e30818ffa909abe31d4f4bb8f81b527ba7a5bb20d3df0be5b602a02437",
+      "completionNote": "The tent zipper teeth, slider and pull remain visibly connected as Anna calmly removes the attached pull from Chips's mouth."
+    },
+    {
+      "bookId": "ab-c-03",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/series/aiden-and-betty/book-03/page-007.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "714588a45aef9246ade2198c599ee41944d400292bedce27f73bb9ce6f520bb0",
+      "completionNote": "Betty rides belly-down on a visible handled boogie board through shallow foam while the stable adult supervisor stays within arm's reach."
+    }
+  ]
+}

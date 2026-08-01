@@ -1,65 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-20-the-big-storm",
-  "contentHash": "sha256:c8c42cdcdde2d1503074f54938e96bbecd676757e629f19233823b4120eff36b",
+  "contentHash": "sha256:c7efeabd47668bb3a07eefa2ce7fc22f5acfa20ff273a80604eea736555cdd34",
   "questions": [
     {
       "id": "dino-pals-20-the-big-storm-q1",
-      "prompt": "What did Clumsy see that showed a storm was coming?",
+      "prompt": "Which event begins The Big Storm?",
       "choices": [
-        "The waterfall had frozen.",
-        "The tall ferns were already bending.",
-        "Mount Rumble pointed west."
+        "Heavy, still air covers Sunny Hollow.",
+        "Bossy's long plan gives every Pal too many jobs at once.",
+        "Shy leads everyone to Cozy Cave's warmest nook."
       ],
-      "answer": "The tall ferns were already bending.",
+      "answer": "Heavy, still air covers Sunny Hollow.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 4,
-      "evidenceText": "The storm is coming from the east, said Clumsy. The tall ferns are already bending."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Heavy, still air covers Sunny Hollow."
     },
     {
       "id": "dino-pals-20-the-big-storm-q2",
-      "prompt": "How did Honky help everyone get ready?",
+      "prompt": "Which event shows the first plan fails in The Big Storm?",
       "choices": [
-        "He carried all the supplies.",
-        "He found the warmest cave corner.",
-        "He called all the Dino Pals from across the Hollow."
+        "Bossy's long plan gives every Pal too many jobs at once.",
+        "Heavy, still air covers Sunny Hollow.",
+        "Shy leads everyone to Cozy Cave's warmest nook."
       ],
-      "answer": "He called all the Dino Pals from across the Hollow.",
+      "answer": "Bossy's long plan gives every Pal too many jobs at once.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 6,
-      "evidenceText": "Honky called all the Dino Pals from across the Hollow. One enormous blast. Every leaf fell off. But everyone heard and came running."
+      "skill": "problem_solution",
+      "rationale": "Bossy's long plan gives every Pal too many jobs at once. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Bossy's long plan gives every Pal too many jobs at once."
     },
     {
       "id": "dino-pals-20-the-big-storm-q3",
-      "prompt": "What kept the Dino Pals safe in the storm?",
+      "prompt": "Which event solves the problem in The Big Storm?",
       "choices": [
-        "Everyone used their strengths together.",
-        "Bossy's plan worked because Grumpy did every job.",
-        "The cave kept them safe without any preparation."
+        "Shy leads everyone to Cozy Cave's warmest nook.",
+        "Heavy, still air covers Sunny Hollow.",
+        "Bossy's long plan gives every Pal too many jobs at once."
       ],
-      "answer": "Everyone used their strengths together.",
+      "answer": "Shy leads everyone to Cozy Cave's warmest nook.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Clumsy's height gave everyone a warning, Honky's voice gathered the Pals, and Shy's knowledge of hidden paths led them into Cozy Cave; Sunny's words \"All of us\" show that everyone used their different strengths together.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 4,
-          "evidenceText": "Clumsy stood tall and looked out over the whole Hollow. The storm is coming from the east, said Clumsy. The tall ferns are already bending. That gives us time."
-        },
-        {
-          "evidencePage": 6,
-          "evidenceText": "Honky called all the Dino Pals from across the Hollow. One enormous blast. Every leaf fell off. But everyone heard and came running."
-        },
-        {
-          "evidencePage": 10,
-          "evidenceText": "Shy, who knew every hidden corner of the Fernwood, led everyone to the deepest part of Cozy Cave. Shy knew exactly where it was warmest."
-        }
-      ],
-      "evidencePage": 12,
-      "evidenceText": "We did that, said Sunny. All of us."
+      "skill": "outcome",
+      "rationale": "Shy leads everyone to Cozy Cave's warmest nook. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Shy leads everyone to Cozy Cave's warmest nook."
     }
   ]
 }

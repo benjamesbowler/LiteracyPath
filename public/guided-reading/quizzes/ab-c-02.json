@@ -1,58 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-02",
-  "contentHash": "sha256:e5cb6c34499df8e7205954fec55dee1bc4bc9de30da266450d041937e442d43b",
+  "contentHash": "sha256:04396180ee91a33e6974dbef5acb1fead7af61582370477a9599474ccb2f54b1",
   "questions": [
     {
       "id": "ab-c-02-q1",
-      "prompt": "How did Aiden and Betty use the three card colours while sorting?",
+      "prompt": "Which event introduces the situation in Aiden and Betty have a Yard Sale?",
       "choices": [
-        "Red meant sell, blue meant keep, and yellow meant maybe.",
-        "Red meant keep, blue meant maybe, and yellow meant sell.",
-        "Red meant maybe, blue meant sell, and yellow meant keep."
+        "Toys filled every shelf and covered the playroom floor. Something had to change.",
+        "Mr Perkins examined everything for twenty minutes, then spent only twenty cents.",
+        "They compared ideas and chose a proper tent for reading together."
       ],
-      "answer": "Red meant sell, blue meant keep, and yellow meant maybe.",
+      "answer": "Toys filled every shelf and covered the playroom floor. Something had to change.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "They spent Friday evening sorting everything into three piles. A red card meant sell. A blue card meant keep. A yellow card meant maybe. By nine o'clock, the maybe pile had disappeared."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Toys filled every shelf and covered the playroom floor. Something had to change."
     },
     {
       "id": "ab-c-02-q2",
-      "prompt": "Why did Aiden say the teddies would get good homes?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty have a Yard Sale?",
       "choices": [
-        "A customer had promised him.",
-        "He was reassuring himself.",
-        "Betty told him to advertise them."
+        "Mr Perkins examined everything for twenty minutes, then spent only twenty cents.",
+        "Toys filled every shelf and covered the playroom floor. Something had to change.",
+        "They compared ideas and chose a proper tent for reading together."
       ],
-      "answer": "He was reassuring himself.",
+      "answer": "Mr Perkins examined everything for twenty minutes, then spent only twenty cents.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "The passage says Aiden spoke mostly to himself as a form of reassurance, which shows that he was reassuring himself.",
-      "evidencePage": 5,
-      "evidenceText": "On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. \"They'll go to good homes,\" said Aiden, mostly to himself, as a form of reassurance."
+      "skill": "problem_solution",
+      "rationale": "Mr Perkins examined everything for twenty minutes, then spent only twenty cents. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Mr Perkins examined everything for twenty minutes, then spent only twenty cents."
     },
     {
       "id": "ab-c-02-q3",
-      "prompt": "Why did Aiden keep Nelly instead of selling her?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty have a Yard Sale?",
       "choices": [
-        "He planned to sell Nelly for more money another day.",
-        "Nelly was the most expensive toy.",
-        "Some belongings mattered more than money."
+        "They compared ideas and chose a proper tent for reading together.",
+        "Toys filled every shelf and covered the playroom floor. Something had to change.",
+        "Mr Perkins examined everything for twenty minutes, then spent only twenty cents."
       ],
-      "answer": "Some belongings mattered more than money.",
+      "answer": "They compared ideas and chose a proper tent for reading together.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "The evidence says Aiden held Nelly and put her inside instead of selling her for money, which shows some belongings mattered more than money.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "We could make actual money."
-        }
-      ],
-      "evidencePage": 13,
-      "evidenceText": "As Aiden folded up the last table, he found something wedged at the very back — his old stuffed elephant, Nelly, who he had completely forgotten was there. He held her for a long moment. Then he carried her inside and put her on the shelf above his desk. Some things, he decided, were not for selling."
+      "skill": "outcome",
+      "rationale": "They compared ideas and chose a proper tent for reading together. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "They compared ideas and chose a proper tent for reading together."
     }
   ]
 }

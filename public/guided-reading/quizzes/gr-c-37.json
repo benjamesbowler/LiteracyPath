@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-c-37",
-  "contentHash": "sha256:411768e017d8f693c45c2740bcb3facffd41154d235b6b8d1927ee5a02672acb",
+  "contentHash": "sha256:f09f8e23770ec69ceed7ce7a4a0880baaef45de4a731ac1149c59b3f9465905f",
   "questions": [
     {
       "id": "gr-c-37-q1",
-      "prompt": "Water can be ice and steam. What other form can it be?",
+      "prompt": "Which fact about water is given in Water?",
       "choices": [
-        "a liquid",
-        "a powder",
-        "a metal"
+        "Water can flow as a liquid.",
+        "Frozen water becomes solid ice.",
+        "Life on Earth needs water."
       ],
-      "answer": "a liquid",
+      "answer": "Water can flow as a liquid.",
       "kind": "text",
-      "skill": "vocabulary",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Water can be a liquid."
+      "evidenceText": "Water can flow as a liquid."
     },
     {
       "id": "gr-c-37-q2",
-      "prompt": "Why is water important to plants?",
+      "prompt": "Which fact about frozen water is given in Water?",
       "choices": [
-        "to grow",
-        "to help people live",
-        "to turn into steam"
+        "Frozen water becomes solid ice.",
+        "Water can flow as a liquid.",
+        "Life on Earth needs water."
       ],
-      "answer": "to grow",
+      "answer": "Frozen water becomes solid ice.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 4,
-      "evidenceText": "Plants need water to grow."
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "Frozen water becomes solid ice."
     },
     {
       "id": "gr-c-37-q3",
-      "prompt": "Why is water important to people?",
+      "prompt": "Which statement gives the main idea of Water?",
       "choices": [
-        "to live",
-        "to help plants grow",
-        "to turn into steam"
+        "Life on Earth needs water.",
+        "Water can flow as a liquid.",
+        "Frozen water becomes solid ice."
       ],
-      "answer": "to live",
+      "answer": "Life on Earth needs water.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "People need water to live."
+      "skill": "main_idea",
+      "rationale": "Life on Earth needs water. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "Life on Earth needs water."
     }
   ]
 }

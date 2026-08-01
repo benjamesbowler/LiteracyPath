@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-03-fluff",
-  "contentHash": "sha256:825a7662660bfa42fa99f64dbb58cfcf3a3dcf62a5ecfead7b598db18b7417a7",
+  "contentHash": "sha256:0e2e088b36a54b983b1b2062ab48027a72b26779802284a156b1ede54f7c8df3",
   "questions": [
     {
       "id": "bob-and-nan-03-fluff-q1",
-      "prompt": "What did Bob see?",
+      "prompt": "What happens first in Bob, Nan and Fluff?",
       "choices": [
-        "a frog",
-        "a bird",
-        "a pup"
+        "Bob and Nan sit outside.",
+        "Nan calls. No owner comes.",
+        "Mum helps report the pup found."
       ],
-      "answer": "a pup",
+      "answer": "Bob and Nan sit outside.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "Bob saw a pup!"
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bob and Nan sit outside."
     },
     {
       "id": "bob-and-nan-03-fluff-q2",
-      "prompt": "What happens when the pup runs to Nan?",
+      "prompt": "What goes wrong in Bob, Nan and Fluff?",
       "choices": [
-        "Nan pats the pup.",
-        "Nan runs away.",
-        "Nan finds a frog."
+        "Nan calls. No owner comes.",
+        "Bob and Nan sit outside.",
+        "Mum helps report the pup found."
       ],
-      "answer": "Nan pats the pup.",
+      "answer": "Nan calls. No owner comes.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 4,
-      "evidenceText": "Nan pats the pup."
+      "skill": "problem_solution",
+      "rationale": "Nan calls. No owner comes. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Nan calls. No owner comes."
     },
     {
       "id": "bob-and-nan-03-fluff-q3",
-      "prompt": "What name did they give the pup?",
+      "prompt": "What happens at the end of Bob, Nan and Fluff?",
       "choices": [
-        "Spot",
-        "Fluff",
-        "Chips"
+        "Mum helps report the pup found.",
+        "Bob and Nan sit outside.",
+        "Nan calls. No owner comes."
       ],
-      "answer": "Fluff",
-      "kind": "word",
+      "answer": "Mum helps report the pup found.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Mum helps report the pup found. This event shows how the central problem is resolved.",
       "evidencePage": 6,
-      "evidenceText": "Bob and Nan call the pup Fluff."
+      "evidenceText": "Mum helps report the pup found."
     }
   ]
 }

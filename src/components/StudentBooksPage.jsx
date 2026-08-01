@@ -42,6 +42,8 @@ import {
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
 import {
   BOOK_SHELF_SLOTS,
+  bookCollectionId,
+  bookCollectionsForLevel,
   bookCoverSrc,
   bookReadingProgress,
   buildBookShelves,
@@ -158,6 +160,7 @@ export function StudentBooksPage({
   const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0 });
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
   const [showKnowledge, setShowKnowledge] = useState(false);
+  const [collectionId, setCollectionId] = useState("all");
 
   const recordsOk = useMemo(
     () => readGuidedRecordsState({ teacherId, studentId }),
@@ -186,6 +189,22 @@ export function StudentBooksPage({
     [library]
   );
   const shownLevel = levels.includes(level) ? level : (levels[0] || suggestedLevel);
+  const collections = useMemo(
+    () => bookCollectionsForLevel(library, shownLevel),
+    [library, shownLevel]
+  );
+  const shownCollectionId = collectionId === "all"
+    || collections.some(collection => collection.id === collectionId)
+    ? collectionId
+    : "all";
+  const shownLibrary = useMemo(
+    () => shownCollectionId === "all"
+      ? library
+      : library.filter(book => (
+        book.level === shownLevel && bookCollectionId(book) === shownCollectionId
+      )),
+    [library, shownCollectionId, shownLevel]
+  );
 
   const continueRow = useMemo(
     () => pickContinueBook({ books: library, records: guidedReadingRecords }),
@@ -195,7 +214,11 @@ export function StudentBooksPage({
   // Nothing started yet: offer the recommender's first book to START. The
   // eyebrow and the button both change with it, because "you stopped here" over
   // a book the child has never opened is a lie with a progress bar on it.
-  const firstBook = recommended.find(item => item.book.level === shownLevel)?.book
+  const firstBook = recommended.find(item => (
+    item.book.level === shownLevel
+    && (shownCollectionId === "all" || bookCollectionId(item.book) === shownCollectionId)
+  ))?.book
+    || shownLibrary.find(book => book.level === shownLevel)
     || recommended[0]?.book
     || library[0]
     || null;
@@ -217,14 +240,14 @@ export function StudentBooksPage({
   }
 
   const shelves = useMemo(() => buildBookShelves({
-    books: library,
+    books: shownLibrary,
     records: guidedReadingRecords,
     level: shownLevel,
     order: recommended.map(item => item.book.id),
     justRightPage: shelfPages["just-right"],
     readAgainPage: shelfPages.second,
     slots: BOOK_SHELF_SLOTS
-  }), [library, guidedReadingRecords, recommended, shelfPages, shownLevel]);
+  }), [shownLibrary, guidedReadingRecords, recommended, shelfPages, shownLevel]);
 
   function hear(text) {
     const spoken = speakStudentRailLabel(text, window);
@@ -280,10 +303,45 @@ export function StudentBooksPage({
                   aria-pressed={entry === shownLevel}
                   onClick={() => {
                     setLevel(entry);
+                    setCollectionId("all");
                     setShelfPages({ "just-right": 0, second: 0 });
                   }}
                 >
                   Level {entry}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {collections.length > 1 && !showKnowledge && (
+            <div
+              className="kg-glass kg-collection-tray"
+              role="group"
+              aria-label={`Level ${shownLevel} book collections`}
+            >
+              <button
+                type="button"
+                className={`kg-collection-chip${shownCollectionId === "all" ? " is-active" : ""}`}
+                aria-pressed={shownCollectionId === "all"}
+                onClick={() => {
+                  setCollectionId("all");
+                  setShelfPages({ "just-right": 0, second: 0 });
+                }}
+              >
+                All books
+              </button>
+              {collections.map(collection => (
+                <button
+                  key={collection.id}
+                  type="button"
+                  className={`kg-collection-chip${collection.id === shownCollectionId ? " is-active" : ""}`}
+                  aria-pressed={collection.id === shownCollectionId}
+                  onClick={() => {
+                    setCollectionId(collection.id);
+                    setShelfPages({ "just-right": 0, second: 0 });
+                  }}
+                >
+                  {collection.label}
                 </button>
               ))}
             </div>

@@ -5061,7 +5061,7 @@ export default function QuestHub({
         </button>
       )}
       {!active && <header className="qh-hud">
-        <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the Den</button>
+        <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the map</button>
         <div className="qh-land-title">
           <span>{stop?.name || theme.name}</span>
           <strong>{mode === "review" ? "Sound practice" : `Trail ${sectionNumber} of ${QUEST_STOPS.length}`}</strong>

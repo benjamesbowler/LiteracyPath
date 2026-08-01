@@ -11,10 +11,15 @@ import {
 // The gold-audio resolver should upgrade a known curriculum word from every
 // superseded child-mode path to the installed Leda production recording.
 test("known words upgrade to the Leda production recording", () => {
-  for (const w of ["cat", "dog", "sun", "pig"]) {
+  for (const w of ["cat", "dog", "pig"]) {
     const resolved = getPreferredAudioPath(w, `/audio/child-mode/words/${w}.mp3`);
     assert.match(resolved, new RegExp(`^/audio/production/en-US/(?:isolated_word|supplemental)/${w}-`));
   }
+  assert.match(
+    getPreferredAudioPath("sun", "/audio/child-mode/words/sun.mp3"),
+    /^\/audio\/production\/en-US\/supplemental\/sun-/,
+    "the remade sun clip should outrank the superseded isolated-word recording"
+  );
 });
 
 test("unknown words fall back to the supplied path (no throw)", () => {

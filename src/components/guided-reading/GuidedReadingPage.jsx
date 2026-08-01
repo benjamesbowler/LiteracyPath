@@ -44,9 +44,14 @@ import {
 } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
 import { progressPhrase, TEACHER_COPY } from "../../copy/teacherCopy.js";
+import {
+  GUIDED_READING_NARRATION_RATE,
+  GUIDED_READING_PAGE_LEAD_IN_MS,
+  GUIDED_READING_PAGE_LEAD_OUT_MS,
+  waitForGuidedReadingPause
+} from "../../utils/guidedReading/readAloudPacing.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
-const GUIDED_READING_NARRATION_RATE = 0.88;
 const GUIDED_READING_WORD_RATE = 0.9;
 
 function withGuidedReadingMediaVersion(src = "") {
@@ -517,6 +522,7 @@ export function GuidedReadingPage({
   const wordSupportAudioRef = useRef(null);
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
+  const wholeBookAbortRef = useRef(null);
   const lastVisitedPageRef = useRef("");
   const readAloudPageChangeRef = useRef(false);
   const autoAdvanceReadAloudRef = useRef(autoAdvanceReadAloud);
@@ -699,6 +705,8 @@ export function GuidedReadingPage({
 
   useEffect(() => {
     return () => {
+      wholeBookAbortRef.current?.abort();
+      wholeBookAbortRef.current = null;
       if (pageAudioRef.current) {
         pageAudioRef.current.pause();
         pageAudioRef.current = null;
@@ -1112,6 +1120,8 @@ export function GuidedReadingPage({
   }
 
   function stopPageAudio() {
+    wholeBookAbortRef.current?.abort();
+    wholeBookAbortRef.current = null;
     if (pageAudioRef.current) {
       pageAudioRef.current.pause();
       pageAudioRef.current.currentTime = 0;
@@ -1210,48 +1220,87 @@ export function GuidedReadingPage({
     }
   }
 
-  async function readWholeBookFrom(startIndex = pageIndex) {
-    if (!selectedBook) return;
+  function showReadAloudPage(nextPageIndex) {
+    setPageIndex(currentPageIndex => {
+      if (currentPageIndex === nextPageIndex) return currentPageIndex;
+      readAloudPageChangeRef.current = true;
+      return nextPageIndex;
+    });
+  }
+
+  async function readWholeBookFrom(startIndex, controller) {
+    if (
+      !selectedBook
+      || !controller
+      || controller.signal.aborted
+      || wholeBookAbortRef.current !== controller
+    ) return;
     const audioPath = getGuidedReadingPageAudioPath(selectedBook.pages[startIndex] || {});
     if (!audioPath) {
+      wholeBookAbortRef.current = null;
       setIsWholeBookReading(false);
+      setIsReadAloudLoading(false);
       setAudioNotice("Read-aloud audio is not available for the whole book yet.");
       return;
     }
 
-    readAloudPageChangeRef.current = true;
-    setPageIndex(startIndex);
+    showReadAloudPage(startIndex);
+    setIsWholeBookReading(true);
     setIsReadAloudLoading(true);
+    setIsReadAloudPaused(false);
+
+    const readyToNarrate = await waitForGuidedReadingPause(
+      GUIDED_READING_PAGE_LEAD_IN_MS,
+      { signal: controller.signal }
+    );
+    if (!readyToNarrate || wholeBookAbortRef.current !== controller) return;
+
     try {
       const audio = new Audio(audioPath);
       audio.playbackRate = GUIDED_READING_NARRATION_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
       pageAudioRef.current = audio;
-      setIsWholeBookReading(true);
-      setIsReadAloudPaused(false);
-      audio.onended = () => {
-        pageAudioRef.current = null;
+      audio.onended = async () => {
+        if (pageAudioRef.current === audio) pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
-        setIsReadAloudLoading(false);
-        if (autoAdvanceReadAloudRef.current && startIndex < selectedBook.pages.length - 1) {
-          readWholeBookFrom(startIndex + 1);
+        const hasNextPage = autoAdvanceReadAloudRef.current
+          && startIndex < selectedBook.pages.length - 1;
+        setIsReadAloudLoading(hasNextPage);
+
+        const readyToAdvance = await waitForGuidedReadingPause(
+          GUIDED_READING_PAGE_LEAD_OUT_MS,
+          { signal: controller.signal }
+        );
+        if (!readyToAdvance || wholeBookAbortRef.current !== controller) return;
+
+        if (hasNextPage) {
+          await readWholeBookFrom(startIndex + 1, controller);
         } else {
+          wholeBookAbortRef.current = null;
           setIsWholeBookReading(false);
+          setIsReadAloudLoading(false);
           setHighlightedSentenceIndex(null);
         }
       };
       audio.onerror = () => {
-        pageAudioRef.current = null;
+        if (pageAudioRef.current === audio) pageAudioRef.current = null;
+        if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
         setIsPageAudioPlaying(false);
         setIsWholeBookReading(false);
         setIsReadAloudLoading(false);
         setAudioNotice("Read-aloud audio could not be loaded for this book.");
       };
       await audio.play();
+      if (controller.signal.aborted || wholeBookAbortRef.current !== controller) {
+        audio.pause();
+        return;
+      }
       setIsReadAloudLoading(false);
       setIsPageAudioPlaying(true);
     } catch (error) {
+      if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
       console.warn("Guided Reading whole-book audio unavailable.", error);
+      wholeBookAbortRef.current = null;
       setIsPageAudioPlaying(false);
       setIsWholeBookReading(false);
       setIsReadAloudLoading(false);
@@ -1267,8 +1316,24 @@ export function GuidedReadingPage({
       lastReadWholeBookAt: new Date().toISOString()
     });
 
+    const controller = new AbortController();
+    wholeBookAbortRef.current = controller;
+
+    // Current books carry verified page narration. Prefer those tracks even
+    // when a legacy continuous file exists so children see each page before
+    // hearing it, and have time to absorb it before the next page appears.
+    if (allPagesHaveAudio) {
+      await readWholeBookFrom(pageIndex, controller);
+      return;
+    }
+
     if (fullBookAudioPath) {
       setIsReadAloudLoading(true);
+      const readyToNarrate = await waitForGuidedReadingPause(
+        GUIDED_READING_PAGE_LEAD_IN_MS,
+        { signal: controller.signal }
+      );
+      if (!readyToNarrate || wholeBookAbortRef.current !== controller) return;
       try {
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
@@ -1283,8 +1348,7 @@ export function GuidedReadingPage({
             pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           }
           const nextPageIndex = findWholeBookPageIndex(pageCues, audio.currentTime);
-          readAloudPageChangeRef.current = true;
-          setPageIndex(currentIndex => currentIndex === nextPageIndex ? currentIndex : nextPageIndex);
+          showReadAloudPage(nextPageIndex);
         };
 
         pageAudioRef.current = audio;
@@ -1295,8 +1359,7 @@ export function GuidedReadingPage({
           : syncData?.syncAccuracy === "estimated"
             ? "Syncing pages with estimated timings pending verification."
             : "Syncing pages with runtime fallback timings until page-level timing data is added.");
-        readAloudPageChangeRef.current = true;
-        setPageIndex(fullBookStartIndex);
+        showReadAloudPage(fullBookStartIndex);
         audio.onloadedmetadata = () => {
           pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           const startCue = pageCues[fullBookStartIndex];
@@ -1308,26 +1371,33 @@ export function GuidedReadingPage({
         audio.ontimeupdate = syncPageToFullBookAudio;
         audio.onended = () => {
           pageAudioRef.current = null;
+          if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
           setIsReadAloudLoading(false);
           if (autoAdvanceReadAloudRef.current) {
-            readAloudPageChangeRef.current = true;
-            setPageIndex(selectedBook.pages.length - 1);
+            showReadAloudPage(selectedBook.pages.length - 1);
           }
         };
         audio.onerror = () => {
           pageAudioRef.current = null;
+          if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
           setIsReadAloudLoading(false);
           setAudioNotice("Whole-book audio could not be loaded.");
         };
         await audio.play();
+        if (controller.signal.aborted || wholeBookAbortRef.current !== controller) {
+          audio.pause();
+          return;
+        }
         setIsReadAloudLoading(false);
         setIsPageAudioPlaying(true);
       } catch (error) {
+        if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
         console.warn("Guided Reading full-book audio unavailable.", error);
+        wholeBookAbortRef.current = null;
         setIsWholeBookReading(false);
         setIsPageAudioPlaying(false);
         setIsReadAloudLoading(false);
@@ -1338,11 +1408,10 @@ export function GuidedReadingPage({
     }
 
     if (!allPagesHaveAudio) {
+      wholeBookAbortRef.current = null;
       setAudioNotice("Read-aloud audio is not available for this whole book yet.");
       return;
     }
-
-    readWholeBookFrom(pageIndex);
   }
 
   function runSentenceHighlights(sentences = []) {

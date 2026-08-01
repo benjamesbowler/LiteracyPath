@@ -2,6 +2,7 @@
 import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import {
   loadCompatibleDashboardStudents,
+  loadCompatibleTeacherClassCounts,
   loadCompatibleTeacherClasses,
   loadCompatibleTeacherStudents
 } from "../data/classApiCompatibility.js";
@@ -2248,11 +2249,18 @@ export function useAppSessionController(context) {
     setClassListReadState(previous => beginClassListRead(previous, loadTeacherId));
 
     let result;
+    let countResult;
     try {
-      result = await loadCompatibleTeacherClasses({
-        client: supabase,
-        teacherId: loadTeacherId
-      });
+      [result, countResult] = await Promise.all([
+        loadCompatibleTeacherClasses({
+          client: supabase,
+          teacherId: loadTeacherId
+        }),
+        loadCompatibleTeacherClassCounts({
+          client: supabase,
+          teacherId: loadTeacherId
+        })
+      ]);
     } catch (error) {
       if (!isCurrentLoad()) return null;
       console.error("Load classes error:", error);
@@ -2292,7 +2300,19 @@ export function useAppSessionController(context) {
     if (compatibility === "legacy") {
       console.info("Classes loaded through the rolling-release schema boundary.");
     }
-    setClassList(completedRead.rows);
+    const studentCounts = new Map();
+    const countsVerified = !countResult?.error && !countResult?.truncated && Array.isArray(countResult?.data);
+    if (countsVerified) {
+      for (const classRow of completedRead.rows) studentCounts.set(classRow.id, 0);
+      for (const student of countResult.data) {
+        if (!student?.class_id) continue;
+        studentCounts.set(student.class_id, (studentCounts.get(student.class_id) || 0) + 1);
+      }
+    }
+    setClassList(completedRead.rows.map(row => ({
+      ...row,
+      studentCount: countsVerified ? (studentCounts.get(row.id) || 0) : null
+    })));
     setLoadingClasses(false);
     setClassListReadState(previous => completeClassListRead(previous, loadTeacherId));
     scheduleRetryableTeacherRoute("classes");

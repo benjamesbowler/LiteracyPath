@@ -93,6 +93,24 @@ export function buildAdaptiveSkillRound({
     }
   }
 
+  // Once every never-seen word has been preferred, revisit older learning
+  // before repeating anything from the immediately previous round. This is
+  // the spaced-retrieval fallback: "not new" must never mean "just seen".
+  if (selected.length < roundLength) {
+    for (const item of shuffleItems(candidates, random)) {
+      if (selected.length >= roundLength) break;
+      if (selected.some(existing => existing.id === item.id)) continue;
+      const word = String(item.targetWord || "").toLowerCase();
+      if (
+        recentQuestionIds.has(String(item.id || "")) ||
+        (word && (selectedWords.has(word) || recentTargetWords.has(word)))
+      ) continue;
+      selected.push(item);
+      if (item.target) selectedTargets.add(item.target);
+      if (word) selectedWords.add(word);
+    }
+  }
+
   if (selected.length < roundLength) {
     for (const item of shuffleItems(candidates, random)) {
       if (selected.length >= roundLength) break;

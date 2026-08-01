@@ -1,63 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-16",
-  "contentHash": "sha256:8a9d9b4cc77d1c24c8b6e36590879e01de752c185d61c899d35b600b4d248e53",
+  "contentHash": "sha256:3f42a8651836189078be977384cc68c9debec2ce72620f1c1c1574274d91465d",
   "questions": [
     {
       "id": "moonwood-tales-c-16-q1",
-      "prompt": "What plan do Pip and Glimmer make to investigate the moved objects?",
+      "prompt": "Which event introduces the situation in Pip and Glimmer and the Night Watch?",
       "choices": [
-        "They stay awake and watch the clearing.",
-        "They lock every door and leave Moonwood.",
-        "They ask Luna to cast a tracking spell."
+        "Pip's boots move overnight, and a clearing bench tips over.",
+        "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close.",
+        "Burrow places his dirty boot by the door to reveal the next walk."
       ],
-      "answer": "They stay awake and watch the clearing.",
+      "answer": "Pip's boots move overnight, and a clearing bench tips over.",
       "kind": "text",
-      "skill": "problem_solution",
-      "evidencePage": 3,
-      "evidenceText": "They would stay awake.\nThey would watch the clearing."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Pip's boots move overnight, and a clearing bench tips over."
     },
     {
       "id": "moonwood-tales-c-16-q2",
-      "prompt": "What really caused the bench and boots to move at night?",
+      "prompt": "Which event shows that the first attempt fails in Pip and Glimmer and the Night Watch?",
       "choices": [
-        "Burrow was fast asleep while he walked and moved them.",
-        "A hidden creature carried them around the clearing.",
-        "Glimmer bumped them while guarding the Hollow Oak."
+        "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close.",
+        "Pip's boots move overnight, and a clearing bench tips over.",
+        "Burrow places his dirty boot by the door to reveal the next walk."
       ],
-      "answer": "Burrow was fast asleep while he walked and moved them.",
+      "answer": "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 8,
-      "evidenceText": "Burrow bumped the bench.\nIt fell over.\nBurrow kept walking.\nHe found Pip's door.\nHe moved the boots with his paws.\nHe did not wake up.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "It was Burrow.\nHis eyes were closed.\nHe was fast asleep.\nHe was walking."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close."
     },
     {
       "id": "moonwood-tales-c-16-q3",
-      "prompt": "What does the end of the night-watch mystery show?",
+      "prompt": "Which event resolves the central problem in Pip and Glimmer and the Night Watch?",
       "choices": [
-        "A strange mystery can have a simple explanation.",
-        "The moved things proved a stranger entered Moonwood.",
-        "Pip's boot by the door stopped the night walking."
+        "Burrow places his dirty boot by the door to reveal the next walk.",
+        "Pip's boots move overnight, and a clearing bench tips over.",
+        "Nothing moves for hours. Glimmer's cinnamon breath fades as their eyes close."
       ],
-      "answer": "A strange mystery can have a simple explanation.",
+      "answer": "Burrow places his dirty boot by the door to reveal the next walk.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "The tipped bench and moved boots first look like a strange mystery, but Pip discovers that Burrow is simply sleep-digging; this shows a strange mystery can have a simple explanation.",
+      "skill": "outcome",
+      "rationale": "Burrow places his dirty boot by the door to reveal the next walk. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "\"It was you,\" said Pip gently. \"You sleep-dig.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 1,
-          "evidenceText": "Pip's boots were not where he had left them.\nA bench was tipped over.\nSomeone had been in the clearing."
-        }
-      ]
+      "evidenceText": "Burrow places his dirty boot by the door to reveal the next walk."
     }
   ]
 }

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-b-33",
-  "contentHash": "sha256:47133a84397c4c5653606d3987cf2c4f60eba6193e8c3bc22b1e0ef2be1d851b",
+  "contentHash": "sha256:e6391629aeb106c75b866a0deeab5e78446518d0399edf1e8bd2383db669e865",
   "questions": [
     {
       "id": "gr-b-33-q1",
-      "prompt": "What hits nails?",
+      "prompt": "Which fact about a hammer is given in Tools?",
       "choices": [
-        "a hammer",
-        "a saw",
-        "a ruler"
+        "A hammer drives nails.",
+        "A wrench turns bolts.",
+        "Adults use tools carefully."
       ],
-      "answer": "a hammer",
+      "answer": "A hammer drives nails.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A hammer hits nails."
+      "evidenceText": "A hammer drives nails."
     },
     {
       "id": "gr-b-33-q2",
-      "prompt": "What does a saw do?",
+      "prompt": "Which fact about a wrench is given in Tools?",
       "choices": [
-        "cuts wood",
-        "makes holes",
-        "turns bolts"
+        "A wrench turns bolts.",
+        "A hammer drives nails.",
+        "Adults use tools carefully."
       ],
-      "answer": "cuts wood",
+      "answer": "A wrench turns bolts.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "A saw cuts wood."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A wrench turns bolts."
     },
     {
       "id": "gr-b-33-q3",
-      "prompt": "What do tools help us do?",
+      "prompt": "Which statement gives the main idea of Tools?",
       "choices": [
-        "build",
-        "sleep",
-        "sing"
+        "Adults use tools carefully.",
+        "A hammer drives nails.",
+        "A wrench turns bolts."
       ],
-      "answer": "build",
-      "kind": "word",
-      "skill": "function",
+      "answer": "Adults use tools carefully.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Adults use tools carefully. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Tools help us build!"
+      "evidenceText": "Adults use tools carefully."
     }
   ]
 }

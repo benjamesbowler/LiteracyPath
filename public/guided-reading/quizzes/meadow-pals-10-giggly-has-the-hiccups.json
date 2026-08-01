@@ -1,52 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-10-giggly-has-the-hiccups",
-  "contentHash": "sha256:50d82f1c9a23e664b68c543043402517a682b0eeb4617a29ef1f656012906deb",
+  "contentHash": "sha256:9791cfe2572318bad23ad3e63cd422149f97c27b4342aac40413658d2dc1dabf",
   "questions": [
     {
       "id": "meadow-pals-10-giggly-has-the-hiccups-q1",
-      "prompt": "What does Bouncy tell Giggly to do?",
+      "prompt": "What happens first in Giggly Has the Hiccups?",
       "choices": [
-        "jump up",
-        "lie down",
-        "run home"
+        "Giggly has the hiccups.",
+        "Jumping does not help.",
+        "Giggly breathes slowly again."
       ],
-      "answer": "jump up",
+      "answer": "Giggly has the hiccups.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "\"Jump up,\" said Bouncy."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Giggly has the hiccups."
     },
     {
       "id": "meadow-pals-10-giggly-has-the-hiccups-q2",
-      "prompt": "What does Clucky give Giggly to help the hiccups?",
+      "prompt": "What goes wrong in Giggly Has the Hiccups?",
       "choices": [
-        "a drink",
-        "a cake",
-        "a hat"
+        "Jumping does not help.",
+        "Giggly has the hiccups.",
+        "Giggly breathes slowly again."
       ],
-      "answer": "a drink",
+      "answer": "Jumping does not help.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Clucky says 'Drink this' while Giggly is still hiccuping, so the drink is Clucky's attempted help.",
-      "evidencePage": 4,
-      "evidenceText": "\"Drink this,\" said Clucky.\nHic! Hee! Hic! Hee!"
+      "rationale": "Jumping does not help. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Jumping does not help."
     },
     {
       "id": "meadow-pals-10-giggly-has-the-hiccups-q3",
-      "prompt": "What comes back after Giggly stops?",
+      "prompt": "What happens at the end of Giggly Has the Hiccups?",
       "choices": [
-        "one hiccup",
-        "one sneeze",
-        "one giggle"
+        "Giggly breathes slowly again.",
+        "Giggly has the hiccups.",
+        "Jumping does not help."
       ],
-      "answer": "one hiccup",
+      "answer": "Giggly breathes slowly again.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The single word Hic after Giggly stops shows that one hiccup comes back.",
-      "evidencePage": 8,
-      "evidenceText": "Hic."
+      "rationale": "Giggly breathes slowly again. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Giggly breathes slowly again."
     }
   ]
 }

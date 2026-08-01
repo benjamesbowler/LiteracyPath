@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-a-26",
-  "contentHash": "sha256:758a4e79e7ca9571f596c88b807f777af66ee96a02f6849f29833642ad0e149a",
+  "contentHash": "sha256:ed200fd535712c3d9e468916a97cd4584841ca31b975766fad43bb48612f5f1c",
   "questions": [
     {
       "id": "gr-a-26-q1",
-      "prompt": "Which animal does the book name as a pet?",
+      "prompt": "Which fact about a dog is given in Pets?",
       "choices": [
-        "a dog",
-        "a lion",
-        "a whale"
+        "A dog can be a pet.",
+        "A fish can be a pet.",
+        "Every pet needs gentle care."
       ],
-      "answer": "a dog",
+      "answer": "A dog can be a pet.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A dog is a pet."
+      "evidenceText": "A dog can be a pet."
     },
     {
       "id": "gr-a-26-q2",
-      "prompt": "What does the book say about pets?",
+      "prompt": "Which fact about a fish is given in Pets?",
       "choices": [
-        "pets are scary",
-        "pets are fun",
-        "pets are loud"
+        "A fish can be a pet.",
+        "A dog can be a pet.",
+        "Every pet needs gentle care."
       ],
-      "answer": "pets are fun",
+      "answer": "A fish can be a pet.",
       "kind": "text",
-      "skill": "main_idea",
-      "evidencePage": 6,
-      "evidenceText": "Pets are fun!"
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A fish can be a pet."
     },
     {
       "id": "gr-a-26-q3",
-      "prompt": "Which sentence matches the book?",
+      "prompt": "Which statement gives the main idea of Pets?",
       "choices": [
-        "a rabbit is a pet",
-        "a rabbit is a fish",
-        "a rabbit is a bird"
+        "Every pet needs gentle care.",
+        "A dog can be a pet.",
+        "A fish can be a pet."
       ],
-      "answer": "a rabbit is a pet",
+      "answer": "Every pet needs gentle care.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "A rabbit is a pet."
+      "skill": "main_idea",
+      "rationale": "Every pet needs gentle care. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "Every pet needs gentle care."
     }
   ]
 }

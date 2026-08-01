@@ -13,6 +13,7 @@ import {
   grammarGrindChoiceFeedback,
   grammarGrindIsCorrect,
   grammarGrindLadder,
+  grammarGrindSegmentChoices,
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
 import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
@@ -37,17 +38,17 @@ import {
 const THEMES = {
   easy: {
     name: "Meadow Skate School",
-    sky: "#8fd7ff",
-    fog: "#aee9ff",
-    ground: "#506a78",
-    ground2: "#6f8792",
-    accent: "#ffd34e",
-    accent2: "#36d6ff",
-    gate: "#dff8ff",
-    token: "#fff07a",
-    correct: "#58f39a",
-    wrong: "#ff5c74",
-    rail: "#d9f2ff",
+    sky: "#8fded4",
+    fog: "#d9f2c1",
+    ground: "#6da85c",
+    ground2: "#8fc76d",
+    accent: "#ffd45c",
+    accent2: "#42b9a7",
+    gate: "#fff2bf",
+    token: "#ffdf67",
+    correct: "#42b96e",
+    wrong: "#ed6b67",
+    rail: "#fff2cf",
     world: "meadow"
   },
   medium: {
@@ -84,9 +85,9 @@ const THEMES = {
 
 const ARENA_LIMIT = 82;
 const PLAYER_RADIUS = 2.15;
-const MAX_SPEED = { easy: 25, medium: 29, hard: 33 };
+const MAX_SPEED = { easy: 9, medium: 29, hard: 33 };
 const BOOST_MAX = 100;
-const TOKEN_COUNT = { easy: 10, medium: 12, hard: 14 };
+const TOKEN_COUNT = { easy: 0, medium: 12, hard: 14 };
 const STYLE_WINDOW = 6;
 
 function clamp(value, min, max) {
@@ -344,8 +345,8 @@ function makeGroundTexture(theme) {
   ctx.fillStyle = "rgba(255,255,255,.2)";
   ctx.font = "900 36px Arial, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("GRAMMAR", 256, 240);
-  ctx.fillText("GRIND", 256, 290);
+  ctx.fillText("SPELL", 256, 240);
+  ctx.fillText("& SKATE", 256, 290);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.wrapS = THREE.RepeatWrapping;
@@ -545,7 +546,44 @@ function startGame(mount, opts) {
   ground.receiveShadow = true;
   park.add(ground);
 
-  const boundaryMat = makeMat("#0c1022", { roughness: 0.54, metalness: 0.22, emissive: theme.accent2, emissiveIntensity: 0.05 });
+  if (difficulty === "easy") {
+    // A calm, readable route through Meadow School. The early spelling task
+    // should look like a journey with a destination, not a grey free-roam
+    // arena. The path also gives young children a strong forward cue.
+    const path = new THREE.Mesh(
+      new THREE.PlaneGeometry(22, 152),
+      makeMat("#f7dfa0", { roughness: 0.92, metalness: 0 })
+    );
+    path.rotation.x = -Math.PI / 2;
+    path.position.set(0, 0.035, -28);
+    path.receiveShadow = true;
+    park.add(path);
+    for (const x of [-11.5, 11.5]) {
+      const border = new THREE.Mesh(
+        new THREE.BoxGeometry(1.1, 0.24, 152),
+        makeMat(x < 0 ? "#3f9f83" : "#58b894", { roughness: 0.8 })
+      );
+      border.position.set(x, 0.1, -28);
+      border.receiveShadow = true;
+      park.add(border);
+    }
+    for (let z = 36; z >= -94; z -= 13) {
+      const steppingStone = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.15, 1.4, 0.16, 12),
+        makeMat(z % 26 === 10 ? "#f8c95a" : "#fff1bd", { roughness: 0.88 })
+      );
+      steppingStone.position.set(Math.sin(z * 0.12) * 2.2, 0.14, z);
+      steppingStone.receiveShadow = true;
+      park.add(steppingStone);
+    }
+  }
+
+  const boundaryMat = makeMat(difficulty === "easy" ? "#3f8668" : "#0c1022", {
+    roughness: difficulty === "easy" ? 0.86 : 0.54,
+    metalness: difficulty === "easy" ? 0 : 0.22,
+    emissive: theme.accent2,
+    emissiveIntensity: difficulty === "easy" ? 0.01 : 0.05
+  });
   for (const side of [
     { x: 0, z: -ARENA_LIMIT, w: ARENA_LIMIT * 2, d: 1.2 },
     { x: 0, z: ARENA_LIMIT, w: ARENA_LIMIT * 2, d: 1.2 },
@@ -693,29 +731,38 @@ function startGame(mount, opts) {
     park.add(group);
   }
 
-  addRamp(-42, -34, Math.PI * 0.16, 18, 21, 4.8);
-  addRamp(38, 32, Math.PI * 1.18, 20, 22, 5.2);
-  addRamp(-2, 56, Math.PI, 32, 18, 4.1);
-  addRamp(44, -46, -Math.PI * 0.38, 16, 18, 3.8);
-  addQuarterPipe(-58, 22, Math.PI * 0.48, 24, 7.8);
-  addQuarterPipe(58, -24, -Math.PI * 0.52, 28, 8.2);
-  addQuarterPipe(-2, -68, 0, 34, 7.4);
-  addRail(-24, 14, -Math.PI * 0.18, 24);
-  addRail(28, -4, Math.PI * 0.28, 30);
-  addRail(0, -52, 0, 26);
-  addPlatform(-20, -18, Math.PI * 0.08, 22, 10, 1.7);
-  addPlatform(25, 24, -Math.PI * 0.12, 26, 9, 1.9);
-  addPlatform(7, -34, Math.PI * 0.42, 18, 8, 1.45);
-  addLightPylon(-66, -16, Math.PI * 0.25);
-  addLightPylon(68, 16, -Math.PI * 0.25);
-  addLightPylon(-18, 70, Math.PI);
-  addLightPylon(18, -70, 0);
-  addSkillSign(-52, 52, Math.PI * 0.28, "STYLE");
-  addSkillSign(52, -54, -Math.PI * 0.72, "FOCUS");
+  if (difficulty === "easy") {
+    // Keep the route open. Two distant side ramps make it feel like a skate
+    // park without blocking the phoneme line or inviting six-button play.
+    addRamp(-34, -30, Math.PI * 0.08, 15, 18, 3.2);
+    addRamp(35, -64, -Math.PI * 0.12, 15, 18, 3.2);
+    addSkillSign(-31, 28, Math.PI * 0.04, "LISTEN");
+    addSkillSign(31, -8, -Math.PI * 0.04, "BUILD");
+  } else {
+    addRamp(-42, -34, Math.PI * 0.16, 18, 21, 4.8);
+    addRamp(38, 32, Math.PI * 1.18, 20, 22, 5.2);
+    addRamp(-2, 56, Math.PI, 32, 18, 4.1);
+    addRamp(44, -46, -Math.PI * 0.38, 16, 18, 3.8);
+    addQuarterPipe(-58, 22, Math.PI * 0.48, 24, 7.8);
+    addQuarterPipe(58, -24, -Math.PI * 0.52, 28, 8.2);
+    addQuarterPipe(-2, -68, 0, 34, 7.4);
+    addRail(-24, 14, -Math.PI * 0.18, 24);
+    addRail(28, -4, Math.PI * 0.28, 30);
+    addRail(0, -52, 0, 26);
+    addPlatform(-20, -18, Math.PI * 0.08, 22, 10, 1.7);
+    addPlatform(25, 24, -Math.PI * 0.12, 26, 9, 1.9);
+    addPlatform(7, -34, Math.PI * 0.42, 18, 8, 1.45);
+    addLightPylon(-66, -16, Math.PI * 0.25);
+    addLightPylon(68, 16, -Math.PI * 0.25);
+    addLightPylon(-18, 70, Math.PI);
+    addLightPylon(18, -70, 0);
+    addSkillSign(-52, 52, Math.PI * 0.28, "STYLE");
+    addSkillSign(52, -54, -Math.PI * 0.72, "FOCUS");
+  }
 
   function addDecor() {
     const rand = seeded(difficulty === "hard" ? 90 : difficulty === "medium" ? 45 : 18);
-    const decoMat = makeMat(difficulty === "hard" ? "#1a265c" : difficulty === "medium" ? "#6b3d28" : "#315c54");
+    const decoMat = makeMat(difficulty === "hard" ? "#1a265c" : difficulty === "medium" ? "#6b3d28" : "#77b95d");
     for (let i = 0; i < 26; i += 1) {
       const angle = (i / 26) * Math.PI * 2;
       const radius = 94 + rand() * 22;
@@ -748,6 +795,7 @@ function startGame(mount, opts) {
   addDecor();
 
   const skater = makeSkater(theme);
+  if (difficulty === "easy") skater.scale.setScalar(1.25);
   scene.add(skater);
 
   const overlay = document.createElement("div");
@@ -763,26 +811,34 @@ function startGame(mount, opts) {
       '<div data-gg="sentence" style="margin-top:5px;font-size:clamp(.84rem,1.5vw,1.08rem);font-weight:850;color:#eaf8ff"></div>' +
       '<div data-gg="cue" style="margin-top:4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="coach" style="margin:7px auto 0;max-width:560px;font-size:.82rem;line-height:1.15;color:#ffe7a3;font-weight:850"></div>' +
-      '<button data-gg="hear" type="button" aria-label="Hear the sentence" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR</button>' +
+      '<button data-gg="hear" type="button" aria-label="Hear the word" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR WORD</button>' +
     '</div>' +
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="speed" style="font-size:1.22rem;font-weight:950">0 kmh</div>' +
-      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find a gate</div>' +
+      '<div data-gg="trick" style="font-size:.82rem;color:#ffe17a;font-weight:900">Find the next sound</div>' +
       '<div style="margin-top:7px;width:142px;height:8px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2);margin-left:auto;overflow:hidden"><div data-gg="boostbar" style="height:100%;width:42%;background:linear-gradient(90deg,#7df2ff,#ffe17a)"></div></div>' +
       '<div data-gg="style" style="margin-top:4px;font-size:.72rem;color:#d9f2ff;font-weight:900;text-transform:uppercase;letter-spacing:.08em">Style ready</div>' +
     '</div>' +
     '<div data-gg="banner" style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);text-align:center;font-size:clamp(2.2rem,8vw,6.8rem);font-weight:950;text-shadow:0 10px 30px rgba(0,0,0,.62),0 0 18px rgba(125,242,255,.4);display:none"></div>' +
     '<div data-gg-controls="left" style="position:absolute;bottom:18px;left:18px;display:flex;gap:10px;pointer-events:auto">' +
-      '<button data-gg-btn="left" aria-label="Turn left" style="width:64px;height:58px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.64);color:#fff;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3)">LEFT</button>' +
-      '<button data-gg-btn="right" aria-label="Turn right" style="width:64px;height:58px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.64);color:#fff;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3)">RIGHT</button>' +
+      '<button data-gg-btn="push" aria-label="Move forward" style="width:76px;height:64px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#7df2ff,#38bdf8);color:#07101d;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↑<br>FORWARD</button>' +
+      '<button data-gg-btn="brake" aria-label="Move back" style="width:76px;height:64px;border:1px solid rgba(255,255,255,.3);background:rgba(6,10,28,.76);color:#fff;font-size:.82rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">↓<br>BACK</button>' +
     '</div>' +
     '<div data-gg-controls="right" style="position:absolute;bottom:18px;right:18px;display:flex;gap:10px;pointer-events:auto">' +
-      '<button data-gg-btn="brake" aria-label="Brake" style="width:72px;height:58px;border:1px solid rgba(255,255,255,.3);background:rgba(6,10,28,.64);color:#fff;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3)">BRAKE</button>' +
-      '<button data-gg-btn="boost" aria-label="Boost" style="width:78px;height:58px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#131b3d,#33e6ff);color:#fff;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3)">BOOST</button>' +
-      '<button data-gg-btn="push" aria-label="Push" style="width:72px;height:58px;border:1px solid rgba(255,255,255,.3);background:linear-gradient(160deg,#7df2ff,#38bdf8);color:#07101d;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3)">PUSH</button>' +
+      '<button data-gg-btn="left" aria-label="Turn left" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">←</button>' +
+      '<button data-gg-btn="right" aria-label="Turn right" style="width:70px;height:64px;border:1px solid rgba(125,242,255,.42);background:rgba(6,10,28,.76);color:#fff;font-size:1.6rem;font-weight:950;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.3)">→</button>' +
+      '<button data-gg-btn="boost" aria-label="Boost" style="width:72px;height:58px;border:1px solid rgba(125,242,255,.52);background:linear-gradient(160deg,#131b3d,#33e6ff);color:#fff;font-weight:950;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.3)">BOOST</button>' +
       '<button data-gg-btn="jump" aria-label="Jump trick" style="width:86px;height:68px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">TRICK</button>' +
-    '</div>';
+    '</div>' +
+    (difficulty === "easy"
+      ? '<div data-gg-guide style="position:absolute;right:18px;bottom:102px;width:min(190px,23vw);display:grid;justify-items:center;filter:drop-shadow(0 12px 18px rgba(29,73,57,.28))">' +
+          '<img src="/images/pals/meadow-point.webp" alt="" style="display:block;width:100%;max-height:150px;object-fit:contain;object-position:center bottom">' +
+          '<div style="margin-top:-13px;padding:6px 12px;border-radius:999px;background:rgba(255,250,226,.94);border:2px solid rgba(66,153,119,.45);color:#214d3e;font-size:.76rem;font-weight:950;box-shadow:0 7px 18px rgba(29,73,57,.16)">Follow the glowing sound</div>' +
+        '</div>'
+      : '');
+  const rightPanel = overlay.querySelector('[data-gg-panel="right"]');
+  if (rightPanel && difficulty === "easy") rightPanel.style.display = "none";
   const overlayStyle = document.createElement("style");
   overlayStyle.textContent = `
     @media (max-width: 760px) {
@@ -842,33 +898,40 @@ function startGame(mount, opts) {
         margin-top: 5px !important;
       }
       [data-gg-controls="left"] {
-        bottom: 86px !important;
+        bottom: 10px !important;
         left: 10px !important;
         gap: 7px !important;
       }
       [data-gg-controls="right"] {
-        left: 10px !important;
+        left: auto !important;
         right: 10px !important;
         bottom: 10px !important;
         gap: 7px !important;
         justify-content: space-between !important;
       }
       [data-gg-btn] {
-        height: 54px !important;
+        height: 58px !important;
         border-radius: 7px !important;
         font-size: .74rem !important;
       }
       [data-gg-btn="left"],
       [data-gg-btn="right"] {
-        width: 64px !important;
+        width: 58px !important;
       }
       [data-gg-btn="brake"],
-      [data-gg-btn="boost"],
-      [data-gg-btn="push"],
+      [data-gg-btn="push"] {
+        width: 64px !important;
+      }
+      [data-gg-btn="boost"] {
+        display: none !important;
+      }
       [data-gg-btn="jump"] {
-        width: auto !important;
-        flex: 1 1 0 !important;
-        min-width: 0 !important;
+        width: 68px !important;
+      }
+      [data-gg-guide] {
+        right: 10px !important;
+        bottom: 78px !important;
+        width: min(126px, 30vw) !important;
       }
     }
   `;
@@ -891,6 +954,10 @@ function startGame(mount, opts) {
     style: overlay.querySelector('[data-gg="style"]'),
     banner: overlay.querySelector('[data-gg="banner"]')
   };
+  if (difficulty === "easy") {
+    el.score.style.display = "none";
+    el.combo.style.display = "none";
+  }
 
   let running = true;
   let paused = false;
@@ -917,6 +984,8 @@ function startGame(mount, opts) {
   let styleScore = 0;
   let lineStep = 0;
   let lineReady = false;
+  let lineReadyDelay = 0;
+  let lineChoiceCooldown = 0;
   let trailTimer = 0;
   let phase = "countdown";
   let phaseTimer = 4.2;
@@ -979,7 +1048,7 @@ function startGame(mount, opts) {
     }
   }
 
-  function createLineNode(label, index, position, coach) {
+  function createLineNode(label, index, position, coach, correctChoice) {
     const group = new THREE.Group();
     group.position.set(position.x, 0.18, position.z);
     const ringMat = new THREE.MeshBasicMaterial({
@@ -1013,22 +1082,36 @@ function startGame(mount, opts) {
     sign.userData.billboard = true;
     group.add(sign);
     lineRoot.add(group);
-    lineNodes.push({ group, ring, ringMat, arrow, sign, index, label, coach, radius: 4.2, used: false });
+    lineNodes.push({ group, ring, ringMat, arrow, sign, index, label, coach, radius: 4.2, correct: label === correctChoice });
+  }
+
+  function rebuildLineChoices() {
+    clearLineNodes();
+    const expected = level.segments[lineStep];
+    if (!expected) return;
+    const choices = grammarGrindSegmentChoices(level, ladder, lineStep, levelIndex);
+    const rand = seeded((levelIndex + 1) * 7703 + (lineStep + 1) * 991);
+    choices.forEach((segment, index) => {
+      const angle = (Math.PI * 2 * index) / choices.length + rand() * 0.48 + lineStep * 0.61;
+      const radius = 28 + rand() * 34;
+      createLineNode(
+        segment,
+        index,
+        { x: Math.sin(angle) * radius, z: Math.cos(angle) * radius },
+        lineStep === level.segments.length - 1
+          ? `${expected} completes ${level.audioWord}. Now choose the built word.`
+          : `Good. Now find ${level.segments[lineStep + 1]}.`,
+        expected
+      );
+    });
   }
 
   function placeLineNodes() {
-    clearLineNodes();
     lineStep = 0;
     lineReady = false;
-    const offset = levelIndex * 0.47 + (difficulty === "hard" ? 0.8 : difficulty === "medium" ? 0.35 : 0);
-    const positions = [
-      { x: Math.sin(1.15 + offset) * 34, z: Math.cos(1.15 + offset) * 34 },
-      { x: Math.sin(3.0 + offset) * 43, z: Math.cos(3.0 + offset) * 43 },
-      { x: Math.sin(4.75 + offset) * 37, z: Math.cos(4.75 + offset) * 37 }
-    ];
-    createLineNode("READ", 0, positions[0], `Read the sentence: ${level.sentence}`);
-    createLineNode("RULE", 1, positions[1], `Rule: ${level.teaching || level.cue}`);
-    createLineNode("SOLVE", 2, positions[2], "Now hit the gate that completes the sentence.");
+    lineReadyDelay = 0;
+    lineChoiceCooldown = 0;
+    rebuildLineChoices();
   }
 
   function placePickup(pickup, seedOffset = 0) {
@@ -1082,10 +1165,13 @@ function startGame(mount, opts) {
     const gateColor = theme.gate || theme.accent2;
     const gateMat = makeMat(gateColor, { emissive: gateColor, emissiveIntensity: 0.38 });
     const frameMat = makeMat("#101a32", { roughness: 0.42, metalness: 0.18, emissive: gateColor, emissiveIntensity: 0.08 });
+    const easyGate = difficulty === "easy";
+    const gateSpan = easyGate ? 8.6 : 10.4;
+    const gateHalf = gateSpan / 2;
 
     const postGeo = new THREE.BoxGeometry(0.68, 9.5, 0.68);
-    const topGeo = new THREE.BoxGeometry(10.4, 0.68, 0.68);
-    for (const x of [-5.2, 5.2]) {
+    const topGeo = new THREE.BoxGeometry(gateSpan, 0.68, 0.68);
+    for (const x of [-gateHalf, gateHalf]) {
       const post = new THREE.Mesh(postGeo, frameMat);
       post.position.set(x, 4.75, 0);
       post.castShadow = true;
@@ -1095,11 +1181,11 @@ function startGame(mount, opts) {
     top.position.set(0, 9.52, 0);
     top.castShadow = true;
     group.add(top);
-    const glow = new THREE.Mesh(new THREE.BoxGeometry(7.5, 0.18, 0.34), gateMat);
+    const glow = new THREE.Mesh(new THREE.BoxGeometry(easyGate ? 6.2 : 7.5, 0.18, 0.34), gateMat);
     glow.position.set(0, 0.7, 0);
     group.add(glow);
     const beam = new THREE.Mesh(
-      new THREE.ConeGeometry(3.7, 11, 5, 1, true),
+      new THREE.ConeGeometry(easyGate ? 3.1 : 3.7, 11, 5, 1, true),
       new THREE.MeshBasicMaterial({ color: gateColor, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide })
     );
     beam.position.set(0, 5.7, -0.28);
@@ -1110,10 +1196,10 @@ function startGame(mount, opts) {
       fg: "#ffffff",
       border: gateColor,
       bg: "rgba(4,8,22,.94)",
-      size: choice.length > 10 ? 64 : 108
+      size: choice.length > 10 ? 64 : (easyGate ? 92 : 108)
     });
     const label = new THREE.Mesh(
-      new THREE.PlaneGeometry(11.1, 3.9),
+      new THREE.PlaneGeometry(easyGate ? 9.1 : 11.1, easyGate ? 3.35 : 3.9),
       new THREE.MeshBasicMaterial({ map: labelTexture, transparent: true, depthWrite: false, side: THREE.DoubleSide })
     );
     label.position.set(0, 5.65, 0.34);
@@ -1121,7 +1207,8 @@ function startGame(mount, opts) {
     label.userData.billboard = true;
     group.add(label);
 
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(4.6, 0.08, 8, 36), gateMat);
+    const ringRadius = easyGate ? 3.9 : 4.6;
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(ringRadius, 0.08, 8, 36), gateMat);
     ring.position.set(0, 4.5, -0.03);
     ring.rotation.x = Math.PI / 2;
     group.add(ring);
@@ -1132,7 +1219,7 @@ function startGame(mount, opts) {
 
     group.userData = { choice, index, correct: isCorrect, cooldown: 0, label, marker, beam };
     gatesRoot.add(group);
-    gates.push({ group, choice, correct: isCorrect, pos: group.position, radius: 4.8, cooldown: 0 });
+    gates.push({ group, choice, correct: isCorrect, pos: group.position, radius: easyGate ? 4.2 : 4.8, cooldown: 0 });
   }
 
   function placeGates() {
@@ -1146,7 +1233,7 @@ function startGame(mount, opts) {
     }
     options.forEach((choice, index) => {
       const angle = baseAngles[index % baseAngles.length] + rand() * 0.36 - 0.18 + levelIndex * 0.17;
-      const radius = 43 + rand() * 22;
+      const radius = (difficulty === "easy" ? 34 : 43) + rand() * (difficulty === "easy" ? 18 : 22);
       createGate(choice, index, { x: Math.sin(angle) * radius, z: Math.cos(angle) * radius }, level.correct);
     });
   }
@@ -1159,24 +1246,26 @@ function startGame(mount, opts) {
     el.score.textContent = `${Math.max(0, Math.round(score))} pts`;
     el.combo.textContent = `Combo x${combo}`;
     el.prompt.textContent = level.prompt;
-    el.sentence.textContent = level.sentence;
+    el.sentence.textContent = difficulty === "easy"
+      ? level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  ")
+      : level.sentence;
     el.cue.textContent = level.focus || level.cue;
     el.coach.textContent = coachText || level.teaching || level.cue;
     el.world.textContent = theme.name;
     el.speed.textContent = `${Math.round(Math.abs(player.speed) * 3.2)} kmh`;
-    el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || "Find the right gate";
+    el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next sound");
     el.boostbar.style.width = `${Math.round(clamp(boost, 0, BOOST_MAX))}%`;
     el.boostbar.style.filter = boostFlash > 0 ? "brightness(1.75)" : "";
     el.style.textContent = lineReady
-      ? "Grammar line ready"
-      : lineStep < 3
-        ? `Line ${lineStep + 1} of 3`
+      ? `${level.audioWord} is ready`
+      : lineStep < level.segments.length
+        ? `Sound ${lineStep + 1} of ${level.segments.length}`
         : styleWindow > 0
           ? `Style bank ${Math.round(styleScore)}`
-          : "Collect tokens and tricks";
+          : "Collect sounds and skate";
     if (phase === "countdown") {
       el.banner.style.display = "block";
-      el.banner.textContent = phaseTimer > 2.35 ? "READ" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO";
+      el.banner.textContent = phaseTimer > 2.35 ? "LISTEN" : phaseTimer > 1.55 ? "3" : phaseTimer > 0.8 ? "2" : phaseTimer > 0.2 ? "1" : "GO";
     } else if (messageTimer > 0) {
       el.banner.style.display = "block";
       el.banner.textContent = message;
@@ -1188,7 +1277,7 @@ function startGame(mount, opts) {
   }
 
   function levelSpeechParts() {
-    return [level.prompt, level.sentence, ...level.options.filter(option => /[a-z]/i.test(option))];
+    return [level.prompt, level.audioWord].filter(Boolean);
   }
 
   // speak() stops any clip that is already playing, so the parts are chained
@@ -1207,13 +1296,23 @@ function startGame(mount, opts) {
     playPart(0);
   }
 
-  function loadLevel(index, introMessage = "Choose the right gate", introCoach = null) {
+  function loadLevel(index, introMessage = "Collect the sounds", introCoach = null) {
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
     levelMisses = 0;
     placeGates();
     placePickups();
     placeLineNodes();
+    if (difficulty === "easy") {
+      // Reset to a predictable centre between words, but leave every movement
+      // under the child's control and scatter every new choice around them.
+      player.pos.set(0, 0, 24);
+      player.yaw = Math.PI;
+      player.speed = 0;
+      player.vy = 0;
+      player.air = 0;
+      player.onGround = true;
+    }
     message = introMessage;
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
@@ -1307,7 +1406,7 @@ function startGame(mount, opts) {
   }
 
   function handleGate(gate) {
-    if (phase !== "playing" || gateCooldown > 0 || gate.cooldown > 0) return;
+    if (phase !== "playing" || !lineReady || gateCooldown > 0 || gate.cooldown > 0) return;
     gate.cooldown = 1.4;
     if (grammarGrindIsCorrect(gate.choice, level)) {
       correct += 1;
@@ -1321,7 +1420,7 @@ function startGame(mount, opts) {
       spawnBurst(gate.pos, theme.correct, 22);
       sfx(playCorrectChime);
       if (lineBonus > 0) sfx(playStarChime);
-      message = lineBonus > 0 ? `Line solve +${lineBonus}` : styleBonus > 0 ? `Style solve +${styleBonus}` : `Correct: ${gate.choice}`;
+      message = lineBonus > 0 ? `Word built +${lineBonus}` : styleBonus > 0 ? `Style word +${styleBonus}` : `Correct: ${gate.choice}`;
       coachText = level.success || level.teaching || level.cue;
       messageTimer = 1.25;
       lineReady = false;
@@ -1333,15 +1432,9 @@ function startGame(mount, opts) {
       mistakes += 1;
       levelMisses += 1;
       combo = 1;
-      player.stun = 0.34;
-      player.speed *= -0.28;
-      boost = clamp(boost - 14, 0, BOOST_MAX);
-      styleWindow = Math.max(0, styleWindow - 2.5);
-      styleScore = Math.max(0, styleScore - 45);
-      addScore(-45);
       spawnBurst(gate.pos, theme.wrong, 12);
       sfx(playSoftBuzz);
-      message = "Grammar check";
+      message = "Try that word again";
       coachText = grammarGrindChoiceFeedback(gate.choice, level, { reveal: levelMisses >= 2 });
       messageTimer = 1.6;
       gateCooldown = 0.8;
@@ -1459,7 +1552,6 @@ function startGame(mount, opts) {
       const dir = new THREE.Vector3(Math.sin(player.yaw), 0, Math.cos(player.yaw));
       player.pos.addScaledVector(dir, player.speed * dt);
     }
-
     let surfaceHeight = 0;
     for (const platform of platformZones) {
       const p = localPoint(player.pos.x, player.pos.z, platform);
@@ -1506,6 +1598,8 @@ function startGame(mount, opts) {
   function updateGates(dt) {
     gateCooldown = Math.max(0, gateCooldown - dt);
     gates.forEach(gate => {
+      gate.group.visible = lineReady;
+      if (!lineReady) return;
       gate.cooldown = Math.max(0, gate.cooldown - dt);
       gate.group.rotation.z = Math.sin(performance.now() * 0.0018 + gate.group.userData.index) * 0.035;
       if (gate.group.userData.marker) {
@@ -1551,36 +1645,54 @@ function startGame(mount, opts) {
   }
 
   function updateLineNodes(dt, time) {
-    lineNodes.forEach(node => {
-      const active = node.index === lineStep && !lineReady;
-      const complete = node.index < lineStep || lineReady;
-      node.group.visible = !complete || lineReady;
-      node.ringMat.opacity = active ? 0.72 + Math.sin(time * 5) * 0.16 : lineReady ? 0.22 : 0.28;
-      node.group.scale.setScalar(active ? 1 + Math.sin(time * 4.4) * 0.08 : 0.86);
-      node.sign.visible = active;
-      node.arrow.visible = active;
-      node.arrow.rotation.y += dt * (active ? 3.4 : 1.1);
+    lineChoiceCooldown = Math.max(0, lineChoiceCooldown - dt);
+    // A correct collision rebuilds lineNodes. Iterate a snapshot and stop after
+    // one collision so newly created choices cannot be consumed in this frame.
+    for (const node of [...lineNodes]) {
+      node.group.visible = !lineReady;
+      node.ringMat.opacity = 0.52 + Math.sin(time * 4.4 + node.index) * 0.12;
+      node.group.scale.setScalar(0.94 + Math.sin(time * 3.6 + node.index) * 0.04);
+      node.sign.visible = true;
+      node.arrow.visible = true;
+      node.arrow.rotation.y += dt * 2.4;
       node.arrow.position.y = 2.25 + Math.sin(time * 3 + node.index) * 0.35;
       if (node.sign.userData.billboard) node.sign.lookAt(camera.position);
-      if (!active) return;
+      if (lineReady || lineChoiceCooldown > 0) return;
       const dx = node.group.position.x - player.pos.x;
       const dz = node.group.position.z - player.pos.z;
       if (Math.hypot(dx, dz) < node.radius && player.air < 4.8) {
-        node.used = true;
+        lineChoiceCooldown = 0.7;
+        if (!node.correct) {
+          mistakes += 1;
+          combo = 1;
+          message = `${node.label} is not next`;
+          coachText = `Listen again. Find ${level.segments[lineStep]} next in ${level.audioWord}.`;
+          messageTimer = 1.45;
+          spawnBurst(node.group.position, theme.wrong, 10);
+          sfx(playSoftBuzz);
+          break;
+        }
         lineStep += 1;
         coachText = node.coach;
-        awardStyle(18 + node.index * 8, `${node.label} line`);
+        awardStyle(18 + lineStep * 8, `${node.label} found`);
         spawnBurst(node.group.position, theme.token || theme.accent, 12);
         sfx(playPopSound);
-        if (lineStep >= lineNodes.length) {
+        if (lineStep >= level.segments.length) {
           lineReady = true;
-          coachText = "Grammar line complete. Solve the sentence for a bonus.";
-          message = "Line ready";
+          lineReadyDelay = 0.8;
+          clearLineNodes();
+          coachText = `${level.segments.join(" + ")} spells ${level.audioWord}. Find and skate through ${level.audioWord}.`;
+          message = "Word ready";
           messageTimer = 1;
           sfx(playStarChime);
+        } else {
+          rebuildLineChoices();
+          message = `Now find ${level.segments[lineStep]}`;
+          messageTimer = 0.9;
         }
+        break;
       }
-    });
+    }
   }
 
   function updateTrails(dt, time) {
@@ -1637,8 +1749,15 @@ function startGame(mount, opts) {
   }
 
   function updateCamera(dt) {
-    const behind = new THREE.Vector3(-Math.sin(player.yaw) * 17, 8.6 + player.air * 0.22, -Math.cos(player.yaw) * 17);
-    const side = new THREE.Vector3(Math.cos(player.yaw) * 3.2, 0, -Math.sin(player.yaw) * 3.2);
+    const followDistance = difficulty === "easy" ? 11.5 : 17;
+    const followHeight = difficulty === "easy" ? 6.8 : 8.6;
+    const sideOffset = difficulty === "easy" ? 1.7 : 3.2;
+    const behind = new THREE.Vector3(
+      -Math.sin(player.yaw) * followDistance,
+      followHeight + player.air * 0.22,
+      -Math.cos(player.yaw) * followDistance
+    );
+    const side = new THREE.Vector3(Math.cos(player.yaw) * sideOffset, 0, -Math.sin(player.yaw) * sideOffset);
     const targetPos = player.pos.clone().add(behind).add(side);
     camera.position.lerp(targetPos, clamp(dt * 4.4, 0, 1));
     const look = player.pos.clone();
@@ -1652,10 +1771,11 @@ function startGame(mount, opts) {
       phaseTimer -= dt;
       if (phaseTimer <= 0) {
         phase = "playing";
-        message = "Find the right gate";
+        message = "Find the first sound";
         messageTimer = 1.2;
       }
     }
+    lineReadyDelay = Math.max(0, lineReadyDelay - dt);
     messageTimer = Math.max(0, messageTimer - dt);
     comboTimer = Math.max(0, comboTimer - dt);
     if (comboTimer <= 0 && combo > 1 && player.grind <= 0) combo = 1;
@@ -1712,7 +1832,11 @@ function startGame(mount, opts) {
     if (!button) return;
     const down = event => {
       event.preventDefault();
+      button.setPointerCapture?.(event.pointerId);
       button.style.transform = "translateY(2px) scale(.98)";
+      if (key === "left" || key === "right") player.yaw += key === "left" ? 0.12 : -0.12;
+      if (key === "push") player.speed = Math.max(player.speed, 1.8);
+      if (key === "brake") player.speed = Math.min(player.speed, -1.2);
       setKey(key, true);
     };
     const up = event => {
@@ -1723,7 +1847,7 @@ function startGame(mount, opts) {
     button.addEventListener("pointerdown", down);
     button.addEventListener("pointerup", up);
     button.addEventListener("pointercancel", up);
-    button.addEventListener("pointerleave", up);
+    button.addEventListener("lostpointercapture", up);
   }
 
   window.addEventListener("keydown", onKeyDown);
@@ -1741,7 +1865,7 @@ function startGame(mount, opts) {
   camera.lookAt(0, 1.8, 0);
   loop.start();
 
-  // First-run onboarding: one goal line + the skate/grind controls, shown once
+  // First-run onboarding: one spelling goal + the skate controls, shown once
   // per device. update() returns immediately while paused is set, so the
   // countdown, skater and particles all freeze behind the overlay, and a
   // GamePlayer chrome resume is ignored until the child dismisses — the two
@@ -1767,14 +1891,21 @@ function startGame(mount, opts) {
     paused = true;
     introEl = document.createElement("div");
     introEl.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(4,8,22,.9);pointer-events:auto;cursor:pointer";
-    introEl.innerHTML =
-      '<div style="display:grid;gap:12px;justify-items:center;max-width:min(600px,88vw);padding:20px">' +
-        '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Grammar Grind</div>' +
-        '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Skate the park and ride through the gate with the word that completes the sentence.</div>' +
-        '<div style="font-size:.95rem;font-weight:800;line-height:1.6;opacity:.92">Steer with ← →, push with ↑, brake with ↓ — or use the on-screen buttons.<br>Press Space (or TRICK) to jump — land on a rail to grind for style points.<br>Hold Shift (or BOOST) for a speed burst.</div>' +
-        '<div style="padding:12px 28px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">Tap to play</div>' +
-        '<div style="font-size:.74rem;font-weight:800;opacity:.65">or press any key</div>' +
-      '</div>';
+    introEl.innerHTML = difficulty === "easy"
+      ? '<div style="display:grid;gap:14px;justify-items:center;max-width:min(520px,88vw);padding:20px">' +
+          '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Spell & Skate</div>' +
+          '<div style="font-size:clamp(1.55rem,4.2vw,2.2rem);font-weight:950;line-height:1.12;text-wrap:balance">Build the word in order</div>' +
+          '<div aria-hidden="true" style="display:flex;align-items:center;gap:12px;font-size:2rem"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg><span>c</span><span>→</span><span>a</span><span>→</span><span>t</span></div>' +
+          '<div style="font-size:1rem;font-weight:800;line-height:1.45;opacity:.94">Explore the skate park. Find each sound in order, then find the whole word.</div>' +
+          '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1rem">↑ GO</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1rem">↓ BACK</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1.7rem">←</span><span style="display:grid;place-items:center;width:68px;height:58px;border-radius:16px;background:rgba(125,242,255,.18);font-size:1.7rem">→</span></div>' +
+          '<div style="padding:12px 30px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -7px 0 rgba(0,0,0,.16)">Play</div>' +
+        '</div>'
+      : '<div style="display:grid;gap:12px;justify-items:center;max-width:min(600px,88vw);padding:20px">' +
+          '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Spell & Skate</div>' +
+          '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Listen to the word. Collect its sounds in order, then skate through the word you built.</div>' +
+          '<div style="font-size:.95rem;font-weight:800;line-height:1.6;opacity:.92">Steer with ← →, push with ↑, brake with ↓.<br>Press Space to jump. Hold Shift to boost.</div>' +
+          '<div style="padding:12px 28px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">Play</div>' +
+        '</div>';
     introEl.addEventListener("pointerdown", event => {
       event.preventDefault();
       dismissIntro();

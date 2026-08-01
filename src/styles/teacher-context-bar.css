@@ -87,6 +87,15 @@
   letter-spacing: 0.08em;
 }
 
+.tcb-class-code em {
+  padding-left: 6px;
+  border-left: 1px solid color-mix(in srgb, var(--lp-color-primary) 24%, transparent);
+  color: var(--lp-color-primary);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+}
+
 .tcb-class-code:hover {
   border-color: var(--lp-color-primary);
   background: var(--lp-color-primary-soft);

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-02-volcanoes",
-  "contentHash": "sha256:0291578be22e516c3514c6343be9ab4b205161e5769248a84a00e2c1963fc28d",
+  "contentHash": "sha256:1f13767675f9e324fae43a625d5c373ae9fac6d77a5cdf69386180edfbd8ad7c",
   "questions": [
     {
       "id": "level-c-nonfiction-02-volcanoes-q1",
-      "prompt": "What is melted rock underground called?",
+      "prompt": "Which fact is introduced first in Volcanoes?",
       "choices": [
-        "magma",
-        "lava",
-        "ash"
+        "Deep underground some rock melts into hot magma.",
+        "Explosive eruptions can release ash rocks and volcanic gases.",
+        "Across immense time volcanoes have built land and reshaped Earth."
       ],
-      "answer": "magma",
-      "kind": "word",
-      "skill": "vocabulary",
+      "answer": "Deep underground some rock melts into hot magma.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "This melted rock is called magma."
+      "evidenceText": "Deep underground some rock melts into hot magma."
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q2",
-      "prompt": "How can an underwater volcano make an island?",
+      "prompt": "Which fact about explosive eruptions is given in Volcanoes?",
       "choices": [
-        "waves pile up sand",
-        "lava builds up",
-        "coral grows upward"
+        "Explosive eruptions can release ash rocks and volcanic gases.",
+        "Deep underground some rock melts into hot magma.",
+        "Across immense time volcanoes have built land and reshaped Earth."
       ],
-      "answer": "lava builds up",
+      "answer": "Explosive eruptions can release ash rocks and volcanic gases.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "When an underwater volcano keeps erupting, the lava builds up and can make a brand new island!"
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Explosive eruptions can release ash rocks and volcanic gases."
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q3",
-      "prompt": "Why do volcanologists watch volcanoes?",
+      "prompt": "Which statement gives the main idea of Volcanoes?",
       "choices": [
-        "to grow crops",
-        "to cool the rock",
-        "to spot signs of an eruption"
+        "Across immense time volcanoes have built land and reshaped Earth.",
+        "Deep underground some rock melts into hot magma.",
+        "Explosive eruptions can release ash rocks and volcanic gases."
       ],
-      "answer": "to spot signs of an eruption",
+      "answer": "Across immense time volcanoes have built land and reshaped Earth.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 8,
-      "evidenceText": "They use special equipment to spot the signs of an eruption."
+      "skill": "main_idea",
+      "rationale": "Across immense time volcanoes have built land and reshaped Earth. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Across immense time volcanoes have built land and reshaped Earth."
     }
   ]
 }

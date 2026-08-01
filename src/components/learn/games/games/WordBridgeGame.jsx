@@ -542,6 +542,7 @@ function startGame(mount, opts) {
   function setTouch(btn, key) {
     btn.addEventListener("pointerdown", e => {
       e.preventDefault();
+      btn.setPointerCapture?.(e.pointerId);
       keys[key] = true;
       if (key === "action") actionQueued = true;
       actionConsumed = false;
@@ -556,6 +557,10 @@ function startGame(mount, opts) {
       btn.style.transform = "";
     });
     btn.addEventListener("pointercancel", () => {
+      keys[key] = false;
+      btn.style.transform = "";
+    });
+    btn.addEventListener("lostpointercapture", () => {
       keys[key] = false;
       btn.style.transform = "";
     });

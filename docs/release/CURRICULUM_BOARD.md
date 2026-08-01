@@ -37,18 +37,18 @@ Canonical release standard: `2026.07.24-a1.4`
 | Verbs | READY | Curriculum + media QA | 58 | 48 | 48 today (L1 24; L2 24) | sha256:01c977a394a3 | All canonical release dimensions pass. | None |
 | Adjectives | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:7c34e81508ba | All canonical release dimensions pass. | None |
 | Prepositions of Place | READY | Curriculum + media QA | 76 | 64 | 64 today (L1 36; L2 28) | sha256:308101e8f6b4 | All canonical release dimensions pass. | None |
-| Plurals | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:b039bb470ff8 | All canonical release dimensions pass. | None |
+| Plurals | READY | Curriculum + media QA | 60 | 50 | 50 today (L1 26; L2 24) | sha256:27e814523283 | All canonical release dimensions pass. | None |
 | Prefixes and Suffixes | READY | Curriculum + media QA | 78 | 66 | 66 today (L1 30; L2 36) | sha256:204c291a286e | All canonical release dimensions pass. | None |
 | Antonyms and Synonyms | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:34b7591b8835 | All canonical release dimensions pass. | None |
 | Homophones and Homonyms | READY | Curriculum + media QA | 80 | 68 | 68 today (L1 32; L2 36) | sha256:a09300c0bbf0 | All canonical release dimensions pass. | None |
-| Sentence Comprehension | READY | Curriculum + media QA | 72 | 56 | 56 today (L1 32; L2 24) | sha256:43ccd3d9c94b | All canonical release dimensions pass. | None |
-| Key Details | READY | Curriculum + media QA | 71 | 56 | 56 today (L1 32; L2 24) | sha256:24251fcd7b59 | All canonical release dimensions pass. | None |
-| Sequencing | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:15ebbabbb920 | All canonical release dimensions pass. | None |
-| Main Idea | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:5f24920ef552 | All canonical release dimensions pass. | None |
-| Inference | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:7907ac6aa6b3 | All canonical release dimensions pass. | None |
-| Cause and Effect | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:54707866a9c4 | All canonical release dimensions pass. | None |
-| Context Clues | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:031ac8be7b9f | All canonical release dimensions pass. | None |
-| Theme and Higher Comprehension | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:ba2abb97fdde | All canonical release dimensions pass. | None |
+| Sentence Comprehension | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:7efc64c1c5b2 | All canonical release dimensions pass. | None |
+| Key Details | READY | Curriculum + media QA | 185 | 93 | 93 today (L1 46; L2 47) | sha256:14ea8cb5bbd9 | All canonical release dimensions pass. | None |
+| Sequencing | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:5bcf0215c8c8 | All canonical release dimensions pass. | None |
+| Main Idea | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:f3ac8d890867 | All canonical release dimensions pass. | None |
+| Inference | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:06e87b07334d | All canonical release dimensions pass. | None |
+| Cause and Effect | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:423871366f72 | All canonical release dimensions pass. | None |
+| Context Clues | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:3792c6cfa335 | All canonical release dimensions pass. | None |
+| Theme and Higher Comprehension | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:59055bf504ab | All canonical release dimensions pass. | None |
 
 ## Loop D rule
 

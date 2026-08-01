@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-08-tiny-is-very-small",
-  "contentHash": "sha256:251e48bae6534d492e4b03c154c0ac422e10f10d0949245398754c6a7ed0f167",
+  "contentHash": "sha256:8161af6a71813b5d780b324f69d44fb63db25d2390df41510912293abcbc3faf",
   "questions": [
     {
       "id": "meadow-pals-08-tiny-is-very-small-q1",
-      "prompt": "What can Tiny do because Tiny is small?",
+      "prompt": "What happens first in Tiny is Very Small?",
       "choices": [
-        "fit in the pot",
-        "open the big door",
-        "reach the top"
+        "A key falls inside a log.",
+        "A wide wing cannot reach.",
+        "Tiny brings back the key."
       ],
-      "answer": "fit in the pot",
+      "answer": "A key falls inside a log.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 6,
-      "evidenceText": "But Tiny can fit in the pot."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "A key falls inside a log."
     },
     {
       "id": "meadow-pals-08-tiny-is-very-small-q2",
-      "prompt": "What problem does Tiny have with the big door?",
+      "prompt": "What goes wrong in Tiny is Very Small?",
       "choices": [
-        "Tiny cannot open it.",
-        "Tiny cannot see it.",
-        "Tiny cannot find it."
+        "A wide wing cannot reach.",
+        "A key falls inside a log.",
+        "Tiny brings back the key."
       ],
-      "answer": "Tiny cannot open it.",
+      "answer": "A wide wing cannot reach.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The page states that Tiny cannot open the big door, which is the problem named in the answer.",
+      "rationale": "A wide wing cannot reach. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Tiny cannot open the big door."
+      "evidenceText": "A wide wing cannot reach."
     },
     {
       "id": "meadow-pals-08-tiny-is-very-small-q3",
-      "prompt": "What does Tiny learn about being small?",
+      "prompt": "What happens at the end of Tiny is Very Small?",
       "choices": [
-        "It can be very good",
-        "It is always lonely",
-        "It stops every game"
+        "Tiny brings back the key.",
+        "A key falls inside a log.",
+        "A wide wing cannot reach."
       ],
-      "answer": "It can be very good",
+      "answer": "Tiny brings back the key.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Tiny brings back the key. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Small is very, very good."
+      "evidenceText": "Tiny brings back the key."
     }
   ]
 }

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-19-day-and-night",
-  "contentHash": "sha256:0cb47b931f06e47b3fd884adab5dfd38237abf9faed80296b9d34c5986a191fd",
+  "contentHash": "sha256:b6bda537211cdbc2cb3016deee077a24af1ec5287523af02d04ff1b7fe6cf2e6",
   "questions": [
     {
       "id": "first-facts-a-19-day-and-night-q1",
-      "prompt": "What makes day and night happen?",
+      "prompt": "Which fact about sunlight is given in Day and Night?",
       "choices": [
-        "the Earth spins",
-        "the Moon changes shape",
-        "clouds cover the Sun"
+        "Sunlight brightens one side of Earth.",
+        "Earth rotates all day and night.",
+        "The cycle repeats as Earth turns."
       ],
-      "answer": "the Earth spins",
+      "answer": "Sunlight brightens one side of Earth.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 6,
-      "evidenceText": "The Earth spins around. That is why we have day and night."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Sunlight brightens one side of Earth."
     },
     {
       "id": "first-facts-a-19-day-and-night-q2",
-      "prompt": "What do our bodies do at night?",
+      "prompt": "Which fact about Earth is given in Day and Night?",
       "choices": [
-        "wake up",
-        "rest",
-        "fly"
+        "Earth rotates all day and night.",
+        "Sunlight brightens one side of Earth.",
+        "The cycle repeats as Earth turns."
       ],
-      "answer": "rest",
-      "kind": "word",
+      "answer": "Earth rotates all day and night.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "Our bodies rest."
+      "evidencePage": 3,
+      "evidenceText": "Earth rotates all day and night."
     },
     {
       "id": "first-facts-a-19-day-and-night-q3",
-      "prompt": "What comes after night in the repeating pattern?",
+      "prompt": "Which statement gives the main idea of Day and Night?",
       "choices": [
-        "spring",
-        "evening",
-        "day"
+        "The cycle repeats as Earth turns.",
+        "Sunlight brightens one side of Earth.",
+        "Earth rotates all day and night."
       ],
-      "answer": "day",
-      "kind": "word",
-      "skill": "sequence",
+      "answer": "The cycle repeats as Earth turns.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "The cycle repeats as Earth turns. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "Day, then night, then day again."
+      "evidenceText": "The cycle repeats as Earth turns."
     }
   ]
 }

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-13-big-and-small",
-  "contentHash": "sha256:0e1b860a284c0944e083475decf7f479c197497de6b375745fb707abb33e6d9e",
+  "contentHash": "sha256:62263327991e163f8ab280045d0095f3a5a9c227a0c892cb9cd7f352793b26b3",
   "questions": [
     {
       "id": "first-facts-a-13-big-and-small-q1",
-      "prompt": "Which one is big?",
+      "prompt": "Which fact about an elephant is given in Big and Small?",
       "choices": [
-        "an elephant",
-        "a mouse",
-        "a flower"
+        "An elephant is big beside a mouse.",
+        "A bus is big beside a toy car.",
+        "Size depends on what we compare."
       ],
-      "answer": "an elephant",
+      "answer": "An elephant is big beside a mouse.",
       "kind": "text",
-      "skill": "comparison",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "This is big. An elephant is big."
+      "evidenceText": "An elephant is big beside a mouse."
     },
     {
       "id": "first-facts-a-13-big-and-small-q2",
-      "prompt": "Which one is small?",
+      "prompt": "Which fact about a bus is given in Big and Small?",
       "choices": [
-        "a mouse",
-        "a whale",
-        "a bus"
+        "A bus is big beside a toy car.",
+        "An elephant is big beside a mouse.",
+        "Size depends on what we compare."
       ],
-      "answer": "a mouse",
+      "answer": "A bus is big beside a toy car.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 2,
-      "evidenceText": "This is small. A mouse is small."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A bus is big beside a toy car."
     },
     {
       "id": "first-facts-a-13-big-and-small-q3",
-      "prompt": "What does the book say about all things?",
+      "prompt": "Which statement gives the main idea of Big and Small?",
       "choices": [
-        "they are special",
-        "they are big",
-        "they are slow"
+        "Size depends on what we compare.",
+        "An elephant is big beside a mouse.",
+        "A bus is big beside a toy car."
       ],
-      "answer": "they are special",
+      "answer": "Size depends on what we compare.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Size depends on what we compare. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Big or small — all things are special! What is big? What is small?"
+      "evidenceText": "Size depends on what we compare."
     }
   ]
 }

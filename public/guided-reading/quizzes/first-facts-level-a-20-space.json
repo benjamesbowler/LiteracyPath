@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-20-space",
-  "contentHash": "sha256:e7343e0f0ae7dcc5411235719c5fcfcedfe2a2ad521270ab33ad8f75247b6400",
+  "contentHash": "sha256:45377bb7f4943a199aee282bc422dba97de76f241d153b47d6c2f56443f30bde",
   "questions": [
     {
       "id": "first-facts-level-a-20-space-q1",
-      "prompt": "Which one is the biggest?",
+      "prompt": "What do we learn about the Moon?",
       "choices": [
-        "the sun",
-        "the moon",
-        "Mars"
+        "The Moon looks round.",
+        "Earth is our blue home.",
+        "Space holds all these worlds."
       ],
-      "answer": "the sun",
+      "answer": "The Moon looks round.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 2,
-      "evidenceText": "The sun is the biggest.\nIt is very hot."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "The Moon looks round."
     },
     {
       "id": "first-facts-level-a-20-space-q2",
-      "prompt": "What color is Mars?",
+      "prompt": "What do we learn about Earth?",
       "choices": [
-        "red",
-        "blue",
-        "green"
+        "Earth is our blue home.",
+        "The Moon looks round.",
+        "Space holds all these worlds."
       ],
-      "answer": "red",
-      "kind": "word",
+      "answer": "Earth is our blue home.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "Mars is red.\nIt is a planet."
+      "evidencePage": 3,
+      "evidenceText": "Earth is our blue home."
     },
     {
       "id": "first-facts-level-a-20-space-q3",
-      "prompt": "What does Saturn have?",
+      "prompt": "What is the big idea in Space?",
       "choices": [
-        "rings",
-        "wings",
-        "legs"
+        "Space holds all these worlds.",
+        "The Moon looks round.",
+        "Earth is our blue home."
       ],
-      "answer": "rings",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "Saturn has rings.\nThe rings are big."
+      "answer": "Space holds all these worlds.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Space holds all these worlds. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Space holds all these worlds."
     }
   ]
 }

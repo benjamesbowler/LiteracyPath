@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-07-bugs",
-  "contentHash": "sha256:99442e38ca051d04966b9a404e1496386ff49c88b202c18a0e3d83a002353657",
+  "contentHash": "sha256:fdf4fbf67c1e8981bc207eae67d6dc6db52a5b399c578a01bf4e44010be6f76e",
   "questions": [
     {
       "id": "first-facts-level-a-07-bugs-q1",
-      "prompt": "What color is the bee in the book?",
+      "prompt": "What do we learn about a little bug?",
       "choices": [
-        "yellow",
-        "red",
-        "pink"
+        "A little bug can fly.",
+        "An ant can dig.",
+        "Small bugs live all around us."
       ],
-      "answer": "yellow",
-      "kind": "word",
+      "answer": "A little bug can fly.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A bee is yellow.\nIt can sting."
+      "evidencePage": 1,
+      "evidenceText": "A little bug can fly."
     },
     {
       "id": "first-facts-level-a-07-bugs-q2",
-      "prompt": "Which bug does the book say can dig?",
+      "prompt": "What do we learn about an ant?",
       "choices": [
-        "the ant",
-        "the bee",
-        "the butterfly"
+        "An ant can dig.",
+        "A little bug can fly.",
+        "Small bugs live all around us."
       ],
-      "answer": "the ant",
+      "answer": "An ant can dig.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "An ant is red.\nIt can dig."
+      "evidenceText": "An ant can dig."
     },
     {
       "id": "first-facts-level-a-07-bugs-q3",
-      "prompt": "What size does the book say bugs are?",
+      "prompt": "What is the big idea in Small Creatures?",
       "choices": [
-        "little",
-        "big",
-        "huge"
+        "Small bugs live all around us.",
+        "A little bug can fly.",
+        "An ant can dig."
       ],
-      "answer": "little",
-      "kind": "word",
-      "skill": "comparison",
+      "answer": "Small bugs live all around us.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Small bugs live all around us. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "Bugs are all around!\nThey are little."
+      "evidenceText": "Small bugs live all around us."
     }
   ]
 }

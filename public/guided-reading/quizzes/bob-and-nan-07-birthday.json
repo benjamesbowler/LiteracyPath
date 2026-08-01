@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-07-birthday",
-  "contentHash": "sha256:cdcb7be4d88e3c996eae29fc2834a2ec4dd9b5402d98c4fb4b120c607a6d618c",
+  "contentHash": "sha256:85ce1721804f1491d9e812658d62db3c69439f64710cd56560f11cf5221b40d0",
   "questions": [
     {
       "id": "bob-and-nan-07-birthday-q1",
-      "prompt": "Who got Nan's big gift?",
+      "prompt": "What happens first in Nan and Bob: Bob's Birthday Party?",
       "choices": [
-        "Bob",
-        "Mum",
-        "Fluff"
+        "Today is Bob's birthday.",
+        "The paper will not rip.",
+        "A red bat pops out!"
       ],
-      "answer": "Bob",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "Nan has a big gift for Bob."
+      "answer": "Today is Bob's birthday.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Today is Bob's birthday."
     },
     {
       "id": "bob-and-nan-07-birthday-q2",
-      "prompt": "What was inside the gift?",
+      "prompt": "What goes wrong in Nan and Bob: Bob's Birthday Party?",
       "choices": [
-        "a blue book",
-        "a red bat",
-        "a toy dog"
+        "The paper will not rip.",
+        "Today is Bob's birthday.",
+        "A red bat pops out!"
       ],
-      "answer": "a red bat",
+      "answer": "The paper will not rip.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "problem_solution",
+      "rationale": "The paper will not rip. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "Bob rips it! It is a red bat!"
+      "evidenceText": "The paper will not rip."
     },
     {
       "id": "bob-and-nan-07-birthday-q3",
-      "prompt": "What did Bob think of his birthday by the end?",
+      "prompt": "What happens at the end of Nan and Bob: Bob's Birthday Party?",
       "choices": [
-        "It was the best day.",
-        "It was a bad day.",
-        "It was a quiet day."
+        "A red bat pops out!",
+        "Today is Bob's birthday.",
+        "The paper will not rip."
       ],
-      "answer": "It was the best day.",
+      "answer": "A red bat pops out!",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 8,
-      "evidenceText": "It was the best day!"
+      "rationale": "A red bat pops out! This event shows how the central problem is resolved.",
+      "evidencePage": 5,
+      "evidenceText": "A red bat pops out!"
     }
   ]
 }

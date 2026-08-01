@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-17-bouncy-and-speedy-have-a-race",
-  "contentHash": "sha256:bd29fff454b4c6aee8e941367077c62a64e832a7eaaa9d93e4c0acb7acb6b8fe",
+  "contentHash": "sha256:aecd6c03a92e583801946192574b30bdbf5da8dff86463a0b49614f87ac83757",
   "questions": [
     {
       "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q1",
-      "prompt": "Who hops while Speedy runs?",
+      "prompt": "What happens first in Bouncy and Speedy Have a Race?",
       "choices": [
-        "Bouncy",
-        "Tiny",
-        "Grumpy"
+        "Speedy plans a race.",
+        "The turn is behind them!",
+        "They finish together."
       ],
-      "answer": "Bouncy",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "Speedy ran fast. Bouncy hopped fast."
+      "answer": "Speedy plans a race.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Speedy plans a race."
     },
     {
       "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q2",
-      "prompt": "Which place do the racers pass after the barn?",
+      "prompt": "What goes wrong in Bouncy and Speedy Have a Race?",
       "choices": [
-        "the pond",
-        "the garden",
-        "the farm gate"
+        "The turn is behind them!",
+        "Speedy plans a race.",
+        "They finish together."
       ],
-      "answer": "the pond",
+      "answer": "The turn is behind them!",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "They ran past the pond."
+      "skill": "problem_solution",
+      "rationale": "The turn is behind them! This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "The turn is behind them!"
     },
     {
       "id": "meadow-pals-17-bouncy-and-speedy-have-a-race-q3",
-      "prompt": "What are Bouncy and Speedy still doing at the end?",
+      "prompt": "What happens at the end of Bouncy and Speedy Have a Race?",
       "choices": [
-        "racing on",
-        "sleeping",
-        "eating cake"
+        "They finish together.",
+        "Speedy plans a race.",
+        "The turn is behind them!"
       ],
-      "answer": "racing on",
+      "answer": "They finish together.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The words still going show that Bouncy and Speedy are racing on at the end.",
+      "rationale": "They finish together. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "They are still going."
+      "evidenceText": "They finish together."
     }
   ]
 }

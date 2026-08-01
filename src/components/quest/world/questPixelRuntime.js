@@ -6,6 +6,11 @@ import {
   PIXEL_BEASTIE_FRAMES_PER_DIRECTION
 } from "./questPixelAvatar.js";
 import {
+  bookCharacterAsset,
+  bookCharacterTint,
+  bookCharacterWearables
+} from "../bookCharacterAvatar.js";
+import {
   questAnalogVector,
   questCameraResponse,
   questCameraTravelTarget,
@@ -60,6 +65,17 @@ export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 })
 
 const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
+export const QUEST_BOOK_WORLD_BACKGROUNDS = Object.freeze({
+  meadow: "/game-assets/sound-seekers/worlds/meadow-pals-trail-v2.webp",
+  dino: "/game-assets/sound-seekers/worlds/dino-pals-trail-v2.webp",
+  moonwood: "/game-assets/sound-seekers/worlds/moonwood-trail-v2.webp"
+});
+export const QUEST_BOOK_WORLD_ART_URLS = Object.freeze([
+  ...Object.values(QUEST_BOOK_WORLD_BACKGROUNDS),
+  "/game-assets/sound-seekers/worlds/meadow-pals-overworld-v2.webp",
+  "/game-assets/sound-seekers/worlds/dino-pals-overworld-v2.webp",
+  "/game-assets/sound-seekers/worlds/moonwood-overworld-v2.webp"
+]);
 const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
   Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])
 ));
@@ -349,6 +365,35 @@ export function pixelRouteX(y, stopIndex = 1, chapterId = null) {
   return 320 + base + detail;
 }
 
+// The three illustrated book-world maps are fixed paintings. Their central
+// walkable trail is intentionally shared by every stop in that world, while
+// `pixelRouteX` remains the authored per-stop route used by the procedural
+// fallback and its forty-route diagnostics. Runtime actors must follow what a
+// child can actually see, so their anchors use these traced centre lines.
+const BOOK_WORLD_ROUTE_POINTS = Object.freeze({
+  meadow: Object.freeze([[0, 320], [0.16, 326], [0.32, 316], [0.5, 332], [0.68, 320], [0.84, 332], [1, 320]]),
+  dino: Object.freeze([[0, 320], [0.18, 320], [0.34, 294], [0.5, 322], [0.66, 346], [0.82, 318], [1, 320]]),
+  moonwood: Object.freeze([[0, 320], [0.18, 316], [0.36, 326], [0.54, 318], [0.72, 322], [0.88, 318], [1, 320]])
+});
+
+function bookWorldForStop(stopIndex = 1) {
+  const index = Math.max(1, Number(stopIndex) || 1);
+  if (index <= 10) return "meadow";
+  if (index <= 20) return "dino";
+  return "moonwood";
+}
+
+export function paintedBookWorldRouteX(y, stopIndex = 1) {
+  const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
+  const points = BOOK_WORLD_ROUTE_POINTS[bookWorldForStop(stopIndex)];
+  const upperIndex = points.findIndex(([pointProgress]) => pointProgress >= progress);
+  if (upperIndex <= 0) return points[0][1];
+  const [startProgress, startX] = points[upperIndex - 1];
+  const [endProgress, endX] = points[upperIndex];
+  const amount = (progress - startProgress) / Math.max(0.001, endProgress - startProgress);
+  return startX + (endX - startX) * amount;
+}
+
 function pixelRoutePathsX(y, stopIndex) {
   const map = stopPixelMap(stopIndex);
   const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
@@ -379,7 +424,7 @@ function pixelResidentPoint(section, encounter, index = 0) {
 
 export function progressToPixel(progress, stopIndex = 1, lateral = 0) {
   const y = 1060 - (Math.max(0, Math.min(1, Number(progress) || 0)) * 980);
-  return { x: pixelRouteX(y, stopIndex) + lateral, y };
+  return { x: paintedBookWorldRouteX(y, stopIndex) + lateral, y };
 }
 
 export function pixelToProgress(y) {
@@ -828,7 +873,7 @@ const PIXEL_LOWERCASE_GLYPHS = Object.freeze({
 function addPixelLowercaseGlyph(scene, value, y) {
   const rows = PIXEL_LOWERCASE_GLYPHS[String(value).toLowerCase()];
   if (!rows) return null;
-  const pixel = 2;
+  const pixel = 3;
   const width = rows[0].length * pixel;
   const height = rows.length * pixel;
   const glyph = scene.add.graphics();
@@ -850,6 +895,7 @@ function addPixelLowercaseGlyph(scene, value, y) {
 
 function addChoiceArt(scene, container, item, index) {
   const shape = String(item.shape || "token");
+  const choiceLabel = String(item.label ?? item.value ?? "");
   const palette = paletteForShape(shape);
   const destinationShape = shape.includes("marker") || shape.includes("slot") || shape.includes("pen");
   const glow = scene.add.ellipse(0, 2, shape.includes("plank") ? 48 : 38, shape.includes("plank") ? 27 : 38, palette.glow, 0.14);
@@ -1013,11 +1059,13 @@ function addChoiceArt(scene, container, item, index) {
         art.lineStyle(2, 0xfff3c2, 0.96).strokeCircle(x, -5, 4).strokeCircle(x, 5, 4);
       }
       glow.setAlpha(0.34).setScale(1.18);
+    } else if (choiceLabel) {
+      art.fillStyle(palette.edge, 1).fillRoundedRect(-22, -22, 44, 44, 8);
+      art.fillStyle(0xfff4d7, 1).fillRoundedRect(-18, -18, 36, 36, 6);
+      art.fillStyle(palette.light, 0.72).fillRect(-13, -14, 19, 3);
     } else {
-      art.lineStyle(5, palette.light, 0.95).strokeCircle(0, 0, 18);
-      art.lineStyle(2, palette.edge, 1).strokeCircle(0, 0, 18);
-      art.fillStyle(palette.body, 0.66).fillCircle(0, 0, 12);
-      art.fillStyle(0xffffff, 0.8).fillTriangle(-5, 2, 5, 2, 0, -6);
+      art.fillStyle(palette.edge, 1).fillRoundedRect(-18, -18, 36, 36, 7);
+      art.fillStyle(palette.body, 1).fillRoundedRect(-14, -14, 28, 28, 5);
     }
     radius = 22;
   } else if (shape.includes("orb") || shape.includes("rune")) {
@@ -1043,7 +1091,7 @@ function addChoiceArt(scene, container, item, index) {
     art.fillStyle(palette.light, 0.7).fillRect(-8, -9, 13, 3);
   }
 
-  const rawLabel = destinationShape ? "" : String(item.label ?? item.value ?? "");
+  const rawLabel = choiceLabel;
   const embeddedLabel = Boolean(rawLabel) && (
     ["token", "orb", "rune"].includes(shape)
     || (rawLabel.length <= 3 && /lantern|sign|path|track|parcel|flower|plank|bridge|fish|bone|fossil|shard|lens|mirror|flag|beacon|gear|ore|rail|word-plate|rune|reed|lily|moth|telescope|orbit|dial/.test(shape))
@@ -1066,14 +1114,14 @@ function addChoiceArt(scene, container, item, index) {
     labelPlate.fillStyle(palette.edge, 0.94).fillRoundedRect(-(badgeWidth / 2), labelY - 8, badgeWidth, 16, 4);
     labelPlate.fillStyle(0xf4e6bd, 1).fillRoundedRect(-(badgeWidth / 2) + 2, labelY - 6, badgeWidth - 4, 12, 3);
   }
-  const pixelGlyph = embeddedLabel && rawLabel.length === 1
+  const pixelGlyph = embeddedLabel && rawLabel.length === 1 && !/[a-z]/i.test(rawLabel)
     ? addPixelLowercaseGlyph(scene, rawLabel, labelY)
     : null;
   const labelStyle = {
     color: "#2d2730",
     fontFamily: embeddedLabel ? "Verdana, Arial, sans-serif" : "Arial Black, Arial, sans-serif",
-    fontSize: rawLabel.length > 4 ? "9px" : rawLabel.length > 2 ? "11px" : singleRune ? "17px" : separateRune ? "13px" : embeddedLabel ? "13px" : "15px",
-    fontStyle: embeddedLabel ? "normal" : "bold",
+    fontSize: rawLabel.length > 4 ? "11px" : rawLabel.length > 2 ? "13px" : singleRune ? "19px" : separateRune ? "15px" : embeddedLabel ? "22px" : "18px",
+    fontStyle: "bold",
     align: "center",
     padding: { left: 2, right: 2, top: singleRune ? 3 : 0, bottom: singleRune ? 3 : 1 },
     resolution: 2,
@@ -1144,9 +1192,11 @@ class QuestPixelScene extends Phaser.Scene {
     this.reactiveFoliage = [];
     this.navigationObstacles = [];
     this.completionObjects = new Map();
+    this.playerWearables = [];
     this.carriedObject = null;
     this.carriedObjectMode = null;
     this.pointerTarget = null;
+    this.directionInput = { left: false, right: false, up: false, down: false };
     this.pointerMarker = null;
     this.routeLaneIndex = null;
     this.optionalRouteActive = false;
@@ -1178,6 +1228,17 @@ class QuestPixelScene extends Phaser.Scene {
       });
     });
     const world = this.model.section.world;
+    const bookWorldBackground = QUEST_BOOK_WORLD_BACKGROUNDS[world];
+    if (bookWorldBackground) {
+      this.load.image("book-world-background", bookWorldBackground);
+    }
+    const bookCharacterImage = bookCharacterAsset(this.model.creature);
+    if (bookCharacterImage) {
+      this.load.image("book-player-avatar", bookCharacterImage);
+    }
+    for (const wearable of bookCharacterWearables(this.model.creature)) {
+      this.load.image(`book-wearable-${wearable.id}`, wearable.asset);
+    }
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
     const activeProfile = chapterPixelProfile(this.model.section);
@@ -1431,14 +1492,16 @@ class QuestPixelScene extends Phaser.Scene {
       this.createPlayerTexture();
       this.createAnimations();
       this.createGround();
-      this.createWaterGarden();
-      this.createScenery();
-      this.createReactiveFoliage();
-      this.createStopMapComposition();
-      this.createEncounterEdgeDetails();
-      this.createChapterSetPieces();
-      this.createRestoredMoments();
-      this.createRelicEffects();
+      if (!this.textures.exists("book-world-background")) {
+        this.createWaterGarden();
+        this.createScenery();
+        this.createReactiveFoliage();
+        this.createStopMapComposition();
+        this.createEncounterEdgeDetails();
+        this.createChapterSetPieces();
+        this.createRestoredMoments();
+        this.createRelicEffects();
+      }
       this.createGate();
       this.createResidents();
       this.createDrops();
@@ -1584,7 +1647,12 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   createPlayerTexture() {
-    const canvas = createPixelBeastieSheet(this.model.creature);
+    const source = this.textures.exists("book-player-avatar")
+      ? this.textures.get("book-player-avatar").getSourceImage()
+      : null;
+    const canvas = source
+      ? this.createBookCharacterSheet(source)
+      : createPixelBeastieSheet(this.model.creature);
     const texture = this.textures.addCanvas("pixel-beastie", canvas);
     for (let row = 0; row < PIXEL_BEASTIE_DIRECTIONS.length; row += 1) {
       for (let frame = 0; frame < PIXEL_BEASTIE_FRAMES_PER_DIRECTION; frame += 1) {
@@ -1594,7 +1662,42 @@ class QuestPixelScene extends Phaser.Scene {
     }
   }
 
+  createBookCharacterSheet(source) {
+    const canvas = document.createElement("canvas");
+    canvas.width = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_FRAMES_PER_DIRECTION;
+    canvas.height = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_DIRECTIONS.length;
+    const context = canvas.getContext("2d");
+    context.imageSmoothingEnabled = true;
+
+    for (let row = 0; row < PIXEL_BEASTIE_DIRECTIONS.length; row += 1) {
+      const direction = PIXEL_BEASTIE_DIRECTIONS[row];
+      for (let frame = 0; frame < PIXEL_BEASTIE_FRAMES_PER_DIRECTION; frame += 1) {
+        const x = frame * PIXEL_BEASTIE_FRAME;
+        const y = row * PIXEL_BEASTIE_FRAME;
+        const walkingFrame = frame % 4;
+        const bob = walkingFrame === 1 ? -2 : walkingFrame === 3 ? -1 : 0;
+        const lean = walkingFrame === 1 ? -0.035 : walkingFrame === 3 ? 0.035 : 0;
+        const avatarSize = 58;
+
+        context.save();
+        context.translate(x + (PIXEL_BEASTIE_FRAME / 2), y + PIXEL_BEASTIE_FRAME - 2 + bob);
+        if (direction === "left") context.scale(-1, 1);
+        context.rotate(lean);
+        context.drawImage(source, -avatarSize / 2, -avatarSize, avatarSize, avatarSize);
+        context.restore();
+      }
+    }
+    return canvas;
+  }
+
   createGround() {
+    if (this.textures.exists("book-world-background")) {
+      this.add.image(0, 0, "book-world-background")
+        .setOrigin(0)
+        .setDisplaySize(PIXEL_WORLD.width, PIXEL_WORLD.height)
+        .setDepth(-1000);
+      return;
+    }
     const canvas = createGroundCanvas(this, this.model.section);
     this.textures.addCanvas("seedwake-ground", canvas);
     this.add.image(0, 0, "seedwake-ground").setOrigin(0).setDepth(-1000);
@@ -3815,7 +3918,7 @@ class QuestPixelScene extends Phaser.Scene {
       sprite.setData("encounterId", encounter.id);
       sprite.setData("baseX", point.x);
       sprite.setData("baseY", point.y);
-      const routeCentre = pixelRouteX(point.y, this.model.section.stopIndex);
+      const routeCentre = paintedBookWorldRouteX(point.y, this.model.section.stopIndex);
       const entry = {
         encounter,
         point,
@@ -4175,8 +4278,17 @@ class QuestPixelScene extends Phaser.Scene {
     this.playerShadow = addPixelShadow(this, start.x, start.y + 5, 27, 7);
     this.player = this.physics.add.sprite(start.x, start.y, "pixel-beastie", 0)
       .setOrigin(0.5, 0.78)
-      .setScale(0.74)
+      .setScale(this.textures.exists("book-player-avatar") ? 1.16 : 0.86)
       .setDepth(start.y + 2);
+    const avatarTint = bookCharacterTint(this.model.creature);
+    if (avatarTint) this.player.setTint(avatarTint);
+    this.playerWearables = bookCharacterWearables(this.model.creature)
+      .filter(item => this.textures.exists(`book-wearable-${item.id}`))
+      .map(item => ({
+        ...item,
+        sprite: this.add.image(start.x, start.y, `book-wearable-${item.id}`)
+          .setOrigin(0.5)
+      }));
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
     const cameraStart = this.model.activeStage && activeResident
@@ -4220,6 +4332,14 @@ class QuestPixelScene extends Phaser.Scene {
 
   setPointerTarget(x, y, showMarker = false) {
     const targetY = Math.max(Number(y) || 0, this.forwardMovementLimit());
+    if (this.textures.exists("book-world-background")) {
+      this.pointerTarget = {
+        x: Phaser.Math.Clamp(Number(x) || 0, 24, PIXEL_WORLD.width - 24),
+        y: Phaser.Math.Clamp(targetY, 24, PIXEL_WORLD.height - 24)
+      };
+      if (showMarker) this.showPointerMarker(this.pointerTarget);
+      return;
+    }
     const gateApproach = this.model.phase === "gate" && targetY <= this.gatePoint.y + 96;
     const routeCenters = gateApproach
       ? [this.gatePoint.x]
@@ -4235,6 +4355,10 @@ class QuestPixelScene extends Phaser.Scene {
     });
     this.pointerTarget = target;
     if (!showMarker) return;
+    this.showPointerMarker(target);
+  }
+
+  showPointerMarker(target) {
     this.pointerMarker?.destroy();
     const marker = this.add.circle(target.x, target.y, 5, 0xf5d76f, 0.2)
       .setStrokeStyle(2, 0xfff0a2, 0.9)
@@ -4327,7 +4451,10 @@ class QuestPixelScene extends Phaser.Scene {
       }
     }
     for (const [id, drop] of this.dropObjects) drop.setVisible(!collected.has(id));
-    this.syncCompletions(model.completionMarks || []);
+    // Answer tiles are controls, not scenery. Earlier builds left a small
+    // "completed" tile behind after each right answer; those squares looked
+    // like live choices and cluttered the route. Clear legacy save marks too.
+    this.syncCompletions([]);
 
     const gateOpen = model.ceremony || model.phase === "gate" || solved.size >= this.model.section.encounters.length;
     this.gateBarrier.setVisible(!gateOpen);
@@ -4343,7 +4470,15 @@ class QuestPixelScene extends Phaser.Scene {
 
     const stage = model.activeStage;
     const signature = stage
-      ? `${model.activeEncounterId}:${stage.id}:${(stage.items || []).map(item => `${item.id}:${item.shape}`).join("|")}`
+      ? `${model.activeEncounterId}:${stage.id}:${(stage.items || []).map(item => [
+        item.id,
+        item.shape,
+        item.value,
+        item.label,
+        item.correct ? "correct" : "wrong",
+        Number(item.x).toFixed(3),
+        Number(item.z).toFixed(3)
+      ].join(":")).join("|")}`
       : "none";
     if (signature !== this.lastModelSignature) {
       this.lastModelSignature = signature;
@@ -4622,8 +4757,8 @@ class QuestPixelScene extends Phaser.Scene {
         }
       }
       const objectScale = movingSortLane
-        ? 0.62
-        : String(item.label ?? item.value ?? "").length > 4 ? 0.94 : 0.84;
+        ? 0.72
+        : String(item.label ?? item.value ?? "").length > 4 ? 1 : 1.05;
       container.setScale(objectScale);
       if (!this.model.reducedMotion) {
         this.tweens.add({ targets: visual.glow, alpha: { from: 0.1, to: 0.36 }, scale: { from: 0.92, to: 1.12 }, duration: 800 + (index * 70), yoyo: true, repeat: -1 });
@@ -4903,6 +5038,7 @@ class QuestPixelScene extends Phaser.Scene {
     }
     this.updateMovement(delta);
     this.player.setDepth(this.player.y + 3);
+    this.updatePlayerWearables();
     this.playerShadow.setPosition(this.player.x, this.player.y + 5).setDepth(this.player.y - 1);
     if (this.carriedObject) {
       if (this.carriedObjectMode === "steer") {
@@ -4921,6 +5057,26 @@ class QuestPixelScene extends Phaser.Scene {
     this.updateChoices(time);
     this.updateDrops();
     this.updateGate();
+  }
+
+  updatePlayerWearables() {
+    if (!this.playerWearables?.length || !this.player) return;
+    const width = this.player.displayWidth;
+    const height = this.player.displayHeight;
+    const top = this.player.y - (height * 0.78);
+    for (const wearable of this.playerWearables) {
+      const sprite = wearable.sprite;
+      const layout = wearable.layout;
+      if (!sprite?.active) continue;
+      if (!layout) continue;
+      sprite
+        .setDisplaySize(width * (layout.width / 100), height * (layout.height / 100))
+        .setPosition(
+          this.player.x + width * ((layout.x - 50) / 100),
+          top + height * (layout.y / 100)
+        )
+        .setDepth(this.player.y + layout.depth + 1);
+    }
   }
 
   updateCameraFocus(delta = 16.7) {
@@ -4995,6 +5151,10 @@ class QuestPixelScene extends Phaser.Scene {
     }
     let x = 0;
     let y = 0;
+    if (this.directionInput.left) x -= 1;
+    if (this.directionInput.right) x += 1;
+    if (this.directionInput.up) y -= 1;
+    if (this.directionInput.down) y += 1;
     if (this.cursors.left.isDown || this.wasd.A.isDown) x -= 1;
     if (this.cursors.right.isDown || this.wasd.D.isDown) x += 1;
     if (this.cursors.up.isDown || this.wasd.W.isDown) y -= 1;
@@ -5041,6 +5201,7 @@ class QuestPixelScene extends Phaser.Scene {
     const velocityY = Phaser.Math.Linear(body.velocity.y, targetVelocityY, response);
     body.setVelocity(Math.abs(velocityX) < 0.35 ? 0 : velocityX, Math.abs(velocityY) < 0.35 ? 0 : velocityY);
 
+    const freeBookWorld = this.textures.exists("book-world-background");
     const gateApproach = this.model.phase === "gate" && this.player.y <= this.gatePoint.y + 128;
     const routeCenters = gateApproach
       ? [this.gatePoint.x]
@@ -5075,8 +5236,10 @@ class QuestPixelScene extends Phaser.Scene {
       dt: delta / 1000,
       ...branchBoundary
     });
-    this.player.x = routeBoundary.x;
-    body.setVelocityX(routeBoundary.velocityX);
+    if (!freeBookWorld) {
+      this.player.x = routeBoundary.x;
+      body.setVelocityX(routeBoundary.velocityX);
+    }
     const forwardLimit = this.forwardMovementLimit();
     const forwardBoundary = stepQuestForwardBoundary({
       y: this.player.y,
@@ -5106,8 +5269,8 @@ class QuestPixelScene extends Phaser.Scene {
       velocityY: body.velocity.y,
       limit: forwardLimit
     });
-    this.player.setPosition(reconciledRoute.x, reconciledForward.y);
-    body.setVelocity(reconciledRoute.velocityX, reconciledForward.velocityY);
+    this.player.setPosition(freeBookWorld ? this.player.x : reconciledRoute.x, reconciledForward.y);
+    body.setVelocity(freeBookWorld ? body.velocity.x : reconciledRoute.velocityX, reconciledForward.velocityY);
     if (!x && !y && Math.hypot(body.velocity.x, body.velocity.y) < 5) {
       this.player.stop();
       this.player.setFrame((PIXEL_BEASTIE_DIRECTIONS.indexOf(this.lastFacing) * PIXEL_BEASTIE_FRAMES_PER_DIRECTION));
@@ -5790,6 +5953,15 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
       };
       const [x, y] = vectors[direction] || [0, 0];
       scene.setPointerTarget(scene.player.x + x, scene.player.y + y);
+    },
+    startMove(direction) {
+      if (!Object.hasOwn(scene.directionInput, direction)) return;
+      scene.pointerTarget = null;
+      scene.directionInput[direction] = true;
+    },
+    stopMove(direction) {
+      if (!Object.hasOwn(scene.directionInput, direction)) return;
+      scene.directionInput[direction] = false;
     },
     playFeedback(kind, choiceId) {
       scene.playFeedback(kind, choiceId);

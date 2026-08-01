@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-05-grumpy-gets-a-surprise",
-  "contentHash": "sha256:4083e3167e1f281249c9fc646132d21cbc53a91d21b4917ea5e6b1ba284f6b45",
+  "contentHash": "sha256:99316b562bd1bfa78c79dd757a2a387440b182c9b5e2387510ed00fa00d72148",
   "questions": [
     {
       "id": "meadow-pals-05-grumpy-gets-a-surprise-q1",
-      "prompt": "Who shouts the birthday surprise?",
+      "prompt": "What happens first in Grumpy Gets a Surprise?",
       "choices": [
-        "everyone",
-        "only Grumpy",
-        "only Clucky"
+        "Today is Grumpy's birthday.",
+        "Tiny brings quiet cake.",
+        "The cake is nearly gone."
       ],
-      "answer": "everyone",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "\"SURPRISE!\" said everyone."
+      "answer": "Today is Grumpy's birthday.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Today is Grumpy's birthday."
     },
     {
       "id": "meadow-pals-05-grumpy-gets-a-surprise-q2",
-      "prompt": "What special day is everyone celebrating?",
+      "prompt": "What goes wrong in Grumpy Gets a Surprise?",
       "choices": [
-        "Grumpy's birthday",
-        "Clucky's egg day",
-        "Woolly's bedtime"
+        "Tiny brings quiet cake.",
+        "Today is Grumpy's birthday.",
+        "The cake is nearly gone."
       ],
-      "answer": "Grumpy's birthday",
+      "answer": "Tiny brings quiet cake.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 1,
-      "evidenceText": "It is Grumpy's birthday."
+      "skill": "problem_solution",
+      "rationale": "Tiny brings quiet cake. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Tiny brings quiet cake."
     },
     {
       "id": "meadow-pals-05-grumpy-gets-a-surprise-q3",
-      "prompt": "What does Grumpy decide by the end?",
+      "prompt": "What happens at the end of Grumpy Gets a Surprise?",
       "choices": [
-        "He likes cake",
-        "He likes mud",
-        "He likes noise"
+        "The cake is nearly gone.",
+        "Today is Grumpy's birthday.",
+        "Tiny brings quiet cake."
       ],
-      "answer": "He likes cake",
+      "answer": "The cake is nearly gone.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 10,
-      "evidenceText": "\"I like cake,\" said Grumpy."
+      "rationale": "The cake is nearly gone. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "The cake is nearly gone."
     }
   ]
 }

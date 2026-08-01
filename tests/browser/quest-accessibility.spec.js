@@ -68,6 +68,40 @@ async function activateCorrectSemanticChoice(page) {
   await choice.press("Enter");
 }
 
+async function walkToActiveResident(page, expectedPrompt = null, timeout = 10_000) {
+  const deadline = Date.now() + timeout;
+  let lastSnapshot = null;
+  while (Date.now() < deadline) {
+    const state = await page.evaluate(() => {
+      const snapshot = window.__questPixelRuntime.getLayoutSnapshot();
+      return {
+        snapshot,
+        prompt: document.querySelector(".qp-semantic-choices")?.getAttribute("aria-label") || null
+      };
+    });
+    lastSnapshot = state.snapshot;
+    if (state.prompt && (!expectedPrompt || state.prompt === expectedPrompt)) return state.snapshot;
+
+    const { player, resident } = state.snapshot;
+    if (!player || !resident) {
+      await page.waitForTimeout(80);
+      continue;
+    }
+    const dx = resident.x - player.x;
+    const dy = resident.y - player.y;
+    const key = Math.abs(dx) >= Math.abs(dy)
+      ? (dx < 0 ? "ArrowLeft" : "ArrowRight")
+      : (dy < 0 ? "ArrowUp" : "ArrowDown");
+    await page.keyboard.down(key);
+    try {
+      await page.waitForTimeout(90);
+    } finally {
+      await page.keyboard.up(key);
+    }
+  }
+  throw new Error(`Could not reach the active resident: ${JSON.stringify(lastSnapshot)}`);
+}
+
 test("a failed pixel-world chunk recovers into the bundled 2D trail", async ({ page }) => {
   await page.route("**/src/components/quest/world/QuestPixelWorld.jsx*", route => route.abort());
   await page.goto(`${PREVIEW}&view=world&stop=s1&display=pixel&active=0`);
@@ -280,22 +314,7 @@ test("a completed River task can flow directly into the next resident encounter"
   await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-progress")).toHaveAttribute("aria-label", "1 of 2 trail tasks complete");
 
-  await page.keyboard.down("ArrowUp");
-  try {
-    await expect.poll(() => page.evaluate(() => {
-      const snapshot = window.__questPixelRuntime.getLayoutSnapshot();
-      const state = {
-        activeId: snapshot.encounter.activeId,
-        latch: snapshot.encounter.latch,
-        player: snapshot.player ? { x: Math.round(snapshot.player.x), y: Math.round(snapshot.player.y) } : null,
-        resident: snapshot.resident ? { x: Math.round(snapshot.resident.x), y: Math.round(snapshot.resident.y) } : null,
-        prompt: document.querySelector(".qp-semantic-choices")?.getAttribute("aria-label") || null
-      };
-      return state.prompt === "Find k" ? "triggered" : JSON.stringify(state);
-    }), { timeout: 10_000 }).toBe("triggered");
-  } finally {
-    await page.keyboard.up("ArrowUp");
-  }
+  await walkToActiveResident(page, "Find k");
 
   const snapshot = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
   expect(snapshot.encounter.activeId).toBe("s6-1");
@@ -342,15 +361,11 @@ test("Claw Pass signal relays advance through the accessible controls without fr
     };
   })).toEqual({ activeId: "s15-1", playerActive: true, playerVisible: true });
 
-  await page.keyboard.down("ArrowUp");
-  try {
-    await expect(page.locator(".qp-semantic-choices")).toBeAttached({ timeout: 10_000 });
-    await expect.poll(() => page.evaluate(() => (
-      window.__questPixelRuntime.getLayoutSnapshot().choices.length
-    ))).toBeGreaterThan(0);
-  } finally {
-    await page.keyboard.up("ArrowUp");
-  }
+  await walkToActiveResident(page);
+  await expect(page.locator(".qp-semantic-choices")).toBeAttached();
+  await expect.poll(() => page.evaluate(() => (
+    window.__questPixelRuntime.getLayoutSnapshot().choices.length
+  ))).toBeGreaterThan(0);
   await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible();
 });
 
@@ -721,19 +736,17 @@ test("automatic mode avoids the pixel engine on a genuinely constrained device",
   await expectNoSeriousAxeViolations(page);
 });
 
-test("Den and map transitions move focus to the new screen heading", async ({ page }) => {
+test("the retired Den route opens the real map and character edits return there", async ({ page }) => {
   await page.goto(`${PREVIEW}&view=den&display=2d`);
-  await expect(page.getByRole("heading", { name: "Your Den", level: 1 })).toBeVisible();
-
-  await page.getByRole("button", { name: "Open the trail map" }).click();
   const mapHeading = page.locator(".q-map-v2 h1");
   await expect(mapHeading).toBeVisible();
-  await expect(mapHeading).toBeFocused();
+  await expect(page.getByRole("heading", { name: "Your Den" })).toHaveCount(0);
 
-  await page.getByRole("button", { name: "Back to the Den" }).click();
-  const denHeading = page.getByRole("heading", { name: "Your Den", level: 1 });
-  await expect(denHeading).toBeVisible();
-  await expect(denHeading).toBeFocused();
+  await page.getByRole("button", { name: "Character" }).click();
+  await expect(page.getByRole("heading", { name: "Change your book character" })).toBeFocused();
+  await page.getByRole("button", { name: "Done" }).click();
+  await expect(mapHeading).toBeVisible();
+  await expect(mapHeading).toBeFocused();
 });
 
 test("the mounted pixel world follows live OS reduced-motion changes", async ({ page }) => {
@@ -783,15 +796,16 @@ test("replaying the letter trace demo uses recorded gold-voice instructions", as
 
   await page.getByRole("button", { name: "Skip" }).click();
   await expect.poll(() => page.evaluate(() => window.__tracerPlayedAudio || [])).toContain(
-    "/audio/child-mode/phrases/now-you-try.mp3"
+    "/audio/production/en-US/supplemental/now-you-try-7d307f3512.mp3"
   );
   const replay = page.getByRole("button", { name: "Show me" });
   await expect(replay).toBeVisible();
   await page.evaluate(() => { window.__tracerPlayedAudio = []; });
   await replay.click();
   await expect.poll(() => page.evaluate(() => window.__tracerPlayedAudio || [])).toEqual([
-    "/audio/child-mode/phrases/watch-me-first.mp3",
-    "/audio/child-mode/phrases/start-at-the-top.mp3"
+    "/audio/production/en-US/supplemental/watch-me-first-bd61e23b42.mp3",
+    "/audio/production/en-US/supplemental/start-at-the-top-16d920afb1.mp3",
+    "/audio/production/en-US/supplemental/now-you-try-7d307f3512.mp3"
   ]);
   expect(pageErrors).toEqual([]);
 });
@@ -949,7 +963,7 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
   await page.getByRole("button", { name: "Open settings" }).click();
   await page.getByRole("button", { name: "Start the adventure again" }).click();
   await page.getByRole("button", { name: "Yes, start again" }).click();
-  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose your book character" })).toBeVisible();
 
   await expect.poll(() => page.evaluate(key => {
     const state = JSON.parse(localStorage.getItem(key) || "null");
@@ -1027,15 +1041,15 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
     checkpoint: null
   });
 
-  await page.getByRole("button", { name: "Close Make your creature" }).click();
+  await page.getByRole("button", { name: "Close Choose your book character" }).click();
   await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
   await page.getByRole("button", { name: "Open Sound Seekers" }).click();
-  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose your book character" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Close Make your creature" }).click();
+  await page.getByRole("button", { name: "Close Choose your book character" }).click();
   await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choose your book character" })).toBeVisible();
 });
 
 test("simultaneous tabs keep both offline cloud-queue revisions", async ({ page, context }) => {
@@ -1282,8 +1296,8 @@ test("the mobile release surface keeps creature creation child-reachable", async
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${PREVIEW}&view=creator&done=20`);
 
-  await expect(page.getByRole("heading", { name: "Change your creature" })).toBeVisible();
-  await expect(page.getByRole("tab", { name: "Body" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Change your book character" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Character" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Done" })).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
@@ -1310,7 +1324,7 @@ test("the mobile release surface keeps the Trading Post child-reachable", async 
 
   await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
   await expect(page.getByRole("tabpanel")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Back to the Den" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to map" })).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);

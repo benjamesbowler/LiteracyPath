@@ -199,7 +199,7 @@ export const QUEST_PIXEL_CHAPTER_CASTS = Object.freeze({
 // stable across encounters, discoveries, accessible play and ceremonies.
 export const QUEST_PIXEL_NAMED_CASTS = Object.freeze({
   "seedwake-meadow": Object.freeze({
-    Pip: "seedwake-egg-boy",
+    Bouncy: "seedwake-egg-boy",
     Moss: "seedwake-mask-frog",
     Tumble: "seedwake-green-pig",
     Bramble: "seedwake-shaman-lion"

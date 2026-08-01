@@ -117,15 +117,29 @@ export function shuffle(list, rng) {
 // Pick `count` distractors for a cue. Prefers sounds the child is WEAK at (a
 // distractor they can already reject teaches nothing), never a same-sound
 // grapheme, never anything untaught.
-export function pickDistractors(answer, { known, mastery = {}, count = 2, rng }) {
+export function pickDistractors(answer, {
+  known,
+  mastery = {},
+  count = 2,
+  rng,
+  avoidChoices = []
+}) {
   const pool = [...known].filter(g => g !== answer && !sharesSound(answer, g));
   if (!pool.length) return [];
 
   const weak = new Set(weakestTargets(mastery, 8).map(w => w.target));
-  const preferred = pool.filter(g => weak.has(g));
-  const rest = pool.filter(g => !weak.has(g));
-
-  const ordered = [...shuffle(preferred, rng), ...shuffle(rest, rng)];
+  const previous = new Set(avoidChoices);
+  const novel = pool.filter(g => !previous.has(g));
+  const reused = pool.filter(g => previous.has(g));
+  const weakFirst = choices => [
+    ...shuffle(choices.filter(g => weak.has(g)), rng),
+    ...shuffle(choices.filter(g => !weak.has(g)), rng)
+  ];
+  // Every new question receives a newly selected set. Prefer options that were
+  // not on the previous question, while preserving the useful weak-sound bias.
+  // A four-sound first lesson cannot mathematically show three wholly new
+  // labels every round, but no old answer object is retained by the runtime.
+  const ordered = [...weakFirst(novel), ...weakFirst(reused)];
   return ordered.slice(0, count);
 }
 
@@ -154,9 +168,21 @@ export function wordsForTarget(target, stopIndex, { max = 6 } = {}) {
 }
 
 // ── SOUND STONES — hear the sound, tap the letter ───────────────────────────
-export function buildSoundStonesRound(target, { stopIndex, mastery, rng, choices = 3 }) {
+export function buildSoundStonesRound(target, {
+  stopIndex,
+  mastery,
+  rng,
+  choices = 3,
+  avoidChoices = []
+}) {
   const known = taughtThrough(stopIndex);
-  const distractors = pickDistractors(target, { known, mastery, count: choices - 1, rng });
+  const distractors = pickDistractors(target, {
+    known,
+    mastery,
+    count: choices - 1,
+    rng,
+    avoidChoices
+  });
   return {
     shell: "sound-stones",
     target,
@@ -170,9 +196,21 @@ export function buildSoundStonesRound(target, { stopIndex, mastery, rng, choices
 // The reverse direction of Sound Stones. This is what makes mastery rule 3
 // (">= 2 different shells") actually bite: a child who has memorised "the sh
 // stone is the third one" cannot fake this.
-export function buildBeastFeedRound(target, { stopIndex, mastery, rng, choices = 3 }) {
+export function buildBeastFeedRound(target, {
+  stopIndex,
+  mastery,
+  rng,
+  choices = 3,
+  avoidChoices = []
+}) {
   const known = taughtThrough(stopIndex);
-  const distractors = pickDistractors(target, { known, mastery, count: choices - 1, rng });
+  const distractors = pickDistractors(target, {
+    known,
+    mastery,
+    count: choices - 1,
+    rng,
+    avoidChoices
+  });
   return {
     shell: "beast-feed",
     target,
@@ -351,9 +389,22 @@ export function buildSoundSortRounds(stop, { rng, itemsPerPen = 4 }) {
 // This is Sound Stones on a timer: the fork rushes toward you and you take the
 // one signed with the sound you just heard. Same question, different pressure —
 // which is also why it counts as a SECOND SHELL toward mastery.
-export function buildTrailRunRound(target, { stopIndex, mastery, rng, choices = 3, seconds = 6 }) {
+export function buildTrailRunRound(target, {
+  stopIndex,
+  mastery,
+  rng,
+  choices = 3,
+  seconds = 6,
+  avoidChoices = []
+}) {
   const known = taughtThrough(stopIndex);
-  const distractors = pickDistractors(target, { known, mastery, count: choices - 1, rng });
+  const distractors = pickDistractors(target, {
+    known,
+    mastery,
+    count: choices - 1,
+    rng,
+    avoidChoices
+  });
   return {
     shell: "trail-run",
     target,
@@ -600,5 +651,4 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     }
   };
 }
-
 

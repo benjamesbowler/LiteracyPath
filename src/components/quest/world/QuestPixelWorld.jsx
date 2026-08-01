@@ -16,6 +16,8 @@ import { getStop, targetsAtStop } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
 import { sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
+import { getLedaInstructionAudioPath } from "../../../data/ledaProductionAudio.js";
+import { playCueAudio } from "../../../utils/audio/cuePlayer.js";
 import {
   applyQuestTaskInput,
   createSeedwakeVerbState,
@@ -31,7 +33,10 @@ import {
   promptLevelForMode,
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
-import { createQuestPixelRuntime } from "./questPixelRuntime.js";
+import {
+  createQuestPixelRuntime,
+  QUEST_BOOK_WORLD_ART_URLS
+} from "./questPixelRuntime.js";
 import {
   availableSparks,
   questRewardBonuses,
@@ -49,12 +54,23 @@ import { clampQuestWorldResume } from "../../../utils/questWorldResume.js";
 // Touch devices get the big-answer strip PINNED: focus-within only ever
 // helped keyboard users; a sighted motor-impaired child on touch saw nothing.
 const COARSE_POINTER = typeof window !== "undefined" && Boolean(window.matchMedia?.("(pointer: coarse)")?.matches);
+const NO_COMPLETION_MARKS = Object.freeze([]);
 
 function learningSequence(task) {
   if (task?.learningSequence?.length) return [...task.learningSequence];
   return (task?.stages || [])
     .map(taskStage => taskStage.items.find(item => item.correct)?.value)
     .filter(value => value != null);
+}
+
+const WORD_BUILD_MECHANICS = new Set(["bridge-build", "sequence-build", "echo-sequence"]);
+
+function isWordBuildTask(task) {
+  return Boolean(
+    task
+    && WORD_BUILD_MECHANICS.has(task.mechanic)
+    && task.stages?.filter(taskStage => taskStage.audioCue).length > 1
+  );
 }
 
 function shortPrompt(stage, soundDelivered = true) {
@@ -133,7 +149,9 @@ export default function QuestPixelWorld({
   const [rhythmOpen, setRhythmOpen] = useState(true);
   const [solved, setSolved] = useState(() => new Set(resume?.solved || []));
   const [collected, setCollected] = useState(() => new Set(resume?.drops || []));
-  const [completionMarks, setCompletionMarks] = useState(() => resume?.completionMarks || []);
+  // Correct-answer tiles are ephemeral controls. Do not revive the legacy
+  // completion squares from old checkpoints or save new ones.
+  const completionMarks = NO_COMPLETION_MARKS;
   const [hiddenGateHint, setHiddenGateHint] = useState(null);
   const [pickupNotice, setPickupNotice] = useState("");
   const [ready, setReady] = useState(false);
@@ -142,12 +160,9 @@ export default function QuestPixelWorld({
   const [runtimeHealth, setRuntimeHealth] = useState(null);
   const mountRef = useRef(null);
   const runtimeRef = useRef(null);
-  const dpadHoldRef = useRef(null);
-  // The hold-to-move repeat must die with the component, not outlive it.
-  useEffect(() => () => window.clearInterval(dpadHoldRef.current), []);
   const solvedRef = useRef(solved);
   const collectedRef = useRef(collected);
-  const completionMarksRef = useRef(completionMarks);
+  const completionMarksRef = useRef([]);
   const correctionsRef = useRef(corrections);
   const reviewQueueRef = useRef(resume?.reviewQueue || []);
   const reviewedBeatsRef = useRef(resume?.reviewedBeats || []);
@@ -191,6 +206,13 @@ export default function QuestPixelWorld({
   const stageAudioKind = stage?.audioCue?.kind || null;
   const stageAudioValue = stage?.audioCue?.value || null;
   const stageCueAvailable = cueIsAvailable(stageAudioKind, stageAudioValue);
+  const wordBuildTask = isWordBuildTask(task);
+  const stageInstruction = wordBuildTask
+    ? "Build the word. Fill each box in order."
+    : stageAudioKind === "grapheme"
+      ? "Listen. Find the letter that matches the sound."
+      : "Listen. Find the right sound.";
+  const stageInstructionAudio = getLedaInstructionAudioPath(stageInstruction);
   const stageSoundDelivered = Boolean(isSoundEnabled && stageCueAvailable);
   const stageRecordsMastery = physicalStageRecordsMastery(stage, stageSoundDelivered);
   const teachCueAvailable = Boolean(firstTeachEntry?.id && hasGraphemeAudio(firstTeachEntry.id));
@@ -472,20 +494,6 @@ export default function QuestPixelWorld({
     }
     emitStageInteraction("response", { correct: true, mechanic: task.mechanic });
     runtimeRef.current?.playFeedback?.("correct", choice.id);
-    if (stage.completion) {
-      const mark = {
-        ...stage.completion,
-        id: stage.completion.id || `${task.key}-${fieldStage}`,
-        encounterId: encounter?.id,
-        mechanic: task.mechanic,
-        label: stage.completion.label || choice.label || choice.value
-      };
-      if (!completionMarksRef.current.some(item => item.id === mark.id)) {
-        const nextMarks = [...completionMarksRef.current, mark];
-        completionMarksRef.current = nextMarks;
-        setCompletionMarks(nextMarks);
-      }
-    }
     setFeedback("Yes!");
     if (fieldStage + 1 < task.stages.length) {
       const nextStage = fieldStage + 1;
@@ -497,7 +505,7 @@ export default function QuestPixelWorld({
     }
     answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery, { promptLevel: promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode), key: activeCorrectionKey });
     nextBeat();
-  }, [activeCorrectionKey, answer, beat?.target, beatIndex, checkpoint, emitStageInteraction, encounter?.id, fieldStage, isSoundEnabled, nextBeat, rhythmOpen, stage, stageRecordsMastery, task, visibleChoices]);
+  }, [activeCorrectionKey, answer, beat?.target, beatIndex, checkpoint, emitStageInteraction, fieldStage, isSoundEnabled, nextBeat, rhythmOpen, stage, stageRecordsMastery, task, visibleChoices]);
 
   const beginTrail = useCallback(() => {
     setPhase("trail");
@@ -506,10 +514,20 @@ export default function QuestPixelWorld({
   }, [checkpoint]);
 
   const replayCue = useCallback(() => {
-    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, isSoundEnabled);
-    else if (stageAudioKind === "word") sayWord(stageAudioValue, isSoundEnabled);
-    else if (firstTeachEntry?.id) sayGraphemeWithName(firstTeachEntry.id, isSoundEnabled);
-  }, [firstTeachEntry, isSoundEnabled, stageAudioKind, stageAudioValue]);
+    if (!isSoundEnabled) return;
+    if (encounterStarted && stageInstructionAudio) {
+      playCueAudio(stageInstructionAudio);
+      window.clearTimeout(cueTimerRef.current);
+      cueTimerRef.current = window.setTimeout(() => {
+        if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
+        else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
+      }, 4000);
+      return;
+    }
+    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
+    else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
+    else if (firstTeachEntry?.id) sayGraphemeWithName(firstTeachEntry.id, true);
+  }, [encounterStarted, firstTeachEntry, isSoundEnabled, stageAudioKind, stageAudioValue, stageInstructionAudio]);
 
   useEffect(() => {
     solvedRef.current = solved;
@@ -518,10 +536,6 @@ export default function QuestPixelWorld({
   useEffect(() => {
     collectedRef.current = collected;
   }, [collected]);
-
-  useEffect(() => {
-    completionMarksRef.current = completionMarks;
-  }, [completionMarks]);
 
   useEffect(() => {
     correctionsRef.current = corrections;
@@ -562,10 +576,9 @@ export default function QuestPixelWorld({
   }, [encounterStarted, onAudioState, phase]);
 
   useEffect(() => {
-    if (!encounterStarted || !stageCueAvailable || !isSoundEnabled) return;
-    if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, true);
-    else if (stageAudioKind === "word") sayWord(stageAudioValue, true);
-  }, [encounterStarted, isSoundEnabled, stage?.id, stageAudioKind, stageAudioValue, stageCueAvailable]);
+    if (!encounterStarted || !isSoundEnabled) return;
+    replayCue();
+  }, [encounterStarted, isSoundEnabled, replayCue, stage?.id]);
 
   useEffect(() => {
     if (phase !== "trail" || !encounterStarted || !stage?.id) return;
@@ -643,6 +656,7 @@ export default function QuestPixelWorld({
             // the audio set. This also avoids caching the same URL once as an
             // absolute resource entry and again as a root-relative manifest entry.
             ...uniqueVisualAssetEntries.map(entry => entry.name),
+            ...QUEST_BOOK_WORLD_ART_URLS,
             ...QUEST_PIXEL_SFX_URLS
           ];
           const assetRequests = uniqueVisualAssetEntries.length;
@@ -784,11 +798,14 @@ export default function QuestPixelWorld({
   if (!section) return null;
 
   const stageCount = task?.stages?.length || 1;
+  const buildSequence = wordBuildTask && stageCount > 1
+    ? learningSequence(task).map(value => String(value || "").replace(/^hw:/, ""))
+    : [];
   const cueVisible = !ceremony && (phase === "teach" || encounterStarted || (phase === "gate" && hiddenGateHint !== stopId));
   const cueCompact = phase === "trail" && encounterStarted;
   return (
     <main
-      className="q-screen qp-root"
+      className={`q-screen qp-root${buildSequence.length > 1 ? " has-build-progress" : ""}`}
       data-world={section.world}
       data-ceremony={ceremony ? "true" : "false"}
       data-ready={ready ? "true" : "false"}
@@ -810,7 +827,7 @@ export default function QuestPixelWorld({
       <div ref={mountRef} className="qp-canvas" aria-hidden="true" />
 
       <header className="qp-header">
-        <button type="button" className="qp-icon-button" onClick={() => { checkpoint(); onQuit?.(); }} aria-label="Back to the Den">
+        <button type="button" className="qp-icon-button" onClick={() => { checkpoint(); onQuit?.(); }} aria-label="Back to the trail map">
           <span aria-hidden="true">&#8592;</span>
         </button>
         <div className="qp-place">
@@ -831,6 +848,22 @@ export default function QuestPixelWorld({
         {section.encounters.map(item => <span key={item.id} className={solved.has(item.id) ? "is-done" : item.id === encounter?.id ? "is-current" : ""} />)}
       </div>
 
+      {encounterStarted && buildSequence.length > 1 && (
+        <div className="qp-build-strip" aria-label={`Word progress: ${fieldStage} of ${buildSequence.length} parts found`}>
+          <strong>Build the word</strong>
+          <span>
+            {buildSequence.map((part, index) => (
+              <i
+                key={`${part}-${index}`}
+                className={index < fieldStage ? "is-filled" : index === fieldStage ? "is-next" : ""}
+              >
+                {index < fieldStage ? part : ""}
+              </i>
+            ))}
+          </span>
+        </div>
+      )}
+
       {!ceremony && pickupNotice && <aside className="qp-pickup-notice" role="status">{pickupNotice}</aside>}
 
       {ceremony && ready && (
@@ -845,7 +878,7 @@ export default function QuestPixelWorld({
           key={`${stage?.id || phase}:${feedback || "prompt"}`}
           ref={taskFocusRef}
           tabIndex={-1}
-          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}`}
+          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}${buildSequence.length > 1 ? " has-build-progress" : ""}`}
           aria-live="polite"
         >
           {phase === "teach" ? (
@@ -863,7 +896,7 @@ export default function QuestPixelWorld({
             <>
               <span>{encounter?.friend || "Trail friend"}</span>
               <strong>{feedback || shortPrompt(stage, stageSoundDelivered)}</strong>
-              {isSoundEnabled && stageCueAvailable && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the sound again"><span aria-hidden="true">&#9835;</span></button>}
+              {isSoundEnabled && (stageCueAvailable || stageInstructionAudio) && <button type="button" className="qp-cue-icon" onClick={replayCue} aria-label="Hear the instruction and sound again"><span aria-hidden="true">&#9835;</span></button>}
               {stageCount > 1 && <small>{fieldStage + 1} / {stageCount}</small>}
             </>
           )}
@@ -872,29 +905,52 @@ export default function QuestPixelWorld({
 
       {!ready && <div className="qp-loading" role="status">Opening the trail…</div>}
 
-      {!ceremony && <nav className="qp-dpad" aria-label="Move your Beastie">
-        {[["up", "↑"], ["left", "←"], ["down", "↓"], ["right", "→"]].map(([dir, glyph]) => (
-          <button
-            key={dir}
-            type="button"
-            aria-label={`Move ${dir}`}
-            /* Keyboard activation (Enter/Space arrives as a click with
-               detail 0; pointer clicks already moved on pointerdown);
-               press-and-hold repeats so crossing a trail is a held button,
-               not forty precision taps. */
-            onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
-            onPointerDown={() => {
-              runtimeRef.current?.move(dir);
-              window.clearInterval(dpadHoldRef.current);
-              dpadHoldRef.current = window.setInterval(() => runtimeRef.current?.move(dir), 180);
-            }}
-            onPointerUp={() => window.clearInterval(dpadHoldRef.current)}
-            onPointerCancel={() => window.clearInterval(dpadHoldRef.current)}
-            onPointerLeave={() => window.clearInterval(dpadHoldRef.current)}
-          >
-            <span aria-hidden="true">{glyph}</span>
+      {!ceremony && <nav className="qp-dpad" aria-label="Move your book character">
+        <div className="qp-depth-controls" aria-label="Move forward or back">
+          {[["up", "↑"], ["down", "↓"]].map(([dir, glyph]) => (
+            <button
+              key={dir}
+              type="button"
+              aria-label={`Move ${dir}`}
+              data-direction={dir}
+              onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
+              onPointerDown={event => {
+                event.currentTarget.setPointerCapture?.(event.pointerId);
+                runtimeRef.current?.startMove(dir);
+                runtimeRef.current?.move(dir);
+              }}
+              onPointerUp={() => runtimeRef.current?.stopMove(dir)}
+              onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
+              onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
+            >
+              <span aria-hidden="true">{glyph}</span>
+            </button>
+          ))}
+        </div>
+        <div className="qp-steer-controls" aria-label="Steer and listen">
+          {[["left", "←"], ["right", "→"]].map(([dir, glyph]) => (
+            <button
+              key={dir}
+              type="button"
+              aria-label={`Move ${dir}`}
+              data-direction={dir}
+              onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
+              onPointerDown={event => {
+                event.currentTarget.setPointerCapture?.(event.pointerId);
+                runtimeRef.current?.startMove(dir);
+                runtimeRef.current?.move(dir);
+              }}
+              onPointerUp={() => runtimeRef.current?.stopMove(dir)}
+              onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
+              onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
+            >
+              <span aria-hidden="true">{glyph}</span>
+            </button>
+          ))}
+          <button type="button" className="qp-listen-control" aria-label="Hear the instruction again" onClick={replayCue}>
+            <span aria-hidden="true">♪</span>
           </button>
-        ))}
+        </div>
       </nav>}
 
       {!ceremony && encounterStarted && visibleChoices.length > 0 && (

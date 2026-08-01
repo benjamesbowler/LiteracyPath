@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-e-50",
-  "contentHash": "sha256:e735aa1b68ed52ae3dbf8f519a233b62265f3850a279cc9a15ced304b07fb274",
+  "contentHash": "sha256:481c3ab7ecbb581fd09f0db6db6b9446ed69eb25f4633f31e3f70dd0ba416d7a",
   "questions": [
     {
       "id": "gr-e-50-q1",
-      "prompt": "What do we use to hear?",
+      "prompt": "Which fact is introduced first in Our Five Senses?",
       "choices": [
-        "our ears",
-        "our eyes",
-        "our skin"
+        "We use our eyes to see.",
+        "We use our nose to smell.",
+        "Our senses help us explore."
       ],
-      "answer": "our ears",
+      "answer": "We use our eyes to see.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "We use our ears to hear."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "We use our eyes to see."
     },
     {
       "id": "gr-e-50-q2",
-      "prompt": "What do we use to taste?",
+      "prompt": "Which fact is explained next in Our Five Senses?",
       "choices": [
-        "our tongue",
-        "our nose",
-        "our hands"
+        "We use our nose to smell.",
+        "We use our eyes to see.",
+        "Our senses help us explore."
       ],
-      "answer": "our tongue",
+      "answer": "We use our nose to smell.",
       "kind": "text",
       "skill": "function",
-      "evidencePage": 4,
-      "evidenceText": "We use our tongue to taste."
+      "evidencePage": 3,
+      "evidenceText": "We use our nose to smell."
     },
     {
       "id": "gr-e-50-q3",
-      "prompt": "What do our senses help us do?",
+      "prompt": "Which statement gives the main idea of Our Five Senses?",
       "choices": [
-        "explore",
-        "sleep",
-        "fly"
+        "Our senses help us explore.",
+        "We use our eyes to see.",
+        "We use our nose to smell."
       ],
-      "answer": "explore",
-      "kind": "word",
-      "skill": "function",
+      "answer": "Our senses help us explore.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Our senses help us explore. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Our senses help us explore!"
+      "evidenceText": "Our senses help us explore."
     }
   ]
 }

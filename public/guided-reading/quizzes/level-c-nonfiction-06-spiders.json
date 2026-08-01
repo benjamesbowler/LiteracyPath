@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-06-spiders",
-  "contentHash": "sha256:a28ddda99332a2ad45edca1da062f1dc50c774bc4c3224ea402069b7125cc46f",
+  "contentHash": "sha256:b1ba398f9751224926ba5f3d78444211c5dbe26ec5aed376da90118924b53997",
   "questions": [
     {
       "id": "level-c-nonfiction-06-spiders-q1",
-      "prompt": "How do spiders differ from insects?",
+      "prompt": "Which fact about spiders is given in Spiders?",
       "choices": [
-        "spiders have eight legs",
-        "spiders have six legs",
-        "spiders have three body parts"
+        "Spiders are arachnids with eight legs and two main body sections.",
+        "Other spiders build sheet or tangled webs for different prey.",
+        "Most spiders cannot harm people and help control insect populations."
       ],
-      "answer": "spiders have eight legs",
+      "answer": "Spiders are arachnids with eight legs and two main body sections.",
       "kind": "text",
-      "skill": "comparison",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Spiders have eight legs and two main body parts."
+      "evidenceText": "Spiders are arachnids with eight legs and two main body sections."
     },
     {
       "id": "level-c-nonfiction-06-spiders-q2",
-      "prompt": "How does a web-building spider find trapped food?",
+      "prompt": "Which fact about other spiders is given in Spiders?",
       "choices": [
-        "by seeing bright colours",
-        "by feeling tiny vibrations",
-        "by hearing wingbeats"
+        "Other spiders build sheet or tangled webs for different prey.",
+        "Spiders are arachnids with eight legs and two main body sections.",
+        "Most spiders cannot harm people and help control insect populations."
       ],
-      "answer": "by feeling tiny vibrations",
+      "answer": "Other spiders build sheet or tangled webs for different prey.",
       "kind": "text",
       "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "Web-building spiders feel tiny vibrations through their legs."
+      "evidencePage": 4,
+      "evidenceText": "Other spiders build sheet or tangled webs for different prey."
     },
     {
       "id": "level-c-nonfiction-06-spiders-q3",
-      "prompt": "Why are spiders useful in gardens?",
+      "prompt": "Which statement gives the main idea of Spiders?",
       "choices": [
-        "they pollinate every flower",
-        "they make the soil richer",
-        "they eat insects that damage plants"
+        "Most spiders cannot harm people and help control insect populations.",
+        "Spiders are arachnids with eight legs and two main body sections.",
+        "Other spiders build sheet or tangled webs for different prey."
       ],
-      "answer": "they eat insects that damage plants",
+      "answer": "Most spiders cannot harm people and help control insect populations.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "main_idea",
+      "rationale": "Most spiders cannot harm people and help control insect populations. This final statement gathers the book's details into its main idea.",
       "evidencePage": 9,
-      "evidenceText": "They eat many insects, including some that damage plants."
+      "evidenceText": "Most spiders cannot harm people and help control insect populations."
     }
   ]
 }

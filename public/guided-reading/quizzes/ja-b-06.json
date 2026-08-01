@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-06",
-  "contentHash": "sha256:107a1941e31be50bf422c41af4c37305201805ffa3fd711616e3c9ea07d7d187",
+  "contentHash": "sha256:427dccd32f59f5d76ef7ceb0fb900c7ec2b36d9710488061aa07817b644b7c6e",
   "questions": [
     {
       "id": "ja-b-06-q1",
-      "prompt": "What did James carefully put in a basket?",
+      "prompt": "Which event begins James and Anna visit Grandma's Farm?",
       "choices": [
-        "five eggs",
-        "red apples",
-        "bean plants"
+        "James, Anna and Chips arrive for a week at Grandma's farm.",
+        "James and Anna chase from both sides, but Percy dodges them.",
+        "Grandma helps close every gate and moves Chips away from the beans."
       ],
-      "answer": "five eggs",
+      "answer": "James, Anna and Chips arrive for a week at Grandma's farm.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "James ran to see the hens. \"They have laid five eggs!\" he said. He put them one by one — very, very carefully — into a basket."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "James, Anna and Chips arrive for a week at Grandma's farm."
     },
     {
       "id": "ja-b-06-q2",
-      "prompt": "Why did James and Anna chase Percy?",
+      "prompt": "Which event shows the first plan fails in James and Anna visit Grandma's Farm?",
       "choices": [
-        "He took the eggs.",
-        "He got out.",
-        "He chased Chips."
+        "James and Anna chase from both sides, but Percy dodges them.",
+        "James, Anna and Chips arrive for a week at Grandma's farm.",
+        "Grandma helps close every gate and moves Chips away from the beans."
       ],
-      "answer": "He got out.",
+      "answer": "James and Anna chase from both sides, but Percy dodges them.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 7,
-      "evidenceText": "Then Percy the pig got out. He ran in and out of the hen house and round and round the yard at top speed."
+      "skill": "problem_solution",
+      "rationale": "James and Anna chase from both sides, but Percy dodges them. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "James and Anna chase from both sides, but Percy dodges them."
     },
     {
       "id": "ja-b-06-q3",
-      "prompt": "How did the farm day feel by the end?",
+      "prompt": "Which event solves the problem in James and Anna visit Grandma's Farm?",
       "choices": [
-        "It was too noisy to enjoy.",
-        "It was a disappointing day.",
-        "It was the best farm day ever."
+        "Grandma helps close every gate and moves Chips away from the beans.",
+        "James, Anna and Chips arrive for a week at Grandma's farm.",
+        "James and Anna chase from both sides, but Percy dodges them."
       ],
-      "answer": "It was the best farm day ever.",
+      "answer": "Grandma helps close every gate and moves Chips away from the beans.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 12,
-      "evidenceText": "They sat outside as the sun went down. Bess looked over her gate. Percy slept in the mud. Chips ate the fence post. It had been the best farm day ever."
+      "rationale": "Grandma helps close every gate and moves Chips away from the beans. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Grandma helps close every gate and moves Chips away from the beans."
     }
   ]
 }

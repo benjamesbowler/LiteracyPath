@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-04",
-  "contentHash": "sha256:3e99b938499ed3fef3c9aee62e51c4f78b17e21d140318ac1e3f7adb72011a3d",
+  "contentHash": "sha256:8d45556c71113c69b7e68d073632d8515e979c09caf70d3e075434cda54dad31",
   "questions": [
     {
       "id": "ab-c-04-q1",
-      "prompt": "What did Socks carry to his blanket first?",
+      "prompt": "Which event introduces the situation in Aiden and Betty and Socks?",
       "choices": [
-        "Betty's bag",
-        "Dad's newspaper",
-        "Aiden's watch"
+        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
+        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
+        "Aiden opened his field notebook. Understanding Socks had finally begun."
       ],
-      "answer": "Aiden's watch",
+      "answer": "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 5,
-      "evidenceText": "Aiden set his watch on the low table. Socks calmly picked it up by the strap, carried it to his blanket, and rested one black paw on it with great satisfaction."
+      "evidencePage": 1,
+      "evidenceText": "Uncle Eddie arrived with a travel bag and a scratching pet carrier."
     },
     {
       "id": "ab-c-04-q2",
-      "prompt": "Why did Uncle Eddie need someone to foster Socks?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty and Socks?",
       "choices": [
-        "He was joining an overseas rescue team.",
-        "Socks disliked travelling in cars.",
-        "Aiden needed help with a project."
+        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
+        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
+        "Aiden opened his field notebook. Understanding Socks had finally begun."
       ],
-      "answer": "He was joining an overseas rescue team.",
+      "answer": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 6,
-      "evidenceText": "Uncle Eddie explained that he was joining a rescue team overseas for six months and could not bring Socks."
+      "skill": "problem_solution",
+      "rationale": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 10,
+      "evidenceText": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead."
     },
     {
       "id": "ab-c-04-q3",
-      "prompt": "What does Mum feeding Socks every night show?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty and Socks?",
       "choices": [
-        "She wanted him to leave the house.",
-        "She cared for him despite complaining.",
-        "She had forgotten he was naughty."
+        "Aiden opened his field notebook. Understanding Socks had finally begun.",
+        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
+        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead."
       ],
-      "answer": "She cared for him despite complaining.",
+      "answer": "Aiden opened his field notebook. Understanding Socks had finally begun.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Mum complains that Socks is impossible but prepares his food every night, showing that she cared for him despite complaining.",
-      "evidencePage": 13,
-      "evidenceText": "\"He is completely impossible,\" said Mum, as she did most evenings. But she had also started measuring his proper dog food into a small dish beside his water bowl every night, because Socks knew exactly when it appeared and waited on his mat very patiently."
+      "skill": "outcome",
+      "rationale": "Aiden opened his field notebook. Understanding Socks had finally begun. This event shows how the central problem is resolved.",
+      "evidencePage": 14,
+      "evidenceText": "Aiden opened his field notebook. Understanding Socks had finally begun."
     }
   ]
 }

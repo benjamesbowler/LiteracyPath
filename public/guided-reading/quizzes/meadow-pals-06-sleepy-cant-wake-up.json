@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-06-sleepy-cant-wake-up",
-  "contentHash": "sha256:5c597f65e68df6b7d1f8acecef30340fcf41879e2c8897fe838c9fea921724dc",
+  "contentHash": "sha256:2f04c917b94d700571e48c08c9b1169b0b61af0bcd2bcf360e9697a57f1855b6",
   "questions": [
     {
       "id": "meadow-pals-06-sleepy-cant-wake-up-q1",
-      "prompt": "Who finally gets up after all the calls?",
+      "prompt": "What happens first in Sleepy Can't Wake Up?",
       "choices": [
-        "Sleepy",
-        "Noisy",
-        "Bouncy"
+        "Breakfast is ready.",
+        "Sleepy still snores.",
+        "Sleepy joins the table."
       ],
-      "answer": "Sleepy",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "Sleepy got up."
+      "answer": "Breakfast is ready.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Breakfast is ready."
     },
     {
       "id": "meadow-pals-06-sleepy-cant-wake-up-q2",
-      "prompt": "Who gives the loud final call?",
+      "prompt": "What goes wrong in Sleepy Can't Wake Up?",
       "choices": [
-        "Noisy",
-        "Clucky",
-        "Bouncy"
+        "Sleepy still snores.",
+        "Breakfast is ready.",
+        "Sleepy joins the table."
       ],
-      "answer": "Noisy",
-      "kind": "word",
-      "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "\"GET UP, SLEEPY!\" said Noisy."
+      "answer": "Sleepy still snores.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Sleepy still snores. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Sleepy still snores."
     },
     {
       "id": "meadow-pals-06-sleepy-cant-wake-up-q3",
-      "prompt": "Where does Sleepy go at the end?",
+      "prompt": "What happens at the end of Sleepy Can't Wake Up?",
       "choices": [
-        "back to bed",
-        "out to play",
-        "into the barn"
+        "Sleepy joins the table.",
+        "Breakfast is ready.",
+        "Sleepy still snores."
       ],
-      "answer": "back to bed",
+      "answer": "Sleepy joins the table.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Sleepy joins the table. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Sleepy went back to bed."
+      "evidenceText": "Sleepy joins the table."
     }
   ]
 }

@@ -1047,7 +1047,11 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(runtime, /setStrokeStyle\(2, 0xfff0a2/, "touch movement gives no visible acknowledgement");
   assert.match(runtime, /facingX < 0 \? "left" : "right"/, "horizontal animation mapping is reversed");
   assert.match(runtime, /questPixelCameraZoom\(/, "pixel scale still enlarges the low-resolution kit without a framing contract");
-  assert.match(runtime, /\.setScale\(0\.74\)/, "the custom Beastie no longer shares the authored cast's on-screen silhouette scale");
+  assert.match(
+    runtime,
+    /\.setScale\(this\.textures\.exists\("book-player-avatar"\) \? 1\.16 : 0\.86\)/,
+    "the real book character is too small to read clearly against the illustrated worlds"
+  );
   assert.match(runtime, /zoomTo\(zoom, 260, "Sine\.easeInOut", true\)/, "task camera changes still snap between scales");
   assert.match(runtime, /cameraTargetZoom/, "answer staging ignores the destination view while the camera is moving");
   assert.match(runtime, /choiceInside\.has\(choice\.id\)/, "standing on a choice can retrigger it every frame");
@@ -1831,8 +1835,9 @@ test("the Den, map and Trading Post keep their complete phone controls", () => {
   assert.match(den, /aria-label="Open settings"/, "the adult comfort controls are not clearly named");
   assert.match(map, /className="q-chapter-picker"/, "the phone map has no complete chapter picker");
   assert.match(map, /Choose a story chapter/, "the phone chapter picker is not named for assistive technology");
-  assert.match(map, /\{ x: 15, y: 70 \}/, "the first stop can clip at 320px");
-  assert.match(map, /\{ x: 85, y: 56 \}/, "the last stop can clip at 320px");
+  assert.match(map, /const MAP_POINTS_BY_WORLD/, "each painted world map needs its own road anchors");
+  assert.match(map, /MAP_POINTS_BY_WORLD\[chapter\.worldKit\]/, "the map ignores its world-specific road anchors");
+  assert.doesNotMatch(map, /className="q-map-road-(?:edge|centre)"/, "a generic route is still painted over the authored road");
   assert.match(map, /const currentPosition = journeyComplete\s*\? null/, "the walker remains on a completed final stop");
   assert.match(map, /const isNext = !journeyComplete && !isDone && stop\.index === nextIndex/, "the final stop remains both done and current");
   assert.match(css, /\.q-post > \* \{ flex: 0 0 auto; \}/, "shop rows can collapse and overlap while scrolling");
@@ -1878,6 +1883,24 @@ test("earned relic abilities and world memory reach pixel and accessible play", 
   assert.match(fs.readFileSync("src/styles/quest.css", "utf8"), /q2dDiscoveryResidentFrames/, "the accessible discovery resident never performs");
 });
 
+test("book-world play exposes direct four-way movement on touch and keyboard", () => {
+  const pixel = fs.readFileSync("src/components/quest/world/QuestPixelWorld.jsx", "utf8");
+  const runtime = fs.readFileSync("src/components/quest/world/questPixelRuntime.js", "utf8");
+  assert.match(runtime, /meadow-pals-trail-v2\.webp/, "Meadow does not use the illustrated book-world map");
+  assert.match(runtime, /dino-pals-trail-v2\.webp/, "Dino Land does not use the illustrated book-world map");
+  assert.match(runtime, /moonwood-trail-v2\.webp/, "Moonwood does not use the illustrated book-world map");
+  assert.match(runtime, /QUEST_BOOK_WORLD_ART_URLS/, "the illustrated worlds have no shared offline manifest");
+  assert.match(pixel, /\.\.\.QUEST_BOOK_WORLD_ART_URLS/, "book-world art is not warmed for offline play");
+  for (const direction of ["left", "right", "up", "down"]) {
+    assert.match(runtime, new RegExp(`directionInput\\.${direction}`), `${direction} is missing from held movement`);
+  }
+  assert.match(runtime, /startMove\(direction\)/, "touch controls cannot begin held movement");
+  assert.match(runtime, /stopMove\(direction\)/, "touch controls cannot stop held movement");
+  assert.match(pixel, /runtimeRef\.current\?\.startMove\(dir\)/, "the d-pad is not wired to held movement");
+  assert.match(pixel, /onLostPointerCapture=\{\(\) => runtimeRef\.current\?\.stopMove\(dir\)\}/,
+    "a released touch can leave movement stuck on");
+});
+
 test("chapter ceremonies close the destination story with the returning cast", () => {
   const ceremony = fs.readFileSync("src/components/quest/RewardScreen.jsx", "utf8");
   const progress = fs.readFileSync("src/utils/questProgress.js", "utf8");
@@ -1919,12 +1942,11 @@ test("Sound Seekers preserves its authored mix across scene state and tab visibi
   const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
   const music = fs.readFileSync("src/utils/audio/gameMusic.js", "utf8");
   const cues = fs.readFileSync("src/utils/audio/cuePlayer.js", "utf8");
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
 
   assert.match(root, /mode: musicMode/, "later chapters do not receive travel, encounter, and ceremony music mixes");
   assert.match(root, /const soundscapeEnabled = isSoundEnabled && !state\.settings\?\.quietSoundscape/, "background audio cannot be quieted independently of phonics cues");
-  assert.match(root, /quietSoundscape=\{Boolean\(state\.settings\?\.quietSoundscape\)\}/, "the saved soundscape preference does not reach Settings");
-  assert.match(den, /Quiet soundscape \(spoken sounds stay on\)/, "Settings do not explain that spoken phonics remains available");
+  assert.doesNotMatch(root, /DenScreen/, "the retired duplicate Den sits between the child and the real chapter map");
+  assert.match(root, /initialView === VIEW\.DEN[\s\S]*?\? VIEW\.MAP/, "old Den links do not migrate to the real map");
   assert.match(root, /setGameAudioSuspended\(hidden\)/, "hidden tabs keep playing Sound Seekers music");
   assert.match(root, /setCueAudioSuspended\(hidden\)/, "hidden tabs keep consuming the active phonics cue");
   assert.match(root, /document\.addEventListener\("visibilitychange", syncAudioVisibility\)/, "audio visibility recovery is not installed");

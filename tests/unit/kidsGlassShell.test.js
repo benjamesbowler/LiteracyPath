@@ -321,6 +321,9 @@ test("every backdrop-filter ships the -webkit- prefix and pairs blur with satura
     "iPad Safari is the primary device: every backdrop-filter needs the -webkit- twin, in the same order and with the same value"
   );
   for (const value of standard) {
+    // Reduced-transparency modes intentionally turn glass off. `none` still
+    // needs the Safari prefix above, but it cannot contain blur/saturate.
+    if (value === "none") continue;
     assert.match(value, /blur\(/, `backdrop-filter "${value}" has no blur`);
     assert.match(
       value,

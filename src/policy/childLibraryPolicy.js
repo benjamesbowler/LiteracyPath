@@ -54,6 +54,56 @@ export const READING_LEVELS = Object.freeze(["A", "B", "C", "D", "E", "F"]);
 
 // ── Books ───────────────────────────────────────────────────────────────────
 
+// A level answers "how hard is this book?". A collection answers "what kind of
+// book or which friends do I want?". Keep those two decisions separate: a
+// child can browse Meadow Pals at Level A without losing the Level A filter.
+export const BOOK_COLLECTIONS = Object.freeze([
+  Object.freeze({ id: "bob-and-nan", label: "Bob & Nan" }),
+  Object.freeze({ id: "meadow-pals", label: "Meadow Pals" }),
+  Object.freeze({ id: "james-and-anna", label: "James & Anna" }),
+  Object.freeze({ id: "dino-pals", label: "Dino Pals" }),
+  Object.freeze({ id: "aiden-and-betty", label: "Aiden & Betty" }),
+  Object.freeze({ id: "moonwood-tales", label: "Moonwood Tales" }),
+  Object.freeze({ id: "science-and-facts", label: "Science & Facts" }),
+  Object.freeze({ id: "other-stories", label: "Other Stories" })
+]);
+
+export function bookCollectionId(book = {}) {
+  const id = String(book?.id || "").toLowerCase();
+  const title = String(book?.title || "").toLowerCase();
+  if (id.startsWith("bob-and-nan-") || /\b(?:bob and nan|nan and bob)\b/.test(title)) {
+    return "bob-and-nan";
+  }
+  if (id.startsWith("meadow-pals-")) return "meadow-pals";
+  if (
+    id.startsWith("james-and-anna-")
+    || id.startsWith("ja-b-")
+    || /\bjames and anna\b/.test(title)
+  ) {
+    return "james-and-anna";
+  }
+  if (id.startsWith("dino-pals-")) return "dino-pals";
+  if (id.startsWith("ab-c-") || /\baiden and betty\b/.test(title)) return "aiden-and-betty";
+  if (id.startsWith("moonwood-tales-")) return "moonwood-tales";
+  if (
+    id.startsWith("first-facts-")
+    || id.startsWith("level-c-nonfiction-")
+    || /^gr-[a-z]-\d+/.test(id)
+  ) {
+    return "science-and-facts";
+  }
+  return "other-stories";
+}
+
+export function bookCollectionsForLevel(books = [], level = "A") {
+  const present = new Set(
+    books
+      .filter(book => book?.level === level)
+      .map(bookCollectionId)
+  );
+  return BOOK_COLLECTIONS.filter(collection => present.has(collection.id));
+}
+
 /**
  * The book's own cover.
  *
@@ -380,11 +430,9 @@ export function buildQuestCard({ quest = {}, row = {}, reachedIndex = 0 } = {}) 
 }
 
 /**
- * The 3 x 2 grid: the chosen world first, then the worlds after it, then the
- * ones before — so the grid is always full even though a world holds four or
- * five stories and the grid holds six. A story borrowed from another world
- * keeps its OWN badge; being shown out of turn does not make a finished story
- * new.
+ * The chosen world's stories only. A full-looking grid is never worth telling
+ * a child that a Meadow story belongs in Moonwood or a Moonwood story belongs
+ * in Dino Land.
  *
  * Inside a world the order is the spec's: the story you are in, then the ones
  * you have not read, then the ones you have.
@@ -404,17 +452,11 @@ export function buildQuestGrid({
   }));
 
   const stateRank = { "carry-on": 0, new: 1, "next-world": 2, done: 3 };
-  const selected = worldIndex(world);
-  const distance = card => {
-    const index = worldIndex(card.world);
-    return index >= selected ? index - selected : STORY_WORLDS.length + index;
-  };
-
   return cards
+    .filter(card => card.world === world)
     .slice()
     .sort((a, b) => (
-      distance(a) - distance(b)
-      || stateRank[a.state] - stateRank[b.state]
+      stateRank[a.state] - stateRank[b.state]
       || String(a.title).localeCompare(String(b.title))
     ))
     .slice(0, slots);

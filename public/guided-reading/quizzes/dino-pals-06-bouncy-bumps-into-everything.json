@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-06-bouncy-bumps-into-everything",
-  "contentHash": "sha256:020990e49c08ea92c67da67d1001b5faaf3bb1e0c932d1cb8ccd58306ce24c73",
+  "contentHash": "sha256:b145e48d8758a539d14acacbe73e019618f2b8191e0c8876f8e11a7ef5cca30c",
   "questions": [
     {
       "id": "dino-pals-06-bouncy-bumps-into-everything-q1",
-      "prompt": "What showed that Bouncy cared after bumping Fancy?",
+      "prompt": "Which event begins Bouncy Bumps Into Everything?",
       "choices": [
-        "He bounced away laughing.",
-        "He blamed Wiggly.",
-        "He apologised and checked on her."
+        "Bouncy hits the cave wall on his first bounce.",
+        "One sneeze scatters leaves, berries, and Bossy's clipboard.",
+        "He follows clear stones to the wide, empty meadow."
       ],
-      "answer": "He apologised and checked on her.",
+      "answer": "Bouncy hits the cave wall on his first bounce.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Bouncy saying I am sorry shows that he apologised, and stopping to check on Fancy shows that he checked on her.",
-      "evidencePage": 3,
-      "evidenceText": "\"I am sorry,\" said Bouncy. He stopped to check that she was all right."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bouncy hits the cave wall on his first bounce."
     },
     {
       "id": "dino-pals-06-bouncy-bumps-into-everything-q2",
-      "prompt": "What did Bouncy and Wiggly do with the spilled berries?",
+      "prompt": "Which event shows the first plan fails in Bouncy Bumps Into Everything?",
       "choices": [
-        "They picked them up together.",
-        "They left them on the ground.",
-        "They rolled them into the water."
+        "One sneeze scatters leaves, berries, and Bossy's clipboard.",
+        "Bouncy hits the cave wall on his first bounce.",
+        "He follows clear stones to the wide, empty meadow."
       ],
-      "answer": "They picked them up together.",
+      "answer": "One sneeze scatters leaves, berries, and Bossy's clipboard.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "A basket of berries tipped over. They picked them up together."
+      "skill": "problem_solution",
+      "rationale": "One sneeze scatters leaves, berries, and Bossy's clipboard. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "One sneeze scatters leaves, berries, and Bossy's clipboard."
     },
     {
       "id": "dino-pals-06-bouncy-bumps-into-everything-q3",
-      "prompt": "How did Bouncy solve his bumping problem?",
+      "prompt": "Which event solves the problem in Bouncy Bumps Into Everything?",
       "choices": [
-        "He stopped moving for the whole day.",
-        "He went to the wide empty meadow and watched where he landed.",
-        "He asked friends to move out of his way."
+        "He follows clear stones to the wide, empty meadow.",
+        "Bouncy hits the cave wall on his first bounce.",
+        "One sneeze scatters leaves, berries, and Bossy's clipboard."
       ],
-      "answer": "He went to the wide empty meadow and watched where he landed.",
+      "answer": "He follows clear stones to the wide, empty meadow.",
       "kind": "text",
-      "skill": "problem_solution",
+      "skill": "outcome",
+      "rationale": "He follows clear stones to the wide, empty meadow. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "He went to the wide empty meadow and watched where he landed."
+      "evidenceText": "He follows clear stones to the wide, empty meadow."
     }
   ]
 }

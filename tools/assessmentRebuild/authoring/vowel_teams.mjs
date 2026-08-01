@@ -67,10 +67,14 @@ const ptdSpell = (u, lvl, ph, v, word, fakes, note = "") => ({
 });
 
 // Two-sounds odd-one-out (L2).
-const ptdOdd = (u, lvl, ph, v, soundName, words, keyWord, note = "") => ({
+const ptdOdd = (u, lvl, ph, v, soundName, words, keyWord, note = "", keySoundName = "") => ({
   u, lvl, ph, v, fmt: "PTD",
-  prompt: `Which word does NOT have the ${soundName} sound?`,
-  spoken: `Which word does not have the ${soundName} sound?`,
+  prompt: keySoundName
+    ? `Which word has the ${keySoundName} sound?`
+    : `Which word does NOT have the ${soundName} sound?`,
+  spoken: keySoundName
+    ? `Which word has the ${keySoundName} sound?`
+    : `Which word does not have the ${soundName} sound?`,
   choices: words.map(w => (w === keyWord ? K(w) : P(w, "D-PATTERN-TRAP"))),
   media: "text",
   note: note || "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
@@ -118,8 +122,8 @@ export default {
     cps("ea", 1, 2, 3, "long e", ["leaf", "leg", "fish", "drum"], "leaf",
       { leg: "D-PATTERN-TRAP", fish: "D-VOWEL", drum: "D-VOWEL" }),
     ptdOdd("ea", 1, 2, 4, "long e", ["bread", "meat", "leaf", "beach"], "bread",
-      "ea's two sounds — bread keeps the letters and loses the sound"),
-    ptdOdd("ea", 1, 2, 5, "long e", ["head", "sea", "beach", "peach"], "head"),
+      "ea's two sounds — bread keeps the letters and loses the sound", "short e"),
+    ptdOdd("ea", 1, 2, 5, "long e", ["dead", "sea", "beach", "peach"], "dead", "", "short e"),
     ptdSpell("ea", 1, 2, 6, "beach", ["beech", "beache", "biech"],
       "beech is a real tree but not the sandy place — the picture decides"),
     cw("oa", 1, 2, 1, "boat", "b__t", ["oa", "ee", "ai", "igh"],

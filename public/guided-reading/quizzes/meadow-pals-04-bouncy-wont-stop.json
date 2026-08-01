@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-04-bouncy-wont-stop",
-  "contentHash": "sha256:d180ef8c7c6daad4f015ce5c27611b56ed132228ad9a47927e8af96bc6ada4a7",
+  "contentHash": "sha256:20d9834652f8980bb8e67e9d309e1a532ac2e808f2d6928b1f20718341b4401c",
   "questions": [
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q1",
-      "prompt": "Who likes to hop again and again?",
+      "prompt": "What happens first in Bouncy Won't Stop?",
       "choices": [
-        "Bouncy",
-        "Grumpy",
-        "Clucky"
+        "Bouncy loves to hop.",
+        "Bouncy bumps her basket.",
+        "She hops in the field."
       ],
-      "answer": "Bouncy",
-      "kind": "word",
-      "skill": "character_action",
+      "answer": "Bouncy loves to hop.",
+      "kind": "text",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bouncy likes to hop."
+      "evidenceText": "Bouncy loves to hop."
     },
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q2",
-      "prompt": "Who is there when Bouncy is told to stop?",
+      "prompt": "What goes wrong in Bouncy Won't Stop?",
       "choices": [
-        "everyone",
-        "no one",
-        "only Grumpy"
+        "Bouncy bumps her basket.",
+        "Bouncy loves to hop.",
+        "She hops in the field."
       ],
-      "answer": "everyone",
-      "kind": "word",
-      "skill": "sequence",
+      "answer": "Bouncy bumps her basket.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Bouncy bumps her basket. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "\"Stop!\" said everyone."
+      "evidenceText": "Bouncy bumps her basket."
     },
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q3",
-      "prompt": "What does Bouncy do after stopping?",
+      "prompt": "What happens at the end of Bouncy Won't Stop?",
       "choices": [
-        "hops again",
-        "goes to sleep",
-        "sits very still"
+        "She hops in the field.",
+        "Bouncy loves to hop.",
+        "Bouncy bumps her basket."
       ],
-      "answer": "hops again",
+      "answer": "She hops in the field.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "She hops in the field. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Then Bouncy hopped again."
+      "evidenceText": "She hops in the field."
     }
   ]
 }

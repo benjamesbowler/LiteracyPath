@@ -35,9 +35,9 @@
 import { SOUND_SEEKERS_TRAIL_COUNT } from "./soundSeekersContract.js";
 
 export const QUEST_ACTS = [
-  { n: 1, id: "meadow", title: "Sunlit Meadow", world: "meadow", blurb: "Where the road begins." },
-  { n: 2, id: "ridge", title: "Fossil Ridge", world: "dino", blurb: "Old stones, buried deep." },
-  { n: 3, id: "moonwood", title: "Moonwood & the Star Reach", world: "moonwood", blurb: "The last of the light." }
+  { n: 1, id: "meadow", title: "Meadow Pals Farm", world: "meadow", blurb: "Ten playful stops around the farm." },
+  { n: 2, id: "dino", title: "Dino Land: Sunny Hollow", world: "dino", blurb: "Ten rocky stops with the Dino Pals." },
+  { n: 3, id: "moonwood", title: "Moonwood Tales", world: "moonwood", blurb: "Twenty enchanted stops through Moonwood." }
 ];
 
 // Graphemes with no gold-voice recording yet. The app stays SILENT for these
@@ -139,7 +139,11 @@ const PAGES = {
   ]
 };
 
-const S = (id, act, index, name, teach, words, heartWords, shells, extra = {}) => ({
+const worldActForStop = index => index <= 10 ? 1 : index <= 20 ? 2 : 3;
+
+const S = (id, _legacyAct, index, name, teach, words, heartWords, shells, extra = {}) => {
+  const act = worldActForStop(index);
+  return ({
   id,
   act,
   index,
@@ -154,7 +158,8 @@ const S = (id, act, index, name, teach, words, heartWords, shells, extra = {}) =
   ...(SORT[id] || {}),
   ...(PAGES[id] ? { pages: PAGES[id] } : {}),
   ...extra
-});
+  });
+};
 
 const L = id => ({ id, kind: "letter" });
 const V = id => ({ id, kind: "vowel" });
@@ -438,6 +443,25 @@ if (QUEST_STOPS.length !== SOUND_SEEKERS_TRAIL_COUNT) {
     `Sound Seekers contract expects ${SOUND_SEEKERS_TRAIL_COUNT} trails; found ${QUEST_STOPS.length}.`
   );
 }
+
+// A world map is a hub, never a single level. Each junction owns a full
+// phonics stop and exposes several replay verbs so a weak sound can return in
+// a different physical game instead of repeating an identical quiz.
+export const QUEST_WORLD_HUBS = Object.freeze(QUEST_ACTS.map(act => {
+  const levels = QUEST_STOPS.filter(stop => stop.act === act.n);
+  return Object.freeze({
+    ...act,
+    levelCount: levels.length,
+    stopIds: Object.freeze(levels.map(stop => stop.id)),
+    levels: Object.freeze(levels.map(stop => Object.freeze({
+      id: stop.id,
+      index: stop.index,
+      name: stop.name,
+      primaryMiniGame: stop.shells[0],
+      replayMiniGames: Object.freeze([...stop.shells])
+    })))
+  });
+}));
 
 export const QUEST_SHELL_IDS = [
   "knowledge-tree",

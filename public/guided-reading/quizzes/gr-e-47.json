@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-e-47",
-  "contentHash": "sha256:84d32162e4aac8842e27ed5e666414263e64a63147d8bef62da1c80be0c5e2f0",
+  "contentHash": "sha256:1e492cf4008f0c505ae77b7f47ddcf31ad819f5dff7da49f1be21b2f35c73722",
   "questions": [
     {
       "id": "gr-e-47-q1",
-      "prompt": "What does a seed grow into?",
+      "prompt": "Which fact about living things is given in Living Things Change?",
       "choices": [
-        "a plant",
-        "a frog",
-        "a rock"
+        "Living things change over time.",
+        "A seedling can grow into a plant.",
+        "Growth and metamorphosis are different changes."
       ],
-      "answer": "a plant",
+      "answer": "Living things change over time.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 3,
-      "evidenceText": "A seed grows into a plant."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Living things change over time."
     },
     {
       "id": "gr-e-47-q2",
-      "prompt": "Which thing do all living things need?",
+      "prompt": "Which fact about a seedling is given in Living Things Change?",
       "choices": [
-        "food",
-        "a shell",
-        "a nest"
+        "A seedling can grow into a plant.",
+        "Living things change over time.",
+        "Growth and metamorphosis are different changes."
       ],
-      "answer": "food",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 1,
-      "evidenceText": "All living things need food."
+      "answer": "A seedling can grow into a plant.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "A seedling can grow into a plant."
     },
     {
       "id": "gr-e-47-q3",
-      "prompt": "What does the book say growing takes?",
+      "prompt": "Which statement gives the main idea of Living Things Change?",
       "choices": [
-        "time and care",
-        "a shell and a nest",
-        "wings and warm fur"
+        "Growth and metamorphosis are different changes.",
+        "Living things change over time.",
+        "A seedling can grow into a plant."
       ],
-      "answer": "time and care",
+      "answer": "Growth and metamorphosis are different changes.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Growth and metamorphosis are different changes. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Growing takes time and care!"
+      "evidenceText": "Growth and metamorphosis are different changes."
     }
   ]
 }

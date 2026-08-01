@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-10",
-  "contentHash": "sha256:20094519ddd951714d94b24a11e41707677ecc1d3d1e995ca63ab1488181a4d6",
+  "contentHash": "sha256:a0af0d2614183bdb9b04123270ac0baecdff25632f1d360d5cb3c10dee59e320",
   "questions": [
     {
       "id": "ja-b-10-q1",
-      "prompt": "What did the family toast over the fire?",
+      "prompt": "Which event begins James, Anna and Chips go Camping?",
       "choices": [
-        "sandwiches",
-        "marshmallows",
-        "apples"
+        "Dad raises a green tent for one garden camping night.",
+        "The horn scares the fox, but it startles Dad too.",
+        "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
       ],
-      "answer": "marshmallows",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "Dad made a small camp fire in a safe metal dish. They toasted marshmallows on long sticks over the warm flames."
+      "answer": "Dad raises a green tent for one garden camping night.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Dad raises a green tent for one garden camping night."
     },
     {
       "id": "ja-b-10-q2",
-      "prompt": "What kept the fox from coming back?",
+      "prompt": "Which event shows the first plan fails in James, Anna and Chips go Camping?",
       "choices": [
-        "the torch",
-        "the card game",
-        "the air horn"
+        "The horn scares the fox, but it startles Dad too.",
+        "Dad raises a green tent for one garden camping night.",
+        "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
       ],
-      "answer": "the air horn",
+      "answer": "The horn scares the fox, but it startles Dad too.",
       "kind": "text",
       "skill": "problem_solution",
+      "rationale": "The horn scares the fox, but it startles Dad too. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 10,
-      "evidenceText": "The air horn worked. The fox did not come back. Dad DID come — running from the house in his pyjamas, looking very startled."
+      "evidenceText": "The horn scares the fox, but it startles Dad too."
     },
     {
       "id": "ja-b-10-q3",
-      "prompt": "Why did the camp still feel perfect?",
+      "prompt": "Which event solves the problem in James, Anna and Chips go Camping?",
       "choices": [
-        "The sun was warm and breakfast was good.",
-        "Chips fixed the torn tent.",
-        "Nobody had been uncomfortable."
+        "Chips grabs the zip. Anna removes it. Next time, he stays safely home.",
+        "Dad raises a green tent for one garden camping night.",
+        "The horn scares the fox, but it startles Dad too."
       ],
-      "answer": "The sun was warm and breakfast was good.",
+      "answer": "Chips grabs the zip. Anna removes it. Next time, he stays safely home.",
       "kind": "text",
-      "skill": "inference",
-      "evidencePage": 13,
-      "evidenceText": "\"CHIPS!\" they said. But the sun was warm and breakfast was good and it had been a perfect camp."
+      "skill": "outcome",
+      "rationale": "Chips grabs the zip. Anna removes it. Next time, he stays safely home. This event shows how the central problem is resolved.",
+      "evidencePage": 14,
+      "evidenceText": "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
     }
   ]
 }

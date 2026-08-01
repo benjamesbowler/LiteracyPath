@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-17-hello-sun",
-  "contentHash": "sha256:e4ef661a246662d380e53c5c0ec9a58b6f169ddea754d776eae7c0fed833a551",
+  "contentHash": "sha256:806696a6c980df0949ed174a8a6f0a6b8fcafa05b6d389290367dfd6866905cd",
   "questions": [
     {
       "id": "first-facts-a-17-hello-sun-q1",
-      "prompt": "What is the sun?",
+      "prompt": "Which fact about the Sun is given in Watching the Sun Safely?",
       "choices": [
-        "a big, hot star",
-        "a cold planet",
-        "a grey cloud"
+        "The Sun is our nearest star.",
+        "Earth's turning makes sunrise appear.",
+        "Earth's rotation changes the Sun's position in our sky."
       ],
-      "answer": "a big, hot star",
+      "answer": "The Sun is our nearest star.",
       "kind": "text",
-      "skill": "main_idea",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The sun is a big, hot star."
+      "evidenceText": "The Sun is our nearest star."
     },
     {
       "id": "first-facts-a-17-hello-sun-q2",
-      "prompt": "When is the sun high in the sky?",
+      "prompt": "Which fact about Earth's turning is given in Watching the Sun Safely?",
       "choices": [
-        "in the evening",
-        "at midday",
-        "at night"
+        "Earth's turning makes sunrise appear.",
+        "The Sun is our nearest star.",
+        "Earth's rotation changes the Sun's position in our sky."
       ],
-      "answer": "at midday",
+      "answer": "Earth's turning makes sunrise appear.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 4,
-      "evidenceText": "At midday, the sun is high."
+      "skill": "cause_effect",
+      "evidencePage": 3,
+      "evidenceText": "Earth's turning makes sunrise appear."
     },
     {
       "id": "first-facts-a-17-hello-sun-q3",
-      "prompt": "Why do plants need the sun?",
+      "prompt": "Which statement gives the main idea of Watching the Sun Safely?",
       "choices": [
-        "to sleep",
-        "to hide",
-        "to grow"
+        "Earth's rotation changes the Sun's position in our sky.",
+        "The Sun is our nearest star.",
+        "Earth's turning makes sunrise appear."
       ],
-      "answer": "to grow",
+      "answer": "Earth's rotation changes the Sun's position in our sky.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "Plants need the sun to grow."
+      "skill": "main_idea",
+      "rationale": "Earth's rotation changes the Sun's position in our sky. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Earth's rotation changes the Sun's position in our sky."
     }
   ]
 }

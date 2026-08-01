@@ -1,64 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-15",
-  "contentHash": "sha256:aa5614501d36bf95769b231c0606a3fd40e2422298a312b587c04c235ddfef44",
+  "contentHash": "sha256:4ed92762a5241a64fcf4a6122de986a243c456edd4c5257a891cd8670892142f",
   "questions": [
     {
       "id": "moonwood-tales-c-15-q1",
-      "prompt": "What does Burrow discover when his new tunnel falls open?",
+      "prompt": "Which event introduces the situation in Burrow and Luna and the Old Secret?",
       "choices": [
-        "He tumbles into a large old room.",
-        "He reaches the bottom of the Crystal Stream.",
-        "He finds a tunnel that Flint has just mapped."
+        "Burrow's quiet morning tunnel breaks through an old room wall.",
+        "Burrow studies them alone, but cannot read their order.",
+        "As Burrow listens, each next picture glows in story order."
       ],
-      "answer": "He tumbles into a large old room.",
+      "answer": "Burrow's quiet morning tunnel breaks through an old room wall.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "He tumbled into a room.\nIt was large.\nIt was old.\nIt was not a tunnel."
+      "evidencePage": 1,
+      "evidenceText": "Burrow's quiet morning tunnel breaks through an old room wall."
     },
     {
       "id": "moonwood-tales-c-15-q2",
-      "prompt": "What clearly shows that Luna remembers the hidden room?",
+      "prompt": "Which event shows that the first attempt fails in Burrow and Luna and the Old Secret?",
       "choices": [
-        "She says she was there a very long time ago.",
-        "She says Burrow built the room that morning.",
-        "She says the ceiling stones are a new spell."
+        "Burrow studies them alone, but cannot read their order.",
+        "Burrow's quiet morning tunnel breaks through an old room wall.",
+        "As Burrow listens, each next picture glows in story order."
       ],
-      "answer": "She says she was there a very long time ago.",
+      "answer": "Burrow studies them alone, but cannot read their order.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "The narration says Luna had been in the room before, and Luna answers yes before saying it was a very long time ago; her own memory clearly shows she remembers the hidden room.",
-      "evidencePage": 8,
-      "evidenceText": "\"Yes,\" said Luna.\nShe looked around the room.\n\"A very long time ago.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "She touched the carvings.\nThey lit up where she touched.\nBlue and gold.\nShe had been here before."
-        }
-      ]
+      "skill": "problem_solution",
+      "rationale": "Burrow studies them alone, but cannot read their order. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Burrow studies them alone, but cannot read their order."
     },
     {
       "id": "moonwood-tales-c-15-q3",
-      "prompt": "Why is the Memory Room important to Moonwood?",
+      "prompt": "Which event resolves the central problem in Burrow and Luna and the Old Secret?",
       "choices": [
-        "A community should remember its oldest stories.",
-        "The room was built to guide Burrow's newest tunnel.",
-        "The carvings showed only Luna's own memories."
+        "As Burrow listens, each next picture glows in story order.",
+        "Burrow's quiet morning tunnel breaks through an old room wall.",
+        "Burrow studies them alone, but cannot read their order."
       ],
-      "answer": "A community should remember its oldest stories.",
+      "answer": "As Burrow listens, each next picture glows in story order.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Luna says the Memory Room keeps Moonwood's oldest stories, then tells one while Burrow listens; preserving and sharing these stories shows why a community should remember its oldest stories.",
-      "evidencePage": 9,
-      "evidenceText": "\"This is the Memory Room,\" said Luna.\n\"This is where Moonwood keeps its oldest stories.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "Burrow sat very still and listened.\nThe room grew warmer.\nThe carvings lit up one by one.\nLuna's voice was quiet and certain."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "As Burrow listens, each next picture glows in story order. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "As Burrow listens, each next picture glows in story order."
     }
   ]
 }

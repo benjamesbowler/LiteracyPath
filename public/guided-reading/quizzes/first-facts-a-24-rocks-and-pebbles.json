@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-24-rocks-and-pebbles",
-  "contentHash": "sha256:0005098c8c9ddeee6552ae82b1e786c585ba82cd79e4ff73882e5aeb058a7ede",
+  "contentHash": "sha256:6b8c198a33556c785eda4e128c3a5adc8be28b9a116c05ff7d3def8ee05a670b",
   "questions": [
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q1",
-      "prompt": "According to the book, what makes pebbles smooth?",
+      "prompt": "Which fact about rocks is given in Rocks and Pebbles?",
       "choices": [
-        "water",
-        "sand",
-        "wind"
+        "Rocks can be hard large or small.",
+        "Moving water can slowly smooth pebbles.",
+        "Observe rocks without removing protected specimens."
       ],
-      "answer": "water",
-      "kind": "word",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "Water makes them smooth."
+      "answer": "Rocks can be hard large or small.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Rocks can be hard large or small."
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q2",
-      "prompt": "What do people build with rocks?",
+      "prompt": "Which fact about moving water is given in Rocks and Pebbles?",
       "choices": [
-        "nests and webs",
-        "walls and roads",
-        "coats and hats"
+        "Moving water can slowly smooth pebbles.",
+        "Rocks can be hard large or small.",
+        "Observe rocks without removing protected specimens."
       ],
-      "answer": "walls and roads",
+      "answer": "Moving water can slowly smooth pebbles.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 4,
-      "evidenceText": "Walls and roads are made of rock."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Moving water can slowly smooth pebbles."
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q3",
-      "prompt": "What can old rocks tell us about?",
+      "prompt": "Which statement gives the main idea of Rocks and Pebbles?",
       "choices": [
-        "tomorrow",
-        "the weather",
-        "the past"
+        "Observe rocks without removing protected specimens.",
+        "Rocks can be hard large or small.",
+        "Moving water can slowly smooth pebbles."
       ],
-      "answer": "the past",
+      "answer": "Observe rocks without removing protected specimens.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "Rocks tell us about the past."
+      "skill": "main_idea",
+      "rationale": "Observe rocks without removing protected specimens. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Observe rocks without removing protected specimens."
     }
   ]
 }

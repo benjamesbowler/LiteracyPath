@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-02-park",
-  "contentHash": "sha256:c1c7b840071ec62533b2ad7354b9adaf273b96c96ca990714553dfa89f894494",
+  "contentHash": "sha256:5a54dcb67fee2e803a0e8d832c0d14b5864fe48b71634d987fb85cb578411dfd",
   "questions": [
     {
       "id": "bob-and-nan-02-park-q1",
-      "prompt": "Where did Bob and Nan go?",
+      "prompt": "What happens first in Bob and Nan go to the Park?",
       "choices": [
-        "the beach",
-        "the park",
-        "the zoo"
+        "Bob and Nan visit the park.",
+        "Bob runs too fast.",
+        "They reach the top together!"
       ],
-      "answer": "the park",
+      "answer": "Bob and Nan visit the park.",
       "kind": "text",
-      "skill": "setting",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bob and Nan go to the park."
+      "evidenceText": "Bob and Nan visit the park."
     },
     {
       "id": "bob-and-nan-02-park-q2",
-      "prompt": "What did Bob get on?",
+      "prompt": "What goes wrong in Bob and Nan go to the Park?",
       "choices": [
-        "the red bus",
-        "the tall slide",
-        "the big swing"
+        "Bob runs too fast.",
+        "Bob and Nan visit the park.",
+        "They reach the top together!"
       ],
-      "answer": "the big swing",
+      "answer": "Bob runs too fast.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "Bob got on the big swing."
+      "skill": "problem_solution",
+      "rationale": "Bob runs too fast. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Bob runs too fast."
     },
     {
       "id": "bob-and-nan-02-park-q3",
-      "prompt": "How did their day end?",
+      "prompt": "What happens at the end of Bob and Nan go to the Park?",
       "choices": [
-        "It was fun.",
-        "It was sad.",
-        "It was scary."
+        "They reach the top together!",
+        "Bob and Nan visit the park.",
+        "Bob runs too fast."
       ],
-      "answer": "It was fun.",
+      "answer": "They reach the top together!",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They reach the top together! This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "What a fun day!"
+      "evidenceText": "They reach the top together!"
     }
   ]
 }

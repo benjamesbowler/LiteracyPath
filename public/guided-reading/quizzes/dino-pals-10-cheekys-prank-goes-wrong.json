@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-10-cheekys-prank-goes-wrong",
-  "contentHash": "sha256:6561ccb3322b7f383cdc24efa2ba650a7499cde46ec54c4db8b1d9a36a5a062b",
+  "contentHash": "sha256:70fcb68c4874472c1673193bc3eec1cbc11d4c3fe21b33b712d0f4c5b818e697",
   "questions": [
     {
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q1",
-      "prompt": "Why did Cheeky plan a funny surprise?",
+      "prompt": "Which event begins Cheeky's Prank Goes Wrong?",
       "choices": [
-        "He wanted the Pals to laugh.",
-        "He wanted to spoil the path.",
-        "He wanted to hide from Fancy."
+        "Cheeky wants to make Wiggly and Fancy laugh.",
+        "Cheeky helps Fancy up and cleans the rock.",
+        "All three make silly faces beside the clean rock."
       ],
-      "answer": "He wanted the Pals to laugh.",
+      "answer": "Cheeky wants to make Wiggly and Fancy laugh.",
       "kind": "text",
-      "skill": "motivation",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Cheeky wanted to make the Dino Pals laugh."
+      "evidenceText": "Cheeky wants to make Wiggly and Fancy laugh."
     },
     {
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q2",
-      "prompt": "What did Cheeky say after he understood the hurt?",
+      "prompt": "Which event shows the first plan fails in Cheeky's Prank Goes Wrong?",
       "choices": [
-        "He laughed louder.",
-        "I am sorry.",
-        "The mud did it."
+        "Cheeky helps Fancy up and cleans the rock.",
+        "Cheeky wants to make Wiggly and Fancy laugh.",
+        "All three make silly faces beside the clean rock."
       ],
-      "answer": "I am sorry.",
+      "answer": "Cheeky helps Fancy up and cleans the rock.",
       "kind": "text",
-      "skill": "character_action",
+      "skill": "problem_solution",
+      "rationale": "Cheeky helps Fancy up and cleans the rock. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "\"My jokes hurt your feelings,\" he said. \"I am sorry.\""
+      "evidenceText": "Cheeky helps Fancy up and cleans the rock."
     },
     {
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q3",
-      "prompt": "What makes a joke kind in this story?",
+      "prompt": "Which event solves the problem in Cheeky's Prank Goes Wrong?",
       "choices": [
-        "The surprise is very clever.",
-        "The joker says sorry afterward.",
-        "Everyone can enjoy it."
+        "All three make silly faces beside the clean rock.",
+        "Cheeky wants to make Wiggly and Fancy laugh.",
+        "Cheeky helps Fancy up and cleans the rock."
       ],
-      "answer": "Everyone can enjoy it.",
+      "answer": "All three make silly faces beside the clean rock.",
       "kind": "text",
-      "skill": "theme",
+      "skill": "outcome",
+      "rationale": "All three make silly faces beside the clean rock. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Then the friends planned a joke everyone could enjoy."
+      "evidenceText": "All three make silly faces beside the clean rock."
     }
   ]
 }

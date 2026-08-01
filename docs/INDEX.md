@@ -16,10 +16,15 @@ A dated document must never override current code.
 - [Skills assessment authoring standard](skills-assessment-rebuild/AUTHORING_STANDARDS.md)
 - [Skills assessment mastery standard](skills-assessment-rebuild/MASTERY_SYSTEM.md)
 - [Question blueprints](skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md)
+- [Question design bible](content/QUESTION_DESIGN_BIBLE.md)
+- [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md)
 - [Learning policy](design/LEARNING_POLICY.md)
 - [Assessment media evidence](design/ASSESSMENT_MEDIA_EVIDENCE.md)
 - [EL benchmark suite](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md)
 - [Guided Reading](guided-reading/INDEX.md)
+- [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
+- [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
+- [Story canon](content/STORY_BIBLE_PART_2_CANON.md)
 - [Story Quest authoring rules](STORY_QUEST_REWRITE_2026-07-26.md)
 
 The Skills assessment has one current progression threshold: the 70% phase rule in
@@ -30,6 +35,7 @@ random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 ## Product design
 
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
+- [Game design bible](design/GAME_DESIGN_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
 - [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md)
 - [Teacher UI primitives](teacher/UI_PRIMITIVES.md)

@@ -222,7 +222,10 @@ export default {
       ["chicks", "chick", "hat", "goose"], [FS, SEM, SEM],
       "chirped gifts ch to chicks and chick alike")
   ].map(item => {
-    if ((item.lvl === 1 && item.v >= 9) || (item.lvl === 2 && item.v >= 7)) item.retention = true;
+    const promotedL1Phase2 = item.lvl === 1 && item.ph === 2 && item.v >= 9;
+    if (((item.lvl === 1 && item.v >= 9) || (item.lvl === 2 && item.v >= 7)) && !promotedL1Phase2) {
+      item.retention = true;
+    }
     return item;
   })
 };

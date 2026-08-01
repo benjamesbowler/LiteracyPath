@@ -11,7 +11,7 @@
 // No IAP. Ever. The only currency is reading.
 
 import { useEffect, useRef, useState } from "react";
-import CreatureFigure from "./CreatureFigure.jsx";
+import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import {
   CREATURE_BODIES,
   CREATURE_DYES,
@@ -162,9 +162,9 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
           type="button"
           className="q-ghost q-post-back"
           onClick={onBack}
-          aria-label="Back to the Den"
+          aria-label="Back to map"
         >
-          &#8592; Den
+          &#8592; Map
         </button>
         <div>
           <span className="q-post-kicker">Bramble's wagon</span>
@@ -202,7 +202,7 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
           aria-label={`${selected.label} preview`}
         >
           <div className="q-post-stage">
-            <CreatureFigure creature={preview} size={230} mood="idle" />
+            <BookCharacterAvatar creature={preview} size={230} />
           </div>
           <div className="q-post-offer">
             <span className="q-post-status">{selectedEquipped ? "Wearing now" : selectedOwned ? "In your wardrobe" : selected.unlock ? "Trail treasure" : "Ready to collect"}</span>
@@ -259,7 +259,7 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
               onClick={() => { setSelectedId(piece.id); setNotice(""); }}
             >
               <span className="q-goods-art">
-                <CreatureFigure creature={thumbnail} size={70} mood="still" />
+                <BookCharacterAvatar creature={thumbnail} size={70} decorative />
               </span>
               <span className="q-goods-label">{piece.label}</span>
               <span className="q-goods-cost">

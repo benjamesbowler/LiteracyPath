@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-05",
-  "contentHash": "sha256:3c7cc448b2d56a9f8a63f6e3de0b7df2dde2ec234a9ba8ffe4cee9e0ac859282",
+  "contentHash": "sha256:aeaa2a245ed63953639910011cf4033ddc5645c6cab749fd301eee2084d9c3ea",
   "questions": [
     {
       "id": "ab-c-05-q1",
-      "prompt": "How was Socks able to leave the garden?",
+      "prompt": "Which event introduces the situation in Socks Goes Missing?",
       "choices": [
-        "The side gate had a gap.",
-        "Aiden opened the front door.",
-        "He climbed over the fence."
+        "Socks's red harness hook was empty. So was his sleeping crate.",
+        "They called along the windy street. Only dry leaves answered.",
+        "They fixed the latch, added a tracker tag and walked Socks home securely."
       ],
-      "answer": "The side gate had a gap.",
+      "answer": "Socks's red harness hook was empty. So was his sleeping crate.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 4,
-      "evidenceText": "Then Mum remembered the side gate. The latch had not dropped properly after the recycling went out. She looked at Aiden, and Aiden looked at Betty. The gap beneath it was, they all realised, just wide enough for a determined little dog."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Socks's red harness hook was empty. So was his sleeping crate."
     },
     {
       "id": "ab-c-05-q2",
-      "prompt": "What did Betty make to help find Socks?",
+      "prompt": "Which event shows that the first attempt fails in Socks Goes Missing?",
       "choices": [
-        "a map of the nature reserve",
-        "a list of warm hiding spots",
-        "a missing-dog poster"
+        "They called along the windy street. Only dry leaves answered.",
+        "Socks's red harness hook was empty. So was his sleeping crate.",
+        "They fixed the latch, added a tracker tag and walked Socks home securely."
       ],
-      "answer": "a missing-dog poster",
+      "answer": "They called along the windy street. Only dry leaves answered.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 6,
-      "evidenceText": "Betty designed a MISSING DOG poster on her tablet in under five minutes. It had a photograph of Socks in his red harness, a clear description, and their phone number in large digits. She printed fourteen copies."
+      "rationale": "They called along the windy street. Only dry leaves answered. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "They called along the windy street. Only dry leaves answered."
     },
     {
       "id": "ab-c-05-q3",
-      "prompt": "Which clue best explains why Socks chose the radiator mat?",
+      "prompt": "Which event resolves the central problem in Socks Goes Missing?",
       "choices": [
-        "He disliked every kitchen.",
-        "He always slept outdoors.",
-        "He was drawn to warm spots."
+        "They fixed the latch, added a tracker tag and walked Socks home securely.",
+        "Socks's red harness hook was empty. So was his sleeping crate.",
+        "They called along the windy street. Only dry leaves answered."
       ],
-      "answer": "He was drawn to warm spots.",
+      "answer": "They fixed the latch, added a tracker tag and walked Socks home securely.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Aiden's note says Socks is drawn to warm spots, and Mrs Obi finds him beside her warm radiator, so warmth explains why he chose that mat.",
-      "evidencePage": 7,
-      "evidenceText": "Drawn to warm spots.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 9,
-          "evidenceText": "He is lying on the mat beside my warm radiator."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "They fixed the latch, added a tracker tag and walked Socks home securely. This event shows how the central problem is resolved.",
+      "evidencePage": 14,
+      "evidenceText": "They fixed the latch, added a tracker tag and walked Socks home securely."
     }
   ]
 }

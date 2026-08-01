@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
-  "contentHash": "sha256:a380fddb04fd4d5adbfcc1aa3843560c6c8f5999d732805dec2f44af13c927ad",
+  "contentHash": "sha256:42bb671d8d431b7691b51004b00ee3b9825578238931739745c0a5ca1f2f471c",
   "questions": [
     {
       "id": "meadow-pals-19-tiny-and-brave-go-on-an-adventure-q1",
-      "prompt": "Who offers to help Tiny find the hat?",
+      "prompt": "What happens first in Tiny and Brave Go on an Adventure?",
       "choices": [
-        "Brave",
-        "Noisy",
-        "Sleepy"
+        "Wind lifts Tiny's red hat.",
+        "Tiny reaches the red hat.",
+        "They walk home together."
       ],
-      "answer": "Brave",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "\"I will help,\" said Brave."
+      "answer": "Wind lifts Tiny's red hat.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Wind lifts Tiny's red hat."
     },
     {
       "id": "meadow-pals-19-tiny-and-brave-go-on-an-adventure-q2",
-      "prompt": "Which place do Tiny and Brave check after the barn?",
+      "prompt": "What goes wrong in Tiny and Brave Go on an Adventure?",
       "choices": [
-        "the pond",
-        "the garden",
-        "the farm gate"
+        "Tiny reaches the red hat.",
+        "Wind lifts Tiny's red hat.",
+        "They walk home together."
       ],
-      "answer": "the pond",
+      "answer": "Tiny reaches the red hat.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 4,
-      "evidenceText": "They went to the pond. No hat."
+      "skill": "problem_solution",
+      "rationale": "Tiny reaches the red hat. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Tiny reaches the red hat."
     },
     {
       "id": "meadow-pals-19-tiny-and-brave-go-on-an-adventure-q3",
-      "prompt": "Where was the hat all along?",
+      "prompt": "What happens at the end of Tiny and Brave Go on an Adventure?",
       "choices": [
-        "on Tiny",
-        "under the barn",
-        "in the pond"
+        "They walk home together.",
+        "Wind lifts Tiny's red hat.",
+        "Tiny reaches the red hat."
       ],
-      "answer": "on Tiny",
+      "answer": "They walk home together.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 7,
-      "evidenceText": "The hat was on Tiny."
+      "rationale": "They walk home together. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "They walk home together."
     }
   ]
 }
