@@ -42,3 +42,24 @@ test("child login keeps the code-gated roster but requires teacher-set pictures"
     /revoke execute on function public\.student_set_password\(uuid, text, text\)[\s\S]*from public, anon, authenticated/
   );
 });
+
+test("student startup fails back to login instead of an empty or false waiting shell", async () => {
+  const [appSurface, sessionController, followerState] = await Promise.all([
+    source("src/components/AppSurface.jsx"),
+    source("src/appState/useAppSessionController.js"),
+    source("src/hooks/readingSessionFollowerState.js")
+  ]);
+
+  assert.match(
+    appSurface,
+    /sessionMode === "student"[\s\S]*!studentSession\?\.token[\s\S]*!studentSessionId[\s\S]*student-session-recovery/
+  );
+  assert.match(
+    sessionController,
+    /function clearTeacherState\(\)[\s\S]*sessionModeRef\.current === "student"\) return/
+  );
+  assert.match(
+    followerState,
+    /connection: state\.session && failureCount >= 3[\s\S]*\? "reconnecting"/
+  );
+});

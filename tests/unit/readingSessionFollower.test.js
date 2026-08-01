@@ -37,6 +37,16 @@ test("reading follower retry delay follows the bounded one-to-eight second seque
   assert.deepEqual([1, 2, 3, 4, 5, 8].map(followerRetryDelay), [1000, 2000, 4000, 8000, 8000, 8000]);
 });
 
+test("follower failures cannot cover the student app before a real session exists", () => {
+  let state = INITIAL_READING_FOLLOWER_STATE;
+  state = reduceReadingFollowerState(state, { type: "failure" });
+  state = reduceReadingFollowerState(state, { type: "failure" });
+  state = reduceReadingFollowerState(state, { type: "failure" });
+  assert.equal(state.connection, "idle");
+  assert.equal(state.session, null);
+  assert.equal(state.failureCount, 3);
+});
+
 test("a successful late join uses the teacher's current page immediately", () => {
   const state = reduceReadingFollowerState(INITIAL_READING_FOLLOWER_STATE, {
     type: "session", session, page, contentOk: true

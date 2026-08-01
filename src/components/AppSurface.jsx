@@ -381,6 +381,23 @@ export function AppSurface({ surface }) {
     );
   }
 
+  // Fail safely if student mode was restored without its complete learner
+  // identity. Never render an empty child shell; return to the child login
+  // flow where the session can be established again.
+  if (
+    sessionMode === "student"
+    && (!studentSession?.token || !studentSessionId || !nameSaved)
+  ) {
+    return (
+      <PageBoundary resetKey="student-session-recovery">
+        <StudentLoginFlow
+          onTeacherEntry={exitToTeacherEntry}
+          onSessionStart={applyStudentSession}
+        />
+      </PageBoundary>
+    );
+  }
+
   if (!teacherUser && sessionMode !== "student" && authMode !== "resetPassword" && entryMode === "entry") {
     return (
       <PageBoundary resetKey="entry">

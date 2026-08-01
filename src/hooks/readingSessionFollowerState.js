@@ -33,7 +33,12 @@ export function reduceReadingFollowerState(state, event) {
     return {
       ...state,
       failureCount,
-      connection: failureCount >= 3 ? "reconnecting" : state.connection
+      // The follower is optional until a real shared-reading session has been
+      // received. Backend setup or network failures must not turn the entire
+      // student app into a false "Waiting for your teacher" screen.
+      connection: state.session && failureCount >= 3
+        ? "reconnecting"
+        : state.connection
     };
   }
   if (event.type === "session") {
