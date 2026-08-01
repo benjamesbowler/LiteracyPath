@@ -47,6 +47,7 @@ random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 
 - [Sound Seekers release bible](SOUND_SEEKERS_RELEASE_BIBLE.md)
 - [Sound Seekers curriculum matrix](SOUND_SEEKERS_CURRICULUM_MECHANIC_MATRIX.md)
+- [Phoneme recording standard](audio/PHONEME_RECORDING_STANDARD.md)
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
 - [Sound Seekers world blueprint](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md)
 - [3D asset library](3D_ASSET_LIBRARY.md)

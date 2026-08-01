@@ -859,7 +859,9 @@ export function buildImageIndex() {
   const priority = [
     "images/assessment/long-vowels", "images/assessment/digraphs", "images/assessment/blends",
     "images/assessment/hfw", "images/assessment/rhyming", "images/assessment/language",
-    "images/child-mode", "images/vocabulary", "images/objects", "images/cvc", "images/vowels", "images/prepositions"
+    "images/child-mode/short-a", "images/child-mode/short-e", "images/child-mode/short-i",
+    "images/child-mode/short-o", "images/child-mode/short-u", "images/child-mode",
+    "images/vocabulary", "images/objects", "images/cvc", "images/vowels", "images/prepositions"
   ];
   const index = new Map();
   const rank = file => {

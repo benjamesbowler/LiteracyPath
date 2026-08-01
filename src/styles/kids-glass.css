@@ -1137,6 +1137,16 @@
   overflow: hidden;
 }
 
+/* The live app adds BOTH legacy frame classes to Letters and Arcade. That
+   legacy selector has three class components and otherwise wins its 100dvh
+   minimum over the bounded child canvas, making the route 775px tall inside a
+   664px main row. The tab bar then masks the final letter/game row. Match that
+   specificity here and resolve the percentage against .kg-main instead. */
+.kg-stage .learn-fullscreen-frame.student-surface-frame {
+  height: 100%;
+  min-height: 0;
+}
+
 .kg-stage .learn-fullscreen-toggle {
   display: none;
 }

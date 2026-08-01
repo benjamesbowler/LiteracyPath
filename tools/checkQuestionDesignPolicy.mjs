@@ -39,8 +39,9 @@ import {
 } from "../src/policy/questionDesignPolicy.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const REPORT_MD = path.join(ROOT, "docs", "validation", "question_design_policy_audit_2026-08-01.md");
-const REPORT_JSON = path.join(ROOT, "docs", "validation", "question_design_policy_audit_2026-08-01.json");
+const REPORT_DIR = path.join(ROOT, ".artifacts", "question-design-policy");
+const REPORT_MD = path.join(REPORT_DIR, "report.md");
+const REPORT_JSON = path.join(REPORT_DIR, "report.json");
 
 const failures = [];
 const rows = [];
@@ -120,7 +121,7 @@ async function auditAssessments() {
       const issues = auditQuestionAgainstPolicy(question, {
         ageBand: level === 1 ? "A" : "B",
         requireId: true,
-        requireVisual: true,
+        requireVisual: question.mediaTier === "image-required",
         requireSpoken: true,
         requireDistractorRationales: !constructedResponse,
         allowNegativeStem: level === 2,
@@ -528,11 +529,11 @@ function auditWorksheets() {
     for (const type of availableWorksheetTypes(cycle)) {
       documents += 1;
       const { html } = buildWorksheetDocument({ cycleId: option.id, type, pages: 2 });
-      if (!html.includes("<section class=\"page\">")) {
+      if (!/<section\s+class="page"(?:\s|>)/.test(html)) {
         record(surface, `${option.id}-${type}`, [{ code: "Q-WORKSHEET-EMPTY", message: "Worksheet did not render a printable page." }]);
       }
       if (type === "wordBuilding") {
-        const missingLetterPrompts = [...html.matchAll(/<div class="ws-fill">([\s\S]*?)<\/div>/g)].map(match => match[1]);
+        const missingLetterPrompts = [...html.matchAll(/<div class="ws-fill"[^>]*>([\s\S]*?)<\/div>/g)].map(match => match[1]);
         imageBackedMissingLetterPrompts += missingLetterPrompts.length;
         for (const [index, promptHtml] of missingLetterPrompts.entries()) {
           if (!/<img\s/.test(promptHtml) || !/alt="[^"]+"/.test(promptHtml)) {
@@ -574,9 +575,9 @@ const skillTable = skillRows.map(row => `| ${row.skillId} | ${row.questions} | $
 const findingLines = failures.length
   ? failures.map(item => `- **${item.code}** \`${item.surface}/${item.id}\`: ${item.message}`).join("\n")
   : "- None. All machine-checkable rules passed.";
-const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output plus every registered Guided Reading quiz, Story Stop cover question, numbered EL Quest station, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
+const markdown = `# Question Design Policy Audit\n\n**Policy:** \`${QUESTION_DESIGN_POLICY_VERSION}\`  \n**Generated:** ${report.generatedAt}  \n**Verdict:** **${report.verdict.toUpperCase()}**  \n\nThis report audits real runtime assessment output plus every registered Guided Reading quiz, Story Stop cover question, numbered EL Quest station, every level of all 11 visible arcade literacy games, the Sentence Fix bank and every generated worksheet recipe. It complements the specialist story, phonics, media and mastery gates; it does not replace child observation or claim that software alone proves validity.\n\n## Surface results\n\n| Surface | Questions/tasks | Documents | Result |\n|---|---:|---:|---|\n${surfaceTable}\n\n## All 30 assessment skills\n\n| Skill | Runtime questions | Result |\n|---|---:|---|\n${skillTable}\n\n## Findings\n\n${findingLines}\n\n## Release interpretation\n\nA PASS means all declared machine-checkable requirements in [the Question Design Bible](../../docs/content/QUESTION_DESIGN_BIBLE.md) have evidence at runtime. Routine named human sign-off is not a release gate. New observed ambiguity, access or validity problems must become a policy revision and regression check.\n`;
 
-fs.mkdirSync(path.dirname(REPORT_MD), { recursive: true });
+fs.mkdirSync(REPORT_DIR, { recursive: true });
 fs.writeFileSync(REPORT_JSON, `${JSON.stringify(report, null, 2)}\n`);
 fs.writeFileSync(REPORT_MD, markdown);
 

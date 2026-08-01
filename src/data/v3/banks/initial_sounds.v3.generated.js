@@ -833,8 +833,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -3052,10 +3052,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fox.png",
-  "targetImage": "/images/child-mode/initial-sounds/fox.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
+  "imagePath": "/images/child-mode/short-o/fox.png",
+  "imageUrl": "/images/child-mode/short-o/fox.png",
+  "targetImage": "/images/child-mode/short-o/fox.png",
+  "targetImagePath": "/images/child-mode/short-o/fox.png",
   "resolvedImageAssetKey": "fox",
   "imageAlt": "fox"
  },
@@ -7505,8 +7505,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {
@@ -9807,8 +9807,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -10405,8 +10405,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -12426,8 +12426,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -12819,10 +12819,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/web.png",
-  "imageUrl": "/images/child-mode/initial-sounds/web.png",
-  "targetImage": "/images/child-mode/initial-sounds/web.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/web.png",
+  "imagePath": "/images/child-mode/short-e/web.png",
+  "imageUrl": "/images/child-mode/short-e/web.png",
+  "targetImage": "/images/child-mode/short-e/web.png",
+  "targetImagePath": "/images/child-mode/short-e/web.png",
   "resolvedImageAssetKey": "web",
   "imageAlt": "web"
  },
@@ -14997,8 +14997,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -15342,8 +15342,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {

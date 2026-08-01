@@ -2074,8 +2074,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    },
    {
@@ -2326,8 +2326,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    },
    {
@@ -2425,8 +2425,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    },
    {
@@ -2902,8 +2902,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {
@@ -3037,8 +3037,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "imageAlt": "web"
    }
   ]
@@ -4882,8 +4882,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {
@@ -5017,8 +5017,8 @@ export const questions = [
     "word": "fox",
     "value": "fox",
     "label": "fox",
-    "image": "/images/child-mode/initial-sounds/fox.png",
-    "imagePath": "/images/child-mode/initial-sounds/fox.png",
+    "image": "/images/child-mode/short-o/fox.png",
+    "imagePath": "/images/child-mode/short-o/fox.png",
     "imageAlt": "fox"
    },
    {
@@ -7015,8 +7015,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    }
   ]
@@ -7132,8 +7132,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    }
   ]
@@ -7550,8 +7550,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "jam",
@@ -7786,8 +7786,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "hang",
@@ -7871,7 +7871,7 @@ export const questions = [
    "long",
    "son",
    "sang",
-   "sock"
+   "lung"
   ],
   "answerOptions": [
    {
@@ -7890,9 +7890,9 @@ export const questions = [
     "text": "sang"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "lung",
+    "label": "lung",
+    "text": "lung"
    }
   ],
   "answer": "long",
@@ -7900,7 +7900,7 @@ export const questions = [
   "distractorRationales": {
    "son": "D-PATTERN-TRAP",
    "sang": "D-VOWEL",
-   "sock": "D-RIME-NEAR"
+   "lung": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -8022,8 +8022,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "long",
@@ -8258,8 +8258,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pink",
@@ -8494,8 +8494,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pan",
@@ -8730,8 +8730,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pack",
@@ -8815,7 +8815,7 @@ export const questions = [
    "brick",
    "stiff",
    "stack",
-   "sit"
+   "bit"
   ],
   "answerOptions": [
    {
@@ -8834,9 +8834,9 @@ export const questions = [
     "text": "stack"
    },
    {
-    "value": "sit",
-    "label": "sit",
-    "text": "sit"
+    "value": "bit",
+    "label": "bit",
+    "text": "bit"
    }
   ],
   "answer": "brick",
@@ -8844,7 +8844,7 @@ export const questions = [
   "distractorRationales": {
    "stiff": "D-PATTERN-TRAP",
    "stack": "D-VOWEL",
-   "sit": "D-RIME-NEAR"
+   "bit": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -8966,8 +8966,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "brick",
@@ -9202,8 +9202,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "hill",
@@ -9365,7 +9365,7 @@ export const questions = [
   "choices": [
    "walk",
    "well",
-   "wag",
+   "smell",
    "small"
   ],
   "answerOptions": [
@@ -9380,9 +9380,9 @@ export const questions = [
     "text": "well"
    },
    {
-    "value": "wag",
-    "label": "wag",
-    "text": "wag"
+    "value": "smell",
+    "label": "smell",
+    "text": "smell"
    },
    {
     "value": "small",
@@ -9395,7 +9395,7 @@ export const questions = [
   "distractorRationales": {
    "walk": "D-PATTERN-TRAP",
    "well": "D-VOWEL",
-   "wag": "D-RIME-NEAR"
+   "smell": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -9438,8 +9438,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pig",
@@ -9522,7 +9522,7 @@ export const questions = [
   "choices": [
    "belt",
    "ball",
-   "bed",
+   "shop",
    "shell"
   ],
   "answerOptions": [
@@ -9537,9 +9537,9 @@ export const questions = [
     "text": "ball"
    },
    {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
+    "value": "shop",
+    "label": "shop",
+    "text": "shop"
    },
    {
     "value": "shell",
@@ -9550,7 +9550,7 @@ export const questions = [
   "answer": "shell",
   "correctAnswer": "shell",
   "distractorRationales": {
-   "bed": "D-RIME-NEAR",
+   "shop": "D-RIME-NEAR",
    "belt": "D-PATTERN-TRAP",
    "ball": "D-VOWEL"
   },
@@ -9602,7 +9602,7 @@ export const questions = [
    "spell",
    "witch",
    "will",
-   "web"
+   "spot"
   ],
   "answerOptions": [
    {
@@ -9621,9 +9621,9 @@ export const questions = [
     "text": "will"
    },
    {
-    "value": "web",
-    "label": "web",
-    "text": "web"
+    "value": "spot",
+    "label": "spot",
+    "text": "spot"
    }
   ],
   "answer": "spell",
@@ -9631,7 +9631,7 @@ export const questions = [
   "distractorRationales": {
    "witch": "D-PATTERN-TRAP",
    "will": "D-VOWEL",
-   "web": "D-RIME-NEAR"
+   "spot": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -9674,8 +9674,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "shell",
@@ -9910,8 +9910,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "cash",
@@ -10072,7 +10072,7 @@ export const questions = [
   "spokenPrompt": "fish. Which word rhymes with fish?",
   "choices": [
    "fresh",
-   "fin",
+   "swim",
    "swish",
    "fist"
   ],
@@ -10083,9 +10083,9 @@ export const questions = [
     "text": "fresh"
    },
    {
-    "value": "fin",
-    "label": "fin",
-    "text": "fin"
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
    },
    {
     "value": "swish",
@@ -10103,7 +10103,7 @@ export const questions = [
   "distractorRationales": {
    "fist": "D-PATTERN-TRAP",
    "fresh": "D-VOWEL",
-   "fin": "D-RIME-NEAR"
+   "swim": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -10146,8 +10146,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "dish",
@@ -10382,8 +10382,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "ham",
@@ -10618,8 +10618,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "bake",
@@ -10854,8 +10854,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "name",
@@ -11090,8 +11090,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "ride",
@@ -11326,8 +11326,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "lamp",
@@ -11562,8 +11562,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "goat",
@@ -11798,8 +11798,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "jeep",
@@ -11876,8 +11876,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "blouse",
@@ -11954,8 +11954,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "house",
@@ -12032,8 +12032,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "house",
@@ -12268,8 +12268,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "cap",
@@ -12504,8 +12504,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "churn",
@@ -12589,7 +12589,7 @@ export const questions = [
    "star",
    "cart",
    "care",
-   "can"
+   "stop"
   ],
   "answerOptions": [
    {
@@ -12608,9 +12608,9 @@ export const questions = [
     "text": "care"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
    }
   ],
   "answer": "star",
@@ -12618,7 +12618,7 @@ export const questions = [
   "distractorRationales": {
    "cart": "D-PATTERN-TRAP",
    "care": "D-VOWEL",
-   "can": "D-RIME-NEAR"
+   "stop": "D-RIME-NEAR"
   },
   "mediaTier": "text",
   "hadPTD": true,
@@ -12740,8 +12740,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "star",
@@ -12976,8 +12976,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "corn",
@@ -13797,8 +13797,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "yell",
@@ -13954,8 +13954,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "sink",

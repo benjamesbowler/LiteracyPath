@@ -114,6 +114,21 @@ test("Sound Safari reduces actual critter travel and follows live OS motion chan
   assert.match(safari, /const motionDt = reduceMotion \? dt \* 0\.35 : dt/);
   assert.match(safari, /critter\.x \+= critter\.vx \* motionDt/);
   assert.match(safari, /critter\.y \+= critter\.vy \* motionDt/);
+  assert.match(safari, /function onPointerDown\(event\)[\s\S]*captureAt\(point\.x, point\.y\)/);
+  assert.match(safari, /drawNet\(ctx, state, theme, w, h, images\.net\)/);
+});
+
+test("Sentence Grove offers named hold-safe movement buttons as an alternative to drag steering", async () => {
+  const grove = await source("src/components/learn/games/games/StarGalleryArcadeGame.jsx");
+  for (const name of ["Move forward", "Move back", "Turn left", "Turn right", "Cut the nearby answer tree"]) {
+    assert.match(grove, new RegExp(`aria-label="${name}"`));
+  }
+  assert.match(grove, /bindTouchButton\(nodes\.moveForward, "up"\)/);
+  assert.match(grove, /bindTouchButton\(nodes\.moveBack, "down"\)/);
+  assert.match(grove, /bindTouchButton\(nodes\.turnLeft, "left"\)/);
+  assert.match(grove, /bindTouchButton\(nodes\.turnRight, "right"\)/);
+  assert.match(grove, /addEventListener\("pointercancel", up\)/);
+  assert.match(grove, /addEventListener\("lostpointercapture", up\)/);
 });
 
 test("every 3D arcade surface re-probes quality on resize and motion changes", async () => {
@@ -186,7 +201,7 @@ test("the early adventure and skate routes stay book-led, physical, and recovera
   ]);
 
   assert.match(creator, /BookCharacterAvatar/);
-  assert.match(creator, /Pick a book friend, then choose a real illustrated colour, mood, pose or outfit/);
+  assert.match(creator, /Pick a book friend\. Then choose one finished look made just for them\./);
   assert.match(avatarPolicy, /sound-seekers\/characters\/muddy/);
   assert.match(avatarPolicy, /painted artwork, never a Phaser\/CSS tint/);
   assert.doesNotMatch(creator, /Your adventure look/);

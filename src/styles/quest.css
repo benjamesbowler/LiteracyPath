@@ -1291,17 +1291,6 @@
   object-fit: contain;
   filter: drop-shadow(0 8px 7px rgba(15, 21, 19, .32));
 }
-.q-book-avatar-wearable {
-  position: absolute;
-  z-index: var(--q-wearable-depth, 3);
-  left: var(--q-wearable-x, 50%);
-  top: var(--q-wearable-y, 50%);
-  width: var(--q-wearable-width, 50%);
-  height: var(--q-wearable-height, 50%);
-  object-fit: contain;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
 .q-book-avatar-label {
   position: absolute;
   top: 100%;
@@ -1451,7 +1440,12 @@
 }
 .q-swatch { width: 46px; height: 46px; border: 3px solid; border-radius: 50%; }
 
-.q-creator .q-primary { justify-self: center; margin-top: auto; }
+.q-creator .q-tabs { justify-content: center; }
+.q-creator .q-primary {
+  align-self: center;
+  width: min(360px, 100%);
+  margin-top: auto;
+}
 
 /* ── Reward ────────────────────────────────────────────────────────────────── */
 .q-reward {

@@ -16,8 +16,8 @@ The two four-way/free-roaming games now use the required iPad split: forward/bac
 | Reel & Read | side movement + cast | left/right lower-left; cast lower-right | arrows/A-D; Space/Enter/Up/Down | fixed in this batch: capture/cancel/lost capture | Pass in code |
 | Rocket Run | lane change | direct lane touch zones | left/right arrows | discrete tap, no held state | Not subject to four-way split; next UI pass should make the lane zones visibly named controls |
 | Sound Racer | lane change | direct lane touch zones | left/right arrows | discrete tap, no held state | Not subject to four-way split; next UI pass should make the lane zones visibly named controls |
-| Star Gallery | four-way pointer steering + cut | drag/tap surface; cut lower-right | arrows/WASD + action | pointer surface owns active pointer | Exception pending: add a non-drag movement alternative before claiming full Game Bible conformance |
-| Sound Safari | two-axis net target | direct target placement | four arrows | discrete placement | Exception pending: confirm single-tap alternative and visible target cue in browser |
+| Sentence Grove | four-way steering + cut | forward/back lower-left; steering/cut lower-right; drag remains optional | arrows/WASD + action | up/cancel/lost capture | Pass in code/unit; physical iPad still required |
+| Sound Safari | two-axis net target | single-tap direct capture with a visible net cue | four arrows + Space/Enter | discrete placement | Pass in code/unit; physical iPad still required |
 
 ## Checks for the browser/device pass
 

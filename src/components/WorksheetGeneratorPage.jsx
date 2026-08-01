@@ -101,9 +101,17 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
   }
 
   function handleGenerate() {
+    setNote("");
     try {
-      const ok = printWorksheet(recipe);
-      if (!ok) setNote("Please allow pop-ups for this site so the worksheet can open.");
+      const result = printWorksheet(recipe);
+      if (!result.ok) {
+        setNote("Please allow pop-ups for this site so the worksheet can open.");
+        return;
+      }
+      setNote("Getting the worksheet pictures ready…");
+      result.ready
+        .then(() => setNote(""))
+        .catch(() => setNote("We couldn't load every worksheet picture, so nothing was printed. Check your connection and try again."));
     } catch {
       setNote("We couldn't open that worksheet. Nothing was saved or changed. Try again.");
     }
@@ -154,14 +162,19 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
 
   function openSavedWorksheet(item) {
     try {
-      const opened = printWorksheet({
+      const result = printWorksheet({
         cycleId: item.cycle_id,
         type: item.type,
         pages: item.pages
       });
-      setNote(opened
-        ? ""
-        : "Please allow pop-ups for this site so the worksheet can open.");
+      if (!result.ok) {
+        setNote("Please allow pop-ups for this site so the worksheet can open.");
+        return;
+      }
+      setNote("Getting the worksheet pictures ready…");
+      result.ready
+        .then(() => setNote(""))
+        .catch(() => setNote("We couldn't load every worksheet picture, so nothing was printed. Check your connection and try again."));
     } catch {
       setNote("We couldn't open that worksheet. Nothing was changed. Try again.");
     }

@@ -7,8 +7,7 @@ import {
 } from "./questPixelAvatar.js";
 import {
   bookCharacterAsset,
-  bookCharacterTint,
-  bookCharacterWearables
+  bookCharacterTint
 } from "../bookCharacterAvatar.js";
 import {
   questAnalogVector,
@@ -1192,7 +1191,6 @@ class QuestPixelScene extends Phaser.Scene {
     this.reactiveFoliage = [];
     this.navigationObstacles = [];
     this.completionObjects = new Map();
-    this.playerWearables = [];
     this.carriedObject = null;
     this.carriedObjectMode = null;
     this.pointerTarget = null;
@@ -1235,9 +1233,6 @@ class QuestPixelScene extends Phaser.Scene {
     const bookCharacterImage = bookCharacterAsset(this.model.creature);
     if (bookCharacterImage) {
       this.load.image("book-player-avatar", bookCharacterImage);
-    }
-    for (const wearable of bookCharacterWearables(this.model.creature)) {
-      this.load.image(`book-wearable-${wearable.id}`, wearable.asset);
     }
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
@@ -4282,13 +4277,6 @@ class QuestPixelScene extends Phaser.Scene {
       .setDepth(start.y + 2);
     const avatarTint = bookCharacterTint(this.model.creature);
     if (avatarTint) this.player.setTint(avatarTint);
-    this.playerWearables = bookCharacterWearables(this.model.creature)
-      .filter(item => this.textures.exists(`book-wearable-${item.id}`))
-      .map(item => ({
-        ...item,
-        sprite: this.add.image(start.x, start.y, `book-wearable-${item.id}`)
-          .setOrigin(0.5)
-      }));
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
     const cameraStart = this.model.activeStage && activeResident
@@ -5038,7 +5026,6 @@ class QuestPixelScene extends Phaser.Scene {
     }
     this.updateMovement(delta);
     this.player.setDepth(this.player.y + 3);
-    this.updatePlayerWearables();
     this.playerShadow.setPosition(this.player.x, this.player.y + 5).setDepth(this.player.y - 1);
     if (this.carriedObject) {
       if (this.carriedObjectMode === "steer") {
@@ -5057,26 +5044,6 @@ class QuestPixelScene extends Phaser.Scene {
     this.updateChoices(time);
     this.updateDrops();
     this.updateGate();
-  }
-
-  updatePlayerWearables() {
-    if (!this.playerWearables?.length || !this.player) return;
-    const width = this.player.displayWidth;
-    const height = this.player.displayHeight;
-    const top = this.player.y - (height * 0.78);
-    for (const wearable of this.playerWearables) {
-      const sprite = wearable.sprite;
-      const layout = wearable.layout;
-      if (!sprite?.active) continue;
-      if (!layout) continue;
-      sprite
-        .setDisplaySize(width * (layout.width / 100), height * (layout.height / 100))
-        .setPosition(
-          this.player.x + width * ((layout.x - 50) / 100),
-          top + height * (layout.y / 100)
-        )
-        .setDepth(this.player.y + layout.depth + 1);
-    }
   }
 
   updateCameraFocus(delta = 16.7) {

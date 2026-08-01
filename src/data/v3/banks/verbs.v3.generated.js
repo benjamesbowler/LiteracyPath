@@ -1442,8 +1442,8 @@ export const questions = [
     "word": "lid",
     "value": "lid",
     "label": "lid",
-    "image": "/images/child-mode/initial-sounds/lid.png",
-    "imagePath": "/images/child-mode/initial-sounds/lid.png",
+    "image": "/images/child-mode/short-i/lid.png",
+    "imagePath": "/images/child-mode/short-i/lid.png",
     "imageAlt": "lid"
    },
    {
@@ -3070,7 +3070,7 @@ export const questions = [
    "bake",
    "baker",
    "bread",
-   "oven"
+   "pan"
   ],
   "answerOptions": [
    {
@@ -3089,9 +3089,9 @@ export const questions = [
     "text": "bread"
    },
    {
-    "value": "oven",
-    "label": "oven",
-    "text": "oven"
+    "value": "pan",
+    "label": "pan",
+    "text": "pan"
    }
   ],
   "answer": "bake",
@@ -3099,7 +3099,7 @@ export const questions = [
   "distractorRationales": {
    "baker": "D-FUNCTION-SWAP",
    "bread": "D-FUNCTION-SWAP",
-   "oven": "D-FUNCTION-SWAP"
+   "pan": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": false,

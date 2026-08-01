@@ -56,7 +56,7 @@ const CHARACTER_LOOKS = Object.freeze({
   ])
 });
 const OUTFIT_LABELS = Object.freeze({
-  "leaf-cap": "Leaf cap",
+  "leaf-cap": "Leaf cloak",
   "acorn-hat": "Acorn cap",
   "moth-wings": "Moth wings",
   "vine-scarf": "Vine scarf",
@@ -95,7 +95,6 @@ export default function CreatureCreator({
       ...creature,
       equipped: {
         ...EMPTY_OUTFIT,
-        ...(creature.equipped || {}),
         [piece.slot]: selected ? null : piece.id
       }
     });
@@ -123,7 +122,7 @@ export default function CreatureCreator({
     <div className="q-screen q-creator">
       <h1 className="q-title" data-child-title="">{hatched ? "Change your book character" : "Choose your book character"}</h1>
       <p className="q-creator-instruction" data-child-instruction="">
-        Pick a book friend, then choose a real illustrated colour, mood, pose or outfit.
+        Pick a book friend. Then choose one finished look made just for them.
       </p>
       <p className="q-creator-step" data-child-progress="">
         Part {activeTabIndex + 1} of {tabs.length}: {tabs[activeTabIndex].label}
@@ -181,7 +180,7 @@ export default function CreatureCreator({
             selected={creature.body === body.id}
             onPick={() => setMany({
               ...BOOK_CHARACTER_PRESETS[body.id],
-              equipped: { ...EMPTY_OUTFIT, ...(creature.equipped || {}) },
+              equipped: { ...EMPTY_OUTFIT },
               pose: "idle",
               visualVariant: "pose-ready"
             })}
@@ -190,7 +189,7 @@ export default function CreatureCreator({
               creature={{
                 ...creature,
                 ...BOOK_CHARACTER_PRESETS[body.id],
-                equipped: creature.equipped,
+                equipped: { ...EMPTY_OUTFIT },
                 pose: "idle",
                 visualVariant: "pose-ready"
               }}
@@ -208,6 +207,7 @@ export default function CreatureCreator({
             onPick={() => setMany({
               dye: look.id,
               pose: "idle",
+              equipped: { ...EMPTY_OUTFIT },
               visualVariant: `look-${look.variant}`
             })}
           >
@@ -217,7 +217,7 @@ export default function CreatureCreator({
                 ...BOOK_CHARACTER_PRESETS[creature.body],
                 dye: look.id,
                 pose: "idle",
-                equipped: creature.equipped,
+                equipped: { ...EMPTY_OUTFIT },
                 visualVariant: `look-${look.variant}`
               }}
               size={66}
@@ -235,6 +235,7 @@ export default function CreatureCreator({
               eyes: expression.eyes,
               mouth: expression.mouth,
               pose: "idle",
+              equipped: { ...EMPTY_OUTFIT },
               visualVariant: `mood-${expression.id === "thinking" ? "thoughtful" : expression.id}`
             })}
           >
@@ -245,7 +246,7 @@ export default function CreatureCreator({
                 eyes: expression.eyes,
                 mouth: expression.mouth,
                 pose: "idle",
-                equipped: creature.equipped,
+                equipped: { ...EMPTY_OUTFIT },
                 visualVariant: `mood-${expression.id === "thinking" ? "thoughtful" : expression.id}`
               }}
               size={66}
@@ -261,6 +262,7 @@ export default function CreatureCreator({
             selected={(creature.pose || "idle") === pose.id}
             onPick={() => setMany({
               pose: pose.id,
+              equipped: { ...EMPTY_OUTFIT },
               visualVariant: `pose-${pose.id === "idle" ? "ready"
                 : pose.id === "walk" ? "walking"
                   : pose.id === "cheer" ? "cheering"
@@ -272,7 +274,7 @@ export default function CreatureCreator({
                 ...creature,
                 ...BOOK_CHARACTER_PRESETS[creature.body],
                 pose: pose.id,
-                equipped: creature.equipped,
+                equipped: { ...EMPTY_OUTFIT },
                 visualVariant: `pose-${pose.id === "idle" ? "ready"
                   : pose.id === "walk" ? "walking"
                     : pose.id === "cheer" ? "cheering"
@@ -292,7 +294,11 @@ export default function CreatureCreator({
               selected={!equippedIds.length}
               onPick={() => setOutfit(null)}
             >
-              <BookCharacterAvatar creature={creature} size={66} decorative />
+              <BookCharacterAvatar
+                creature={{ ...creature, equipped: { ...EMPTY_OUTFIT } }}
+                size={66}
+                decorative
+              />
             </Option>
             {OUTFIT_OPTIONS.map(piece => (
               <Option
@@ -310,7 +316,6 @@ export default function CreatureCreator({
                     ...creature,
                     equipped: {
                       ...EMPTY_OUTFIT,
-                      ...(creature.equipped || {}),
                       [piece.slot]: piece.id
                     }
                   }}

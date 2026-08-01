@@ -273,6 +273,57 @@ function wordImage(word) {
   return asset.image || "";
 }
 
+const IMAGE_MIME_TYPES = {
+  png: "image/png",
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  webp: "image/webp",
+  gif: "image/gif",
+  svg: "image/svg+xml"
+};
+
+function imageMimeType(source, suppliedType = "") {
+  if (suppliedType.startsWith("image/")) return suppliedType;
+  if (suppliedType) return "";
+  const extension = source.split(/[?#]/, 1)[0].split(".").pop()?.toLowerCase();
+  return IMAGE_MIME_TYPES[extension] || "";
+}
+
+function bytesToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  // Avoid spreading a whole image into one call: large argument lists can
+  // overflow the browser stack.
+  for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
+  }
+  return btoa(binary);
+}
+
+// The worksheet itself is opened from a temporary Blob URL. Embed every image
+// before navigating that print window so the browser/PDF engine never has to
+// resolve late site-relative requests from a temporary document.
+export async function embedWorksheetImages(html, { fetchImpl = globalThis.fetch } = {}) {
+  if (typeof fetchImpl !== "function") throw new Error("Worksheet pictures cannot be loaded in this browser.");
+  const sources = [...new Set([...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/gi)].map(match => match[1]))];
+  if (!sources.length) return html;
+
+  const embedded = await Promise.all(sources.map(async source => {
+    const response = await fetchImpl(source, { credentials: "same-origin", cache: "force-cache" });
+    if (!response?.ok) throw new Error(`Worksheet picture could not be loaded: ${source}`);
+    const blob = await response.blob();
+    const mimeType = imageMimeType(source, blob.type || "");
+    if (!mimeType) throw new Error(`Worksheet picture has an unsupported file type: ${source}`);
+    return [source, `data:${mimeType};base64,${bytesToBase64(await blob.arrayBuffer())}`];
+  }));
+
+  const sourceMap = new Map(embedded);
+  return html.replace(/(<img\b[^>]*\bsrc=")([^"]+)(")/gi, (whole, before, source, after) => {
+    const dataUrl = sourceMap.get(source);
+    return dataUrl ? `${before}${dataUrl}${after}` : whole;
+  });
+}
+
 // ── HTML helpers ─────────────────────────────────────────────────────────────
 function esc(value) {
   return String(value).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
@@ -281,7 +332,7 @@ function esc(value) {
 function pageHeader(cycle, typeLabel) {
   return `<div class="ws-head">
     <div class="ws-name">Name: <span class="ws-line"></span> &nbsp; Date: <span class="ws-line short"></span></div>
-    <div class="ws-meta"><strong>Cycle ${esc(cycle.cycleNumber)}</strong> · ${esc(cycle.title)} <span class="ws-type">${esc(typeLabel)}</span></div>
+    <div class="ws-meta"><strong>${esc(worksheetCycleLabel(cycle))}</strong> <span class="ws-type">${esc(typeLabel)}</span></div>
   </div>`;
 }
 
@@ -333,12 +384,12 @@ function startSoundPictures(cycle, card, page) {
 }
 
 export const WORKSHEET_PAGE_STAGES = [
-  { id: "model", label: "Meet it", purpose: "See a clear model and practise with full support." },
-  { id: "guided", label: "Try it", purpose: "Recognise the target with a visible cue." },
-  { id: "discriminate", label: "Tell it apart", purpose: "Choose or match the target among plausible alternatives." },
-  { id: "construct", label: "Make it", purpose: "Construct or complete the target with less support." },
-  { id: "transfer", label: "Use it", purpose: "Use the learning in a different task or context." },
-  { id: "retrieve", label: "Remember it", purpose: "Retrieve the learning independently, then review." }
+  { id: "model", label: "Watch and try", purpose: "Look at the example. Then have a go." },
+  { id: "guided", label: "Try with help", purpose: "Use the clue to help you." },
+  { id: "discriminate", label: "Pick the right one", purpose: "Choose or match the right answer." },
+  { id: "construct", label: "Make it", purpose: "Finish it or make it yourself." },
+  { id: "transfer", label: "Use it", purpose: "Use what you know in a new way." },
+  { id: "retrieve", label: "Remember it", purpose: "Have a go on your own. Then check your work." }
 ];
 
 function stageFor(page) {
@@ -393,7 +444,7 @@ function initialLetterPictureBlock(cards, page) {
   const selected = rotate(words, page).slice(0, 4);
   if (!selected.length) return "";
   return `<div class="ws-block" data-task-kind="opening-letter-picture" data-task-id="opening-picture-${page}">
-      <div class="ws-block-title small ws-instruction">Write the opening letter or letters for each picture.</div>
+      <div class="ws-block-title small ws-instruction">Write the first letter or letters for each picture.</div>
       <div class="ws-fill-grid">${selected.map(word => {
         const card = cards.find(item => word.startsWith(item.spelling));
         return `<div class="ws-fill" data-answer="${esc(card?.spelling || word[0])}"><img class="ws-cue" src="${esc(wordImage(word))}" alt="${esc(word)}"/><span class="ws-box"></span></div>`;
@@ -403,7 +454,7 @@ function initialLetterPictureBlock(cards, page) {
 
 function letterMemoryBlock(cards, page) {
   return `<div class="ws-block" data-task-kind="letter-retrieval" data-task-id="letter-memory-${page}">
-      <div class="ws-block-title small ws-instruction">Write each focus letter from memory. Write the capital and small letter.</div>
+      <div class="ws-block-title small ws-instruction">Write each letter you are learning. Write the capital and small letter.</div>
       <div class="ws-memory">${cards.slice(0, 2).map(card => `<div data-answer="${esc(card.spelling.toUpperCase())}${esc(card.spelling)}"><b>${esc(card.sound || card.grapheme)}</b>${traceLines(2)}</div>`).join("")}</div>
     </div>`;
 }
@@ -633,7 +684,7 @@ function wordChainBlock(chains, page) {
 function patternCompareBlock(patterns, page) {
   const words = rotate(patterns.flatMap(pattern => pattern.yes.slice(0, 4)), page);
   return `<div class="ws-block" data-task-kind="pattern-compare" data-task-id="pattern-compare-${page}">
-      <div class="ws-block-title small ws-instruction">Copy each word under its spelling pattern.</div>
+      <div class="ws-block-title small ws-instruction">Put each word in the right spelling group.</div>
       <div class="ws-wordstrip">${words.map(word => `<span class="ws-chip">${esc(word)}</span>`).join("")}</div>
       <div class="ws-sort">${patterns.map(pattern => `<div class="ws-col"><div class="ws-col-head">${esc(pattern.label)}</div>${'<div class="ws-rule"></div>'.repeat(4)}</div>`).join("")}</div>
     </div>`;
@@ -641,7 +692,7 @@ function patternCompareBlock(patterns, page) {
 
 function patternDetectiveBlock(patterns, page) {
   return `<div class="ws-block" data-task-kind="pattern-detective" data-task-id="pattern-detective-${page}">
-      <div class="ws-block-title small ws-instruction">Underline the named spelling pattern in every word.</div>
+      <div class="ws-block-title small ws-instruction">Underline the spelling part in each word.</div>
       ${patterns.map(pattern => `<div class="ws-pattern-row" data-answer="${esc(pattern.yes.join("|"))}"><b>${esc(pattern.label)}</b><span>${pattern.yes.map(word => esc(word)).join(" &nbsp; ")}</span></div>`).join("")}
     </div>`;
 }
@@ -783,9 +834,9 @@ export function buildWorksheetDocument({ cycleId, type, pages = 1 }) {
 export function printWorksheet(recipe) {
   const { html } = buildWorksheetDocument(recipe);
   return openHtmlDocument({
-    html,
+    prepareHtml: () => embedWorksheetImages(html),
     name: "lp-worksheet",
     features: "width=900,height=1100",
     autoPrint: true
-  }).ok;
+  });
 }

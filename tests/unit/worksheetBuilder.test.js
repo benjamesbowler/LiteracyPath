@@ -6,6 +6,7 @@ import {
   availableWorksheetTypes,
   getWorksheetCycle,
   buildWorksheetDocument,
+  embedWorksheetImages,
   WORKSHEET_PAGE_STAGES
 } from "../../src/utils/worksheets/worksheetBuilder.js";
 
@@ -61,6 +62,45 @@ test("buildWorksheetDocument is deterministic (same recipe = same bytes)", () =>
   const b = buildWorksheetDocument(recipe);
   assert.equal(a.html, b.html);
   assert.equal(a.title, b.title);
+});
+
+test("worksheet stage headings and explanations use simple child language", () => {
+  const text = WORKSHEET_PAGE_STAGES.map(stage => `${stage.label} ${stage.purpose}`).join(" ");
+  assert.match(text, /Watch and try/);
+  assert.match(text, /Pick the right one/);
+  assert.doesNotMatch(text, /Meet it|visible cue|plausible alternatives|construct|context|retrieve|independently/i);
+
+  const { html } = buildWorksheetDocument({ cycleId: "cycle-10", type: "wordBuilding", pages: 6 });
+  assert.doesNotMatch(html, /Meet it|visible cue|plausible alternatives|construct or complete|different task or context|retrieve the learning/i);
+  assert.doesNotMatch(html, /opening letter|focus letter|named spelling pattern|under its spelling pattern/i);
+  assert.doesNotMatch(html, /Cycle 10\s*·\s*Cycle 10/i, "the child should not see a repeated cycle name");
+});
+
+test("print preparation embeds real worksheet pictures as data URLs", async () => {
+  const { html } = buildWorksheetDocument({ cycleId: "cycle-10", type: "wordBuilding", pages: 1 });
+  const requested = [];
+  const prepared = await embedWorksheetImages(html, {
+    fetchImpl: async source => {
+      requested.push(source);
+      return {
+        ok: true,
+        blob: async () => new Blob([new Uint8Array([137, 80, 78, 71])], { type: "image/png" })
+      };
+    }
+  });
+
+  assert.ok(requested.length > 0, "the representative worksheet should request pictures");
+  assert.equal(new Set(requested).size, requested.length, "each shared picture is fetched once");
+  assert.doesNotMatch(prepared, /<img\b[^>]*\bsrc="\//i);
+  assert.match(prepared, /<img\b[^>]*\bsrc="data:image\/png;base64,iVBORw=="/i);
+});
+
+test("print preparation refuses to print a pack with a missing picture", async () => {
+  const { html } = buildWorksheetDocument({ cycleId: "cycle-10", type: "wordBuilding", pages: 1 });
+  await assert.rejects(
+    embedWorksheetImages(html, { fetchImpl: async () => ({ ok: false }) }),
+    /Worksheet picture could not be loaded/
+  );
 });
 
 test("each available type builds a valid multi-page document", () => {

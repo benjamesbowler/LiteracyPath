@@ -1170,7 +1170,15 @@ function createHud() {
         <div data-role="focus" style="height:100%;width:0%;background:#ffffff;"></div>
       </div>
     </div>
-    <button data-role="cut" type="button" style="position:absolute;right:22px;bottom:48px;pointer-events:auto;min-width:132px;padding:14px 24px;font-family:inherit;font-size:23px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
+    <div data-role="move-controls" style="position:absolute;left:22px;bottom:48px;display:flex;gap:10px;pointer-events:auto;">
+      <button data-role="move-forward" type="button" aria-label="Move forward" style="width:76px;height:64px;border:2px solid rgba(105,255,230,.68);background:linear-gradient(160deg,#7fffe9,#38bdf8);color:#052e2b;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↑<br>FORWARD</button>
+      <button data-role="move-back" type="button" aria-label="Move back" style="width:76px;height:64px;border:2px solid rgba(255,255,255,.42);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:13px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">↓<br>BACK</button>
+    </div>
+    <div data-role="steer-controls" style="position:absolute;right:22px;bottom:48px;display:flex;align-items:flex-end;gap:10px;pointer-events:auto;">
+      <button data-role="turn-left" type="button" aria-label="Turn left" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">←</button>
+      <button data-role="turn-right" type="button" aria-label="Turn right" style="width:64px;height:64px;border:2px solid rgba(105,255,230,.58);background:rgba(3,7,18,.82);color:#fff;font-family:inherit;font-size:28px;font-weight:900;border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);touch-action:none;">→</button>
+      <button data-role="cut" type="button" aria-label="Cut the nearby answer tree" style="min-width:116px;height:64px;padding:0 20px;font-family:inherit;font-size:23px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
+    </div>
     <div data-role="feedback" style="position:absolute;left:50%;top:166px;transform:translateX(-50%);min-width:min(360px,78vw);max-width:680px;padding:14px 22px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.68);clip-path:polygon(4% 0,97% 0,100% 24%,96% 100%,4% 100%,0 76%,0 18%);text-align:center;opacity:0;transition:opacity .12s linear;">
       <div data-role="feedback-main" style="font-size:27px;font-weight:900;color:#ffe45c;"></div>
       <div data-role="feedback-sub" style="font-size:15px;font-weight:800;margin-top:4px;"></div>
@@ -2003,6 +2011,29 @@ function createStarGalleryEngine(mount, options) {
     state.pointer.throttle = 0;
   }
 
+  function bindTouchButton(node, key) {
+    if (!node) return;
+    const down = event => {
+      event.preventDefault();
+      event.stopPropagation();
+      node.setPointerCapture?.(event.pointerId);
+      node.style.transform = "translateY(2px) scale(.98)";
+      keys[key] = true;
+      if (key === "up") state.player.speed = Math.max(state.player.speed, 1.8);
+      if (key === "down") state.player.speed = Math.min(state.player.speed, -1.2);
+    };
+    const up = event => {
+      event?.preventDefault?.();
+      event?.stopPropagation?.();
+      node.style.transform = "";
+      keys[key] = false;
+    };
+    node.addEventListener("pointerdown", down);
+    node.addEventListener("pointerup", up);
+    node.addEventListener("pointercancel", up);
+    node.addEventListener("lostpointercapture", up);
+  }
+
   const detachResize = attachResize({
     mount,
     renderer,
@@ -2019,6 +2050,10 @@ function createStarGalleryEngine(mount, options) {
   renderer.domElement.addEventListener("pointermove", onPointerMove);
   renderer.domElement.addEventListener("pointerup", onPointerUp);
   renderer.domElement.addEventListener("pointercancel", onPointerUp);
+  bindTouchButton(nodes.moveForward, "up");
+  bindTouchButton(nodes.moveBack, "down");
+  bindTouchButton(nodes.turnLeft, "left");
+  bindTouchButton(nodes.turnRight, "right");
   nodes.cut.addEventListener("pointerdown", event => {
     event.preventDefault();
     event.stopPropagation();
@@ -2062,7 +2097,7 @@ function createStarGalleryEngine(mount, options) {
       '<div style="display:grid;gap:14px;justify-items:center;max-width:min(560px,88vw);padding:20px">' +
         '<div style="font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#7fffe9">Sentence Grove</div>' +
         '<div style="font-size:clamp(20px,3.4vw,28px);font-weight:900;line-height:1.25;text-wrap:balance">Drive through the grove and cut the tree with the word that fixes the sentence.</div>' +
-        '<div style="font-size:15px;font-weight:800;line-height:1.6;opacity:.92">Drive with the arrow keys or WASD — on a touch screen, press and drag to steer.<br>Press Space, Enter, or the CUT button to cut a tree. Hold Shift for a boost.</div>' +
+        '<div style="font-size:15px;font-weight:800;line-height:1.6;opacity:.92">Drive with the arrow keys or WASD — on a touch screen, use the movement buttons or press and drag to steer.<br>Press Space, Enter, or the CUT button to cut a tree. Hold Shift for a boost.</div>' +
         '<div style="font-size:17px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:14px;padding:12px 30px;box-shadow:0 4px 0 rgba(0,0,0,.45)">Tap to play</div>' +
         '<div style="font-size:12px;font-weight:800;opacity:.65">or press any key</div>' +
       '</div>';

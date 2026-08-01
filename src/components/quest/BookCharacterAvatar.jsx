@@ -1,9 +1,7 @@
 import {
   bookCharacterAsset,
   bookCharacterForCreature,
-  bookCharacterMood,
-  bookCharacterWearables,
-  bookCharacterWearableStyle
+  bookCharacterMood
 } from "./bookCharacterAvatar.js";
 
 export default function BookCharacterAvatar({
@@ -18,7 +16,6 @@ export default function BookCharacterAvatar({
   const mood = bookCharacterMood(creature);
   const selectedPose = pose || creature?.pose || "idle";
   const asset = bookCharacterAsset(creature, { pose });
-  const wearables = bookCharacterWearables(creature);
 
   return (
     <span
@@ -29,25 +26,7 @@ export default function BookCharacterAvatar({
       aria-hidden={decorative ? "true" : undefined}
       aria-label={decorative ? undefined : `${character.name}, from ${character.series}`}
     >
-      {wearables.filter(item => item.slot === "back").map(item => (
-        <img
-          key={item.id}
-          className={`q-book-avatar-wearable is-${item.id}`}
-          src={item.asset}
-          style={bookCharacterWearableStyle(item)}
-          alt=""
-        />
-      ))}
       <img className="q-book-avatar-character" src={asset} alt="" />
-      {wearables.filter(item => item.slot !== "back").map(item => (
-        <img
-          key={item.id}
-          className={`q-book-avatar-wearable is-${item.id}`}
-          src={item.asset}
-          style={bookCharacterWearableStyle(item)}
-          alt=""
-        />
-      ))}
       {showLabel && (
         <span className="q-book-avatar-label">
           <strong>{character.name}</strong>

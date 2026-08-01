@@ -1750,9 +1750,9 @@ export const questions = [
   "formatType": "PTD",
   "templateType": "PTD",
   "questionType": "multiple_choice",
-  "prompt": "Which word does NOT have the long e sound?",
-  "question": "Which word does NOT have the long e sound?",
-  "spokenPrompt": "Which word does not have the long e sound?",
+  "prompt": "Which word has the short e sound?",
+  "question": "Which word has the short e sound?",
+  "spokenPrompt": "Which word has the short e sound?",
   "choices": [
    "leaf",
    "beach",
@@ -1828,12 +1828,12 @@ export const questions = [
   "formatType": "PTD",
   "templateType": "PTD",
   "questionType": "multiple_choice",
-  "prompt": "Which word does NOT have the long e sound?",
-  "question": "Which word does NOT have the long e sound?",
-  "spokenPrompt": "Which word does not have the long e sound?",
+  "prompt": "Which word has the short e sound?",
+  "question": "Which word has the short e sound?",
+  "spokenPrompt": "Which word has the short e sound?",
   "choices": [
    "peach",
-   "head",
+   "dead",
    "sea",
    "beach"
   ],
@@ -1844,9 +1844,9 @@ export const questions = [
     "text": "peach"
    },
    {
-    "value": "head",
-    "label": "head",
-    "text": "head"
+    "value": "dead",
+    "label": "dead",
+    "text": "dead"
    },
    {
     "value": "sea",
@@ -1859,8 +1859,8 @@ export const questions = [
     "text": "beach"
    }
   ],
-  "answer": "head",
-  "correctAnswer": "head",
+  "answer": "dead",
+  "correctAnswer": "dead",
   "distractorRationales": {
    "beach": "D-PATTERN-TRAP",
    "peach": "D-PATTERN-TRAP",

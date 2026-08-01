@@ -8,13 +8,29 @@ function installBrowserHarness({ blocked = false } = {}) {
   const calls = {
     opened: [],
     revoked: [],
+    replaced: [],
+    closed: 0,
     focused: 0,
     printed: 0
   };
   let loadHandler = null;
   const openedWindow = {
+    closed: false,
+    location: {
+      href: "",
+      replace(url) {
+        calls.replaced.push(url);
+        this.href = url;
+      }
+    },
     addEventListener(type, handler) {
       if (type === "load") loadHandler = handler;
+    },
+    removeEventListener(type, handler) {
+      if (type === "load" && loadHandler === handler) loadHandler = null;
+    },
+    close() {
+      calls.closed += 1;
     },
     focus() {
       calls.focused += 1;
@@ -71,6 +87,34 @@ test("print documents load from a Blob URL, revoke it, then invoke print", () =>
       "width=900,height=700"
     ]);
     harness.fireLoad();
+    assert.deepEqual(harness.calls.revoked, ["blob:literacy-path-print"]);
+    assert.equal(harness.calls.focused, 1);
+    assert.equal(harness.calls.printed, 1);
+  } finally {
+    harness.restore();
+  }
+});
+
+test("deferred print preparation opens synchronously then prints the finished document", async () => {
+  const harness = installBrowserHarness();
+  try {
+    const result = openHtmlDocument({
+      prepareHtml: async () => "<!doctype html><title>Pictures embedded</title>",
+      name: "lp-deferred-print",
+      features: "width=900,height=700",
+      autoPrint: true
+    });
+
+    assert.equal(result.ok, true);
+    assert.deepEqual(harness.calls.opened[0], [
+      "about:blank",
+      "lp-deferred-print",
+      "width=900,height=700"
+    ]);
+    await new Promise(resolve => setImmediate(resolve));
+    assert.deepEqual(harness.calls.replaced, ["blob:literacy-path-print"]);
+    harness.fireLoad();
+    await result.ready;
     assert.deepEqual(harness.calls.revoked, ["blob:literacy-path-print"]);
     assert.equal(harness.calls.focused, 1);
     assert.equal(harness.calls.printed, 1);
