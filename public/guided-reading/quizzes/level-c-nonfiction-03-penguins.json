@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-03-penguins",
-  "contentHash": "sha256:ff6edfcaac281740730046e119b9a09baaa02c8d122d7669ede5de375792d338",
+  "contentHash": "sha256:b58b9fb7a087e651a04b29008b0728244b150640c36688e3c09e155b21b50839",
   "questions": [
     {
       "id": "level-c-nonfiction-03-penguins-q1",
-      "prompt": "How do penguins use their wings?",
+      "prompt": "Which fact about penguins is given in Emperor Penguins and Their Relatives?",
       "choices": [
-        "as flippers",
-        "to glide through the air",
-        "to keep their eggs warm"
+        "Penguins are flightless birds whose wings work as swimming flippers.",
+        "A male balances one egg on his feet beneath warm skin.",
+        "Eighteen penguin species live from Antarctica to warmer southern coasts."
       ],
-      "answer": "as flippers",
+      "answer": "Penguins are flightless birds whose wings work as swimming flippers.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Instead, they use their wings as flippers."
+      "evidenceText": "Penguins are flightless birds whose wings work as swimming flippers."
     },
     {
       "id": "level-c-nonfiction-03-penguins-q2",
-      "prompt": "Why do emperor fathers huddle together?",
+      "prompt": "Which fact about a male is given in Emperor Penguins and Their Relatives?",
       "choices": [
-        "to find eggs",
-        "to stay warm",
-        "to dry feathers"
+        "A male balances one egg on his feet beneath warm skin.",
+        "Penguins are flightless birds whose wings work as swimming flippers.",
+        "Eighteen penguin species live from Antarctica to warmer southern coasts."
       ],
-      "answer": "to stay warm",
+      "answer": "A male balances one egg on his feet beneath warm skin.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 4,
-      "evidenceText": "He huddles with other fathers to stay warm."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A male balances one egg on his feet beneath warm skin."
     },
     {
       "id": "level-c-nonfiction-03-penguins-q3",
-      "prompt": "What does a penguin's dark back blend with from above?",
+      "prompt": "Which statement gives the main idea of Emperor Penguins and Their Relatives?",
       "choices": [
-        "the bright snow",
-        "the grey sky",
-        "the deep water"
+        "Eighteen penguin species live from Antarctica to warmer southern coasts.",
+        "Penguins are flightless birds whose wings work as swimming flippers.",
+        "A male balances one egg on his feet beneath warm skin."
       ],
-      "answer": "the deep water",
+      "answer": "Eighteen penguin species live from Antarctica to warmer southern coasts.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 8,
-      "evidenceText": "From above, their dark back blends with the deep water."
+      "skill": "main_idea",
+      "rationale": "Eighteen penguin species live from Antarctica to warmer southern coasts. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Eighteen penguin species live from Antarctica to warmer southern coasts."
     }
   ]
 }

@@ -38,7 +38,12 @@ file to overrule one.
 - [design/ASSESSMENT_MEDIA_EVIDENCE](design/ASSESSMENT_MEDIA_EVIDENCE.md) — why assessment media is evidence, not decoration
 - [EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — the benchmark suite and what it aligns to
 - [guided-reading/INDEX](guided-reading/INDEX.md) — the levelled-book system
-- [STORY_QUEST_REWRITE_2026-07-26](STORY_QUEST_REWRITE_2026-07-26.md) — the Story Quest band ceilings and authoring rules
+- [content/STORY_AND_STORY_QUEST_BIBLE](content/STORY_AND_STORY_QUEST_BIBLE.md) — master standard for every book, Story Quest and future narrative format
+- [content/STORY_BIBLE_PART_1_WRITING](content/STORY_BIBLE_PART_1_WRITING.md) — research-grounded story craft, levels, branching, anti-slop and editorial gates
+- [content/STORY_BIBLE_PART_2_CANON](content/STORY_BIBLE_PART_2_CANON.md) — LiteracyPath worlds, characters, size, art, audio and continuity canon
+- [content/STORY_CONTENT_AUTHORING_TEMPLATE](content/STORY_CONTENT_AUTHORING_TEMPLATE.md) — mandatory authoring, evidence and approval record
+- [content/STORY_QUEST_REMEDIATION_STATUS](content/STORY_QUEST_REMEDIATION_STATUS.md) — living one-by-one repair status and current approval evidence for all Story Quests
+- [STORY_QUEST_REWRITE_2026-07-26](STORY_QUEST_REWRITE_2026-07-26.md) — Story Quest reading-band ceilings; subordinate to the full Story Bible
 
 **What the child sees**
 
@@ -145,6 +150,7 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-07-31 | [content/STORY_QUEST_POLICY_AUDIT_2026-07-31](content/STORY_QUEST_POLICY_AUDIT_2026-07-31.md) | All 13 active Story Quests, 313 pages and 4,325 graph routes audited against the two-part Story Bible; 0/13 approved, with complete target text and page-level illustration outlines recorded |
 | 2026-07-31 | [SOUND_SEEKERS_RELEASE_BIBLE](SOUND_SEEKERS_RELEASE_BIBLE.md) | Five-lens browser release pass completed: 40 stops and 106 encounter loops played, phone and desktop visuals inspected, four-way controls and child-facing legibility repaired, and the local software ship gate cleared while external child, teacher, device, assistive-technology and professional media certification remains open |
 | 2026-07-29 | [KIDS_EXPERIENCE_SHIP_PASS_2026-07-29](KIDS_EXPERIENCE_SHIP_PASS_2026-07-29.md) | Child hubs made full-width and one-screen; map made forward-only Meadow→Dino→Moonwood; persistent book-character Little Literacy Guide, structured library, teacher class-entry gate and Beastie nook shipped |
 | 2026-07-29 | [KIDS_REDESIGN_PLAN_2026-07-29](KIDS_REDESIGN_PLAN_2026-07-29.md) | Kids-side redesign accepted (7 screens, liquid glass, rail→bottom tabs, fixed 1194×834 stage); prototype in `mockups/design-handoff-kids-side/`; six-phase plan |

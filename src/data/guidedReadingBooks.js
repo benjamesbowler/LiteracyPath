@@ -6,6 +6,17 @@ import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
 import { firstFactsActualLevelABooks } from "./firstFactsActualLevelABooks.js";
 import { firstFactsLevelCBooks } from "./firstFactsLevelCBooks.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
+import { GUIDED_READING_STORY_BIBLE_REWRITES as GUIDED_READING_CORE_REWRITES } from "../content/guidedReadingStoryBibleRewrites.js";
+import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingHumanFictionRewrites.js";
+import { GUIDED_READING_WORLD_FICTION_REWRITES } from "../content/guidedReadingWorldFictionRewrites.js";
+import { GUIDED_READING_NARRATION_CLEARANCE } from "./generated/guidedReadingNarrationClearance.generated.js";
+import { LEDA_PRODUCTION_VOICE } from "./ledaProductionAudio.js";
+
+const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
+  ...GUIDED_READING_CORE_REWRITES,
+  ...GUIDED_READING_HUMAN_FICTION_REWRITES,
+  ...GUIDED_READING_WORLD_FICTION_REWRITES
+});
 
 const wordAudio = word => `/guided-reading/audio/words/${word.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
@@ -14,6 +25,13 @@ const normalizeReadingText = text =>
     .replace(/\s+([.,!?;:])/g, "$1")
     .replace(/\s{2,}/g, " ")
     .trim();
+
+const canonicalNarrationText = text =>
+  normalizeReadingText(text)
+    .normalize("NFKC")
+    .replace(/[’‘]/g, "'")
+    .replace(/[“”]/g, "\"")
+    .replace(/[–—]/g, "-");
 
 const words = text =>
   normalizeReadingText(text)
@@ -36,6 +54,11 @@ const countReadingSentences = text => (normalizeReadingText(text).match(/[.!?]+/
 function getHonestGuidedReadingLevel(book) {
   const pages = (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved");
   const originalLevel = String(book.level || "").toUpperCase();
+  // A locked Story Bible review has already passed the level-specific language
+  // contract. Do not silently demote an intentionally concise Level C story.
+  if (book.storyBibleReview) {
+    return ["D", "E", "F"].includes(originalLevel) ? "C" : originalLevel;
+  }
   if (!["C", "D", "E", "F"].includes(originalLevel) || !pages.length) return originalLevel;
 
   const averageWordsPerPage = pages.reduce((sum, page) => sum + countReadingWords(page.text), 0) / pages.length;
@@ -104,6 +127,77 @@ function ensureGuidedReadingMetadata(book = {}) {
           ? page.targetWords
           : [...new Set(words(cleanText).map(word => word.text.toLowerCase()))],
         decodableFocus: page.decodableFocus || book.targetSkills || []
+      };
+    })
+  };
+}
+
+function applyStoryBibleRewrite(book = {}) {
+  const rewrite = GUIDED_READING_STORY_BIBLE_REWRITES[book.id];
+  if (!rewrite) return book;
+
+  const activePages = (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved");
+  const sourcePageNumbers = rewrite.sourcePageNumbers
+    || activePages.map((page, index) => page.pageNumber || index + 1);
+  const selectedPageNumbers = new Set(sourcePageNumbers);
+  if (sourcePageNumbers.length !== rewrite.pages.length) {
+    throw new Error(
+      `${book.id}: Story Bible manuscript has ${rewrite.pages.length} pages but selected ${sourcePageNumbers.length} source pages.`
+    );
+  }
+
+  const activePageNumbers = new Set(activePages.map((page, index) => page.pageNumber || index + 1));
+  for (const pageNumber of selectedPageNumbers) {
+    if (!activePageNumbers.has(pageNumber)) {
+      throw new Error(`${book.id}: Story Bible rewrite selected missing active page ${pageNumber}.`);
+    }
+  }
+
+  let activePageIndex = 0;
+  return {
+    ...book,
+    ...(rewrite.title ? { title: rewrite.title } : {}),
+    ...(rewrite.level ? { level: rewrite.level, guidedReadingLevel: rewrite.level } : {}),
+    storyBibleReview: {
+      kind: rewrite.kind,
+      ...(rewrite.kind === "fiction"
+        ? {
+            storySpine: rewrite.storySpine,
+            failedAttempt: rewrite.failedAttempt,
+            resolution: rewrite.resolution,
+            canonIds: rewrite.canonIds || []
+          }
+        : {
+            topicQuestion: rewrite.topicQuestion,
+            progression: rewrite.progression,
+            synthesis: rewrite.synthesis
+          })
+    },
+    pages: (book.pages || []).map((page, index) => {
+      if (page.active === false || page.qaStatus !== "approved") return page;
+      const pageNumber = page.pageNumber || index + 1;
+      if (!selectedPageNumbers.has(pageNumber)) {
+        return {
+          ...page,
+          active: false,
+          qaStatus: "story_bible_removed",
+          qaNotes: "Removed from the active reading route by the Story Bible edit."
+        };
+      }
+      const text = normalizeReadingText(rewrite.pages[activePageIndex]);
+      activePageIndex += 1;
+      const clearance = GUIDED_READING_NARRATION_CLEARANCE[`${book.id}::${pageNumber}`];
+      const narrationCleared = clearance?.displayedText === canonicalNarrationText(text)
+        && clearance?.voice === LEDA_PRODUCTION_VOICE;
+      return {
+        ...page,
+        text,
+        pageAudioText: text,
+        words: words(text),
+        narrationNeedsRebuild: !narrationCleared,
+        qaNotes: narrationCleared
+          ? "Story Bible manuscript and hash-verified exact-text Leda narration locked."
+          : "Story Bible manuscript locked; exact-text Leda narration required."
       };
     })
   };
@@ -3221,6 +3315,7 @@ export const guidedStoryBookDrafts = guidedStoryBooks;
 export const guidedReadingSeriesBookDrafts = guidedReadingSeriesBooks;
 
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
+  .map(applyStoryBibleRewrite)
   .map(relevelGuidedReadingBook)
   .map(ensureGuidedReadingMetadata)
   .filter(book => book.pages.length >= 4);

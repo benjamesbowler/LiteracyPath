@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-14-hot-and-cold",
-  "contentHash": "sha256:45e26d21776201ff5bd1763a72d89d13288d5ab322b3489c63ba6165e8a4e9c2",
+  "contentHash": "sha256:e99142f07b6d3ef49270faf5d3411eb8f473e960fad5c33d6ca52e361a3ef1fe",
   "questions": [
     {
       "id": "first-facts-a-14-hot-and-cold-q1",
-      "prompt": "Which thing does the book say is cold?",
+      "prompt": "Which fact about sunlight is given in Hot and Cold?",
       "choices": [
-        "snow",
-        "fire",
-        "soup"
+        "Sunlight can warm our skin.",
+        "Ice and snow have low temperatures.",
+        "We can compare temperatures safely."
       ],
-      "answer": "snow",
-      "kind": "word",
-      "skill": "comparison",
-      "evidencePage": 3,
-      "evidenceText": "Snow is cold."
+      "answer": "Sunlight can warm our skin.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Sunlight can warm our skin."
     },
     {
       "id": "first-facts-a-14-hot-and-cold-q2",
-      "prompt": "Why should hot food cool down first?",
+      "prompt": "Which fact about ice and snow is given in Hot and Cold?",
       "choices": [
-        "because hot food can burn",
-        "because hot food can freeze",
-        "because hot food can turn to ice"
+        "Ice and snow have low temperatures.",
+        "Sunlight can warm our skin.",
+        "We can compare temperatures safely."
       ],
-      "answer": "because hot food can burn",
+      "answer": "Ice and snow have low temperatures.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 4,
-      "evidenceText": "Hot food can burn. Let it cool down first."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Ice and snow have low temperatures."
     },
     {
       "id": "first-facts-a-14-hot-and-cold-q3",
-      "prompt": "What does the book say we need?",
+      "prompt": "Which statement gives the main idea of Hot and Cold?",
       "choices": [
-        "only hot things",
-        "only cold things",
-        "both hot and cold"
+        "We can compare temperatures safely.",
+        "Sunlight can warm our skin.",
+        "Ice and snow have low temperatures."
       ],
-      "answer": "both hot and cold",
+      "answer": "We can compare temperatures safely.",
       "kind": "text",
       "skill": "main_idea",
-      "evidencePage": 6,
-      "evidenceText": "Hot is warm. Cold is cool. We need both!"
+      "rationale": "We can compare temperatures safely. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "We can compare temperatures safely."
     }
   ]
 }

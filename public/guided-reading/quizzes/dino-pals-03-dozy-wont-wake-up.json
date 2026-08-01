@@ -1,56 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-03-dozy-wont-wake-up",
-  "contentHash": "sha256:909f49b0285764daf7696c1354b98c2b887283fa18f7057cf2aa6c335a5236ab",
+  "contentHash": "sha256:8407b8da4b32ca74f0029076e730feafa3b1ab7ab57b69b90aa85a6cc0caca44",
   "questions": [
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q1",
-      "prompt": "Why did the Pals need Dozy to wake up?",
+      "prompt": "Which event begins Dozy Won't Wake Up?",
       "choices": [
-        "They needed him to stop the rain.",
-        "They needed him to find a map.",
-        "They needed him for the picnic."
+        "Picnic morning begins, but Dozy still sleeps.",
+        "Honky calls. The cave shakes, not Dozy.",
+        "Dozy carries his pillow and buns to the picnic."
       ],
-      "answer": "They needed him for the picnic.",
+      "answer": "Picnic morning begins, but Dozy still sleeps.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "We need Dozy for the picnic!"
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Picnic morning begins, but Dozy still sleeps."
     },
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q2",
-      "prompt": "What finally got Dozy's attention?",
+      "prompt": "Which event shows the main plan is not working in Dozy Won't Wake Up?",
       "choices": [
-        "Chompy's lunch",
-        "Honky's loud call",
-        "the morning sun"
+        "Honky calls. The cave shakes, not Dozy.",
+        "Picnic morning begins, but Dozy still sleeps.",
+        "Dozy carries his pillow and buns to the picnic."
       ],
-      "answer": "Chompy's lunch",
+      "answer": "Honky calls. The cave shakes, not Dozy.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 7,
-      "evidenceText": "Dozy sniffed. He opened one eye. \"Is that... lunch?\" he asked.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 6,
-          "evidenceText": "Chompy found the biggest, yummiest lunch in Sunny Hollow."
-        }
-      ]
+      "rationale": "Honky calls. The cave shakes, not Dozy. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Honky calls. The cave shakes, not Dozy."
     },
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q3",
-      "prompt": "What happened after Dozy got up?",
+      "prompt": "Which event solves the problem in Dozy Won't Wake Up?",
       "choices": [
-        "He ran around the Hollow.",
-        "His eyes were already closing again.",
-        "He made the picnic lunch."
+        "Dozy carries his pillow and buns to the picnic.",
+        "Picnic morning begins, but Dozy still sleeps.",
+        "Honky calls. The cave shakes, not Dozy."
       ],
-      "answer": "His eyes were already closing again.",
+      "answer": "Dozy carries his pillow and buns to the picnic.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Dozy carries his pillow and buns to the picnic. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "His eyes were already closing again."
+      "evidenceText": "Dozy carries his pillow and buns to the picnic."
     }
   ]
 }

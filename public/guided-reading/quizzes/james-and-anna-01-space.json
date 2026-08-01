@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-01-space",
-  "contentHash": "sha256:31480160e504a0a38587dc2b15f4712ab8b1edb5b53afed11d6cbf5552565360",
+  "contentHash": "sha256:dd1992a8c1febda95bf65846e6402678fb42e0cf30da771bdd3fd6e4289e8e2b",
   "questions": [
     {
       "id": "james-and-anna-01-space-q1",
-      "prompt": "What did James and Anna decide to make?",
+      "prompt": "Which event begins James and Anna go to Space?",
       "choices": [
-        "a boat",
-        "a rocket",
-        "a tree house"
+        "James and Anna find big, flat boxes in the garden.",
+        "They count down, but the cardboard rocket stays completely still.",
+        "They open their eyes in the garden. Mum brings cake."
       ],
-      "answer": "a rocket",
+      "answer": "James and Anna find big, flat boxes in the garden.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "\"Let us make a rocket!\" said James. \"We can fly all the way into space!\""
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "James and Anna find big, flat boxes in the garden."
     },
     {
       "id": "james-and-anna-01-space-q2",
-      "prompt": "Why did James and Anna grin at their rocket?",
+      "prompt": "Which event shows the main plan is not working in James and Anna go to Space?",
       "choices": [
-        "They wanted to hide it.",
-        "They thought it was broken.",
-        "They were proud of it."
+        "They count down, but the cardboard rocket stays completely still.",
+        "James and Anna find big, flat boxes in the garden.",
+        "They open their eyes in the garden. Mum brings cake."
       ],
-      "answer": "They were proud of it.",
+      "answer": "They count down, but the cardboard rocket stays completely still.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Calling it the best rocket and grinning shows that James and Anna were proud of the rocket they made.",
-      "evidencePage": 6,
-      "evidenceText": "\"It is the best rocket ever made!\" said James. He and Anna stood back and grinned."
+      "skill": "problem_solution",
+      "rationale": "They count down, but the cardboard rocket stays completely still. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "They count down, but the cardboard rocket stays completely still."
     },
     {
       "id": "james-and-anna-01-space-q3",
-      "prompt": "Where were they when the trip ended?",
+      "prompt": "Which event solves the problem in James and Anna go to Space?",
       "choices": [
-        "back in the garden",
-        "still on the moon",
-        "inside the shop"
+        "They open their eyes in the garden. Mum brings cake.",
+        "James and Anna find big, flat boxes in the garden.",
+        "They count down, but the cardboard rocket stays completely still."
       ],
-      "answer": "back in the garden",
+      "answer": "They open their eyes in the garden. Mum brings cake.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They open their eyes in the garden. Mum brings cake. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "BUMP! They were back in the garden. Mum had made cake. \"Best trip EVER!\" they said."
+      "evidenceText": "They open their eyes in the garden. Mum brings cake."
     }
   ]
 }

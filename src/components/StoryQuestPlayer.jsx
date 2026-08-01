@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { preloadMediaSet } from "../utils/preloadMedia.js";
 import { buildStoryQuestResumeHistory } from "../utils/storyQuestProgress.js";
 import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
+import { getStoryQuestLedaAudioPath } from "../data/storyQuestLedaAudio.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -35,8 +36,11 @@ function StoryQuestImage({ src, title }) {
 }
 
 function getStoryQuestPageAudioUrl(page) {
-  if (!page || page.narrationNeedsRebuild) return "";
+  if (!page) return "";
   const pageText = Array.isArray(page.text) ? page.text.join(" ") : page.text;
+  const rebuiltAudioUrl = getStoryQuestLedaAudioPath(pageText);
+  if (rebuiltAudioUrl) return rebuiltAudioUrl;
+  if (page.narrationNeedsRebuild) return "";
   return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
 }
 

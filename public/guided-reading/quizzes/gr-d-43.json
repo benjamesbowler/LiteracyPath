@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-d-43",
-  "contentHash": "sha256:ca4427bb756a83f9a6422963cd6c41ad995031ca3c94a6a66c99fb6304446dd5",
+  "contentHash": "sha256:06cba450df8e6f149ed1daa9a98cf6f09e2d737a742bbce6e39558efb2865a40",
   "questions": [
     {
       "id": "gr-d-43-q1",
-      "prompt": "What does the speaker wash their hands with?",
+      "prompt": "Which fact is introduced first in Healthy Habits?",
       "choices": [
-        "soap",
-        "mud",
-        "paint"
+        "I wash my hands with soap.",
+        "I drink water every day.",
+        "Healthy habits help my body."
       ],
-      "answer": "soap",
-      "kind": "word",
-      "skill": "function",
+      "answer": "I wash my hands with soap.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
       "evidenceText": "I wash my hands with soap."
     },
     {
       "id": "gr-d-43-q2",
-      "prompt": "What does the speaker brush?",
+      "prompt": "Which fact is explained next in Healthy Habits?",
       "choices": [
-        "their teeth",
-        "their shoes",
-        "their coat"
+        "I drink water every day.",
+        "I wash my hands with soap.",
+        "Healthy habits help my body."
       ],
-      "answer": "their teeth",
+      "answer": "I drink water every day.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "I brush my teeth twice."
+      "evidencePage": 3,
+      "evidenceText": "I drink water every day."
     },
     {
       "id": "gr-d-43-q3",
-      "prompt": "What does the book say healthy habits do for the speaker?",
+      "prompt": "Which statement gives the main idea of Healthy Habits?",
       "choices": [
-        "make them strong",
-        "make them sleepy",
-        "make them smaller"
+        "Healthy habits help my body.",
+        "I wash my hands with soap.",
+        "I drink water every day."
       ],
-      "answer": "make them strong",
+      "answer": "Healthy habits help my body.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "main_idea",
+      "rationale": "Healthy habits help my body. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Healthy habits make me strong!"
+      "evidenceText": "Healthy habits help my body."
     }
   ]
 }

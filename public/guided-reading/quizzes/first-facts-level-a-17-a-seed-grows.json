@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-17-a-seed-grows",
-  "contentHash": "sha256:35428af567e33181db6a318a0ab6b3b5bd3ea1a03199280e995efd5bc49fbf55",
+  "contentHash": "sha256:67febf14bd09fdad6484bf89078350cbb6175d633607171774fc1641db5ea1ae",
   "questions": [
     {
       "id": "first-facts-level-a-17-a-seed-grows-q1",
-      "prompt": "Where does the book say to put the seed?",
+      "prompt": "What do we learn about a seed?",
       "choices": [
-        "in the dirt",
-        "in the sky",
-        "in a cup"
+        "A seed rests in soil.",
+        "A root grows down.",
+        "The bud becomes a flower."
       ],
-      "answer": "in the dirt",
+      "answer": "A seed rests in soil.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A seed is little.\nPut it in the dirt."
+      "evidenceText": "A seed rests in soil."
     },
     {
       "id": "first-facts-level-a-17-a-seed-grows-q2",
-      "prompt": "What grows down in the soil?",
+      "prompt": "What do we learn about a root?",
       "choices": [
-        "a root",
-        "a leaf",
-        "a bud"
+        "A root grows down.",
+        "A seed rests in soil.",
+        "The bud becomes a flower."
       ],
-      "answer": "a root",
+      "answer": "A root grows down.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "sequence",
       "evidencePage": 3,
-      "evidenceText": "A root grows down in the soil."
+      "evidenceText": "A root grows down."
     },
     {
       "id": "first-facts-level-a-17-a-seed-grows-q3",
-      "prompt": "What does the seed become?",
+      "prompt": "What is the big idea in A Seed Grows?",
       "choices": [
-        "a flower",
-        "a rock",
-        "a bug"
+        "The bud becomes a flower.",
+        "A seed rests in soil.",
+        "A root grows down."
       ],
-      "answer": "a flower",
+      "answer": "The bud becomes a flower.",
       "kind": "text",
-      "skill": "function",
+      "skill": "main_idea",
+      "rationale": "The bud becomes a flower. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "A flower!\nA seed can grow big."
+      "evidenceText": "The bud becomes a flower."
     }
   ]
 }

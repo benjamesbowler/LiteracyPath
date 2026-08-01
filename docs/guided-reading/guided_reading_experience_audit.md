@@ -147,7 +147,7 @@ Generated: 2026-05-26
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | A | approved | 9 | 43 | 100% | digraphs-and-blends | cvc, initial-blend, initial-blend-sl, short-vowel-cvc, vowel-team, vowel-team-ee |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | A | approved | 10 | 42 | 86% | digraphs-and-blends | vowel-team, other, bossy-r, diphthong, vowel-team-oi, cvc |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | A | approved | 9 | 46 | 67% | digraphs-and-blends | other, cvc, short-vowel-cvc, digraph-th, initial-digraph, complex-final-sound |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | approved | 8 | 46 | 80% | digraphs-and-blends | other, initial-digraph, cvc, digraph-sh, short-vowel-cvc, vowel-team |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | approved | 9 | 49 | 82% | digraphs-and-blends | other, initial-digraph, cvc, digraph-sh, short-vowel-cvc, vowel-team |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | A | approved | 9 | 46 | 83% | digraphs-and-blends | cvc, short-vowel-cvc, other, short-i, vowel-team, vowel-team-ee |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | A | approved | 10 | 45 | 82% | digraphs-and-blends | silent-e, initial-blend, initial-blend-br, other, cvc, short-vowel-cvc |
 | meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | A | approved | 7 | 35 | 89% | digraphs-and-blends | other, complex-final-sound, digraph-ng, cvc, initial-blend, silent-e |
@@ -158,7 +158,7 @@ Generated: 2026-05-26
 | meadow-pals-17-bouncy-and-speedy-have-a-race | Bouncy and Speedy Have a Race | A | approved | 10 | 48 | 94% | digraphs-and-blends | other, cvc, short-vowel-cvc, complex-final-sound, digraph-th, final-blend-st |
 | meadow-pals-18-noisy-wakes-everyone-up | Noisy Wakes Everyone Up | A | approved | 9 | 37 | 95% | digraphs-and-blends | vowel-team, cvc, short-vowel-cvc, silent-e, initial-blend, other |
 | meadow-pals-19-tiny-and-brave-go-on-an-adventure | Tiny and Brave Go on an Adventure | A | approved | 9 | 47 | 87% | digraphs-and-blends | other, cvc, short-vowel-cvc, complex-final-sound, digraph-th, initial-digraph |
-| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | A | approved | 10 | 49 | 86% | digraphs-and-blends | cvc, other, short-vowel-cvc, initial-digraph, vowel-team, complex-final-sound |
+| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | A | approved | 10 | 54 | 85% | digraphs-and-blends | other, cvc, initial-digraph, short-vowel-cvc, vowel-team, digraph-sh |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | Woolly and Grumpy Are Stuck | A | approved | 9 | 66 | 89% | digraphs-and-blends | other, vowel-team, vowel-team-oo, initial-blend, initial-blend-gr, cvc |
 | meadow-pals-22-sleepys-big-dream | Sleepy's Big Dream | A | approved | 8 | 49 | 96% | digraphs-and-blends | initial-blend, initial-blend-sl, other, vowel-team, vowel-team-ee, cvc |
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | A | approved | 11 | 66 | 76% | digraphs-and-blends | other, cvc, short-vowel-cvc, digraph-th, initial-blend, initial-digraph |
@@ -200,9 +200,9 @@ Generated: 2026-05-26
 | vowel-team | 150 |
 | complex-final-sound | 145 |
 | bossy-r | 140 |
-| initial-blend | 126 |
+| initial-blend | 127 |
 | initial-digraph | 123 |
-| digraph-th | 119 |
+| digraph-th | 118 |
 | silent-e | 72 |
 | diphthong | 67 |
 | short-a | 42 |
@@ -212,7 +212,7 @@ Generated: 2026-05-26
 | vowel-team-ee | 17 |
 | digraph-ng | 16 |
 | digraph-sh | 15 |
-| vowel-team-ai | 14 |
+| vowel-team-ai | 15 |
 | short-i | 13 |
 
 ## Microphases
@@ -226,16 +226,16 @@ Generated: 2026-05-26
 
 | Book ID | Title | Score | Reasons |
 |---|---|---:|---|
-| bob-and-nan-04-beach | Bob and Nan go to the Beach | 112 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 100% decodable/HFW words; QA approved |
-| bob-and-nan-05-school | Bob and Nan's First Day at School | 112 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 100% decodable/HFW words; QA approved |
-| bob-and-nan-06-zoo | Nan and Bob go to the Zoo | 112 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 98% decodable/HFW words; QA approved |
-| first-facts-level-a-06-animals-can | Animals Can! | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 96% decodable/HFW words; QA approved |
-| bob-and-nan-01 | Bob and Nan | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 96% decodable/HFW words; QA approved |
-| bob-and-nan-02-park | Bob and Nan go to the Park | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 95% decodable/HFW words; QA approved |
-| bob-and-nan-03-fluff | Bob, Nan and Fluff | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 91% decodable/HFW words; QA approved |
-| bob-and-nan-08-sick | Nan and Bob get Sick | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 92% decodable/HFW words; QA approved |
-| bob-and-nan-09-read | Nan and Bob Learn to Read | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 90% decodable/HFW words; QA approved |
-| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 92% decodable/HFW words; QA approved |
+| first-facts-level-a-03-big-and-little | Big and Little | 92 | Not read yet; 100% of words are decodable or high-frequency words |
+| bob-and-nan-04-beach | Bob and Nan go to the Beach | 92 | Not read yet; 100% of words are decodable or high-frequency words |
+| bob-and-nan-05-school | Bob and Nan's First Day at School | 92 | Not read yet; 100% of words are decodable or high-frequency words |
+| first-facts-level-a-12-in-the-sea | In the Sea | 92 | Not read yet; 98% of words are decodable or high-frequency words |
+| bob-and-nan-06-zoo | Nan and Bob go to the Zoo | 92 | Not read yet; 98% of words are decodable or high-frequency words |
+| meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | 92 | Not read yet; 100% of words are decodable or high-frequency words |
+| first-facts-level-a-05-the-sky | The Sky | 92 | Not read yet; 98% of words are decodable or high-frequency words |
+| first-facts-level-a-06-animals-can | Animals Can! | 91 | Not read yet; 96% of words are decodable or high-frequency words |
+| bob-and-nan-01 | Bob and Nan | 91 | Not read yet; 96% of words are decodable or high-frequency words |
+| bob-and-nan-02-park | Bob and Nan go to the Park | 91 | Not read yet; 95% of words are decodable or high-frequency words |
 
 ## Warnings
 

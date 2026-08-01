@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-05-flowers-and-trees",
-  "contentHash": "sha256:aa29acf6c29f0d653ad59568d7cf6eface4143f4bfdf657b9c1f19f594a44cad",
+  "contentHash": "sha256:7f18b2b843e6da4ee2a833e2205c035f4d9786bc2cd76dd8abd9ac75cc696f1e",
   "questions": [
     {
       "id": "first-facts-a-05-flowers-and-trees-q1",
-      "prompt": "Which flower is tall and yellow?",
+      "prompt": "Which fact about many flowers is given in Flowering Plants and Trees?",
       "choices": [
-        "a sunflower",
-        "a daisy",
-        "a rose"
+        "Many flowers have petals stems and roots.",
+        "Roses come in many colours and may have prickles.",
+        "Plants need light water nutrients and space."
       ],
-      "answer": "a sunflower",
+      "answer": "Many flowers have petals stems and roots.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A sunflower is tall and yellow. The sun makes it grow."
+      "evidencePage": 1,
+      "evidenceText": "Many flowers have petals stems and roots."
     },
     {
       "id": "first-facts-a-05-flowers-and-trees-q2",
-      "prompt": "What makes evergreen trees different from some other trees?",
+      "prompt": "Which fact about roses is given in Flowering Plants and Trees?",
       "choices": [
-        "they keep their leaves all year",
-        "they lose their roots each winter",
-        "they grow only red flowers"
+        "Roses come in many colours and may have prickles.",
+        "Many flowers have petals stems and roots.",
+        "Plants need light water nutrients and space."
       ],
-      "answer": "they keep their leaves all year",
+      "answer": "Roses come in many colours and may have prickles.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 7,
-      "evidenceText": "Some trees keep their leaves all year. They are called evergreen trees."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Roses come in many colours and may have prickles."
     },
     {
       "id": "first-facts-a-05-flowers-and-trees-q3",
-      "prompt": "What do flowers and trees both need?",
+      "prompt": "Which statement gives the main idea of Flowering Plants and Trees?",
       "choices": [
-        "sun, soil, and water",
-        "shade, snow, and salt",
-        "wind, rocks, and ice"
+        "Plants need light water nutrients and space.",
+        "Many flowers have petals stems and roots.",
+        "Roses come in many colours and may have prickles."
       ],
-      "answer": "sun, soil, and water",
+      "answer": "Plants need light water nutrients and space.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Plants need light water nutrients and space. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "Flowers and trees are plants. They need sun, soil, and water."
+      "evidenceText": "Plants need light water nutrients and space."
     }
   ]
 }

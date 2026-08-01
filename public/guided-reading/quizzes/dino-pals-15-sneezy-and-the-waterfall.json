@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-15-sneezy-and-the-waterfall",
-  "contentHash": "sha256:66ac15323a7ed35e309a3b673619fff5dbe93087a399d54d6a6b592e102637c8",
+  "contentHash": "sha256:c88bcab03305a0c92fd289aeacee315ae5e56130155cffbf2939f32ab42684ae",
   "questions": [
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q1",
-      "prompt": "Why had Rainbow Waterfall stopped?",
+      "prompt": "Which event begins Sneezy and the Waterfall?",
       "choices": [
-        "The sun dried up the water.",
-        "Chompy drank the stream.",
-        "Rocks blocked the stream."
+        "Rainbow Waterfall stops flowing during the night.",
+        "The tired Pals sit beside the silent stream.",
+        "Water and rainbow return. Sneezy gathers the fallen leaves."
       ],
-      "answer": "Rocks blocked the stream.",
+      "answer": "Rainbow Waterfall stops flowing during the night.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "A huge pile of rocks had fallen in the night and blocked the stream above."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Rainbow Waterfall stops flowing during the night."
     },
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q2",
-      "prompt": "How was the blocked stream finally freed?",
+      "prompt": "Which event shows the main plan is not working in Sneezy and the Waterfall?",
       "choices": [
-        "The sneeze scattered the rocks.",
-        "Grumpy moved every rock alone.",
-        "Bossy dug a new stream."
+        "The tired Pals sit beside the silent stream.",
+        "Rainbow Waterfall stops flowing during the night.",
+        "Water and rainbow return. Sneezy gathers the fallen leaves."
       ],
-      "answer": "The sneeze scattered the rocks.",
+      "answer": "The tired Pals sit beside the silent stream.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 11,
-      "evidenceText": "The sneeze hit the rocks like a wave. Rocks scattered in every direction. The stream burst free."
+      "rationale": "The tired Pals sit beside the silent stream. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "The tired Pals sit beside the silent stream."
     },
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q3",
-      "prompt": "How did Grumpy feel about what Sneezy had done?",
+      "prompt": "Which event solves the problem in Sneezy and the Waterfall?",
       "choices": [
-        "angry",
-        "pleased",
-        "frightened"
+        "Water and rainbow return. Sneezy gathers the fallen leaves.",
+        "Rainbow Waterfall stops flowing during the night.",
+        "The tired Pals sit beside the silent stream."
       ],
-      "answer": "pleased",
-      "kind": "word",
-      "skill": "inference",
-      "rationale": "The waterfall roars back after Sneezy's sneeze, and Grumpy tells Sneezy not to apologise while smiling, which shows that Grumpy was pleased with what Sneezy had done.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 11,
-          "evidenceText": "The stream burst free. The waterfall roared back. A rainbow appeared."
-        }
-      ],
+      "answer": "Water and rainbow return. Sneezy gathers the fallen leaves.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Water and rainbow return. Sneezy gathers the fallen leaves. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Do not apologise, said Grumpy. For once, Grumpy was actually smiling."
+      "evidenceText": "Water and rainbow return. Sneezy gathers the fallen leaves."
     }
   ]
 }

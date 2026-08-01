@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-06",
-  "contentHash": "sha256:a130b76e04749481ce9cde5fe4b060933d6eab390189cbe30770766e78972c95",
+  "contentHash": "sha256:e8abea88794a228d416669d6c148fb8d55cfe769cc64578620dffb0d445eb430",
   "questions": [
     {
       "id": "ab-c-06-q1",
-      "prompt": "How did Aiden and Betty record the crystals growing?",
+      "prompt": "Which event introduces the situation in Aiden and Betty and the Science Fair?",
       "choices": [
-        "with a video and a song",
-        "with photographs and a chart",
-        "with weights and a map"
+        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
+        "For several mornings, the closed jar looked unchanged on its high shelf.",
+        "Their project won third place and recognition for its careful method."
       ],
-      "answer": "with photographs and a chart",
+      "answer": "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 6,
-      "evidenceText": "Aiden took a photograph and Betty added a mark to her chart. Then Mum put the jar back on the shelf, and everyone washed their hands."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately."
     },
     {
       "id": "ab-c-06-q2",
-      "prompt": "Why did the judges stay so long at their project?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Science Fair?",
       "choices": [
-        "The crystal jar was difficult to open.",
-        "Aiden asked them to wait for Socks.",
-        "Betty explained what happened and why."
+        "For several mornings, the closed jar looked unchanged on its high shelf.",
+        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
+        "Their project won third place and recognition for its careful method."
       ],
-      "answer": "Betty explained what happened and why.",
+      "answer": "For several mornings, the closed jar looked unchanged on its high shelf.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "The passage says the judges stayed a long time because Betty could explain what had happened and why, which directly links her explanation to their long visit.",
-      "evidencePage": 10,
-      "evidenceText": "The judges spent a very long time with Aiden and Betty's crystals — because Betty could explain not just what had happened but why, which turned out to be the whole point of the exercise."
+      "skill": "problem_solution",
+      "rationale": "For several mornings, the closed jar looked unchanged on its high shelf. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "For several mornings, the closed jar looked unchanged on its high shelf."
     },
     {
       "id": "ab-c-06-q3",
-      "prompt": "What important idea did Aiden record after the fair?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty and the Science Fair?",
       "choices": [
-        "Experiments should be fair and safe.",
-        "Every project must use crystals.",
-        "A gold certificate matters most."
+        "Their project won third place and recognition for its careful method.",
+        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
+        "For several mornings, the closed jar looked unchanged on its high shelf."
       ],
-      "answer": "Experiments should be fair and safe.",
+      "answer": "Their project won third place and recognition for its careful method.",
       "kind": "text",
-      "skill": "theme",
-      "evidencePage": 12,
-      "evidenceText": "That evening, Aiden added a new page to his field notebook. He wrote down six things that make an experiment fair and safe."
+      "skill": "outcome",
+      "rationale": "Their project won third place and recognition for its careful method. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "Their project won third place and recognition for its careful method."
     }
   ]
 }

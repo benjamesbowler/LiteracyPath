@@ -1,58 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-09",
-  "contentHash": "sha256:ecaca397cb7e63222d68e9e879e4b684348914a15b5a6c58e7604c70b0f545ab",
+  "contentHash": "sha256:10cc31fe7c1a99dadd811cb80bc45833f72391c5e5edb29e64c8a83268dd92b1",
   "questions": [
     {
       "id": "ab-c-09-q1",
-      "prompt": "Why was Aiden's tooth becoming loose?",
+      "prompt": "Which event introduces the situation in Aiden and Betty: New Teeth?",
       "choices": [
-        "He had bitten an apple too hard.",
-        "It was a baby tooth making way for a new one.",
-        "Socks had bumped his chair."
+        "Aiden bit an apple and felt one front tooth wobble.",
+        "Mum explained that loose baby teeth were normal, but he still wondered.",
+        "Aiden welcomed the new tooth. Now he knew what growing could feel like."
       ],
-      "answer": "It was a baby tooth making way for a new one.",
+      "answer": "Aiden bit an apple and felt one front tooth wobble.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Betty says the baby tooth will fall out and a new tooth will grow, which means the baby tooth is making way for a new one.",
-      "evidencePage": 2,
-      "evidenceText": "\"It is a baby tooth,\" she said. \"It will fall out, and a new tooth will grow.\""
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Aiden bit an apple and felt one front tooth wobble."
     },
     {
       "id": "ab-c-09-q2",
-      "prompt": "What did Aiden do after his tooth came out?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty: New Teeth?",
       "choices": [
-        "He gave it to Betty at lunch.",
-        "He placed it beside Socks's bed.",
-        "He put it in an envelope under his pillow."
+        "Mum explained that loose baby teeth were normal, but he still wondered.",
+        "Aiden bit an apple and felt one front tooth wobble.",
+        "Aiden welcomed the new tooth. Now he knew what growing could feel like."
       ],
-      "answer": "He put it in an envelope under his pillow.",
+      "answer": "Mum explained that loose baby teeth were normal, but he still wondered.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 8,
-      "evidenceText": "The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelope under his pillow."
+      "skill": "problem_solution",
+      "rationale": "Mum explained that loose baby teeth were normal, but he still wondered. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Mum explained that loose baby teeth were normal, but he still wondered."
     },
     {
       "id": "ab-c-09-q3",
-      "prompt": "What did the new tooth show about Aiden?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty: New Teeth?",
       "choices": [
-        "He was growing older.",
-        "He was becoming ill.",
-        "He needed to stop smiling."
+        "Aiden welcomed the new tooth. Now he knew what growing could feel like.",
+        "Aiden bit an apple and felt one front tooth wobble.",
+        "Mum explained that loose baby teeth were normal, but he still wondered."
       ],
-      "answer": "He was growing older.",
+      "answer": "Aiden welcomed the new tooth. Now he knew what growing could feel like.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Page 10 says a new tooth began to grow, and Betty then says Aiden looks a little older, which shows the new tooth is part of him growing older.",
-      "evidencePage": 11,
-      "evidenceText": "\"You do not look strange,\" Betty said. \"You look a little older.\" Aiden looked in the mirror and smiled.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 10,
-          "evidenceText": "Three weeks later, a new tooth began to grow in the gap."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Aiden welcomed the new tooth. Now he knew what growing could feel like. This event shows how the central problem is resolved.",
+      "evidencePage": 13,
+      "evidenceText": "Aiden welcomed the new tooth. Now he knew what growing could feel like."
     }
   ]
 }

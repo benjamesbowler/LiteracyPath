@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-18",
-  "contentHash": "sha256:8ca8c2623109200b4e18282546dd325d2e8117ff31a69b61633c219f378661c2",
+  "contentHash": "sha256:efa15d0a4000fe9f0c476879f2f9a642353d3d3a06852ef8d0f2a3d27470dc3c",
   "questions": [
     {
       "id": "moonwood-tales-c-18-q1",
-      "prompt": "What happened when Dewdrop first pushed hard water against the rocks?",
+      "prompt": "Which event introduces the situation in Stone and Dewdrop and the Stuck Fish?",
       "choices": [
-        "The fish did not move.",
-        "The fish swam free at once.",
-        "The rocks rolled downstream."
+        "Dewdrop finds a large fish trapped in Crystal Stream.",
+        "His first reach stops above the sparkling water.",
+        "Stone pushes. Mud releases, the rock turns, and the fish swims free."
       ],
-      "answer": "The fish did not move.",
+      "answer": "Dewdrop finds a large fish trapped in Crystal Stream.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 3,
-      "evidenceText": "She sent the water flowing hard against the rocks.\nThe fish did not move."
+      "evidencePage": 1,
+      "evidenceText": "Dewdrop finds a large fish trapped in Crystal Stream."
     },
     {
       "id": "moonwood-tales-c-18-q2",
-      "prompt": "How did Stone finally free the trapped fish?",
+      "prompt": "Which event shows that the first attempt fails in Stone and Dewdrop and the Stuck Fish?",
       "choices": [
-        "Stone pushed the rock, and the fish was free.",
-        "Stone lifted the fish over both rocks by its tail.",
-        "Stone blocked the water until the stream was dry."
+        "His first reach stops above the sparkling water.",
+        "Dewdrop finds a large fish trapped in Crystal Stream.",
+        "Stone pushes. Mud releases, the rock turns, and the fish swims free."
       ],
-      "answer": "Stone pushed the rock, and the fish was free.",
+      "answer": "His first reach stops above the sparkling water.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 9,
-      "evidenceText": "Stone pushed.\nThe rock moved.\nThe mud let go.\nThe fish was free."
+      "rationale": "His first reach stops above the sparkling water. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "His first reach stops above the sparkling water."
     },
     {
       "id": "moonwood-tales-c-18-q3",
-      "prompt": "What lesson does Stone's wet rescue show?",
+      "prompt": "Which event resolves the central problem in Stone and Dewdrop and the Stuck Fish?",
       "choices": [
-        "Helping someone can be worth feeling uncomfortable.",
-        "Stone helped because Dewdrop promised Stone would stay dry.",
-        "The fish escaped before Stone moved the rock."
+        "Stone pushes. Mud releases, the rock turns, and the fish swims free.",
+        "Dewdrop finds a large fish trapped in Crystal Stream.",
+        "His first reach stops above the sparkling water."
       ],
-      "answer": "Helping someone can be worth feeling uncomfortable.",
+      "answer": "Stone pushes. Mud releases, the rock turns, and the fish swims free.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Stone says he does not like getting wet, but after being soaked he focuses on the fish being free; this shows helping someone can be worth feeling uncomfortable.",
-      "evidencePage": 11,
-      "evidenceText": "Stone sat and dripped.\nStone looked at the arm.\nStone looked at the rest of Stone.\n\"The fish is free,\" said Stone.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 5,
-          "evidenceText": "Stone stood at the edge of the Crystal Stream.\nThe water sparkled.\nStone's feet stayed on the bank.\n\"I don't like getting wet,\" said Stone."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Stone pushes. Mud releases, the rock turns, and the fish swims free. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Stone pushes. Mud releases, the rock turns, and the fish swims free."
     }
   ]
 }

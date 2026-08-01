@@ -6,11 +6,12 @@ import {
   guidedReadingBookCandidates,
   guidedReadingBooks
 } from "../src/data/guidedReadingBooks.js";
+import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
 
 const rootDir = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const reportPath = path.join(rootDir, "docs", "guided-reading", "guided_reading_content_audit.md");
 const validTypes = new Set(["fiction", "nonfiction"]);
-const validLevels = new Set(["A", "B", "C", "D", "E"]);
+const validLevels = new Set(["A", "B", "C"]);
 const forbiddenStrings = [
   "placeholder",
   "hhhhh",
@@ -54,7 +55,11 @@ function heuristicWarnings(page = {}) {
   if (/\bday\b/.test(text) && !/\b(night|moon|stars?)\b/.test(text) && /\b(night|moon|stars?)\b/.test(haystack)) {
     warnings.push("text mentions day but image metadata suggests night/moon/stars");
   }
-  if (/\bnight\b/.test(text) && !/\b(sun|day|morning)\b/.test(text) && /\b(sun|day|morning)\b/.test(haystack)) {
+  // A sentence can legitimately bridge overnight into breakfast, and image
+  // metadata can mention the previous "school day" while still depicting a
+  // night scene. Only flag explicit daylight imagery, and treat breakfast as
+  // a clear next-morning cue in the reading text.
+  if (/\bnight\b/.test(text) && !/\b(sun|day|morning|breakfast)\b/.test(text) && /\b(sun|sunlight|daytime|morning)\b/.test(haystack)) {
     warnings.push("text mentions night but image metadata suggests sun/day");
   }
   if (/\bsun\b/.test(text) && !/\b(moon|night)\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
@@ -98,7 +103,12 @@ function validateBook(book) {
     if (forbidden) rowIssues.push(`forbidden bad string: ${forbidden}`);
     if (!page.image) rowIssues.push("missing image path");
     else if (!publicFileExists(page.image)) rowIssues.push(`missing page image file: ${page.image}`);
-    if (page.pageAudio && !publicFileExists(page.pageAudio)) rowIssues.push(`missing page narration file: ${page.pageAudio}`);
+    if (page.active !== false && page.qaStatus === "approved") {
+      const resolvedPageAudio = getGuidedReadingPageAudioPath(page);
+      if (!resolvedPageAudio || !publicFileExists(resolvedPageAudio)) {
+        rowIssues.push(`missing exact Leda page narration file: ${resolvedPageAudio || "unresolved"}`);
+      }
+    }
     if (!page.imageAlt) rowIssues.push("missing imageAlt metadata");
     if (!page.pageDescription) rowIssues.push("missing pageDescription metadata");
     if (!Array.isArray(page.targetWords)) rowIssues.push("missing targetWords metadata");

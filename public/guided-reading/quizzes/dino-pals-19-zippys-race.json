@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-19-zippys-race",
-  "contentHash": "sha256:4b141a00875549a89e91e695c4cad3a832965fb066f7e5da37f47d77d3545d81",
+  "contentHash": "sha256:f2ed7f99d3f5a53d2dac51106954b90195c843d810a319d4581bda66e41989e3",
   "questions": [
     {
       "id": "dino-pals-19-zippys-race-q1",
-      "prompt": "How did Zippy prepare for the race?",
+      "prompt": "Which event begins Zippy's Race?",
       "choices": [
-        "He ran three circuits, then four, then five, and kept going.",
-        "He rested for three days and skipped every practice run.",
-        "He asked another runner to show him a shorter route."
+        "Zippy delivers news of a race between valleys.",
+        "Wiggly asks why. Zippy still does not feel ready.",
+        "He runs one easy recovery lap, watching every marker."
       ],
-      "answer": "He ran three circuits, then four, then five, and kept going.",
+      "answer": "Zippy delivers news of a race between valleys.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "Zippy ran three circuits of Sunny Hollow. Then four. Then five. Then kept going."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Zippy delivers news of a race between valleys."
     },
     {
       "id": "dino-pals-19-zippys-race-q2",
-      "prompt": "How close was the finish?",
+      "prompt": "Which event shows the main plan is not working in Zippy's Race?",
       "choices": [
-        "The second runner arrived a heartbeat later.",
-        "The second runner arrived an hour later.",
-        "Both runners stopped before the line."
+        "Wiggly asks why. Zippy still does not feel ready.",
+        "Zippy delivers news of a race between valleys.",
+        "He runs one easy recovery lap, watching every marker."
       ],
-      "answer": "The second runner arrived a heartbeat later.",
+      "answer": "Wiggly asks why. Zippy still does not feel ready.",
       "kind": "text",
-      "skill": "outcome",
-      "evidencePage": 8,
-      "evidenceText": "Zippy crossed the line first. Just. The second runner arrived a heartbeat later."
+      "skill": "problem_solution",
+      "rationale": "Wiggly asks why. Zippy still does not feel ready. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Wiggly asks why. Zippy still does not feel ready."
     },
     {
       "id": "dino-pals-19-zippys-race-q3",
-      "prompt": "What does Zippy's reply to the second runner show?",
+      "prompt": "Which event solves the problem in Zippy's Race?",
       "choices": [
-        "He respected the other runner.",
-        "He blamed the other runner.",
-        "He refused to speak to the other runner."
+        "He runs one easy recovery lap, watching every marker.",
+        "Zippy delivers news of a race between valleys.",
+        "Wiggly asks why. Zippy still does not feel ready."
       ],
-      "answer": "He respected the other runner.",
+      "answer": "He runs one easy recovery lap, watching every marker.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "The second runner says, \"Good race,\" and Zippy answers, \"You too,\" which shows that Zippy respected the other runner.",
-      "evidencePage": 10,
-      "evidenceText": "The second runner came over. Good race, they said. You too, said Zippy, breathing hard for the first time ever."
+      "skill": "outcome",
+      "rationale": "He runs one easy recovery lap, watching every marker. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "He runs one easy recovery lap, watching every marker."
     }
   ]
 }

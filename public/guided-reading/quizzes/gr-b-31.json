@@ -1,65 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-b-31",
-  "contentHash": "sha256:771df02e8e4784c5b2a09bbbe13d6ae04fad5b63e9954faad0209495c9795721",
+  "contentHash": "sha256:9f0a6f53ada61d7ac056b96d2ad97e51d33ed0063db02037ccc772bd280ad55b",
   "questions": [
     {
       "id": "gr-b-31-q1",
-      "prompt": "When does it rain in this book?",
+      "prompt": "Which fact about spring is given in Seasons?",
       "choices": [
-        "in spring",
-        "in winter",
-        "in summer"
+        "In many temperate places spring brings rain.",
+        "Many leaves change colour in autumn.",
+        "The four seasons repeat each year."
       ],
-      "answer": "in spring",
+      "answer": "In many temperate places spring brings rain.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "In spring, it rains."
+      "evidenceText": "In many temperate places spring brings rain."
     },
     {
       "id": "gr-b-31-q2",
-      "prompt": "What happens in summer?",
+      "prompt": "Which fact about many leaves is given in Seasons?",
       "choices": [
-        "it is hot",
-        "it snows",
-        "it rains"
+        "Many leaves change colour in autumn.",
+        "In many temperate places spring brings rain.",
+        "The four seasons repeat each year."
       ],
-      "answer": "it is hot",
+      "answer": "Many leaves change colour in autumn.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "In summer, it is hot."
+      "evidencePage": 3,
+      "evidenceText": "Many leaves change colour in autumn."
     },
     {
       "id": "gr-b-31-q3",
-      "prompt": "Which order does the book use for the seasons?",
+      "prompt": "Which statement gives the main idea of Seasons?",
       "choices": [
-        "spring, summer, fall, winter",
-        "spring, fall, summer, winter",
-        "winter, summer, spring, fall"
+        "The four seasons repeat each year.",
+        "In many temperate places spring brings rain.",
+        "Many leaves change colour in autumn."
       ],
-      "answer": "spring, summer, fall, winter",
+      "answer": "The four seasons repeat each year.",
       "kind": "text",
-      "skill": "sequence",
-      "rationale": "The book presents spring on page 1, summer on page 2, fall on page 3, and winter on page 4.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "In summer, it is hot."
-        },
-        {
-          "evidencePage": 3,
-          "evidenceText": "In fall, leaves drop."
-        },
-        {
-          "evidencePage": 4,
-          "evidenceText": "In winter, it snows."
-        }
-      ],
-      "evidencePage": 1,
-      "evidenceText": "In spring, it rains."
+      "skill": "main_idea",
+      "rationale": "The four seasons repeat each year. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "The four seasons repeat each year."
     }
   ]
 }

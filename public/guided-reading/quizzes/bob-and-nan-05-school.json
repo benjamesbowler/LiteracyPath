@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-05-school",
-  "contentHash": "sha256:e56216d5180de0e4478e215a22bb3522dc532d8ffb3d4baaa679589631c4f936",
+  "contentHash": "sha256:85b184ba80d4f6dcc4db413bc91e7ecc40b9e1bd7a50d310449ffbc587a7c23b",
   "questions": [
     {
       "id": "bob-and-nan-05-school-q1",
-      "prompt": "What did Bob take to school?",
+      "prompt": "What happens first in Bob and Nan's First Day at School?",
       "choices": [
-        "his bat",
-        "his bag",
-        "his book"
+        "Today is their first school day.",
+        "Bob stops at the classroom door.",
+        "They sit down and draw together."
       ],
-      "answer": "his bag",
+      "answer": "Today is their first school day.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "Bob has his bag."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Today is their first school day."
     },
     {
       "id": "bob-and-nan-05-school-q2",
-      "prompt": "Where did Bob and Nan sit?",
+      "prompt": "What goes wrong in Bob and Nan's First Day at School?",
       "choices": [
-        "on a log",
-        "in a bed",
-        "at a desk"
+        "Bob stops at the classroom door.",
+        "Today is their first school day.",
+        "They sit down and draw together."
       ],
-      "answer": "at a desk",
+      "answer": "Bob stops at the classroom door.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 6,
-      "evidenceText": "Bob and Nan sit at a desk."
+      "skill": "problem_solution",
+      "rationale": "Bob stops at the classroom door. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Bob stops at the classroom door."
     },
     {
       "id": "bob-and-nan-05-school-q3",
-      "prompt": "How was school for Bob and Nan by the end?",
+      "prompt": "What happens at the end of Bob and Nan's First Day at School?",
       "choices": [
-        "It was fun.",
-        "It was scary.",
-        "It was lonely."
+        "They sit down and draw together.",
+        "Today is their first school day.",
+        "Bob stops at the classroom door."
       ],
-      "answer": "It was fun.",
+      "answer": "They sit down and draw together.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They sit down and draw together. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Bob and Nan had fun at school!"
+      "evidenceText": "They sit down and draw together."
     }
   ]
 }

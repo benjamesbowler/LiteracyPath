@@ -1,0 +1,188 @@
+{
+  "records": [
+    {
+      "bookId": "meadow-pals-01-muddy-has-a-bath",
+      "pageNumber": 8,
+      "imagePath": "/guided-reading/series/meadow-pals/book-01/page-008.webp",
+      "imageSha256": "27c4be6f0493a5118a9c366530665f32becf7fc69377b015138fb4f657defd27",
+      "status": "approved",
+      "completionNote": "Clean Muddy visibly walks around the mud on dry grass; farm setting and character model preserved."
+    },
+    {
+      "bookId": "meadow-pals-01-muddy-has-a-bath",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/meadow-pals/book-01/page-009.webp",
+      "imageSha256": "98b4a7fad2c6e92c718e8354c3eccf0c64035e90a4950fea8afa1ae5e7123a08",
+      "status": "approved",
+      "completionNote": "Clean Muddy visibly joins farm friends at a supper table away from mud; flat book style and setting preserved."
+    },
+    {
+      "bookId": "meadow-pals-04-bouncy-wont-stop",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/meadow-pals/book-04/page-003.webp",
+      "imageSha256": "2c1cee9555c202f626684e54f669f3640c0e93d8d09aa29022497db005b9136a",
+      "status": "approved",
+      "completionNote": "Bouncy gently bumps Grumpy’s visible water bucket; both exact characters and safe action are clear."
+    },
+    {
+      "bookId": "meadow-pals-04-bouncy-wont-stop",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/meadow-pals/book-04/page-005.webp",
+      "imageSha256": "e0a94c276a10efa42fd7fd76e9e644d771d892adf888af38fafa301e2b6eb833",
+      "status": "approved",
+      "completionNote": "Bouncy gently bumps Clucky’s visible egg basket; eggs remain safe and exact characters are preserved."
+    },
+    {
+      "bookId": "meadow-pals-05-grumpy-gets-a-surprise",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/meadow-pals/book-05/page-004.webp",
+      "imageSha256": "523d9813d1e062c3937a5dedd5dbacf8b96b61f7c300fb8bebce70cec976b9c4",
+      "status": "approved",
+      "completionNote": "Grumpy is visibly concealed behind hay while the established group approaches; party props and place persist."
+    },
+    {
+      "bookId": "meadow-pals-06-sleepy-cant-wake-up",
+      "pageNumber": 8,
+      "imagePath": "/guided-reading/series/meadow-pals/book-06/page-008.webp",
+      "imageSha256": "a9cbe6ef5fb8b0b2bd242ddcaca72813119094cf33ba681b1029527caccf9a27",
+      "status": "approved",
+      "completionNote": "Sleepy begins waking as breakfast smells reach the straw bed; Noisy and the breakfast tray clearly establish the cause."
+    },
+    {
+      "bookId": "meadow-pals-06-sleepy-cant-wake-up",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/meadow-pals/book-06/page-009.webp",
+      "imageSha256": "a74afba261144a75b698133ef673604d670f15d3338786c8bcb26f92ea13675a",
+      "status": "approved",
+      "completionNote": "Awake Sleepy has joined Noisy at the breakfast table, matching the closing action."
+    },
+    {
+      "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/meadow-pals/book-07/page-003.webp",
+      "imageSha256": "67a89595e026f18bce201ffe1a70327064b38e6ea0b5ad00b5f7dc4fcadf9c32",
+      "status": "approved",
+      "completionNote": "A single harmless bug visibly lands on Noisy, matching the page without extra action."
+    },
+    {
+      "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
+      "pageNumber": 8,
+      "imagePath": "/guided-reading/series/meadow-pals/book-07/page-008.webp",
+      "imageSha256": "e61709b806ecd367f1501b5015de04ea0a10bcfbbf8c450e3bb7bee5d03e35b3",
+      "status": "approved",
+      "completionNote": "Noisy visibly whispers to the same small worm in the established farm setting."
+    },
+    {
+      "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/meadow-pals/book-07/page-009.webp",
+      "imageSha256": "ebe8720868a9a4a14fc08120e8e772ba6a5a644b23dc89b8000f8c9200364d7c",
+      "status": "approved",
+      "completionNote": "Sleepy remains peacefully asleep while the nearby friends visibly keep quiet."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 1,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-001.webp",
+      "imageSha256": "2864b1d109cd8180f45d14b8c7be36fddd5230bbc7b2e0ae4d42f20b72dd1e86",
+      "status": "approved",
+      "completionNote": "Tiny remains outside as the same brass key falls into the narrow hollow log opening, beginning one continuous problem."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-002.webp",
+      "imageSha256": "cfc53f4a2f866797939a5d0d54848995aeef5e5cd56049d22cb8e437a9eced10",
+      "status": "approved",
+      "completionNote": "The same mouse-sized log opening and key are clearly shown while Tiny measures its small size from outside."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-003.webp",
+      "imageSha256": "ba831ecbc082eeef81ddf729b201cec690a353e58d2193a8b9b33f1eeca76b3a",
+      "status": "approved",
+      "completionNote": "Grumpy’s much larger hoof stops at the narrow rim and cannot fit, while Tiny watches."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-004.webp",
+      "imageSha256": "45c2c5ff676e6ec418f17e0aaf607da796c5e5f9692ef5e60ded81547e0c361a",
+      "status": "approved",
+      "completionNote": "Clucky’s wide wing reaches into the narrow opening but remains short of the same key; Tiny watches."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-005.webp",
+      "imageSha256": "d090324264329eb5e598e9e2a4a4ffba9bf4b89048e05704e55060b0382bcb08",
+      "status": "approved",
+      "completionNote": "After the failed attempts, all larger friends turn toward Tiny beside the same log and key."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-006.webp",
+      "imageSha256": "4003bde913b82d65ee3ac3a6e1bdc578a0019874dbf1fcd5db3266f970f5a73d",
+      "status": "approved",
+      "completionNote": "Tiny stands outside the same opening and is visibly small enough to fit while the larger friends wait."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-007.webp",
+      "imageSha256": "e8cc6bec596aea857c01184f12189044026705c07d3fd645ff3cc35de22ee932",
+      "status": "approved",
+      "completionNote": "Tiny actively crawls into the same log toward the same key while Grumpy and Clucky wait safely."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 8,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-008.webp",
+      "imageSha256": "c9a6ca7162dd7cd0dcf1da0cec8a09ded340bb18ae5bc749e1545291990b9275",
+      "status": "approved",
+      "completionNote": "Inside the same log, Tiny clearly finds and touches the same brass key while friends wait outside."
+    },
+    {
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/meadow-pals/book-08/page-009.webp",
+      "imageSha256": "a786add79a60df7a4b5f63c37cc145395cf6a263cc54ff9297ebce9bf2ea070f",
+      "status": "approved",
+      "completionNote": "Tiny returns outside holding the recovered key while Grumpy and Clucky celebrate; the log is visibly empty."
+    },
+    {
+      "bookId": "meadow-pals-09-shy-comes-out-to-play",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/meadow-pals/book-09/page-004.webp",
+      "imageSha256": "7977363137c744c8eebc51a828a01bfb8d1613c1c0f19127f9fc70f11fae6ef1",
+      "status": "approved",
+      "completionNote": "Exactly one Shy is partly concealed behind the barn doorway, with no duplicated mouse."
+    },
+    {
+      "bookId": "meadow-pals-10-giggly-has-the-hiccups",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/meadow-pals/book-10/page-004.webp",
+      "imageSha256": "75e820e12ae6e12b4de4f7da96ad994470c3978bffbdd882f2d3277e84e931f6",
+      "status": "approved",
+      "completionNote": "Giggly clearly takes a drink while the visible hiccup continues and Clucky watches."
+    },
+    {
+      "bookId": "meadow-pals-10-giggly-has-the-hiccups",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/meadow-pals/book-10/page-005.webp",
+      "imageSha256": "cefbea60c8d1aa60e24219147343880befc5879e3371c94600ad5eef9ef1c3d0",
+      "status": "approved",
+      "completionNote": "Giggly visibly jumps but still hiccups while Bouncy watches supportively."
+    },
+    {
+      "bookId": "meadow-pals-13-splashy-finds-a-puddle",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/meadow-pals/book-13/page-009.webp",
+      "imageSha256": "1642db2d2228e9420960b45b402aa24994ee21777621ad2074752c27f2bd3701",
+      "status": "approved",
+      "completionNote": "Splashy moves through a clearly open wooden gate into the designated safe field."
+    }
+  ]
+}

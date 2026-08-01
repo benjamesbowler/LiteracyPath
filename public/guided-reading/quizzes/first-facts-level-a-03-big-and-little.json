@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-03-big-and-little",
-  "contentHash": "sha256:9023b08c186266f52455cc4b318f9b888260176755f633caee762644db762e97",
+  "contentHash": "sha256:7df4ee600e17087424ee779222345dad7e11663f20de5d4bc97f8e151843bcc5",
   "questions": [
     {
       "id": "first-facts-level-a-03-big-and-little-q1",
-      "prompt": "Which big animal is shown with a little bug?",
+      "prompt": "Which animals are shown on the first page?",
       "choices": [
-        "the dog",
-        "the bug",
-        "the seed"
+        "dog and bug",
+        "fish and crab",
+        "hat and cap"
       ],
-      "answer": "the dog",
+      "answer": "dog and bug",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A big dog.\nA little bug."
+      "evidenceText": "Big dog. Little bug."
     },
     {
       "id": "first-facts-level-a-03-big-and-little-q2",
-      "prompt": "Which little animal is shown with the big fish?",
+      "prompt": "Which vehicles are compared in Big and Little?",
       "choices": [
-        "the fish",
-        "the crab",
-        "the bus"
+        "bus and car",
+        "tree and seed",
+        "sun and moon"
       ],
-      "answer": "the crab",
+      "answer": "bus and car",
       "kind": "text",
       "skill": "comparison",
-      "evidencePage": 2,
-      "evidenceText": "A big fish.\nA little crab."
+      "evidencePage": 3,
+      "evidenceText": "Big bus. Little car."
     },
     {
       "id": "first-facts-level-a-03-big-and-little-q3",
-      "prompt": "Which little thing comes after the big bus?",
+      "prompt": "What is the big idea in Big and Little?",
       "choices": [
-        "a little seed",
-        "a little moon",
-        "a little car"
+        "Things can be big or little.",
+        "Big dog. Little bug.",
+        "Big bus. Little car."
       ],
-      "answer": "a little car",
+      "answer": "Things can be big or little.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 3,
-      "evidenceText": "A big bus.\nA little car."
+      "skill": "main_idea",
+      "rationale": "Things can be big or little. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Things can be big or little."
     }
   ]
 }

@@ -1,32 +1,32 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-04-water",
-  "contentHash": "sha256:2754ebbb387074f4593131a9a8fc6b35c9c8508e3c45f9e82f02050b36b30516",
+  "contentHash": "sha256:4c5d4a531c01d79b3873eab4099ec7b9bfa9cd76b95eaa11f01c506afbd25c06",
   "questions": [
     {
       "id": "first-facts-level-a-04-water-q1",
-      "prompt": "Which is one thing the book says we do with water?",
+      "prompt": "Which fact is introduced first in Water?",
       "choices": [
-        "drink it",
-        "eat it",
-        "wear it"
+        "We drink water.",
+        "Fish swim in water.",
+        "All living things need water."
       ],
-      "answer": "drink it",
+      "answer": "We drink water.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 1,
       "evidenceText": "We drink water."
     },
     {
       "id": "first-facts-level-a-04-water-q2",
-      "prompt": "Which animal does the book say swims in water?",
+      "prompt": "What do we learn about fish?",
       "choices": [
-        "a fish",
-        "a cat",
-        "a dog"
+        "Fish swim in water.",
+        "We drink water.",
+        "All living things need water."
       ],
-      "answer": "a fish",
+      "answer": "Fish swim in water.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 4,
@@ -34,17 +34,18 @@
     },
     {
       "id": "first-facts-level-a-04-water-q3",
-      "prompt": "Which animal does the book say hops in water?",
+      "prompt": "What is the big idea in Water?",
       "choices": [
-        "frogs",
-        "dogs",
-        "pigs"
+        "All living things need water.",
+        "We drink water.",
+        "Fish swim in water."
       ],
-      "answer": "frogs",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "Frogs hop in water."
+      "answer": "All living things need water.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "All living things need water. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "All living things need water."
     }
   ]
 }

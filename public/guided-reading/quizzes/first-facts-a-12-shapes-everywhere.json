@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-12-shapes-everywhere",
-  "contentHash": "sha256:00a3c3711d018fe635bc8472c3cd35cd2f6c114bc810163cc9b2ab291aebdc15",
+  "contentHash": "sha256:2794dc93aa5714af2a7f882d04935a609358fa0ed5fd38aef02a2560f699c224",
   "questions": [
     {
       "id": "first-facts-a-12-shapes-everywhere-q1",
-      "prompt": "How many sides does a triangle have?",
+      "prompt": "Which fact about a circle is given in Shapes on Everyday Objects?",
       "choices": [
-        "three",
-        "four",
-        "five"
+        "A circle is round. A wheel face looks circular.",
+        "A triangle has three sides. This roof edge forms one.",
+        "We can find flat shapes on many objects."
       ],
-      "answer": "three",
-      "kind": "word",
+      "answer": "A circle is round. A wheel face looks circular.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "A triangle has three sides. A pizza slice is a triangle. A roof is a triangle."
+      "evidencePage": 1,
+      "evidenceText": "A circle is round. A wheel face looks circular."
     },
     {
       "id": "first-facts-a-12-shapes-everywhere-q2",
-      "prompt": "How many points does a star have?",
+      "prompt": "Which fact about a triangle is given in Shapes on Everyday Objects?",
       "choices": [
-        "five",
-        "three",
-        "ten"
+        "A triangle has three sides. This roof edge forms one.",
+        "A circle is round. A wheel face looks circular.",
+        "We can find flat shapes on many objects."
       ],
-      "answer": "five",
-      "kind": "word",
+      "answer": "A triangle has three sides. This roof edge forms one.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "A star has five points. We see stars in the night sky."
+      "evidencePage": 3,
+      "evidenceText": "A triangle has three sides. This roof edge forms one."
     },
     {
       "id": "first-facts-a-12-shapes-everywhere-q3",
-      "prompt": "What shape is an egg?",
+      "prompt": "Which statement gives the main idea of Shapes on Everyday Objects?",
       "choices": [
-        "an oval",
-        "a square",
-        "a star"
+        "We can find flat shapes on many objects.",
+        "A circle is round. A wheel face looks circular.",
+        "A triangle has three sides. This roof edge forms one."
       ],
-      "answer": "an oval",
+      "answer": "We can find flat shapes on many objects.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "An oval is like a stretched circle. An egg is an oval. A leaf is an oval."
+      "skill": "main_idea",
+      "rationale": "We can find flat shapes on many objects. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "We can find flat shapes on many objects."
     }
   ]
 }

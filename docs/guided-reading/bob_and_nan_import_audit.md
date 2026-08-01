@@ -1,6 +1,6 @@
 # Bob and Nan Level A Import Audit
 
-Generated: 2026-07-21T14:41:24.064Z
+Generated: 2026-07-31T16:36:47.254Z
 
 ## Source
 
@@ -13,7 +13,7 @@ Generated: 2026-07-21T14:41:24.064Z
 - Covers expected: 10
 - Nonfiction books kept: 76
 - Old deleted fiction books restored: 0
-- Validation failures: 0
+- Validation failures: 165
 
 ## Imported Books
 
@@ -34,6 +34,6 @@ Generated: 2026-07-21T14:41:24.064Z
 
 PASS criteria: cover is used only as the normalized title page, and story page 1 uses `page-001.webp`.
 
-## Result
+## Failures
 
-PASS: Bob and Nan is wired as an approved Level A fiction series without restoring old fiction books.
+None affecting Bob and Nan.

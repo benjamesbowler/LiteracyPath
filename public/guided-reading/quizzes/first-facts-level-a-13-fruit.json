@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-13-fruit",
-  "contentHash": "sha256:04c303527472bdb601566851a09537cc592e4ecabaa14b9d10064cf338ba89ba",
+  "contentHash": "sha256:48e481cf58807a3e00989eb102174718ac1e2a04c018b591116400021b028532",
   "questions": [
     {
       "id": "first-facts-level-a-13-fruit-q1",
-      "prompt": "What color is the apple in the book?",
+      "prompt": "Which fact is introduced first in Fruit?",
       "choices": [
-        "red",
-        "purple",
-        "yellow"
+        "A red apple tastes sweet.",
+        "A purple plum is small.",
+        "Fruit has many bright colours."
       ],
-      "answer": "red",
-      "kind": "word",
+      "answer": "A red apple tastes sweet.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "An apple is red.\nIt is sweet."
+      "evidenceText": "A red apple tastes sweet."
     },
     {
       "id": "first-facts-level-a-13-fruit-q2",
-      "prompt": "Which fruit is yellow and soft?",
+      "prompt": "What do we learn about a purple plum?",
       "choices": [
-        "the banana",
-        "the plum",
-        "the grape"
+        "A purple plum is small.",
+        "A red apple tastes sweet.",
+        "Fruit has many bright colours."
       ],
-      "answer": "the banana",
+      "answer": "A purple plum is small.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A banana is yellow.\nIt is soft."
+      "evidencePage": 3,
+      "evidenceText": "A purple plum is small."
     },
     {
       "id": "first-facts-level-a-13-fruit-q3",
-      "prompt": "Which fruit does the book describe as small and round?",
+      "prompt": "What is the big idea in Fruit?",
       "choices": [
-        "the grape",
-        "the banana",
-        "the plum"
+        "Fruit has many bright colours.",
+        "A red apple tastes sweet.",
+        "A purple plum is small."
       ],
-      "answer": "the grape",
+      "answer": "Fruit has many bright colours.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "A grape is small.\nIt is round."
+      "skill": "main_idea",
+      "rationale": "Fruit has many bright colours. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Fruit has many bright colours."
     }
   ]
 }

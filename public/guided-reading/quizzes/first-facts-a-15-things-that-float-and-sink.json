@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-15-things-that-float-and-sink",
-  "contentHash": "sha256:1600b2fb682a583288a78428fc8c47d6f17ef5c1bae1c5ee6c8542c130ba35df",
+  "contentHash": "sha256:752fadc5529781faf84f425daf017adcbe4308e938e3996c716fe30e45f27fe2",
   "questions": [
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q1",
-      "prompt": "What happens to a stone in water?",
+      "prompt": "Which fact about a hollow toy duck is given in Why Things Float or Sink?",
       "choices": [
-        "it floats",
-        "it sinks",
-        "it melts"
+        "A hollow toy duck can float.",
+        "A leaf may float while a coin sinks.",
+        "Weight alone does not decide."
       ],
-      "answer": "it sinks",
+      "answer": "A hollow toy duck can float.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "Drop a stone in water. It sinks to the bottom."
+      "evidencePage": 1,
+      "evidenceText": "A hollow toy duck can float."
     },
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q2",
-      "prompt": "Which thing floats while the coin sinks?",
+      "prompt": "Which fact about a leaf is given in Why Things Float or Sink?",
       "choices": [
-        "a stone",
-        "a rock",
-        "a leaf"
+        "A leaf may float while a coin sinks.",
+        "A hollow toy duck can float.",
+        "Weight alone does not decide."
       ],
-      "answer": "a leaf",
+      "answer": "A leaf may float while a coin sinks.",
       "kind": "text",
       "skill": "comparison",
       "evidencePage": 3,
-      "evidenceText": "A leaf floats. A coin sinks."
+      "evidenceText": "A leaf may float while a coin sinks."
     },
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q3",
-      "prompt": "Why does a big rock often sink?",
+      "prompt": "Which statement gives the main idea of Why Things Float or Sink?",
       "choices": [
-        "it is heavy",
-        "it is green",
-        "it is soft"
+        "Weight alone does not decide.",
+        "A hollow toy duck can float.",
+        "A leaf may float while a coin sinks."
       ],
-      "answer": "it is heavy",
+      "answer": "Weight alone does not decide.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "A big rock is heavy. Heavy things often sink."
+      "skill": "main_idea",
+      "rationale": "Weight alone does not decide. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Weight alone does not decide."
     }
   ]
 }

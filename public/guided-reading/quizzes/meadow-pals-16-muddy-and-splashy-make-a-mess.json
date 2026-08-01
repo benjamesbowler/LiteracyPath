@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-16-muddy-and-splashy-make-a-mess",
-  "contentHash": "sha256:9722866051bc1dafee61a04af73a2e519f5e08a7daeac50a6a45aa2c413e6804",
+  "contentHash": "sha256:d53870ecca7efe6805bef17b8d24b4bf81f9d74ff91aa6b6fcf77e26eb60a033",
   "questions": [
     {
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q1",
-      "prompt": "Who jumps into the mud with Muddy?",
+      "prompt": "What happens first in Muddy and Splashy Make a Mess?",
       "choices": [
-        "Splashy",
-        "Grumpy",
-        "Clucky"
+        "Muddy brings some mud.",
+        "Mud covers Grumpy.",
+        "They move beyond the gate."
       ],
-      "answer": "Splashy",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "Muddy jumped in. Splashy jumped in."
+      "answer": "Muddy brings some mud.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Muddy brings some mud."
     },
     {
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q2",
-      "prompt": "Who gets mud splashed on them?",
+      "prompt": "What goes wrong in Muddy and Splashy Make a Mess?",
       "choices": [
-        "Grumpy",
-        "Tiny",
-        "Woolly"
+        "Mud covers Grumpy.",
+        "Muddy brings some mud.",
+        "They move beyond the gate."
       ],
-      "answer": "Grumpy",
-      "kind": "word",
-      "skill": "sequence",
+      "answer": "Mud covers Grumpy.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Mud covers Grumpy. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "The mud went on Grumpy."
+      "evidenceText": "Mud covers Grumpy."
     },
     {
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q3",
-      "prompt": "How does Splashy feel about mud at the end?",
+      "prompt": "What happens at the end of Muddy and Splashy Make a Mess?",
       "choices": [
-        "Splashy likes it",
-        "Splashy fears it",
-        "Splashy avoids it"
+        "They move beyond the gate.",
+        "Muddy brings some mud.",
+        "Mud covers Grumpy."
       ],
-      "answer": "Splashy likes it",
+      "answer": "They move beyond the gate.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They move beyond the gate. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Muddy likes mud. Splashy likes mud too."
+      "evidenceText": "They move beyond the gate."
     }
   ]
 }

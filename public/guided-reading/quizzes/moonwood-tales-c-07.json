@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-07",
-  "contentHash": "sha256:fc4f8177ae2be3dab70adf072154b8fae89ad2f6e56f086b911b43fe1e64d097",
+  "contentHash": "sha256:88f2add70d947d869e12df5975c2e83dcbf1096b70d6c8eddc41e46dc79f0997",
   "questions": [
     {
       "id": "moonwood-tales-c-07-q1",
-      "prompt": "Which claim especially makes Dewdrop doubt the new fish?",
+      "prompt": "Which event introduces the situation in Dewdrop and the Lying Fish?",
       "choices": [
-        "It says it has been here longer than the Hollow Oak.",
-        "It says its bright blue stripe is new.",
-        "It says there are cold places in the stream."
+        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
+        "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
+        "\"My name is Ripple,\" it tells Pip. One true story begins."
       ],
-      "answer": "It says it has been here longer than the Hollow Oak.",
+      "answer": "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
       "kind": "text",
-      "skill": "inference",
-      "evidencePage": 4,
-      "evidenceText": "I have been here longer than the Hollow Oak, said the fish. Dewdrop looked carefully. The fish was, if anything, quite new-looking."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Dewdrop knows every fish in Crystal Stream and their usual morning news."
     },
     {
       "id": "moonwood-tales-c-07-q2",
-      "prompt": "Why has the new fish been telling untrue stories?",
+      "prompt": "Which event shows that the first attempt fails in Dewdrop and the Lying Fish?",
       "choices": [
-        "It is new and wants to sound interesting.",
-        "It wants Dewdrop to leave the stream.",
-        "It has forgotten every true thing it knows."
+        "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
+        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
+        "\"My name is Ripple,\" it tells Pip. One true story begins."
       ],
-      "answer": "It is new and wants to sound interesting.",
+      "answer": "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
       "kind": "text",
-      "skill": "motivation",
-      "evidencePage": 8,
-      "evidenceText": "Because I am new here, said the fish. And I wanted to sound interesting."
+      "skill": "problem_solution",
+      "rationale": "Dewdrop checks one clue. The old badger, not the fish, keeps it. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Dewdrop checks one clue. The old badger, not the fish, keeps it."
     },
     {
       "id": "moonwood-tales-c-07-q3",
-      "prompt": "What lesson does Dewdrop help the blue-striped fish understand?",
+      "prompt": "Which event resolves the central problem in Dewdrop and the Lying Fish?",
       "choices": [
-        "You do not need invented stories to be interesting.",
-        "The blue stripe proves the fish's oldest claim is true.",
-        "Knowing Deep Dark secrets is what makes the fish welcome."
+        "\"My name is Ripple,\" it tells Pip. One true story begins.",
+        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
+        "Dewdrop checks one clue. The old badger, not the fish, keeps it."
       ],
-      "answer": "You do not need invented stories to be interesting.",
+      "answer": "\"My name is Ripple,\" it tells Pip. One true story begins.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "The fish admits it invented stories because it was new and wanted to sound interesting, but Dewdrop says being the only blue-stripe fish is enough; this shows it does not need invented stories to be interesting.",
-      "evidencePage": 10,
-      "evidenceText": "Is being the only blue-stripe fish enough? asked the fish. Yes, said Dewdrop. It is very enough.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 8,
-          "evidenceText": "Because I am new here, said the fish. And I wanted to sound interesting."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "\"My name is Ripple,\" it tells Pip. One true story begins. This event shows how the central problem is resolved.",
+      "evidencePage": 12,
+      "evidenceText": "\"My name is Ripple,\" it tells Pip. One true story begins."
     }
   ]
 }

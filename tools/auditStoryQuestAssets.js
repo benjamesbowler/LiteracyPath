@@ -3,12 +3,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { storyQuests } from "../src/data/storyQuests.js";
+import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const reportPath = path.join(repoRoot, "docs/assets/story_quest_asset_audit.md");
 const imageRoot = path.join(repoRoot, "public/images/story-quests");
 const audioRoot = path.join(repoRoot, "public/audio/story-quests");
+const productionStoryAudioRoot = path.join(repoRoot, "public/audio/production/en-US/story_page");
 
 const IMAGE_EXTENSIONS = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"]);
 const AUDIO_EXTENSIONS = new Set([".aac", ".m4a", ".mp3", ".ogg", ".wav", ".webm"]);
@@ -100,7 +102,11 @@ function formatStatus(exists) {
 function makeQuestRows(quest) {
   return (quest.pages || []).map((page, index) => {
     const imagePath = normalizePublicPath(page.imageUrl || page.imagePath || "");
-    const audioPath = normalizePublicPath(page.audioUrl || page.audioPath || "");
+    const pageText = Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
+    const rebuiltAudioPath = getStoryQuestLedaAudioPath(pageText);
+    const audioPath = normalizePublicPath(
+      rebuiltAudioPath || page.audioUrl || page.audioPath || ""
+    );
     return {
       questId: quest.id,
       questTitle: quest.title,
@@ -111,6 +117,7 @@ function makeQuestRows(quest) {
       imageExists: fileExists(imagePath),
       audioPath,
       audioExists: fileExists(audioPath),
+      audioSource: rebuiltAudioPath ? "exact-text-production" : "legacy-reference",
       narrationNeedsRebuild: page.narrationNeedsRebuild === true
     };
   });
@@ -123,18 +130,25 @@ function renderList(items, emptyText = "None found.") {
 
 function renderAudit() {
   const allImageFiles = listAssetFiles(imageRoot, IMAGE_EXTENSIONS);
-  const allAudioFiles = listAssetFiles(audioRoot, AUDIO_EXTENSIONS);
+  const allAudioFiles = [
+    ...listAssetFiles(audioRoot, AUDIO_EXTENSIONS),
+    ...listAssetFiles(productionStoryAudioRoot, AUDIO_EXTENSIONS)
+  ].sort();
   const allReferenced = new Set();
   const pageRows = storyQuests.flatMap(makeQuestRows);
 
-  storyQuests.forEach(quest => collectAssetReferences(quest, allReferenced));
+  storyQuests.forEach(quest => {
+    for (const assetPath of collectAssetReferences(quest)) {
+      if (!assetPath.startsWith("/audio/story-quests/")) allReferenced.add(assetPath);
+    }
+  });
   pageRows.forEach(row => {
     if (row.imagePath) allReferenced.add(row.imagePath);
     if (row.audioPath) allReferenced.add(row.audioPath);
   });
 
   const referencedImages = [...allReferenced].filter(item => item.startsWith("/images/story-quests/")).sort();
-  const referencedAudio = [...allReferenced].filter(item => item.startsWith("/audio/story-quests/")).sort();
+  const referencedAudio = [...allReferenced].filter(item => item.startsWith("/audio/")).sort();
   const referencedImageSet = new Set(referencedImages.map(stripQuery));
   const referencedAudioSet = new Set(referencedAudio.map(stripQuery));
 

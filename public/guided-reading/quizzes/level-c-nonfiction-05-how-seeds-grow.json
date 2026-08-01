@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-05-how-seeds-grow",
-  "contentHash": "sha256:b0137457ae116e09115cb3896a5ec3745a9ecd4b8a0db01f03093e4e3c01c257",
+  "contentHash": "sha256:0f49ef78255e03514aed20db2b94ade116c43b0def02cf938ce3b508ee2879d1",
   "questions": [
     {
       "id": "level-c-nonfiction-05-how-seeds-grow-q1",
-      "prompt": "Which three things does the book say help a seed start growing?",
+      "prompt": "Which fact is introduced first in How a Flowering Plant Grows?",
       "choices": [
-        "water, warmth, and air",
-        "water, cold, and air",
-        "warmth, air, and no water"
+        "Many flowering plants begin as seeds containing embryos and food stores.",
+        "A shoot reaches light and opens its first leaves.",
+        "With suitable conditions a new flowering-plant cycle can begin."
       ],
-      "answer": "water, warmth, and air",
+      "answer": "Many flowering plants begin as seeds containing embryos and food stores.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A seed needs three things to start growing: water, warmth, and air."
+      "evidencePage": 1,
+      "evidenceText": "Many flowering plants begin as seeds containing embryos and food stores."
     },
     {
       "id": "level-c-nonfiction-05-how-seeds-grow-q2",
-      "prompt": "What grows first from a seed?",
+      "prompt": "Which fact about a shoot is given in How a Flowering Plant Grows?",
       "choices": [
-        "a flower",
-        "a root",
-        "a fruit"
+        "A shoot reaches light and opens its first leaves.",
+        "Many flowering plants begin as seeds containing embryos and food stores.",
+        "With suitable conditions a new flowering-plant cycle can begin."
       ],
-      "answer": "a root",
+      "answer": "A shoot reaches light and opens its first leaves.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 3,
-      "evidenceText": "First, a tiny root pushes down into the soil."
+      "evidencePage": 4,
+      "evidenceText": "A shoot reaches light and opens its first leaves."
     },
     {
       "id": "level-c-nonfiction-05-how-seeds-grow-q3",
-      "prompt": "What do bees and butterflies carry between flowers?",
+      "prompt": "Which statement gives the main idea of How a Flowering Plant Grows?",
       "choices": [
-        "seeds",
-        "soil",
-        "pollen"
+        "With suitable conditions a new flowering-plant cycle can begin.",
+        "Many flowering plants begin as seeds containing embryos and food stores.",
+        "A shoot reaches light and opens its first leaves."
       ],
-      "answer": "pollen",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "These visitors carry pollen from flower to flower."
+      "answer": "With suitable conditions a new flowering-plant cycle can begin.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "With suitable conditions a new flowering-plant cycle can begin. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "With suitable conditions a new flowering-plant cycle can begin."
     }
   ]
 }

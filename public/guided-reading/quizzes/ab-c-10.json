@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-10",
-  "contentHash": "sha256:b23190003331cce8efd47755a406d8c06a0180f55f550be1c8cb7d37d141bdbc",
+  "contentHash": "sha256:15d7a003407c1b74b5bd58d892ca73993c9e5d0157beb73bcd83777764ea8791",
   "questions": [
     {
       "id": "ab-c-10-q1",
-      "prompt": "Which room came after the great hall?",
+      "prompt": "Which event introduces the situation in Aiden and Betty and the Castle?",
       "choices": [
-        "the castle shop",
-        "the dark room",
-        "the armour room"
+        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
+        "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
+        "Using every clue, Aiden completed four drawings that explained their castle day."
       ],
-      "answer": "the armour room",
+      "answer": "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 5,
-      "evidenceText": "First came the great hall. Next came the armour room. Then they would climb the tower."
+      "evidencePage": 1,
+      "evidenceText": "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook."
     },
     {
       "id": "ab-c-10-q2",
-      "prompt": "Why did castle walls have narrow slits?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Castle?",
       "choices": [
-        "Archers could see out while staying protected.",
-        "Visitors could post letters through them.",
-        "Rainwater could fill the rooms."
+        "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
+        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
+        "Using every clue, Aiden completed four drawings that explained their castle day."
       ],
-      "answer": "Archers could see out while staying protected.",
+      "answer": "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 10,
-      "evidenceText": "A guide explained that archers could see out while staying behind thick stone."
+      "skill": "problem_solution",
+      "rationale": "Underground, dim light defeated his next sketch. The notebook page stayed blank. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Underground, dim light defeated his next sketch. The notebook page stayed blank."
     },
     {
       "id": "ab-c-10-q3",
-      "prompt": "How did Aiden's final drawing help him?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty and the Castle?",
       "choices": [
-        "It showed Dad how to build a castle.",
-        "It helped him remember the day.",
-        "It replaced Betty's picture map."
+        "Using every clue, Aiden completed four drawings that explained their castle day.",
+        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
+        "Underground, dim light defeated his next sketch. The notebook page stayed blank."
       ],
-      "answer": "It helped him remember the day.",
+      "answer": "Using every clue, Aiden completed four drawings that explained their castle day.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Using every clue, Aiden completed four drawings that explained their castle day. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and the view. His page helped him remember the day."
+      "evidenceText": "Using every clue, Aiden completed four drawings that explained their castle day."
     }
   ]
 }

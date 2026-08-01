@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-12-fancys-bad-day",
-  "contentHash": "sha256:8be29e0d0321e227ebeea3f73a8b0c12b9b0c68bc2cd7ef149c45a493e1c9627",
+  "contentHash": "sha256:fb0a2205c26fb081ea11d6de1ae6903a4ecc3c85c10c5fa746d8c4e6129789e1",
   "questions": [
     {
       "id": "dino-pals-12-fancys-bad-day-q1",
-      "prompt": "What caused Fancy's bad day?",
+      "prompt": "Which event begins Fancy's Bad Day?",
       "choices": [
-        "Her cave was flooded.",
-        "Her bracelet was lost.",
-        "Her sail was bent."
+        "Fancy wakes with her purple sail badly bent.",
+        "Honky's shout only makes the sail flap.",
+        "The pool shows Fancy's straight sail again."
       ],
-      "answer": "Her sail was bent.",
+      "answer": "Fancy wakes with her purple sail badly bent.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Fancy's sail was bent."
+      "evidenceText": "Fancy wakes with her purple sail badly bent."
     },
     {
       "id": "dino-pals-12-fancys-bad-day-q2",
-      "prompt": "Why did Fancy say no to Bouncy's offer?",
+      "prompt": "Which event shows the main plan is not working in Fancy's Bad Day?",
       "choices": [
-        "She thought bouncing would not be gentle.",
-        "She wanted Bouncy to bend the sail more.",
-        "She had already straightened the sail."
+        "Honky's shout only makes the sail flap.",
+        "Fancy wakes with her purple sail badly bent.",
+        "The pool shows Fancy's straight sail again."
       ],
-      "answer": "She thought bouncing would not be gentle.",
+      "answer": "Honky's shout only makes the sail flap.",
       "kind": "text",
-      "skill": "motivation",
-      "rationale": "Fancy says, \"That is not what gently means,\" after Bouncy offers to bounce on the sail, which shows that she thought bouncing would not be gentle.",
-      "evidencePage": 5,
-      "evidenceText": "Bouncy offered to bounce on it gently. That is not what gently means, said Fancy."
+      "skill": "problem_solution",
+      "rationale": "Honky's shout only makes the sail flap. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Honky's shout only makes the sail flap."
     },
     {
       "id": "dino-pals-12-fancys-bad-day-q3",
-      "prompt": "How did Wiggly straighten the sail?",
+      "prompt": "Which event solves the problem in Fancy's Bad Day?",
       "choices": [
-        "He shouted until it moved.",
-        "He dampened and pressed it softly.",
-        "He sat on it with Chompy."
+        "The pool shows Fancy's straight sail again.",
+        "Fancy wakes with her purple sail badly bent.",
+        "Honky's shout only makes the sail flap."
       ],
-      "answer": "He dampened and pressed it softly.",
+      "answer": "The pool shows Fancy's straight sail again.",
       "kind": "text",
-      "skill": "problem_solution",
-      "evidencePage": 10,
-      "evidenceText": "Wiggly dampened the sail gently and pressed it very softly. Slowly, slowly, it began to straighten."
+      "skill": "outcome",
+      "rationale": "The pool shows Fancy's straight sail again. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "The pool shows Fancy's straight sail again."
     }
   ]
 }

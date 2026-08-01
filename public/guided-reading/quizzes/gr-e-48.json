@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-e-48",
-  "contentHash": "sha256:f8d7eac35161a9fa808151bcdd7dc0aef46ac9a446a0f928e69c71d8d6319a15",
+  "contentHash": "sha256:e318400f54a8154c41ab3e34e4af6081af93529f1c0c87be0a6c8fe1851fb748",
   "questions": [
     {
       "id": "gr-e-48-q1",
-      "prompt": "How many poles does a magnet have?",
+      "prompt": "Which fact about a magnet is given in Magnets?",
       "choices": [
-        "two",
-        "five",
-        "none"
+        "A magnet has two poles.",
+        "Magnets do not attract wood.",
+        "Matching poles push apart."
       ],
-      "answer": "two",
-      "kind": "word",
+      "answer": "A magnet has two poles.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
       "evidenceText": "A magnet has two poles."
     },
     {
       "id": "gr-e-48-q2",
-      "prompt": "What do magnets pull?",
+      "prompt": "Which fact about magnets is given in Magnets?",
       "choices": [
-        "some metals",
-        "wood",
-        "glass"
+        "Magnets do not attract wood.",
+        "A magnet has two poles.",
+        "Matching poles push apart."
       ],
-      "answer": "some metals",
+      "answer": "Magnets do not attract wood.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "Magnets pull some metals."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Magnets do not attract wood."
     },
     {
       "id": "gr-e-48-q3",
-      "prompt": "What do same poles do?",
+      "prompt": "Which statement gives the main idea of Magnets?",
       "choices": [
-        "push apart",
-        "pull together",
-        "melt"
+        "Matching poles push apart.",
+        "A magnet has two poles.",
+        "Magnets do not attract wood."
       ],
-      "answer": "push apart",
+      "answer": "Matching poles push apart.",
       "kind": "text",
-      "skill": "function",
+      "skill": "main_idea",
+      "rationale": "Matching poles push apart. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Same poles push apart!"
+      "evidenceText": "Matching poles push apart."
     }
   ]
 }

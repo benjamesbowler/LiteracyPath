@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
-  "contentHash": "sha256:f572733b996d5bf713c8d5bee3d200b4a60f91a10512e888d11724f90a81b40d",
+  "contentHash": "sha256:928e70507f066b9dd766643367b117178838f502c4b7a64f5a2b9e3d15e4ed36",
   "questions": [
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q1",
-      "prompt": "What does Noisy shout about later?",
+      "prompt": "What happens first in Noisy Tries to Be Quiet?",
       "choices": [
-        "a worm",
-        "a flower",
-        "a puddle"
+        "Sleepy needs quiet.",
+        "Noisy yells very loudly.",
+        "Noisy stays quiet!"
       ],
-      "answer": "a worm",
+      "answer": "Sleepy needs quiet.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "\"A WORM! A WORM! A WORM!\""
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Sleepy needs quiet."
     },
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q2",
-      "prompt": "What lands on Noisy first?",
+      "prompt": "What goes wrong in Noisy Tries to Be Quiet?",
       "choices": [
-        "a bug",
-        "a leaf",
-        "a feather"
+        "Noisy yells very loudly.",
+        "Sleepy needs quiet.",
+        "Noisy stays quiet!"
       ],
-      "answer": "a bug",
+      "answer": "Noisy yells very loudly.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 3,
-      "evidenceText": "Then a bug sat on Noisy."
+      "skill": "problem_solution",
+      "rationale": "Noisy yells very loudly. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Noisy yells very loudly."
     },
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q3",
-      "prompt": "What does the last page say about Noisy?",
+      "prompt": "What happens at the end of Noisy Tries to Be Quiet?",
       "choices": [
-        "Noisy is not good at quiet.",
-        "Noisy is very good at quiet.",
-        "Noisy is too sleepy to speak."
+        "Noisy stays quiet!",
+        "Sleepy needs quiet.",
+        "Noisy yells very loudly."
       ],
-      "answer": "Noisy is not good at quiet.",
+      "answer": "Noisy stays quiet!",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Noisy stays quiet! This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Noisy is not good at quiet."
+      "evidenceText": "Noisy stays quiet!"
     }
   ]
 }

@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-09-read",
-  "contentHash": "sha256:fc432cd5c2718c4a486e11db8f28c62604731f503080b52ec1409691a69c3fdc",
+  "contentHash": "sha256:d5ddc6633d85b3ca6e2084f6e086c1c511dd032ee2a12bba3a69c45fa0cd7e74",
   "questions": [
     {
       "id": "bob-and-nan-09-read-q1",
-      "prompt": "Why did Nan help Bob?",
+      "prompt": "What happens first in Nan and Bob Learn to Read?",
       "choices": [
-        "He had lost his book.",
-        "He was too tired.",
-        "He could not read yet."
+        "Nan has a red book.",
+        "Bob cannot read it yet.",
+        "Bob reads one sentence."
       ],
-      "answer": "He could not read yet.",
+      "answer": "Nan has a red book.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Page 2 says Bob could not read yet, and page 3 says Nan would help him, so his not being able to read was why she helped.",
-      "evidencePage": 2,
-      "evidenceText": "Nan can read! Bob can not yet.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 3,
-          "evidenceText": "Nan will help Bob."
-        }
-      ]
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Nan has a red book."
     },
     {
       "id": "bob-and-nan-09-read-q2",
-      "prompt": "What word did Bob sound out?",
+      "prompt": "What goes wrong in Nan and Bob Learn to Read?",
       "choices": [
-        "cat",
-        "dog",
-        "sun"
+        "Bob cannot read it yet.",
+        "Nan has a red book.",
+        "Bob reads one sentence."
       ],
-      "answer": "cat",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 4,
-      "evidenceText": "C - A - T. Cat! Bob can get it!"
+      "answer": "Bob cannot read it yet.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Bob cannot read it yet. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Bob cannot read it yet."
     },
     {
       "id": "bob-and-nan-09-read-q3",
-      "prompt": "How did Bob feel when he could read?",
+      "prompt": "What does Bob read after he blends cat?",
       "choices": [
-        "sad",
-        "glad",
-        "angry"
+        "one sentence",
+        "one letter",
+        "one book"
       ],
-      "answer": "glad",
-      "kind": "word",
+      "answer": "one sentence",
+      "kind": "text",
       "skill": "outcome",
-      "evidencePage": 6,
-      "evidenceText": "Bob can read! Bob is so glad!"
+      "rationale": "Page 5 says Bob reads one sentence, which shows that Nan's blending help worked.",
+      "evidencePage": 5,
+      "evidenceText": "Bob reads one sentence."
     }
   ]
 }

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-06-baby-animals",
-  "contentHash": "sha256:253f2971efb9b1d490c1d28dd620cb033c7ae07bd9d8bc9343f49f106265e9ce",
+  "contentHash": "sha256:8d7b2a940b556bcc3e0b306259199e0a1c848fd3654f8b91c7fd9d3c95d37105",
   "questions": [
     {
       "id": "first-facts-a-06-baby-animals-q1",
-      "prompt": "What is a baby cat called?",
+      "prompt": "Which fact about a young dog is given in Baby Animals?",
       "choices": [
-        "a kitten",
-        "a pup",
-        "a calf"
+        "A young dog is called a puppy.",
+        "A young chicken is called a chick.",
+        "Young animals grow and learn new skills."
       ],
-      "answer": "a kitten",
+      "answer": "A young dog is called a puppy.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A baby cat is a kitten. A kitten can purr."
+      "evidencePage": 1,
+      "evidenceText": "A young dog is called a puppy."
     },
     {
       "id": "first-facts-a-06-baby-animals-q2",
-      "prompt": "Which baby animal can run fast?",
+      "prompt": "Which fact about a young chicken is given in Baby Animals?",
       "choices": [
-        "a foal",
-        "a kitten",
-        "a duckling"
+        "A young chicken is called a chick.",
+        "A young dog is called a puppy.",
+        "Young animals grow and learn new skills."
       ],
-      "answer": "a foal",
+      "answer": "A young chicken is called a chick.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "A baby horse is a foal. A foal can run fast."
+      "skill": "vocabulary",
+      "evidencePage": 4,
+      "evidenceText": "A young chicken is called a chick."
     },
     {
       "id": "first-facts-a-06-baby-animals-q3",
-      "prompt": "What happens to baby animals as time passes?",
+      "prompt": "Which statement gives the main idea of Baby Animals?",
       "choices": [
-        "they grow big",
-        "they stay tiny",
-        "they become plants"
+        "Young animals grow and learn new skills.",
+        "A young dog is called a puppy.",
+        "A young chicken is called a chick."
       ],
-      "answer": "they grow big",
+      "answer": "Young animals grow and learn new skills.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Young animals grow and learn new skills. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "Baby animals grow. One day they will be big."
+      "evidenceText": "Young animals grow and learn new skills."
     }
   ]
 }

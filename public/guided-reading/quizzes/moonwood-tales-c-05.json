@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-05",
-  "contentHash": "sha256:de9acd14d59a9f9fe3550d5e750ff091eacc451eaf532cca5757ce88199d5833",
+  "contentHash": "sha256:a6e2a37a22f4a00aadc20b05f30c86fdc0bfe799e912c8d1110eb1cce1f2e0ed",
   "questions": [
     {
       "id": "moonwood-tales-c-05-q1",
-      "prompt": "What happens to Wren after she says the growing spell?",
+      "prompt": "Which event introduces the situation in Wren and the Backwards Spell?",
       "choices": [
-        "She is one inch tall.",
-        "She is taller than the Hollow Oak.",
-        "Her spell book is one inch tall."
+        "Wren finds a height spell written in mirrored blue ink.",
+        "Her hands seem distant because Wren is now one inch tall.",
+        "Blue light returns Wren to her usual height."
       ],
-      "answer": "She is one inch tall.",
+      "answer": "Wren finds a height spell written in mirrored blue ink.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 3,
-      "evidenceText": "She was not taller. She was one inch tall."
+      "evidencePage": 1,
+      "evidenceText": "Wren finds a height spell written in mirrored blue ink."
     },
     {
       "id": "moonwood-tales-c-05-q2",
-      "prompt": "Why does the first spell make Wren tiny instead of tall?",
+      "prompt": "Which event shows that the first attempt fails in Wren and the Backwards Spell?",
       "choices": [
-        "She had read it backwards.",
-        "She had left out the final page.",
-        "She had borrowed Luna's spell book."
+        "Her hands seem distant because Wren is now one inch tall.",
+        "Wren finds a height spell written in mirrored blue ink.",
+        "Blue light returns Wren to her usual height."
       ],
-      "answer": "She had read it backwards.",
+      "answer": "Her hands seem distant because Wren is now one inch tall.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 5,
-      "evidenceText": "She had read it backwards."
+      "skill": "problem_solution",
+      "rationale": "Her hands seem distant because Wren is now one inch tall. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Her hands seem distant because Wren is now one inch tall."
     },
     {
       "id": "moonwood-tales-c-05-q3",
-      "prompt": "What lesson is Wren taking into her next spell?",
+      "prompt": "Which event resolves the central problem in Wren and the Backwards Spell?",
       "choices": [
-        "Reading each spell carefully can prevent the same mistake.",
-        "A stronger spell is needed before reading begins.",
-        "Reading the same spell twice makes it work."
+        "Blue light returns Wren to her usual height.",
+        "Wren finds a height spell written in mirrored blue ink.",
+        "Her hands seem distant because Wren is now one inch tall."
       ],
-      "answer": "Reading each spell carefully can prevent the same mistake.",
+      "answer": "Blue light returns Wren to her usual height.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Wren discovers that she had read the first spell backwards, then begins the next spell very carefully and forwards; this shows reading each spell carefully can prevent the same mistake.",
-      "evidencePage": 12,
-      "evidenceText": "She began to read very, very carefully. Forwards.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 5,
-          "evidenceText": "She climbed up onto it and looked at the spell. She had read it backwards."
-        }
-      ]
+      "skill": "outcome",
+      "rationale": "Blue light returns Wren to her usual height. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "Blue light returns Wren to her usual height."
     }
   ]
 }

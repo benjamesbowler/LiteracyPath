@@ -1,61 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-24",
-  "contentHash": "sha256:6d6879b74c11604a74c1c04c37431130798dff1daf73e97edc675c05fdf8b1e5",
+  "contentHash": "sha256:c92dc9a50881fdfefe2aad0a62c37baa18cbf571a0ade27f305cd2fe150d7cad",
   "questions": [
     {
       "id": "moonwood-tales-c-24-q1",
-      "prompt": "What is ready beside Luna's safe fire circle?",
+      "prompt": "Which event introduces the situation in Glimmer Breathes Fire at Last?",
       "choices": [
-        "a bucket of water and an extinguisher",
-        "a basket of berries and a blanket",
-        "a map and a magic wand"
+        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
+        "Excitement breaks Glimmer's breath. Luna calls a full pause.",
+        "Luna names the success: one careful flame; the lanterns carried everything else."
       ],
-      "answer": "a bucket of water and an extinguisher",
+      "answer": "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
       "kind": "text",
-      "skill": "setting",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "A bucket of water and an extinguisher stood nearby."
+      "evidenceText": "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle."
     },
     {
       "id": "moonwood-tales-c-24-q2",
-      "prompt": "What did Glimmer do when Luna said, \"Pause\"?",
+      "prompt": "Which event shows that the first attempt fails in Glimmer Breathes Fire at Last?",
       "choices": [
-        "Glimmer stopped and waited.",
-        "Glimmer made the flame longer.",
-        "Glimmer left the fire circle."
+        "Excitement breaks Glimmer's breath. Luna calls a full pause.",
+        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
+        "Luna names the success: one careful flame; the lanterns carried everything else."
       ],
-      "answer": "Glimmer stopped and waited.",
+      "answer": "Excitement breaks Glimmer's breath. Luna calls a full pause.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "problem_solution",
+      "rationale": "Excitement breaks Glimmer's breath. Luna calls a full pause. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "\"Pause,\" said Luna. Glimmer stopped and waited."
+      "evidenceText": "Excitement breaks Glimmer's breath. Luna calls a full pause."
     },
     {
       "id": "moonwood-tales-c-24-q3",
-      "prompt": "What does Glimmer learn about using their new fire?",
+      "prompt": "Which event resolves the central problem in Glimmer Breathes Fire at Last?",
       "choices": [
-        "One careful flame can light many lamps.",
-        "A longer flame makes each lantern safer.",
-        "They must light every lamp alone."
+        "Luna names the success: one careful flame; the lanterns carried everything else.",
+        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
+        "Excitement breaks Glimmer's breath. Luna calls a full pause."
       ],
-      "answer": "One careful flame can light many lamps.",
+      "answer": "Luna names the success: one careful flame; the lanterns carried everything else.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Glimmer carefully lights one lantern, and its spark travels lamp by lamp along the paths; Luna's praise shows that one careful flame can light many lamps.",
+      "skill": "outcome",
+      "rationale": "Luna names the success: one careful flame; the lanterns carried everything else. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "\"You made one careful flame,\" she said. \"The lanterns carried the light.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 7,
-          "evidenceText": "Luna placed a magic lantern in the circle. \"One small flame,\" she said. Glimmer lit it carefully."
-        },
-        {
-          "evidencePage": 8,
-          "evidenceText": "The lantern sent a golden spark to the next lamp. Lamp by lamp, safe magical light travelled along the paths."
-        }
-      ]
+      "evidenceText": "Luna names the success: one careful flame; the lanterns carried everything else."
     }
   ]
 }

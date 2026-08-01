@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-01-muddy-has-a-bath",
-  "contentHash": "sha256:10fd5d805a7d7cd306ae7cf31f47171c4577713a0419d32856819363d7c0359e",
+  "contentHash": "sha256:a24ed08c5934267bdc6cebce8ec798054a225349ea28fb0c13ac6dcd75d4611e",
   "questions": [
     {
       "id": "meadow-pals-01-muddy-has-a-bath-q1",
-      "prompt": "Who tells Muddy he needs a bath?",
+      "prompt": "What happens first in Muddy Has a Bath?",
       "choices": [
-        "Clucky",
-        "Woolly",
-        "Grumpy"
+        "Muddy rolls in the mud.",
+        "Muddy is still muddy.",
+        "Clean Muddy joins supper."
       ],
-      "answer": "Clucky",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "\"You need a bath,\" said Clucky."
+      "answer": "Muddy rolls in the mud.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Muddy rolls in the mud."
     },
     {
       "id": "meadow-pals-01-muddy-has-a-bath-q2",
-      "prompt": "Where does Muddy run after the bath?",
+      "prompt": "What goes wrong in Muddy Has a Bath?",
       "choices": [
-        "to the mud",
-        "to the pond",
-        "to the barn"
+        "Muddy is still muddy.",
+        "Muddy rolls in the mud.",
+        "Clean Muddy joins supper."
       ],
-      "answer": "to the mud",
+      "answer": "Muddy is still muddy.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 7,
-      "evidenceText": "Muddy ran to the mud."
+      "skill": "problem_solution",
+      "rationale": "Muddy is still muddy. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Muddy is still muddy."
     },
     {
       "id": "meadow-pals-01-muddy-has-a-bath-q3",
-      "prompt": "How does Muddy feel at the end?",
+      "prompt": "What happens at the end of Muddy Has a Bath?",
       "choices": [
-        "happy",
-        "sad",
-        "tired"
+        "Clean Muddy joins supper.",
+        "Muddy rolls in the mud.",
+        "Muddy is still muddy."
       ],
-      "answer": "happy",
-      "kind": "word",
+      "answer": "Clean Muddy joins supper.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Clean Muddy joins supper. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Muddy is happy."
+      "evidenceText": "Clean Muddy joins supper."
     }
   ]
 }

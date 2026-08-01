@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-10-vet",
-  "contentHash": "sha256:da26bd48126f26233ba2272ee42ab780e1a1e60943b833a0d008990c09a78ba1",
+  "contentHash": "sha256:85c327340cd54be3e6394fc7644f568312590bddcf4afc304aa5183e5b7a1caf",
   "questions": [
     {
       "id": "bob-and-nan-10-vet-q1",
-      "prompt": "Why did Fluff need the vet?",
+      "prompt": "What happens first in Fluff Visits the Vet?",
       "choices": [
-        "His leg was sore.",
-        "He was hungry.",
-        "He was lost."
+        "Fluff has a sore leg.",
+        "Rest does not help.",
+        "Fluff can run again!"
       ],
-      "answer": "His leg was sore.",
+      "answer": "Fluff has a sore leg.",
       "kind": "text",
-      "skill": "cause_effect",
+      "skill": "sequence",
       "evidencePage": 1,
       "evidenceText": "Fluff has a sore leg."
     },
     {
       "id": "bob-and-nan-10-vet-q2",
-      "prompt": "What did the vet give Fluff?",
+      "prompt": "What goes wrong in Fluff Visits the Vet?",
       "choices": [
-        "a bath",
-        "a jab",
-        "a gift"
+        "Rest does not help.",
+        "Fluff has a sore leg.",
+        "Fluff can run again!"
       ],
-      "answer": "a jab",
+      "answer": "Rest does not help.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 6,
-      "evidenceText": "The vet has a jab for Fluff."
+      "skill": "problem_solution",
+      "rationale": "Rest does not help. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Rest does not help."
     },
     {
       "id": "bob-and-nan-10-vet-q3",
-      "prompt": "How was Fluff at the end?",
+      "prompt": "What happens at the end of Fluff Visits the Vet?",
       "choices": [
-        "sore",
-        "sleepy",
-        "well"
+        "Fluff can run again!",
+        "Fluff has a sore leg.",
+        "Rest does not help."
       ],
-      "answer": "well",
-      "kind": "word",
+      "answer": "Fluff can run again!",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Fluff can run again! This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Fluff is well! Run, Fluff, run!"
+      "evidenceText": "Fluff can run again!"
     }
   ]
 }

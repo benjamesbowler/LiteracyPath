@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-07-animals-on-the-farm",
-  "contentHash": "sha256:4e67cbc6a2b78630dd6d31ed442d4982e0bbec9de2d8c9697ccb04c81b7afd30",
+  "contentHash": "sha256:d5230a4584dde9a1a40009c139bd03138ea6f3c27d342ed0348cecb0b5f4630f",
   "questions": [
     {
       "id": "first-facts-a-07-animals-on-the-farm-q1",
-      "prompt": "What does the cow give us?",
+      "prompt": "Which fact is introduced first in Animals on the Farm?",
       "choices": [
-        "milk",
-        "wool",
-        "eggs"
+        "This cow eats grass and hay.",
+        "A sheep grows a woolly fleece.",
+        "Farm animals need food water shelter and care."
       ],
-      "answer": "milk",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "A cow gives us milk. We drink milk every day."
+      "answer": "This cow eats grass and hay.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "This cow eats grass and hay."
     },
     {
       "id": "first-facts-a-07-animals-on-the-farm-q2",
-      "prompt": "What food does a hen give us?",
+      "prompt": "Which fact about a sheep is given in Animals on the Farm?",
       "choices": [
-        "eggs",
-        "milk",
-        "wool"
+        "A sheep grows a woolly fleece.",
+        "This cow eats grass and hay.",
+        "Farm animals need food water shelter and care."
       ],
-      "answer": "eggs",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 5,
-      "evidenceText": "A hen lays eggs. We can eat the eggs."
+      "answer": "A sheep grows a woolly fleece.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "A sheep grows a woolly fleece."
     },
     {
       "id": "first-facts-a-07-animals-on-the-farm-q3",
-      "prompt": "What does the book show that farm animals give us?",
+      "prompt": "Which statement gives the main idea of Animals on the Farm?",
       "choices": [
-        "farm animals give us food",
-        "farm animals all roll in mud",
-        "farm animals all swim in ponds"
+        "Farm animals need food water shelter and care.",
+        "This cow eats grass and hay.",
+        "A sheep grows a woolly fleece."
       ],
-      "answer": "farm animals give us food",
+      "answer": "Farm animals need food water shelter and care.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Farm animals need food water shelter and care. This final statement gathers the book's details into its main idea.",
       "evidencePage": 8,
-      "evidenceText": "Farms give us food. Thank you, farm animals!"
+      "evidenceText": "Farm animals need food water shelter and care."
     }
   ]
 }

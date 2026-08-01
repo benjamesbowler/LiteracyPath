@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-03-shopping",
-  "contentHash": "sha256:00440908000ec178ce676023e42a7f63038cd766038496cd5df43b811a44693e",
+  "contentHash": "sha256:7597c8849fa754a84c583f5c6d010a4cde3eed9aa186d96e94f824c8a68da1f4",
   "questions": [
     {
       "id": "james-and-anna-03-shopping-q1",
-      "prompt": "What did Anna carry to help Mum?",
+      "prompt": "Which event begins James and Anna go Shopping?",
       "choices": [
-        "the bags",
-        "the eggs",
-        "the cakes"
+        "Mum needs help bringing every item on her list home.",
+        "Then the shining cake stand makes them forget the list.",
+        "At the till, every listed item arrives safely, even the eggs."
       ],
-      "answer": "the bags",
+      "answer": "Mum needs help bringing every item on her list home.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "\"Yes!\" said James and Anna. James grabbed the list. Anna grabbed the bags. Off they went!"
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Mum needs help bringing every item on her list home."
     },
     {
       "id": "james-and-anna-03-shopping-q2",
-      "prompt": "Why did James put both bunches of grapes in the basket?",
+      "prompt": "Which event shows the main plan is not working in James and Anna go Shopping?",
       "choices": [
-        "Mum asked for both.",
-        "to be safe",
-        "Anna disliked grapes."
+        "Then the shining cake stand makes them forget the list.",
+        "Mum needs help bringing every item on her list home.",
+        "At the till, every listed item arrives safely, even the eggs."
       ],
-      "answer": "to be safe",
+      "answer": "Then the shining cake stand makes them forget the list.",
       "kind": "text",
-      "skill": "motivation",
-      "evidencePage": 6,
-      "evidenceText": "James found the grapes. Red ones or green ones? He put both bunches in the basket — just to be safe."
+      "skill": "problem_solution",
+      "rationale": "Then the shining cake stand makes them forget the list. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "Then the shining cake stand makes them forget the list."
     },
     {
       "id": "james-and-anna-03-shopping-q3",
-      "prompt": "What did they have after lunch?",
+      "prompt": "Which event solves the problem in James and Anna go Shopping?",
       "choices": [
-        "the eggs",
-        "orange juice",
-        "their cakes"
+        "At the till, every listed item arrives safely, even the eggs.",
+        "Mum needs help bringing every item on her list home.",
+        "Then the shining cake stand makes them forget the list."
       ],
-      "answer": "their cakes",
+      "answer": "At the till, every listed item arrives safely, even the eggs.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 13,
-      "evidenceText": "At home, Mum made lunch. After, they had their cakes. Chips ate the paper bag. \"CHIPS!\" they said. But they were laughing too hard to be cross."
+      "skill": "outcome",
+      "rationale": "At the till, every listed item arrives safely, even the eggs. This event shows how the central problem is resolved.",
+      "evidencePage": 11,
+      "evidenceText": "At the till, every listed item arrives safely, even the eggs."
     }
   ]
 }

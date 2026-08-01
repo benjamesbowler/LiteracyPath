@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-19",
-  "contentHash": "sha256:e00f9f700c6556000f71565e9f954c0255ccfe6e62e7931801b4527ec31267b3",
+  "contentHash": "sha256:48969f15413284462d8abff1b61377bb807c2bdeeba33101ea71329f780ccf9a",
   "questions": [
     {
       "id": "moonwood-tales-c-19-q1",
-      "prompt": "What does Fern notice when she stops searching and listens?",
+      "prompt": "Which event introduces the situation in The Missing Magic Seeds?",
       "choices": [
-        "Small glowing shoots are coming from the ground.",
-        "The empty seed box is hidden under a log.",
-        "A trail of loose seeds leads into the marsh."
+        "Luna finds the glow-seed box open and empty.",
+        "Burrow checks every tunnel and returns with empty paws.",
+        "That night, protected seedlings mark every path around Hollow Oak."
       ],
-      "answer": "Small glowing shoots are coming from the ground.",
+      "answer": "Luna finds the glow-seed box open and empty.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 8,
-      "evidenceText": "There were small green shoots in the ground.\nThey glowed.\nJust a little.\nJust like the seeds."
+      "evidencePage": 1,
+      "evidenceText": "Luna finds the glow-seed box open and empty."
     },
     {
       "id": "moonwood-tales-c-19-q2",
-      "prompt": "Why is the magic seed box empty?",
+      "prompt": "Which event shows that the first attempt fails in The Missing Magic Seeds?",
       "choices": [
-        "Fern planted the seeds and forgot that she had done it.",
-        "The stream carried the seeds away at night.",
-        "Luna shared the seeds among the forest animals."
+        "Burrow checks every tunnel and returns with empty paws.",
+        "Luna finds the glow-seed box open and empty.",
+        "That night, protected seedlings mark every path around Hollow Oak."
       ],
-      "answer": "Fern planted the seeds and forgot that she had done it.",
+      "answer": "Burrow checks every tunnel and returns with empty paws.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Fern remembers that she planted the seeds and had not meant to forget, showing that she planted them and later forgot that she had done it.",
-      "evidencePage": 9,
-      "evidenceText": "Two nights ago she had been in the clearing.\nShe had planted the seeds.\nShe had not meant to forget."
+      "skill": "problem_solution",
+      "rationale": "Burrow checks every tunnel and returns with empty paws. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Burrow checks every tunnel and returns with empty paws."
     },
     {
       "id": "moonwood-tales-c-19-q3",
-      "prompt": "What made Moonwood glow more than ever that night?",
+      "prompt": "Which event resolves the central problem in The Missing Magic Seeds?",
       "choices": [
-        "The seedlings lit the ground.",
-        "The empty seed box lit the ground.",
-        "The search spells lit every path."
+        "That night, protected seedlings mark every path around Hollow Oak.",
+        "Luna finds the glow-seed box open and empty.",
+        "Burrow checks every tunnel and returns with empty paws."
       ],
-      "answer": "The seedlings lit the ground.",
+      "answer": "That night, protected seedlings mark every path around Hollow Oak.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "That night, protected seedlings mark every path around Hollow Oak. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "That night, Moonwood glowed more than ever.\nThe seedlings lit the ground."
+      "evidenceText": "That night, protected seedlings mark every path around Hollow Oak."
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-13-splashy-finds-a-puddle",
-  "contentHash": "sha256:365b25b0aa0044c9df29b010525810727c7b8d81710ff022e3d7a810ac181dc0",
+  "contentHash": "sha256:0a22521dfc8818c1d7e7dd094fdaae13aeb646de41e7a94f19881407ee93f83b",
   "questions": [
     {
       "id": "meadow-pals-13-splashy-finds-a-puddle-q1",
-      "prompt": "What does Splashy do in the puddle?",
+      "prompt": "What happens first in Splashy Finds a Puddle?",
       "choices": [
-        "jumps in",
-        "walks around",
-        "sits beside it"
+        "Splashy finds a small puddle.",
+        "Sleepy's bed gets wet.",
+        "Splashy moves beyond the gate."
       ],
-      "answer": "jumps in",
+      "answer": "Splashy finds a small puddle.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "Splashy jumps in."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Splashy finds a small puddle."
     },
     {
       "id": "meadow-pals-13-splashy-finds-a-puddle-q2",
-      "prompt": "Whose hat gets wet?",
+      "prompt": "What goes wrong in Splashy Finds a Puddle?",
       "choices": [
-        "Clucky's",
-        "Grumpy's",
-        "Sleepy's"
+        "Sleepy's bed gets wet.",
+        "Splashy finds a small puddle.",
+        "Splashy moves beyond the gate."
       ],
-      "answer": "Clucky's",
-      "kind": "word",
-      "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "\"My hat is wet!\" said Clucky."
+      "answer": "Sleepy's bed gets wet.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Sleepy's bed gets wet. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "Sleepy's bed gets wet."
     },
     {
       "id": "meadow-pals-13-splashy-finds-a-puddle-q3",
-      "prompt": "How does Splashy feel after the big splash?",
+      "prompt": "What happens at the end of Splashy Finds a Puddle?",
       "choices": [
-        "happy",
-        "worried",
-        "tired"
+        "Splashy moves beyond the gate.",
+        "Splashy finds a small puddle.",
+        "Sleepy's bed gets wet."
       ],
-      "answer": "happy",
-      "kind": "word",
+      "answer": "Splashy moves beyond the gate.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Splashy moves beyond the gate. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Splashy is very happy."
+      "evidenceText": "Splashy moves beyond the gate."
     }
   ]
 }

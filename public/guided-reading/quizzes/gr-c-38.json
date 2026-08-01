@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-c-38",
-  "contentHash": "sha256:bf8699ab794b79715e700ee032ffce9bab826bc9b502fbc118dc72437851c219",
+  "contentHash": "sha256:748fad6fe9dce889c91d30723c8711494c0f4c896e58539cc1d82013e72e07b2",
   "questions": [
     {
       "id": "gr-c-38-q1",
-      "prompt": "What does the speaker use to see?",
+      "prompt": "Which fact about eyes is given in Five Senses?",
       "choices": [
-        "their eyes",
-        "their ears",
-        "their hands"
+        "Eyes help us see.",
+        "Noses help us smell.",
+        "Our senses help us learn."
       ],
-      "answer": "their eyes",
+      "answer": "Eyes help us see.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "I see with my eyes."
+      "evidenceText": "Eyes help us see."
     },
     {
       "id": "gr-c-38-q2",
-      "prompt": "What does the speaker use their nose to do?",
+      "prompt": "Which fact about noses is given in Five Senses?",
       "choices": [
-        "smell",
-        "taste",
-        "touch"
+        "Noses help us smell.",
+        "Eyes help us see.",
+        "Our senses help us learn."
       ],
-      "answer": "smell",
-      "kind": "word",
+      "answer": "Noses help us smell.",
+      "kind": "text",
       "skill": "function",
       "evidencePage": 3,
-      "evidenceText": "I smell with my nose."
+      "evidenceText": "Noses help us smell."
     },
     {
       "id": "gr-c-38-q3",
-      "prompt": "What do the speaker's five senses help them do?",
+      "prompt": "Which statement gives the main idea of Five Senses?",
       "choices": [
-        "learn",
-        "sleep",
-        "fly"
+        "Our senses help us learn.",
+        "Eyes help us see.",
+        "Noses help us smell."
       ],
-      "answer": "learn",
-      "kind": "word",
+      "answer": "Our senses help us learn.",
+      "kind": "text",
       "skill": "main_idea",
+      "rationale": "Our senses help us learn. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "My five senses help me learn!"
+      "evidenceText": "Our senses help us learn."
     }
   ]
 }

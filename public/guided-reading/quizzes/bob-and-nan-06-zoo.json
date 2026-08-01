@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-06-zoo",
-  "contentHash": "sha256:7e7129d62c9cfc7ef4b14811ea51e8ae246e2e44b0325a870623abdc781c9ae7",
+  "contentHash": "sha256:1380fa96a51b4ffd8b8383b8b3c20b9ca1a5bc9c9293628d0eeacbb022546d40",
   "questions": [
     {
       "id": "bob-and-nan-06-zoo-q1",
-      "prompt": "Where did Nan and Bob go?",
+      "prompt": "Which animal does Bob spot first after checking the zoo card?",
       "choices": [
-        "the shop",
-        "the beach",
-        "the zoo"
+        "a big cat",
+        "a red bird",
+        "the big fish"
       ],
-      "answer": "the zoo",
+      "answer": "a big cat",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 1,
-      "evidenceText": "Nan and Bob go to the zoo."
+      "skill": "sequence",
+      "evidencePage": 2,
+      "evidenceText": "Bob spots a big cat."
     },
     {
       "id": "bob-and-nan-06-zoo-q2",
-      "prompt": "What did Nan see on a log?",
+      "prompt": "Which event helps Nan and Bob finish the hardest part of their zoo search?",
       "choices": [
-        "a frog",
-        "a bird",
-        "a fish"
+        "Nan finds the hidden frog.",
+        "Their zoo card shows six animals.",
+        "Their zoo card is complete!"
       ],
-      "answer": "a frog",
+      "answer": "Nan finds the hidden frog.",
       "kind": "text",
-      "skill": "character_action",
+      "skill": "cause_effect",
+      "rationale": "Nan finds the hidden frog. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Nan sees a fat frog on a log."
+      "evidenceText": "Nan finds the hidden frog."
     },
     {
       "id": "bob-and-nan-06-zoo-q3",
-      "prompt": "What happened after they saw the big ape?",
+      "prompt": "What happens at the end of Nan and Bob go to the Zoo?",
       "choices": [
-        "The ape took a nap.",
-        "The ape ate a fig.",
-        "The ape ran away."
+        "Their zoo card is complete!",
+        "Their zoo card shows six animals.",
+        "Nan finds the hidden frog."
       ],
-      "answer": "The ape ate a fig.",
+      "answer": "Their zoo card is complete!",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "The big ape ate a fig."
+      "skill": "outcome",
+      "rationale": "Their zoo card is complete! This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Their zoo card is complete!"
     }
   ]
 }

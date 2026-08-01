@@ -1,6 +1,6 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-07-21T14:41:19.835Z
+Generated: 2026-07-31T16:36:47.266Z
 
 ## What This Check Proves
 
@@ -1303,8 +1303,9 @@ Shy hid. |
 Shy hid. |
 | meadow-pals-09-shy-comes-out-to-play | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-005.webp | Cuddly sat down by the barn. |
 | meadow-pals-09-shy-comes-out-to-play | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-006.webp | Cuddly did not go away. |
-| meadow-pals-09-shy-comes-out-to-play | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-007.webp | Shy sat next to Cuddly. |
-| meadow-pals-09-shy-comes-out-to-play | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-008.webp | Then Shy came out. |
+| meadow-pals-09-shy-comes-out-to-play | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-007.webp | Then Shy came out. |
+| meadow-pals-09-shy-comes-out-to-play | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-008.webp | Shy sat next to Cuddly. |
+| meadow-pals-09-shy-comes-out-to-play | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-009.webp | Shy is playing! |
 | meadow-pals-10-giggly-has-the-hiccups | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-001.webp | Giggly has the hiccups. |
 | meadow-pals-10-giggly-has-the-hiccups | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-002.webp | Hic! Hic! Hic! |
 | meadow-pals-10-giggly-has-the-hiccups | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-003.webp | Giggly began to giggle.
@@ -1403,15 +1404,15 @@ Very, very fast. |
 | meadow-pals-19-tiny-and-brave-go-on-an-adventure | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-007.webp | The hat was on Tiny. |
 | meadow-pals-19-tiny-and-brave-go-on-an-adventure | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-008.webp | "Oh," said Brave. |
 | meadow-pals-19-tiny-and-brave-go-on-an-adventure | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-009.webp | "Oh," said Tiny. |
-| meadow-pals-20-shy-and-cuddly-find-each-other | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-001.webp | Cuddly wants a hug. Cuddly looks and looks. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-001.webp | Cuddly wants a friend. Cuddly looks and looks. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-002.webp | Shy is hiding. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-003.webp | Cuddly went past the big tree. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-004.webp | Shy is in the big tree! |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-005.webp | "Oh!" said Shy. |
-| meadow-pals-20-shy-and-cuddly-find-each-other | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-006.webp | "Oh!" said Cuddly. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-006.webp | "Hi, Shy," said Cuddly. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-007.webp | They sat in the big tree. |
-| meadow-pals-20-shy-and-cuddly-find-each-other | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-008.webp | Cuddly got a hug. |
-| meadow-pals-20-shy-and-cuddly-find-each-other | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-009.webp | Shy got a hug too. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-008.webp | "Can I hug you?" said Cuddly. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-009.webp | "Yes," said Shy. They had a hug. |
 | meadow-pals-20-shy-and-cuddly-find-each-other | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-010.webp | Both of them are happy. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-001.webp | Woolly is stuck. Grumpy is stuck. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-002.webp | Woolly's wool is on Grumpy's horn. |

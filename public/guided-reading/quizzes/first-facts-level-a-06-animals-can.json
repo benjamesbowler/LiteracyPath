@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-06-animals-can",
-  "contentHash": "sha256:c95ed96b3b4497ced977118f3642e3eb5c76d8e4efe8be12c8e80a3667b64b4e",
+  "contentHash": "sha256:4c79ae343e0cf02cd039cee38206a16d4d639d92cf1ddb2e07817b1d3f596858",
   "questions": [
     {
       "id": "first-facts-level-a-06-animals-can-q1",
-      "prompt": "What can a dog do?",
+      "prompt": "What do we learn about a dog?",
       "choices": [
-        "run",
-        "fly",
-        "sting"
+        "A dog can run.",
+        "A fish can swim.",
+        "I can move too!"
       ],
-      "answer": "run",
-      "kind": "word",
-      "skill": "function",
+      "answer": "A dog can run.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A dog can run.\nRun, run!"
+      "evidenceText": "A dog can run."
     },
     {
       "id": "first-facts-level-a-06-animals-can-q2",
-      "prompt": "Which animal does the book say can fly?",
+      "prompt": "What do we learn about a fish?",
       "choices": [
-        "a bird",
-        "a fish",
-        "a worm"
+        "A fish can swim.",
+        "A dog can run.",
+        "I can move too!"
       ],
-      "answer": "a bird",
+      "answer": "A fish can swim.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "A bird can fly.\nFly, fly!"
+      "evidencePage": 3,
+      "evidenceText": "A fish can swim."
     },
     {
       "id": "first-facts-level-a-06-animals-can-q3",
-      "prompt": "What can a worm do?",
+      "prompt": "What is the big idea in Animals Can!?",
       "choices": [
-        "dig",
-        "jump",
-        "swim"
+        "I can move too!",
+        "A dog can run.",
+        "A fish can swim."
       ],
-      "answer": "dig",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "A worm can dig.\nDig, dig!"
+      "answer": "I can move too!",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "I can move too! This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "I can move too!"
     }
   ]
 }

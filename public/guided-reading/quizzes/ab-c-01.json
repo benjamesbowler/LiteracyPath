@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-01",
-  "contentHash": "sha256:e895465f951c30a7ad4e2954ff241d2b647f24737b1d43143e96b1fe81a3f199",
+  "contentHash": "sha256:f0a268ab16ed7ebf87f056f0a3d69ebe0883fe57baa94fa76329b651072e50a3",
   "questions": [
     {
       "id": "ab-c-01-q1",
-      "prompt": "Which lesson came first in Grade 1?",
+      "prompt": "Which event introduces the situation in Aiden and Betty Start Grade 1?",
       "choices": [
-        "Maths",
-        "Science",
-        "handwriting"
+        "Summer ended. Aiden studied his new school bag and wondered whether Grade 1 would be too hard.",
+        "During handwriting, Aiden's pen slipped and left a huge blot. His face burned.",
+        "That night, Aiden fell asleep before tomorrow's worry could begin."
       ],
-      "answer": "handwriting",
-      "kind": "word",
+      "answer": "Summer ended. Aiden studied his new school bag and wondered whether Grade 1 would be too hard.",
+      "kind": "text",
       "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky."
+      "evidencePage": 1,
+      "evidenceText": "Summer ended. Aiden studied his new school bag and wondered whether Grade 1 would be too hard."
     },
     {
       "id": "ab-c-01-q2",
-      "prompt": "How did Betty help when Aiden felt embarrassed?",
+      "prompt": "Which event shows that the first attempt fails in Aiden and Betty Start Grade 1?",
       "choices": [
-        "She showed him her wonky writing.",
-        "She hid his page from everyone.",
-        "She finished his work for him."
+        "During handwriting, Aiden's pen slipped and left a huge blot. His face burned.",
+        "Summer ended. Aiden studied his new school bag and wondered whether Grade 1 would be too hard.",
+        "That night, Aiden fell asleep before tomorrow's worry could begin."
       ],
-      "answer": "She showed him her wonky writing.",
+      "answer": "During handwriting, Aiden's pen slipped and left a huge blot. His face burned.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 7,
-      "evidenceText": "Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. \"Mine looks like a wonky caterpillar,\" she whispered. Aiden laughed before he could stop himself, and his face stopped being red."
+      "rationale": "During handwriting, Aiden's pen slipped and left a huge blot. His face burned. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "During handwriting, Aiden's pen slipped and left a huge blot. His face burned."
     },
     {
       "id": "ab-c-01-q3",
-      "prompt": "What had Aiden learned about Grade 1 by bedtime?",
+      "prompt": "Which event resolves the central problem in Aiden and Betty Start Grade 1?",
       "choices": [
-        "It was too hard to continue.",
-        "It was better than he had feared.",
-        "It was exactly like the holidays."
+        "That night, Aiden fell asleep before tomorrow's worry could begin.",
+        "Summer ended. Aiden studied his new school bag and wondered whether Grade 1 would be too hard.",
+        "During handwriting, Aiden's pen slipped and left a huge blot. His face burned."
       ],
-      "answer": "It was better than he had feared.",
+      "answer": "That night, Aiden fell asleep before tomorrow's worry could begin.",
       "kind": "text",
-      "skill": "inference",
-      "rationale": "Aiden says Grade 1 is not bad and falls asleep without worry, so it was better than he had feared.",
+      "skill": "outcome",
+      "rationale": "That night, Aiden fell asleep before tomorrow's worry could begin. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "\"Grade 1 is brilliant,\" announced Betty, just before bed. \"It's actually not that bad,\" said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about."
+      "evidenceText": "That night, Aiden fell asleep before tomorrow's worry could begin."
     }
   ]
 }

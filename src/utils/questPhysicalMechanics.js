@@ -620,34 +620,55 @@ function seedwakeBridgeStages(section, encounter, beat, beatIndex) {
 function seedwakeChorusStages(section, encounter, beat, beatIndex) {
   const answers = beatAnswers(beat);
   const choices = beatChoices(beat);
-  return answers.map((answer, answerIndex) => {
-    const chooseItems = positionedItems(section, encounter, beatIndex, answerIndex, choices, {
+  return answers.flatMap((answer, answerIndex) => {
+    const chooseStage = answerIndex * 2;
+    const conductStage = chooseStage + 1;
+    const chooseItems = positionedItems(section, encounter, beatIndex, chooseStage, choices, {
       answer,
-      shape: "letter-token",
+      shape: "chorus-lantern",
       layout: "circle",
       decorate: choice => ({
-        role: choice === answer ? "target" : "distractor",
+        role: "touch",
         answerRole: choice === answer ? "target" : "distractor"
       })
     });
     const selected = chooseItems.find(item => item.correct);
-    return {
-      id: `chorus-choose-${answerIndex}`,
-      prompt: letterSoundPrompt(beat, answerIndex, answers.length),
-      help: "Listen, then choose the matching letter.",
-      playerAction: "choose-note",
-      layout: "circle",
-      audioCue: seedwakeAudioCue(beat),
-      items: chooseItems,
-      completion: selected ? {
-        ...completionFor(section, encounter, beatIndex, answerIndex, answers.length, answer, "lit-chorus-letter"),
-        progress: selected.progress,
-        x: selected.x,
-        y: selected.y,
-        z: selected.z,
-        revealStage: answerIndex
-      } : null
-    };
+    return [
+      {
+        id: `chorus-choose-${chooseStage}`,
+        prompt: letterSoundPrompt(beat, answerIndex, answers.length),
+        help: "Listen, then choose the matching letter lantern.",
+        playerAction: "choose-note",
+        layout: "circle",
+        audioCue: seedwakeAudioCue(beat),
+        items: chooseItems
+      },
+      {
+        id: `chorus-conduct-${conductStage}`,
+        prompt: "Tap the lit lantern when it glows",
+        help: "Wait for the glow, then tap the same letter lantern.",
+        playerAction: "conduct",
+        layout: "circle",
+        audioCue: null,
+        rhythm: true,
+        selectedFromStage: chooseStage,
+        items: selected ? [{
+          ...selected,
+          id: `${selected.id}-conduct`,
+          stage: conductStage,
+          role: "rhythm",
+          answerRole: "target"
+        }] : [],
+        completion: selected ? {
+          ...completionFor(section, encounter, beatIndex, conductStage, answers.length * 2, answer, "lit-chorus-lantern"),
+          progress: selected.progress,
+          x: selected.x,
+          y: selected.y,
+          z: selected.z,
+          revealStage: conductStage
+        } : null
+      }
+    ];
   });
 }
 
@@ -828,9 +849,12 @@ function chapterRhythmStages(section, encounter, beat, beatIndex, mechanic, verb
   return answers.map((answer, answerIndex) => {
     const chooseItems = positionedItems(section, encounter, beatIndex, answerIndex, choices, {
       answer,
-      shape: "letter-token",
+      shape: verbRecipe.shape,
       layout: verbRecipe.layout,
-      decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+      decorate: choice => ({
+        role: "touch",
+        answerRole: choice === answer ? "target" : "distractor"
+      })
     });
     const selected = chooseItems.find(item => item.correct);
     return {

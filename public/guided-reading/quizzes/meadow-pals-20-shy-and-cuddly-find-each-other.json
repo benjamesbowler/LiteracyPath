@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
-  "contentHash": "sha256:167694a6f80cd428ec444998dd5d14b670aacd1e0a9d8d87a8801ecb1a93b558",
+  "contentHash": "sha256:e526fc4bf94c29ba40dcc8107ccf7d5a83dc4a69c8e1db1a11597a24ea23e481",
   "questions": [
     {
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q1",
-      "prompt": "Who looks and looks for a friend?",
+      "prompt": "What happens first in Shy and Cuddly Find Each Other?",
       "choices": [
-        "Cuddly",
-        "Shy",
-        "Grumpy"
+        "Cuddly looks for a friend.",
+        "Shy waits in the branches.",
+        "They watch the pond together."
       ],
-      "answer": "Cuddly",
-      "kind": "word",
-      "skill": "character_action",
+      "answer": "Cuddly looks for a friend.",
+      "kind": "text",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Cuddly wants a friend. Cuddly looks and looks."
+      "evidenceText": "Cuddly looks for a friend."
     },
     {
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q2",
-      "prompt": "Where is Shy hiding?",
+      "prompt": "What goes wrong in Shy and Cuddly Find Each Other?",
       "choices": [
-        "in the big tree",
-        "behind the barn",
-        "under the log"
+        "Shy waits in the branches.",
+        "Cuddly looks for a friend.",
+        "They watch the pond together."
       ],
-      "answer": "in the big tree",
+      "answer": "Shy waits in the branches.",
       "kind": "text",
-      "skill": "setting",
+      "skill": "problem_solution",
+      "rationale": "Shy waits in the branches. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Shy is in the big tree!"
+      "evidenceText": "Shy waits in the branches."
     },
     {
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q3",
-      "prompt": "How do both friends feel at the end?",
+      "prompt": "What happens at the end of Shy and Cuddly Find Each Other?",
       "choices": [
-        "happy",
-        "angry",
-        "lonely"
+        "They watch the pond together.",
+        "Cuddly looks for a friend.",
+        "Shy waits in the branches."
       ],
-      "answer": "happy",
-      "kind": "word",
+      "answer": "They watch the pond together.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "They watch the pond together. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Both of them are happy."
+      "evidenceText": "They watch the pond together."
     }
   ]
 }

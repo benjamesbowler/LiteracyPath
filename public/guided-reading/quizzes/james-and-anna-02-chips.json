@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-02-chips",
-  "contentHash": "sha256:f5b3020c1384e2f8b0982edcfb56ba8e526e996e8507734ac4b59cef8ed1d166",
+  "contentHash": "sha256:93f8c9e87c20b7c31d92602c708739a99c4dc899c85862552f78d198b813d9a7",
   "questions": [
     {
       "id": "james-and-anna-02-chips-q1",
-      "prompt": "What made Chips easy to hear from far away?",
+      "prompt": "Which event begins James and Anna and Chips?",
       "choices": [
-        "his brown patches",
-        "his rope lead",
-        "his blue bell"
+        "Chips is their small white goat with big brown patches.",
+        "Then Chips pulls free and crunches through a neighbour's rose bush.",
+        "They move clothes higher and pack more apple for tomorrow's walk."
       ],
-      "answer": "his blue bell",
+      "answer": "Chips is their small white goat with big brown patches.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "Chips had a blue bell on his collar. JINGLE! JINGLE! JINGLE! You could hear him coming from far away!"
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Chips is their small white goat with big brown patches."
     },
     {
       "id": "james-and-anna-02-chips-q2",
-      "prompt": "What happened after Chips ran at the rose bush?",
+      "prompt": "Which event shows the main plan is not working in James and Anna and Chips?",
       "choices": [
-        "The rose bush was gone.",
-        "The rose bush grew taller.",
-        "The rose bush was watered."
+        "Then Chips pulls free and crunches through a neighbour's rose bush.",
+        "Chips is their small white goat with big brown patches.",
+        "They move clothes higher and pack more apple for tomorrow's walk."
       ],
-      "answer": "The rose bush was gone.",
+      "answer": "Then Chips pulls free and crunches through a neighbour's rose bush.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "problem_solution",
+      "rationale": "Then Chips pulls free and crunches through a neighbour's rose bush. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Then Chips saw a big rose bush. He ran at it. CRUNCH! MUNCH! SNAP! The rose bush was gone."
+      "evidenceText": "Then Chips pulls free and crunches through a neighbour's rose bush."
     },
     {
       "id": "james-and-anna-02-chips-q3",
-      "prompt": "Why did James and Anna still smile at Chips?",
+      "prompt": "Which event solves the problem in James and Anna and Chips?",
       "choices": [
-        "They wanted his food.",
-        "They loved him.",
-        "They had not seen him."
+        "They move clothes higher and pack more apple for tomorrow's walk.",
+        "Chips is their small white goat with big brown patches.",
+        "Then Chips pulls free and crunches through a neighbour's rose bush."
       ],
-      "answer": "They loved him.",
+      "answer": "They move clothes higher and pack more apple for tomorrow's walk.",
       "kind": "text",
-      "skill": "theme",
+      "skill": "outcome",
+      "rationale": "They move clothes higher and pack more apple for tomorrow's walk. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "\"CHIPS!\" they both said. But they could not stop smiling. Chips was naughty and cheeky and silly — and they loved him so much."
+      "evidenceText": "They move clothes higher and pack more apple for tomorrow's walk."
     }
   ]
 }

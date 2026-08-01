@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-12-in-the-sea",
-  "contentHash": "sha256:a87d1eb1b3414be5e6bb8773a77825fc344f640aa0c6f398708084d6ca04b3ea",
+  "contentHash": "sha256:c4ab903bf6a2ea6a1e1d04ac9c9005949e0bc043aaad49b1bbeea2eacb47ea63",
   "questions": [
     {
       "id": "first-facts-level-a-12-in-the-sea-q1",
-      "prompt": "Who swims fast?",
+      "prompt": "What do we learn about a fish?",
       "choices": [
-        "the shark",
-        "the turtle",
-        "the crab"
+        "A fish swims with a swish.",
+        "A huge whale swims far.",
+        "People can swim too!"
       ],
-      "answer": "the shark",
+      "answer": "A fish swims with a swish.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A big shark can swim fast."
+      "evidencePage": 1,
+      "evidenceText": "A fish swims with a swish."
     },
     {
       "id": "first-facts-level-a-12-in-the-sea-q2",
-      "prompt": "Who is huge?",
+      "prompt": "What do we learn about a huge whale?",
       "choices": [
-        "the whale",
-        "the crab",
-        "the fish"
+        "A huge whale swims far.",
+        "A fish swims with a swish.",
+        "People can swim too!"
       ],
-      "answer": "the whale",
+      "answer": "A huge whale swims far.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 4,
-      "evidenceText": "A whale can swim far.\nIt is huge."
+      "evidenceText": "A huge whale swims far."
     },
     {
       "id": "first-facts-level-a-12-in-the-sea-q3",
-      "prompt": "Who swims slow?",
+      "prompt": "What is the big idea in In the Sea?",
       "choices": [
-        "the turtle",
-        "the shark",
-        "the seal"
+        "People can swim too!",
+        "A fish swims with a swish.",
+        "A huge whale swims far."
       ],
-      "answer": "the turtle",
+      "answer": "People can swim too!",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 6,
-      "evidenceText": "A turtle can swim slow.\nSlow and sure."
+      "skill": "main_idea",
+      "rationale": "People can swim too! This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "People can swim too!"
     }
   ]
 }

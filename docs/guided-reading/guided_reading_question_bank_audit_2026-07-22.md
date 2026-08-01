@@ -6,10 +6,10 @@
 - Quiz files: 176
 - Questions: 528 (300 fiction, 228 nonfiction)
 - Questions with exact page evidence: 528/528
-- Additional exact supporting excerpts: 65
+- Additional exact supporting excerpts: 0
 - Answers supported by that evidence: 528/528
-  - Direct textual support: 478
-  - Traceable conceptual rationale: 50
+  - Direct textual support: 521
+  - Traceable conceptual rationale: 7
 - Prohibited generic prompts: 0
 - Repeated answers within a quiz: 0
 - Correct-answer length giveaways: 0
@@ -34,10 +34,10 @@
 | gr-c-39 | Shapes | nonfiction | B | 3 | PASS |
 | gr-d-42 | Our Earth | nonfiction | B | 3 | PASS |
 | gr-d-43 | Healthy Habits | nonfiction | B | 3 | PASS |
-| gr-d-44 | Animal Homes | nonfiction | B | 3 | PASS |
+| gr-d-44 | Animal Shelters and Habitats | nonfiction | B | 3 | PASS |
 | gr-d-45 | Space | nonfiction | B | 3 | PASS |
 | gr-e-46 | Reptiles | nonfiction | B | 3 | PASS |
-| gr-e-47 | How Things Grow | nonfiction | B | 3 | PASS |
+| gr-e-47 | Living Things Change | nonfiction | B | 3 | PASS |
 | gr-e-48 | Magnets | nonfiction | B | 3 | PASS |
 | gr-e-49 | Clothes | nonfiction | B | 3 | PASS |
 | gr-e-50 | Our Five Senses | nonfiction | B | 3 | PASS |
@@ -47,55 +47,55 @@
 | first-facts-level-a-04-water | Water | nonfiction | A | 3 | PASS |
 | first-facts-level-a-05-the-sky | The Sky | nonfiction | A | 3 | PASS |
 | first-facts-level-a-06-animals-can | Animals Can! | nonfiction | A | 3 | PASS |
-| first-facts-level-a-07-bugs | Bugs | nonfiction | A | 3 | PASS |
-| first-facts-level-a-08-my-pet | My Pet | nonfiction | A | 3 | PASS |
+| first-facts-level-a-07-bugs | Small Creatures | nonfiction | A | 3 | PASS |
+| first-facts-level-a-08-my-pet | Pets We Care For | nonfiction | A | 3 | PASS |
 | first-facts-level-a-09-hot-and-cold | Hot and Cold | nonfiction | A | 3 | PASS |
 | first-facts-level-a-10-shapes | Shapes | nonfiction | A | 3 | PASS |
 | first-facts-level-a-11-at-the-farm | At the Farm | nonfiction | A | 3 | PASS |
 | first-facts-level-a-12-in-the-sea | In the Sea | nonfiction | A | 3 | PASS |
 | first-facts-level-a-13-fruit | Fruit | nonfiction | A | 3 | PASS |
-| first-facts-level-a-14-the-tree | The Tree | nonfiction | A | 3 | PASS |
+| first-facts-level-a-14-the-tree | The Apple Tree | nonfiction | A | 3 | PASS |
 | first-facts-level-a-15-baby-animals | Baby Animals | nonfiction | A | 3 | PASS |
 | first-facts-level-a-16-fast-and-slow | Fast and Slow | nonfiction | A | 3 | PASS |
 | first-facts-level-a-17-a-seed-grows | A Seed Grows | nonfiction | A | 3 | PASS |
 | first-facts-level-a-18-my-body | My Body | nonfiction | A | 3 | PASS |
 | first-facts-level-a-19-day-and-night | Day and Night | nonfiction | A | 3 | PASS |
 | first-facts-level-a-20-space | Space | nonfiction | A | 3 | PASS |
-| first-facts-a-01-look-at-the-colours | Look at the Colours! | nonfiction | B | 3 | PASS |
-| first-facts-a-02-the-four-seasons | The Four Seasons | nonfiction | B | 3 | PASS |
-| first-facts-a-03-little-seeds-grow | Little Seeds Grow | nonfiction | B | 3 | PASS |
+| first-facts-a-01-look-at-the-colours | Colours We Can See | nonfiction | B | 3 | PASS |
+| first-facts-a-02-the-four-seasons | Seasons in a Temperate Place | nonfiction | B | 3 | PASS |
+| first-facts-a-03-little-seeds-grow | A Seed Germinates | nonfiction | B | 3 | PASS |
 | first-facts-a-04-what-is-weather | What is Weather? | nonfiction | B | 3 | PASS |
-| first-facts-a-05-flowers-and-trees | Flowers and Trees | nonfiction | B | 3 | PASS |
+| first-facts-a-05-flowers-and-trees | Flowering Plants and Trees | nonfiction | B | 3 | PASS |
 | first-facts-a-06-baby-animals | Baby Animals | nonfiction | B | 3 | PASS |
 | first-facts-a-07-animals-on-the-farm | Animals on the Farm | nonfiction | B | 3 | PASS |
 | first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | nonfiction | B | 3 | PASS |
 | first-facts-a-09-animals-at-night | Animals at Night | nonfiction | B | 3 | PASS |
-| first-facts-a-10-bugs-all-around-us | Bugs All Around Us | nonfiction | B | 3 | PASS |
-| first-facts-a-11-pets-we-love | Pets We Love | nonfiction | B | 3 | PASS |
-| first-facts-a-12-shapes-everywhere | Shapes Everywhere | nonfiction | B | 3 | PASS |
+| first-facts-a-10-bugs-all-around-us | Small Creatures Around Us | nonfiction | B | 3 | PASS |
+| first-facts-a-11-pets-we-love | Caring for Pets | nonfiction | B | 3 | PASS |
+| first-facts-a-12-shapes-everywhere | Shapes on Everyday Objects | nonfiction | B | 3 | PASS |
 | first-facts-a-13-big-and-small | Big and Small | nonfiction | B | 3 | PASS |
 | first-facts-a-14-hot-and-cold | Hot and Cold | nonfiction | B | 3 | PASS |
-| first-facts-a-15-things-that-float-and-sink | Things That Float and Sink | nonfiction | B | 3 | PASS |
+| first-facts-a-15-things-that-float-and-sink | Why Things Float or Sink | nonfiction | B | 3 | PASS |
 | first-facts-a-16-push-and-pull | Push and Pull | nonfiction | B | 3 | PASS |
-| first-facts-a-17-hello-sun | Hello, Sun! | nonfiction | B | 3 | PASS |
+| first-facts-a-17-hello-sun | Watching the Sun Safely | nonfiction | B | 3 | PASS |
 | first-facts-a-18-the-moon | The Moon | nonfiction | B | 3 | PASS |
 | first-facts-a-19-day-and-night | Day and Night | nonfiction | B | 3 | PASS |
 | first-facts-a-20-my-five-senses | My Five Senses | nonfiction | B | 3 | PASS |
-| first-facts-a-21-how-i-grow | How I Grow | nonfiction | B | 3 | PASS |
-| first-facts-a-22-staying-healthy | Staying Healthy | nonfiction | B | 3 | PASS |
+| first-facts-a-21-how-i-grow | Ways I Grow | nonfiction | B | 3 | PASS |
+| first-facts-a-22-staying-healthy | Habits That Support Health | nonfiction | B | 3 | PASS |
 | first-facts-a-23-my-body | My Body | nonfiction | B | 3 | PASS |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | nonfiction | B | 3 | PASS |
 | first-facts-a-25-water-everywhere | Water Everywhere | nonfiction | B | 3 | PASS |
-| level-c-nonfiction-01-bees | Bees | nonfiction | C | 3 | PASS |
+| level-c-nonfiction-01-bees | Honeybees and Pollination | nonfiction | C | 3 | PASS |
 | level-c-nonfiction-02-volcanoes | Volcanoes | nonfiction | C | 3 | PASS |
-| level-c-nonfiction-03-penguins | Penguins | nonfiction | C | 3 | PASS |
+| level-c-nonfiction-03-penguins | Emperor Penguins and Their Relatives | nonfiction | C | 3 | PASS |
 | level-c-nonfiction-04-the-moon | The Moon | nonfiction | C | 3 | PASS |
-| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | nonfiction | C | 3 | PASS |
+| level-c-nonfiction-05-how-seeds-grow | How a Flowering Plant Grows | nonfiction | C | 3 | PASS |
 | level-c-nonfiction-06-spiders | Spiders | nonfiction | C | 3 | PASS |
 | level-c-nonfiction-07-under-the-ocean | Under the Ocean | nonfiction | C | 3 | PASS |
-| level-c-nonfiction-08-butterflies | Butterflies | nonfiction | C | 3 | PASS |
+| level-c-nonfiction-08-butterflies | The Monarch Butterfly Life Cycle | nonfiction | C | 3 | PASS |
 | level-c-nonfiction-09-caves | Caves | nonfiction | C | 3 | PASS |
-| level-c-nonfiction-10-frogs | Frogs | nonfiction | C | 3 | PASS |
+| level-c-nonfiction-10-frogs | The Common Frog Life Cycle | nonfiction | C | 3 | PASS |
 | bob-and-nan-01 | Bob and Nan | fiction | A | 3 | PASS |
 | bob-and-nan-02-park | Bob and Nan go to the Park | fiction | A | 3 | PASS |
 | bob-and-nan-03-fluff | Bob, Nan and Fluff | fiction | A | 3 | PASS |

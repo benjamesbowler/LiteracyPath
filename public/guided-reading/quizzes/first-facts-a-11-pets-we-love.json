@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-11-pets-we-love",
-  "contentHash": "sha256:bfc4dcef0b5800eb3e206ddbc3b04708455e775a3dc9ce91f5ae5f8e881bb71d",
+  "contentHash": "sha256:953af962787fac27216842e69e3564381540b3052b88fffa9859aca08769773d",
   "questions": [
     {
       "id": "first-facts-a-11-pets-we-love-q1",
-      "prompt": "What do cats do when they are happy?",
+      "prompt": "Which fact about dogs is given in Caring for Pets?",
       "choices": [
-        "purr",
-        "bark",
-        "quack"
+        "Dogs need play exercise and rest.",
+        "Rabbits need space hay shelter and company.",
+        "Every pet needs informed gentle care."
       ],
-      "answer": "purr",
-      "kind": "word",
+      "answer": "Dogs need play exercise and rest.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "A cat is a pet. Cats purr when they are happy."
+      "evidencePage": 1,
+      "evidenceText": "Dogs need play exercise and rest."
     },
     {
       "id": "first-facts-a-11-pets-we-love-q2",
-      "prompt": "Where does a goldfish swim?",
+      "prompt": "Which fact about rabbits is given in Caring for Pets?",
       "choices": [
-        "in a tank",
-        "in a cage",
-        "on a wheel"
+        "Rabbits need space hay shelter and company.",
+        "Dogs need play exercise and rest.",
+        "Every pet needs informed gentle care."
       ],
-      "answer": "in a tank",
+      "answer": "Rabbits need space hay shelter and company.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "A goldfish swims in a tank. Fish need clean, fresh water."
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "Rabbits need space hay shelter and company."
     },
     {
       "id": "first-facts-a-11-pets-we-love-q3",
-      "prompt": "What do all pets need?",
+      "prompt": "Which statement gives the main idea of Caring for Pets?",
       "choices": [
-        "food, water, and love",
-        "toys and sweets",
-        "hats and boots"
+        "Every pet needs informed gentle care.",
+        "Dogs need play exercise and rest.",
+        "Rabbits need space hay shelter and company."
       ],
-      "answer": "food, water, and love",
+      "answer": "Every pet needs informed gentle care.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Every pet needs informed gentle care. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "All pets need food, water, and love. Pets are our friends."
+      "evidenceText": "Every pet needs informed gentle care."
     }
   ]
 }

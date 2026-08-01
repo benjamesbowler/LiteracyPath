@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-23-giggly-and-clucky-bake-a-cake",
-  "contentHash": "sha256:07899c4731e748b648035d3ba6449833a116d6eb3c4812246d6c9128da6f2194",
+  "contentHash": "sha256:f1f5b5603c55f08242d70037a8b0869ff463bb955b4c76e8bc4831fcb6eb5bc3",
   "questions": [
     {
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q1",
-      "prompt": "Who gets the eggs for the cake?",
+      "prompt": "What happens first in Giggly and Clucky Bake a Cake?",
       "choices": [
-        "Clucky",
-        "Giggly",
-        "Woolly"
+        "Clucky plans a tall cake.",
+        "The cake goes inside.",
+        "They measure and bake again."
       ],
-      "answer": "Clucky",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "Clucky got the eggs. Giggly giggled at the eggs."
+      "answer": "Clucky plans a tall cake.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Clucky plans a tall cake."
     },
     {
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q2",
-      "prompt": "What lands on Clucky?",
+      "prompt": "What goes wrong in Giggly and Clucky Bake a Cake?",
       "choices": [
-        "flour",
-        "mud",
-        "water"
+        "The cake goes inside.",
+        "Clucky plans a tall cake.",
+        "They measure and bake again."
       ],
-      "answer": "flour",
-      "kind": "word",
-      "skill": "sequence",
-      "evidencePage": 4,
-      "evidenceText": "The flour went on Clucky."
+      "answer": "The cake goes inside.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The cake goes inside. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "The cake goes inside."
     },
     {
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q3",
-      "prompt": "What does Clucky do after tasting the flat cake?",
+      "prompt": "What happens at the end of Giggly and Clucky Bake a Cake?",
       "choices": [
-        "Then Clucky giggled too.",
-        "Then Clucky went to sleep.",
-        "Then Clucky threw it away."
+        "They measure and bake again.",
+        "Clucky plans a tall cake.",
+        "The cake goes inside."
       ],
-      "answer": "Then Clucky giggled too.",
+      "answer": "They measure and bake again.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 11,
-      "evidenceText": "Clucky had a bit. Then Clucky giggled too."
+      "rationale": "They measure and bake again. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "They measure and bake again."
     }
   ]
 }

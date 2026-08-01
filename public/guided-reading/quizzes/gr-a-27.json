@@ -1,61 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-a-27",
-  "contentHash": "sha256:b6e4c67eb1fa1433c55bacb4365308a404347f7e51aff1026f56338ac49033ef",
+  "contentHash": "sha256:4d6154edb8d446dd1167cf95b3d6b7637fa3e5910500ba1fb94209718c972844",
   "questions": [
     {
       "id": "gr-a-27-q1",
-      "prompt": "What is hot in the book?",
+      "prompt": "Which fact about the Sun is given in The Sun?",
       "choices": [
-        "the sun",
-        "the rain",
-        "the moon"
+        "The Sun is a star.",
+        "Sunlight warms land and water.",
+        "Earth travels around the Sun."
       ],
-      "answer": "the sun",
+      "answer": "The Sun is a star.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "The sun is hot."
+      "evidencePage": 1,
+      "evidenceText": "The Sun is a star."
     },
     {
       "id": "gr-a-27-q2",
-      "prompt": "What does the sun help us do?",
+      "prompt": "Which fact about sunlight is given in The Sun?",
       "choices": [
-        "sleep",
-        "see",
-        "hide"
+        "Sunlight warms land and water.",
+        "The Sun is a star.",
+        "Earth travels around the Sun."
       ],
-      "answer": "see",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 4,
-      "evidenceText": "The sun helps us see."
+      "answer": "Sunlight warms land and water.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Sunlight warms land and water."
     },
     {
       "id": "gr-a-27-q3",
-      "prompt": "Why does the book call the sun our friend?",
+      "prompt": "Which statement gives the main idea of The Sun?",
       "choices": [
-        "it helps plants and people",
-        "it hides plants and blocks our sight",
-        "it stops living things from growing"
+        "Earth travels around the Sun.",
+        "The Sun is a star.",
+        "Sunlight warms land and water."
       ],
-      "answer": "it helps plants and people",
+      "answer": "Earth travels around the Sun.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Page 3 says the sun helps plants, and page 5 says it helps us grow; us means the people reading.",
+      "rationale": "Earth travels around the Sun. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "The sun is our friend.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 3,
-          "evidenceText": "The sun helps plants."
-        },
-        {
-          "evidencePage": 5,
-          "evidenceText": "The sun helps us grow."
-        }
-      ]
+      "evidenceText": "Earth travels around the Sun."
     }
   ]
 }

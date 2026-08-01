@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "series": "Bob and Nan; James and Anna",
+  "auditSource": "guided_reading_story_bible_visual_alignment_audit_2026-08-01.json",
+  "approvedAt": "2026-08-01",
+  "approvalMethod": "Installed at the existing public path and visually inspected at full output size against displayed text, regeneration brief, adjacent-page continuity and canonical human-series character identity.",
+  "summary": {
+    "assigned": 25,
+    "approved": 25,
+    "regenerated": 25,
+    "retainedAfterReinspection": 0,
+    "remaining": 0
+  },
+  "approvals": [
+    {
+      "bookId": "bob-and-nan-01",
+      "pageNumber": 1,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-01/page-001.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "1d99bbfa46b3e8d4ebf6c3f01b310be5dcdfda5319d563628f39ca43c1f83466",
+      "completionNote": "Bob and Nan run together in a clean opening scene with both children immediately identifiable."
+    },
+    {
+      "bookId": "bob-and-nan-01",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-01/page-003.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "b31bf4e366d753e19f9436607fe65f31fef08816537c8628c200b471f7095e66",
+      "completionNote": "Bob and Nan continue running as established pals, preserving their clothes, scale and setting."
+    },
+    {
+      "bookId": "bob-and-nan-04-beach",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-04/page-002.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "7506c699002098ba0b36e12a6a54cbc90fabb3bb621fdaa5ee67eadc8af2b218",
+      "completionNote": "Bob and Nan point to two unmistakable starter towers and a low sand-fort wall, with their buckets and spades ready for the next building page."
+    },
+    {
+      "bookId": "bob-and-nan-04-beach",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-04/page-003.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "d5f4f4986f648f068b35612a4a5fe26f1a74c50dbe11682a758e8d6347745d40",
+      "completionNote": "Both children dig the fort base with consistent beach tools and character continuity."
+    },
+    {
+      "bookId": "bob-and-nan-04-beach",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-04/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "ae577c530a23dc0e8ecc7416f711b70f9c183840ac4c07e36542892abda7d463",
+      "completionNote": "The children build the central sand tower as the next readable construction step."
+    },
+    {
+      "bookId": "bob-and-nan-04-beach",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-04/page-005.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "cda7b030657d1f9710f5fcd262f04bda5d5730388fbed8dcdb597cd46552ce09",
+      "completionNote": "One incoming wave visibly reaches and damages the same sand fort."
+    },
+    {
+      "bookId": "bob-and-nan-04-beach",
+      "pageNumber": 6,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-04/page-006.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "4473d33cbdbe82190d936ca04e3a25ff096a370914af7b936ec5c33d83341107",
+      "completionNote": "Bob and Nan rebuild the fort together after the wave, completing the sequence coherently."
+    },
+    {
+      "bookId": "bob-and-nan-05-school",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-05/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "7bac6b398c373b519d3b4427b4c6dc48274bb98c78516721c8b51da19c04eea8",
+      "completionNote": "The classroom-door moment clearly establishes the children entering school together."
+    },
+    {
+      "bookId": "bob-and-nan-05-school",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-05/page-005.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "1957e7203f7c1c04931840bca8e958a97280bbba3fee01eedd5ec2b130013fe8",
+      "completionNote": "The school sequence continues inside the same classroom with both children correctly identified."
+    },
+    {
+      "bookId": "bob-and-nan-05-school",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-05/page-007.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "8168afb03ac9ffe160a8c2cb102f7d4c3ecb12aac5e62f3fdf48a5d9fef38d99",
+      "completionNote": "Bob and Nan complete a classroom drawing activity with sentence-aligned props and actions."
+    },
+    {
+      "bookId": "bob-and-nan-06-zoo",
+      "pageNumber": 1,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-06/page-001.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "aae8222049974c0cd776e565686c2057391275449f44455164c8fd270027de03",
+      "completionNote": "The zoo visit opens with a clear icon-only six-animal card and no embedded writing."
+    },
+    {
+      "bookId": "bob-and-nan-06-zoo",
+      "pageNumber": 8,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-06/page-008.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "2784752c0f70c74a2682ce4f7a0442d787a75e773600abc8f1a312298b131ed5",
+      "completionNote": "The completed zoo card shows the same six animal icons after the visit, preserving task continuity."
+    },
+    {
+      "bookId": "bob-and-nan-07-birthday",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-07/page-003.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "1bbc626fc6b832c2c526295c27517a2b8a30f3beb91cba13946b4053047f5197",
+      "completionNote": "Bob and Nan handle the tough wrapping paper together in one clear action."
+    },
+    {
+      "bookId": "bob-and-nan-07-birthday",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-07/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "058062bf32086a7ba9f38137a834b6e847d433d3aec1dd0640bbb0d66c48bc66",
+      "completionNote": "Both children pull the same paper in the next continuous birthday action."
+    },
+    {
+      "bookId": "bob-and-nan-07-birthday",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-07/page-005.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "6535192f6ab8cc5681a6977fa3e560a33551e7bcf5fc9311fedffa9f803c0389",
+      "completionNote": "The opened present clearly reveals the red toy bat earned by their effort."
+    },
+    {
+      "bookId": "bob-and-nan-09-read",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-09/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "3022ee4cd4c0850485d3f04c92250b88023d20dd1d4dda3b7ce7ebd5df10531e",
+      "completionNote": "The reading page shows the three separate sound letters c, a and t without stray generated text."
+    },
+    {
+      "bookId": "bob-and-nan-09-read",
+      "pageNumber": 5,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-09/page-005.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "5222d2e14d3b274390da4e3fc554f9f844f4f810d015175c25689d96abda6a9d",
+      "completionNote": "The next page shows the complete sentence “The cat naps.” as the intended readable text."
+    },
+    {
+      "bookId": "bob-and-nan-10-vet",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/series/bob-and-nan/book-10/page-007.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "ab00b28055b3340ffdcef6bd927dd8500b976f474ed5eebe303c9fffd8b09888",
+      "completionNote": "Fluff stands comfortably after treatment while Bob and Nan observe the pain-free outcome."
+    },
+    {
+      "bookId": "james-and-anna-02-chips",
+      "pageNumber": 2,
+      "imagePath": "/guided-reading/series/james-and-anna/book-02/page-002.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "b6d922ee7b52f8a2c7bfbbcf8318f7b58b01b89e6269c687daba21d3ec66a296",
+      "completionNote": "Chips hurries while the bell swings visibly; all former sound-effect words are removed."
+    },
+    {
+      "bookId": "james-and-anna-02-chips",
+      "pageNumber": 3,
+      "imagePath": "/guided-reading/series/james-and-anna/book-02/page-003.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "ffb114b780d09311b9738e8586080c93606cc59b072703cd4d90de2697eac383",
+      "completionNote": "Chips visibly bites Dad’s damaged green hat, with grass and bark cues preserving the sentence sequence."
+    },
+    {
+      "bookId": "james-and-anna-02-chips",
+      "pageNumber": 4,
+      "imagePath": "/guided-reading/series/james-and-anna/book-02/page-004.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "9da8b7567b3cac19947c2b4b606b8d281183dfa9e9738e358477287c9b7cde62",
+      "completionNote": "Dad points directly to the bite in the same hat while Chips calmly averts his gaze."
+    },
+    {
+      "bookId": "james-and-anna-02-chips",
+      "pageNumber": 7,
+      "imagePath": "/guided-reading/series/james-and-anna/book-02/page-007.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "eb0d9b5eb1eab7cb7e0d64e54a20e4a97eb827c739ae07546cadf07007801205",
+      "completionNote": "Chips pulls free and chews the neighbour’s rose bush without any embedded sound-effect text."
+    },
+    {
+      "bookId": "james-and-anna-02-chips",
+      "pageNumber": 11,
+      "imagePath": "/guided-reading/series/james-and-anna/book-02/page-011.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "a5e3025c4289fa349b61b37e1b4f75994644712f104949784326c7bc74b209f5",
+      "completionNote": "Chips takes one unmistakably large bite of James’s green jumper as the children react."
+    },
+    {
+      "bookId": "james-and-anna-04-dentist",
+      "pageNumber": 11,
+      "imagePath": "/guided-reading/series/james-and-anna/book-04/page-011.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "424d6dcce6d701b4028ca1ad7f716af0c77501ba1e42eb655f700af81a8fc6c7",
+      "completionNote": "The dentist gently checks Anna’s teeth with a friendly singing expression and no musical symbols."
+    },
+    {
+      "bookId": "james-and-anna-05-tree-house",
+      "pageNumber": 9,
+      "imagePath": "/guided-reading/series/james-and-anna/book-05/page-009.webp",
+      "status": "approved",
+      "issueCodes": [],
+      "imageSha256": "11a605e9df73e8c9b8fe5dd8f93ac4f10cf27e9d923ad32f54ac361ce005d3f0",
+      "completionNote": "James paints blue, Anna paints yellow, and Chips clearly carries one dry metal paint lid away."
+    }
+  ]
+}

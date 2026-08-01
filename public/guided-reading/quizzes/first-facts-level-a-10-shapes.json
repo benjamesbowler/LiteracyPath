@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-10-shapes",
-  "contentHash": "sha256:1ff7462a24e5e396450efb7af1c08aff550460871f147f71fccc4d0eaf5b5bda",
+  "contentHash": "sha256:235c7955cb061693a2b3d57f5d4b811ca2d0fcd50732922d81c0d3d9f4d729e8",
   "questions": [
     {
       "id": "first-facts-level-a-10-shapes-q1",
-      "prompt": "What shape is a ball?",
+      "prompt": "What do we learn about a ball?",
       "choices": [
-        "a circle",
-        "a square",
-        "a triangle"
+        "A ball looks round.",
+        "A door looks rectangular.",
+        "Which shape can you find?"
       ],
-      "answer": "a circle",
+      "answer": "A ball looks round.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A ball is round.\nIt is a circle."
+      "evidenceText": "A ball looks round."
     },
     {
       "id": "first-facts-level-a-10-shapes-q2",
-      "prompt": "What shape is a door?",
+      "prompt": "What do we learn about a door?",
       "choices": [
-        "a rectangle",
-        "a circle",
-        "an oval"
+        "A door looks rectangular.",
+        "A ball looks round.",
+        "Which shape can you find?"
       ],
-      "answer": "a rectangle",
+      "answer": "A door looks rectangular.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "A door is tall.\nIt is a rectangle."
+      "evidenceText": "A door looks rectangular."
     },
     {
       "id": "first-facts-level-a-10-shapes-q3",
-      "prompt": "What shape is a slice of pie?",
+      "prompt": "What is the big idea in Shapes?",
       "choices": [
-        "a triangle",
-        "a square",
-        "a circle"
+        "Which shape can you find?",
+        "A ball looks round.",
+        "A door looks rectangular."
       ],
-      "answer": "a triangle",
+      "answer": "Which shape can you find?",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "A slice of pie.\nIt is a triangle."
+      "skill": "main_idea",
+      "rationale": "Which shape can you find? This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Which shape can you find?"
     }
   ]
 }

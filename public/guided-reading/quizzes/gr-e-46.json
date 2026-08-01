@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-e-46",
-  "contentHash": "sha256:828dbe6f5fddaa130b900de5c15e5d0b14bdb9b1196e6f0c229d38e6c34b0f56",
+  "contentHash": "sha256:afc651bcf7a0d5e0fdaea059be47b82d19599fdede812f7d5fec10718125f97e",
   "questions": [
     {
       "id": "gr-e-46-q1",
-      "prompt": "What kind of skin do reptiles have?",
+      "prompt": "Which fact about reptiles is given in Reptiles?",
       "choices": [
-        "dry skin",
-        "wet skin",
-        "furry skin"
+        "Reptiles have dry scaly skin.",
+        "Snakes are reptiles without legs.",
+        "Outside heat changes reptile body temperature."
       ],
-      "answer": "dry skin",
+      "answer": "Reptiles have dry scaly skin.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Reptiles have dry skin."
+      "evidenceText": "Reptiles have dry scaly skin."
     },
     {
       "id": "gr-e-46-q2",
-      "prompt": "What do most reptiles do?",
+      "prompt": "Which fact about snakes is given in Reptiles?",
       "choices": [
-        "lay eggs",
-        "grow fur",
-        "make milk"
+        "Snakes are reptiles without legs.",
+        "Reptiles have dry scaly skin.",
+        "Outside heat changes reptile body temperature."
       ],
-      "answer": "lay eggs",
+      "answer": "Snakes are reptiles without legs.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "Most reptiles lay eggs."
+      "evidencePage": 3,
+      "evidenceText": "Snakes are reptiles without legs."
     },
     {
       "id": "gr-e-46-q3",
-      "prompt": "Which trait does the book give for all reptiles?",
+      "prompt": "Which statement gives the main idea of Reptiles?",
       "choices": [
-        "they are cold-blooded",
-        "they all have hard shells",
-        "they all have long bodies"
+        "Outside heat changes reptile body temperature.",
+        "Reptiles have dry scaly skin.",
+        "Snakes are reptiles without legs."
       ],
-      "answer": "they are cold-blooded",
+      "answer": "Outside heat changes reptile body temperature.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Outside heat changes reptile body temperature. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Reptiles are cold-blooded animals!"
+      "evidenceText": "Outside heat changes reptile body temperature."
     }
   ]
 }

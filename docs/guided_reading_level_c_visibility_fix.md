@@ -1,6 +1,6 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-07-24T09:55:09.553Z
+Generated: 2026-07-31T19:53:11.228Z
 
 ## Current Policy
 
@@ -13,82 +13,82 @@ Visible nonfiction books: 76
 
 | ID | Title | Type | Level | QA | Pages | Cover | Missing Page Images |
 |---|---|---|---|---|---:|---:|---|
-| gr-a-26 | Pets | Non-Fiction | B | approved | 6 | yes | none |
-| gr-a-27 | The Sun | Non-Fiction | B | approved | 6 | yes | none |
-| gr-a-28 | Colors | Non-Fiction | B | approved | 6 | yes | none |
-| gr-a-29 | My Body | Non-Fiction | B | approved | 6 | yes | none |
-| gr-b-31 | Seasons | Non-Fiction | B | approved | 6 | yes | none |
-| gr-b-32 | Fruits | Non-Fiction | B | approved | 6 | yes | none |
-| gr-b-33 | Tools | Non-Fiction | B | approved | 6 | yes | none |
-| gr-b-34 | Day and Night | Non-Fiction | B | approved | 6 | yes | none |
-| gr-b-35 | Community Helpers | Non-Fiction | B | approved | 6 | yes | none |
-| gr-c-37 | Water | Non-Fiction | B | approved | 6 | yes | none |
-| gr-c-38 | Five Senses | Non-Fiction | B | approved | 6 | yes | none |
-| gr-c-39 | Shapes | Non-Fiction | B | approved | 6 | yes | none |
-| gr-d-42 | Our Earth | Non-Fiction | B | approved | 6 | yes | none |
-| gr-d-43 | Healthy Habits | Non-Fiction | B | approved | 6 | yes | none |
-| gr-d-44 | Animal Homes | Non-Fiction | B | approved | 6 | yes | none |
-| gr-d-45 | Space | Non-Fiction | B | approved | 6 | yes | none |
-| gr-e-46 | Reptiles | Non-Fiction | B | approved | 6 | yes | none |
-| gr-e-47 | How Things Grow | Non-Fiction | B | approved | 6 | yes | none |
-| gr-e-48 | Magnets | Non-Fiction | B | approved | 6 | yes | none |
-| gr-e-49 | Clothes | Non-Fiction | B | approved | 6 | yes | none |
-| gr-e-50 | Our Five Senses | Non-Fiction | B | approved | 6 | yes | none |
-| first-facts-level-a-01-colors | Colors | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-02-farm-animals | Farm Animals | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-03-big-and-little | Big and Little | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-04-water | Water | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-05-the-sky | The Sky | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-06-animals-can | Animals Can! | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-07-bugs | Bugs | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-08-my-pet | My Pet | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-09-hot-and-cold | Hot and Cold | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-10-shapes | Shapes | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-11-at-the-farm | At the Farm | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-12-in-the-sea | In the Sea | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-13-fruit | Fruit | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-14-the-tree | The Tree | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-15-baby-animals | Baby Animals | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-16-fast-and-slow | Fast and Slow | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-17-a-seed-grows | A Seed Grows | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-18-my-body | My Body | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-19-day-and-night | Day and Night | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-level-a-20-space | Space | Non-Fiction | A | approved | 7 | yes | none |
-| first-facts-a-01-look-at-the-colours | Look at the Colours! | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-02-the-four-seasons | The Four Seasons | Non-Fiction | B | approved | 9 | yes | none |
-| first-facts-a-03-little-seeds-grow | Little Seeds Grow | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-04-what-is-weather | What is Weather? | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-05-flowers-and-trees | Flowers and Trees | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-06-baby-animals | Baby Animals | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-07-animals-on-the-farm | Animals on the Farm | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-09-animals-at-night | Animals at Night | Non-Fiction | B | approved | 6 | yes | none |
-| first-facts-a-10-bugs-all-around-us | Bugs All Around Us | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-11-pets-we-love | Pets We Love | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-12-shapes-everywhere | Shapes Everywhere | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-13-big-and-small | Big and Small | Non-Fiction | B | approved | 6 | yes | none |
-| first-facts-a-14-hot-and-cold | Hot and Cold | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-15-things-that-float-and-sink | Things That Float and Sink | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-16-push-and-pull | Push and Pull | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-17-hello-sun | Hello, Sun! | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-18-the-moon | The Moon | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-19-day-and-night | Day and Night | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-20-my-five-senses | My Five Senses | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-21-how-i-grow | How I Grow | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-22-staying-healthy | Staying Healthy | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-23-my-body | My Body | Non-Fiction | B | approved | 8 | yes | none |
-| first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | Non-Fiction | B | approved | 7 | yes | none |
-| first-facts-a-25-water-everywhere | Water Everywhere | Non-Fiction | B | approved | 9 | yes | none |
-| level-c-nonfiction-01-bees | Bees | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-02-volcanoes | Volcanoes | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-03-penguins | Penguins | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-04-the-moon | The Moon | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-06-spiders | Spiders | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-07-under-the-ocean | Under the Ocean | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-08-butterflies | Butterflies | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-09-caves | Caves | Non-Fiction | C | approved | 9 | yes | none |
-| level-c-nonfiction-10-frogs | Frogs | Non-Fiction | C | approved | 9 | yes | none |
+| gr-a-26 | Pets | Non-fiction | B | approved | 6 | yes | none |
+| gr-a-27 | The Sun | Non-fiction | B | approved | 6 | yes | none |
+| gr-a-28 | Colors | Non-fiction | B | approved | 6 | yes | none |
+| gr-a-29 | My Body | Non-fiction | B | approved | 6 | yes | none |
+| gr-b-31 | Seasons | Non-fiction | B | approved | 6 | yes | none |
+| gr-b-32 | Fruits | Non-fiction | B | approved | 6 | yes | none |
+| gr-b-33 | Tools | Non-fiction | B | approved | 6 | yes | none |
+| gr-b-34 | Day and Night | Non-fiction | B | approved | 6 | yes | none |
+| gr-b-35 | Community Helpers | Non-fiction | B | approved | 6 | yes | none |
+| gr-c-37 | Water | Non-fiction | B | approved | 6 | yes | none |
+| gr-c-38 | Five Senses | Non-fiction | B | approved | 6 | yes | none |
+| gr-c-39 | Shapes | Non-fiction | B | approved | 6 | yes | none |
+| gr-d-42 | Our Earth | Non-fiction | B | approved | 6 | yes | none |
+| gr-d-43 | Healthy Habits | Non-fiction | B | approved | 6 | yes | none |
+| gr-d-44 | Animal Shelters and Habitats | Non-fiction | B | approved | 6 | yes | none |
+| gr-d-45 | Space | Non-fiction | B | approved | 6 | yes | none |
+| gr-e-46 | Reptiles | Non-fiction | B | approved | 6 | yes | none |
+| gr-e-47 | Living Things Change | Non-fiction | B | approved | 6 | yes | none |
+| gr-e-48 | Magnets | Non-fiction | B | approved | 6 | yes | none |
+| gr-e-49 | Clothes | Non-fiction | B | approved | 6 | yes | none |
+| gr-e-50 | Our Five Senses | Non-fiction | B | approved | 6 | yes | none |
+| first-facts-level-a-01-colors | Colors | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-02-farm-animals | Farm Animals | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-03-big-and-little | Big and Little | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-04-water | Water | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-05-the-sky | The Sky | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-06-animals-can | Animals Can! | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-07-bugs | Small Creatures | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-08-my-pet | Pets We Care For | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-09-hot-and-cold | Hot and Cold | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-10-shapes | Shapes | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-11-at-the-farm | At the Farm | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-12-in-the-sea | In the Sea | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-13-fruit | Fruit | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-14-the-tree | The Apple Tree | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-15-baby-animals | Baby Animals | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-16-fast-and-slow | Fast and Slow | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-17-a-seed-grows | A Seed Grows | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-18-my-body | My Body | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-19-day-and-night | Day and Night | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-level-a-20-space | Space | Non-fiction | A | approved | 7 | yes | none |
+| first-facts-a-01-look-at-the-colours | Colours We Can See | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-02-the-four-seasons | Seasons in a Temperate Place | Non-fiction | B | approved | 9 | yes | none |
+| first-facts-a-03-little-seeds-grow | A Seed Germinates | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-04-what-is-weather | What is Weather? | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-05-flowers-and-trees | Flowering Plants and Trees | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-06-baby-animals | Baby Animals | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-07-animals-on-the-farm | Animals on the Farm | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-09-animals-at-night | Animals at Night | Non-fiction | B | approved | 6 | yes | none |
+| first-facts-a-10-bugs-all-around-us | Small Creatures Around Us | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-11-pets-we-love | Caring for Pets | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-12-shapes-everywhere | Shapes on Everyday Objects | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-13-big-and-small | Big and Small | Non-fiction | B | approved | 6 | yes | none |
+| first-facts-a-14-hot-and-cold | Hot and Cold | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-15-things-that-float-and-sink | Why Things Float or Sink | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-16-push-and-pull | Push and Pull | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-17-hello-sun | Watching the Sun Safely | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-18-the-moon | The Moon | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-19-day-and-night | Day and Night | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-20-my-five-senses | My Five Senses | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-21-how-i-grow | Ways I Grow | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-22-staying-healthy | Habits That Support Health | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-23-my-body | My Body | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-25-water-everywhere | Water Everywhere | Non-fiction | B | approved | 9 | yes | none |
+| level-c-nonfiction-01-bees | Honeybees and Pollination | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-02-volcanoes | Volcanoes | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-03-penguins | Emperor Penguins and Their Relatives | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-04-the-moon | The Moon | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-05-how-seeds-grow | How a Flowering Plant Grows | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-06-spiders | Spiders | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-07-under-the-ocean | Under the Ocean | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-08-butterflies | The Monarch Butterfly Life Cycle | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-09-caves | Caves | Non-fiction | C | approved | 9 | yes | none |
+| level-c-nonfiction-10-frogs | The Common Frog Life Cycle | Non-fiction | C | approved | 9 | yes | none |
 | bob-and-nan-01 | Bob and Nan | Fiction | A | approved | 7 | yes | none |
 | bob-and-nan-02-park | Bob and Nan go to the Park | Fiction | A | approved | 7 | yes | none |
 | bob-and-nan-03-fluff | Bob, Nan and Fluff | Fiction | A | approved | 7 | yes | none |

@@ -1,51 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-15-cuddly-wants-a-hug",
-  "contentHash": "sha256:88dd8a7557e2574ca7870b3cb1bf0d79c2c837194f27680b54c7858cefcc50f5",
+  "contentHash": "sha256:07dc3b1e381d989e45eeda53c35cf0a711798b1cc61193ad839b6c70151742fe",
   "questions": [
     {
       "id": "meadow-pals-15-cuddly-wants-a-hug-q1",
-      "prompt": "Who finally gives Cuddly a big hug?",
+      "prompt": "What happens first in Cuddly Wants a Hug?",
       "choices": [
-        "Woolly",
-        "Grumpy",
-        "Speedy"
+        "Cuddly wants a hug.",
+        "Muddy is covered in mud.",
+        "Woolly gives one big hug."
       ],
-      "answer": "Woolly",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "Woolly gave Cuddly a big hug."
+      "answer": "Cuddly wants a hug.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Cuddly wants a hug."
     },
     {
       "id": "meadow-pals-15-cuddly-wants-a-hug-q2",
-      "prompt": "Why does Splashy not give Cuddly a hug?",
+      "prompt": "What goes wrong in Cuddly Wants a Hug?",
       "choices": [
-        "Splashy is too wet.",
-        "Splashy is too fast.",
-        "Splashy is too muddy."
+        "Muddy is covered in mud.",
+        "Cuddly wants a hug.",
+        "Woolly gives one big hug."
       ],
-      "answer": "Splashy is too wet.",
+      "answer": "Muddy is covered in mud.",
       "kind": "text",
-      "skill": "cause_effect",
-      "rationale": "Splashy says 'I am too wet' in response to Cuddly wanting a hug, giving the reason in the answer.",
-      "evidencePage": 3,
-      "evidenceText": "\"I am too wet!\" said Splashy."
+      "skill": "problem_solution",
+      "rationale": "Muddy is covered in mud. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Muddy is covered in mud."
     },
     {
       "id": "meadow-pals-15-cuddly-wants-a-hug-q3",
-      "prompt": "What does Cuddly ask for after the big hug?",
+      "prompt": "What happens at the end of Cuddly Wants a Hug?",
       "choices": [
-        "more hugs",
-        "more cake",
-        "more mud"
+        "Woolly gives one big hug.",
+        "Cuddly wants a hug.",
+        "Muddy is covered in mud."
       ],
-      "answer": "more hugs",
+      "answer": "Woolly gives one big hug.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 9,
-      "evidenceText": "\"More hugs!\" said Cuddly."
+      "rationale": "Woolly gives one big hug. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Woolly gives one big hug."
     }
   ]
 }

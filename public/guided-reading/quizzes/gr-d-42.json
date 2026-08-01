@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-d-42",
-  "contentHash": "sha256:e9d0818a957f79566ded9ca0e168c318063939a73a970624d04037f47e423734",
+  "contentHash": "sha256:de14b703bc4f5caa3a8c368a6ccbd951edec71be1b27aeea94fc587a2dedb37f",
   "questions": [
     {
       "id": "gr-d-42-q1",
-      "prompt": "What is Earth?",
+      "prompt": "Which fact about Earth is given in Our Earth?",
       "choices": [
-        "our home",
-        "a toy",
-        "a star"
+        "Earth is our home planet.",
+        "Mountains rise above the land.",
+        "People share and care for Earth."
       ],
-      "answer": "our home",
+      "answer": "Earth is our home planet.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Earth is our home."
+      "evidenceText": "Earth is our home planet."
     },
     {
       "id": "gr-d-42-q2",
-      "prompt": "Which Earth feature does the book describe as tall?",
+      "prompt": "Which fact about mountains is given in Our Earth?",
       "choices": [
-        "mountains",
-        "oceans",
-        "forests"
+        "Mountains rise above the land.",
+        "Earth is our home planet.",
+        "People share and care for Earth."
       ],
-      "answer": "mountains",
-      "kind": "word",
+      "answer": "Mountains rise above the land.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Earth has tall mountains."
+      "evidenceText": "Mountains rise above the land."
     },
     {
       "id": "gr-d-42-q3",
-      "prompt": "What must we do for Earth?",
+      "prompt": "Which statement gives the main idea of Our Earth?",
       "choices": [
-        "keep it clean",
-        "paint it",
-        "hide it"
+        "People share and care for Earth.",
+        "Earth is our home planet.",
+        "Mountains rise above the land."
       ],
-      "answer": "keep it clean",
+      "answer": "People share and care for Earth.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "People share and care for Earth. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "We must keep Earth clean!"
+      "evidenceText": "People share and care for Earth."
     }
   ]
 }

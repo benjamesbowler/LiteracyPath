@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-a-29",
-  "contentHash": "sha256:3b1528198bc629fb8b41ac51555b9d4c0355b35c2e2431d224cce0b77e4bb672",
+  "contentHash": "sha256:2a4edf5434d38580894600a294f7b95efd3c658ed6cd3ab58c87757e5c95e4b7",
   "questions": [
     {
       "id": "gr-a-29-q1",
-      "prompt": "Which body part does the speaker say they have two of?",
+      "prompt": "Which fact is introduced first in My Body?",
       "choices": [
-        "eyes",
-        "nose",
-        "mouth"
+        "I have two eyes.",
+        "I have one nose.",
+        "This whole body is mine."
       ],
-      "answer": "eyes",
-      "kind": "word",
+      "answer": "I have two eyes.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
       "evidenceText": "I have two eyes."
     },
     {
       "id": "gr-a-29-q2",
-      "prompt": "Which body part does the speaker say they have one of?",
+      "prompt": "Which fact is explained next in My Body?",
       "choices": [
-        "nose",
-        "ears",
-        "hands"
+        "I have one nose.",
+        "I have two eyes.",
+        "This whole body is mine."
       ],
-      "answer": "nose",
-      "kind": "word",
+      "answer": "I have one nose.",
+      "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
       "evidenceText": "I have one nose."
     },
     {
       "id": "gr-a-29-q3",
-      "prompt": "How does the speaker describe their body?",
+      "prompt": "Which statement gives the main idea of My Body?",
       "choices": [
-        "it is amazing",
-        "it is tiny",
-        "it is funny"
+        "This whole body is mine.",
+        "I have two eyes.",
+        "I have one nose."
       ],
-      "answer": "it is amazing",
+      "answer": "This whole body is mine.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "This whole body is mine. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "My body is amazing!"
+      "evidenceText": "This whole body is mine."
     }
   ]
 }

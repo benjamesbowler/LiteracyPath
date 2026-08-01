@@ -1,61 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-22",
-  "contentHash": "sha256:55ac84e1a9cbcaf10543ca69f7d83a2b7f40364474b49cce9776529a06127729",
+  "contentHash": "sha256:4f8f1cc2084c05794eb6bb6ccc73b216c1edcd08e945125a6e9393d5ab7b3a5d",
   "questions": [
     {
       "id": "moonwood-tales-c-22-q1",
-      "prompt": "What happened when Wren cast the speed spell during the race?",
+      "prompt": "Which event introduces the situation in The Big Moonwood Race?",
       "choices": [
-        "Everyone near Wren shot forward except Wren.",
-        "Only Wren raced ahead of every other runner.",
-        "Everyone near Wren stopped moving at once."
+        "Luna marks a race from Hollow Oak to stream, cliffs, and back.",
+        "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren.",
+        "Dewdrop earns the finish leaf and a second leaf for returning."
       ],
-      "answer": "Everyone near Wren shot forward except Wren.",
+      "answer": "Luna marks a race from Hollow Oak to stream, cliffs, and back.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 4,
-      "evidenceText": "It worked on everyone near her.\nEveryone shot forward very fast.\nExcept Wren."
+      "evidencePage": 1,
+      "evidenceText": "Luna marks a race from Hollow Oak to stream, cliffs, and back."
     },
     {
       "id": "moonwood-tales-c-22-q2",
-      "prompt": "Why does Flint arrive at the finish from the wrong direction?",
+      "prompt": "Which event shows that the first attempt fails in The Big Moonwood Race?",
       "choices": [
-        "Flint went left. Then left again. Then the Fog Marsh was ahead.",
-        "Flint followed Dewdrop across the Crystal Stream and stayed behind her.",
-        "Flint stopped beside Stone and waited for Stone to stand again."
+        "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren.",
+        "Luna marks a race from Hollow Oak to stream, cliffs, and back.",
+        "Dewdrop earns the finish leaf and a second leaf for returning."
       ],
-      "answer": "Flint went left. Then left again. Then the Fog Marsh was ahead.",
+      "answer": "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 3,
-      "evidenceText": "Flint went left.\nThen left again.\nThen the Fog Marsh was ahead of him."
+      "skill": "problem_solution",
+      "rationale": "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren."
     },
     {
       "id": "moonwood-tales-c-22-q3",
-      "prompt": "What does giving gold leaves to Dewdrop and Burrow show?",
+      "prompt": "Which event resolves the central problem in The Big Moonwood Race?",
       "choices": [
-        "There can be more than one kind of success.",
-        "Dewdrop's speed was the one result Luna rewarded.",
-        "Burrow won because his tunnel followed the planned course."
+        "Dewdrop earns the finish leaf and a second leaf for returning.",
+        "Luna marks a race from Hollow Oak to stream, cliffs, and back.",
+        "Wren casts a wide-circle speed spell. Everyone nearby shoots ahead except Wren."
       ],
-      "answer": "There can be more than one kind of success.",
+      "answer": "Dewdrop earns the finish leaf and a second leaf for returning.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Dewdrop crosses the finish line first, while Burrow appears beside the finish after travelling underground; each receives a gold leaf, showing there can be more than one kind of success.",
+      "skill": "outcome",
+      "rationale": "Dewdrop earns the finish leaf and a second leaf for returning. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Dewdrop won a gold leaf for finishing.\nBurrow won a gold leaf for best route.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 9,
-          "evidenceText": "Dewdrop crossed the finish line.\nShe had glided the whole way.\nShe was not wet.\nShe was not ruffled.\n\"Finished,\" said Dewdrop."
-        },
-        {
-          "evidencePage": 11,
-          "evidenceText": "Then there was a rumbling.\nBurrow came up through the ground.\nRight beside the finish line."
-        }
-      ]
+      "evidenceText": "Dewdrop earns the finish leaf and a second leaf for returning."
     }
   ]
 }

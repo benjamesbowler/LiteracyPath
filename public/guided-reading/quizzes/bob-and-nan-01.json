@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-01",
-  "contentHash": "sha256:7d6190457077126158d6a599d2952d44999469cc6d64d20e0e19c1fa7189c32e",
+  "contentHash": "sha256:5fee96361e1805f6d383e99c77e1e7335df3bb76e12db2e590270b5571bfd064",
   "questions": [
     {
       "id": "bob-and-nan-01-q1",
-      "prompt": "What can Bob do?",
+      "prompt": "What happens first in Bob and Nan?",
       "choices": [
-        "run",
-        "dig",
-        "read"
+        "Bob wants a running pal.",
+        "Bob runs alone.",
+        "Bob and Nan meet."
       ],
-      "answer": "run",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 2,
-      "evidenceText": "Bob can run."
+      "answer": "Bob wants a running pal.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bob wants a running pal."
     },
     {
       "id": "bob-and-nan-01-q2",
-      "prompt": "What did Bob and Nan do after they ran?",
+      "prompt": "What goes wrong in Bob and Nan?",
       "choices": [
-        "They swam.",
-        "They sat.",
-        "They ate."
+        "Bob runs alone.",
+        "Bob wants a running pal.",
+        "Bob and Nan meet."
       ],
-      "answer": "They sat.",
+      "answer": "Bob runs alone.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "Bob and Nan sat."
+      "skill": "problem_solution",
+      "rationale": "Bob runs alone. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Bob runs alone."
     },
     {
       "id": "bob-and-nan-01-q3",
-      "prompt": "What are Bob and Nan?",
+      "prompt": "What happens at the end of Bob and Nan?",
       "choices": [
-        "pets",
-        "twins",
-        "pals"
+        "Bob and Nan meet.",
+        "Bob wants a running pal.",
+        "Bob runs alone."
       ],
-      "answer": "pals",
-      "kind": "word",
+      "answer": "Bob and Nan meet.",
+      "kind": "text",
       "skill": "outcome",
-      "evidencePage": 7,
-      "evidenceText": "Bob and Nan are pals!"
+      "rationale": "Bob and Nan meet. This event shows how the central problem is resolved.",
+      "evidencePage": 5,
+      "evidenceText": "Bob and Nan meet."
     }
   ]
 }

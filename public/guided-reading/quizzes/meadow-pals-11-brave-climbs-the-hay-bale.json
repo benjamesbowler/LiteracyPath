@@ -1,56 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-11-brave-climbs-the-hay-bale",
-  "contentHash": "sha256:8a5c399c65ab4ca3f1681cf1cdd140b4d9e4db73de20c18e1d9f0c44ba23512c",
+  "contentHash": "sha256:a64d190f5cece658586020ab282f6c4381f8b17241dbe3ae45b3aca1d8dded14",
   "questions": [
     {
       "id": "meadow-pals-11-brave-climbs-the-hay-bale-q1",
-      "prompt": "What does Brave keep saying while trying?",
+      "prompt": "What happens first in Brave Climbs the Hay Bale?",
       "choices": [
-        "I can get up",
-        "I will go home",
-        "I need some help"
+        "The hay bale is huge.",
+        "Brave falls again.",
+        "Brave reaches the top!"
       ],
-      "answer": "I can get up",
+      "answer": "The hay bale is huge.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "\"I can get up,\" said Brave."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "The hay bale is huge."
     },
     {
       "id": "meadow-pals-11-brave-climbs-the-hay-bale-q2",
-      "prompt": "What is very, very big?",
+      "prompt": "What goes wrong in Brave Climbs the Hay Bale?",
       "choices": [
-        "the hay bale",
-        "the little hat",
-        "the mud puddle"
+        "Brave falls again.",
+        "The hay bale is huge.",
+        "Brave reaches the top!"
       ],
-      "answer": "the hay bale",
+      "answer": "Brave falls again.",
       "kind": "text",
-      "skill": "setting",
-      "supportingEvidence": [
-        {
-          "evidencePage": 2,
-          "evidenceText": "Very, very big."
-        }
-      ],
-      "evidencePage": 1,
-      "evidenceText": "The hay bale is big."
+      "skill": "problem_solution",
+      "rationale": "Brave falls again. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Brave falls again."
     },
     {
       "id": "meadow-pals-11-brave-climbs-the-hay-bale-q3",
-      "prompt": "What happens after Brave gets to the top?",
+      "prompt": "What happens at the end of Brave Climbs the Hay Bale?",
       "choices": [
-        "Brave fell off.",
-        "Brave took a nap.",
-        "Brave found an egg."
+        "Brave reaches the top!",
+        "The hay bale is huge.",
+        "Brave falls again."
       ],
-      "answer": "Brave fell off.",
+      "answer": "Brave reaches the top!",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 10,
-      "evidenceText": "Then Brave fell off."
+      "rationale": "Brave reaches the top! This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Brave reaches the top!"
     }
   ]
 }

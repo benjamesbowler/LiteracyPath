@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-04-what-is-weather",
-  "contentHash": "sha256:f5f67e15517ad517291e41c801d3aa5e576d63b36ad815e032ba3be61f3c6b7a",
+  "contentHash": "sha256:7656bc7070113fc803367e2f71dd7c1113bf7a311de11b16e933274c94c93d86",
   "questions": [
     {
       "id": "first-facts-a-04-what-is-weather-q1",
-      "prompt": "What falls from clouds when it rains?",
+      "prompt": "Which fact about Sunny weather is given in What is Weather?",
       "choices": [
-        "drops",
-        "leaves",
-        "stars"
+        "Sunny weather brings bright sunlight.",
+        "Snowy weather brings frozen flakes.",
+        "Weather can change from day to day."
       ],
-      "answer": "drops",
-      "kind": "word",
+      "answer": "Sunny weather brings bright sunlight.",
+      "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "It is rainy. Drops fall from the clouds. Drip, drip, drip."
+      "evidencePage": 1,
+      "evidenceText": "Sunny weather brings bright sunlight."
     },
     {
       "id": "first-facts-a-04-what-is-weather-q2",
-      "prompt": "What appears after rain in the book?",
+      "prompt": "Which fact about snowy weather is given in What is Weather?",
       "choices": [
-        "a rainbow",
-        "snow",
-        "a storm"
+        "Snowy weather brings frozen flakes.",
+        "Sunny weather brings bright sunlight.",
+        "Weather can change from day to day."
       ],
-      "answer": "a rainbow",
+      "answer": "Snowy weather brings frozen flakes.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 7,
-      "evidenceText": "After rain, look up! A rainbow! Red, orange, yellow, green, blue, purple."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Snowy weather brings frozen flakes."
     },
     {
       "id": "first-facts-a-04-what-is-weather-q3",
-      "prompt": "What happens to leaves when the wind blows hard?",
+      "prompt": "Which statement gives the main idea of What is Weather??",
       "choices": [
-        "they fly in the air",
-        "they stay on the branches",
-        "they sink under the soil"
+        "Weather can change from day to day.",
+        "Sunny weather brings bright sunlight.",
+        "Snowy weather brings frozen flakes."
       ],
-      "answer": "they fly in the air",
+      "answer": "Weather can change from day to day.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 3,
-      "evidenceText": "It is windy. The wind blows hard. Leaves fly in the air."
+      "skill": "main_idea",
+      "rationale": "Weather can change from day to day. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 8,
+      "evidenceText": "Weather can change from day to day."
     }
   ]
 }

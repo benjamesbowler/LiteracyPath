@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-22-staying-healthy",
-  "contentHash": "sha256:e5010ceebbc1de32d7ce8b0b714e74ac2771b5fc789c14c7db4395f04fa84626",
+  "contentHash": "sha256:9108deae04bd67b6c526aee1852f0f1a4233964b217597c4926d0019ed298d58",
   "questions": [
     {
       "id": "first-facts-a-22-staying-healthy-q1",
-      "prompt": "What does the book say clean hands do?",
+      "prompt": "Which fact is introduced first in Habits That Support Health?",
       "choices": [
-        "keep germs away",
-        "help the body grow",
-        "keep teeth clean"
+        "Eating varied foods gives our bodies nutrients.",
+        "Movement can strengthen hearts muscles and bones.",
+        "Small repeated habits can support health."
       ],
-      "answer": "keep germs away",
+      "answer": "Eating varied foods gives our bodies nutrients.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 4,
-      "evidenceText": "Clean hands keep germs away."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Eating varied foods gives our bodies nutrients."
     },
     {
       "id": "first-facts-a-22-staying-healthy-q2",
-      "prompt": "How often should you brush your teeth?",
+      "prompt": "Which fact about movement is given in Habits That Support Health?",
       "choices": [
-        "once a week",
-        "twice a day",
-        "once a year"
+        "Movement can strengthen hearts muscles and bones.",
+        "Eating varied foods gives our bodies nutrients.",
+        "Small repeated habits can support health."
       ],
-      "answer": "twice a day",
+      "answer": "Movement can strengthen hearts muscles and bones.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "Brush them twice a day."
+      "evidencePage": 3,
+      "evidenceText": "Movement can strengthen hearts muscles and bones."
     },
     {
       "id": "first-facts-a-22-staying-healthy-q3",
-      "prompt": "Which choice best sums up how the book says to stay healthy?",
+      "prompt": "Which statement gives the main idea of Habits That Support Health?",
       "choices": [
-        "eat, move, sleep, and smile",
-        "eat, sit, hide, and frown",
-        "rush, shout, skip, and spin"
+        "Small repeated habits can support health.",
+        "Eating varied foods gives our bodies nutrients.",
+        "Movement can strengthen hearts muscles and bones."
       ],
-      "answer": "eat, move, sleep, and smile",
+      "answer": "Small repeated habits can support health.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Small repeated habits can support health. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "Eat, move, sleep, and smile!"
+      "evidenceText": "Small repeated habits can support health."
     }
   ]
 }

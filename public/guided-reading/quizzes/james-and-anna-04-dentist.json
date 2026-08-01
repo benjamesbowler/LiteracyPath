@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-04-dentist",
-  "contentHash": "sha256:30c91499775c5fe1b53ff8c2a142b4875bf44a40fd936c27fe659152defd0f38",
+  "contentHash": "sha256:3614bbf6bb800254df3ad59936f3c42159e4b6c9cc3ced0efe08c68f05b7498b",
   "questions": [
     {
       "id": "james-and-anna-04-dentist-q1",
-      "prompt": "What helped Anna forget to feel scared?",
+      "prompt": "Which event begins James and Anna go to the Dentist?",
       "choices": [
-        "watching the clock",
-        "reading a shark book",
-        "holding a sticker"
+        "James and Anna feel worried about their dentist visit.",
+        "When the chair rises, James's worried feeling rushes back.",
+        "Anna climbs into the chair and remembers his calm breath."
       ],
-      "answer": "reading a shark book",
+      "answer": "James and Anna feel worried about their dentist visit.",
       "kind": "text",
-      "skill": "problem_solution",
-      "evidencePage": 6,
-      "evidenceText": "Anna found a book about sharks on the shelf. She sat down and read and read. She forgot to feel scared."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "James and Anna feel worried about their dentist visit."
     },
     {
       "id": "james-and-anna-04-dentist-q2",
-      "prompt": "What did the dentist use to check James's teeth?",
+      "prompt": "Which event shows the main plan is not working in James and Anna go to the Dentist?",
       "choices": [
-        "a brush and paint",
-        "a ruler and pen",
-        "a mirror and light"
+        "When the chair rises, James's worried feeling rushes back.",
+        "James and Anna feel worried about their dentist visit.",
+        "Anna climbs into the chair and remembers his calm breath."
       ],
-      "answer": "a mirror and light",
+      "answer": "When the chair rises, James's worried feeling rushes back.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "\"Open wide!\" said the dentist. She used a small mirror and a bright little light. \"All done! Ten out of ten!\" James grinned."
+      "skill": "problem_solution",
+      "rationale": "When the chair rises, James's worried feeling rushes back. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "When the chair rises, James's worried feeling rushes back."
     },
     {
       "id": "james-and-anna-04-dentist-q3",
-      "prompt": "What did James learn about the check-up?",
+      "prompt": "Which event solves the problem in James and Anna go to the Dentist?",
       "choices": [
-        "It did not hurt.",
-        "It took all day.",
-        "It made him ill."
+        "Anna climbs into the chair and remembers his calm breath.",
+        "James and Anna feel worried about their dentist visit.",
+        "When the chair rises, James's worried feeling rushes back."
       ],
-      "answer": "It did not hurt.",
+      "answer": "Anna climbs into the chair and remembers his calm breath.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 9,
-      "evidenceText": "James came out. \"It did not hurt at all!\" he said. \"And the chair goes UP and DOWN!\" Anna laughed."
+      "rationale": "Anna climbs into the chair and remembers his calm breath. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Anna climbs into the chair and remembers his calm breath."
     }
   ]
 }

@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-c-39",
-  "contentHash": "sha256:3cd299eb04723d75af489b61a40251c0a64cc2910a968d4c966e4e5bb09859e2",
+  "contentHash": "sha256:02e81f43b0c3b54beec1edd663aa4812114e4ae7e069c39f7f823b939f4f5afb",
   "questions": [
     {
       "id": "gr-c-39-q1",
-      "prompt": "What shape is a wheel?",
+      "prompt": "Which fact about a wheel face is given in Shapes?",
       "choices": [
-        "a circle",
-        "a square",
-        "a triangle"
+        "A wheel face looks circular.",
+        "This roof edge forms a triangle.",
+        "We can spot shapes on objects."
       ],
-      "answer": "a circle",
+      "answer": "A wheel face looks circular.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A wheel is a circle."
+      "evidenceText": "A wheel face looks circular."
     },
     {
       "id": "gr-c-39-q2",
-      "prompt": "What shape is a roof?",
+      "prompt": "Which fact is explained next in Shapes?",
       "choices": [
-        "a triangle",
-        "an oval",
-        "a circle"
+        "This roof edge forms a triangle.",
+        "A wheel face looks circular.",
+        "We can spot shapes on objects."
       ],
-      "answer": "a triangle",
+      "answer": "This roof edge forms a triangle.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "A roof is a triangle."
+      "evidenceText": "This roof edge forms a triangle."
     },
     {
       "id": "gr-c-39-q3",
-      "prompt": "What main idea does the book show about shapes?",
+      "prompt": "Which statement gives the main idea of Shapes?",
       "choices": [
-        "shapes are all around",
-        "shapes are only on roofs",
-        "shapes are all the same"
+        "We can spot shapes on objects.",
+        "A wheel face looks circular.",
+        "This roof edge forms a triangle."
       ],
-      "answer": "shapes are all around",
+      "answer": "We can spot shapes on objects.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "We can spot shapes on objects. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Shapes are all around!"
+      "evidenceText": "We can spot shapes on objects."
     }
   ]
 }

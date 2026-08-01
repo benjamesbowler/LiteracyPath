@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-e-49",
-  "contentHash": "sha256:9acef0e502e7591b86603f360b4fcdb8e20bf39ed6351dca3fbfdbcb49b2cdbd",
+  "contentHash": "sha256:f1a016bd0c0f9c562ed7107146af906c9c4526c5d3bf32018153ccba697dce1b",
   "questions": [
     {
       "id": "gr-e-49-q1",
-      "prompt": "In this book, which item is worn on sunny days?",
+      "prompt": "Which fact is introduced first in Clothes?",
       "choices": [
-        "hats",
-        "coats",
-        "boots"
+        "Hats shade us on sunny days.",
+        "Boots keep feet dry in rain.",
+        "Clothes can protect and warm us."
       ],
-      "answer": "hats",
-      "kind": "word",
-      "skill": "function",
+      "answer": "Hats shade us on sunny days.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "We wear hats on sunny days."
+      "evidenceText": "Hats shade us on sunny days."
     },
     {
       "id": "gr-e-49-q2",
-      "prompt": "In this book, which item is worn in the rain?",
+      "prompt": "Which fact about boots is given in Clothes?",
       "choices": [
-        "boots",
-        "gloves",
-        "pajamas"
+        "Boots keep feet dry in rain.",
+        "Hats shade us on sunny days.",
+        "Clothes can protect and warm us."
       ],
-      "answer": "boots",
-      "kind": "word",
-      "skill": "function",
+      "answer": "Boots keep feet dry in rain.",
+      "kind": "text",
+      "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "We wear boots in the rain."
+      "evidenceText": "Boots keep feet dry in rain."
     },
     {
       "id": "gr-e-49-q3",
-      "prompt": "What does the book say clothes can help do?",
+      "prompt": "Which statement gives the main idea of Clothes?",
       "choices": [
-        "keep us safe and warm",
-        "help us run fast",
-        "help us see at night"
+        "Clothes can protect and warm us.",
+        "Hats shade us on sunny days.",
+        "Boots keep feet dry in rain."
       ],
-      "answer": "keep us safe and warm",
+      "answer": "Clothes can protect and warm us.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "Clothes can protect and warm us. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "Clothes keep us safe and warm!"
+      "evidenceText": "Clothes can protect and warm us."
     }
   ]
 }

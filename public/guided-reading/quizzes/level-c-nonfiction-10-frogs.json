@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "level-c-nonfiction-10-frogs",
-  "contentHash": "sha256:9d1084a71714857661c223f585fd3962449b7eb4585fd3c71656c906c7557117",
+  "contentHash": "sha256:b2f3c4e6eaa313dca96c3945b5f4fdf550bd45dda4b3e3c1823293dfe29e18b9",
   "questions": [
     {
       "id": "level-c-nonfiction-10-frogs-q1",
-      "prompt": "What is frogspawn?",
+      "prompt": "Which fact about common frogs is given in The Common Frog Life Cycle?",
       "choices": [
-        "clumps of eggs",
-        "groups of adult frogs",
-        "piles of pond plants"
+        "Common frogs are amphibians that use freshwater and damp land.",
+        "Back legs then front legs grow as tails shrink during metamorphosis.",
+        "Male common frogs make soft spring calls near breeding ponds."
       ],
-      "answer": "clumps of eggs",
+      "answer": "Common frogs are amphibians that use freshwater and damp land.",
       "kind": "text",
-      "skill": "vocabulary",
-      "evidencePage": 2,
-      "evidenceText": "The eggs form clumps called frogspawn."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Common frogs are amphibians that use freshwater and damp land."
     },
     {
       "id": "level-c-nonfiction-10-frogs-q2",
-      "prompt": "Which legs appear first on a growing tadpole?",
+      "prompt": "Which fact about back legs then front legs is given in The Common Frog Life Cycle?",
       "choices": [
-        "front legs",
-        "back legs",
-        "all four legs"
+        "Back legs then front legs grow as tails shrink during metamorphosis.",
+        "Common frogs are amphibians that use freshwater and damp land.",
+        "Male common frogs make soft spring calls near breeding ponds."
       ],
-      "answer": "back legs",
+      "answer": "Back legs then front legs grow as tails shrink during metamorphosis.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 4,
-      "evidenceText": "As a tadpole grows, back legs appear first."
+      "evidenceText": "Back legs then front legs grow as tails shrink during metamorphosis."
     },
     {
       "id": "level-c-nonfiction-10-frogs-q3",
-      "prompt": "How does a common frog catch small prey?",
+      "prompt": "Which statement gives the main idea of The Common Frog Life Cycle?",
       "choices": [
-        "with its back legs",
-        "with its smooth skin",
-        "with its sticky tongue"
+        "Male common frogs make soft spring calls near breeding ponds.",
+        "Common frogs are amphibians that use freshwater and damp land.",
+        "Back legs then front legs grow as tails shrink during metamorphosis."
       ],
-      "answer": "with its sticky tongue",
+      "answer": "Male common frogs make soft spring calls near breeding ponds.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 6,
-      "evidenceText": "They can snap up small prey with a sticky tongue."
+      "skill": "main_idea",
+      "rationale": "Male common frogs make soft spring calls near breeding ponds. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 9,
+      "evidenceText": "Male common frogs make soft spring calls near breeding ponds."
     }
   ]
 }

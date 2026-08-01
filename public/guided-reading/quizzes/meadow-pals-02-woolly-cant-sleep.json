@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-02-woolly-cant-sleep",
-  "contentHash": "sha256:a5b3eca6b78ab01cb20dffa6fb8ab26f23b96c166360a312536937c88a4b06ad",
+  "contentHash": "sha256:7d3c0a73241a2f8ed811c38c99ea2cc3db27e5b0c7addb8dcdcbaab9e6a41522",
   "questions": [
     {
       "id": "meadow-pals-02-woolly-cant-sleep-q1",
-      "prompt": "What does Woolly do when a sound wakes him?",
+      "prompt": "What happens first in Woolly Can't Sleep?",
       "choices": [
-        "Woolly sat up.",
-        "Woolly hid away.",
-        "Woolly ran outside."
+        "Woolly wants to sleep.",
+        "Hungry goes moo.",
+        "Woolly falls asleep."
       ],
-      "answer": "Woolly sat up.",
+      "answer": "Woolly wants to sleep.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "Woolly sat up."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Woolly wants to sleep."
     },
     {
       "id": "meadow-pals-02-woolly-cant-sleep-q2",
-      "prompt": "Which sound wakes Woolly first?",
+      "prompt": "What goes wrong in Woolly Can't Sleep?",
       "choices": [
-        "the wind's hoo",
-        "a bug's buzz",
-        "Hungry's moo"
+        "Hungry goes moo.",
+        "Woolly wants to sleep.",
+        "Woolly falls asleep."
       ],
-      "answer": "the wind's hoo",
+      "answer": "Hungry goes moo.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "Hoo! went the wind."
+      "skill": "problem_solution",
+      "rationale": "Hungry goes moo. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Hungry goes moo."
     },
     {
       "id": "meadow-pals-02-woolly-cant-sleep-q3",
-      "prompt": "What happens when it becomes quiet?",
+      "prompt": "What happens at the end of Woolly Can't Sleep?",
       "choices": [
-        "Woolly went to sleep.",
-        "Woolly started to buzz.",
-        "Woolly left the bed."
+        "Woolly falls asleep.",
+        "Woolly wants to sleep.",
+        "Hungry goes moo."
       ],
-      "answer": "Woolly went to sleep.",
+      "answer": "Woolly falls asleep.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Woolly falls asleep. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Woolly went to sleep."
+      "evidenceText": "Woolly falls asleep."
     }
   ]
 }

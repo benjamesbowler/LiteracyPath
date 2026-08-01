@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-18-my-body",
-  "contentHash": "sha256:6da613d689797090497a4ddb0b5d12b36ad70fcd8036ecfc353b2f1cbd630343",
+  "contentHash": "sha256:e7cdfa7ae270fd27cc9da721ba0e529fac108fdab4114915ad57743a878d2173",
   "questions": [
     {
       "id": "first-facts-level-a-18-my-body-q1",
-      "prompt": "What can the speaker do with their ears?",
+      "prompt": "What do we learn about my two eyes?",
       "choices": [
-        "hear",
-        "smell",
-        "clap"
+        "My two eyes can see.",
+        "My nose can smell.",
+        "My whole body is mine."
       ],
-      "answer": "hear",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 2,
-      "evidenceText": "I have two ears.\nI can hear."
+      "answer": "My two eyes can see.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "My two eyes can see."
     },
     {
       "id": "first-facts-level-a-18-my-body-q2",
-      "prompt": "What can the speaker do with their hands?",
+      "prompt": "What do we learn about my nose?",
       "choices": [
-        "clap",
-        "smell",
-        "see"
+        "My nose can smell.",
+        "My two eyes can see.",
+        "My whole body is mine."
       ],
-      "answer": "clap",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 5,
-      "evidenceText": "I have two hands.\nI can clap!"
+      "answer": "My nose can smell.",
+      "kind": "text",
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "My nose can smell."
     },
     {
       "id": "first-facts-level-a-18-my-body-q3",
-      "prompt": "How does the speaker feel about their body?",
+      "prompt": "What is the big idea in My Body?",
       "choices": [
-        "they love it",
-        "they fear it",
-        "they hide it"
+        "My whole body is mine.",
+        "My two eyes can see.",
+        "My nose can smell."
       ],
-      "answer": "they love it",
+      "answer": "My whole body is mine.",
       "kind": "text",
       "skill": "main_idea",
+      "rationale": "My whole body is mine. This final statement gathers the book's details into its main idea.",
       "evidencePage": 7,
-      "evidenceText": "I have a body!\nI love my body."
+      "evidenceText": "My whole body is mine."
     }
   ]
 }

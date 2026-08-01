@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-25-the-big-farm-party",
-  "contentHash": "sha256:d86e96b34ca887c95eabc8569e5afd336fbe72b80ccb632c27c3b6b40dd7ddef",
+  "contentHash": "sha256:a80480410cf60ecf570ea81d45a573d9344db44cfb26b74d3deeea6e08c735e7",
   "questions": [
     {
       "id": "meadow-pals-25-the-big-farm-party-q1",
-      "prompt": "Who invites Shy into the party?",
+      "prompt": "What happens first in The Big Farm Party?",
       "choices": [
-        "Cuddly",
-        "Grumpy",
-        "Noisy"
+        "Today is party day!",
+        "Grumpy sits far away.",
+        "Shy and Grumpy join the party."
       ],
-      "answer": "Cuddly",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 8,
-      "evidenceText": "\"Come in, Shy!\" said Cuddly. Shy came in."
+      "answer": "Today is party day!",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Today is party day!"
     },
     {
       "id": "meadow-pals-25-the-big-farm-party-q2",
-      "prompt": "Where is Shy hiding before Cuddly invites Shy in?",
+      "prompt": "What goes wrong in The Big Farm Party?",
       "choices": [
-        "behind the barn",
-        "beside the pond",
-        "inside the garden"
+        "Grumpy sits far away.",
+        "Today is party day!",
+        "Shy and Grumpy join the party."
       ],
-      "answer": "behind the barn",
+      "answer": "Grumpy sits far away.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 7,
-      "evidenceText": "Shy hid behind the barn."
+      "skill": "problem_solution",
+      "rationale": "Grumpy sits far away. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 9,
+      "evidenceText": "Grumpy sits far away."
     },
     {
       "id": "meadow-pals-25-the-big-farm-party-q3",
-      "prompt": "How does everyone feel at the end?",
+      "prompt": "What happens at the end of The Big Farm Party?",
       "choices": [
-        "happy",
-        "angry",
-        "sleepy"
+        "Shy and Grumpy join the party.",
+        "Today is party day!",
+        "Grumpy sits far away."
       ],
-      "answer": "happy",
-      "kind": "word",
+      "answer": "Shy and Grumpy join the party.",
+      "kind": "text",
       "skill": "outcome",
+      "rationale": "Shy and Grumpy join the party. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "Everyone is happy."
+      "evidenceText": "Shy and Grumpy join the party."
     }
   ]
 }

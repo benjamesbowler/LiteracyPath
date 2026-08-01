@@ -276,7 +276,7 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 
 ## Generation Contract
 
-Each manifest entry already includes the page text, exact required scene, continuity lock, full generation prompt, negative constraints, source dimensions, and acceptance checks. The generation process must preserve each page's recorded width, height, aspect ratio, and live path, but must write only after human approval.
+Each manifest entry already includes the page text, exact required scene, continuity lock, full generation prompt, negative constraints, source dimensions, and acceptance checks. The generation process must preserve each page's recorded width, height, aspect ratio, and live path, and may write only after the image passes every recorded visual acceptance check.
 
 Generate one candidate at a time for partial repairs and two candidates per page for full rebuilds. Keep a rejection log. Selection criteria are, in order: educational accuracy, cast continuity, action clarity, safety, anatomy, then surface beauty. Never select a prettier image that fails an earlier criterion.
 

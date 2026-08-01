@@ -1,61 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-04",
-  "contentHash": "sha256:f71f4aea18808ea92939de97c60b204f5c137b3777b4f333e3322da262784955",
+  "contentHash": "sha256:314b005a3e3b8f87b79b63d0d62c6c9093195096e30f43b4b7a88505155fe21c",
   "questions": [
     {
       "id": "moonwood-tales-c-04-q1",
-      "prompt": "What comes from Glimmer's mouth on the first day of practice?",
+      "prompt": "Which event introduces the situation in Glimmer Tries and Tries?",
       "choices": [
-        "a small puff of smoke",
-        "a steady orange flame",
-        "a shower of blue sparks"
+        "Each morning, Glimmer practises one safe breath inside a stone circle.",
+        "Glimmer stops. Forcing more breaths has made their throat sore.",
+        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
       ],
-      "answer": "a small puff of smoke",
+      "answer": "Each morning, Glimmer practises one safe breath inside a stone circle.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "On the first day: a small puff of smoke. Just smoke. No fire at all."
+      "evidencePage": 1,
+      "evidenceText": "Each morning, Glimmer practises one safe breath inside a stone circle."
     },
     {
       "id": "moonwood-tales-c-04-q2",
-      "prompt": "What makes Glimmer rush toward the Fog Marsh fox?",
+      "prompt": "Which event shows that the first attempt fails in Glimmer Tries and Tries?",
       "choices": [
-        "The fox has found Fern's precious seeds.",
-        "The fox has challenged Glimmer to a race.",
-        "The fox has brought Glimmer a cinnamon leaf."
+        "Glimmer stops. Forcing more breaths has made their throat sore.",
+        "Each morning, Glimmer practises one safe breath inside a stone circle.",
+        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
       ],
-      "answer": "The fox has found Fern's precious seeds.",
+      "answer": "Glimmer stops. Forcing more breaths has made their throat sore.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 9,
-      "evidenceText": "That evening, a Fog Marsh fox came creeping into Moonwood. It had found Fern's seed collection. The seeds were small and precious. Glimmer saw the fox."
+      "skill": "problem_solution",
+      "rationale": "Glimmer stops. Forcing more breaths has made their throat sore. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 8,
+      "evidenceText": "Glimmer stops. Forcing more breaths has made their throat sore."
     },
     {
       "id": "moonwood-tales-c-04-q3",
-      "prompt": "What lesson does Glimmer's first real fire teach?",
+      "prompt": "Which event resolves the central problem in Glimmer Tries and Tries?",
       "choices": [
-        "Practice and a strong reason can bring out a new skill.",
-        "Spark's advice made Glimmer's fire appear at once.",
-        "Practising alone at the stream caused the final flame."
+        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step.",
+        "Each morning, Glimmer practises one safe breath inside a stone circle.",
+        "Glimmer stops. Forcing more breaths has made their throat sore."
       ],
-      "answer": "Practice and a strong reason can bring out a new skill.",
+      "answer": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Glimmer practised fire breathing every morning, then protecting Fern's precious seeds gave them a reason to really mean it; this shows practice and a strong reason can bring out a new skill.",
+      "skill": "outcome",
+      "rationale": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "The fire had been inside all along. \"I just needed to really mean it.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 1,
-          "evidenceText": "Every morning, Glimmer practised. Fire breathing was the most important thing a dragon could do. And Glimmer could not do it yet."
-        },
-        {
-          "evidencePage": 9,
-          "evidenceText": "It had found Fern's seed collection. The seeds were small and precious. Glimmer saw the fox."
-        }
-      ]
+      "evidenceText": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
     }
   ]
 }

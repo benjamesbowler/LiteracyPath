@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-09-honkys-inside-voice",
-  "contentHash": "sha256:f554c04c96a964fbc58e80fdbd05fc040f09a6ab8fc79f554029d3299cf3cace",
+  "contentHash": "sha256:a2f102cc2963225462385c1fcc929383d4a622eef52bad29d28f94dd480b23b0",
   "questions": [
     {
       "id": "dino-pals-09-honkys-inside-voice-q1",
-      "prompt": "Why did Bossy tell Honky to use a small voice?",
+      "prompt": "Which event begins Honky's Inside Voice?",
       "choices": [
-        "The rain was loud.",
-        "Nobody could hear him.",
-        "His friends were close."
+        "Honky's morning greeting shakes leaves onto breakfast.",
+        "Thunder wakes Dozy as rain covers the paths.",
+        "Inside, Honky whispers, \"We are all here.\""
       ],
-      "answer": "His friends were close.",
+      "answer": "Honky's morning greeting shakes leaves onto breakfast.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 3,
-      "evidenceText": "Use a small voice when friends are close."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Honky's morning greeting shakes leaves onto breakfast."
     },
     {
       "id": "dino-pals-09-honkys-inside-voice-q2",
-      "prompt": "How did Honky's big voice help during the storm?",
+      "prompt": "Which event shows the main plan is not working in Honky's Inside Voice?",
       "choices": [
-        "It helped every Dino Pal hear him.",
-        "It made the rain stop.",
-        "It rebuilt the trees."
+        "Thunder wakes Dozy as rain covers the paths.",
+        "Honky's morning greeting shakes leaves onto breakfast.",
+        "Inside, Honky whispers, \"We are all here.\""
       ],
-      "answer": "It helped every Dino Pal hear him.",
+      "answer": "Thunder wakes Dozy as rain covers the paths.",
       "kind": "text",
       "skill": "problem_solution",
-      "evidencePage": 7,
-      "evidenceText": "\"This way to the safe cave!\" Honky called. His big voice helped every Dino Pal hear him."
+      "rationale": "Thunder wakes Dozy as rain covers the paths. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 6,
+      "evidenceText": "Thunder wakes Dozy as rain covers the paths."
     },
     {
       "id": "dino-pals-09-honkys-inside-voice-q3",
-      "prompt": "What did Honky learn about his voice?",
+      "prompt": "Which event solves the problem in Honky's Inside Voice?",
       "choices": [
-        "A soft voice works best during a storm.",
-        "A small voice for talking and a big voice when needed.",
-        "A big voice works best when one friend is close."
+        "Inside, Honky whispers, \"We are all here.\"",
+        "Honky's morning greeting shakes leaves onto breakfast.",
+        "Thunder wakes Dozy as rain covers the paths."
       ],
-      "answer": "A small voice for talking and a big voice when needed.",
+      "answer": "Inside, Honky whispers, \"We are all here.\"",
       "kind": "text",
-      "skill": "theme",
+      "skill": "outcome",
+      "rationale": "Inside, Honky whispers, \"We are all here.\" This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "A small voice for talking. A big voice when we need it."
+      "evidenceText": "Inside, Honky whispers, \"We are all here.\""
     }
   ]
 }

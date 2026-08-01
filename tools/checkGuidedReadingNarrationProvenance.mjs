@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,153 +8,98 @@ import {
   LEDA_PRODUCTION_AUDIO_BY_ROLE,
   LEDA_PRODUCTION_VOICE
 } from "../src/data/generated/ledaProductionAudio.generated.js";
-import { GUIDED_READING_LEDA_GAPS } from "../src/data/generated/guidedReadingLedaGaps.generated.js";
 import { GUIDED_READING_NARRATION_PROVENANCE } from "../src/data/generated/guidedReadingNarrationProvenance.generated.js";
-import { normalizeLedaAudioText } from "../src/data/ledaProductionAudio.js";
-import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
+import {
+  buildGuidedReadingAudioInventory,
+  canonicalVisibleText,
+  exactPageAudioOverrides,
+  sha256,
+  stableStringify
+} from "./guidedReadingAudioPipelineLib.mjs";
+import { buildGuidedReadingNarrationProvenanceModule } from "./guidedReadingNarrationProvenanceLib.mjs";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const generatedModulePath = path.join(
+  repositoryRoot,
+  "src/data/generated/guidedReadingNarrationProvenance.generated.js"
+);
 
-function sha256(value) {
-  return createHash("sha256").update(value).digest("hex");
-}
-
-function readablePageText(page = {}) {
-  return Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
-}
-
-function canonicalVisibleText(value = "") {
-  return String(value || "")
-    .normalize("NFKC")
-    .replace(/[’‘]/g, "'")
-    .replace(/[“”]/g, "\"")
-    .replace(/[–—]/g, "-")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function spokenWordSequence(value = "") {
-  return normalizeLedaAudioText(value).match(/[a-z0-9]+(?:['-][a-z0-9]+)*/g) || [];
-}
-
-function publicAudioFile(audioPath = "") {
-  return path.join(repositoryRoot, "public", String(audioPath || "").replace(/^\/+/, ""));
-}
-
-function transcriptIndex() {
-  const byPath = new Map();
-  for (const [transcript, audioPath] of Object.entries(
-    LEDA_PRODUCTION_AUDIO_BY_ROLE.guided_page || {}
-  )) {
-    byPath.set(audioPath, {
-      origin: "production_manifest",
-      transcript
-    });
-  }
-  for (const [transcript, audioPath] of Object.entries(
-    GUIDED_READING_LEDA_GAPS.guided_page || {}
-  )) {
-    byPath.set(audioPath, {
-      origin: "gap_generator",
-      transcript
-    });
-  }
-  for (const [transcript, audioPath] of Object.entries(
-    GUIDED_READING_NARRATION_PROVENANCE.exactPageAudioByText || {}
-  )) {
-    byPath.set(audioPath, {
-      origin: "exact_text_override",
-      transcript
-    });
-  }
-  return byPath;
-}
-
-export function auditGuidedReadingNarrationProvenance({ verifySnapshot = true } = {}) {
-  const transcripts = transcriptIndex();
-  const pages = [];
-  const failures = [];
-  const originCounts = {
-    production_manifest: 0,
-    gap_generator: 0,
-    exact_text_override: 0,
-    unknown: 0
+function productionManifestEvidence() {
+  const guidedPageMap = LEDA_PRODUCTION_AUDIO_BY_ROLE.guided_page || {};
+  return {
+    productionManifestPageCount: Object.keys(guidedPageMap).length,
+    productionManifestSha256: sha256(stableStringify(guidedPageMap))
   };
+}
 
-  for (const book of guidedReadingBooks.filter(candidate => candidate.active !== false)) {
-    for (const [pageIndex, page] of (book.pages || []).entries()) {
-      if (page.active === false) continue;
-      const pageNumber = page.pageNumber || pageIndex + 1;
-      const displayedText = readablePageText(page);
-      const audioPath = getGuidedReadingPageAudioPath(page);
-      const provenance = transcripts.get(audioPath);
-      const origin = provenance?.origin || "unknown";
-      originCounts[origin] += 1;
-
-      const audioFile = publicAudioFile(audioPath);
-      const audioExists = Boolean(audioPath) && existsSync(audioFile);
-      const audioSha256 = audioExists ? sha256(readFileSync(audioFile)) : "";
-      const displayedWords = spokenWordSequence(displayedText);
-      const recordedWords = spokenWordSequence(provenance?.transcript || "");
-      const wordSequenceMatches = (
-        displayedWords.length === recordedWords.length
-        && displayedWords.every((word, index) => word === recordedWords[index])
-      );
-
-      const row = {
-        bookId: book.id,
-        title: book.title,
-        pageNumber,
-        displayedText,
-        recordedTranscript: provenance?.transcript || "",
-        audioPath,
-        audioSha256,
-        origin,
-        audioExists,
-        wordSequenceMatches
-      };
-      pages.push(row);
-
-      if (!audioPath) failures.push({ ...row, reason: "missing_audio_mapping" });
-      else if (!provenance) failures.push({ ...row, reason: "missing_transcript_provenance" });
-      else if (!audioExists) failures.push({ ...row, reason: "missing_audio_file" });
-      else if (!wordSequenceMatches) failures.push({ ...row, reason: "word_sequence_mismatch" });
-    }
-  }
-
-  const corpusLines = pages.map(row => JSON.stringify([
+function corpusEvidence(pages) {
+  const lines = pages.map(row => JSON.stringify([
     row.bookId,
     row.pageNumber,
     canonicalVisibleText(row.displayedText),
     row.audioPath,
     row.audioSha256
   ]));
-  const corpusSha256 = sha256(corpusLines.join("\n"));
-  const snapshotMatches = (
-    !verifySnapshot
-    || corpusSha256 === GUIDED_READING_NARRATION_PROVENANCE.corpusSha256
-  );
-  if (!snapshotMatches) {
+  return {
+    corpusSha256: sha256(lines.join("\n")),
+    narrationRebuildClearanceSha256: sha256(
+      pages
+        .filter(row => row.narrationNeedsRebuild && row.exactLedaAudioResolves)
+        .map(row => JSON.stringify([row.key, row.displayedTextSha256, row.audioSha256]))
+        .join("\n")
+    )
+  };
+}
+
+export function auditGuidedReadingNarrationProvenance({ verifySnapshot = true } = {}) {
+  const inventory = buildGuidedReadingAudioInventory(guidedReadingBooks, repositoryRoot);
+  const manifestEvidence = productionManifestEvidence();
+  const corpus = corpusEvidence(inventory.pages);
+  const failures = [];
+
+  for (const row of inventory.pages) {
+    if (!row.pageAudioTextMatches) {
+      failures.push({ ...row, reason: "page_audio_text_mismatch" });
+    } else if (!row.audioPath) {
+      failures.push({ ...row, reason: "missing_audio_mapping" });
+    } else if (!row.audioExists) {
+      failures.push({ ...row, reason: "missing_audio_file" });
+    } else if (!row.transcriptMatches) {
+      failures.push({ ...row, reason: "word_sequence_mismatch" });
+    }
+  }
+  for (const collision of inventory.collisions.filter(row => !row.resolved)) {
+    failures.push({ ...collision, reason: "unresolved_normalized_text_collision" });
+  }
+
+  const snapshotMatches = corpus.corpusSha256
+    === GUIDED_READING_NARRATION_PROVENANCE.corpusSha256;
+  if (verifySnapshot && !snapshotMatches) {
     failures.push({
       reason: "narration_corpus_snapshot_mismatch",
       expected: GUIDED_READING_NARRATION_PROVENANCE.corpusSha256,
-      actual: corpusSha256
+      actual: corpus.corpusSha256
     });
   }
 
-  const activeBooks = guidedReadingBooks.filter(candidate => candidate.active !== false);
-  if (activeBooks.length !== GUIDED_READING_NARRATION_PROVENANCE.liveBookCount) {
+  if (
+    verifySnapshot
+    && inventory.activeBookCount !== GUIDED_READING_NARRATION_PROVENANCE.liveBookCount
+  ) {
     failures.push({
       reason: "live_book_count_mismatch",
       expected: GUIDED_READING_NARRATION_PROVENANCE.liveBookCount,
-      actual: activeBooks.length
+      actual: inventory.activeBookCount
     });
   }
-  if (pages.length !== GUIDED_READING_NARRATION_PROVENANCE.livePageCount) {
+  if (
+    verifySnapshot
+    && inventory.livePageCount !== GUIDED_READING_NARRATION_PROVENANCE.livePageCount
+  ) {
     failures.push({
       reason: "live_page_count_mismatch",
       expected: GUIDED_READING_NARRATION_PROVENANCE.livePageCount,
-      actual: pages.length
+      actual: inventory.livePageCount
     });
   }
   if (LEDA_PRODUCTION_VOICE !== GUIDED_READING_NARRATION_PROVENANCE.voice) {
@@ -165,20 +109,101 @@ export function auditGuidedReadingNarrationProvenance({ verifySnapshot = true } 
       actual: LEDA_PRODUCTION_VOICE
     });
   }
+  if (
+    verifySnapshot
+    && manifestEvidence.productionManifestPageCount
+      !== GUIDED_READING_NARRATION_PROVENANCE.productionManifestPageCount
+  ) {
+    failures.push({
+      reason: "production_manifest_page_count_mismatch",
+      expected: GUIDED_READING_NARRATION_PROVENANCE.productionManifestPageCount,
+      actual: manifestEvidence.productionManifestPageCount
+    });
+  }
+  if (
+    verifySnapshot
+    && manifestEvidence.productionManifestSha256
+      !== GUIDED_READING_NARRATION_PROVENANCE.productionManifestSha256
+  ) {
+    failures.push({
+      reason: "production_manifest_snapshot_mismatch",
+      expected: GUIDED_READING_NARRATION_PROVENANCE.productionManifestSha256,
+      actual: manifestEvidence.productionManifestSha256
+    });
+  }
+
+  const originCounts = {
+    production_manifest: 0,
+    gap_generator: 0,
+    exact_text_override: 0,
+    unknown: 0
+  };
+  for (const row of inventory.pages) originCounts[row.origin] += 1;
 
   return {
-    activeBookCount: activeBooks.length,
-    livePageCount: pages.length,
+    activeBookCount: inventory.activeBookCount,
+    livePageCount: inventory.livePageCount,
     originCounts,
-    uniqueAudioPathCount: new Set(pages.map(row => row.audioPath)).size,
-    wordSequenceMismatchCount: pages.filter(row => !row.wordSequenceMatches).length,
-    missingAudioCount: pages.filter(row => !row.audioExists).length,
-    unknownProvenanceCount: pages.filter(row => row.origin === "unknown").length,
-    corpusSha256,
+    uniqueAudioPathCount: new Set(inventory.pages.map(row => row.audioPath).filter(Boolean)).size,
+    exactResolvedPageCount: inventory.exactResolvedPageCount,
+    wordSequenceMismatchCount: inventory.pages.filter(row => row.audioPath && !row.transcriptMatches).length,
+    pageAudioTextMismatchCount: inventory.pageAudioTextMismatchCount,
+    missingAudioCount: inventory.pages.filter(row => !row.audioExists).length,
+    unknownProvenanceCount: inventory.pages.filter(row => row.origin === "unknown").length,
+    normalizedCollisionCount: inventory.normalizedCollisionCount,
+    unresolvedNormalizedCollisionCount: inventory.unresolvedNormalizedCollisionCount,
+    narrationNeedsRebuildCount: inventory.narrationNeedsRebuildCount,
+    clearableNarrationNeedsRebuildCount: inventory.clearableNarrationNeedsRebuildCount,
+    ...manifestEvidence,
+    ...corpus,
     expectedCorpusSha256: GUIDED_READING_NARRATION_PROVENANCE.corpusSha256,
     snapshotMatches,
     failures,
-    pages
+    pages: inventory.pages,
+    collisions: inventory.collisions
+  };
+}
+
+function activeExactOverrides(audit) {
+  const activeTexts = new Set(audit.pages.map(row => row.displayedText));
+  return Object.fromEntries(
+    Object.entries(exactPageAudioOverrides())
+      .filter(([text]) => activeTexts.has(canonicalVisibleText(text)))
+      .sort(([left], [right]) => left.localeCompare(right))
+  );
+}
+
+export function buildNarrationProvenanceModule(audit) {
+  const exactOverrides = activeExactOverrides(audit);
+  return buildGuidedReadingNarrationProvenanceModule({
+    audit,
+    voice: LEDA_PRODUCTION_VOICE,
+    exactOverrides
+  });
+}
+
+function outputSummary(audit, extra = {}) {
+  return {
+    activeBookCount: audit.activeBookCount,
+    livePageCount: audit.livePageCount,
+    originCounts: audit.originCounts,
+    uniqueAudioPathCount: audit.uniqueAudioPathCount,
+    exactResolvedPageCount: audit.exactResolvedPageCount,
+    wordSequenceMismatchCount: audit.wordSequenceMismatchCount,
+    pageAudioTextMismatchCount: audit.pageAudioTextMismatchCount,
+    missingAudioCount: audit.missingAudioCount,
+    unknownProvenanceCount: audit.unknownProvenanceCount,
+    normalizedCollisionCount: audit.normalizedCollisionCount,
+    unresolvedNormalizedCollisionCount: audit.unresolvedNormalizedCollisionCount,
+    narrationNeedsRebuildCount: audit.narrationNeedsRebuildCount,
+    clearableNarrationNeedsRebuildCount: audit.clearableNarrationNeedsRebuildCount,
+    productionManifestSha256: audit.productionManifestSha256,
+    corpusSha256: audit.corpusSha256,
+    expectedCorpusSha256: audit.expectedCorpusSha256,
+    snapshotMatches: audit.snapshotMatches,
+    failureCount: audit.failures.length,
+    failures: audit.failures.slice(0, 100),
+    ...extra
   };
 }
 
@@ -186,21 +211,32 @@ const isMain = process.argv[1]
   && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const verifySnapshot = !process.argv.includes("--print-digest");
-  const audit = auditGuidedReadingNarrationProvenance({ verifySnapshot });
-  console.log(JSON.stringify({
-    activeBookCount: audit.activeBookCount,
-    livePageCount: audit.livePageCount,
-    originCounts: audit.originCounts,
-    uniqueAudioPathCount: audit.uniqueAudioPathCount,
-    wordSequenceMismatchCount: audit.wordSequenceMismatchCount,
-    missingAudioCount: audit.missingAudioCount,
-    unknownProvenanceCount: audit.unknownProvenanceCount,
-    corpusSha256: audit.corpusSha256,
-    expectedCorpusSha256: audit.expectedCorpusSha256,
-    snapshotMatches: audit.snapshotMatches,
-    failureCount: audit.failures.length,
-    failures: audit.failures.slice(0, 100)
-  }, null, 2));
-  if (verifySnapshot && audit.failures.length) process.exit(1);
+  const refresh = process.argv.includes("--refresh");
+  const refreshPreview = process.argv.includes("--refresh-preview");
+  const printDigest = process.argv.includes("--print-digest");
+  const audit = auditGuidedReadingNarrationProvenance({
+    verifySnapshot: !refresh && !refreshPreview && !printDigest
+  });
+
+  if (refresh || refreshPreview) {
+    if (audit.failures.length) {
+      console.error(stableStringify(outputSummary(audit, {
+        error: "Provenance refresh refused: every live page must first resolve to exact-text Leda audio."
+      }), 2));
+      process.exit(1);
+    }
+    const moduleText = buildNarrationProvenanceModule(audit);
+    if (refreshPreview) {
+      process.stdout.write(moduleText);
+    } else {
+      writeFileSync(generatedModulePath, moduleText);
+      console.log(stableStringify(outputSummary(audit, {
+        refreshed: path.relative(repositoryRoot, generatedModulePath),
+        generatedModuleSha256: sha256(moduleText)
+      }), 2));
+    }
+  } else {
+    console.log(stableStringify(outputSummary(audit), 2));
+    if (!printDigest && audit.failures.length) process.exit(1);
+  }
 }

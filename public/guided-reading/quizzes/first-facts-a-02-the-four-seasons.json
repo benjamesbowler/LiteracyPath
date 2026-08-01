@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-02-the-four-seasons",
-  "contentHash": "sha256:781ab23ab536d315d9c68e37f885ba900a7a46cb2117416c28cec507e574a70b",
+  "contentHash": "sha256:4b9899c4850a53849345961e5e75111c7e1e37d2a09d311a69fce506cbd10f8a",
   "questions": [
     {
       "id": "first-facts-a-02-the-four-seasons-q1",
-      "prompt": "When does the book say baby animals are born?",
+      "prompt": "Which fact about spring is given in Seasons in a Temperate Place?",
       "choices": [
-        "in spring",
-        "in winter",
-        "in autumn"
+        "Spring can bring new flowers and birdsong.",
+        "Many plants grow and fruit in summer.",
+        "These four seasons repeat through each year."
       ],
-      "answer": "in spring",
+      "answer": "Spring can bring new flowers and birdsong.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "In spring, baby animals are born. A lamb skips. A chick hatches."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Spring can bring new flowers and birdsong."
     },
     {
       "id": "first-facts-a-02-the-four-seasons-q2",
-      "prompt": "What do leaves do in autumn?",
+      "prompt": "Which fact about many plants is given in Seasons in a Temperate Place?",
       "choices": [
-        "fall down",
-        "pop up",
-        "turn blue"
+        "Many plants grow and fruit in summer.",
+        "Spring can bring new flowers and birdsong.",
+        "These four seasons repeat through each year."
       ],
-      "answer": "fall down",
+      "answer": "Many plants grow and fruit in summer.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "This is autumn. Leaves go red and gold. Leaves fall down."
+      "skill": "sequence",
+      "evidencePage": 4,
+      "evidenceText": "Many plants grow and fruit in summer."
     },
     {
       "id": "first-facts-a-02-the-four-seasons-q3",
-      "prompt": "What is the order of the four seasons?",
+      "prompt": "Which statement gives the main idea of Seasons in a Temperate Place?",
       "choices": [
-        "spring, summer, autumn, winter",
-        "spring, autumn, summer, winter",
-        "winter, summer, spring, autumn"
+        "These four seasons repeat through each year.",
+        "Spring can bring new flowers and birdsong.",
+        "Many plants grow and fruit in summer."
       ],
-      "answer": "spring, summer, autumn, winter",
+      "answer": "These four seasons repeat through each year.",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "main_idea",
+      "rationale": "These four seasons repeat through each year. This final statement gathers the book's details into its main idea.",
       "evidencePage": 9,
-      "evidenceText": "Four seasons: spring, summer, autumn, winter."
+      "evidenceText": "These four seasons repeat through each year."
     }
   ]
 }

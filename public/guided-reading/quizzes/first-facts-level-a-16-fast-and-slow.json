@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-level-a-16-fast-and-slow",
-  "contentHash": "sha256:d45cdbf5114794c5d87b13760d747aa5558c6acf6cb3ef41a732e0013bd236dc",
+  "contentHash": "sha256:a4878f97ca11ea2c3451db62e1b1056b513f853771c77b75f7ee810385ab565a",
   "questions": [
     {
       "id": "first-facts-level-a-16-fast-and-slow-q1",
-      "prompt": "Which one goes very fast?",
+      "prompt": "What do we learn about a car?",
       "choices": [
-        "the jet",
-        "the snail",
-        "the turtle"
+        "A car can move fast.",
+        "A jet moves very fast.",
+        "Is it fast or slow?"
       ],
-      "answer": "the jet",
+      "answer": "A car can move fast.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 3,
-      "evidenceText": "A jet can go very fast.\nWhoosh!"
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "A car can move fast."
     },
     {
       "id": "first-facts-level-a-16-fast-and-slow-q2",
-      "prompt": "Which one is slow?",
+      "prompt": "What do we learn about a jet?",
       "choices": [
-        "the snail",
-        "the car",
-        "the bus"
+        "A jet moves very fast.",
+        "A car can move fast.",
+        "Is it fast or slow?"
       ],
-      "answer": "the snail",
+      "answer": "A jet moves very fast.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 4,
-      "evidenceText": "A snail is slow.\nIt is not fast."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A jet moves very fast."
     },
     {
       "id": "first-facts-level-a-16-fast-and-slow-q3",
-      "prompt": "What sound does the car make?",
+      "prompt": "What is the big idea in Fast and Slow?",
       "choices": [
-        "zoom",
-        "moo",
-        "peep"
+        "Is it fast or slow?",
+        "A car can move fast.",
+        "A jet moves very fast."
       ],
-      "answer": "zoom",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 1,
-      "evidenceText": "A car can go fast.\nZoom!"
+      "answer": "Is it fast or slow?",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Is it fast or slow? This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "Is it fast or slow?"
     }
   ]
 }

@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.3",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-21",
-  "contentHash": "sha256:f67dcb90daec02f5cd15f89e9299087fb35729afc9b025e5d46fa8ecfa447765",
+  "contentHash": "sha256:94322b63d236dc8e4fd047f903c5922030e50d1427d9dc5a4cdefac365bfbeb1",
   "questions": [
     {
       "id": "moonwood-tales-c-21-q1",
-      "prompt": "Who can fit through the small door near the roots?",
+      "prompt": "Which event introduces the situation in Something Lives in the Hollow Oak?",
       "choices": [
-        "Fern",
-        "Wren",
-        "Pip"
+        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
+        "Four friends search every known room and find nothing.",
+        "They widen her door. Twig joins one biscuit, then walks home."
       ],
-      "answer": "Fern",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "He found a small door near the roots.\nIt was very small.\nToo small for most of them.\n\"I can go,\" said Fern."
+      "answer": "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Late at Hollow Oak, Pip hears scratching and a voice searching for something."
     },
     {
       "id": "moonwood-tales-c-21-q2",
-      "prompt": "Why has Twig been unable to find her spectacles?",
+      "prompt": "Which event shows that the first attempt fails in Something Lives in the Hollow Oak?",
       "choices": [
-        "They were on top of Twig's head.",
-        "Fern had moved them outside.",
-        "They were under her collected things."
+        "Four friends search every known room and find nothing.",
+        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
+        "They widen her door. Twig joins one biscuit, then walks home."
       ],
-      "answer": "They were on top of Twig's head.",
+      "answer": "Four friends search every known room and find nothing.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 9,
-      "evidenceText": "The spectacles were on top of Twig's head."
+      "skill": "problem_solution",
+      "rationale": "Four friends search every known room and find nothing. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Four friends search every known room and find nothing."
     },
     {
       "id": "moonwood-tales-c-21-q3",
-      "prompt": "What does Twig's visit through the larger door show about a good home?",
+      "prompt": "Which event resolves the central problem in Something Lives in the Hollow Oak?",
       "choices": [
-        "It can include private space and time with friends.",
-        "Twig preferred the large room to her own small room.",
-        "The new door made Twig leave her old room behind."
+        "They widen her door. Twig joins one biscuit, then walks home.",
+        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
+        "Four friends search every known room and find nothing."
       ],
-      "answer": "It can include private space and time with friends.",
+      "answer": "They widen her door. Twig joins one biscuit, then walks home.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "Twig is happy living in her own room, then enjoys visiting the big room but says she likes her room better; this shows a good home can include private space and time with friends.",
+      "skill": "outcome",
+      "rationale": "They widen her door. Twig joins one biscuit, then walks home. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "She sat in the big room and looked around.\n\"I like it here,\" she said.\n\"But I like my room better.\"",
-      "supportingEvidence": [
-        {
-          "evidencePage": 10,
-          "evidenceText": "\"I live here.\"\n\"I have always lived here.\"\nShe seemed perfectly happy about this."
-        }
-      ]
+      "evidenceText": "They widen her door. Twig joins one biscuit, then walks home."
     }
   ]
 }

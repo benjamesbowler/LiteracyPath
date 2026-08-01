@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "first-facts-a-18-the-moon",
-  "contentHash": "sha256:2b4314f53019eb461788247a1a5204fc561d905128e25961390e45331c771c40",
+  "contentHash": "sha256:b54fe9bcbcc3a9f019190168ee01c705fa558fa3f4f33ed343205d25a47fa5c6",
   "questions": [
     {
       "id": "first-facts-a-18-the-moon-q1",
-      "prompt": "When does the book say the moon shines?",
+      "prompt": "Which fact about the Moon is given in The Moon?",
       "choices": [
-        "at night",
-        "at midday",
-        "only at sunrise"
+        "The Moon is Earth's natural satellite.",
+        "We see different sunlit parts during Moon phases.",
+        "The Moon can appear by day or night."
       ],
-      "answer": "at night",
+      "answer": "The Moon is Earth's natural satellite.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "The moon shines at night. It gives us light in the dark."
+      "evidencePage": 1,
+      "evidenceText": "The Moon is Earth's natural satellite."
     },
     {
       "id": "first-facts-a-18-the-moon-q2",
-      "prompt": "What does the moon go around?",
+      "prompt": "Which fact is explained next in The Moon?",
       "choices": [
-        "Mars",
-        "Earth",
-        "the ocean"
+        "We see different sunlit parts during Moon phases.",
+        "The Moon is Earth's natural satellite.",
+        "The Moon can appear by day or night."
       ],
-      "answer": "Earth",
-      "kind": "word",
-      "skill": "key_detail",
-      "evidencePage": 5,
-      "evidenceText": "The moon goes around the Earth."
-    },
-    {
-      "id": "first-facts-a-18-the-moon-q3",
-      "prompt": "What does the book say about the moon's shape?",
-      "choices": [
-        "it changes and can look like a banana",
-        "it stays square and never changes",
-        "it turns into a star each morning"
-      ],
-      "answer": "it changes and can look like a banana",
+      "answer": "We see different sunlit parts during Moon phases.",
       "kind": "text",
       "skill": "comparison",
       "evidencePage": 3,
-      "evidenceText": "The moon changes shape. Sometimes it looks like a banana."
+      "evidenceText": "We see different sunlit parts during Moon phases."
+    },
+    {
+      "id": "first-facts-a-18-the-moon-q3",
+      "prompt": "Which statement gives the main idea of The Moon?",
+      "choices": [
+        "The Moon can appear by day or night.",
+        "The Moon is Earth's natural satellite.",
+        "We see different sunlit parts during Moon phases."
+      ],
+      "answer": "The Moon can appear by day or night.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "The Moon can appear by day or night. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 7,
+      "evidenceText": "The Moon can appear by day or night."
     }
   ]
 }

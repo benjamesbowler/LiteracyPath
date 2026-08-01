@@ -176,18 +176,22 @@ test("pre-reader game controls never offer a silent hear-word lifeline", async (
 });
 
 test("the early adventure and skate routes stay book-led, physical, and recoverable", async () => {
-  const [creator, trail, questCss, skate, chapters] = await Promise.all([
+  const [creator, avatarPolicy, trail, questCss, skate, chapters] = await Promise.all([
     source("src/components/quest/CreatureCreator.jsx"),
+    source("src/components/quest/bookCharacterAvatar.js"),
     source("src/components/quest/world/QuestTrail2D.jsx"),
     source("src/styles/quest.css"),
     source("src/components/learn/games/games/GrammarGrindGame.jsx"),
     source("src/data/questChapters.js")
   ]);
 
-  assert.match(creator, /avatars-v3\/muddy\.webp/);
-  assert.match(creator, /Change their colour, mood, pose and trail gear/);
+  assert.match(creator, /BookCharacterAvatar/);
+  assert.match(creator, /Pick a book friend, then choose a real illustrated colour, mood, pose or outfit/);
+  assert.match(avatarPolicy, /sound-seekers\/characters\/muddy/);
+  assert.match(avatarPolicy, /painted artwork, never a Phaser\/CSS tint/);
   assert.doesNotMatch(creator, /Your adventure look/);
-  assert.match(trail, /q2d-gear-badge/);
+  assert.match(trail, /<BookCharacterAvatar/);
+  assert.match(trail, /creature=\{state\.creature\}/);
   assert.match(trail, /parentElement\.scrollTop = 0/);
   assert.match(trail, /className="q2d-resident is-guide"/);
   assert.match(questCss, /data-mechanic="sound-hunt"/);

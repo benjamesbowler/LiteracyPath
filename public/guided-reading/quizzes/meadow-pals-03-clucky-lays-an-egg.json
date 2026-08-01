@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-03-clucky-lays-an-egg",
-  "contentHash": "sha256:e8fc51f78a4888fa12d8cb277cdd563de87f8d34836dabe23fc352a48ff6aa57",
+  "contentHash": "sha256:7366d71b4eecb7912947688ead3f733ae21751e838add6e241417bdf897052aa",
   "questions": [
     {
       "id": "meadow-pals-03-clucky-lays-an-egg-q1",
-      "prompt": "Who is looking for a place to lay an egg?",
+      "prompt": "What happens first in Clucky Lays an Egg?",
       "choices": [
-        "Clucky",
-        "Bouncy",
-        "Woolly"
+        "Clucky needs a safe nest.",
+        "The hat tips over.",
+        "Clucky moves it to straw."
       ],
-      "answer": "Clucky",
-      "kind": "word",
-      "skill": "character_action",
+      "answer": "Clucky needs a safe nest.",
+      "kind": "text",
+      "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Clucky has to lay an egg."
+      "evidenceText": "Clucky needs a safe nest."
     },
     {
       "id": "meadow-pals-03-clucky-lays-an-egg-q2",
-      "prompt": "Where does Clucky sit just before the egg appears?",
+      "prompt": "What goes wrong in Clucky Lays an Egg?",
       "choices": [
-        "in the mud",
-        "in the nest",
-        "on the log"
+        "The hat tips over.",
+        "Clucky needs a safe nest.",
+        "Clucky moves it to straw."
       ],
-      "answer": "in the mud",
+      "answer": "The hat tips over.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 6,
-      "evidenceText": "She sat in the mud."
+      "skill": "problem_solution",
+      "rationale": "The hat tips over. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "The hat tips over."
     },
     {
       "id": "meadow-pals-03-clucky-lays-an-egg-q3",
-      "prompt": "What does Clucky find after sitting in the mud?",
+      "prompt": "What happens at the end of Clucky Lays an Egg?",
       "choices": [
-        "an egg",
-        "a hat",
-        "a box"
+        "Clucky moves it to straw.",
+        "Clucky needs a safe nest.",
+        "The hat tips over."
       ],
-      "answer": "an egg",
+      "answer": "Clucky moves it to straw.",
       "kind": "text",
       "skill": "outcome",
-      "evidencePage": 7,
-      "evidenceText": "Oh! An egg!"
+      "rationale": "Clucky moves it to straw. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Clucky moves it to straw."
     }
   ]
 }

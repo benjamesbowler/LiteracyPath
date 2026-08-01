@@ -1,50 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-b-32",
-  "contentHash": "sha256:4f4518b84a89b663232118111afcb358c8fd50f3e724faf336514e3254d8b9b2",
+  "contentHash": "sha256:8e040ab16c25e78a7ba5ea95a9de10625120fd5656549f821a5c939377cfadea",
   "questions": [
     {
       "id": "gr-b-32-q1",
-      "prompt": "Which one is a fruit?",
+      "prompt": "Which fact about an apple is given in Fruits?",
       "choices": [
-        "a banana",
-        "a carrot",
-        "a potato"
+        "An apple is a fruit.",
+        "A grape is a fruit.",
+        "Fruits grow from flowers."
       ],
-      "answer": "a banana",
+      "answer": "An apple is a fruit.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 2,
-      "evidenceText": "A banana is a fruit."
+      "evidencePage": 1,
+      "evidenceText": "An apple is a fruit."
     },
     {
       "id": "gr-b-32-q2",
-      "prompt": "What does the book say we can do with fruits?",
+      "prompt": "Which fact about a grape is given in Fruits?",
       "choices": [
-        "eat them",
-        "throw them",
-        "hide them"
+        "A grape is a fruit.",
+        "An apple is a fruit.",
+        "Fruits grow from flowers."
       ],
-      "answer": "eat them",
+      "answer": "A grape is a fruit.",
       "kind": "text",
-      "skill": "function",
-      "evidencePage": 5,
-      "evidenceText": "Fruits are good to eat."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "A grape is a fruit."
     },
     {
       "id": "gr-b-32-q3",
-      "prompt": "How does the speaker feel about fruits?",
+      "prompt": "Which statement gives the main idea of Fruits?",
       "choices": [
-        "loves them",
-        "hates them",
-        "fears them"
+        "Fruits grow from flowers.",
+        "An apple is a fruit.",
+        "A grape is a fruit."
       ],
-      "answer": "loves them",
+      "answer": "Fruits grow from flowers.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "main_idea",
+      "rationale": "Fruits grow from flowers. This final statement gathers the book's details into its main idea.",
       "evidencePage": 6,
-      "evidenceText": "I love fruits!"
+      "evidenceText": "Fruits grow from flowers."
     }
   ]
 }

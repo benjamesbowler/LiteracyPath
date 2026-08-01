@@ -1,52 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-10",
-  "contentHash": "sha256:8a17ba82f8f235523862886e33e5f0039643653da71c409ae28a558705303b69",
+  "contentHash": "sha256:d4b59e4994bd4b3a7bbf28520339b62025cdc1f33960ba6e448b22ec214a305d",
   "questions": [
     {
       "id": "moonwood-tales-c-10-q1",
-      "prompt": "What happens after Dewdrop asks whether the forgotten task involves the stream?",
+      "prompt": "Which event introduces the situation in What Luna Forgot?",
       "choices": [
-        "Luna stops and looks at the stream.",
-        "Luna decides the task was a meeting.",
-        "Luna asks everyone to stop searching."
+        "Luna wakes knowing one important task must happen today.",
+        "They search Hollow Oak, every path, and Whispering Meadow without success.",
+        "They plant a ring around Hollow Oak before sunset."
       ],
-      "answer": "Luna stops and looks at the stream.",
+      "answer": "Luna wakes knowing one important task must happen today.",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "Was it something to do with the Crystal Stream? asked Dewdrop. Luna stopped walking. She looked at the stream for a moment. Wait, said Luna."
+      "evidencePage": 1,
+      "evidenceText": "Luna wakes knowing one important task must happen today."
     },
     {
       "id": "moonwood-tales-c-10-q2",
-      "prompt": "How do Luna's friends help solve her memory problem?",
+      "prompt": "Which event shows that the first attempt fails in What Luna Forgot?",
       "choices": [
-        "Their help lets Luna remember.",
-        "Their search finds the seeds without Luna.",
-        "Their planting makes Luna forget the task."
+        "They search Hollow Oak, every path, and Whispering Meadow without success.",
+        "Luna wakes knowing one important task must happen today.",
+        "They plant a ring around Hollow Oak before sunset."
       ],
-      "answer": "Their help lets Luna remember.",
+      "answer": "They search Hollow Oak, every path, and Whispering Meadow without success.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Luna says she remembered 'with help' while looking at her friends, directly linking their help to her remembering.",
-      "evidencePage": 14,
-      "evidenceText": "I did remember, said Luna. With help. She looked at all of them. That is the point."
+      "rationale": "They search Hollow Oak, every path, and Whispering Meadow without success. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "They search Hollow Oak, every path, and Whispering Meadow without success."
     },
     {
       "id": "moonwood-tales-c-10-q3",
-      "prompt": "What idea is shown when every creature plants one Moonwood seed?",
+      "prompt": "Which event resolves the central problem in What Luna Forgot?",
       "choices": [
-        "Caring for their shared home is everyone's job.",
-        "Luna planted every seed while the others watched.",
-        "The seeds were planted to mark the stream path."
+        "They plant a ring around Hollow Oak before sunset.",
+        "Luna wakes knowing one important task must happen today.",
+        "They search Hollow Oak, every path, and Whispering Meadow without success."
       ],
-      "answer": "Caring for their shared home is everyone's job.",
+      "answer": "They plant a ring around Hollow Oak before sunset.",
       "kind": "text",
-      "skill": "theme",
-      "rationale": "One planted seed from each creature shows that everyone shares the job of caring for their Moonwood home.",
+      "skill": "outcome",
+      "rationale": "They plant a ring around Hollow Oak before sunset. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "They planted the seeds in a ring around the Hollow Oak. One from each of them."
+      "evidenceText": "They plant a ring around Hollow Oak before sunset."
     }
   ]
 }

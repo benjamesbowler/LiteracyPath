@@ -1,56 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-24.1",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-09-shy-comes-out-to-play",
-  "contentHash": "sha256:d902945e5b7382d3af51fdd48f6fafccfac50bc7f799b818a8ce83c7b1b3a8fe",
+  "contentHash": "sha256:86e58253db3f819e8e10df6e721a2633219e9e7a75425b0ba1b42bec987edbf2",
   "questions": [
     {
       "id": "meadow-pals-09-shy-comes-out-to-play-q1",
-      "prompt": "What did Cuddly do after sitting by the barn?",
+      "prompt": "What happens first in Shy Comes Out to Play?",
       "choices": [
-        "Cuddly did not go away.",
-        "Cuddly called Bouncy back.",
-        "Cuddly hid behind a tree."
+        "Shy wants to play.",
+        "Cuddly sits nearby.",
+        "They play together."
       ],
-      "answer": "Cuddly did not go away.",
+      "answer": "Shy wants to play.",
       "kind": "text",
-      "skill": "character_action",
-      "supportingEvidence": [
-        {
-          "evidencePage": 5,
-          "evidenceText": "Cuddly sat down by the barn."
-        }
-      ],
-      "evidencePage": 6,
-      "evidenceText": "Cuddly did not go away."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Shy wants to play."
     },
     {
       "id": "meadow-pals-09-shy-comes-out-to-play-q2",
-      "prompt": "Where is Shy hiding at the start?",
+      "prompt": "What goes wrong in Shy Comes Out to Play?",
       "choices": [
-        "behind the barn",
-        "inside the log",
-        "beside the pond"
+        "Cuddly sits nearby.",
+        "Shy wants to play.",
+        "They play together."
       ],
-      "answer": "behind the barn",
+      "answer": "Cuddly sits nearby.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 2,
-      "evidenceText": "But Shy is behind the barn."
+      "skill": "problem_solution",
+      "rationale": "Cuddly sits nearby. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Cuddly sits nearby."
     },
     {
       "id": "meadow-pals-09-shy-comes-out-to-play-q3",
-      "prompt": "What is Shy doing at the end?",
+      "prompt": "What happens at the end of Shy Comes Out to Play?",
       "choices": [
-        "Shy is playing!",
-        "Shy is hiding!",
-        "Shy is sleeping!"
+        "They play together.",
+        "Shy wants to play.",
+        "Cuddly sits nearby."
       ],
-      "answer": "Shy is playing!",
+      "answer": "They play together.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "They play together. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Shy is playing!"
+      "evidenceText": "They play together."
     }
   ]
 }

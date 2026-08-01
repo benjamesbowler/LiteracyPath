@@ -1,51 +1,51 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "gr-b-34",
-  "contentHash": "sha256:dca6f199ab6f0c1212751bb0d729e48476b1354a9b6fe942eecbcc4d23d3a4c5",
+  "contentHash": "sha256:285f24a2132fdab44eea600c141d0131a6bb7c3ba31ab4ee86aaf4ed8170e7e6",
   "questions": [
     {
       "id": "gr-b-34-q1",
-      "prompt": "When does the book say people play?",
+      "prompt": "Which fact about sunlight is given in Day and Night?",
       "choices": [
-        "in the day",
-        "at night",
-        "never"
+        "Sunlight reaches one side of Earth.",
+        "That side has daytime.",
+        "Earth turns us toward sunlight again."
       ],
-      "answer": "in the day",
+      "answer": "Sunlight reaches one side of Earth.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "We play in the day."
+      "skill": "key_detail",
+      "evidencePage": 1,
+      "evidenceText": "Sunlight reaches one side of Earth."
     },
     {
       "id": "gr-b-34-q2",
-      "prompt": "What comes up after the sun goes down?",
+      "prompt": "Which fact is explained next in Day and Night?",
       "choices": [
-        "the moon",
-        "the sun",
-        "a kite"
+        "That side has daytime.",
+        "Sunlight reaches one side of Earth.",
+        "Earth turns us toward sunlight again."
       ],
-      "answer": "the moon",
+      "answer": "That side has daytime.",
       "kind": "text",
       "skill": "key_detail",
-      "rationale": "Page 5 says the sun goes down, and the next page says the moon comes up.",
-      "evidencePage": 6,
-      "evidenceText": "The moon comes up."
+      "evidencePage": 2,
+      "evidenceText": "That side has daytime."
     },
     {
       "id": "gr-b-34-q3",
-      "prompt": "What does the book say people do at night?",
+      "prompt": "Which statement gives the main idea of Day and Night?",
       "choices": [
-        "sleep",
-        "play",
-        "swim"
+        "Earth turns us toward sunlight again.",
+        "Sunlight reaches one side of Earth.",
+        "That side has daytime."
       ],
-      "answer": "sleep",
-      "kind": "word",
-      "skill": "function",
-      "evidencePage": 4,
-      "evidenceText": "We sleep at night."
+      "answer": "Earth turns us toward sunlight again.",
+      "kind": "text",
+      "skill": "main_idea",
+      "rationale": "Earth turns us toward sunlight again. This final statement gathers the book's details into its main idea.",
+      "evidencePage": 6,
+      "evidenceText": "Earth turns us toward sunlight again."
     }
   ]
 }

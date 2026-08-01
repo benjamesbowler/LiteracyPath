@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-08-sick",
-  "contentHash": "sha256:e02bbce517ff15da1a4c701609af1dd5c5f21bfbc0457981eaf73cdbacab6945",
+  "contentHash": "sha256:f1c44ff7ddc4d7ceb1772de2fb488fad4cc44e5ddd97785013d352d9d8775093",
   "questions": [
     {
       "id": "bob-and-nan-08-sick-q1",
-      "prompt": "Where did Bob rest?",
+      "prompt": "What happens first in Nan and Bob get Sick?",
       "choices": [
-        "at a desk",
-        "in bed",
-        "on a swing"
+        "Bob feels too ill to play.",
+        "One nap is not enough.",
+        "Bob and Nan feel well!"
       ],
-      "answer": "in bed",
+      "answer": "Bob feels too ill to play.",
       "kind": "text",
-      "skill": "setting",
-      "evidencePage": 2,
-      "evidenceText": "Bob has to rest in bed."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bob feels too ill to play."
     },
     {
       "id": "bob-and-nan-08-sick-q2",
-      "prompt": "What did Mum bring for Nan and Bob?",
+      "prompt": "What goes wrong in Nan and Bob get Sick?",
       "choices": [
-        "a red bat",
-        "a big book",
-        "a hot cup"
+        "One nap is not enough.",
+        "Bob feels too ill to play.",
+        "Bob and Nan feel well!"
       ],
-      "answer": "a hot cup",
+      "answer": "One nap is not enough.",
       "kind": "text",
-      "skill": "character_action",
-      "evidencePage": 5,
-      "evidenceText": "Mum has a hot cup for Nan and Bob."
+      "skill": "problem_solution",
+      "rationale": "One nap is not enough. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "One nap is not enough."
     },
     {
       "id": "bob-and-nan-08-sick-q3",
-      "prompt": "How were Nan and Bob at the end?",
+      "prompt": "How do Bob and Nan feel after they sip and rest?",
       "choices": [
         "well",
         "ill",
-        "sad"
+        "tired"
       ],
       "answer": "well",
       "kind": "word",
       "skill": "outcome",
+      "rationale": "Page 7 says Bob and Nan feel well, which shows that sipping and resting helped them recover.",
       "evidencePage": 7,
-      "evidenceText": "Bob is well! Nan is well!"
+      "evidenceText": "Bob and Nan feel well!"
     }
   ]
 }

@@ -1,50 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-02-sunnys-rainy-day",
-  "contentHash": "sha256:7632e70ca2114d5cb0700a92d5fa0f6e9c9220cd5d040e99fb6b52c82a7d3bdd",
+  "contentHash": "sha256:daf6d3e6840cd9e7f29a1fb6ec239702fcb5b8a56bbb64f255840905a52a9757",
   "questions": [
     {
       "id": "dino-pals-02-sunnys-rainy-day-q1",
-      "prompt": "What did Sunny say the rain brought?",
+      "prompt": "Which event begins Sunny's Rainy Day?",
       "choices": [
-        "More puddles.",
-        "A dry path.",
-        "No more puddles."
+        "Rain fills Sunny Hollow with deep puddles.",
+        "Her biggest jump splashes all three friends.",
+        "Grumpy makes one neat splash beside them."
       ],
-      "answer": "More puddles.",
+      "answer": "Rain fills Sunny Hollow with deep puddles.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 3,
-      "evidenceText": "Oh YES! said Sunny. More puddles!"
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Rain fills Sunny Hollow with deep puddles."
     },
     {
       "id": "dino-pals-02-sunnys-rainy-day-q2",
-      "prompt": "What did the Dino Pals do after Sunny invited them?",
+      "prompt": "Which event shows the main plan is not working in Sunny's Rainy Day?",
       "choices": [
-        "They hid in their caves.",
-        "They waited for bedtime.",
-        "They joined in one by one."
+        "Her biggest jump splashes all three friends.",
+        "Rain fills Sunny Hollow with deep puddles.",
+        "Grumpy makes one neat splash beside them."
       ],
-      "answer": "They joined in one by one.",
+      "answer": "Her biggest jump splashes all three friends.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 6,
-      "evidenceText": "One by one, the Dino Pals joined in."
+      "skill": "problem_solution",
+      "rationale": "Her biggest jump splashes all three friends. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Her biggest jump splashes all three friends."
     },
     {
       "id": "dino-pals-02-sunnys-rainy-day-q3",
-      "prompt": "What does Sunny believe about every day?",
+      "prompt": "Which event solves the problem in Sunny's Rainy Day?",
       "choices": [
-        "Every day is a good day.",
-        "Only sunny days are good days.",
-        "Rainy days should be spent alone."
+        "Grumpy makes one neat splash beside them.",
+        "Rain fills Sunny Hollow with deep puddles.",
+        "Her biggest jump splashes all three friends."
       ],
-      "answer": "Every day is a good day.",
+      "answer": "Grumpy makes one neat splash beside them.",
       "kind": "text",
-      "skill": "theme",
-      "evidencePage": 8,
-      "evidenceText": "Every day is a good day!"
+      "skill": "outcome",
+      "rationale": "Grumpy makes one neat splash beside them. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Grumpy makes one neat splash beside them."
     }
   ]
 }

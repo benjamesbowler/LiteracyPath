@@ -1,60 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-22-sleepys-big-dream",
-  "contentHash": "sha256:165eccd59cb88f85b6cc1ce70b7a8dbacf868266f90d81aa5b64768092d15b60",
+  "contentHash": "sha256:a75a6888f8a2520aefffbb72f90906a0e2358f9a906d4737fe88b680e52f7576",
   "questions": [
     {
       "id": "meadow-pals-22-sleepys-big-dream-q1",
-      "prompt": "What can Sleepy do in the dream?",
+      "prompt": "What happens first in Sleepy's Big Dream?",
       "choices": [
-        "run",
-        "swim",
-        "fly"
+        "Sleepy closes his eyes.",
+        "Sleepy wakes too soon.",
+        "Dream Sleepy crosses the finish line."
       ],
-      "answer": "run",
-      "kind": "word",
-      "skill": "character_action",
-      "evidencePage": 3,
-      "evidenceText": "In the dream, Sleepy could run. Run! Run! Run!"
+      "answer": "Sleepy closes his eyes.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Sleepy closes his eyes."
     },
     {
       "id": "meadow-pals-22-sleepys-big-dream-q2",
-      "prompt": "What does Sleepy become after running and jumping in the dream?",
+      "prompt": "What goes wrong in Sleepy's Big Dream?",
       "choices": [
-        "a superhero",
-        "a farmer",
-        "a singer"
+        "Sleepy wakes too soon.",
+        "Sleepy closes his eyes.",
+        "Dream Sleepy crosses the finish line."
       ],
-      "answer": "a superhero",
+      "answer": "Sleepy wakes too soon.",
       "kind": "text",
-      "skill": "sequence",
-      "supportingEvidence": [
-        {
-          "evidencePage": 3,
-          "evidenceText": "In the dream, Sleepy could run. Run! Run! Run!"
-        },
-        {
-          "evidencePage": 4,
-          "evidenceText": "In the dream, Sleepy could jump. Jump! Jump! Jump!"
-        }
-      ],
-      "evidencePage": 6,
-      "evidenceText": "In the dream, Sleepy was a superhero!"
+      "skill": "problem_solution",
+      "rationale": "Sleepy wakes too soon. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "Sleepy wakes too soon."
     },
     {
       "id": "meadow-pals-22-sleepys-big-dream-q3",
-      "prompt": "What does Sleepy do after waking up?",
+      "prompt": "What happens at the end of Sleepy's Big Dream?",
       "choices": [
-        "Sleepy went back to sleep.",
-        "Sleepy ran to the barn.",
-        "Sleepy started to jump."
+        "Dream Sleepy crosses the finish line.",
+        "Sleepy closes his eyes.",
+        "Sleepy wakes too soon."
       ],
-      "answer": "Sleepy went back to sleep.",
+      "answer": "Dream Sleepy crosses the finish line.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "Dream Sleepy crosses the finish line. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Sleepy went back to sleep."
+      "evidenceText": "Dream Sleepy crosses the finish line."
     }
   ]
 }

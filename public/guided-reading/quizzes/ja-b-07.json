@@ -1,57 +1,52 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-07-22.2",
+  "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-07",
-  "contentHash": "sha256:f01bba27c22faf703ab8c7e55710a0a179a60cb22e708e502463b7a210c6a761",
+  "contentHash": "sha256:21a6d59e6b365b7b98da34c1c103daaeb80d1abd2a0d08664cb54ae8eda241d9",
   "questions": [
     {
       "id": "ja-b-07-q1",
-      "prompt": "Why did James have to try out for the dragon?",
+      "prompt": "Which event begins James and Anna and the School Play?",
       "choices": [
-        "James had forgotten the name of the play.",
-        "Six other children put their hands up too.",
-        "Anna wanted to paint the dragon costume."
+        "Mrs Green announces a school play called The Lost Dragon.",
+        "His first line vanishes. Anna catches his eye and signals.",
+        "James and Anna bow together before the cheering school."
       ],
-      "answer": "Six other children put their hands up too.",
+      "answer": "Mrs Green announces a school play called The Lost Dragon.",
       "kind": "text",
-      "skill": "cause_effect",
-      "evidencePage": 2,
-      "evidenceText": "James put his hand straight up. \"I want to be the dragon!\" Six other children put their hands up too. They would all have to try out."
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Mrs Green announces a school play called The Lost Dragon."
     },
     {
       "id": "ja-b-07-q2",
-      "prompt": "What helped James after he forgot his line?",
+      "prompt": "Which event shows the main plan is not working in James and Anna and the School Play?",
       "choices": [
-        "The audience told him the words.",
-        "Mrs. Green stopped the play.",
-        "Anna gave him a thumbs up."
+        "His first line vanishes. Anna catches his eye and signals.",
+        "Mrs Green announces a school play called The Lost Dragon.",
+        "James and Anna bow together before the cheering school."
       ],
-      "answer": "Anna gave him a thumbs up.",
+      "answer": "His first line vanishes. Anna catches his eye and signals.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Anna's thumbs-up comes just after James forgets his line; on the next page he takes a deep breath and gives his roar, so her encouragement helped him continue.",
+      "rationale": "His first line vanishes. Anna catches his eye and signals. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 9,
-      "evidenceText": "He forgot his first line. The hall went silent. Anna was watching from the side. She caught his eye and gave him a thumbs up.",
-      "supportingEvidence": [
-        {
-          "evidencePage": 10,
-          "evidenceText": "James took a deep breath. He thought of his best roar. Then he let it out — the biggest, loudest roar he had ever done."
-        }
-      ]
+      "evidenceText": "His first line vanishes. Anna catches his eye and signals."
     },
     {
       "id": "ja-b-07-q3",
-      "prompt": "How did the audience respond at the end?",
+      "prompt": "Which event solves the problem in James and Anna and the School Play?",
       "choices": [
-        "They stood and clapped.",
-        "They left in silence.",
-        "They asked for a new play."
+        "James and Anna bow together before the cheering school.",
+        "Mrs Green announces a school play called The Lost Dragon.",
+        "His first line vanishes. Anna catches his eye and signals."
       ],
-      "answer": "They stood and clapped.",
+      "answer": "James and Anna bow together before the cheering school.",
       "kind": "text",
       "skill": "outcome",
+      "rationale": "James and Anna bow together before the cheering school. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "At the very end, everyone stood and clapped. James and Anna walked to the front of the stage and bowed together."
+      "evidenceText": "James and Anna bow together before the cheering school."
     }
   ]
 }
