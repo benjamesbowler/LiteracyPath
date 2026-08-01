@@ -75,7 +75,7 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
   ]
 };
 
-const STORAGE_PREFIX = "guidedReadingAssessment:";
+const STORAGE_PREFIX = "literacyPath.guidedReadingRecords.";
 
 function safeJsonParse(value, fallback = {}) {
   try {
@@ -126,8 +126,9 @@ function getStorageRecords({ students = [], teacherId = "" } = {}) {
   for (let index = 0; index < localStorage.length; index += 1) {
     const key = localStorage.key(index) || "";
     if (!key.startsWith(STORAGE_PREFIX)) continue;
-    const [, keyTeacherId = "", keyStudentId = ""] = key.split(":");
-    if (teacherId && keyTeacherId && keyTeacherId !== teacherId) continue;
+    const keyTeacherId = teacherId;
+    let keyStudentId;
+    try { keyStudentId = decodeURIComponent(key.slice(STORAGE_PREFIX.length)); } catch { continue; }
     if (studentIdSet.size > 0 && keyStudentId && !studentIdSet.has(keyStudentId)) continue;
     rows.push({
       teacherId: keyTeacherId,

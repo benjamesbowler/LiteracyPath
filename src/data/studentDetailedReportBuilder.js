@@ -284,7 +284,9 @@ function aggregateAttempts(records = []) {
 function readGuidedReadingRecords({ teacherId = "", studentId = "" } = {}) {
   if (typeof localStorage === "undefined" || !teacherId || !studentId) return {};
   try {
-    return JSON.parse(localStorage.getItem(`guidedReadingAssessment:${teacherId}:${studentId}`) || "{}");
+    return JSON.parse(localStorage.getItem(
+      `literacyPath.guidedReadingRecords.${encodeURIComponent(studentId)}`
+    ) || "{}");
   } catch {
     return {};
   }

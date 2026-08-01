@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-19-day-and-night",
   "contentHash": "sha256:b6bda537211cdbc2cb3016deee077a24af1ec5287523af02d04ff1b7fe6cf2e6",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-19-day-and-night-q3",
-      "prompt": "Which statement gives the main idea of Day and Night?",
+      "prompt": "What is the big idea of Day and Night?",
       "choices": [
         "The cycle repeats as Earth turns.",
-        "Sunlight brightens one side of Earth.",
-        "Earth rotates all day and night."
+        "Only sunlight brightens one side of Earth.",
+        "Only Earth rotates all day and night."
       ],
       "answer": "The cycle repeats as Earth turns.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The cycle repeats as Earth turns. This final statement gathers the book's details into its main idea.",
+      "rationale": "Sunlight brightens one side of Earth. Earth rotates all day and night. The cycle repeats as Earth turns. Together, these facts show the whole-book big idea: The cycle repeats as Earth turns.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Sunlight brightens one side of Earth."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Earth rotates all day and night."
+        }
+      ],
+      "distractorRationales": {
+        "Only sunlight brightens one side of Earth.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only Earth rotates all day and night.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "The cycle repeats as Earth turns."
     }

@@ -579,7 +579,8 @@ export function TeacherTodayPage({
   onOpenProgress,
   createDemoClass,
   teacherId,
-  message
+  message,
+  onStartReadingSession
 }) {
   const [creatingDemo, setCreatingDemo] = useState(false);
   const [demoError, setDemoError] = useState("");
@@ -737,7 +738,16 @@ export function TeacherTodayPage({
           eyebrow={todayKicker()}
           title={TEACHER_COPY.today.title}
           description={TEACHER_COPY.today.description}
-        />
+        >
+          <button
+            className="lp-button lp-button-primary"
+            disabled={!rosterRead.complete || !studentRows.length}
+            onClick={onStartReadingSession}
+            type="button"
+          >
+            Start reading together
+          </button>
+        </TeacherPageHeader>
       )}
 
       <ActionFeedback className="teacher-dashboard-message" message={message} />

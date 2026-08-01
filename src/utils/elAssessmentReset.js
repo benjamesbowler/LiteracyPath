@@ -20,6 +20,7 @@ const EL_ASSESSMENT_REPORT_PREFIX = "lpElAssessmentReports:v1:";
 const EL_BENCHMARK_DRAFT_PREFIX = "elBenchmarkDraft:v1:";
 const TEACHER_PROFILE_PREFIX = "readingMasteryProfile:";
 const GUIDED_READING_ASSESSMENT_PREFIX = "guidedReadingAssessment:";
+const GUIDED_READING_RECORDS_PREFIX = "literacyPath.guidedReadingRecords.";
 const MANUAL_ASSESSMENT_DRAFT_PREFIX =
   "literacy-guide:manual-assessment-draft:v1:";
 const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
@@ -297,6 +298,15 @@ export async function clearLocalElAssessmentDataForStudent({
       storage,
       guidedReadingAssessmentKey,
       `the Guided Reading assessment for student ${studentId}`
+    )) {
+      guidedReadingAssessmentsDeleted += 1;
+    }
+    const guidedReadingRecordsKey =
+      `${GUIDED_READING_RECORDS_PREFIX}${encodeURIComponent(studentId)}`;
+    if (removeAndVerifyStorageKey(
+      storage,
+      guidedReadingRecordsKey,
+      `the Guided Reading record for student ${studentId}`
     )) {
       guidedReadingAssessmentsDeleted += 1;
     }

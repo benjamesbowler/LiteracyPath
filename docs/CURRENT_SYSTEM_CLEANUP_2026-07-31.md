@@ -41,6 +41,15 @@ The only current assessment phase threshold is 70%, defined once by
 - `src/data/knowledgeJourneys.js`
 - `src/data/storyQuests.js`
 - `src/utils/storyQuestProgress.js`
+- `supabase/migrations/20260801090000_synced_guided_reading.sql`
+- `src/data/readingSession.js`
+- `src/hooks/useReadingSessionFollower.js`
+- `src/hooks/useReadingSessionHost.js`
+
+Shared reading uses the existing opaque child token boundary and visible-only
+one-second polling. The frozen session page list, six reviewed RPCs, and ordinary
+per-child `guided_reading` progress rows are the single current synchronization
+and marking path; there is no parallel push implementation.
 
 ## Problems corrected
 

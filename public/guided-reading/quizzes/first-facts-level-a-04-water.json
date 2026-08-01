@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-04-water",
   "contentHash": "sha256:4c5d4a531c01d79b3873eab4099ec7b9bfa9cd76b95eaa11f01c506afbd25c06",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-04-water-q3",
-      "prompt": "What is the big idea in Water?",
+      "prompt": "What is the big idea of Water?",
       "choices": [
         "All living things need water.",
-        "We drink water.",
-        "Fish swim in water."
+        "Only we drink water.",
+        "Only fish swim in water."
       ],
       "answer": "All living things need water.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "All living things need water. This final statement gathers the book's details into its main idea.",
+      "rationale": "We drink water. Fish swim in water. All living things need water. Together, these facts show the whole-book big idea: All living things need water.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "We drink water."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Fish swim in water."
+        }
+      ],
+      "distractorRationales": {
+        "Only we drink water.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only fish swim in water.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "All living things need water."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-17-a-seed-grows",
   "contentHash": "sha256:67febf14bd09fdad6484bf89078350cbb6175d633607171774fc1641db5ea1ae",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-17-a-seed-grows-q3",
-      "prompt": "What is the big idea in A Seed Grows?",
+      "prompt": "What is the big idea of A Seed Grows?",
       "choices": [
-        "The bud becomes a flower.",
-        "A seed rests in soil.",
-        "A root grows down."
+        "A seed can grow into a flower.",
+        "Only a seed rests in soil.",
+        "Only a root grows down."
       ],
-      "answer": "The bud becomes a flower.",
+      "answer": "A seed can grow into a flower.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The bud becomes a flower. This final statement gathers the book's details into its main idea.",
+      "rationale": "A seed rests in soil. A root grows down. The bud becomes a flower. Together, these facts show the whole-book big idea: A seed can grow into a flower.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A seed rests in soil."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A root grows down."
+        }
+      ],
+      "distractorRationales": {
+        "Only a seed rests in soil.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a root grows down.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "The bud becomes a flower."
     }

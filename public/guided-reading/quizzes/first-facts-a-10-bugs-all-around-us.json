@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-10-bugs-all-around-us",
   "contentHash": "sha256:84790a36600b05a373115ccc6ad5598f3b79e8eb78dd4b58ef072ee47ad55f81",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q3",
-      "prompt": "Which statement gives the main idea of Small Creatures Around Us?",
+      "prompt": "What is the big idea of Small Creatures Around Us?",
       "choices": [
         "Small creatures perform many ecosystem jobs.",
-        "Many small creatures live near us.",
-        "Ladybirds are insects that eat aphids."
+        "Only ladybirds are insects that eat aphids.",
+        "Only bees carry pollen between flowers."
       ],
       "answer": "Small creatures perform many ecosystem jobs.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Small creatures perform many ecosystem jobs. This final statement gathers the book's details into its main idea.",
+      "rationale": "Many small creatures live near us. Ladybirds are insects that eat aphids. Small creatures perform many ecosystem jobs. Together, these facts show the whole-book big idea: Small creatures perform many ecosystem jobs.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Many small creatures live near us."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Ladybirds are insects that eat aphids."
+        }
+      ],
+      "distractorRationales": {
+        "Only ladybirds are insects that eat aphids.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only bees carry pollen between flowers.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
       "evidenceText": "Small creatures perform many ecosystem jobs."
     }

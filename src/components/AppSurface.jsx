@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import logoUrl from "../assets/logo.svg";
@@ -73,6 +73,12 @@ import { learnerAccessibilityDataAttributes } from "../accessibility/learnerAcce
 import { STUDENT_TAB_BAR } from "../policy/studentRailPolicy.js";
 import { resolveConfirmedElPlacement } from "../policy/literacyExperiencePolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
+import { ReadingSessionSetup } from "./guided-reading/ReadingSessionSetup.jsx";
+import { StudentReadingFollower } from "./StudentReadingFollower.jsx";
+import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
+import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
+import { ReadingSessionRecoveryDialog } from "./guided-reading/ReadingSessionRecoveryDialog.jsx";
+import { endReadingSession } from "../data/readingSession.js";
 
 export function AppSurface({ surface }) {
   const {
@@ -120,11 +126,77 @@ export function AppSurface({ surface }) {
   // Which setup step the teacher pressed "Continue" on over on Today. Students
   // picks it up once, opens the right control, then clears it.
   const [setupFocus, setSetupFocus] = useState("");
+  const [readingSetupOpen, setReadingSetupOpen] = useState(false);
+  const [activeReadingSession, setActiveReadingSession] = useState(null);
+  const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
+  const abandonedSessionCheckedForRef = useRef("");
+  const [readingFollowerBooks, setReadingFollowerBooks] = useState([]);
   const [adminConfirmError, setAdminConfirmError] = useState("");
   // A Dashboard sound-map tile opens Reports scoped to one skill. The tile
   // does not name a skill yet, so this stays empty and Reports opens unfiltered
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
+
+  useEffect(() => {
+    if (sessionMode !== "student" || !studentSession?.token) return undefined;
+    let active = true;
+    import("../utils/guidedReading/runtimeBooks.js").then(module => {
+      if (active) setReadingFollowerBooks(module.getRuntimeGuidedReadingBooks());
+    });
+    return () => { active = false; };
+  }, [sessionMode, studentSession?.token]);
+
+  const handleReadingSessionEnded = useCallback(() => {
+    setActiveReadingSession(null);
+    setGuidedInitialBookId("");
+    setAppView(APP_VIEWS.TEACHER_DASHBOARD);
+  }, [setAppView, setGuidedInitialBookId]);
+
+  const readingSessionHost = useReadingSessionHost({
+    client: isSupabaseConfigured ? supabase : null,
+    initialSession: activeReadingSession,
+    students: studentList,
+    onEnded: handleReadingSessionEnded
+  });
+  const readingFollower = useReadingSessionFollower({
+    client: isSupabaseConfigured ? supabase : null,
+    token: studentSession?.token || "",
+    books: readingFollowerBooks,
+    enabled: sessionMode === "student" && readingFollowerBooks.length > 0
+  });
+
+  useEffect(() => {
+    if (
+      !isSupabaseConfigured
+      || sessionMode === "student"
+      || !teacherId
+      || !isTeacherAccountApproved
+      || activeReadingSession
+      || abandonedSessionCheckedForRef.current === teacherId
+    ) return;
+    let active = true;
+    abandonedSessionCheckedForRef.current = teacherId;
+    supabase.table("reading_sessions")
+      .select("id,teacher_id,class_id,book_id,page_numbers,page_index,student_ids,content_version,status,started_at,updated_at")
+      .eq("teacher_id", teacherId)
+      .eq("status", "active")
+      .maybeSingle()
+      .then(({ data, error }) => {
+        if (!active || error || !data) return;
+        const updatedAt = Date.parse(data.updated_at || "");
+        if (Number.isFinite(updatedAt) && updatedAt < Date.now() - 90 * 60 * 1000) {
+          void endReadingSession({ client: supabase, sessionId: data.id }).catch(() => {});
+          return;
+        }
+        setAbandonedReadingSession(data);
+      });
+    return () => { active = false; };
+  }, [
+    activeReadingSession,
+    isTeacherAccountApproved,
+    sessionMode,
+    teacherId
+  ]);
   // The context bar's teaching cycle - a teacher-set reference (never
   // automated; this is the current product behavior), remembered across sessions
   // and fed to Present mode as its default cycle.
@@ -1074,6 +1146,7 @@ export function AppSurface({ surface }) {
               createDemoClass={createDemoClass}
               teacherId={teacherId}
               message={message}
+              onStartReadingSession={() => setReadingSetupOpen(true)}
             />
           </Suspense>
         </PageBoundary>
@@ -1163,6 +1236,7 @@ export function AppSurface({ surface }) {
               updateStudentSymbolPassword={updateStudentSymbolPassword}
               assignMissingSymbolPasswords={assignMissingSymbolPasswords}
               resetStudentSymbolPassword={resetStudentSymbolPassword}
+              onStartReadingSession={() => setReadingSetupOpen(true)}
               startStudentLogin={() => {
                 setSessionMode("teacher");
                 setEntryMode("student");
@@ -1396,13 +1470,14 @@ export function AppSurface({ surface }) {
       {sessionMode !== "student" && appView === APP_VIEWS.TEACHER_GUIDED_READING && (
         <PageBoundary resetKey="teacher-guided-reading">
           <GuidedReadingPage
-            initialBookId={guidedInitialBookId}
+            initialBookId={activeReadingSession?.book_id || guidedInitialBookId}
             mode="class"
             guidedReadingRecords={{}}
             saveGuidedReadingRecord={() => {}}
             speakText={speakText}
             studentId=""
             studentName=""
+            sessionHost={activeReadingSession ? readingSessionHost : null}
           />
         </PageBoundary>
       )}
@@ -1732,6 +1807,43 @@ export function AppSurface({ surface }) {
         onReset={resetSelectedStudentProgress}
         onCancel={() => setResetProgressDialogOpen(false)}
       /></Suspense>}
+
+      <ReadingSessionSetup
+        classId={selectedClassId}
+        client={isSupabaseConfigured ? supabase : null}
+        onClose={() => setReadingSetupOpen(false)}
+        onStarted={session => {
+          setReadingSetupOpen(false);
+          setAbandonedReadingSession(null);
+          setActiveReadingSession(session);
+          setGuidedInitialBookId(session.book_id);
+          setAppView(APP_VIEWS.TEACHER_GUIDED_READING);
+        }}
+        open={readingSetupOpen}
+        students={studentList.filter(student => !student.archived_at)}
+      />
+
+      <ReadingSessionRecoveryDialog
+        onEnd={async () => {
+          const data = await endReadingSession({
+            client: supabase,
+            sessionId: abandonedReadingSession.id
+          });
+          if (data?.ok !== false) setAbandonedReadingSession(null);
+        }}
+        onResume={async () => {
+          const session = abandonedReadingSession;
+          setAbandonedReadingSession(null);
+          setSelectedClassId(session.class_id);
+          await loadStudents(session.class_id);
+          setActiveReadingSession(session);
+          setGuidedInitialBookId(session.book_id);
+          setAppView(APP_VIEWS.TEACHER_GUIDED_READING);
+        }}
+        session={abandonedReadingSession?.teacher_id === teacherId ? abandonedReadingSession : null}
+      />
+
+      <StudentReadingFollower follower={readingFollower} />
 
       {appView === APP_VIEWS.FINISHED && (
         <PageBoundary resetKey="finished-report">

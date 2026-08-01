@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-07-bugs",
   "contentHash": "sha256:fdf4fbf67c1e8981bc207eae67d6dc6db52a5b399c578a01bf4e44010be6f76e",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-07-bugs-q3",
-      "prompt": "What is the big idea in Small Creatures?",
+      "prompt": "What is the big idea of Small Creatures?",
       "choices": [
         "Small bugs live all around us.",
-        "A little bug can fly.",
-        "An ant can dig."
+        "Only a little bug can fly.",
+        "Only an ant can dig."
       ],
       "answer": "Small bugs live all around us.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Small bugs live all around us. This final statement gathers the book's details into its main idea.",
+      "rationale": "A little bug can fly. An ant can dig. Small bugs live all around us. Together, these facts show the whole-book big idea: Small bugs live all around us.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A little bug can fly."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "An ant can dig."
+        }
+      ],
+      "distractorRationales": {
+        "Only a little bug can fly.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only an ant can dig.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Small bugs live all around us."
     }

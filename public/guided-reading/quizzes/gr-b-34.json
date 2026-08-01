@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-34",
   "contentHash": "sha256:285f24a2132fdab44eea600c141d0131a6bb7c3ba31ab4ee86aaf4ed8170e7e6",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-b-34-q3",
-      "prompt": "Which statement gives the main idea of Day and Night?",
+      "prompt": "What is the big idea of Day and Night?",
       "choices": [
-        "Earth turns us toward sunlight again.",
-        "Sunlight reaches one side of Earth.",
-        "That side has daytime."
+        "Earth's turning makes day and night.",
+        "Only sunlight reaches one side of Earth.",
+        "Only that side has daytime."
       ],
-      "answer": "Earth turns us toward sunlight again.",
+      "answer": "Earth's turning makes day and night.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Earth turns us toward sunlight again. This final statement gathers the book's details into its main idea.",
+      "rationale": "Sunlight reaches one side of Earth. That side has daytime. Earth turns us toward sunlight again. Together, these facts show the whole-book big idea: Earth's turning makes day and night.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Sunlight reaches one side of Earth."
+        },
+        {
+          "evidencePage": 2,
+          "evidenceText": "That side has daytime."
+        }
+      ],
+      "distractorRationales": {
+        "Only sunlight reaches one side of Earth.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only that side has daytime.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Earth turns us toward sunlight again."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-c-39",
   "contentHash": "sha256:02e81f43b0c3b54beec1edd663aa4812114e4ae7e069c39f7f823b939f4f5afb",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-c-39-q3",
-      "prompt": "Which statement gives the main idea of Shapes?",
+      "prompt": "What is the big idea of Shapes?",
       "choices": [
         "We can spot shapes on objects.",
-        "A wheel face looks circular.",
-        "This roof edge forms a triangle."
+        "Only a wheel face looks circular.",
+        "Only this roof edge forms a triangle."
       ],
       "answer": "We can spot shapes on objects.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "We can spot shapes on objects. This final statement gathers the book's details into its main idea.",
+      "rationale": "A wheel face looks circular. This roof edge forms a triangle. We can spot shapes on objects. Together, these facts show the whole-book big idea: We can spot shapes on objects.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A wheel face looks circular."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "This roof edge forms a triangle."
+        }
+      ],
+      "distractorRationales": {
+        "Only a wheel face looks circular.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only this roof edge forms a triangle.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "We can spot shapes on objects."
     }

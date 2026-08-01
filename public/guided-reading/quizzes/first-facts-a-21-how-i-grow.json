@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-21-how-i-grow",
   "contentHash": "sha256:09a77bec348a621ca836072cced2f3d46524ed74de916af3dc3b1a69447d69a3",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-21-how-i-grow-q3",
-      "prompt": "Which statement gives the main idea of Ways I Grow?",
+      "prompt": "What is the big idea of Ways I Grow?",
       "choices": [
         "People grow in different ways and times.",
-        "As a baby I needed help moving.",
-        "Now I can do more things."
+        "Only I learned new ways to move.",
+        "Only later I learned to sit and crawl."
       ],
       "answer": "People grow in different ways and times.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "People grow in different ways and times. This final statement gathers the book's details into its main idea.",
+      "rationale": "As a baby I needed help moving. Now I can do more things. People grow in different ways and times. Together, these facts show the whole-book big idea: People grow in different ways and times.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "As a baby I needed help moving."
+        },
+        {
+          "evidencePage": 5,
+          "evidenceText": "Now I can do more things."
+        }
+      ],
+      "distractorRationales": {
+        "Only I learned new ways to move.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only later I learned to sit and crawl.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "People grow in different ways and times."
     }

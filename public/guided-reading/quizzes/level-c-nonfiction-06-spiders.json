@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-06-spiders",
   "contentHash": "sha256:b1ba398f9751224926ba5f3d78444211c5dbe26ec5aed376da90118924b53997",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-06-spiders-q3",
-      "prompt": "Which statement gives the main idea of Spiders?",
+      "prompt": "What is the big idea of Spiders?",
       "choices": [
-        "Most spiders cannot harm people and help control insect populations.",
-        "Spiders are arachnids with eight legs and two main body sections.",
-        "Other spiders build sheet or tangled webs for different prey."
+        "Spiders use their bodies, silk, and senses to survive.",
+        "Only spiders are arachnids with eight legs and two main body sections.",
+        "Only silk egg sacs protect developing spiderlings."
       ],
-      "answer": "Most spiders cannot harm people and help control insect populations.",
+      "answer": "Spiders use their bodies, silk, and senses to survive.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Most spiders cannot harm people and help control insect populations. This final statement gathers the book's details into its main idea.",
+      "rationale": "Spiders are arachnids with eight legs and two main body sections. Other spiders build sheet or tangled webs for different prey. Most spiders cannot harm people and help control insect populations. Together, these facts show the whole-book big idea: Spiders use their bodies, silk, and senses to survive.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Spiders are arachnids with eight legs and two main body sections."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Other spiders build sheet or tangled webs for different prey."
+        }
+      ],
+      "distractorRationales": {
+        "Only spiders are arachnids with eight legs and two main body sections.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only silk egg sacs protect developing spiderlings.": "Page 8 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Most spiders cannot harm people and help control insect populations."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-45",
   "contentHash": "sha256:0d1cc233adadc85c8864c6ae9435d2043c616b0746f83699773a513afb0acc4d",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-d-45-q3",
-      "prompt": "Which statement gives the main idea of Space?",
+      "prompt": "What is the big idea of Space?",
       "choices": [
         "Space extends far beyond our view.",
-        "The Sun is our nearest star.",
-        "The Moon travels around Earth."
+        "Only the Sun is our nearest star.",
+        "Only the Moon travels around Earth."
       ],
       "answer": "Space extends far beyond our view.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Space extends far beyond our view. This final statement gathers the book's details into its main idea.",
+      "rationale": "The Sun is our nearest star. The Moon travels around Earth. Space extends far beyond our view. Together, these facts show the whole-book big idea: Space extends far beyond our view.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The Sun is our nearest star."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "The Moon travels around Earth."
+        }
+      ],
+      "distractorRationales": {
+        "Only the Sun is our nearest star.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the Moon travels around Earth.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Space extends far beyond our view."
     }

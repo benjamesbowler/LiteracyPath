@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-15-baby-animals",
   "contentHash": "sha256:0616e2d6c2267d0e17122a6e9207f51058d10db58cb9245548a16c70ceb1ba27",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-15-baby-animals-q3",
-      "prompt": "What is the big idea in Baby Animals?",
+      "prompt": "What is the big idea of Baby Animals?",
       "choices": [
         "Baby animals grow bigger.",
-        "This little chick is yellow.",
-        "This little kitten feels soft."
+        "Only this little chick is yellow.",
+        "Only this little kitten feels soft."
       ],
       "answer": "Baby animals grow bigger.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Baby animals grow bigger. This final statement gathers the book's details into its main idea.",
+      "rationale": "This little chick is yellow. This little kitten feels soft. Baby animals grow bigger. Together, these facts show the whole-book big idea: Baby animals grow bigger.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "This little chick is yellow."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "This little kitten feels soft."
+        }
+      ],
+      "distractorRationales": {
+        "Only this little chick is yellow.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only this little kitten feels soft.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Baby animals grow bigger."
     }

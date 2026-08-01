@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-a-26",
   "contentHash": "sha256:ed200fd535712c3d9e468916a97cd4584841ca31b975766fad43bb48612f5f1c",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-a-26-q3",
-      "prompt": "Which statement gives the main idea of Pets?",
+      "prompt": "What is the big idea of Pets?",
       "choices": [
         "Every pet needs gentle care.",
-        "A dog can be a pet.",
-        "A fish can be a pet."
+        "Only a dog can be a pet.",
+        "Only a fish can be a pet."
       ],
       "answer": "Every pet needs gentle care.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Every pet needs gentle care. This final statement gathers the book's details into its main idea.",
+      "rationale": "A dog can be a pet. A fish can be a pet. Every pet needs gentle care. Together, these facts show the whole-book big idea: Every pet needs gentle care.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A dog can be a pet."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A fish can be a pet."
+        }
+      ],
+      "distractorRationales": {
+        "Only a dog can be a pet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a fish can be a pet.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Every pet needs gentle care."
     }

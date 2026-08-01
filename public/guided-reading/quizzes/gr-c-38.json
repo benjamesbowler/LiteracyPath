@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-c-38",
   "contentHash": "sha256:748fad6fe9dce889c91d30723c8711494c0f4c896e58539cc1d82013e72e07b2",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-c-38-q3",
-      "prompt": "Which statement gives the main idea of Five Senses?",
+      "prompt": "What is the big idea of Five Senses?",
       "choices": [
         "Our senses help us learn.",
-        "Eyes help us see.",
-        "Noses help us smell."
+        "Only eyes help us see.",
+        "Only noses help us smell."
       ],
       "answer": "Our senses help us learn.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Our senses help us learn. This final statement gathers the book's details into its main idea.",
+      "rationale": "Eyes help us see. Noses help us smell. Our senses help us learn. Together, these facts show the whole-book big idea: Our senses help us learn.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Eyes help us see."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Noses help us smell."
+        }
+      ],
+      "distractorRationales": {
+        "Only eyes help us see.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only noses help us smell.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Our senses help us learn."
     }

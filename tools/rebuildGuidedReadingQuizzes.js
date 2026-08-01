@@ -5,11 +5,17 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import {
+  buildGuidedReadingBigIdeaDistractors,
+  GUIDED_READING_BIG_IDEA_POLICY_VERSION,
+  guidedReadingBigIdeaAnswer
+} from "../src/policy/guidedReadingBigIdeaPolicy.js";
 import { guidedReadingBookContentHash } from "./guidedReadingQuestionAuditLib.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const quizDirectory = path.join(repoRoot, "public", "guided-reading", "quizzes");
 const QUIZ_VERSION = "2026-08-01.1";
+const BIG_IDEA_QUIZ_VERSION = "2026-08-01.2";
 
 // Page anchors are editorial decisions, not similarity guesses. They identify
 // the exact opening/problem/resolution evidence that the Story Bible names.
@@ -200,7 +206,10 @@ function makeQuestion(book, index, {
   choiceTexts = [],
   skill,
   rationale = "",
-  distractorIndexes = []
+  distractorIndexes = [],
+  supportingEvidenceIndexes = [],
+  distractorRationales = {},
+  bigIdeaPolicy = ""
 }) {
   const answer = answerText || book.pages[answerIndex].text;
   const indexedDistractors = distractorIndexes
@@ -225,6 +234,16 @@ function makeQuestion(book, index, {
     kind: tokens(answer).length === 1 ? "word" : "text",
     skill,
     ...(rationale ? { rationale } : {}),
+    ...(supportingEvidenceIndexes.length
+      ? {
+          supportingEvidence: supportingEvidenceIndexes.map(pageIndex => ({
+            evidencePage: pageIndex + 1,
+            evidenceText: book.pages[pageIndex].text
+          }))
+        }
+      : {}),
+    ...(Object.keys(distractorRationales).length ? { distractorRationales } : {}),
+    ...(bigIdeaPolicy ? { bigIdeaPolicy } : {}),
     evidencePage: answerIndex + 1,
     evidenceText: book.pages[answerIndex].text
   };
@@ -358,6 +377,21 @@ function nonfictionQuestions(book) {
   const middleIndex = nonfictionMiddleIndex(book);
   const synthesisIndex = book.pages.length - 1;
   const middleSkill = classifyNonfictionSkill(book.pages[middleIndex].text);
+  const mainIdeaAnswer = guidedReadingBigIdeaAnswer(book);
+  const {
+    distractors: mainIdeaDistractors,
+    sourceIndexes: mainIdeaDistractorIndexes
+  } = buildGuidedReadingBigIdeaDistractors(book, [openingIndex, middleIndex]);
+  const mainIdeaEvidenceIndexes = [...new Set([
+    openingIndex,
+    middleIndex,
+    synthesisIndex
+  ])];
+  const mainIdeaEvidence = mainIdeaEvidenceIndexes.map(index => book.pages[index].text).join(" ");
+  const mainIdeaRationales = Object.fromEntries(mainIdeaDistractors.map((choice, index) => [
+    choice,
+    `Page ${mainIdeaDistractorIndexes[index] + 1} gives the fact without "only". The other pages give different facts, so this choice is too small to be the whole book's big idea.`
+  ]));
   const questions = [
     makeQuestion(book, 0, {
       prompt: detailPrompt(book, openingIndex, "start"),
@@ -372,13 +406,15 @@ function nonfictionQuestions(book) {
       distractorIndexes: [openingIndex, synthesisIndex]
     }),
     makeQuestion(book, 2, {
-      prompt: book.level === "A"
-        ? `What is the big idea in ${book.title}?`
-        : `Which statement gives the main idea of ${book.title}?`,
+      prompt: `What is the big idea of ${book.title}?`,
       answerIndex: synthesisIndex,
+      answerText: mainIdeaAnswer,
+      choiceTexts: [mainIdeaAnswer, ...mainIdeaDistractors],
       skill: "main_idea",
-      rationale: `${book.pages[synthesisIndex].text} This final statement gathers the book's details into its main idea.`,
-      distractorIndexes: [openingIndex, middleIndex]
+      rationale: `${mainIdeaEvidence} Together, these facts show the whole-book big idea: ${mainIdeaAnswer}`,
+      supportingEvidenceIndexes: mainIdeaEvidenceIndexes.filter(index => index !== synthesisIndex),
+      distractorRationales: mainIdeaRationales,
+      bigIdeaPolicy: GUIDED_READING_BIG_IDEA_POLICY_VERSION
     })
   ];
 
@@ -406,7 +442,7 @@ for (const book of guidedReadingBooks) {
   const questions = book.type === "fiction" ? fictionQuestions(book) : nonfictionQuestions(book);
   const quiz = {
     schemaVersion: 2,
-    quizVersion: QUIZ_VERSION,
+    quizVersion: book.type === "nonfiction" ? BIG_IDEA_QUIZ_VERSION : QUIZ_VERSION,
     bookId: book.id,
     contentHash: guidedReadingBookContentHash(book),
     questions

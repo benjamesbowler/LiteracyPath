@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-08-my-pet",
   "contentHash": "sha256:7422c92ff076f0d6d63231927a63e3afa32037c600e51d3dfb4f322f455e6f44",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-08-my-pet-q3",
-      "prompt": "What is the big idea in Pets We Care For?",
+      "prompt": "What is the big idea of Pets We Care For?",
       "choices": [
         "Every pet needs gentle care.",
-        "A dog sleeps in a bed.",
-        "A fish swims in a tank."
+        "Only a dog sleeps in a bed.",
+        "Only a fish swims in a tank."
       ],
       "answer": "Every pet needs gentle care.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Every pet needs gentle care. This final statement gathers the book's details into its main idea.",
+      "rationale": "A dog sleeps in a bed. A fish swims in a tank. Every pet needs gentle care. Together, these facts show the whole-book big idea: Every pet needs gentle care.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A dog sleeps in a bed."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A fish swims in a tank."
+        }
+      ],
+      "distractorRationales": {
+        "Only a dog sleeps in a bed.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a fish swims in a tank.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Every pet needs gentle care."
     }

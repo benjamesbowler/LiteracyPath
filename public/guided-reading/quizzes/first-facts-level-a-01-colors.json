@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-01-colors",
   "contentHash": "sha256:4354e2b285479317dc2fde315b12fe026eb9e880806eda6297ff60290595d42a",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-01-colors-q3",
-      "prompt": "What is the big idea in Colors?",
+      "prompt": "What is the big idea of Colors?",
       "choices": [
         "We can see many colours!",
-        "A ball and hat are red.",
-        "The bright sun is yellow."
+        "Only a ball and hat are red.",
+        "Only the bright sun is yellow."
       ],
       "answer": "We can see many colours!",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "We can see many colours! This final statement gathers the book's details into its main idea.",
+      "rationale": "A ball and hat are red. The bright sun is yellow. We can see many colours! Together, these facts show the whole-book big idea: We can see many colours!",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A ball and hat are red."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "The bright sun is yellow."
+        }
+      ],
+      "distractorRationales": {
+        "Only a ball and hat are red.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the bright sun is yellow.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "We can see many colours!"
     }

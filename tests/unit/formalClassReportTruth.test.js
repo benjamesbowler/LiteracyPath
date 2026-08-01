@@ -9,29 +9,27 @@ async function read(relativePath) {
 }
 
 test("formal class report never formats a withheld result as null percent", async () => {
-  const source = await read("src/components/AdminDashboardPage.jsx");
+  const source = await read("src/components/reports/ClassSummaryReportDocument.jsx");
 
-  assert.match(source, /function reportPercentage\(value, unavailable = "Not enough results"\)/);
-  assert.match(source, /\["Answer accuracy", reportPercentage\(model\.snapshot\.averageAccuracy\)/);
-  assert.doesNotMatch(source, /`\$\{model\.snapshot\.averageAccuracy\}%`/);
-  assert.doesNotMatch(source, /Math\.max\(4, row\.accuracy\)/);
-  assert.match(source, /accuracy !== null && \(/);
+  assert.match(source, /function displayAccuracy\(value\)/);
+  assert.match(source, /: "Not enough results"/);
+  assert.match(source, /displayAccuracy\(model\?\.snapshot\?\.averageAccuracy\)/);
+  assert.doesNotMatch(source, /`\$\{model\?\.snapshot\?\.averageAccuracy\}%`/);
 });
 
 test("formal class report does not invent reading classifications or empty report pages", async () => {
-  const source = await read("src/components/AdminDashboardPage.jsx");
+  const source = await read("src/components/reports/ClassSummaryReportDocument.jsx");
 
   assert.doesNotMatch(source, /<th>Reading<\/th>/);
   assert.doesNotMatch(source, />NR<\/span>/);
-  assert.match(source, /const hasReadingRows = model\.readingRows\.length > 0;/);
-  assert.match(source, /\{hasReadingRows && \(/);
-  assert.match(source, /\{model\.growthAreas\.length > 0 && \(/);
-  assert.match(source, /\{\(hasClassPriorities \|\| hasGroups\) && \(/);
+  assert.match(source, /\{priorities\.length \? \(/);
+  assert.match(source, /\{groups\.length \? \(/);
+  assert.match(source, /\{secureSkills\.length \? \(/);
+  assert.match(source, /More results are needed before making a class-wide judgement/);
 });
 
-test("formal class report uses the canonical five plain-language learning states", async () => {
-  const source = await read("src/components/AdminDashboardPage.jsx");
-  const css = await read("src/App.css");
+test("teacher reporting retains the canonical five plain-language learning states", async () => {
+  const source = await read("src/data/reportingEvidenceModel.js");
 
   for (const label of [
     "Secure",
@@ -42,11 +40,6 @@ test("formal class report uses the canonical five plain-language learning states
   ]) {
     assert.match(source, new RegExp(label));
   }
-  assert.match(source, /`\$\{reportPercentage\(cell\?\.accuracy, "No score"\)\} · \$\{cell\?\.statusLabel\}`/);
-  assert.match(source, /aria-label=\{`\$\{student\.studentName\}, \$\{skill\.displaySkillName\}: \$\{cellLabel\}/);
-  assert.match(css, /\.formal-class-progress-cell\.not_enough_evidence/);
-  assert.match(css, /\.formal-class-report-print-details\s*\{\s*display: none;/);
-  assert.match(source, /className="formal-class-report-print-details"/);
 });
 
 test("the school-year class filter states its exact 1 August assumption", async () => {

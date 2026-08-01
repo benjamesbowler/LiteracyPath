@@ -608,37 +608,22 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
   expect(pageErrors).toEqual([]);
 });
 
-test("@release-readiness-surface @admin-content-qa exposes the real admin release and content audit", async ({
+test("@release-readiness-surface @admin-content-qa keeps operational support and safety controls reachable", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-admin@literacypath.invalid");
   await page.getByRole("button", { name: "Admin", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Admin Dashboard", exact: true })).toBeVisible();
-  await openAdminSection(page, "technical", "release");
-
-  const releasePanel = page.locator(".release-readiness-panel");
-  await expect(releasePanel).toBeVisible();
-  await expect(releasePanel.getByRole("heading", { name: "School data checks", exact: true })).toBeVisible();
-  await expect(releasePanel.getByRole("heading", { name: "Content checks", exact: true })).toBeVisible();
-
-  await openAdminSection(page, "technical", "coverage");
-  const coveragePanel = page.getByRole("heading", { name: "Content Coverage", exact: true }).locator("..");
-  await expect(coveragePanel.locator("tbody tr")).toHaveCount(30);
-  const initialSoundsRow = page.getByRole("row").filter({
-    has: page.getByRole("cell", { name: /Initial Sounds$/ })
-  });
-  await expect(initialSoundsRow.getByRole("cell", { name: /READY$/ })).toBeVisible();
-  await expect(initialSoundsRow.getByRole("cell", {
-    name: /92 questions \(L1 46; L2 46\)$/
-  })).toBeVisible();
-  await expect(initialSoundsRow.getByRole("cell", {
-    name: /All canonical release dimensions pass\.$/
-  })).toBeVisible();
+  await openAdminSection(page, "operations");
+  await expect(page.getByRole("heading", { name: "Support & safety", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Open reported questions", exact: true })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Fleet error monitor", exact: true })).toBeVisible();
+  await expect(page.getByText("Content Coverage", { exact: true })).toHaveCount(0);
   expect(pageErrors).toEqual([]);
 });
 
-test("@admin-compartmentalised-ia @admin-history school administration and app checks stay separate and browser history works", async ({
+test("@admin-compartmentalised-ia @admin-history Admin exposes one operational navigation and browser history works", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
@@ -647,15 +632,14 @@ test("@admin-compartmentalised-ia @admin-history school administration and app c
 
   await expect(page.getByRole("heading", { name: "Admin Dashboard", exact: true }))
     .toBeVisible();
-  await expect(page.getByRole("button", { name: "School administration", exact: true }))
-    .toHaveAttribute("aria-pressed", "true");
   await expectAdminSectionAvailable(page, "school", "signups");
   await expectAdminSectionUnavailable(page, "school", "calibration");
+  await expectAdminSectionUnavailable(page, "school", "release");
+  await expectAdminSectionAvailable(page, "operations", "operations");
   await expect(page.getByText("Access activity and pending saves", { exact: true }))
     .toHaveCount(0);
 
-  await expectAdminSectionAvailable(page, "technical", "calibration");
-  await openAdminSection(page, "technical", "questionFlags");
+  await openAdminSection(page, "questionFlags");
   await expect(page).toHaveURL(/\/admin\/question-flags$/);
   await expect(page.getByRole("heading", { name: "Reported questions", exact: true }))
     .toBeVisible();
@@ -695,19 +679,20 @@ test("@admin-compartmentalised-ia @admin-history school administration and app c
   expect(pageErrors).toEqual([]);
 });
 
-test("@admin-mobile-navigation exposes Reported questions in the compact Admin picker", async ({
+test("@admin-mobile-navigation exposes Support & safety in the compact Admin picker", async ({
   page
 }) => {
   const pageErrors = recordPageErrors(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await logIn(page, "audit-admin@literacypath.invalid");
   await page.getByRole("button", { name: "Admin", exact: true }).click();
-  await openAdminArea(page, "technical");
+  await openAdminArea(page);
 
-  const compactPicker = page.getByLabel("Choose an app check");
-  await expect(compactPicker.getByRole("option", { name: "Reported questions", exact: true }))
+  const compactPicker = page.getByLabel("Choose an admin page");
+  await expect(compactPicker.getByRole("option", { name: "Support & safety", exact: true }))
     .toHaveCount(1);
-  await compactPicker.selectOption("questionFlags");
+  await compactPicker.selectOption("operations");
+  await page.getByRole("button", { name: "Open reported questions", exact: true }).click();
   await expect(page).toHaveURL(/\/admin\/question-flags$/);
   await expect(page.getByRole("heading", { name: "Reported questions", exact: true }))
     .toBeVisible();

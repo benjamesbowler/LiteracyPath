@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-32",
   "contentHash": "sha256:8e040ab16c25e78a7ba5ea95a9de10625120fd5656549f821a5c939377cfadea",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-b-32-q3",
-      "prompt": "Which statement gives the main idea of Fruits?",
+      "prompt": "What is the big idea of Fruits?",
       "choices": [
         "Fruits grow from flowers.",
-        "An apple is a fruit.",
-        "A grape is a fruit."
+        "Only an apple is a fruit.",
+        "Only a grape is a fruit."
       ],
       "answer": "Fruits grow from flowers.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Fruits grow from flowers. This final statement gathers the book's details into its main idea.",
+      "rationale": "An apple is a fruit. A grape is a fruit. Fruits grow from flowers. Together, these facts show the whole-book big idea: Fruits grow from flowers.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "An apple is a fruit."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A grape is a fruit."
+        }
+      ],
+      "distractorRationales": {
+        "Only an apple is a fruit.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a grape is a fruit.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Fruits grow from flowers."
     }

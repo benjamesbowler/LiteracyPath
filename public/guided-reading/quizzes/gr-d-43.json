@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-43",
   "contentHash": "sha256:06cba450df8e6f149ed1daa9a98cf6f09e2d737a742bbce6e39558efb2865a40",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-d-43-q3",
-      "prompt": "Which statement gives the main idea of Healthy Habits?",
+      "prompt": "What is the big idea of Healthy Habits?",
       "choices": [
         "Healthy habits help my body.",
-        "I wash my hands with soap.",
-        "I drink water every day."
+        "Only I wash my hands with soap.",
+        "Only I drink water every day."
       ],
       "answer": "Healthy habits help my body.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Healthy habits help my body. This final statement gathers the book's details into its main idea.",
+      "rationale": "I wash my hands with soap. I drink water every day. Healthy habits help my body. Together, these facts show the whole-book big idea: Healthy habits help my body.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "I wash my hands with soap."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "I drink water every day."
+        }
+      ],
+      "distractorRationales": {
+        "Only I wash my hands with soap.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only I drink water every day.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Healthy habits help my body."
     }

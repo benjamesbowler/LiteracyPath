@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-a-27",
   "contentHash": "sha256:4d6154edb8d446dd1167cf95b3d6b7637fa3e5910500ba1fb94209718c972844",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-a-27-q3",
-      "prompt": "Which statement gives the main idea of The Sun?",
+      "prompt": "What is the big idea of The Sun?",
       "choices": [
-        "Earth travels around the Sun.",
-        "The Sun is a star.",
-        "Sunlight warms land and water."
+        "The Sun gives Earth light and warmth.",
+        "Only the Sun is a star.",
+        "Only sunlight warms land and water."
       ],
-      "answer": "Earth travels around the Sun.",
+      "answer": "The Sun gives Earth light and warmth.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Earth travels around the Sun. This final statement gathers the book's details into its main idea.",
+      "rationale": "The Sun is a star. Sunlight warms land and water. Earth travels around the Sun. Together, these facts show the whole-book big idea: The Sun gives Earth light and warmth.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The Sun is a star."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Sunlight warms land and water."
+        }
+      ],
+      "distractorRationales": {
+        "Only the Sun is a star.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only sunlight warms land and water.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Earth travels around the Sun."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-35",
   "contentHash": "sha256:41783f8cb5f344b78003d3580d43a7e37a4a587c73121362b63fa846d3f94473",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-b-35-q3",
-      "prompt": "Which statement gives the main idea of Community Helpers?",
+      "prompt": "What is the big idea of Community Helpers?",
       "choices": [
         "Many workers help our community.",
-        "A chef prepares food.",
-        "A firefighter fights fires."
+        "Only a chef prepares food.",
+        "Only a firefighter fights fires."
       ],
       "answer": "Many workers help our community.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Many workers help our community. This final statement gathers the book's details into its main idea.",
+      "rationale": "A chef prepares food. A firefighter fights fires. Many workers help our community. Together, these facts show the whole-book big idea: Many workers help our community.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A chef prepares food."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A firefighter fights fires."
+        }
+      ],
+      "distractorRationales": {
+        "Only a chef prepares food.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a firefighter fights fires.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Many workers help our community."
     }

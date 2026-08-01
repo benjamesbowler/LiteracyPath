@@ -2,9 +2,29 @@ export function getTeacherProfileStorageKey(teacherId) {
   return teacherId ? `readingMasteryProfile:${teacherId}` : null;
 }
 
-export function getGuidedReadingStorageKey({ teacherId, studentId } = {}) {
-  if (!teacherId || !studentId) return null;
-  return `guidedReadingAssessment:${teacherId}:${studentId}`;
+export function getGuidedReadingStorageKey({ studentId } = {}) {
+  if (!studentId) return null;
+  return `literacyPath.guidedReadingRecords.${encodeURIComponent(studentId)}`;
+}
+
+export function migrateGuidedReadingStorage({
+  teacherId,
+  studentId,
+  storage = globalThis.localStorage
+} = {}) {
+  if (!teacherId || !studentId || !storage) return false;
+  const legacyKey = `guidedReadingAssessment:${teacherId}:${studentId}`;
+  const canonicalKey = getGuidedReadingStorageKey({ studentId });
+  try {
+    const legacy = JSON.parse(storage.getItem(legacyKey) || "null");
+    if (!legacy || typeof legacy !== "object" || Array.isArray(legacy)) return false;
+    const canonical = JSON.parse(storage.getItem(canonicalKey) || "{}");
+    storage.setItem(canonicalKey, JSON.stringify({ ...legacy, ...canonical }));
+    storage.removeItem(legacyKey);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function getElBenchmarkDraftStorageKey({ teacherId, studentId } = {}) {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-47",
   "contentHash": "sha256:1e492cf4008f0c505ae77b7f47ddcf31ad819f5dff7da49f1be21b2f35c73722",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-e-47-q3",
-      "prompt": "Which statement gives the main idea of Living Things Change?",
+      "prompt": "What is the big idea of Living Things Change?",
       "choices": [
         "Growth and metamorphosis are different changes.",
-        "Living things change over time.",
-        "A seedling can grow into a plant."
+        "Only living things change over time.",
+        "Only a seedling can grow into a plant."
       ],
       "answer": "Growth and metamorphosis are different changes.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Growth and metamorphosis are different changes. This final statement gathers the book's details into its main idea.",
+      "rationale": "Living things change over time. A seedling can grow into a plant. Growth and metamorphosis are different changes. Together, these facts show the whole-book big idea: Growth and metamorphosis are different changes.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Living things change over time."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A seedling can grow into a plant."
+        }
+      ],
+      "distractorRationales": {
+        "Only living things change over time.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a seedling can grow into a plant.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Growth and metamorphosis are different changes."
     }

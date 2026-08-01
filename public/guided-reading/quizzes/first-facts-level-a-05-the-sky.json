@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-05-the-sky",
   "contentHash": "sha256:fbe33496c84b1ca6fdd82ccd4394a1a98bf4be0f6d31ae9f5b27562c01998935",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-05-the-sky-q3",
-      "prompt": "What is the big idea in The Sky?",
+      "prompt": "What is the big idea of The Sky?",
       "choices": [
-        "Look up at the wide sky.",
-        "The Sun shines above us.",
-        "Stars shine at night."
+        "The sky can look different at different times.",
+        "Only the Sun shines above us.",
+        "Only stars shine at night."
       ],
-      "answer": "Look up at the wide sky.",
+      "answer": "The sky can look different at different times.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Look up at the wide sky. This final statement gathers the book's details into its main idea.",
+      "rationale": "The Sun shines above us. Stars shine at night. Look up at the wide sky. Together, these facts show the whole-book big idea: The sky can look different at different times.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The Sun shines above us."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Stars shine at night."
+        }
+      ],
+      "distractorRationales": {
+        "Only the Sun shines above us.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only stars shine at night.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Look up at the wide sky."
     }

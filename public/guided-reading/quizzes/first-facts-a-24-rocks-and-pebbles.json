@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-24-rocks-and-pebbles",
   "contentHash": "sha256:6b8c198a33556c785eda4e128c3a5adc8be28b9a116c05ff7d3def8ee05a670b",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q3",
-      "prompt": "Which statement gives the main idea of Rocks and Pebbles?",
+      "prompt": "What is the big idea of Rocks and Pebbles?",
       "choices": [
-        "Observe rocks without removing protected specimens.",
-        "Rocks can be hard large or small.",
-        "Moving water can slowly smooth pebbles."
+        "Rocks form, change, and make up Earth's crust.",
+        "Only rocks can be hard large or small.",
+        "Only moving water can slowly smooth pebbles."
       ],
-      "answer": "Observe rocks without removing protected specimens.",
+      "answer": "Rocks form, change, and make up Earth's crust.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Observe rocks without removing protected specimens. This final statement gathers the book's details into its main idea.",
+      "rationale": "Rocks can be hard large or small. Moving water can slowly smooth pebbles. Observe rocks without removing protected specimens. Together, these facts show the whole-book big idea: Rocks form, change, and make up Earth's crust.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Rocks can be hard large or small."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Moving water can slowly smooth pebbles."
+        }
+      ],
+      "distractorRationales": {
+        "Only rocks can be hard large or small.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only moving water can slowly smooth pebbles.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Observe rocks without removing protected specimens."
     }

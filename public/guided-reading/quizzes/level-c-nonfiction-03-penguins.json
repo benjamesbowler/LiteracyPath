@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-03-penguins",
   "contentHash": "sha256:b58b9fb7a087e651a04b29008b0728244b150640c36688e3c09e155b21b50839",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-03-penguins-q3",
-      "prompt": "Which statement gives the main idea of Emperor Penguins and Their Relatives?",
+      "prompt": "What is the big idea of Emperor Penguins and Their Relatives?",
       "choices": [
-        "Eighteen penguin species live from Antarctica to warmer southern coasts.",
-        "Penguins are flightless birds whose wings work as swimming flippers.",
-        "A male balances one egg on his feet beneath warm skin."
+        "Penguins have traits that help them live in different places.",
+        "Only penguins are flightless birds whose wings work as swimming flippers.",
+        "Only a male balances one egg on his feet beneath warm skin."
       ],
-      "answer": "Eighteen penguin species live from Antarctica to warmer southern coasts.",
+      "answer": "Penguins have traits that help them live in different places.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Eighteen penguin species live from Antarctica to warmer southern coasts. This final statement gathers the book's details into its main idea.",
+      "rationale": "Penguins are flightless birds whose wings work as swimming flippers. A male balances one egg on his feet beneath warm skin. Eighteen penguin species live from Antarctica to warmer southern coasts. Together, these facts show the whole-book big idea: Penguins have traits that help them live in different places.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Penguins are flightless birds whose wings work as swimming flippers."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A male balances one egg on his feet beneath warm skin."
+        }
+      ],
+      "distractorRationales": {
+        "Only penguins are flightless birds whose wings work as swimming flippers.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a male balances one egg on his feet beneath warm skin.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Eighteen penguin species live from Antarctica to warmer southern coasts."
     }

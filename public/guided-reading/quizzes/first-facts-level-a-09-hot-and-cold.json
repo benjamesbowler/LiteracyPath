@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-09-hot-and-cold",
   "contentHash": "sha256:a6640bf339e0c2ceb3332f27bf9d9e241cb6c8a350ab2cc33362b96466284efd",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-09-hot-and-cold-q3",
-      "prompt": "What is the big idea in Hot and Cold?",
+      "prompt": "What is the big idea of Hot and Cold?",
       "choices": [
         "Hot and cold feel different.",
-        "The Sun feels hot.",
-        "Fire feels very hot."
+        "Only the Sun feels hot.",
+        "Only fire feels very hot."
       ],
       "answer": "Hot and cold feel different.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Hot and cold feel different. This final statement gathers the book's details into its main idea.",
+      "rationale": "The Sun feels hot. Fire feels very hot. Hot and cold feel different. Together, these facts show the whole-book big idea: Hot and cold feel different.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The Sun feels hot."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Fire feels very hot."
+        }
+      ],
+      "distractorRationales": {
+        "Only the Sun feels hot.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only fire feels very hot.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Hot and cold feel different."
     }

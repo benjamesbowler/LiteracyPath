@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-20-my-five-senses",
   "contentHash": "sha256:a64da7dfa7d0daef24d283b28a32e84e55b58e8a4aa94be2bb92e6b7530c2ec8",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-20-my-five-senses-q3",
-      "prompt": "Which statement gives the main idea of My Five Senses?",
+      "prompt": "What is the big idea of My Five Senses?",
       "choices": [
-        "Which senses are you using now?",
-        "My senses help me learn about the world.",
-        "My nose detects smells."
+        "Our five senses work together to help us learn.",
+        "Only my senses help me learn about the world.",
+        "Only my nose detects smells."
       ],
-      "answer": "Which senses are you using now?",
+      "answer": "Our five senses work together to help us learn.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Which senses are you using now? This final statement gathers the book's details into its main idea.",
+      "rationale": "My senses help me learn about the world. My nose detects smells. Which senses are you using now? Together, these facts show the whole-book big idea: Our five senses work together to help us learn.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "My senses help me learn about the world."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "My nose detects smells."
+        }
+      ],
+      "distractorRationales": {
+        "Only my senses help me learn about the world.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only my nose detects smells.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
       "evidenceText": "Which senses are you using now?"
     }

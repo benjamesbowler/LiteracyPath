@@ -1,6 +1,7 @@
 import {
   assertOptionalFields,
   assertPlainRecord,
+  DomainBoundaryError,
   validateCommonRow,
   validateRows
 } from "./schema.js";
@@ -9,6 +10,7 @@ export const CLASS_TABLES = new Set([
   "app_admins",
   "classes",
   "pending_teacher_accounts",
+  "reading_sessions",
   "schools",
   "students",
   "teacher_account_decision_events"
@@ -17,22 +19,72 @@ export const CLASS_TABLES = new Set([
 export const CLASS_RPCS = new Set([
   "admin_set_teacher_account_status",
   "student_class_by_code",
+  "student_get_reading_session",
   "student_login",
   "teacher_class_access_log",
   "teacher_class_access_summary",
   "teacher_create_demo_class",
   "teacher_delete_empty_class",
+  "teacher_end_reading_session",
+  "teacher_get_reading_session_presence",
   "teacher_regenerate_class_code",
   "teacher_set_class_code_expiry",
   "teacher_set_class_leaderboard_scope",
+  "teacher_set_reading_session_page",
   "teacher_set_student_archived",
   "teacher_set_student_symbol_password",
+  "teacher_save_reading_marks",
+  "teacher_start_reading_session",
   "teacher_transfer_student"
 ]);
 
+const READING_SESSION_RPCS = new Set([
+  "student_get_reading_session",
+  "teacher_end_reading_session",
+  "teacher_get_reading_session_presence",
+  "teacher_save_reading_marks",
+  "teacher_set_reading_session_page",
+  "teacher_start_reading_session"
+]);
+
+function validateReadingSession(value, label) {
+  if (value === null || value === undefined) return value;
+  assertPlainRecord(value, label);
+  assertOptionalFields(value, {
+    id: "string",
+    class_id: "string",
+    book_id: "string",
+    page_numbers: "array",
+    page_index: "integer",
+    student_ids: "array",
+    content_version: "string",
+    status: "string",
+    started_at: "string",
+    updated_at: "string"
+  }, label);
+  if (value.page_numbers && !value.page_numbers.every(Number.isInteger)) {
+    throw new DomainBoundaryError(`${label}.page_numbers must contain only integers.`);
+  }
+  if (value.student_ids && !value.student_ids.every(id => typeof id === "string")) {
+    throw new DomainBoundaryError(`${label}.student_ids must contain only strings.`);
+  }
+  return value;
+}
+
+function validateReadingPresence(value, label) {
+  assertPlainRecord(value, label);
+  return assertOptionalFields(value, {
+    student_id: "string",
+    page_index: "integer",
+    content_ok: "boolean",
+    last_seen_at: "string",
+    connected: "boolean"
+  }, label);
+}
+
 export function validateClassRow(row, label) {
   validateCommonRow(row, label);
-  return assertOptionalFields(row, {
+  assertOptionalFields(row, {
     name: "string",
     email: "string",
     status: "string",
@@ -50,6 +102,8 @@ export function validateClassRow(row, label) {
     decided_by: "string",
     decided_at: "string"
   }, label);
+  if (row.page_numbers !== undefined) validateReadingSession(row, label);
+  return row;
 }
 
 function validateNamedIdentity(value, label) {
@@ -72,6 +126,27 @@ function validateNamedIdentity(value, label) {
  */
 export function validateClassRpcData(name, data) {
   if (data === null || data === undefined) return data;
+  if (READING_SESSION_RPCS.has(name)) {
+    assertPlainRecord(data, `rpc.${name}`);
+    assertOptionalFields(data, {
+      ok: "boolean",
+      error: "string",
+      student_id: "string",
+      teacher_name: "string",
+      session: "object",
+      presence: "array",
+      page_index: "integer",
+      updated_at: "string",
+      ended_at: "string",
+      status: "string",
+      duplicate: "boolean"
+    }, `rpc.${name}`);
+    validateReadingSession(data.session, `rpc.${name}.session`);
+    if (data.presence) {
+      validateRows(data.presence, `rpc.${name}.presence`, validateReadingPresence);
+    }
+    return data;
+  }
   if (name === "student_class_by_code") {
     assertPlainRecord(data, `rpc.${name}`);
     assertOptionalFields(data, {

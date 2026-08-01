@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import {
-  ADMIN_AREAS,
+  ADMIN_SECTIONS as ADMIN_NAV_SECTIONS,
   ADMIN_SECTION_PATHS,
   openAdminSection
 } from "./adminNavigation.js";
@@ -15,18 +15,16 @@ const supabaseKey = process.env.LP_AUDIT_SUPABASE_ANON_KEY
   || "";
 
 const ADMIN_SECTIONS = [
-  ...Object.entries(ADMIN_AREAS.school.sections).map(([sectionId, label]) => ({
-    area: "school",
+  ...Object.entries(ADMIN_NAV_SECTIONS).map(([sectionId, section]) => ({
     sectionId,
-    label,
+    label: section.label,
     path: ADMIN_SECTION_PATHS[sectionId]
   })),
-  ...Object.entries(ADMIN_AREAS.technical.sections).map(([sectionId, label]) => ({
-    area: "technical",
-    sectionId,
-    label,
-    path: ADMIN_SECTION_PATHS[sectionId]
-  }))
+  {
+    sectionId: "questionFlags",
+    label: "Reported questions",
+    path: "/admin/question-flags"
+  }
 ];
 
 test.describe.configure({ timeout: 180_000 });
@@ -61,15 +59,8 @@ async function expectAdminSection(page, section) {
     name: "Admin Dashboard",
     exact: true
   })).toBeVisible({ timeout: 20_000 });
-  await expect(page.getByRole("button", {
-    name: section.area === "school" ? "School administration" : "App checks",
-    exact: true
-  })).toHaveAttribute("aria-pressed", "true");
-
   const picker = page.getByRole("combobox", {
-    name: section.area === "school"
-      ? "Choose a school admin page"
-      : "Choose an app check",
+    name: "Choose an admin page",
     exact: true
   });
   if (await picker.isVisible()) {
@@ -78,9 +69,7 @@ async function expectAdminSection(page, section) {
   }
   await expect(
     page.getByRole("navigation", {
-      name: section.area === "school"
-        ? "School administration pages"
-        : "App checks",
+      name: "Admin pages",
       exact: true
     }).getByRole("button", {
       name: new RegExp(`^${section.label}\\b`)
@@ -117,7 +106,7 @@ async function createPendingTeacherRequest() {
   return email;
 }
 
-test("all 17 Admin pages own cold links, reload and browser history", async ({
+test("all operational Admin pages own cold links, reload and browser history", async ({
   page
 }) => {
   await logInAdmin(page);
@@ -127,7 +116,7 @@ test("all 17 Admin pages own cold links, reload and browser history", async ({
     await expectAdminSection(page, section);
   }
 
-  for (const sectionId of ["signups", "coverage", "questionFlags"]) {
+  for (const sectionId of ["signups", "operations", "questionFlags"]) {
     const section = ADMIN_SECTIONS.find(row => row.sectionId === sectionId);
     await page.goto(section.path);
     await expectAdminSection(page, section);
@@ -138,11 +127,11 @@ test("all 17 Admin pages own cold links, reload and browser history", async ({
   await page.goto(ADMIN_SECTION_PATHS.overview);
   const historySections = [
     ADMIN_SECTIONS.find(row => row.sectionId === "schools"),
-    ADMIN_SECTIONS.find(row => row.sectionId === "release"),
-    ADMIN_SECTIONS.find(row => row.sectionId === "guidedMediaQa")
+    ADMIN_SECTIONS.find(row => row.sectionId === "teachers"),
+    ADMIN_SECTIONS.find(row => row.sectionId === "operations")
   ];
   for (const section of historySections) {
-    await openAdminSection(page, section.area, section.sectionId);
+    await openAdminSection(page, section.sectionId);
     await expectAdminSection(page, section);
   }
   for (const section of [...historySections].reverse().slice(1)) {
@@ -163,7 +152,7 @@ test("all 17 Admin pages own cold links, reload and browser history", async ({
   await expect(page).toHaveURL(/#teacher\/dashboard/);
 });
 
-test("every Admin page remains addressable through the compact mobile picker", async ({
+test("every operational Admin page remains addressable on a compact screen", async ({
   page
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });

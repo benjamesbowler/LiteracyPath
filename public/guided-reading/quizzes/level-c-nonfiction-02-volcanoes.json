@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-02-volcanoes",
   "contentHash": "sha256:1f13767675f9e324fae43a625d5c373ae9fac6d77a5cdf69386180edfbd8ad7c",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q3",
-      "prompt": "Which statement gives the main idea of Volcanoes?",
+      "prompt": "What is the big idea of Volcanoes?",
       "choices": [
-        "Across immense time volcanoes have built land and reshaped Earth.",
-        "Deep underground some rock melts into hot magma.",
-        "Explosive eruptions can release ash rocks and volcanic gases."
+        "Volcanoes erupt and slowly reshape Earth's land.",
+        "Only deep underground some rock melts into hot magma.",
+        "Only explosive eruptions can release ash rocks and volcanic gases."
       ],
-      "answer": "Across immense time volcanoes have built land and reshaped Earth.",
+      "answer": "Volcanoes erupt and slowly reshape Earth's land.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Across immense time volcanoes have built land and reshaped Earth. This final statement gathers the book's details into its main idea.",
+      "rationale": "Deep underground some rock melts into hot magma. Explosive eruptions can release ash rocks and volcanic gases. Across immense time volcanoes have built land and reshaped Earth. Together, these facts show the whole-book big idea: Volcanoes erupt and slowly reshape Earth's land.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Deep underground some rock melts into hot magma."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Explosive eruptions can release ash rocks and volcanic gases."
+        }
+      ],
+      "distractorRationales": {
+        "Only deep underground some rock melts into hot magma.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only explosive eruptions can release ash rocks and volcanic gases.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Across immense time volcanoes have built land and reshaped Earth."
     }

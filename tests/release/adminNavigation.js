@@ -1,157 +1,112 @@
 import { expect } from "@playwright/test";
 
+const ADMIN_SECTIONS = Object.freeze({
+  overview: Object.freeze({ label: "Overview", path: "/admin/school/overview" }),
+  signups: Object.freeze({ label: "Teacher requests", path: "/admin/school/teacher-requests" }),
+  schools: Object.freeze({ label: "Schools", path: "/admin/school/schools" }),
+  teachers: Object.freeze({ label: "Teachers", path: "/admin/school/teachers" }),
+  classes: Object.freeze({ label: "Classes", path: "/admin/school/classes" }),
+  students: Object.freeze({ label: "Student data", path: "/admin/school/students" }),
+  operations: Object.freeze({ label: "Support & safety", path: "/admin/operations/support" })
+});
+
 const ADMIN_AREAS = Object.freeze({
-  school: {
-    toggleName: "School administration",
-    navigationName: "School administration pages",
-    pickerName: "Choose a school admin page",
-    sections: {
-      overview: "Overview",
-      signups: "Teacher requests",
-      schools: "Schools",
-      teachers: "Teachers",
-      classes: "Classes",
-      students: "Students",
-      teacherReport: "School reports",
-      archive: "Assessment records"
-    }
-  },
-  technical: {
-    toggleName: "App checks",
-    navigationName: "App checks",
-    pickerName: "Choose an app check",
-    sections: {
-      release: "App readiness",
-      guidedInsight: "Reading book checks",
-      guidedMediaQa: "Book media checks",
-      coverage: "Lesson content checks",
-      calibration: "Assessment consistency",
-      questionFlags: "Reported questions",
-      mapStops: "Student map",
-      hollowSpots: "Student rewards"
-    }
-  }
+  operations: Object.freeze({
+    navigationName: "Admin pages",
+    pickerName: "Choose an admin page",
+    sections: Object.freeze(Object.fromEntries(
+      Object.entries(ADMIN_SECTIONS).map(([id, section]) => [id, section.label])
+    ))
+  })
 });
 
-const ADMIN_SECTION_PATHS = Object.freeze({
-  overview: "/admin/school/overview",
-  signups: "/admin/school/teacher-requests",
-  schools: "/admin/school/schools",
-  teachers: "/admin/school/teachers",
-  classes: "/admin/school/classes",
-  students: "/admin/school/students",
-  teacherReport: "/admin/school/reports",
-  archive: "/admin/school/assessment-records",
-  release: "/admin/app/readiness",
-  guidedInsight: "/admin/app/reading-book-checks",
-  guidedMediaQa: "/admin/app/book-media-checks",
-  coverage: "/admin/app/lesson-content-checks",
-  calibration: "/admin/app/assessment-consistency",
-  questionFlags: "/admin/question-flags",
-  mapStops: "/admin/app/student-map",
-  hollowSpots: "/admin/app/student-rewards"
-});
+const ADMIN_SECTION_PATHS = Object.freeze(Object.fromEntries(
+  Object.entries(ADMIN_SECTIONS).map(([id, section]) => [id, section.path])
+));
 
-function adminArea(area) {
-  const config = ADMIN_AREAS[area];
-  if (!config) throw new Error(`Unknown Admin area: ${area}`);
-  return config;
+function sectionConfig(sectionId) {
+  const section = ADMIN_SECTIONS[sectionId];
+  if (!section) throw new Error(`Unknown current Admin section: ${sectionId}`);
+  return section;
 }
 
-function adminSection(area, sectionId) {
-  const config = adminArea(area);
-  const label = config.sections[sectionId];
-  if (!label) throw new Error(`Unknown ${area} Admin section: ${sectionId}`);
-  return { config, label };
-}
-
-function sectionButton(page, config, label) {
-  return page
-    .getByRole("navigation", { name: config.navigationName, exact: true })
-    .getByRole("button", { name: new RegExp(`^${label}\\b`) });
-}
-
-async function activeAdminSectionControl(page, config) {
+async function activeAdminSectionControl(page) {
   const picker = page.getByRole("combobox", {
-    name: config.pickerName,
+    name: ADMIN_AREAS.operations.pickerName,
     exact: true
   });
   const navigation = page.getByRole("navigation", {
-    name: config.navigationName,
+    name: ADMIN_AREAS.operations.navigationName,
     exact: true
   });
-
-  // Changing Admin areas replaces the responsive section control on the next
-  // render. `locator.isVisible()` is an immediate snapshot, so wait until the
-  // compact picker or desktop navigation is actually ready before branching.
   await expect.poll(async () => (
     await picker.isVisible() || await navigation.isVisible()
   )).toBe(true);
-
-  return {
-    picker,
-    compact: await picker.isVisible()
-  };
+  return { picker, navigation, compact: await picker.isVisible() };
 }
 
-export async function openAdminArea(page, area) {
-  const config = adminArea(area);
-  const toggle = page.getByRole("button", {
-    name: config.toggleName,
-    exact: true
-  });
-  if (await toggle.getAttribute("aria-pressed") !== "true") {
-    await toggle.click();
-  }
-  await expect(toggle).toHaveAttribute("aria-pressed", "true");
-  return config;
+// Kept as a compatibility helper for release specs while Admin is one area.
+export async function openAdminArea(page) {
+  await activeAdminSectionControl(page);
+  return ADMIN_AREAS.operations;
 }
 
-export async function expectAdminSectionAvailable(page, area, sectionId) {
-  const { config, label } = adminSection(area, sectionId);
-  await openAdminArea(page, area);
-  const { picker, compact } = await activeAdminSectionControl(page, config);
+export async function expectAdminSectionAvailable(page, _area, sectionId) {
+  const section = sectionConfig(sectionId);
+  const { picker, navigation, compact } = await activeAdminSectionControl(page);
   if (compact) {
-    await expect(picker.getByRole("option", { name: label, exact: true })).toHaveCount(1);
+    await expect(picker.getByRole("option", { name: section.label, exact: true })).toHaveCount(1);
     return;
   }
-  await expect(sectionButton(page, config, label)).toBeVisible();
+  await expect(navigation.getByRole("button", {
+    name: new RegExp(`^${section.label}\\b`)
+  })).toBeVisible();
 }
 
-export async function expectAdminSectionUnavailable(page, area, sectionId) {
-  const label = Object.values(ADMIN_AREAS)
-    .map(config => config.sections[sectionId])
-    .find(Boolean);
-  if (!label) throw new Error(`Unknown Admin section: ${sectionId}`);
-  const config = await openAdminArea(page, area);
-  const { picker, compact } = await activeAdminSectionControl(page, config);
+export async function expectAdminSectionUnavailable(page, _area, sectionId) {
+  const retiredLabels = {
+    release: "App readiness",
+    guidedInsight: "Reading book checks",
+    guidedMediaQa: "Book media checks",
+    coverage: "Lesson content checks",
+    calibration: "Assessment consistency",
+    mapStops: "Student map",
+    hollowSpots: "Student rewards",
+    teacherReport: "School reports",
+    archive: "Assessment records"
+  };
+  const label = retiredLabels[sectionId] || ADMIN_SECTIONS[sectionId]?.label || sectionId;
+  const { picker, navigation, compact } = await activeAdminSectionControl(page);
   if (compact) {
     await expect(picker.getByRole("option", { name: label, exact: true })).toHaveCount(0);
     return;
   }
-  await expect(sectionButton(page, config, label)).toHaveCount(0);
+  await expect(navigation.getByRole("button", {
+    name: new RegExp(`^${label}\\b`)
+  })).toHaveCount(0);
 }
 
-export async function openAdminSection(page, area, sectionId) {
-  const { config, label } = adminSection(area, sectionId);
-  await openAdminArea(page, area);
-  const { picker, compact } = await activeAdminSectionControl(page, config);
-  if (compact) {
-    await picker.selectOption(sectionId);
-    if (sectionId !== "questionFlags") {
-      await expect(picker).toHaveValue(sectionId);
-    }
-    await expect.poll(() => new URL(page.url()).pathname)
-      .toBe(ADMIN_SECTION_PATHS[sectionId]);
+export async function openAdminSection(page, areaOrSectionId, maybeSectionId) {
+  const sectionId = maybeSectionId || areaOrSectionId;
+  if (sectionId === "questionFlags") {
+    await openAdminSection(page, "operations");
+    await page.getByRole("button", { name: "Open reported questions", exact: true }).click();
+    await expect.poll(() => new URL(page.url()).pathname).toBe("/admin/question-flags");
     return;
   }
-  const button = sectionButton(page, config, label);
-  await button.click();
-  if (sectionId !== "questionFlags") {
+  const section = sectionConfig(sectionId);
+  const { picker, navigation, compact } = await activeAdminSectionControl(page);
+  if (compact) {
+    await picker.selectOption(sectionId);
+    await expect(picker).toHaveValue(sectionId);
+  } else {
+    const button = navigation.getByRole("button", {
+      name: new RegExp(`^${section.label}\\b`)
+    });
+    await button.click();
     await expect(button).toHaveAttribute("aria-current", "page");
   }
-  await expect.poll(() => new URL(page.url()).pathname)
-    .toBe(ADMIN_SECTION_PATHS[sectionId]);
+  await expect.poll(() => new URL(page.url()).pathname).toBe(section.path);
 }
 
-export { ADMIN_AREAS, ADMIN_SECTION_PATHS };
+export { ADMIN_AREAS, ADMIN_SECTIONS, ADMIN_SECTION_PATHS };

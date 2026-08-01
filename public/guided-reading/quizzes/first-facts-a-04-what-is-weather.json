@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-04-what-is-weather",
   "contentHash": "sha256:7656bc7070113fc803367e2f71dd7c1113bf7a311de11b16e933274c94c93d86",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-04-what-is-weather-q3",
-      "prompt": "Which statement gives the main idea of What is Weather??",
+      "prompt": "What is the big idea of What is Weather??",
       "choices": [
         "Weather can change from day to day.",
-        "Sunny weather brings bright sunlight.",
-        "Snowy weather brings frozen flakes."
+        "Only sunny weather brings bright sunlight.",
+        "Only snowy weather brings frozen flakes."
       ],
       "answer": "Weather can change from day to day.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Weather can change from day to day. This final statement gathers the book's details into its main idea.",
+      "rationale": "Sunny weather brings bright sunlight. Snowy weather brings frozen flakes. Weather can change from day to day. Together, these facts show the whole-book big idea: Weather can change from day to day.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Sunny weather brings bright sunlight."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Snowy weather brings frozen flakes."
+        }
+      ],
+      "distractorRationales": {
+        "Only sunny weather brings bright sunlight.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only snowy weather brings frozen flakes.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
       "evidenceText": "Weather can change from day to day."
     }

@@ -87,7 +87,7 @@ export function useAppSessionController(context) {
     configureProgressSync, correctAnswered, currentSkillIndex,
     elBenchmarkAssessmentHash, elBenchmarkSession, findQuestionForAnswerRecord, freshAuthActionRef,
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
-    getGuidedReadingStorageKeyForSession, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
+    getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
@@ -3437,6 +3437,10 @@ export function useAppSessionController(context) {
       classId,
       teacherId: loadTeacherId
     };
+    migrateGuidedReadingStorage({
+      teacherId: loadTeacherId,
+      studentId: selectedStudentId
+    });
     configureProgressSync(progressSyncSession);
     const progressHydrationPromise = hydrateCloudProgress(progressSyncSession)
       .then(rows => ({ rows, error: null }))

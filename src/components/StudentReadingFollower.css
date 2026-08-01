@@ -1,0 +1,70 @@
+.student-reading-follower {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 48px);
+  background: #f7f2e8;
+  color: #20251f;
+}
+
+.student-reading-page {
+  width: min(1180px, 100%);
+  height: min(760px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, .82fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.student-reading-image-frame {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.student-reading-image-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.student-reading-image-frame img.painted { opacity: 1; }
+
+.student-reading-text p {
+  margin: 0;
+  font: 700 clamp(2rem, 4.2vw, 4.5rem)/1.28 ui-rounded, "Avenir Next", system-ui, sans-serif;
+  letter-spacing: -.025em;
+}
+
+.student-reading-follower.text-only .student-reading-image-frame { visibility: hidden; }
+.student-reading-follower.text-only.image-painted .student-reading-image-frame { visibility: visible; }
+.student-reading-follower.text-only .student-reading-text p { font-size: clamp(2.8rem, 6vw, 6rem); }
+.student-reading-follower.reconnecting .student-reading-page { opacity: .82; }
+
+.student-reading-waiting,
+.student-reading-follower-ended p,
+.student-reading-follower-holding p {
+  margin: 0;
+  font: 700 clamp(1.2rem, 2.5vw, 2rem)/1.3 ui-rounded, system-ui, sans-serif;
+}
+
+.student-reading-waiting { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); }
+.student-reading-connection { position: fixed; right: 20px; bottom: 20px; width: 13px; height: 13px; border-radius: 50%; }
+.student-reading-connection.filled { background: #52745a; }
+.student-reading-connection.hollow { border: 2px solid #6f746f; background: transparent; }
+
+@media (max-width: 767px), (orientation: portrait) {
+  .student-reading-page { grid-template-columns: 1fr; grid-template-rows: minmax(0, 55%) auto; }
+  .student-reading-text p { font-size: clamp(2rem, 5vw, 3.4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-reading-image-frame img { transition: none; }
+}

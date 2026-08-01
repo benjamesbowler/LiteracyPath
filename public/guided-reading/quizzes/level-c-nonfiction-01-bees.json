@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-01-bees",
   "contentHash": "sha256:c156ae50c45af9555f0d2c063c5317a38e9810b132eb32f63bb5bdd4f1f549f2",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-01-bees-q3",
-      "prompt": "Which statement gives the main idea of Honeybees and Pollination?",
+      "prompt": "What is the big idea of Honeybees and Pollination?",
       "choices": [
-        "Honeybees store honey while helping many plants reproduce.",
-        "Thousands of bee species exist. This book follows social honeybees.",
-        "Pollen sticks to bees and moves between flowers."
+        "Honeybees share hive jobs and help flowering plants grow.",
+        "Only pollen sticks to bees and moves between flowers.",
+        "Only worker honeybees collect sugary nectar from flowers."
       ],
-      "answer": "Honeybees store honey while helping many plants reproduce.",
+      "answer": "Honeybees share hive jobs and help flowering plants grow.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Honeybees store honey while helping many plants reproduce. This final statement gathers the book's details into its main idea.",
+      "rationale": "Thousands of bee species exist. This book follows social honeybees. Pollen sticks to bees and moves between flowers. Honeybees store honey while helping many plants reproduce. Together, these facts show the whole-book big idea: Honeybees share hive jobs and help flowering plants grow.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Thousands of bee species exist. This book follows social honeybees."
+        },
+        {
+          "evidencePage": 5,
+          "evidenceText": "Pollen sticks to bees and moves between flowers."
+        }
+      ],
+      "distractorRationales": {
+        "Only pollen sticks to bees and moves between flowers.": "Page 5 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only worker honeybees collect sugary nectar from flowers.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Honeybees store honey while helping many plants reproduce."
     }

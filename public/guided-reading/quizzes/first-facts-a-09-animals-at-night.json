@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-09-animals-at-night",
   "contentHash": "sha256:03b1d89dae4a1259249b18179a18db814b793274fba3625bd09dc120769108b9",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-09-animals-at-night-q3",
-      "prompt": "Which statement gives the main idea of Animals at Night?",
+      "prompt": "What is the big idea of Animals at Night?",
       "choices": [
         "Different animals become busy after sunset.",
-        "Nocturnal animals are active mostly at night.",
-        "Many bats use echoes to find flying insects."
+        "Only nocturnal animals are active mostly at night.",
+        "Only owls can see well in low light."
       ],
       "answer": "Different animals become busy after sunset.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Different animals become busy after sunset. This final statement gathers the book's details into its main idea.",
+      "rationale": "Nocturnal animals are active mostly at night. Many bats use echoes to find flying insects. Different animals become busy after sunset. Together, these facts show the whole-book big idea: Different animals become busy after sunset.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Nocturnal animals are active mostly at night."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Many bats use echoes to find flying insects."
+        }
+      ],
+      "distractorRationales": {
+        "Only nocturnal animals are active mostly at night.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only owls can see well in low light.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Different animals become busy after sunset."
     }

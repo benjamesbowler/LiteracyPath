@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-a-29",
   "contentHash": "sha256:2a4edf5434d38580894600a294f7b95efd3c658ed6cd3ab58c87757e5c95e4b7",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-a-29-q3",
-      "prompt": "Which statement gives the main idea of My Body?",
+      "prompt": "What is the big idea of My Body?",
       "choices": [
         "This whole body is mine.",
-        "I have two eyes.",
-        "I have one nose."
+        "Only I have two eyes.",
+        "Only I have one nose."
       ],
       "answer": "This whole body is mine.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "This whole body is mine. This final statement gathers the book's details into its main idea.",
+      "rationale": "I have two eyes. I have one nose. This whole body is mine. Together, these facts show the whole-book big idea: This whole body is mine.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "I have two eyes."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "I have one nose."
+        }
+      ],
+      "distractorRationales": {
+        "Only I have two eyes.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only I have one nose.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "This whole body is mine."
     }

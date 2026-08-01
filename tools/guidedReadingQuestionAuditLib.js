@@ -8,6 +8,7 @@ import {
   isGuidedReadingQuestionStructurallyValid,
   isProhibitedGuidedReadingPrompt
 } from "../src/utils/guidedReading/bookQuizQuestions.js";
+import { guidedReadingBigIdeaFairnessIssues } from "../src/policy/guidedReadingBigIdeaPolicy.js";
 
 const FICTION_SKILLS = new Set([
   "character_action",
@@ -259,6 +260,8 @@ export function auditGuidedReadingQuestionBank({ books = [], quizDirectory = "" 
   let supportingEvidenceExcerptCount = 0;
   let fictionQuestionCount = 0;
   let nonfictionQuestionCount = 0;
+  let bigIdeaQuestionCount = 0;
+  let fairBigIdeaQuestionCount = 0;
 
   for (const book of books) {
     const filePath = path.join(quizDirectory, `${book.id}.json`);
@@ -323,6 +326,13 @@ export function auditGuidedReadingQuestionBank({ books = [], quizDirectory = "" 
           bookFailures.push(`${label}: missing or invalid ${book.type} skill "${question.skill || ""}"`);
         } else {
           skills.add(question.skill);
+        }
+
+        if (question.skill === "main_idea") {
+          bigIdeaQuestionCount += 1;
+          const fairnessIssues = guidedReadingBigIdeaFairnessIssues(question, book);
+          if (!fairnessIssues.length) fairBigIdeaQuestionCount += 1;
+          fairnessIssues.forEach(issue => bookFailures.push(`${label}: big-idea fairness: ${issue}`));
         }
 
         const evidenceTexts = [];
@@ -440,6 +450,8 @@ export function auditGuidedReadingQuestionBank({ books = [], quizDirectory = "" 
     questionCount,
     fictionQuestionCount,
     nonfictionQuestionCount,
+    bigIdeaQuestionCount,
+    fairBigIdeaQuestionCount,
     evidenceCount,
     supportedAnswerCount,
     directlySupportedAnswerCount,

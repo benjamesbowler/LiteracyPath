@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import {
+  ADMIN_LEGACY_ROUTE_REDIRECTS,
   ADMIN_SECTION_ROUTES,
   ADMIN_QA_HISTORY_STATE,
   adminPathForSection,
@@ -21,9 +22,9 @@ const sessionControllerSource = readFileSync(
   "utf8"
 );
 
-test("every school-admin and app-check page has one stable direct URL", () => {
+test("every operational Admin page has one stable direct URL", () => {
   const entries = Object.entries(ADMIN_SECTION_ROUTES);
-  assert.equal(entries.length, 16);
+  assert.equal(entries.length, 8);
   assert.equal(new Set(entries.map(([, route]) => route.path)).size, entries.length);
   for (const [sectionId, expected] of entries) {
     assert.deepEqual(adminRouteForPath(expected.path), {
@@ -47,6 +48,22 @@ test("every school-admin and app-check page has one stable direct URL", () => {
   assert.equal(adminQaPathForPage("dashboard"), "/admin/school/overview");
   assert.equal(adminRouteForPath("/admin/school/not-real"), null);
   assert.equal(isAdminRoutePath("/admin/school/not-real"), false);
+});
+
+test("retired Admin workspaces redirect to a current operational page", () => {
+  for (const [legacyPath, sectionId] of Object.entries(ADMIN_LEGACY_ROUTE_REDIRECTS)) {
+    const target = ADMIN_SECTION_ROUTES[sectionId];
+    assert.deepEqual(adminRouteForPath(legacyPath), {
+      ...target,
+      sectionId,
+      redirectFrom: legacyPath
+    });
+    assert.equal(isAdminRoutePath(legacyPath), true);
+  }
+  assert.equal(
+    adminRouteForPath("/admin/app/readiness").path,
+    "/admin/operations/support"
+  );
 });
 
 test("leaving the admin deep page preserves an explicit teacher hash", () => {

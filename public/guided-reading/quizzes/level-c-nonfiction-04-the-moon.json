@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-04-the-moon",
   "contentHash": "sha256:0c593e016bce2ba0d70f752c6b3c6ea6c8362bab8e262987f2dd1e54fd871db6",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-04-the-moon-q3",
-      "prompt": "Which statement gives the main idea of The Moon?",
+      "prompt": "What is the big idea of The Moon?",
       "choices": [
-        "Visible or hidden the Moon continues travelling around Earth.",
-        "The rocky Moon orbits Earth about once each month.",
-        "Apollo 11 astronauts first walked on the Moon in 1969."
+        "The Moon moves around Earth and reflects sunlight.",
+        "Only the rocky Moon orbits Earth about once each month.",
+        "Only apollo 11 astronauts first walked on the Moon in 1969."
       ],
-      "answer": "Visible or hidden the Moon continues travelling around Earth.",
+      "answer": "The Moon moves around Earth and reflects sunlight.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Visible or hidden the Moon continues travelling around Earth. This final statement gathers the book's details into its main idea.",
+      "rationale": "The rocky Moon orbits Earth about once each month. Apollo 11 astronauts first walked on the Moon in 1969. Visible or hidden the Moon continues travelling around Earth. Together, these facts show the whole-book big idea: The Moon moves around Earth and reflects sunlight.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The rocky Moon orbits Earth about once each month."
+        },
+        {
+          "evidencePage": 5,
+          "evidenceText": "Apollo 11 astronauts first walked on the Moon in 1969."
+        }
+      ],
+      "distractorRationales": {
+        "Only the rocky Moon orbits Earth about once each month.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only apollo 11 astronauts first walked on the Moon in 1969.": "Page 5 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Visible or hidden the Moon continues travelling around Earth."
     }

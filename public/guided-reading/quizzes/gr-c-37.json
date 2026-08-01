@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-c-37",
   "contentHash": "sha256:f09f8e23770ec69ceed7ce7a4a0880baaef45de4a731ac1149c59b3f9465905f",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-c-37-q3",
-      "prompt": "Which statement gives the main idea of Water?",
+      "prompt": "What is the big idea of Water?",
       "choices": [
         "Life on Earth needs water.",
-        "Water can flow as a liquid.",
-        "Frozen water becomes solid ice."
+        "Only water can flow as a liquid.",
+        "Only frozen water becomes solid ice."
       ],
       "answer": "Life on Earth needs water.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Life on Earth needs water. This final statement gathers the book's details into its main idea.",
+      "rationale": "Water can flow as a liquid. Frozen water becomes solid ice. Life on Earth needs water. Together, these facts show the whole-book big idea: Life on Earth needs water.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Water can flow as a liquid."
+        },
+        {
+          "evidencePage": 2,
+          "evidenceText": "Frozen water becomes solid ice."
+        }
+      ],
+      "distractorRationales": {
+        "Only water can flow as a liquid.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only frozen water becomes solid ice.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Life on Earth needs water."
     }

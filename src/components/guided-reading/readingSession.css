@@ -1,0 +1,86 @@
+.reading-session-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 13000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(20 28 24 / .58);
+}
+
+.reading-session-setup,
+.reading-session-end-dialog {
+  width: min(920px, 100%);
+  max-height: min(860px, 94vh);
+  overflow: auto;
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 24px;
+  background: var(--teacher-ui-surface, #fff);
+  color: var(--teacher-ui-ink, #1c2922);
+  box-shadow: 0 24px 80px rgb(10 20 15 / .28);
+}
+
+.reading-session-setup-header,
+.reading-session-bar-heading,
+.reading-session-mark-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.reading-session-setup-header { align-items: flex-start; margin-bottom: 24px; }
+.reading-session-setup .lp-button,
+.reading-session-bar .lp-button,
+.reading-session-end-dialog .lp-button { min-height: 44px !important; }
+.reading-session-setup-header h2 { margin: 4px 0 6px; }
+.reading-session-book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-height: 330px; overflow: auto; margin-bottom: 18px; }
+.reading-session-book-grid button { min-height: 72px; padding: 12px; border: 2px solid #d9ded9; border-radius: 14px; background: #fff; text-align: left; }
+.reading-session-book-grid button.selected { border-color: #245d43; background: #edf6ef; }
+.reading-session-book-grid span { display: block; margin-top: 5px; color: #56645b; }
+.reading-session-student-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+.reading-session-student-list label { min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid #d9ded9; border-radius: 12px; }
+.reading-session-student-list label.disabled { opacity: .55; }
+.reading-session-student-list input { width: 22px; height: 22px; }
+.reading-session-student-list small { display: block; margin-top: 2px; color: #5e6c63; }
+.reading-session-message { color: #8b321f; font-weight: 700; }
+
+.reading-session-bar {
+  position: sticky;
+  top: 0;
+  z-index: 35;
+  padding: 14px 18px;
+  border: 2px solid #c9d8cd;
+  border-radius: 18px;
+  background: #f7faf6;
+  color: #193226;
+}
+
+.reading-session-bar-heading > div span { display: block; color: #54665b; font-size: .86rem; margin-top: 2px; }
+.reading-session-bar-heading p { margin: 0; font-weight: 800; }
+.reading-session-mark-row { align-items: flex-start; margin-top: 12px; }
+.reading-session-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.reading-session-chips button { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 2px solid #b7c4ba; border-radius: 999px; background: #fff; color: inherit; font-weight: 750; }
+.reading-session-chips button.selected { border-color: #153f2b; background: #153f2b; color: #fff; box-shadow: 0 0 0 3px #a9d4b8; }
+.reading-session-chips button.needs-refresh { border-style: dashed; }
+.presence-filled, .presence-hollow { width: 10px; height: 10px; border-radius: 50%; }
+.presence-filled { background: currentColor; }
+.presence-hollow { border: 2px solid currentColor; }
+.reading-session-mark-status { min-width: 180px; display: grid; gap: 6px; text-align: right; }
+.reading-session-unsent { color: #8a4b12; font-weight: 750; }
+.reading-session-recovery { margin: 8px 0 0; color: #5f4030; font-size: .9rem; }
+.reading-session-bar.choose-prompt { animation: reading-target-prompt 560ms ease; }
+.reading-session-end-dialog { width: min(520px, 100%); }
+.reading-session-end-dialog > div { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+
+@keyframes reading-target-prompt { 50% { box-shadow: 0 0 0 6px #f2b84b; } }
+
+@media (max-width: 767px) {
+  .reading-session-book-grid, .reading-session-student-list { grid-template-columns: 1fr; }
+  .reading-session-bar-heading, .reading-session-mark-row { align-items: stretch; flex-direction: column; }
+  .reading-session-mark-status { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-session-bar.choose-prompt { animation: none; box-shadow: 0 0 0 4px #f2b84b; }
+}

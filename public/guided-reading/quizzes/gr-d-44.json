@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-44",
   "contentHash": "sha256:52185faf4e9fab12f14bd5bd4c3e900cfcad8690ab2ee519ad7406d439beb3f3",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-d-44-q3",
-      "prompt": "Which statement gives the main idea of Animal Shelters and Habitats?",
+      "prompt": "What is the big idea of Animal Shelters and Habitats?",
       "choices": [
         "Habitats provide food water and shelter.",
-        "Many birds build nests for young.",
-        "Ponds provide fish food and shelter."
+        "Only ponds provide fish food and shelter.",
+        "Only rabbits shelter inside burrows."
       ],
       "answer": "Habitats provide food water and shelter.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Habitats provide food water and shelter. This final statement gathers the book's details into its main idea.",
+      "rationale": "Many birds build nests for young. Ponds provide fish food and shelter. Habitats provide food water and shelter. Together, these facts show the whole-book big idea: Habitats provide food water and shelter.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Many birds build nests for young."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Ponds provide fish food and shelter."
+        }
+      ],
+      "distractorRationales": {
+        "Only ponds provide fish food and shelter.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only rabbits shelter inside burrows.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Habitats provide food water and shelter."
     }

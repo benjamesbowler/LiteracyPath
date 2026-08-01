@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-03-little-seeds-grow",
   "contentHash": "sha256:e3ae2eaa354d8dcadd10643c2a2d304fbcfc7df5e80065ef0254d00ea08734aa",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-03-little-seeds-grow-q3",
-      "prompt": "Which statement gives the main idea of A Seed Germinates?",
+      "prompt": "What is the big idea of A Seed Germinates?",
       "choices": [
-        "The growing plant can produce a flower.",
-        "This tiny seed holds a young plant.",
-        "Water enters the seed and starts germination."
+        "A seed can grow into a flowering plant.",
+        "Only this tiny seed holds a young plant.",
+        "Only water enters the seed and starts germination."
       ],
-      "answer": "The growing plant can produce a flower.",
+      "answer": "A seed can grow into a flowering plant.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The growing plant can produce a flower. This final statement gathers the book's details into its main idea.",
+      "rationale": "This tiny seed holds a young plant. Water enters the seed and starts germination. The growing plant can produce a flower. Together, these facts show the whole-book big idea: A seed can grow into a flowering plant.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "This tiny seed holds a young plant."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Water enters the seed and starts germination."
+        }
+      ],
+      "distractorRationales": {
+        "Only this tiny seed holds a young plant.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only water enters the seed and starts germination.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "The growing plant can produce a flower."
     }

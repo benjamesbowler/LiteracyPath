@@ -7,6 +7,11 @@ import { fileURLToPath } from "node:url";
 import { guidedReadingBooks } from "../../src/data/guidedReadingBooks.js";
 import { GUIDED_READING_QUIZZES } from "../../src/data/generated/guidedReadingQuizzes.generated.js";
 import {
+  GUIDED_READING_BIG_IDEA_POLICY_VERSION,
+  guidedReadingBigIdeaAnswer,
+  guidedReadingBigIdeaFairnessIssues
+} from "../../src/policy/guidedReadingBigIdeaPolicy.js";
+import {
   answerIsSupportedByText,
   auditGuidedReadingQuestionBank
 } from "../../tools/guidedReadingQuestionAuditLib.js";
@@ -25,6 +30,33 @@ test("every active Guided Reading book has three evidence-grounded comprehension
   assert.equal(result.metrics.prohibitedPromptCount, 0);
   assert.equal(result.metrics.repeatedAnswerCount, 0);
   assert.equal(result.metrics.answerLengthGiveawayCount, 0);
+  assert.equal(result.metrics.bigIdeaQuestionCount, 76);
+  assert.equal(result.metrics.fairBigIdeaQuestionCount, 76);
+});
+
+test("big-idea choices never use another true book detail as a second defensible answer", () => {
+  const pets = guidedReadingBooks.find(book => book.id === "gr-a-26");
+  const answer = guidedReadingBigIdeaAnswer(pets);
+  const ambiguousQuestion = {
+    skill: "main_idea",
+    answer,
+    choices: [answer, pets.pages[0].text, pets.pages[2].text],
+    bigIdeaPolicy: GUIDED_READING_BIG_IDEA_POLICY_VERSION
+  };
+
+  assert.match(
+    guidedReadingBigIdeaFairnessIssues(ambiguousQuestion, pets).join("\n"),
+    /not an explicit narrow-scope misconception/
+  );
+});
+
+test("the frog life-cycle answer covers the whole book, not its final call detail", () => {
+  const frogs = guidedReadingBooks.find(book => book.id === "level-c-nonfiction-10-frogs");
+  assert.equal(
+    guidedReadingBigIdeaAnswer(frogs),
+    "Frogs grow from eggs and live on land and in water."
+  );
+  assert.notEqual(guidedReadingBigIdeaAnswer(frogs), frogs.pages.at(-1).text);
 });
 
 test("the bundled runtime question bank exactly matches every approved source quiz", () => {

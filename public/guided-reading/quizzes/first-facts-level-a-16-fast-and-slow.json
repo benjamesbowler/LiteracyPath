@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-16-fast-and-slow",
   "contentHash": "sha256:a4878f97ca11ea2c3451db62e1b1056b513f853771c77b75f7ee810385ab565a",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-16-fast-and-slow-q3",
-      "prompt": "What is the big idea in Fast and Slow?",
+      "prompt": "What is the big idea of Fast and Slow?",
       "choices": [
-        "Is it fast or slow?",
-        "A car can move fast.",
-        "A jet moves very fast."
+        "Things can move fast or slow.",
+        "Only a car can move fast.",
+        "Only a jet moves very fast."
       ],
-      "answer": "Is it fast or slow?",
+      "answer": "Things can move fast or slow.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Is it fast or slow? This final statement gathers the book's details into its main idea.",
+      "rationale": "A car can move fast. A jet moves very fast. Is it fast or slow? Together, these facts show the whole-book big idea: Things can move fast or slow.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A car can move fast."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A jet moves very fast."
+        }
+      ],
+      "distractorRationales": {
+        "Only a car can move fast.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a jet moves very fast.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Is it fast or slow?"
     }

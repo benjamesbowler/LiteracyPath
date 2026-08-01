@@ -589,6 +589,7 @@ export function TeacherStudentsPage({
   schoolName = "",
   hasSchool = false,
   message,
+  onStartReadingSession,
   setupFocus = "",
   onSetupFocusHandled,
   activitySyncHealthSeedRows = null
@@ -1860,6 +1861,14 @@ export function TeacherStudentsPage({
           : TEACHER_COPY.classes.descriptionWithoutClass}
       >
         <div className="teacher-students-header-actions">
+          <button
+            className="lp-button lp-button-secondary"
+            type="button"
+            disabled={!selectedClass || !rosterRead.complete || !studentRows.length}
+            onClick={onStartReadingSession}
+          >
+            Start reading together
+          </button>
           <button
             className="lp-button lp-button-secondary"
             type="button"

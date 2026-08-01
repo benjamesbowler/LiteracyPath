@@ -21,6 +21,8 @@ const SHELL_CACHE = SHELL_PREFIX + BUILD_ID;
 const QUEST_MEDIA_CACHE = "lp-quest-media-v1";
 const PRECACHE = ${JSON.stringify(precache)};
 const QUEST_MEDIA_PREFIXES = [
+  "/guided-reading/",
+  "/audio/production/en-US/guided_page/",
   "/game-assets/quest-pixel/",
   "/game-assets/sound-seekers/worlds/",
   "/audio/music/quest/"

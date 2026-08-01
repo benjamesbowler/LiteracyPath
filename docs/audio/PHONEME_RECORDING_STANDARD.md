@@ -1,14 +1,47 @@
 # Phoneme recording standard
 
-LiteracyPath uses original human recordings for instructional sound-only cues.
-Synthetic voices, browser speech, and recordings copied, trimmed or transformed
-from another publisher are not acceptable sources for this bank.
+LiteracyPath uses reviewed, rights-cleared recordings for instructional
+sound-only cues. A controlled AI-generated candidate may be considered when it
+passes the same phonics review as a recording and is disclosed as AI-generated.
+Browser speech and recordings copied, trimmed or transformed from another
+publisher are not acceptable sources for this bank.
+
+## Controlled AI candidate path
+
+Create an ignored local Python environment once with Python 3.12, then install
+`tools/phoneme-kokoro-requirements.txt` into it at
+`.artifacts/kokoro-venv`. Model weights and generated audio remain outside Git.
+
+1. Run `npm run pilot:phoneme-kokoro` to generate multiple lossless candidates
+   for representative difficult sounds with the Apache-licensed Kokoro model.
+   The local pipeline generates an original anchor word from phoneme tokens,
+   uses the model's predicted phone timings to isolate the requested sound and
+   never reads a letter name. `npm run pilot:phoneme-ai` remains an optional
+   native-audio ensemble route when API credits are available.
+2. Each candidate is normalized consistently and checked for duration and
+   format. `npm run review:phoneme-kokoro` runs the optional independent
+   Wav2Vec2 phoneme recognizer over the full anchor and isolated clip to rank or
+   reject obvious failures. Recognition of a very short isolated consonant is
+   advisory, not an approval signal.
+3. Generated review pages are placed under the ignored `.artifacts` directory.
+   Automated checks never install audio or declare a candidate production-ready.
+4. Listen to the shortlist in context. A candidate is accepted only when the
+   isolated sound is unambiguous for the curriculum value. Keep the model,
+   voice, prompt and review result with the selected master.
+5. Before release, add a clear grown-up-facing disclosure that the applicable
+   instructional voice cues are AI-generated.
+
+For phonemes that remain unstable, generate several original candidates with a
+phoneme-native or explicit IPA/SSML engine. Do not fall back to scraping or
+cutting recordings from the open web: availability is not a licence, and
+coarticulation makes arbitrary word cuts poor isolated teaching sounds.
 
 ## Production path
 
 1. Contract one adult performer with phonics-teaching expertise and a neutral US
-   English voice. Obtain written performer consent and commercial-use rights for
-   the recordings before production use.
+  English voice when the controlled AI route does not produce an acceptable
+  candidate. Obtain written performer consent and commercial-use rights for the
+  recordings before production use.
 2. Run `npm run prepare:phoneme-recording`. The generated pack is placed in the
    ignored `.artifacts/phoneme-recording` directory and is not part of product
    documentation or runtime authority.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-42",
   "contentHash": "sha256:de14b703bc4f5caa3a8c368a6ccbd951edec71be1b27aeea94fc587a2dedb37f",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-d-42-q3",
-      "prompt": "Which statement gives the main idea of Our Earth?",
+      "prompt": "What is the big idea of Our Earth?",
       "choices": [
         "People share and care for Earth.",
-        "Earth is our home planet.",
-        "Mountains rise above the land."
+        "Only Earth is our home planet.",
+        "Only mountains rise above the land."
       ],
       "answer": "People share and care for Earth.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "People share and care for Earth. This final statement gathers the book's details into its main idea.",
+      "rationale": "Earth is our home planet. Mountains rise above the land. People share and care for Earth. Together, these facts show the whole-book big idea: People share and care for Earth.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Earth is our home planet."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Mountains rise above the land."
+        }
+      ],
+      "distractorRationales": {
+        "Only Earth is our home planet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only mountains rise above the land.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "People share and care for Earth."
     }

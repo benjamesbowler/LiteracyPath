@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-08-butterflies",
   "contentHash": "sha256:96c188f81e260bbcf0298aaecdcd8b659b99caef69f50e334e7c4b58a07b00a7",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q3",
-      "prompt": "Which statement gives the main idea of The Monarch Butterfly Life Cycle?",
+      "prompt": "What is the big idea of The Monarch Butterfly Life Cycle?",
       "choices": [
-        "Several monarch generations complete the vast yearly migration cycle.",
-        "Butterflies are six-legged insects with four wings and two antennae.",
-        "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
+        "Monarchs change through four life stages and migrate.",
+        "Only butterflies are six-legged insects with four wings and two antennae.",
+        "Only the caterpillar hatches eats milkweed and sheds its skin repeatedly."
       ],
-      "answer": "Several monarch generations complete the vast yearly migration cycle.",
+      "answer": "Monarchs change through four life stages and migrate.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Several monarch generations complete the vast yearly migration cycle. This final statement gathers the book's details into its main idea.",
+      "rationale": "Butterflies are six-legged insects with four wings and two antennae. The caterpillar hatches eats milkweed and sheds its skin repeatedly. Several monarch generations complete the vast yearly migration cycle. Together, these facts show the whole-book big idea: Monarchs change through four life stages and migrate.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Butterflies are six-legged insects with four wings and two antennae."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
+        }
+      ],
+      "distractorRationales": {
+        "Only butterflies are six-legged insects with four wings and two antennae.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the caterpillar hatches eats milkweed and sheds its skin repeatedly.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Several monarch generations complete the vast yearly migration cycle."
     }

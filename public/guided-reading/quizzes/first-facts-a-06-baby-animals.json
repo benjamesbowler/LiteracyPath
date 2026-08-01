@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-06-baby-animals",
   "contentHash": "sha256:8d7b2a940b556bcc3e0b306259199e0a1c848fd3654f8b91c7fd9d3c95d37105",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-06-baby-animals-q3",
-      "prompt": "Which statement gives the main idea of Baby Animals?",
+      "prompt": "What is the big idea of Baby Animals?",
       "choices": [
         "Young animals grow and learn new skills.",
-        "A young dog is called a puppy.",
-        "A young chicken is called a chick."
+        "Only a young dog is called a puppy.",
+        "Only a young chicken is called a chick."
       ],
       "answer": "Young animals grow and learn new skills.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Young animals grow and learn new skills. This final statement gathers the book's details into its main idea.",
+      "rationale": "A young dog is called a puppy. A young chicken is called a chick. Young animals grow and learn new skills. Together, these facts show the whole-book big idea: Young animals grow and learn new skills.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A young dog is called a puppy."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "A young chicken is called a chick."
+        }
+      ],
+      "distractorRationales": {
+        "Only a young dog is called a puppy.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a young chicken is called a chick.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
       "evidenceText": "Young animals grow and learn new skills."
     }

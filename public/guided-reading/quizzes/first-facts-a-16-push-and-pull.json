@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-16-push-and-pull",
   "contentHash": "sha256:559a44025a496a101e27bb6355b1bd86e9dfb06a3514262b873e16e06b379beb",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-16-push-and-pull-q3",
-      "prompt": "Which statement gives the main idea of Push and Pull?",
+      "prompt": "What is the big idea of Push and Pull?",
       "choices": [
         "Forces can change an object's motion.",
-        "A push can move something away.",
-        "Doors can move with pushes or pulls."
+        "Only a push can move something away.",
+        "Only doors can move with pushes or pulls."
       ],
       "answer": "Forces can change an object's motion.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Forces can change an object's motion. This final statement gathers the book's details into its main idea.",
+      "rationale": "A push can move something away. Doors can move with pushes or pulls. Forces can change an object's motion. Together, these facts show the whole-book big idea: Forces can change an object's motion.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A push can move something away."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Doors can move with pushes or pulls."
+        }
+      ],
+      "distractorRationales": {
+        "Only a push can move something away.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only doors can move with pushes or pulls.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Forces can change an object's motion."
     }

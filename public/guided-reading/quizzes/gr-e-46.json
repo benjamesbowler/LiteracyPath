@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-46",
   "contentHash": "sha256:afc651bcf7a0d5e0fdaea059be47b82d19599fdede812f7d5fec10718125f97e",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-e-46-q3",
-      "prompt": "Which statement gives the main idea of Reptiles?",
+      "prompt": "What is the big idea of Reptiles?",
       "choices": [
-        "Outside heat changes reptile body temperature.",
-        "Reptiles have dry scaly skin.",
-        "Snakes are reptiles without legs."
+        "Reptiles have traits that help them live.",
+        "Only reptiles have dry scaly skin.",
+        "Only snakes are reptiles without legs."
       ],
-      "answer": "Outside heat changes reptile body temperature.",
+      "answer": "Reptiles have traits that help them live.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Outside heat changes reptile body temperature. This final statement gathers the book's details into its main idea.",
+      "rationale": "Reptiles have dry scaly skin. Snakes are reptiles without legs. Outside heat changes reptile body temperature. Together, these facts show the whole-book big idea: Reptiles have traits that help them live.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Reptiles have dry scaly skin."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Snakes are reptiles without legs."
+        }
+      ],
+      "distractorRationales": {
+        "Only reptiles have dry scaly skin.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only snakes are reptiles without legs.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Outside heat changes reptile body temperature."
     }

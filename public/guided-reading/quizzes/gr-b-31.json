@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-31",
   "contentHash": "sha256:9f0a6f53ada61d7ac056b96d2ad97e51d33ed0063db02037ccc772bd280ad55b",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-b-31-q3",
-      "prompt": "Which statement gives the main idea of Seasons?",
+      "prompt": "What is the big idea of Seasons?",
       "choices": [
         "The four seasons repeat each year.",
-        "In many temperate places spring brings rain.",
-        "Many leaves change colour in autumn."
+        "Only summer often brings longer warm days.",
+        "Only winter can bring frost or snow."
       ],
       "answer": "The four seasons repeat each year.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The four seasons repeat each year. This final statement gathers the book's details into its main idea.",
+      "rationale": "In many temperate places spring brings rain. Many leaves change colour in autumn. The four seasons repeat each year. Together, these facts show the whole-book big idea: The four seasons repeat each year.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "In many temperate places spring brings rain."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Many leaves change colour in autumn."
+        }
+      ],
+      "distractorRationales": {
+        "Only summer often brings longer warm days.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only winter can bring frost or snow.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "The four seasons repeat each year."
     }

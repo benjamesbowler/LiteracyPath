@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-02-the-four-seasons",
   "contentHash": "sha256:4b9899c4850a53849345961e5e75111c7e1e37d2a09d311a69fce506cbd10f8a",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-02-the-four-seasons-q3",
-      "prompt": "Which statement gives the main idea of Seasons in a Temperate Place?",
+      "prompt": "What is the big idea of Seasons in a Temperate Place?",
       "choices": [
         "These four seasons repeat through each year.",
-        "Spring can bring new flowers and birdsong.",
-        "Many plants grow and fruit in summer."
+        "Only spring can bring new flowers and birdsong.",
+        "Only summer often brings longer warm days."
       ],
       "answer": "These four seasons repeat through each year.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "These four seasons repeat through each year. This final statement gathers the book's details into its main idea.",
+      "rationale": "Spring can bring new flowers and birdsong. Many plants grow and fruit in summer. These four seasons repeat through each year. Together, these facts show the whole-book big idea: These four seasons repeat through each year.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Spring can bring new flowers and birdsong."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Many plants grow and fruit in summer."
+        }
+      ],
+      "distractorRationales": {
+        "Only spring can bring new flowers and birdsong.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only summer often brings longer warm days.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "These four seasons repeat through each year."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-20-space",
   "contentHash": "sha256:45377bb7f4943a199aee282bc422dba97de76f241d153b47d6c2f56443f30bde",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-20-space-q3",
-      "prompt": "What is the big idea in Space?",
+      "prompt": "What is the big idea of Space?",
       "choices": [
         "Space holds all these worlds.",
-        "The Moon looks round.",
-        "Earth is our blue home."
+        "Only the Moon looks round.",
+        "Only Earth is our blue home."
       ],
       "answer": "Space holds all these worlds.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Space holds all these worlds. This final statement gathers the book's details into its main idea.",
+      "rationale": "The Moon looks round. Earth is our blue home. Space holds all these worlds. Together, these facts show the whole-book big idea: Space holds all these worlds.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "The Moon looks round."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Earth is our blue home."
+        }
+      ],
+      "distractorRationales": {
+        "Only the Moon looks round.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only Earth is our blue home.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Space holds all these worlds."
     }

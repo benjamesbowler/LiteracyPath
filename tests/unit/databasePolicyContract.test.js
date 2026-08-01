@@ -39,10 +39,10 @@ function validCatalog() {
 test("security boundary grants only the explicit RPC surface and guards every teacher RPC", () => {
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 10);
-  assert.equal(report.authenticatedRpcCount, 55);
+  assert.equal(report.anonymousRpcCount, 11);
+  assert.equal(report.authenticatedRpcCount, 61);
   assert.equal(report.legacyRpcCount, 8);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 31);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 36);
 });
 
 test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
@@ -55,7 +55,7 @@ test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
 test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {
   const teacherAccountSource = fs.readFileSync(
     new URL(
-      "../../supabase/migrations/20260728128000_security_definer_boundary.sql",
+      "../../supabase/migrations/20260801091000_security_definer_boundary.sql",
       import.meta.url
     ),
     "utf8"
@@ -73,14 +73,14 @@ test("security boundary rejects a teacher RPC missing from the account-status in
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 10);
-  assert.equal(report.authenticatedRpcCount, 55);
+  assert.equal(report.anonymousRpcCount, 11);
+  assert.equal(report.authenticatedRpcCount, 61);
   assert.equal(report.privateHelperCount, 4);
 });
 
 test("signed-out school autocomplete is the only added anonymous teacher-signup RPC", () => {
   const boundary = fs.readFileSync(
-    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
+    new URL("../../supabase/migrations/20260801091000_security_definer_boundary.sql", import.meta.url),
     "utf8"
   );
   const schoolInput = fs.readFileSync(
@@ -105,7 +105,7 @@ test("signed-out school autocomplete is the only added anonymous teacher-signup 
 
 test("final boundary keeps support and account-decision evidence read-only", () => {
   const boundary = fs.readFileSync(
-    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
+    new URL("../../supabase/migrations/20260801091000_security_definer_boundary.sql", import.meta.url),
     "utf8"
   );
   assert.match(
@@ -124,7 +124,7 @@ test("final boundary keeps support and account-decision evidence read-only", () 
 
 test("final boundary exposes each reviewed support lifecycle RPC only to authenticated actors", () => {
   const boundary = fs.readFileSync(
-    new URL("../../supabase/migrations/20260728128000_security_definer_boundary.sql", import.meta.url),
+    new URL("../../supabase/migrations/20260801091000_security_definer_boundary.sql", import.meta.url),
     "utf8"
   );
   for (const signature of [

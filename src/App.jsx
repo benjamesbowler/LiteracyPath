@@ -19,7 +19,7 @@ import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepe
 import { ASSESSMENT_RESPONSE_STATUSES, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, shouldOpenDefaultTeacherRoute, teacherIntentHash } from "./appState/appViewHelpers.js";
-import { deleteElBenchmarkDraft, loadElBenchmarkDraft, resolveElBenchmarkSessionOwnership, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
+import { deleteElBenchmarkDraft, loadElBenchmarkDraft, resolveElBenchmarkSessionOwnership, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
 import { calculateAccuracy, calculateRoundCorrect } from "./appState/assessmentSessionHelpers.js";
 import { preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
 import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry } from "./utils/lazyWithRetry.js";
@@ -857,7 +857,7 @@ export default function App() {
     configureProgressSync, correctAnswered, currentSkillIndex,
     elBenchmarkAssessmentHash, elBenchmarkSession, findQuestionForAnswerRecord, freshAuthActionRef,
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
-    getGuidedReadingStorageKeyForSession, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
+    getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-10-frogs",
   "contentHash": "sha256:b2f3c4e6eaa313dca96c3945b5f4fdf550bd45dda4b3e3c1823293dfe29e18b9",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-10-frogs-q3",
-      "prompt": "Which statement gives the main idea of The Common Frog Life Cycle?",
+      "prompt": "What is the big idea of The Common Frog Life Cycle?",
       "choices": [
-        "Male common frogs make soft spring calls near breeding ponds.",
-        "Common frogs are amphibians that use freshwater and damp land.",
-        "Back legs then front legs grow as tails shrink during metamorphosis."
+        "Frogs grow from eggs and live on land and in water.",
+        "Only common frogs are amphibians that use freshwater and damp land.",
+        "Only back legs then front legs grow as tails shrink during metamorphosis."
       ],
-      "answer": "Male common frogs make soft spring calls near breeding ponds.",
+      "answer": "Frogs grow from eggs and live on land and in water.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Male common frogs make soft spring calls near breeding ponds. This final statement gathers the book's details into its main idea.",
+      "rationale": "Common frogs are amphibians that use freshwater and damp land. Back legs then front legs grow as tails shrink during metamorphosis. Male common frogs make soft spring calls near breeding ponds. Together, these facts show the whole-book big idea: Frogs grow from eggs and live on land and in water.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Common frogs are amphibians that use freshwater and damp land."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Back legs then front legs grow as tails shrink during metamorphosis."
+        }
+      ],
+      "distractorRationales": {
+        "Only common frogs are amphibians that use freshwater and damp land.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only back legs then front legs grow as tails shrink during metamorphosis.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Male common frogs make soft spring calls near breeding ponds."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-15-things-that-float-and-sink",
   "contentHash": "sha256:752fadc5529781faf84f425daf017adcbe4308e938e3996c716fe30e45f27fe2",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q3",
-      "prompt": "Which statement gives the main idea of Why Things Float or Sink?",
+      "prompt": "What is the big idea of Why Things Float or Sink?",
       "choices": [
-        "Weight alone does not decide.",
-        "A hollow toy duck can float.",
-        "A leaf may float while a coin sinks."
+        "Many things can float or sink in water.",
+        "Only a hollow toy duck can float.",
+        "Only a leaf may float while a coin sinks."
       ],
-      "answer": "Weight alone does not decide.",
+      "answer": "Many things can float or sink in water.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Weight alone does not decide. This final statement gathers the book's details into its main idea.",
+      "rationale": "A hollow toy duck can float. A leaf may float while a coin sinks. Weight alone does not decide. Together, these facts show the whole-book big idea: Many things can float or sink in water.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A hollow toy duck can float."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A leaf may float while a coin sinks."
+        }
+      ],
+      "distractorRationales": {
+        "Only a hollow toy duck can float.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a leaf may float while a coin sinks.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "Weight alone does not decide."
     }

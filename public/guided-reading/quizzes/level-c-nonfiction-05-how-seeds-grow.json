@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-05-how-seeds-grow",
   "contentHash": "sha256:0f49ef78255e03514aed20db2b94ade116c43b0def02cf938ce3b508ee2879d1",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-05-how-seeds-grow-q3",
-      "prompt": "Which statement gives the main idea of How a Flowering Plant Grows?",
+      "prompt": "What is the big idea of How a Flowering Plant Grows?",
       "choices": [
-        "With suitable conditions a new flowering-plant cycle can begin.",
-        "Many flowering plants begin as seeds containing embryos and food stores.",
-        "A shoot reaches light and opens its first leaves."
+        "Flowering plants grow from seeds and make new seeds.",
+        "Only a shoot reaches light and opens its first leaves.",
+        "Only flowers can attract animals that transfer pollen."
       ],
-      "answer": "With suitable conditions a new flowering-plant cycle can begin.",
+      "answer": "Flowering plants grow from seeds and make new seeds.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "With suitable conditions a new flowering-plant cycle can begin. This final statement gathers the book's details into its main idea.",
+      "rationale": "Many flowering plants begin as seeds containing embryos and food stores. A shoot reaches light and opens its first leaves. With suitable conditions a new flowering-plant cycle can begin. Together, these facts show the whole-book big idea: Flowering plants grow from seeds and make new seeds.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Many flowering plants begin as seeds containing embryos and food stores."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "A shoot reaches light and opens its first leaves."
+        }
+      ],
+      "distractorRationales": {
+        "Only a shoot reaches light and opens its first leaves.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only flowers can attract animals that transfer pollen.": "Page 6 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "With suitable conditions a new flowering-plant cycle can begin."
     }

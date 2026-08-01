@@ -858,14 +858,17 @@ test("an embedded student report returns to the report chooser", async () => {
   );
 });
 
-test("the printable class report uses the selected period and full status labels", async () => {
-  const reports = await source("src/components/AdminDashboardPage.jsx");
+test("the printable class report lives in the teacher workflow and uses the selected period", async () => {
+  const [admin, reports] = await Promise.all([
+    source("src/components/AdminDashboardPage.jsx"),
+    source("src/components/reports/ClassSummaryReportDocument.jsx")
+  ]);
 
-  assert.match(reports, /A quick view of saved results for the selected period/);
-  assert.match(reports, /\["Answer accuracy", reportPercentage/);
-  assert.match(reports, /\? "Not enough results"/);
-  assert.doesNotMatch(reports, /\["Recent answer accuracy"/);
-  assert.doesNotMatch(reports, /\? "Not enough"\s*:/);
+  assert.doesNotMatch(admin, /A quick view of saved results for the selected period/);
+  assert.match(reports, /filters\?\.\["Assessment period"\]/);
+  assert.match(reports, /<span>Class accuracy<\/span>/);
+  assert.match(reports, /: "Not enough results"/);
+  assert.match(reports, /Missing or incomplete results are not counted as zero/);
 });
 
 test("teacher-run letter and pattern assessments keep their name and directions visible", async () => {

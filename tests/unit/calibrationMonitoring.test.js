@@ -167,20 +167,28 @@ test("direct identity fields and duplicate item events fail closed", () => {
   assert.match(duplicateModel.failures.join("\n"), /duplicate event/i);
 });
 
-test("the admin route exposes the calibration dashboard and its no-fake-evidence warning", () => {
+test("the synthetic calibration preview stays out of operational Admin navigation", () => {
   const adminSource = fs.readFileSync(
     new URL("../../src/components/AdminDashboardPage.jsx", import.meta.url),
+    "utf8"
+  );
+  const adminNavigationSource = fs.readFileSync(
+    new URL("../../src/appState/adminQaNavigation.js", import.meta.url),
     "utf8"
   );
   const panelSource = fs.readFileSync(
     new URL("../../src/components/admin/CalibrationMonitoringPanel.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(
+  assert.doesNotMatch(
     adminSource,
     /id: "calibration", label: "Assessment consistency"/
   );
-  assert.match(adminSource, /activeSection === "calibration".*CalibrationMonitoringPanel/s);
+  assert.doesNotMatch(adminSource, /activeSection === "calibration"/);
+  assert.match(
+    adminNavigationSource,
+    /"\/admin\/app\/assessment-consistency": "operations"/
+  );
   assert.match(panelSource, /Synthetic demonstration data — not real child evidence/);
   assert.match(panelSource, /Specialist review required/);
   assert.match(panelSource, /Cells below/);

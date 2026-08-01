@@ -130,6 +130,9 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_delete_saved_assessment_report(text)": {
     p_report_id: "audit-forbidden"
   },
+  "teacher_end_reading_session(uuid)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_export_learner_data(uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_requester_role: "school",
@@ -138,6 +141,9 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_get_learner_deletion_status(uuid, text)": {
     p_request_id: "00000000-0000-0000-0000-000000000000",
     p_subject_ref: "0".repeat(64)
+  },
+  "teacher_get_reading_session_presence(uuid)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000"
   },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
   "teacher_mark_intervention_delivered(uuid)": {
@@ -182,6 +188,24 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_criteria: {},
     p_student_ids: [],
     p_evidence_snapshot: {}
+  },
+  "teacher_save_reading_marks(uuid, uuid, integer, jsonb, text)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000",
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_page_index: 0,
+    p_marks: {},
+    p_client_event_id: "anonymous-access-probe"
+  },
+  "teacher_set_reading_session_page(uuid, integer)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000",
+    p_page_index: 0
+  },
+  "teacher_start_reading_session(uuid, text, integer[], uuid[], text)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_book_id: "audit-probe",
+    p_page_numbers: [1],
+    p_student_ids: [EXPECTED.teacherA.studentId],
+    p_content_version: "audit-probe"
   },
   "teacher_cancel_intervention(uuid, text)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000",

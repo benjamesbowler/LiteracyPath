@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-33",
   "contentHash": "sha256:e6391629aeb106c75b866a0deeab5e78446518d0399edf1e8bd2383db669e865",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-b-33-q3",
-      "prompt": "Which statement gives the main idea of Tools?",
+      "prompt": "What is the big idea of Tools?",
       "choices": [
-        "Adults use tools carefully.",
-        "A hammer drives nails.",
-        "A wrench turns bolts."
+        "Different tools help people do different jobs.",
+        "Only a hammer drives nails.",
+        "Only a wrench turns bolts."
       ],
-      "answer": "Adults use tools carefully.",
+      "answer": "Different tools help people do different jobs.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Adults use tools carefully. This final statement gathers the book's details into its main idea.",
+      "rationale": "A hammer drives nails. A wrench turns bolts. Adults use tools carefully. Together, these facts show the whole-book big idea: Different tools help people do different jobs.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A hammer drives nails."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A wrench turns bolts."
+        }
+      ],
+      "distractorRationales": {
+        "Only a hammer drives nails.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a wrench turns bolts.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Adults use tools carefully."
     }

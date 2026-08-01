@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-13-big-and-small",
   "contentHash": "sha256:62263327991e163f8ab280045d0095f3a5a9c227a0c892cb9cd7f352793b26b3",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-13-big-and-small-q3",
-      "prompt": "Which statement gives the main idea of Big and Small?",
+      "prompt": "What is the big idea of Big and Small?",
       "choices": [
         "Size depends on what we compare.",
-        "An elephant is big beside a mouse.",
-        "A bus is big beside a toy car."
+        "Only an elephant is big beside a mouse.",
+        "Only a bus is big beside a toy car."
       ],
       "answer": "Size depends on what we compare.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Size depends on what we compare. This final statement gathers the book's details into its main idea.",
+      "rationale": "An elephant is big beside a mouse. A bus is big beside a toy car. Size depends on what we compare. Together, these facts show the whole-book big idea: Size depends on what we compare.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "An elephant is big beside a mouse."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A bus is big beside a toy car."
+        }
+      ],
+      "distractorRationales": {
+        "Only an elephant is big beside a mouse.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a bus is big beside a toy car.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Size depends on what we compare."
     }

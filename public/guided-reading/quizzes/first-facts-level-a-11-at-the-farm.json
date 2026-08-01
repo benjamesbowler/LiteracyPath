@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-11-at-the-farm",
   "contentHash": "sha256:709fb93ac524990e05aae0b0465cc4a45cd42da7984a471bfb10913c7d7ec4ea",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-level-a-11-at-the-farm-q3",
-      "prompt": "What is the big idea in At the Farm?",
+      "prompt": "What is the big idea of At the Farm?",
       "choices": [
-        "There is much to see.",
-        "A red barn stands tall.",
-        "A chick says peep."
+        "Many animals and plants live on a farm.",
+        "Only a red barn stands tall.",
+        "Only a chick says peep."
       ],
-      "answer": "There is much to see.",
+      "answer": "Many animals and plants live on a farm.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "There is much to see. This final statement gathers the book's details into its main idea.",
+      "rationale": "A red barn stands tall. A chick says peep. There is much to see. Together, these facts show the whole-book big idea: Many animals and plants live on a farm.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "A red barn stands tall."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "A chick says peep."
+        }
+      ],
+      "distractorRationales": {
+        "Only a red barn stands tall.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a chick says peep.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "There is much to see."
     }

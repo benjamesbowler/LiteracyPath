@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-09-caves",
   "contentHash": "sha256:0178dfeeb2e82dee0bbe70c1d4c24b42063b4c0cad2c3949c4e8f05c50144654",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "level-c-nonfiction-09-caves-q3",
-      "prompt": "Which statement gives the main idea of Caves?",
+      "prompt": "What is the big idea of Caves?",
       "choices": [
-        "Ancient cave art preserves evidence of people from long ago.",
-        "Water waves and lava can form different kinds of caves.",
-        "Mineral deposits hanging from ceilings are called stalactites."
+        "Caves form slowly and can hold signs of life and people.",
+        "Only water waves and lava can form different kinds of caves.",
+        "Only mineral deposits hanging from ceilings are called stalactites."
       ],
-      "answer": "Ancient cave art preserves evidence of people from long ago.",
+      "answer": "Caves form slowly and can hold signs of life and people.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Ancient cave art preserves evidence of people from long ago. This final statement gathers the book's details into its main idea.",
+      "rationale": "Water waves and lava can form different kinds of caves. Mineral deposits hanging from ceilings are called stalactites. Ancient cave art preserves evidence of people from long ago. Together, these facts show the whole-book big idea: Caves form slowly and can hold signs of life and people.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Water waves and lava can form different kinds of caves."
+        },
+        {
+          "evidencePage": 4,
+          "evidenceText": "Mineral deposits hanging from ceilings are called stalactites."
+        }
+      ],
+      "distractorRationales": {
+        "Only water waves and lava can form different kinds of caves.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only mineral deposits hanging from ceilings are called stalactites.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
       "evidenceText": "Ancient cave art preserves evidence of people from long ago."
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-14-hot-and-cold",
   "contentHash": "sha256:e99142f07b6d3ef49270faf5d3411eb8f473e960fad5c33d6ca52e361a3ef1fe",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "first-facts-a-14-hot-and-cold-q3",
-      "prompt": "Which statement gives the main idea of Hot and Cold?",
+      "prompt": "What is the big idea of Hot and Cold?",
       "choices": [
         "We can compare temperatures safely.",
-        "Sunlight can warm our skin.",
-        "Ice and snow have low temperatures."
+        "Only sunlight can warm our skin.",
+        "Only ice and snow have low temperatures."
       ],
       "answer": "We can compare temperatures safely.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "We can compare temperatures safely. This final statement gathers the book's details into its main idea.",
+      "rationale": "Sunlight can warm our skin. Ice and snow have low temperatures. We can compare temperatures safely. Together, these facts show the whole-book big idea: We can compare temperatures safely.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Sunlight can warm our skin."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Ice and snow have low temperatures."
+        }
+      ],
+      "distractorRationales": {
+        "Only sunlight can warm our skin.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only ice and snow have low temperatures.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
       "evidenceText": "We can compare temperatures safely."
     }

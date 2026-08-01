@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "quizVersion": "2026-08-01.1",
+  "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-49",
   "contentHash": "sha256:f1a016bd0c0f9c562ed7107146af906c9c4526c5d3bf32018153ccba697dce1b",
   "questions": [
@@ -34,16 +34,31 @@
     },
     {
       "id": "gr-e-49-q3",
-      "prompt": "Which statement gives the main idea of Clothes?",
+      "prompt": "What is the big idea of Clothes?",
       "choices": [
         "Clothes can protect and warm us.",
-        "Hats shade us on sunny days.",
-        "Boots keep feet dry in rain."
+        "Only hats shade us on sunny days.",
+        "Only boots keep feet dry in rain."
       ],
       "answer": "Clothes can protect and warm us.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Clothes can protect and warm us. This final statement gathers the book's details into its main idea.",
+      "rationale": "Hats shade us on sunny days. Boots keep feet dry in rain. Clothes can protect and warm us. Together, these facts show the whole-book big idea: Clothes can protect and warm us.",
+      "supportingEvidence": [
+        {
+          "evidencePage": 1,
+          "evidenceText": "Hats shade us on sunny days."
+        },
+        {
+          "evidencePage": 3,
+          "evidenceText": "Boots keep feet dry in rain."
+        }
+      ],
+      "distractorRationales": {
+        "Only hats shade us on sunny days.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only boots keep feet dry in rain.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+      },
+      "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
       "evidenceText": "Clothes can protect and warm us."
     }

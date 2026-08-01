@@ -6,70 +6,53 @@ export const ADMIN_QUESTION_REPORTS_PATH = "/admin/question-flags";
 // picker, cold links and browser history cannot drift onto different pages.
 export const ADMIN_SECTION_ROUTES = Object.freeze({
   overview: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/overview"
   }),
   signups: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/teacher-requests"
   }),
   schools: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/schools"
   }),
   teachers: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/teachers"
   }),
   classes: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/classes"
   }),
   students: Object.freeze({
-    area: "school",
+    area: "operations",
     path: "/admin/school/students"
   }),
-  teacherReport: Object.freeze({
-    area: "school",
-    path: "/admin/school/reports"
-  }),
-  archive: Object.freeze({
-    area: "school",
-    path: "/admin/school/assessment-records"
-  }),
-  release: Object.freeze({
-    area: "technical",
-    path: "/admin/app/readiness"
-  }),
-  guidedInsight: Object.freeze({
-    area: "technical",
-    path: "/admin/app/reading-book-checks"
-  }),
-  guidedMediaQa: Object.freeze({
-    area: "technical",
-    path: "/admin/app/book-media-checks"
-  }),
-  coverage: Object.freeze({
-    area: "technical",
-    path: "/admin/app/lesson-content-checks"
-  }),
-  calibration: Object.freeze({
-    area: "technical",
-    path: "/admin/app/assessment-consistency"
+  operations: Object.freeze({
+    area: "operations",
+    path: "/admin/operations/support"
   }),
   questionFlags: Object.freeze({
-    area: "technical",
+    area: "operations",
     // This public deep link predates the other Admin routes. Keep it stable.
     path: ADMIN_QUESTION_REPORTS_PATH
-  }),
-  mapStops: Object.freeze({
-    area: "technical",
-    path: "/admin/app/student-map"
-  }),
-  hollowSpots: Object.freeze({
-    area: "technical",
-    path: "/admin/app/student-rewards"
   })
+});
+
+// These pages were development/reporting workspaces, not account operations.
+// Keep their old URLs safe for bookmarks and browser history, but land them on
+// the nearest current operational page instead of reviving the retired UI.
+export const ADMIN_LEGACY_ROUTE_REDIRECTS = Object.freeze({
+  "/admin/school/reports": "classes",
+  "/admin/school/assessment-records": "students",
+  "/admin/app/readiness": "operations",
+  "/admin/app/reading-book-checks": "operations",
+  "/admin/app/book-media-checks": "operations",
+  "/admin/app/lesson-content-checks": "operations",
+  "/admin/app/assessment-consistency": "operations",
+  "/admin/app/student-map": "overview",
+  "/admin/app/student-rewards": "overview"
 });
 
 const ADMIN_ROUTES_BY_PATH = new Map(
@@ -88,7 +71,18 @@ function normalizedPathname(pathname = "") {
 }
 
 export function adminRouteForPath(pathname = "") {
-  return ADMIN_ROUTES_BY_PATH.get(normalizedPathname(pathname)) || null;
+  const normalized = normalizedPathname(pathname);
+  const current = ADMIN_ROUTES_BY_PATH.get(normalized);
+  if (current) return current;
+  const redirectSectionId = ADMIN_LEGACY_ROUTE_REDIRECTS[normalized];
+  const redirect = ADMIN_SECTION_ROUTES[redirectSectionId];
+  return redirect
+    ? Object.freeze({
+        ...redirect,
+        sectionId: redirectSectionId,
+        redirectFrom: normalized
+      })
+    : null;
 }
 
 export function adminPathForSection(sectionId = "overview") {

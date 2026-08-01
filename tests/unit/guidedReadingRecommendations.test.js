@@ -85,7 +85,7 @@ test("Guided Reading recommendations use student results rather than the selecte
   );
   const teacherPanel = guidedReadingPageSource.slice(
     guidedReadingPageSource.indexOf('aria-label="Guided reading recommendations"'),
-    guidedReadingPageSource.indexOf("{readerOpen && !showSummary")
+    guidedReadingPageSource.indexOf("{readerOpen && !scoreSummaryOpen")
   );
 
   assert.match(recommendationBlock, /studentProgress: recommendationEvidenceReady/);
