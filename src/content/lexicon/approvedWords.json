@@ -1,5 +1,5 @@
 {
-  "note": "Skills Assessment Rebuild v3 lexicon. `words` = real, child-appropriate words approved for use as choices in single-word formats. `approvedDevErrors` = the ONLY sanctioned non-standard forms, usable solely in explicitly error-recognition formats (AUTHORING_STANDARDS §4). `phonics` = human-reviewed word→pattern mappings; L-LEX rejects any phonics item whose mapping is absent. Grow this file per authoring wave; every addition is part of Ben's per-skill review pack.",
+  "note": "Skills Assessment Rebuild v3 lexicon. `words` = real, child-appropriate words approved for use as choices in single-word formats. `approvedDevErrors` = the ONLY sanctioned non-standard forms, usable solely in explicitly error-recognition formats (AUTHORING_STANDARDS §4). `phonics` = reviewed word→pattern mappings; L-LEX rejects any phonics item whose mapping is absent. Additions must pass the current assessment authoring gate.",
   "words": [
     "a",
     "about",
@@ -1011,22 +1011,7 @@
     "zap",
     "zebra",
     "zip",
-    "zoo",
-    "awake",
-    "bright",
-    "cozy",
-    "empty",
-    "finish",
-    "little",
-    "morning",
-    "orange",
-    "packed",
-    "silly",
-    "start",
-    "steady",
-    "tiny",
-    "try",
-    "whisper"
+    "zoo"
   ],
   "approvedDevErrors": [
     "foots",
@@ -1144,11 +1129,11 @@
       "can",
       "nap",
       "bat",
+      "bad",
+      "crab",
       "flag",
       "hand",
-      "crab",
-      "ram",
-      "bad"
+      "ram"
     ],
     "short_e": [
       "bed",
@@ -1163,15 +1148,15 @@
       "wet",
       "jet",
       "fed",
-      "pen",
-      "nest",
-      "desk",
-      "tent",
-      "shell",
-      "vest",
       "bell",
       "belt",
+      "desk",
+      "nest",
+      "pen",
+      "shell",
       "sled",
+      "tent",
+      "vest",
       "vet"
     ],
     "short_i": [
@@ -1191,10 +1176,10 @@
       "six",
       "tin",
       "brick",
-      "gift",
-      "swim",
       "fish",
-      "sit"
+      "gift",
+      "sit",
+      "swim"
     ],
     "short_o": [
       "pot",
@@ -1211,11 +1196,11 @@
       "hog",
       "rob",
       "cod",
-      "sock",
       "clock",
-      "frog",
+      "dock",
       "fox",
-      "dock"
+      "frog",
+      "sock"
     ],
     "short_u": [
       "sun",
@@ -1232,13 +1217,13 @@
       "nut",
       "pup",
       "tug",
-      "drum",
-      "truck",
-      "duck",
       "brush",
+      "drum",
+      "duck",
+      "dug",
       "hut",
       "plug",
-      "dug"
+      "truck"
     ],
     "ch": [
       "chair",

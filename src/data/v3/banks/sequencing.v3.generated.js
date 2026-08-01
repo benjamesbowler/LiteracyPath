@@ -71,14 +71,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -183,14 +182,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -295,14 +293,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -407,14 +404,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -519,14 +515,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -631,14 +626,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -743,14 +737,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -855,14 +848,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -967,14 +959,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1079,14 +1070,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1191,14 +1181,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1303,14 +1292,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1415,14 +1403,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1527,14 +1514,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1639,14 +1625,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1751,14 +1736,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1863,14 +1847,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -1975,14 +1958,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2087,14 +2069,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2199,14 +2180,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2311,14 +2291,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2423,14 +2402,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2535,14 +2513,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2647,14 +2624,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2759,14 +2735,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2871,14 +2846,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -2983,14 +2957,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -3095,14 +3068,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -3207,14 +3179,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -3319,14 +3290,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "sequenceCards": [
@@ -3421,33 +3391,25 @@ export const questions = [
    "the labels went on": "D-SEQUENCE-SWAP",
    "the jars were bought": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for Jam morning ran to Gran's strict order: berries picked before the sun got hot, then washed, then boiled with sugar until the kitchen windows wept steam. Only when a drop wrinkled on a cold saucer did the jars get filled, and the labels went on last, once the glass had cooled."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v2",
@@ -3509,33 +3471,25 @@ export const questions = [
    "the eggs went under the lamp": "D-SEQUENCE-SWAP",
    "the chicks turned fluffy": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "resolvedImageAssetKey": "right",
-  "imageAlt": "Illustration for The egg diary told the whole story. Day one: six eggs under the warm lamp. Day nineteen: the first tiny crack. Day twenty: cheeping from inside the shells. Day twenty-one: five wet chicks, then a sixth, late and loud. Day twenty-three: six fluffy escape artists."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v3",
@@ -3597,33 +3551,25 @@ export const questions = [
    "while the spray bottle worked": "D-SEQUENCE-SWAP",
    "it stayed on the shelf": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
-  "imageAlt": "Illustration for Hair-cut Saturday followed its ritual. The gown went on backwards like a superhero cape. The spray bottle made Otto shiver. The scissors talked their snip-snip talk around his ears. And only after the little mirror had shown him the back of his own head did the lollipop jar come down from the shelf."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v4",
@@ -3685,33 +3631,25 @@ export const questions = [
    "rode the bus home": "D-PLAUSIBLE-UNSUPPORTED",
    "put bags in the lockers": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
-  "resolvedImageAssetKey": "dinosaur",
-  "imageAlt": "Illustration for The museum trip ran like clockwork. Coats and bags went into the big lockers first. The dinosaur hall came before lunch, because Mr Idris knew nobody could concentrate after seeing the gift shop. Lunch happened in the echoing basement room. The gift shop came last — five pounds, one bag, no swaps."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v5",
@@ -3773,33 +3711,25 @@ export const questions = [
    "during the slug battle": "D-SEQUENCE-SWAP",
    "before the seeds were potted": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
-  "imageAlt": "Illustration for The salad took all spring. Seeds went into pots on the cold windowsill in March. In April, after the last frost had passed, the little plants moved out to the raised bed. May brought watering duty and one dramatic slug battle. In June, at last, scissors met lettuce, and lunch tasted of the whole spring."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v6",
@@ -3861,33 +3791,25 @@ export const questions = [
    "during the warm-up laps": "D-SEQUENCE-SWAP",
    "at noon with the team sheet": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
-  "resolvedImageAssetKey": "butterfly",
-  "imageAlt": "Illustration for Match-day afternoons had a fixed shape. Boots were cleaned the night before — always the night before, never the morning, that was the rule. The team sheet went up at noon. Warm-up laps started at one. And the moment the whistle blew at two, every stomach butterfly vanished until full time."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v7",
@@ -3949,33 +3871,25 @@ export const questions = [
    "stretching long to the fence": "D-SEQUENCE-SWAP",
    "touching the hedge": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/after.webp",
-  "imageUrl": "/images/assessment/hfw/after.webp",
-  "targetImage": "/images/assessment/hfw/after.webp",
-  "targetImagePath": "/images/assessment/hfw/after.webp",
-  "resolvedImageAssetKey": "after",
-  "imageAlt": "Illustration for The shadow experiment lasted from breakfast to tea. At nine, Asha chalked round her friend's shadow — long and thin, stretching to the fence. Just after twelve she drew it again: a squat puddle right at his feet. At three the shadow had crept out the other side, and by five it touched the hedge, longer than ever."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v8",
@@ -4037,33 +3951,25 @@ export const questions = [
    "the case waddled across the room": "D-SEQUENCE-SWAP",
    "new shelves were built": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/shelf-shelves-01.webp",
-  "resolvedImageAssetKey": "shelves",
-  "imageAlt": "Illustration for Moving the bookcase needed planning. Every book came off the shelves before anything else — Dad had learned that lesson the hard way. The empty case walked across the room on little waddles. Then the carpet fluff where it had stood got its first hoover in years. Only after that did the books go back, in Robi's brand-new rainbow order."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v1",
@@ -4125,33 +4031,25 @@ export const questions = [
    "the cherry went on top": "D-SEQUENCE-SWAP",
    "the tins went into the sink": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Noor licked the last of the icing from her fingers. The kitchen still smelled of warm sponge, and two greasy tins soaked in the sink. On the table sat the finished cake, iced and cherried, next to the recipe book still open at page nine."
+  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick"
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v2",
@@ -4213,33 +4111,25 @@ export const questions = [
    "the lopsided snowman was built in the garden": "D-SEQUENCE-SWAP",
    "the sledging on the hill happened": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/carrot-carrots-01.webp",
-  "resolvedImageAssetKey": "carrot",
-  "imageAlt": "Illustration for The sledge stood dripping in the hall. Three pairs of soaked gloves lay on the radiator, and a carrot with a bite-shaped dent waited by the back door. Out in the garden, a lopsided white figure wore Dad's second-best scarf."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v3",
@@ -4301,33 +4191,25 @@ export const questions = [
    "the empty pots were stacked": "D-SEQUENCE-SWAP",
    "the barrow was emptied": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "imageUrl": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImage": "/images/assessment/digraphs/wheelbarrow.webp",
-  "targetImagePath": "/images/assessment/digraphs/wheelbarrow.webp",
-  "resolvedImageAssetKey": "wheelbarrow",
-  "imageAlt": "Illustration for By the gate stood a wheelbarrow of weeds, still green. The flower bed's soil lay dark and freshly turned, and a tray of empty little pots had been stacked by the shed. In the bed itself, twelve small marigolds stood in a crisp new row, looking slightly surprised."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v4",
@@ -4389,33 +4271,25 @@ export const questions = [
    "the pool was closed": "D-PLAUSIBLE-UNSUPPORTED",
    "Rio hopped to the bench": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/shallow-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/shallow-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/shallow-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/shallow-01.webp",
-  "resolvedImageAssetKey": "shallow",
-  "imageAlt": "Illustration for Rio hopped to the bench with one bare foot. Out in the shallow end, a lifeguard fished patiently with a long pole. On the tiles lay one wet sock, and somewhere between the changing room and the water, the story of how his flip-flop had ended up floating told itself."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v5",
@@ -4477,33 +4351,25 @@ export const questions = [
    "the parcel was posted": "D-PLAUSIBLE-UNSUPPORTED",
    "the box was taped shut": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "resolvedImageAssetKey": "newspaper",
-  "imageAlt": "Illustration for The parcel for Aunt Zainab was ready at last: taped, addressed, and heavy with marmalade jars wrapped in yesterday's crossword pages. Bubble wrap scraps littered the floor, the sellotape had surrendered its final inch, and the address label — third attempt — finally spelled 'Fentiman Road' right."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v6",
@@ -4565,33 +4431,25 @@ export const questions = [
    "the prompt book closed": "D-SEQUENCE-SWAP",
    "the cast took their bows": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Curtain call. Flowers rained onto the stage as the cast bowed in their painted cardboard armour. In the wings, the prompt book sat closed on its stool at last, and backstage a whole term's worth of rehearsal notes filled the bin — three drafts of the script, the audition list, the first clumsy set sketches."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v7",
@@ -4653,33 +4511,25 @@ export const questions = [
    "the worms drew wavy tunnel lines past the glass": "D-SEQUENCE-SWAP",
    "the trowel went into the jar": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for The wormery finally stood complete on the balcony: layers of sand and dark soil striped like a cake, damp leaves on top, and five worms already tunnelling their first wavy lines past the glass. A bag of leftover sand slumped by the door, and Juno's soil-crusted trowel soaked in a jam jar."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v8",
@@ -4741,33 +4591,25 @@ export const questions = [
    "the half-time oranges": "D-SEQUENCE-SWAP",
    "the winning penalty": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "resolvedImageAssetKey": "passed",
-  "imageAlt": "Illustration for Half-time. The score sat at two-one, and Coach passed the orange quarters down the line of muddy knees. Nobody mentioned the first goal any more — the lucky bounce off the post — and everybody mentioned the second, Ffion's header, over and over, louder each telling."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v1",
@@ -4829,33 +4671,25 @@ export const questions = [
    "the letter is written": "D-SEQUENCE-SWAP",
    "the letter is posted in the box": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/letter.webp",
-  "imageUrl": "/images/assessment/generated/concepts/letter.webp",
-  "targetImage": "/images/assessment/generated/concepts/letter.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
-  "resolvedImageAssetKey": "letter",
-  "imageAlt": "Illustration for A letter's journey has stages. It is posted into the box on the corner. A postal worker empties the box into a big sack. At the sorting office, machines read the postcode and fling it into the right tray. A van carries the tray across the country, and a walking postie brings the letter the last few steps to the right door."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v2",
@@ -4917,33 +4751,25 @@ export const questions = [
    "sugar and milk join in": "D-SEQUENCE-SWAP",
    "the bars reach the shops": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for From cocoa pod to chocolate bar takes many steps. Farmers cut the pods and scoop out the beans. The beans dry in the sun for days. Roasting wakes up their flavour. Then grinding turns them into a thick brown paste, and only after sugar and milk join in does the paste set into the bars on the shop shelf."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v3",
@@ -5005,33 +4831,25 @@ export const questions = [
    "the bottles are sorted by colour": "D-SEQUENCE-SWAP",
    "bottles are collected from kerbsides": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/travel-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/travel-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/travel-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/travel-01.webp",
-  "resolvedImageAssetKey": "travel",
-  "imageAlt": "Illustration for Recycled glass goes round in a loop. Bottles from the kerbside boxes travel to the plant. There they are sorted by colour and smashed into sparkling crumbs. A furnace melts the crumbs into glowing liquid. The liquid is blown or pressed into brand-new bottles — which, with luck, come back in the kerbside boxes to start again."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v4",
@@ -5093,33 +4911,25 @@ export const questions = [
    "the tooth comes out": "D-SEQUENCE-SWAP",
    "the dentist is telephoned": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
-  "imageAlt": "Illustration for A tooth's visit from the tooth fairy follows steps, Ari explained seriously. The tooth wobbles for days. It comes out — usually in an apple or a laugh. It goes under the pillow at bedtime. In the morning, a coin has taken its place. The tooth itself, Ari suspected, joins a very large collection somewhere."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v5",
@@ -5181,33 +4991,25 @@ export const questions = [
    "pass it mouth to mouth": "D-SEQUENCE-SWAP",
    "break the wax open": "D-OPPOSITE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Honey is a relay race. Bees drink nectar from flowers and carry it home. House bees pass it mouth to mouth, thickening it as it goes. The thickened nectar is packed into wax cells. Bees fan it with their wings until enough water has gone. Only then is the cell capped with wax, honey sealed inside like a tiny jar."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v6",
@@ -5269,33 +5071,25 @@ export const questions = [
    "the boat goes down the slipway": "D-SEQUENCE-SWAP",
    "they ask where they are going": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "resolvedImageAssetKey": "right",
-  "imageAlt": "Illustration for The lifeboat launch runs on drilled order. Pagers beep in kitchens and workshops across the town. Crew drop everything and run to the station. Kit goes on in ninety seconds — boots, suit, lifejacket. The doors roll up, the boat thunders down the slipway, and only out past the harbour wall does anyone have breath to ask where they are going."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v7",
@@ -5357,33 +5151,25 @@ export const questions = [
    "it lives beside someone's bed": "D-SEQUENCE-SWAP",
    "it is reshelved immediately unchecked": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "resolvedImageAssetKey": "careful",
-  "imageAlt": "Illustration for A library book's life is a circle. It is chosen and borrowed at the desk. It lives in a reader's house for a while — beside beds, in bags, once or twice in a garden. It comes back through the return slot. It is checked, sometimes mended with careful tape, and then reshelved in its exact place, ready to be chosen all over again."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v8",
@@ -5445,33 +5231,25 @@ export const questions = [
    "the trays are washed": "D-PLAUSIBLE-UNSUPPORTED",
    "the seeds are sown in trays": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for School soup follows the garden calendar. Seeds are sown in trays in early spring. Seedlings move to the vegetable patch after the frosts. All term the watering rota keeps them alive — mostly. In autumn the vegetables are pulled, scrubbed, and chopped, and the whole school eats a soup that took half a year to make."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v9r",
@@ -5533,33 +5311,25 @@ export const questions = [
    "the books went back on shelves": "D-SEQUENCE-SWAP",
    "a second marble was found": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
-  "resolvedImageAssetKey": "careful",
-  "imageAlt": "Illustration for The bridge of books rose across the classroom floor all week. Monday: two towers, one at each side. Tuesday: the towers grew waist-high. Wednesday: the first careful plank of atlases went across the gap. Thursday: the marble made its maiden crossing. Friday, by head teacher's decree, the whole marvellous thing went back on the shelves."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v10r",
@@ -5621,33 +5391,25 @@ export const questions = [
    "during the rockets": "D-SEQUENCE-SWAP",
    "at six with the sparklers": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for Bonfire night ran on a strict timetable. The garden was checked for hedgehogs while it was still light — always first, always in daylight. Sparklers came out at six, one each, held at arm's length. The bonfire was lit at seven. And the rockets waited until full dark, because Dad said stars deserve a black sky."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v10r",
@@ -5709,33 +5471,25 @@ export const questions = [
    "the shells were arranged around the castle": "D-SEQUENCE-SWAP",
    "the tide later washed the castle away": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
-  "imageAlt": "Illustration for The sandcastle stood finished at last, moat and all, with a seagull feather flying from the top tower. Around it lay the story of the morning: a ring of shells not quite used up, two buckets with wet sand still crusting their rims, and one very sandy pair of knees."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v11r",
@@ -5797,33 +5551,25 @@ export const questions = [
    "the chairs went back two at a time": "D-SEQUENCE-SWAP",
    "the flowers wilted": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-implied_order-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
-  "imageAlt": "Illustration for The concert was over. On the piano stood a jar of garden flowers and a thank-you card signed by the whole street. The borrowed chairs were going back next door two at a time, and in the kitchen, the tea urn — hero of the interval — steamed gently through its final cups."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v9r",
@@ -5885,33 +5631,25 @@ export const questions = [
    "the thread is knitted": "D-SEQUENCE-SWAP",
    "the jumper is worn": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/thread.webp",
-  "imageUrl": "/images/assessment/digraphs/thread.webp",
-  "targetImage": "/images/assessment/digraphs/thread.webp",
-  "targetImagePath": "/images/assessment/digraphs/thread.webp",
-  "resolvedImageAssetKey": "thread",
-  "imageAlt": "Illustration for Wool has a long journey to a jumper. The sheep is sheared in early summer — a quick, tickly haircut. The fleece is washed until the water runs clear. Carding combs untangle every fibre the same way. The spinning wheel twists the fibres into one long thread, and the knitting needles do the rest, loop by loop."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v10r",
@@ -5973,33 +5711,25 @@ export const questions = [
    "being weighed on arrival": "D-SEQUENCE-SWAP",
    "release at the hedge": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
-  "resolvedImageAssetKey": "hedgehog",
-  "imageAlt": "Illustration for A rescued hedgehog moves through the wildlife centre in stages. New arrivals are weighed and checked the moment they come in. Poorly ones stay warm in the quiet room until they feed by themselves. Then comes the outdoor pen, to practise being wild again. Release night is last — back to the exact hedge where each one was found."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v11r",
@@ -6061,33 +5791,25 @@ export const questions = [
    "Priya took it home": "D-SEQUENCE-SWAP",
    "it was posted to the school": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-before_after_relation-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
-  "imageAlt": "Illustration for The lost glove's week went like this. Monday it fell at the bus stop. Tuesday someone balanced it on the wall, in case its owner came back. Wednesday it wore a dusting of frost. Thursday Priya recognised it from the bus window. And on Friday, glove and girl went home together at last."
+  "notes": ""
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v11r",
@@ -6149,32 +5871,24 @@ export const questions = [
    "the WAIT light switches on": "D-SEQUENCE-SWAP",
    "the button is pressed": "D-SEQUENCE-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "sequencing-l2-process_order-v11",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/sequencing.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
-  "imageAlt": "Illustration for The pedestrian crossing does its dance in strict order. The button is pressed, and the little light says WAIT. Traffic gets its amber warning, then red. Only then does the green walking man appear, with his beeps. When he starts to blink, finish crossing — and then the cars get their turn again."
+  "notes": ""
  }
 ];

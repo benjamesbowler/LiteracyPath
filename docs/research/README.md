@@ -66,7 +66,7 @@ study log, with the identity key stored outside the exported research dataset.
 9. Apply the revision workflow. Educational-safety findings block release until
    independently re-reviewed.
 10. Only the named human owner may add closure evidence to
-    `docs/release/EXTERNAL.md`. Pack preparation alone never closes A1.10.
+    the current release issue. Pack preparation alone never closes external review.
 
 ## Command contract
 

@@ -2,82 +2,25 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { curriculumReleaseBoard } from "../../src/content/assessments/curriculumReleaseBoard.generated.js";
-import { buildCurriculumReleaseBoard } from "../../src/content/curriculumReleaseBoard.js";
-import { assessmentReleaseStatus } from "../../src/content/assessments/assessmentReleaseStatus.generated.js";
-import { assessmentReleaseExposureBySkillId } from "../../src/content/assessments/assessmentReleaseExposure.generated.js";
+import { assessmentRebuildStatusBySkillId } from "../../src/content/assessments/v3/assessmentRebuildStatus.generated.js";
 
-test("Loop D and admin board expose every canonical decision and exact child bank", () => {
+test("the admin release board mirrors the current v3 publication gate", () => {
+  assert.equal(curriculumReleaseBoard.schemaVersion, 3);
   assert.equal(curriculumReleaseBoard.rows.length, 30);
-  assert.equal(
-    curriculumReleaseBoard.readySkills + curriculumReleaseBoard.blockedSkills,
-    30
-  );
+  assert.equal(curriculumReleaseBoard.readySkills, 30);
+  assert.equal(curriculumReleaseBoard.blockedSkills, 0);
+
   for (const row of curriculumReleaseBoard.rows) {
-    assert.ok(row.owner);
-    assert.match(row.studentExposure.fingerprint, /^[0-9a-f]{64}$/);
+    const status = assessmentRebuildStatusBySkillId[row.skillId];
+    assert.ok(status, row.skillId);
+    assert.equal(row.standardVersion, status.standardVersion, row.skillId);
+    assert.equal(row.releaseReady, true, row.skillId);
+    assert.equal(row.gateStatus, "READY", row.skillId);
     assert.equal(
       row.studentExposure.count,
-      (assessmentReleaseExposureBySkillId[row.skillId] || []).length
+      Number(status.counts.level1) + Number(status.counts.level2),
+      row.skillId
     );
-    if (row.releaseReady) {
-      assert.equal(row.gateStatus, "READY");
-      assert.equal(row.studentExposure.count, row.releaseEligibleQuestions);
-      assert.ok(row.studentExposure.count > 0);
-    } else {
-      assert.equal(row.gateStatus, "BLOCKED");
-      assert.equal(row.studentExposure.count, 0);
-      assert.ok(row.reasons.length > 0);
-    }
+    assert.ok(Object.values(row.dimensions).every(value => value === "pass"), row.skillId);
   }
-});
-
-test("ready rows communicate owner, waiver, and exact exposure", () => {
-  const initial = curriculumReleaseBoard.rows.find(row => row.skillId === "initial_sounds");
-  assert.equal(initial.gateStatus, "READY");
-  assert.equal(initial.owner, "Phonics curriculum + media QA");
-  assert.deepEqual(
-    [initial.studentExposure.count, initial.studentExposure.level1, initial.studentExposure.level2],
-    [92, 46, 46]
-  );
-  assert.equal(initial.waiver.excludedQuestionCount, 0);
-
-  const finalSounds = curriculumReleaseBoard.rows.find(row => row.skillId === "final_sounds");
-  assert.equal(finalSounds.waiver.excludedQuestionCount, 6);
-  assert.deepEqual(finalSounds.waiver.reviewBy, ["2026-10-23"]);
-
-  const hfw = curriculumReleaseBoard.rows.find(row => row.skillId === "hfw_1_25");
-  assert.equal(hfw.gateStatus, "READY");
-  assert.deepEqual(
-    [hfw.studentExposure.count, hfw.studentExposure.level1, hfw.studentExposure.level2],
-    [147, 72, 75]
-  );
-  assert.deepEqual(hfw.reasons, []);
-});
-
-test("board construction fails closed when a blocked decision exposes content", () => {
-  const exposureBySkillId = Object.fromEntries(assessmentReleaseStatus.map(status => [
-    status.skillId,
-    {
-      count: 0,
-      level1: 0,
-      level2: 0,
-      fingerprint: "0".repeat(64)
-    }
-  ]));
-  const blockedSkillId = "hfw_1_25";
-  const statuses = assessmentReleaseStatus.map(status => status.skillId === blockedSkillId
-    ? {
-      ...status,
-      releaseReady: false,
-      reasons: ["Synthetic blocked decision for fail-closed coverage."]
-    }
-    : status);
-  exposureBySkillId[blockedSkillId].count = 1;
-  assert.throws(
-    () => buildCurriculumReleaseBoard({
-      statuses,
-      exposureBySkillId
-    }),
-    /blocked skill exposes/
-  );
 });

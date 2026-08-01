@@ -114,15 +114,15 @@ export default {
       "gramps make — the tense slip"),
     cz("made", 1, 1, 2, "The chef ___ soup from scraps.", ["made", "make", "did", "had"], [DV, FS, FS]),
     rf("made", 1, 1, 3, ["made", "make", "mad", "maze"], [VN, VN, VN]),
-    cz("may", 1, 1, 1, "___ I leave the table?", ["may", "can", "do", "will"], [FS, FS, FS],
-      "can is polite-form's rival — both parse, may is the asking word"),
+    cz("may", 1, 1, 1, "There is a chance it ___ rain.", ["may", "did", "has", "was"], [FS, FS, FS],
+      "chance pins may as possibility; the distractors do not complete the frame"),
     cz("may", 1, 1, 2, "It ___ snow before dawn.", ["may", "will", "can", "did"], [FS, DV, DV],
       "before dawn, not they say — say contains ay and would gift the key a chunk"),
     rf("may", 1, 1, 3, ["may", "my", "way", "man"], [VN, VN, VN]),
 
     // ===== L1 phase 2: my no now number oil part people sit than water way who =====
-    cz("my", 1, 2, 1, "That bike is ___, not yours.", ["my", "mine", "me", "your"], [DV, DV, FS],
-      "that bike is my — mine is the right form; the frame makes my the slip-key... my IS the key: 'my, not yours' parses as elliptical"),
+    cz("my", 1, 2, 1, "This is ___ bike, not yours.", ["my", "mine", "me", "your"], [DV, DV, FS],
+      "my is the only possessive form that can sit before bike"),
     cz("my", 1, 2, 2, "I lost ___ left glove.", ["my", "me", "mine", "the"], [DV, DV, FS]),
     rf("my", 1, 2, 3, ["my", "me", "may", "by"], [VN, VN, VN]),
     cz("no", 1, 2, 1, "There are ___ plums left.", ["no", "not", "none", "any"], [DV, DV, DV],
@@ -161,7 +161,7 @@ export default {
     cz("way", 1, 2, 2, "Show me the ___ you fold it.", ["way", "day", "how", "path"], [VN, DV, FS]),
     rf("way", 1, 2, 3, ["way", "why", "day", "wax"], [VN, VN, VN]),
     cz("who", 1, 2, 1, "___ left the tap running?", ["who", "how", "what", "when"], [VN, FS, FS],
-      "who/how — the doc's mutual-neighbour pair, both parse as questions"),
+      "who asks for the person; how, what, and when ask for different information"),
     cz("who", 1, 2, 2, "Guess ___ won the raffle!", ["who", "how", "what", "which"], [VN, FS, FS]),
     rf("who", 1, 2, 3, ["who", "how", "with", "what"], [VN, VN, VN]),
 

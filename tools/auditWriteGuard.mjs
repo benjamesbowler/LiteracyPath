@@ -8,7 +8,7 @@ const checkMode = process.env.LP_AUDIT_OUTPUT_MODE === "check";
 const repoRoot = path.resolve(process.env.LP_AUDIT_REPO_ROOT || process.cwd());
 const artifactRoot = path.resolve(
   process.env.LP_AUDIT_ARTIFACT_ROOT
-  || path.join(repoRoot, "docs", "release", "artifacts", "audits", "unknown")
+  || path.join(os.tmpdir(), "literacypath-audits", "unknown")
 );
 const tempRoot = path.resolve(process.env.TMPDIR || os.tmpdir());
 

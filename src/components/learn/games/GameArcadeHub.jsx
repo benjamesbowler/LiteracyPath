@@ -170,7 +170,13 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       <div className="lg-arcade-topband">
         <div>
           <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Arcade Area</h1>
-          <p className="lg-arcade-instruction" data-child-instruction="">Pick one game. Your next unplayed game is marked first.</p>
+          {/* Eight words is the cap a child instruction has to clear
+              (tests/release/app-copy-standard.spec.js); this line was nine and
+              failed whenever the hub rendered before the copy scan read it.
+              Same meaning, one word under. Found while shipping phase D of the
+              kids-side redesign, 2026-07-29 — the Arcade's own redesign is
+              phase E and this is only the copy fix. */}
+          <p className="lg-arcade-instruction" data-child-instruction="">Pick a game. The next one is marked.</p>
           {recommendedGame && (
             <p className="lg-arcade-recommendation-reason">
               <strong>Why this one?</strong>{" "}

@@ -858,7 +858,7 @@ export function FinishedReportPage({
   patternAssessment = [],
   guidedReadingRecords = {},
   storyQuestProgressScopeKey = "default",
-  // Optional; wired in App.jsx by Benjamin (pass progressScopeKey={studentId || studentName}).
+  // Optional; wired in App.jsx (pass progressScopeKey={studentId || studentName}).
   progressScopeKey = "",
   reportStatusMessage = "",
   // Called whenever the report navigation changes which report is showing. The Reports

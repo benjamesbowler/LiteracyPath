@@ -11,7 +11,5 @@
     "^src/data/generated/.*\\.js$",
     "^src/styles/sage-soft\\.generated\\.css$"
   ],
-  "allowedActiveRequestDocs": [
-    "docs/assets/kimi_story_quest_last_two_books_image_redo_request.md"
-  ]
+  "allowedActiveRequestDocs": []
 }

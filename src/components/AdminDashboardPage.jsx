@@ -45,7 +45,6 @@ import {
   buildExportProvenanceRows,
   exportProvenanceCsvPreamble
 } from "../utils/exportProvenance.js";
-import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
 import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
 import {
@@ -554,8 +553,8 @@ function mediaQaToCsv(records) {
   ].join("\n");
 }
 
-function mediaQaToKimiMarkdown(records, mediaType) {
-  const title = mediaType === "image" ? "Kimi Image Replacement Request" : "Kimi Audio Replacement Request";
+function mediaQaToReplacementMarkdown(records, mediaType) {
+  const title = mediaType === "image" ? "Image Replacement Request" : "Audio Replacement Request";
   const globalRules = mediaType === "image"
     ? "Create a clean educational flashcard-style cartoon illustration of a single target object. Plain pure white background. Centered object only. No shadow, glow, aura, sparkles, rainbow coloring, face, eyes, smile, arms, legs, text, or background scene. Use natural realistic colors and high readability at small size."
     : "Record a clear spoken word or phrase only. Use neutral adult female American English, correct pronunciation, normalized volume, no music, no sound effects, no clipping, no background noise, and short silence before/after.";
@@ -571,7 +570,7 @@ function mediaQaToKimiMarkdown(records, mediaType) {
     "",
     "## Status Meanings",
     "",
-    "- `needs_kimi`: no usable asset is available, so Kimi must create one.",
+    "- `needs_replacement`: no usable asset is available, so a replacement must be created.",
     "- `rejected`: an existing asset failed QA and must be replaced with a new asset that meets the rules.",
     "- `blocked`: do not serve this asset to students; regenerate only if this target should remain active.",
     "",
@@ -589,7 +588,7 @@ function mediaQaToKimiMarkdown(records, mediaType) {
         `- QA status: ${record.status}`,
         `- Required path: ${record.replacementPath || record.filePath}`,
         `- Current path: ${record.filePath}`,
-        `- Reason: ${getKimiRequestReason(record)}`,
+        `- Reason: ${getReplacementRequestReason(record)}`,
         `- Prompt: ${mediaType === "image"
           ? `Create one clear, natural-colored, cute educational cartoon image of ${record.targetWord || "the target object"}. ${globalRules}`
           : `Record "${record.targetWord || "target audio"}". ${globalRules}`}`,
@@ -708,11 +707,6 @@ function buildReleaseReadinessModel({
     (total, row) => total + Number(row.unapprovedAudio || 0),
     0
   );
-  const assessmentAudioIssues =
-    Number(assessmentAudioCoverage.summary?.replacementNeededCount || 0) +
-    Number(assessmentAudioCoverage.summary?.missingCount || 0) +
-    Number(assessmentAudioCoverage.summary?.brokenReferenceCount || 0) +
-    Number(assessmentAudioCoverage.summary?.needsHumanReviewCount || 0);
   const guidedMediaIssues =
     Number(guidedReadingInsight.draft || 0) +
     Number(guidedReadingInsight.missingImages || 0) +
@@ -725,7 +719,6 @@ function buildReleaseReadinessModel({
     studentsWithoutClass.length,
     unassignedClasses.length,
     skillsBelowFloor.length,
-    assessmentAudioIssues,
     guidedMediaIssues
   ].filter(Boolean).length;
   const reviewCount = [
@@ -790,13 +783,6 @@ function buildReleaseReadinessModel({
         detail: `${mediaGapSkills.length} skills have media gaps or bad media flags; ${unapprovedAudioQuestions} authored questions have unapproved audio.`,
         status: skillsBelowFloor.length ? "action" : mediaGapSkills.length ? "review" : "ready",
         sectionId: "coverage"
-      },
-      {
-        label: "Assessment audio",
-        value: `${assessmentAudioIssues} issues`,
-        detail: `${assessmentAudioCoverage.summary?.totalReferences || 0} audio references scanned.`,
-        status: assessmentAudioIssues ? "action" : "ready",
-        sectionId: "assessmentAudio"
       },
       {
         label: "Guided Reading media",
@@ -935,11 +921,11 @@ function DeleteConfirmationModal({
   );
 }
 
-function getKimiRequestReason(record) {
+function getReplacementRequestReason(record) {
   if (record.rejectionReason) return record.rejectionReason;
   if (record.reviewerNotes) return record.reviewerNotes;
   if ((record.heuristicFlags || []).length) return record.heuristicFlags.join(", ");
-  if (record.status === "needs_kimi") return "No usable asset is available; create this asset from scratch.";
+  if (record.status === "needs_replacement") return "No usable asset is available; create this asset from scratch.";
   if (record.status === "rejected") return "Existing asset was rejected in QA; replace it with an up-to-spec asset.";
   if (record.status === "blocked") return "Asset is blocked from student runtime; regenerate only if this target should remain active.";
   return "Needs QA replacement.";
@@ -1024,114 +1010,6 @@ function guidedImageQaToCsv(records) {
       record.qaStatus,
       record.reviewerNotes
     ].map(csvEscape).join(","))
-  ].join("\n");
-}
-
-function guidedImageQaToKimiMarkdown(records) {
-  const remakeRecords = records.filter(record => record.status === "no_match_remake");
-  const wholeBookRecords = records.filter(record => record.status === "whole_book_continuity_remake");
-  const rejectedStoryRecords = records.filter(record => record.status === "whole_book_reject_story");
-  const wholeBookGroups = wholeBookRecords.reduce((map, record) => {
-    const key = record.bookId;
-    map.set(key, [...(map.get(key) || []), record]);
-    return map;
-  }, new Map());
-  const rejectedStoryGroups = rejectedStoryRecords.reduce((map, record) => {
-    const key = record.bookId;
-    map.set(key, [...(map.get(key) || []), record]);
-    return map;
-  }, new Map());
-
-  return [
-    "# Kimi Guided Reading Image Remake Request",
-    "",
-    "These pages/books were marked by admin QA for image remake.",
-    "",
-    "## Global Image Rules",
-    "",
-    "- Use the exact app text as the source of truth.",
-    "- Create a new image that clearly shows the main idea/action of that exact page text.",
-    "- Do not illustrate the previous page or the next page.",
-    "- No embedded text, captions, labels, or speech bubbles.",
-    "- Keep character appearance, clothing, setting, time of day, and art style consistent across the book.",
-    "- For whole-book continuity remakes, generate a completely new matching image set for the full book. Every page must share complete continuity of characters, setting, scene logic, season, time, lighting, props, and style.",
-    "- Do not reuse the previous mismatched image set for whole-book continuity remakes.",
-    "- Whole-book story rejections are not image requests. Do not render images for rejected stories; add replacement books to the next Codex book-development round.",
-    "- Use warm, natural colors. No rainbow/fantasy effects unless the text explicitly requires them.",
-    "",
-    "## Whole-Book Story Rejections",
-    "",
-    "These books were rejected because the writing/story was judged weak, lame, nonsensical, or not worth salvaging. Do not create images for these books. Add one replacement book to the next guided story development round for each rejected book.",
-    "",
-    ...[...rejectedStoryGroups.entries()].flatMap(([bookId, rows]) => {
-      const sortedRows = [...rows].sort((a, b) => Number(a.pageNumber || 0) - Number(b.pageNumber || 0));
-      const first = sortedRows[0] || {};
-      return [
-        `## ${first.title || bookId} - Reject Entire Book`,
-        "",
-        `- Book ID: ${bookId}`,
-        `- Level: ${first.level || ""}`,
-        `- Type: ${first.type || ""}`,
-        "- Decision: Reject this whole book from the production queue.",
-        "- Development action: Add `+1 replacement book` to the next guided story development round at the same level/type.",
-        `- Admin notes: ${sortedRows.find(record => record.reviewerNotes)?.reviewerNotes || "Story/writing rejected by admin QA."}`,
-        "",
-        "### Existing Page Text For Reference",
-        "",
-        ...sortedRows.map(record => `- Page ${record.pageNumber}: ${record.text}`)
-      ];
-    }),
-    rejectedStoryGroups.size ? "" : "_None._",
-    "",
-    "## Whole-Book Continuity Remakes",
-    "",
-    ...[...wholeBookGroups.entries()].flatMap(([bookId, rows]) => {
-      const sortedRows = [...rows].sort((a, b) => Number(a.pageNumber || 0) - Number(b.pageNumber || 0));
-      const first = sortedRows[0] || {};
-      return [
-        `## ${first.title || bookId} - Whole New Image Set`,
-        "",
-        `- Book ID: ${bookId}`,
-        `- Level: ${first.level || ""}`,
-        `- Type: ${first.type || ""}`,
-        "- Reason: Admin requested a whole new image set because the current book lacks complete visual continuity.",
-        "- Required continuity: all new images must have complete continuity of characters, setting, scene, season, time of day, lighting, recurring props, and illustration style across the whole book.",
-        "- Kimi instruction: remake the full cover/page image set from the exact app text below. Do not improvise new story details.",
-        "",
-        "### Page Requirements",
-        "",
-        ...sortedRows.map(record => [
-          `#### Page ${record.pageNumber}`,
-          "",
-          `- Current image path: ${record.image}`,
-          `- Required replacement path: ${record.image}`,
-          `- Exact app text: ${record.text}`,
-          `- Admin notes: ${record.reviewerNotes || "Whole-book continuity remake requested."}`,
-          `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
-          ""
-        ].join("\n"))
-      ];
-    }),
-    wholeBookGroups.size ? "" : "_None._",
-    "",
-    "## Single-Page Text-Picture Remakes",
-    "",
-    "These pages were marked `no match remake image using text` by admin QA.",
-    "",
-    ...remakeRecords.map(record => [
-      `## ${record.title} - Page ${record.pageNumber}`,
-      "",
-      `- Book ID: ${record.bookId}`,
-      `- Level: ${record.level}`,
-      `- Current image path: ${record.image}`,
-      `- Original generated image path: ${record.originalImage || "same as current"}`,
-      `- Image remapped from generated page: ${record.imageRemapSourcePage || "not remapped"}`,
-      `- Required replacement path: ${record.image}`,
-      `- Exact app text: ${record.text}`,
-      `- Admin notes: ${record.reviewerNotes || "Image does not match the page text."}`,
-      `- Prompt: Create one warm student-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
-      ""
-    ].join("\n"))
   ].join("\n");
 }
 
@@ -1285,9 +1163,9 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
     const base = `literacypath-${mediaType}-qa`;
     if (format === "csv") downloadTextFile(`${base}.csv`, mediaQaToCsv(visibleRecords), "text/csv");
     if (format === "json") downloadTextFile(`${base}.json`, JSON.stringify(visibleRecords, null, 2), "application/json");
-    if (format === "kimi") {
-      const rows = visibleRecords.filter(record => ["rejected", "needs_kimi", "blocked"].includes(record.status) || (record.heuristicFlags || []).length);
-      downloadTextFile(`${base}-kimi-request.md`, mediaQaToKimiMarkdown(rows, mediaType), "text/markdown");
+    if (format === "replacement") {
+      const rows = visibleRecords.filter(record => ["rejected", "needs_replacement", "blocked"].includes(record.status) || (record.heuristicFlags || []).length);
+      downloadTextFile(`${base}-replacement-request.md`, mediaQaToReplacementMarkdown(rows, mediaType), "text/markdown");
     }
   }
 
@@ -1305,13 +1183,13 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
             <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
             <button className="report-button" onClick={() => exportRecords("csv")} type="button">Export CSV</button>
             <button className="report-button" onClick={() => exportRecords("json")} type="button">Export JSON</button>
-            <button className="report-button" onClick={() => exportRecords("kimi")} type="button">Export Kimi Markdown</button>
+            <button className="report-button" onClick={() => exportRecords("replacement")} type="button">Export replacement request</button>
           </div>
         </div>
 
         <div className="media-qa-rules">
           {qaRules.map(rule => <span key={rule}>{rule}</span>)}
-          <span>needs kimi = no usable asset exists</span>
+          <span>needs replacement = no usable asset exists</span>
           <span>rejected = remake to spec</span>
         </div>
       </section>
@@ -1616,8 +1494,8 @@ function HfwQuestionImageQaPage({ onBack }) {
               <button onClick={() => applyReview(row, { qaStatus: "no_image_required", rejectionReason: "", reviewerNotes: row.reviewerNotes || "" })} type="button">
                 No image needed
               </button>
-              <button onClick={() => applyReview(row, { qaStatus: "needs_kimi", rejectionReason: row.rejectionReason || "image_does_not_match_sentence" })} type="button">
-                Needs Kimi replacement
+              <button onClick={() => applyReview(row, { qaStatus: "needs_replacement", rejectionReason: row.rejectionReason || "image_does_not_match_sentence" })} type="button">
+                Needs replacement
               </button>
               <label>
                 Rejection reason
@@ -2371,7 +2249,6 @@ export function AdminDashboardPage({
     { id: "guidedMediaQa", label: "Book media checks", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
     { id: "coverage", label: "Lesson content checks", count: filteredCoverage.length },
     { id: "calibration", label: "Assessment consistency", count: null },
-    { id: "assessmentAudio", label: "Assessment audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
     { id: "questionFlags", label: "Reported questions", count: null },
     { id: "mapStops", label: "Student map", count: null },
     { id: "hollowSpots", label: "Student rewards", count: null }
@@ -3185,14 +3062,8 @@ export function AdminDashboardPage({
 
         <div className="teacher-report-grid">
           <article className="teacher-report-card">
-            <h4>Audit Outputs</h4>
-            <ul className="admin-qa-file-list">
-              <li><code>docs/guided-reading/guided_reading_image_text_artifact_audit.md</code></li>
-              <li><code>docs/guided-reading/manual_image_text_artifact_review.md</code></li>
-              <li><code>docs/guided-reading/guided_reading_word_audio_inventory.md</code></li>
-              <li><code>docs/assets/kimi_guided_reading_image_replacement_request.md</code></li>
-              <li><code>docs/assets/kimi_guided_reading_missing_word_audio_request.md</code></li>
-            </ul>
+            <h4>Current QA source</h4>
+            <p>The figures on this page come from the current guided-reading catalogue and media registries. Dated audit files are not runtime inputs.</p>
           </article>
           <article className="teacher-report-card">
             <h4>Image QA Issue Books</h4>
@@ -3338,77 +3209,6 @@ export function AdminDashboardPage({
                   </td>
                   <td data-label="Media gaps">{row.missingImage} image / {row.missingAudio} audio</td>
                   <td data-label="Audio approval blocks">{row.unapprovedAudio || 0}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-      )}
-
-      {activeSection === "assessmentAudio" && (
-      <section className="report-panel page-stack admin-section admin-section-panel">
-        <h3>Assessment Audio Coverage</h3>
-        <p className="muted-text">
-          Tracks whether assessment audio uses the current neutral soft American female generated-voice standard.
-          Replacement rows are generated in <code>docs/assets/replacement_assessment_audio_request.md</code>.
-        </p>
-
-        <div className="summary-grid compact-summary-grid">
-          <article>
-            <span>Total references</span>
-            <strong>{assessmentAudioCoverage.summary?.totalReferences || 0}</strong>
-          </article>
-          <article>
-            <span>Standard voice</span>
-            <strong>{assessmentAudioCoverage.summary?.standardVoiceCount || 0}</strong>
-          </article>
-          <article>
-            <span>Replacement needed</span>
-            <strong>{assessmentAudioCoverage.summary?.replacementNeededCount || 0}</strong>
-          </article>
-          <article>
-            <span>Missing/broken</span>
-            <strong>{assessmentAudioCoverage.summary?.missingCount || 0} / {assessmentAudioCoverage.summary?.brokenReferenceCount || 0}</strong>
-          </article>
-          <article>
-            <span>Human review</span>
-            <strong>{assessmentAudioCoverage.summary?.needsHumanReviewCount || 0}</strong>
-          </article>
-        </div>
-
-        <div className="admin-table-wrap teacher-scroll-panel">
-          <table className="dashboard-table admin-table">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>References</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(assessmentAudioCoverage.statusCounts || {}).sort().map(([status, count]) => (
-                <tr key={status}>
-                  <td data-label="Status">{status.replace(/_/g, " ")}</td>
-                  <td data-label="References">{count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="admin-table-wrap teacher-scroll-panel">
-          <table className="dashboard-table admin-table">
-            <thead>
-              <tr>
-                <th>Issue</th>
-                <th>References</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(assessmentAudioCoverage.issueCounts || {}).sort((a, b) => b[1] - a[1]).slice(0, 12).map(([issue, count]) => (
-                <tr key={issue}>
-                  <td data-label="Issue">{issue.replace(/_/g, " ")}</td>
-                  <td data-label="References">{count}</td>
                 </tr>
               ))}
             </tbody>

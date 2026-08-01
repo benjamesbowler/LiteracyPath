@@ -8,12 +8,8 @@
 // mirror of nouns' layout). Child wording: "doing word".
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §16.
 
-import { makeImageResolver } from "../lib.mjs";
-
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
-
-const resolver = makeImageResolver(["language", "hfw", "cvc", "rhyming", "blends", "digraphs", "long-vowels"]);
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",
@@ -83,7 +79,7 @@ export default {
     gic("verb_action_object", 1, 1, 1, "Which one shows a doing word — something you do to things?",
       ["draw", "desk", "bell", "boat"], "draw", {}),
     gic("verb_action_object", 1, 1, 2, "Which one shows a doing word — something you do to things?",
-      ["press", "brick", "shell", "coat"], "press", {}),
+      ["press", "brick", "shell", "moon"], "press", {}),
     gic("verb_action_object", 1, 1, 3, "Which one shows a doing word — something you do to things?",
       ["chew", "meat", "dish", "bread"], "chew", {},
       "all three thing-cards are chewable — the action card still wins"),
@@ -94,9 +90,9 @@ export default {
     gwc("verb_action_object", 1, 1, 6, "Which word is a doing word?",
       ["fold", "card", "sock", "flag"], [FS, FS, FS]),
     gic("verb_action_object", 1, 1, 7, "Which one shows a doing word — something you do to things?",
-      ["stir", "pot", "pan", "jam"], "stir", {}),
+      ["stir", "pot", "lid", "moon"], "stir", {}),
     gwc("verb_action_object", 1, 1, 8, "Which word is a doing word?",
-      ["lift", "box", "belt", "log"], [FS, FS, FS]),
+      ["lift", "apple", "moon", "rug"], [FS, FS, FS]),
     // ================= L1 · verb_everyday (phase 2) =================
     gic("verb_everyday", 1, 2, 1, "Which one shows a doing word — something you do every day?",
       ["eat", "plate", "cake", "corn"], "eat", {}),
@@ -105,18 +101,17 @@ export default {
     gic("verb_everyday", 1, 2, 3, "Which one shows a doing word — something you do every day?",
       ["read", "book", "desk", "shelf"], "read", {}),
     gwc("verb_everyday", 1, 2, 4, "Which word is a doing word?",
-      ["sing", "song", "ring", "drum"], [FS, FS, FS],
-      "ring the thing ties the ing/doing overlap"),
+      ["sing", "song", "sun", "hat"], [FS, FS, FS]),
     gwc("verb_everyday", 1, 2, 5, "Which word is a doing word?",
-      ["wash", "soap", "sink", "tub"], [FS, FS, FS]),
+      ["wash", "soap", "tub", "hat"], [FS, FS, FS]),
     gwc("verb_everyday", 1, 2, 6, "Which word is a doing word?",
       ["nap", "cot", "rug", "pup"], [FS, FS, FS]),
     gic("verb_everyday", 1, 2, 7, "Which one shows a doing word — something you do every day?",
-      ["drink", "cup", "pin", "jug"], "drink", {},
+      ["drink", "cup", "hat", "jug"], "drink", {},
       "pin ties the in/doing overlap"),
     gwc("verb_everyday", 1, 2, 8, "Which word is a doing word?",
-      ["brush", "teeth", "comb", "hair"], [FS, FS, FS],
-      "brush zero-derives, but among three body/tool nouns the doing reading is the only fit for the frame"),
+      ["brush", "teeth", "soap", "hair"], [FS, FS, FS],
+      "no second action word competes with brush"),
 
     // ================= L2 · verb_in_sentence (phase 1) =================
     gsf("verb_in_sentence", 2, 1, 1, "We ___ the raft to the dock.",
@@ -151,14 +146,14 @@ export default {
       ["swimmer", "swim", "swims", "swam"], [FS, FS, FS],
       "the verb family competes — only the naming word follows The"),
     gct("verb_vs_noun", 2, 1, 5, "Which word is a doing word, not a naming word?",
-      ["climb", "hill", "boots", "rope"], [FS, FS, FS]),
+      ["climbed", "hill", "boots", "rope"], [FS, FS, FS]),
     gct("verb_vs_noun", 2, 1, 6, "Which word is a doing word, not a naming word?",
-      ["sweep", "broom", "dust", "floor"], [FS, FS, FS]),
+      ["swept", "broom", "dust", "floor"], [FS, FS, FS]),
     gsf("verb_vs_noun", 2, 1, 7, "The ___ twirled across the stage.",
       ["dancer", "dances", "danced", "dancing"], [FS, FS, FS]),
     gct("verb_vs_noun", 2, 1, 8, "Which word is a doing word, not a naming word?",
-      ["paint", "painter", "wall", "colour"], [FS, FS, FS],
-      "paint zero-derives, but painter/wall/colour name — the frame asks which one DOES"),
+      ["painted", "painter", "wall", "colour"], [FS, FS, FS],
+      "the past-tense form is unambiguously the action"),
     // ================= L2 · verb_precision (phase 2) =================
     gsf("verb_precision", 2, 2, 1, "The frog ___ over the log in one big spring.",
       ["jumped", "walked", "slept", "sat"], [PU, PU, PU],
@@ -197,7 +192,7 @@ export default {
     gsf("verb_precision", 2, 2, 9, "The ice ___ slowly in the warm sun.",
       ["melted", "grew", "sang", "slept"], [PU, PU, PU]),
     gwc("verb_action_object", 1, 1, 10, "Which word is a doing word?",
-      ["wrap", "gift", "bow", "card"], [FS, FS, FS]),
+      ["wrap", "hat", "cup", "sun"], [FS, FS, FS]),
     gic("verb_everyday", 1, 2, 10, "Which one shows a doing word — something you do every day?",
       ["walk", "path", "gate", "park"], "walk", {}),
     gsf("verb_in_sentence", 2, 1, 10, "The wind ___ the washing dry.",

@@ -42,6 +42,5 @@ interaction contract below.
    with four committed Chromebook/tablet screenshots. The existing 2.5% pixel
    tolerance is unchanged.
 
-The production build and bundle ratchet remain separate release gates. Moving
-the destructive dialogs into their own lazy chunk reduced the main entry rather
-than spending the available budget.
+The production build and split-boundary checks remain separate release gates.
+Low-frequency destructive dialogs stay in their own lazy-loaded boundary.

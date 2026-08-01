@@ -86,9 +86,9 @@ Customer Data.
 
 ### Development and release
 
-- Zero-warning lint, 1,224 unit tests at this pack version, production build,
-  content integrity, security checks, browser journeys, bundle budgets, and
-  database checks are coordinated by the release gate.
+- Lint, the maintained unit suite, production build, content integrity, security
+  checks, browser journeys, split-boundary checks, and database checks are
+  coordinated by the current release gate.
 - Managed migrations reconstruct the core schema; deterministic audit fixtures
   exercise ownership and reporting paths.
 - Generated release manifests bind evidence to an exact implementation commit.

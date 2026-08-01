@@ -230,6 +230,7 @@ export function StudentAdventureMapPage({
       <div
         className="kg-screen kg-map"
         data-child-surface="adventure-map"
+        data-learning-lane="practice_and_play"
         data-read-state={read.ok ? "ready" : "unreadable"}
       >
         <div className="kg-trail-head">

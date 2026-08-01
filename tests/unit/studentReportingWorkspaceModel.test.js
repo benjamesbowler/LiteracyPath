@@ -1445,7 +1445,7 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   assert.equal(failedItem.provenance.currentAttemptId, "latest-fail");
   assert.equal(
     failedLatest.wholeChild.concepts.find(row => row.key === "m").status.id,
-    REPORTING_STATUS_IDS.NEEDS_TEACHING
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
 
   const latestPass = makeCheckpoint({

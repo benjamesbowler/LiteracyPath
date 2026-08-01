@@ -57,10 +57,6 @@ export const ADMIN_SECTION_ROUTES = Object.freeze({
     area: "technical",
     path: "/admin/app/assessment-consistency"
   }),
-  assessmentAudio: Object.freeze({
-    area: "technical",
-    path: "/admin/app/assessment-audio"
-  }),
   questionFlags: Object.freeze({
     area: "technical",
     // This public deep link predates the other Admin routes. Keep it stable.

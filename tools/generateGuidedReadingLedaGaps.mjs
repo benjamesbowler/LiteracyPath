@@ -30,12 +30,9 @@ const spokenWordOverrides = Object.freeze({
   "40": "forty",
   "60": "sixty",
   "80": "eighty",
-  "80%": "eighty percent",
   "200": "two hundred",
   "650": "six hundred and fifty",
-  "1000": "one thousand",
-  "1969": "nineteen sixty-nine",
-  "60000": "sixty thousand"
+  "1969": "nineteen sixty-nine"
 });
 
 function readablePageText(page = {}) {
@@ -63,13 +60,15 @@ function run(command, args, label) {
   }
 }
 
-async function synthesize(accessToken, record) {
+async function fileExists(filePath) {
   try {
-    if ((await stat(record.mp3Path)).size > 0) return false;
+    return (await stat(filePath)).size > 0;
   } catch {
-    // Generate the missing clip.
+    return false;
   }
+}
 
+async function synthesize(accessToken, record) {
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
@@ -90,7 +89,6 @@ async function synthesize(accessToken, record) {
   }
   const result = await response.json();
   await writeFile(record.wavPath, Buffer.from(result.audioContent, "base64"));
-  return true;
 }
 
 const pageTexts = new Set();
@@ -147,21 +145,28 @@ const records = [
   };
 });
 
-const accessToken = execFileSync(
-  "gcloud",
-  ["auth", "application-default", "print-access-token"],
-  { encoding: "utf8" }
-).trim();
+for (const record of records) {
+  await mkdir(record.outputDirectory, { recursive: true });
+  record.generated = false;
+  record.missing = !(await fileExists(record.mp3Path));
+}
 
-for (const record of records) await mkdir(record.outputDirectory, { recursive: true });
-for (let offset = 0; offset < records.length; offset += 6) {
-  await Promise.all(
-    records.slice(offset, offset + 6).map(record =>
-      synthesize(accessToken, record).then(generated => {
-        record.generated = generated;
+const missingRecords = records.filter(record => record.missing);
+if (missingRecords.length) {
+  const accessToken = execFileSync(
+    "gcloud",
+    ["auth", "application-default", "print-access-token"],
+    { encoding: "utf8" }
+  ).trim();
+
+  for (let offset = 0; offset < missingRecords.length; offset += 6) {
+    await Promise.all(
+      missingRecords.slice(offset, offset + 6).map(async record => {
+        await synthesize(accessToken, record);
+        record.generated = true;
       })
-    )
-  );
+    );
+  }
 }
 
 for (const record of records) {
@@ -198,6 +203,7 @@ await writeFile(generatedModulePath, moduleText);
 
 console.log(JSON.stringify({
   generated: records.filter(record => record.generated).length,
+  reused: records.filter(record => !record.generated).length,
   pageClips: pageTexts.size,
   wordClips: wordTexts.size,
   generatedModule: path.relative(repositoryRoot, generatedModulePath)

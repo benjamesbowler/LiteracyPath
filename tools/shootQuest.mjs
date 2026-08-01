@@ -3,7 +3,7 @@
 //   npm run shots
 //
 // Boots the dev server, drives a real Chromium through preview/quest.html at
-// three real device sizes, and writes to docs/previews/shots/:
+// three real device sizes, and writes to .artifacts/quest/shots/:
 //
 //   <name>.png    what the screen actually looks like
 //   <name>.txt    console errors, failed image requests, and every visible
@@ -33,7 +33,7 @@ import { AxeBuilder } from "@axe-core/playwright";
 const A11Y_ENFORCE = process.env.A11Y_ENFORCE === "1";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT = path.join(ROOT, "docs/previews/shots");
+const OUT = path.join(ROOT, ".artifacts/quest/shots");
 const PORT = 5199;
 const BASE = `http://127.0.0.1:${PORT}`;
 const GATE_ONLY = process.argv.includes("--gate-only");
@@ -333,7 +333,7 @@ async function main() {
   await browser.close();
   stop();
 
-  console.log(`\nWrote ${SHOTS.length} screenshots to docs/previews/shots/`);
+  console.log(`\nWrote ${SHOTS.length} screenshots to .artifacts/quest/shots/`);
   if (problems) console.log(`${problems} console errors / failed requests / stuck loads — see the .txt beside each shot.`);
 
   // A diagnostic that cannot fail is not a gate. The Jul-14 gate screen
@@ -343,7 +343,7 @@ async function main() {
   // this tool exists to catch, so from now on any of them fails the run (and
   // CI). Pixel-level blank detection lives in check:quest-route-visual.
   if (problems > 0) process.exitCode = 1;
-  console.log("\nOpen the folder:  open docs/previews/shots");
+  console.log("\nOpen the folder: .artifacts/quest/shots");
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

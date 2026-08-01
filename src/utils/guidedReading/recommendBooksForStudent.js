@@ -1,4 +1,8 @@
 import { enrichGuidedReadingBook } from "./phonicsPageAnalyzer.js";
+import {
+  READING_PURPOSES,
+  classifyBookReadingPurpose
+} from "../../policy/literacyExperiencePolicy.js";
 
 const GUIDED_READING_LEVELS = ["A", "B", "C", "D", "E", "F"];
 
@@ -150,19 +154,21 @@ export function recommendBooksForStudent({ books = [], studentProgress = {}, rea
     .map(book => {
       const history = readingHistory[book.id] || {};
       const needMatches = needs.filter(need => needMatchesBook(need, book));
+      const readingPurpose = classifyBookReadingPurpose(book, studentProgress);
       const unreadBonus = recordIsComplete(book, history) ? 0 : recordHasStarted(history) ? 16 : 12;
       const patternScore = needMatches.length * 20;
-      const decodableScore = Math.min(20, Math.round((book.decodablePercentage || 0) / 5));
-      const score = patternScore + decodableScore + unreadBonus;
+      const independentPracticeBonus = readingPurpose.id === READING_PURPOSES.INDEPENDENT ? 24 : 0;
+      const score = patternScore + independentPracticeBonus + unreadBonus;
       return {
         book,
         score,
         matchedNeeds: needMatches,
+        readingPurpose,
         readingLevel: readingLevel.level,
         readingLevelSource: readingLevel.source,
         reasons: [
           historyReason(book, history),
-          `${book.decodablePercentage || 0}% of words are decodable or high-frequency words`
+          readingPurpose.reason
         ]
       };
     })

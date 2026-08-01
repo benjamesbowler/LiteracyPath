@@ -70,14 +70,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cap starts like cat but does not rhyme — the trap and the scanner tie are the same card",
   "imageCards": [
@@ -188,14 +187,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -306,14 +304,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -424,14 +421,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -542,14 +538,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -660,14 +655,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -778,14 +772,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -896,14 +889,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1014,14 +1006,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1132,14 +1123,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1250,14 +1240,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1368,14 +1357,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1486,14 +1474,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1604,14 +1591,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1722,14 +1708,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1840,14 +1825,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1958,14 +1942,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2076,14 +2059,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2194,14 +2176,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2312,14 +2293,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2430,14 +2410,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2548,14 +2527,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2666,14 +2644,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2784,14 +2761,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2902,14 +2878,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3020,14 +2995,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3138,14 +3112,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3256,14 +3229,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3374,14 +3346,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3492,14 +3463,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3610,14 +3580,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3728,14 +3697,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3846,14 +3814,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3964,14 +3931,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4082,14 +4048,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4200,14 +4165,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "chick out-chunks the key on the anchor overlap — the scanner falls into the onset trap",
   "imageCards": [
@@ -4318,14 +4282,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4436,14 +4399,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4554,14 +4516,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4672,14 +4633,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4790,14 +4750,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4908,14 +4867,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5026,14 +4984,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5144,14 +5101,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5262,14 +5218,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5380,14 +5335,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5498,14 +5452,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5616,14 +5569,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "key avoids top — sTOP contains it whole, which would hand the scanner a 3-chunk",
   "imageCards": [
@@ -5734,14 +5686,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5852,14 +5803,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "goat starts like got but does not rhyme — long-o against short-o",
   "imageCards": [
@@ -5970,14 +5920,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6088,14 +6037,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6206,14 +6154,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6324,14 +6271,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6442,14 +6388,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6560,14 +6505,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6678,14 +6622,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6796,14 +6739,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6914,14 +6856,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -7032,14 +6973,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -7150,14 +7090,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -7268,14 +7207,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -7386,14 +7324,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "key avoids hut — sHUT contains it whole, which would hand the scanner a 3-chunk",
   "imageCards": [
@@ -7493,34 +7430,26 @@ export const questions = [
    "rung": "D-VOWEL",
    "sink": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sing",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ing-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sink is the near-family trap AND the scanner tie (sin/sing)",
-  "imagePath": "/images/assessment/generated/concepts/sing.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sing.webp",
-  "targetImage": "/images/assessment/generated/concepts/sing.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sing.webp",
-  "resolvedImageAssetKey": "sing",
-  "imageAlt": "Which word rhymes with sing?"
+  "notes": "sink is the near-family trap AND the scanner tie (sin/sing)"
  },
  {
   "id": "lp3.rhyming.l2.B.ing.v2",
@@ -7580,34 +7509,26 @@ export const questions = [
    "wink": "D-PATTERN-TRAP",
    "sang": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "king",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ing-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "resolvedImageAssetKey": "king",
-  "imageAlt": "Which word rhymes with king?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ing.v3",
@@ -7667,33 +7588,25 @@ export const questions = [
    "sing": "D-RIME-NEAR",
    "ring": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ing-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "resolvedImageAssetKey": "jam",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ang.v1",
@@ -7753,34 +7666,26 @@ export const questions = [
    "ring": "D-RIME-NEAR",
    "band": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "bang",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ang-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ang/bang-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ang/bang-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ang/bang-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ang/bang-02.webp",
-  "resolvedImageAssetKey": "bang",
-  "imageAlt": "Which word rhymes with bang?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ang.v2",
@@ -7840,34 +7745,26 @@ export const questions = [
    "song": "D-VOWEL",
    "fan": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sang",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ang-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fan drops the g — the cluster-reduction error; sand ties the san-chunk",
-  "imagePath": "/images/assessment/generated/concepts/sang.webp",
-  "imageUrl": "/images/assessment/generated/concepts/sang.webp",
-  "targetImage": "/images/assessment/generated/concepts/sang.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/sang.webp",
-  "resolvedImageAssetKey": "sang",
-  "imageAlt": "Which word rhymes with sang?"
+  "notes": "fan drops the g — the cluster-reduction error; sand ties the san-chunk"
  },
  {
   "id": "lp3.rhyming.l2.C.ang.v3",
@@ -7927,33 +7824,25 @@ export const questions = [
    "bang": "D-RIME-NEAR",
    "sang": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ang-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-  "resolvedImageAssetKey": "cup",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ong.v1",
@@ -8013,34 +7902,26 @@ export const questions = [
    "sang": "D-VOWEL",
    "sock": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "song",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ong-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ong/song-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/song-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/song-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/song-02.webp",
-  "resolvedImageAssetKey": "song",
-  "imageAlt": "Which word rhymes with song?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ong.v2",
@@ -8100,34 +7981,26 @@ export const questions = [
    "log": "D-DEVELOPMENTAL",
    "whistle": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "long",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ong-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word rhymes with long?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ong.v3",
@@ -8187,33 +8060,25 @@ export const questions = [
    "long": "D-RIME-NEAR",
    "gong": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ong-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/map-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/map-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
-  "resolvedImageAssetKey": "map",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ink.v1",
@@ -8273,34 +8138,26 @@ export const questions = [
    "ring": "D-RIME-NEAR",
    "pin": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "pink",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ink-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "pin is the classic near-family answer — it ties the pin/pink chunk",
-  "imagePath": "/images/assessment/rhyming/variants/ink/pink-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ink/pink-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ink/pink-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ink/pink-02.webp",
-  "resolvedImageAssetKey": "pink",
-  "imageAlt": "Which word rhymes with pink?"
+  "notes": "pin is the classic near-family answer — it ties the pin/pink chunk"
  },
  {
   "id": "lp3.rhyming.l2.B.ink.v2",
@@ -8360,34 +8217,26 @@ export const questions = [
    "wing": "D-RIME-NEAR",
    "sank": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "wink",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ink-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/objects/drink.png",
-  "imageUrl": "/images/objects/drink.png",
-  "targetImage": "/images/objects/drink.png",
-  "targetImagePath": "/images/objects/drink.png",
-  "resolvedImageAssetKey": "drink",
-  "imageAlt": "Which word rhymes with wink?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ink.v3",
@@ -8447,33 +8296,25 @@ export const questions = [
    "pink": "D-RIME-NEAR",
    "sink": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ink-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
-  "resolvedImageAssetKey": "leg",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ock.v1",
@@ -8533,34 +8374,26 @@ export const questions = [
    "whisk": "D-PATTERN-TRAP",
    "sack": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ock-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/sock.webp",
-  "imageUrl": "/images/assessment/digraphs/sock.webp",
-  "targetImage": "/images/assessment/digraphs/sock.webp",
-  "targetImagePath": "/images/assessment/digraphs/sock.webp",
-  "resolvedImageAssetKey": "sock",
-  "imageAlt": "Which word rhymes with sock?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ock.v2",
@@ -8620,34 +8453,26 @@ export const questions = [
    "lick": "D-VOWEL",
    "log": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "lock",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ock-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "keys avoid lock/block containment pairs, which would hand a 4-chunk to scanners",
-  "imagePath": "/images/assessment/digraphs/lock.webp",
-  "imageUrl": "/images/assessment/digraphs/lock.webp",
-  "targetImage": "/images/assessment/digraphs/lock.webp",
-  "targetImagePath": "/images/assessment/digraphs/lock.webp",
-  "resolvedImageAssetKey": "lock",
-  "imageAlt": "Which word rhymes with lock?"
+  "notes": "keys avoid lock/block containment pairs, which would hand a 4-chunk to scanners"
  },
  {
   "id": "lp3.rhyming.l2.C.ock.v3",
@@ -8707,33 +8532,25 @@ export const questions = [
    "rock": "D-RIME-NEAR",
    "lock": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ock-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "resolvedImageAssetKey": "pan",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ack.v1",
@@ -8793,34 +8610,26 @@ export const questions = [
    "sock": "D-VOWEL",
    "bat": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "back",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ack-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ack/back-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ack/back-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ack/back-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ack/back-02.webp",
-  "resolvedImageAssetKey": "back",
-  "imageAlt": "Which word rhymes with back?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ack.v2",
@@ -8880,34 +8689,26 @@ export const questions = [
    "whisk": "D-PATTERN-TRAP",
    "pick": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "pack",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ack-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/pack-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/pack-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/pack-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/pack-01.webp",
-  "resolvedImageAssetKey": "pack",
-  "imageAlt": "Which word rhymes with pack?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ack.v3",
@@ -8967,33 +8768,25 @@ export const questions = [
    "pack": "D-RIME-NEAR",
    "back": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ack-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-  "resolvedImageAssetKey": "mug",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ick.v1",
@@ -9053,34 +8846,26 @@ export const questions = [
    "stack": "D-VOWEL",
    "sit": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "stick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ick-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/stick.webp",
-  "imageUrl": "/images/assessment/digraphs/stick.webp",
-  "targetImage": "/images/assessment/digraphs/stick.webp",
-  "targetImagePath": "/images/assessment/digraphs/stick.webp",
-  "resolvedImageAssetKey": "stick",
-  "imageAlt": "Which word rhymes with stick?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ick.v2",
@@ -9140,34 +8925,26 @@ export const questions = [
    "witch": "D-PATTERN-TRAP",
    "lock": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "kick",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ick-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ick/kick-02.webp",
-  "resolvedImageAssetKey": "kick",
-  "imageAlt": "Which word rhymes with kick?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ick.v3",
@@ -9227,33 +9004,25 @@ export const questions = [
    "kick": "D-RIME-NEAR",
    "stick": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ick-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "resolvedImageAssetKey": "sun",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ill.v1",
@@ -9313,34 +9082,26 @@ export const questions = [
    "whistle": "D-PATTERN-TRAP",
    "pull": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "hill",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ill-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "resolvedImageAssetKey": "pill",
-  "imageAlt": "Which word rhymes with hill?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ill.v2",
@@ -9400,34 +9161,26 @@ export const questions = [
    "ball": "D-VOWEL",
    "big": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "mill",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ill-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "milk ties the mil-chunk — the l-cluster neighbour",
-  "imagePath": "/images/assessment/generated/concepts/mill.webp",
-  "imageUrl": "/images/assessment/generated/concepts/mill.webp",
-  "targetImage": "/images/assessment/generated/concepts/mill.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/mill.webp",
-  "resolvedImageAssetKey": "mill",
-  "imageAlt": "Which word rhymes with mill?"
+  "notes": "milk ties the mil-chunk — the l-cluster neighbour"
  },
  {
   "id": "lp3.rhyming.l2.C.ill.v3",
@@ -9487,33 +9240,25 @@ export const questions = [
    "mill": "D-RIME-NEAR",
    "bill": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ill-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fox.png",
-  "targetImage": "/images/child-mode/initial-sounds/fox.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
-  "resolvedImageAssetKey": "fox",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.all.v1",
@@ -9573,34 +9318,26 @@ export const questions = [
    "bald": "D-PATTERN-TRAP",
    "tell": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-all-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/ball-02.webp",
-  "resolvedImageAssetKey": "ball",
-  "imageAlt": "Which word rhymes with ball?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.all.v2",
@@ -9660,34 +9397,26 @@ export const questions = [
    "well": "D-VOWEL",
    "wag": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "wall",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-all-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "walk ties the wal-chunk — same start, no rhyme",
-  "imagePath": "/images/assessment/rhyming/variants/all/wall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/wall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/wall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/wall-02.webp",
-  "resolvedImageAssetKey": "wall",
-  "imageAlt": "Which word rhymes with wall?"
+  "notes": "walk ties the wal-chunk — same start, no rhyme"
  },
  {
   "id": "lp3.rhyming.l2.C.all.v3",
@@ -9747,33 +9476,25 @@ export const questions = [
    "tall": "D-RIME-NEAR",
    "fall": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-all-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ig/pig-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
-  "resolvedImageAssetKey": "pig",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ell.v1",
@@ -9833,34 +9554,26 @@ export const questions = [
    "belt": "D-PATTERN-TRAP",
    "ball": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "bell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ell-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-  "resolvedImageAssetKey": "bell",
-  "imageAlt": "Which word rhymes with bell?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ell.v2",
@@ -9920,34 +9633,26 @@ export const questions = [
    "will": "D-VOWEL",
    "web": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "well",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ell-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ell/well-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ell/well-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ell/well-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ell/well-02.webp",
-  "resolvedImageAssetKey": "well",
-  "imageAlt": "Which word rhymes with well?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ell.v3",
@@ -10007,33 +9712,25 @@ export const questions = [
    "well": "D-RIME-NEAR",
    "shell": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ell-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ash.v1",
@@ -10093,34 +9790,26 @@ export const questions = [
    "can": "D-RIME-NEAR",
    "cast": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "cash",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ash-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ash/cash-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ash/cash-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ash/cash-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ash/cash-02.webp",
-  "resolvedImageAssetKey": "cash",
-  "imageAlt": "Which word rhymes with cash?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ash.v2",
@@ -10180,34 +9869,26 @@ export const questions = [
    "crush": "D-VOWEL",
    "cap": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "splash",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ash-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "splat out-chunks the key (spla) — the scanner falls into the trap",
-  "imagePath": "/images/assessment/blends/splash.webp",
-  "imageUrl": "/images/assessment/blends/splash.webp",
-  "targetImage": "/images/assessment/blends/splash.webp",
-  "targetImagePath": "/images/assessment/blends/splash.webp",
-  "resolvedImageAssetKey": "splash",
-  "imageAlt": "Which word rhymes with splash?"
+  "notes": "splat out-chunks the key (spla) — the scanner falls into the trap"
  },
  {
   "id": "lp3.rhyming.l2.C.ash.v3",
@@ -10267,33 +9948,25 @@ export const questions = [
    "dash": "D-RIME-NEAR",
    "cash": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ash-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/bun/bun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/bun/bun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/bun/bun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/bun/bun-02.webp",
-  "resolvedImageAssetKey": "bun",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ish.v1",
@@ -10353,34 +10026,26 @@ export const questions = [
    "dip": "D-DEVELOPMENTAL",
    "whisk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "wish",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ish-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/wish.webp",
-  "imageUrl": "/images/assessment/digraphs/wish.webp",
-  "targetImage": "/images/assessment/digraphs/wish.webp",
-  "targetImagePath": "/images/assessment/digraphs/wish.webp",
-  "resolvedImageAssetKey": "wish",
-  "imageAlt": "Which word rhymes with wish?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ish.v2",
@@ -10440,34 +10105,26 @@ export const questions = [
    "fresh": "D-VOWEL",
    "fin": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "fish",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ish-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/fish.webp",
-  "imageUrl": "/images/assessment/digraphs/fish.webp",
-  "targetImage": "/images/assessment/digraphs/fish.webp",
-  "targetImagePath": "/images/assessment/digraphs/fish.webp",
-  "resolvedImageAssetKey": "fish",
-  "imageAlt": "Which word rhymes with fish?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ish.v3",
@@ -10527,33 +10184,25 @@ export const questions = [
    "dish": "D-RIME-NEAR",
    "wish": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ish-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/log-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/log-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
-  "resolvedImageAssetKey": "log",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.uck.v1",
@@ -10613,34 +10262,26 @@ export const questions = [
    "deck": "D-VOWEL",
    "dug": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "duck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-uck-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/duck.webp",
-  "imageUrl": "/images/assessment/digraphs/duck.webp",
-  "targetImage": "/images/assessment/digraphs/duck.webp",
-  "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "resolvedImageAssetKey": "duck",
-  "imageAlt": "Which word rhymes with duck?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.uck.v2",
@@ -10700,34 +10341,26 @@ export const questions = [
    "whistle": "D-PATTERN-TRAP",
    "lick": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "luck",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-uck-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/luck.webp",
-  "imageUrl": "/images/assessment/generated/concepts/luck.webp",
-  "targetImage": "/images/assessment/generated/concepts/luck.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/luck.webp",
-  "resolvedImageAssetKey": "luck",
-  "imageAlt": "Which word rhymes with luck?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.uck.v3",
@@ -10787,33 +10420,25 @@ export const questions = [
    "stuck": "D-RIME-NEAR",
    "duck": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-uck-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/ham-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/ham-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
-  "resolvedImageAssetKey": "ham",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ake.v1",
@@ -10873,34 +10498,26 @@ export const questions = [
    "whisk": "D-PATTERN-TRAP",
    "like": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "cake",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ake-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "like is the silent-e sibling with the wrong vowel — one letter from the key",
-  "imagePath": "/images/assessment/long-vowels/cake.webp",
-  "imageUrl": "/images/assessment/long-vowels/cake.webp",
-  "targetImage": "/images/assessment/long-vowels/cake.webp",
-  "targetImagePath": "/images/assessment/long-vowels/cake.webp",
-  "resolvedImageAssetKey": "cake",
-  "imageAlt": "Which word rhymes with cake?"
+  "notes": "like is the silent-e sibling with the wrong vowel — one letter from the key"
  },
  {
   "id": "lp3.rhyming.l2.B.ake.v2",
@@ -10960,34 +10577,26 @@ export const questions = [
    "bike": "D-VOWEL",
    "bag": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "snake",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ake-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "snack ties the sna-chunk — short-vowel cousin of the anchor",
-  "imagePath": "/images/assessment/blends/snake.webp",
-  "imageUrl": "/images/assessment/blends/snake.webp",
-  "targetImage": "/images/assessment/blends/snake.webp",
-  "targetImagePath": "/images/assessment/blends/snake.webp",
-  "resolvedImageAssetKey": "snake",
-  "imageAlt": "Which word rhymes with snake?"
+  "notes": "snack ties the sna-chunk — short-vowel cousin of the anchor"
  },
  {
   "id": "lp3.rhyming.l2.C.ake.v3",
@@ -11047,33 +10656,25 @@ export const questions = [
    "lake": "D-RIME-NEAR",
    "bake": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ake-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/og/fog-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/fog-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/fog-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/fog-02.webp",
-  "resolvedImageAssetKey": "fog",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ame.v1",
@@ -11133,34 +10734,26 @@ export const questions = [
    "time": "D-VOWEL",
    "nap": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "game",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ame-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ame/game-02.webp",
-  "resolvedImageAssetKey": "game",
-  "imageAlt": "Which word rhymes with game?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ame.v2",
@@ -11220,34 +10813,26 @@ export const questions = [
    "whistle": "D-PATTERN-TRAP",
    "flag": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "same",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ame-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "resolvedImageAssetKey": "flame",
-  "imageAlt": "Which word rhymes with same?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ame.v3",
@@ -11307,33 +10892,25 @@ export const questions = [
    "same": "D-RIME-NEAR",
    "game": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ame-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
-  "resolvedImageAssetKey": "zip",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ide.v1",
@@ -11393,34 +10970,26 @@ export const questions = [
    "hid": "D-DEVELOPMENTAL",
    "witch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "ride",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ide-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hid is the short sibling — drop the e, lose the rhyme",
-  "imagePath": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "resolvedImageAssetKey": "ride",
-  "imageAlt": "Which word rhymes with ride?"
+  "notes": "hid is the short sibling — drop the e, lose the rhyme"
  },
  {
   "id": "lp3.rhyming.l2.B.ide.v2",
@@ -11480,34 +11049,26 @@ export const questions = [
    "wade": "D-VOWEL",
    "win": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "side",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ide-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "resolvedImageAssetKey": "wide",
-  "imageAlt": "Which word rhymes with side?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ide.v3",
@@ -11567,33 +11128,25 @@ export const questions = [
    "ride": "D-RIME-NEAR",
    "hide": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ide-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ight.v1",
@@ -11653,34 +11206,26 @@ export const questions = [
    "lift": "D-PATTERN-TRAP",
    "kit": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "light",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ight-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cross-spelling rhyme: kite shares no chunk with light, so the scanner reads nothing — the construct is sound, not letters",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
-  "imageAlt": "Which word rhymes with light?"
+  "notes": "cross-spelling rhyme: kite shares no chunk with light, so the scanner reads nothing — the construct is sound, not letters"
  },
  {
   "id": "lp3.rhyming.l2.B.ight.v2",
@@ -11740,34 +11285,26 @@ export const questions = [
    "net": "D-VOWEL",
    "nut": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "night",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ight-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cross-spelling rhyme again; wit ties the with-overlap",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "Which word rhymes with night?"
+  "notes": "cross-spelling rhyme again; wit ties the with-overlap"
  },
  {
   "id": "lp3.rhyming.l2.C.ight.v3",
@@ -11827,33 +11364,25 @@ export const questions = [
    "night": "D-RIME-NEAR",
    "right": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ight-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/blends/lamp.webp",
-  "imageUrl": "/images/assessment/blends/lamp.webp",
-  "targetImage": "/images/assessment/blends/lamp.webp",
-  "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.oat.v1",
@@ -11913,34 +11442,26 @@ export const questions = [
    "bag": "D-RIME-NEAR",
    "board": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-oat-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "got is the short sibling; board ties the boa-chunk",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "Which word rhymes with boat?"
+  "notes": "got is the short sibling; board ties the boa-chunk"
  },
  {
   "id": "lp3.rhyming.l2.B.oat.v2",
@@ -12000,34 +11521,26 @@ export const questions = [
    "cot": "D-DEVELOPMENTAL",
    "fan": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "coat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-oat-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
-  "resolvedImageAssetKey": "coat",
-  "imageAlt": "Which word rhymes with coat?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.oat.v3",
@@ -12087,33 +11600,25 @@ export const questions = [
    "boat": "D-RIME-NEAR",
    "coat": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-oat-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "resolvedImageAssetKey": "rug",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.eep.v1",
@@ -12173,34 +11678,26 @@ export const questions = [
    "ship": "D-DEVELOPMENTAL",
    "den": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sheep",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-eep-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sheet out-chunks the key (shee) — the scanner falls into the trap",
-  "imagePath": "/images/assessment/digraphs/sheep.webp",
-  "imageUrl": "/images/assessment/digraphs/sheep.webp",
-  "targetImage": "/images/assessment/digraphs/sheep.webp",
-  "targetImagePath": "/images/assessment/digraphs/sheep.webp",
-  "resolvedImageAssetKey": "sheep",
-  "imageAlt": "Which word rhymes with sheep?"
+  "notes": "sheet out-chunks the key (shee) — the scanner falls into the trap"
  },
  {
   "id": "lp3.rhyming.l2.B.eep.v2",
@@ -12260,34 +11757,26 @@ export const questions = [
    "jam": "D-RIME-NEAR",
    "witch": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "jeep",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-eep-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "resolvedImageAssetKey": "sleep",
-  "imageAlt": "Which word rhymes with jeep?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.eep.v3",
@@ -12347,33 +11836,25 @@ export const questions = [
    "jeep": "D-RIME-NEAR",
    "deep": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-eep-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "resolvedImageAssetKey": "mat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ouse.v1",
@@ -12433,33 +11914,25 @@ export const questions = [
    "mouse": "D-RIME-NEAR",
    "blouse": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ouse-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "ouse has no scanner-safe RFR pairing (every rhyme shares the 4-letter rime), so the unit runs on odd-one-out, where max-overlap picks a rhymer",
-  "imagePath": "/images/child-mode/initial-sounds/bus.png",
-  "imageUrl": "/images/child-mode/initial-sounds/bus.png",
-  "targetImage": "/images/child-mode/initial-sounds/bus.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/bus.png",
-  "resolvedImageAssetKey": "bus",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "ouse has no scanner-safe RFR pairing (every rhyme shares the 4-letter rime), so the unit runs on odd-one-out, where max-overlap picks a rhymer"
  },
  {
   "id": "lp3.rhyming.l2.B.ouse.v2",
@@ -12519,33 +11992,25 @@ export const questions = [
    "house": "D-RIME-NEAR",
    "blouse": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ouse-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/an/van-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/an/van-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
-  "resolvedImageAssetKey": "van",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.C.ouse.v3",
@@ -12605,33 +12070,25 @@ export const questions = [
    "blouse": "D-RIME-NEAR",
    "mouse": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ouse-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/child-mode/initial-sounds/gum.png",
-  "imageUrl": "/images/child-mode/initial-sounds/gum.png",
-  "targetImage": "/images/child-mode/initial-sounds/gum.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/gum.png",
-  "resolvedImageAssetKey": "gum",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ird.v1",
@@ -12691,34 +12148,26 @@ export const questions = [
    "bin": "D-RIME-NEAR",
    "bad": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "bird",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ird-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
-  "imageAlt": "Which word rhymes with bird?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.ird.v2",
@@ -12778,34 +12227,26 @@ export const questions = [
    "this": "D-PATTERN-TRAP",
    "thin": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "third",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ird-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cross-spelling rhyme (ird/erd); this ties the thi-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
-  "resolvedImageAssetKey": "third",
-  "imageAlt": "Which word rhymes with third?"
+  "notes": "cross-spelling rhyme (ird/erd); this ties the thi-chunk"
  },
  {
   "id": "lp3.rhyming.l2.C.ird.v3",
@@ -12865,33 +12306,25 @@ export const questions = [
    "herd": "D-RIME-NEAR",
    "bird": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ird-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-  "resolvedImageAssetKey": "cap",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.urn.v1",
@@ -12951,34 +12384,26 @@ export const questions = [
    "witch": "D-PATTERN-TRAP",
    "torn": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "burn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-urn-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
-  "resolvedImageAssetKey": "burn",
-  "imageAlt": "Which word rhymes with burn?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.B.urn.v2",
@@ -13038,34 +12463,26 @@ export const questions = [
    "fun": "D-RIME-NEAR",
    "fan": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "turn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-urn-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cross-spelling rhyme (urn/ern)",
-  "imagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "resolvedImageAssetKey": "turn",
-  "imageAlt": "Which word rhymes with turn?"
+  "notes": "cross-spelling rhyme (urn/ern)"
  },
  {
   "id": "lp3.rhyming.l2.C.urn.v3",
@@ -13125,33 +12542,25 @@ export const questions = [
    "turn": "D-RIME-NEAR",
    "churn": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-urn-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.ar.v1",
@@ -13211,34 +12620,26 @@ export const questions = [
    "care": "D-VOWEL",
    "can": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "car",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ar-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "care is one silent e from the anchor; cart out-chunks the key",
-  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "resolvedImageAssetKey": "car",
-  "imageAlt": "Which word rhymes with car?"
+  "notes": "care is one silent e from the anchor; cart out-chunks the key"
  },
  {
   "id": "lp3.rhyming.l2.B.ar.v2",
@@ -13298,34 +12699,26 @@ export const questions = [
    "fur": "D-VOWEL",
    "jet": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "jar",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ar-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "resolvedImageAssetKey": "far",
-  "imageAlt": "Which word rhymes with jar?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.ar.v3",
@@ -13385,33 +12778,25 @@ export const questions = [
    "jar": "D-RIME-NEAR",
    "car": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ar-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
-  "resolvedImageAssetKey": "hut",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.A.or.v1",
@@ -13471,34 +12856,26 @@ export const questions = [
    "cord": "D-PATTERN-TRAP",
    "barn": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "corn",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-or-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "barn is the ar/or vowel confusion; cord ties the cor-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "resolvedImageAssetKey": "corn",
-  "imageAlt": "Which word rhymes with corn?"
+  "notes": "barn is the ar/or vowel confusion; cord ties the cor-chunk"
  },
  {
   "id": "lp3.rhyming.l2.B.or.v2",
@@ -13558,34 +12935,26 @@ export const questions = [
    "fork": "D-PATTERN-TRAP",
    "shirt": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "fort",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-or-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/fort.webp",
-  "imageUrl": "/images/assessment/generated/concepts/fort.webp",
-  "targetImage": "/images/assessment/generated/concepts/fort.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/fort.webp",
-  "resolvedImageAssetKey": "fort",
-  "imageAlt": "Which word rhymes with fort?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.C.or.v3",
@@ -13645,33 +13014,25 @@ export const questions = [
    "horn": "D-RIME-NEAR",
    "fort": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-or-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "resolvedImageAssetKey": "bed",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l1.R.at.v7r",
@@ -13742,14 +13103,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -13860,14 +13220,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -13978,14 +13337,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -14096,14 +13454,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -14214,14 +13571,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -14321,34 +13677,26 @@ export const questions = [
    "rink": "D-PATTERN-TRAP",
    "rung": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "ring",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ing-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ing/ring-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ing/ring-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
-  "resolvedImageAssetKey": "ring",
-  "imageAlt": "Which word rhymes with ring?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.R.ake.v7r",
@@ -14408,34 +13756,26 @@ export const questions = [
    "snack": "D-PATTERN-TRAP",
    "bin": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "bake",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ake-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/snake.webp",
-  "imageUrl": "/images/assessment/blends/snake.webp",
-  "targetImage": "/images/assessment/blends/snake.webp",
-  "targetImagePath": "/images/assessment/blends/snake.webp",
-  "resolvedImageAssetKey": "snake",
-  "imageAlt": "Which word rhymes with bake?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.R.ell.v7r",
@@ -14495,33 +13835,25 @@ export const questions = [
    "spell": "D-RIME-NEAR",
    "yell": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ell-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/child-mode/initial-sounds/tub.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tub.png",
-  "targetImage": "/images/child-mode/initial-sounds/tub.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tub.png",
-  "resolvedImageAssetKey": "tub",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  },
  {
   "id": "lp3.rhyming.l2.R.oat.v7r",
@@ -14581,34 +13913,26 @@ export const questions = [
    "goal": "D-PATTERN-TRAP",
    "got": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "goat",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-oat-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageUrl": "/images/assessment/long-vowels/goat.webp",
-  "targetImage": "/images/assessment/long-vowels/goat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "resolvedImageAssetKey": "goat",
-  "imageAlt": "Which word rhymes with goat?"
+  "notes": ""
  },
  {
   "id": "lp3.rhyming.l2.R.ink.v7r",
@@ -14668,32 +13992,24 @@ export const questions = [
    "drink": "D-RIME-NEAR",
    "pink": "D-RIME-NEAR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "rhyming-ink-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key",
-  "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "resolvedImageAssetKey": "bat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "notes": "the scanner's max-overlap pick is always a rhymer (a distractor), never the odd key"
  }
 ];

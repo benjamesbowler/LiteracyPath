@@ -17,12 +17,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT = path.join(ROOT, "docs/previews/quest-art-contact-sheet.html");
+const OUT = path.join(ROOT, ".artifacts/quest-art/quest-art-contact-sheet.html");
 const WORLDS = ["meadow", "dino", "moonwood"];
 const PAIRS = ["flower-patch", "broken-bridge", "hungry-beast", "echo-cave", "sheep-pens", "word-beast", "signpost", "story-rock"];
 const SINGLES = ["guide-meadow", "guide-dino", "guide-moonwood", "sun-drop", "goal-flag"];
 
-// The sheet lives in docs/previews/, so a path has to climb TWO levels to get
+// The sheet lives in .artifacts/quest-art/, so a path has to climb two levels to get
 // back to the repo root and then down into public/. I got this one level short
 // the first time and every image in the sheet was an empty rectangle.
 const url = p => path.relative(path.dirname(OUT), path.join(ROOT, p)).replace(/\\/g, "/");

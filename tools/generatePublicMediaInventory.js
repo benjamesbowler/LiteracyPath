@@ -68,7 +68,6 @@ const records = walk(publicDir)
       rejectionReason: "",
       reviewerNotes: "",
       reviewedAt: "",
-      reviewedBy: "",
       heuristicFlags: [],
       replacementPath: "",
       source: "public_file_inventory",

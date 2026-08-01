@@ -59,7 +59,7 @@ export const questions = [
    "o": "D-VOWEL",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "apple",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/apple-apples-01.webp",
   "resolvedImageAssetKey": "apple",
-  "imageAlt": "Which letter makes the first sound in apple?"
+  "imageAlt": "apple"
  },
  {
   "id": "lp3.initial_sounds.l1.B.a.v2",
@@ -146,7 +145,7 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ant",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/ant.png",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/ant.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ant.png",
   "resolvedImageAssetKey": "ant",
-  "imageAlt": "Which letter makes the first sound in ant?"
+  "imageAlt": "ant"
  },
  {
   "id": "lp3.initial_sounds.l1.C.a.v3",
@@ -245,14 +243,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -352,34 +349,26 @@ export const questions = [
    "t": "D-POSITION",
    "u": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "astronaut",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-a-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/a.webp",
-  "imageUrl": "/images/assessment/hfw/a.webp",
-  "targetImage": "/images/assessment/hfw/a.webp",
-  "targetImagePath": "/images/assessment/hfw/a.webp",
-  "resolvedImageAssetKey": "a",
-  "imageAlt": "Which letter makes the first sound in astronaut?"
+  "notes": ""
  },
  {
   "id": "lp3.initial_sounds.l2.B.a.v2",
@@ -439,34 +428,26 @@ export const questions = [
    "i": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "alligator",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-a-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/a.webp",
-  "imageUrl": "/images/assessment/hfw/a.webp",
-  "targetImage": "/images/assessment/hfw/a.webp",
-  "targetImagePath": "/images/assessment/hfw/a.webp",
-  "resolvedImageAssetKey": "a",
-  "imageAlt": "Which letter makes the first sound in alligator?"
+  "notes": ""
  },
  {
   "id": "lp3.initial_sounds.l2.C.a.v3",
@@ -538,14 +519,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -645,7 +625,7 @@ export const questions = [
    "t": "D-POSITION",
    "p": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -657,14 +637,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "boat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/boat.webp",
@@ -672,7 +651,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/boat.webp",
   "targetImagePath": "/images/assessment/long-vowels/boat.webp",
   "resolvedImageAssetKey": "boat",
-  "imageAlt": "Which letter makes the first sound in boat?"
+  "imageAlt": "boat"
  },
  {
   "id": "lp3.initial_sounds.l1.B.b.v2",
@@ -732,7 +711,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -744,14 +723,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bike",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/bike.webp",
@@ -759,7 +737,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/bike.webp",
   "targetImagePath": "/images/assessment/long-vowels/bike.webp",
   "resolvedImageAssetKey": "bike",
-  "imageAlt": "Which letter makes the first sound in bike?"
+  "imageAlt": "bike"
  },
  {
   "id": "lp3.initial_sounds.l1.C.b.v3",
@@ -831,14 +809,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "web ends with /b/ — the position trap; duck shares the water scene",
   "imageCards": [
@@ -938,7 +915,7 @@ export const questions = [
    "d": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -950,14 +927,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "banana",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
@@ -965,7 +941,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/banana-bananas-01.webp",
   "resolvedImageAssetKey": "banana",
-  "imageAlt": "Which letter makes the first sound in banana?"
+  "imageAlt": "banana"
  },
  {
   "id": "lp3.initial_sounds.l2.B.b.v2",
@@ -1025,7 +1001,7 @@ export const questions = [
    "p": "D-ONSET",
    "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1037,14 +1013,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "butterfly",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
@@ -1052,7 +1027,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/butterfly-butterflies-01.webp",
   "resolvedImageAssetKey": "butterfly",
-  "imageAlt": "Which letter makes the first sound in butterfly?"
+  "imageAlt": "butterfly"
  },
  {
   "id": "lp3.initial_sounds.l2.C.b.v3",
@@ -1124,14 +1099,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "all-neighbour card set: b against p/p/d voicing-place pressure",
   "imageCards": [
@@ -1231,7 +1205,7 @@ export const questions = [
    "g": "D-ONSET",
    "o": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1243,14 +1217,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "corn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
@@ -1258,7 +1231,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "resolvedImageAssetKey": "corn",
-  "imageAlt": "Which letter makes the first sound in corn?"
+  "imageAlt": "corn"
  },
  {
   "id": "lp3.initial_sounds.l1.B.c.v2",
@@ -1318,7 +1291,7 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1330,14 +1303,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cap",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
@@ -1345,7 +1317,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/cap-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
   "resolvedImageAssetKey": "cap",
-  "imageAlt": "Which letter makes the first sound in cap?"
+  "imageAlt": "cap"
  },
  {
   "id": "lp3.initial_sounds.l1.C.c.v3",
@@ -1417,14 +1389,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "sock ends /k/; moon is round like the cake — no card starts /k/",
   "imageCards": [
@@ -1524,7 +1495,7 @@ export const questions = [
    "o": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1536,14 +1507,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "caterpillar",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
@@ -1551,7 +1521,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/caterpillar.webp",
   "resolvedImageAssetKey": "caterpillar",
-  "imageAlt": "Which letter makes the first sound in caterpillar?"
+  "imageAlt": "caterpillar"
  },
  {
   "id": "lp3.initial_sounds.l2.B.c.v2",
@@ -1611,7 +1581,7 @@ export const questions = [
    "a": "D-POSITION",
    "g": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1623,14 +1593,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "camera",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/camera.webp",
@@ -1638,7 +1607,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/camera.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/camera.webp",
   "resolvedImageAssetKey": "camera",
-  "imageAlt": "Which letter makes the first sound in camera?"
+  "imageAlt": "camera"
  },
  {
   "id": "lp3.initial_sounds.l2.C.c.v3",
@@ -1710,14 +1679,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing pressure from gate/goat; phone rhymes with the key and ties its one-overlap for scanners",
   "imageCards": [
@@ -1817,7 +1785,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1829,14 +1797,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
@@ -1844,7 +1811,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which letter makes the first sound in dog?"
+  "imageAlt": "dog"
  },
  {
   "id": "lp3.initial_sounds.l1.B.d.v2",
@@ -1904,7 +1871,7 @@ export const questions = [
    "k": "D-POSITION",
    "t": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -1916,14 +1883,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "duck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/duck.webp",
@@ -1931,7 +1897,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
   "resolvedImageAssetKey": "duck",
-  "imageAlt": "Which letter makes the first sound in duck?"
+  "imageAlt": "duck"
  },
  {
   "id": "lp3.initial_sounds.l1.C.d.v3",
@@ -2003,14 +1969,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bread ends /d/; the bone belongs to the dog but starts /b/",
   "imageCards": [
@@ -2110,7 +2075,7 @@ export const questions = [
    "t": "D-ONSET",
    "b": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2122,14 +2087,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dinosaur",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
@@ -2137,7 +2101,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/dinosaur.webp",
   "resolvedImageAssetKey": "dinosaur",
-  "imageAlt": "Which letter makes the first sound in dinosaur?"
+  "imageAlt": "dinosaur"
  },
  {
   "id": "lp3.initial_sounds.l2.B.d.v2",
@@ -2197,7 +2161,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2209,14 +2173,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dolphin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/dolphin.webp",
@@ -2224,7 +2187,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/dolphin.webp",
   "targetImagePath": "/images/assessment/digraphs/dolphin.webp",
   "resolvedImageAssetKey": "dolphin",
-  "imageAlt": "Which letter makes the first sound in dolphin?"
+  "imageAlt": "dolphin"
  },
  {
   "id": "lp3.initial_sounds.l2.C.d.v3",
@@ -2296,14 +2259,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /d/ key against three /t/ starters",
   "imageCards": [
@@ -2403,7 +2365,7 @@ export const questions = [
    "c": "D-VOWEL",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2415,14 +2377,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "egg",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
@@ -2430,7 +2391,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/eg/egg-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/eg/egg-02.webp",
   "resolvedImageAssetKey": "egg",
-  "imageAlt": "Which letter makes the first sound in egg?"
+  "imageAlt": "egg"
  },
  {
   "id": "lp3.initial_sounds.l1.B.e.v2",
@@ -2490,7 +2451,7 @@ export const questions = [
    "i": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2502,14 +2463,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "envelope",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/envelope.png",
@@ -2517,7 +2477,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/envelope.png",
   "targetImagePath": "/images/child-mode/initial-sounds/envelope.png",
   "resolvedImageAssetKey": "envelope",
-  "imageAlt": "Which letter makes the first sound in envelope?"
+  "imageAlt": "envelope"
  },
  {
   "id": "lp3.initial_sounds.l1.C.e.v3",
@@ -2589,14 +2549,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2696,7 +2655,7 @@ export const questions = [
    "t": "D-POSITION",
    "i": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2708,14 +2667,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "elephant",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/elephant.webp",
@@ -2723,7 +2681,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/elephant.webp",
   "targetImagePath": "/images/assessment/digraphs/elephant.webp",
   "resolvedImageAssetKey": "elephant",
-  "imageAlt": "Which letter makes the first sound in elephant?"
+  "imageAlt": "elephant"
  },
  {
   "id": "lp3.initial_sounds.l2.B.e.v2",
@@ -2783,7 +2741,7 @@ export const questions = [
    "c": "D-VOWEL",
    "w": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -2795,14 +2753,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "elbow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
@@ -2810,7 +2767,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/elbow.webp",
   "resolvedImageAssetKey": "elbow",
-  "imageAlt": "Which letter makes the first sound in elbow?"
+  "imageAlt": "elbow"
  },
  {
   "id": "lp3.initial_sounds.l2.C.e.v3",
@@ -2882,14 +2839,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2989,7 +2945,7 @@ export const questions = [
    "n": "D-POSITION",
    "v": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3001,14 +2957,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fan",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
@@ -3016,7 +2971,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/an/fan-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/an/fan-02.webp",
   "resolvedImageAssetKey": "fan",
-  "imageAlt": "Which letter makes the first sound in fan?"
+  "imageAlt": "fan"
  },
  {
   "id": "lp3.initial_sounds.l1.B.f.v2",
@@ -3076,7 +3031,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "x": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3088,14 +3043,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fox",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/fox.png",
@@ -3103,7 +3057,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/fox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
   "resolvedImageAssetKey": "fox",
-  "imageAlt": "Which letter makes the first sound in fox?"
+  "imageAlt": "fox"
  },
  {
   "id": "lp3.initial_sounds.l1.C.f.v3",
@@ -3175,14 +3129,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "leaf ends /f/; van is the f/v voicing trap",
   "imageCards": [
@@ -3282,7 +3235,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3294,14 +3247,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "feather",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
@@ -3309,7 +3261,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/feather.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/feather.webp",
   "resolvedImageAssetKey": "feather",
-  "imageAlt": "Which letter makes the first sound in feather?"
+  "imageAlt": "feather"
  },
  {
   "id": "lp3.initial_sounds.l2.B.f.v2",
@@ -3369,7 +3321,7 @@ export const questions = [
    "v": "D-ONSET",
    "t": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3381,14 +3333,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flamingo",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
@@ -3396,7 +3347,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/flamingo.webp",
   "resolvedImageAssetKey": "flamingo",
-  "imageAlt": "Which letter makes the first sound in flamingo?"
+  "imageAlt": "flamingo"
  },
  {
   "id": "lp3.initial_sounds.l2.C.f.v3",
@@ -3468,14 +3419,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /f/ key against three /v/ starters",
   "imageCards": [
@@ -3575,7 +3525,7 @@ export const questions = [
    "k": "D-ONSET",
    "q": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3587,14 +3537,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "goat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/goat.webp",
@@ -3602,7 +3551,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/goat.webp",
   "targetImagePath": "/images/assessment/long-vowels/goat.webp",
   "resolvedImageAssetKey": "goat",
-  "imageAlt": "Which letter makes the first sound in goat?"
+  "imageAlt": "goat"
  },
  {
   "id": "lp3.initial_sounds.l1.B.g.v2",
@@ -3662,7 +3611,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3674,14 +3623,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/gate.webp",
@@ -3689,7 +3637,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/gate.webp",
   "targetImagePath": "/images/assessment/long-vowels/gate.webp",
   "resolvedImageAssetKey": "gate",
-  "imageAlt": "Which letter makes the first sound in gate?"
+  "imageAlt": "gate"
  },
  {
   "id": "lp3.initial_sounds.l1.C.g.v3",
@@ -3761,14 +3709,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "pig ends /g/; cake is the k/g voicing trap",
   "imageCards": [
@@ -3868,7 +3815,7 @@ export const questions = [
    "j": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3880,14 +3827,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "guitar",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
@@ -3895,7 +3841,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/guitar.webp",
   "resolvedImageAssetKey": "guitar",
-  "imageAlt": "Which letter makes the first sound in guitar?"
+  "imageAlt": "guitar"
  },
  {
   "id": "lp3.initial_sounds.l2.B.g.v2",
@@ -3955,7 +3901,7 @@ export const questions = [
    "a": "D-POSITION",
    "c": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -3967,14 +3913,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gorilla",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
@@ -3982,7 +3927,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/gorilla.webp",
   "resolvedImageAssetKey": "gorilla",
-  "imageAlt": "Which letter makes the first sound in gorilla?"
+  "imageAlt": "gorilla"
  },
  {
   "id": "lp3.initial_sounds.l2.C.g.v3",
@@ -4054,14 +3999,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /g/ key against three /k/ starters",
   "imageCards": [
@@ -4161,7 +4105,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4173,14 +4117,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
@@ -4188,7 +4131,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "resolvedImageAssetKey": "hat",
-  "imageAlt": "Which letter makes the first sound in hat?"
+  "imageAlt": "hat"
  },
  {
   "id": "lp3.initial_sounds.l1.B.h.v2",
@@ -4248,7 +4191,7 @@ export const questions = [
    "n": "D-POSITION",
    "f": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4260,14 +4203,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hen",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
@@ -4275,7 +4217,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "resolvedImageAssetKey": "hen",
-  "imageAlt": "Which letter makes the first sound in hen?"
+  "imageAlt": "hen"
  },
  {
   "id": "lp3.initial_sounds.l1.C.h.v3",
@@ -4347,14 +4289,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cap is the other thing you wear; rat rhymes with the anchor",
   "imageCards": [
@@ -4454,7 +4395,7 @@ export const questions = [
    "f": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4466,14 +4407,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "helicopter",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
@@ -4481,7 +4421,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/helicopter.webp",
   "resolvedImageAssetKey": "helicopter",
-  "imageAlt": "Which letter makes the first sound in helicopter?"
+  "imageAlt": "helicopter"
  },
  {
   "id": "lp3.initial_sounds.l2.B.h.v2",
@@ -4541,7 +4481,7 @@ export const questions = [
    "b": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4553,14 +4493,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hedgehog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
@@ -4568,7 +4507,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/hedgehog.webp",
   "resolvedImageAssetKey": "hedgehog",
-  "imageAlt": "Which letter makes the first sound in hedgehog?"
+  "imageAlt": "hedgehog"
  },
  {
   "id": "lp3.initial_sounds.l2.C.h.v3",
@@ -4640,14 +4579,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "breathy panel: /h/ key against three /f/ starters",
   "imageCards": [
@@ -4747,7 +4685,7 @@ export const questions = [
    "l": "D-VOWEL",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4759,14 +4697,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "igloo",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/igloo.png",
@@ -4774,7 +4711,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/igloo.png",
   "targetImagePath": "/images/child-mode/initial-sounds/igloo.png",
   "resolvedImageAssetKey": "igloo",
-  "imageAlt": "Which letter makes the first sound in igloo?"
+  "imageAlt": "igloo"
  },
  {
   "id": "lp3.initial_sounds.l1.B.i.v2",
@@ -4834,7 +4771,7 @@ export const questions = [
    "e": "D-VOWEL",
    "l": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -4846,14 +4783,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ink",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/ink.png",
@@ -4861,7 +4797,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
   "resolvedImageAssetKey": "ink",
-  "imageAlt": "Which letter makes the first sound in ink?"
+  "imageAlt": "ink"
  },
  {
   "id": "lp3.initial_sounds.l1.C.i.v3",
@@ -4933,14 +4869,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5040,7 +4975,7 @@ export const questions = [
    "t": "D-POSITION",
    "e": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5052,14 +4987,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "insect",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/insect.png",
@@ -5067,7 +5001,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/insect.png",
   "targetImagePath": "/images/child-mode/initial-sounds/insect.png",
   "resolvedImageAssetKey": "insect",
-  "imageAlt": "Which letter makes the first sound in insect?"
+  "imageAlt": "insect"
  },
  {
   "id": "lp3.initial_sounds.l2.B.i.v2",
@@ -5127,34 +5061,26 @@ export const questions = [
    "l": "D-VOWEL",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "instrument",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-i-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/i.webp",
-  "imageUrl": "/images/assessment/hfw/i.webp",
-  "targetImage": "/images/assessment/hfw/i.webp",
-  "targetImagePath": "/images/assessment/hfw/i.webp",
-  "resolvedImageAssetKey": "i",
-  "imageAlt": "Which letter makes the first sound in instrument?"
+  "notes": ""
  },
  {
   "id": "lp3.initial_sounds.l2.C.i.v3",
@@ -5226,14 +5152,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5333,7 +5258,7 @@ export const questions = [
    "t": "D-POSITION",
    "y": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5345,14 +5270,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jet",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
@@ -5360,7 +5284,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/et/jet-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/et/jet-02.webp",
   "resolvedImageAssetKey": "jet",
-  "imageAlt": "Which letter makes the first sound in jet?"
+  "imageAlt": "jet"
  },
  {
   "id": "lp3.initial_sounds.l1.B.j.v2",
@@ -5420,7 +5344,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "m": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5432,14 +5356,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jam",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
@@ -5447,7 +5370,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "resolvedImageAssetKey": "jam",
-  "imageAlt": "Which letter makes the first sound in jam?"
+  "imageAlt": "jam"
  },
  {
   "id": "lp3.initial_sounds.l1.C.j.v3",
@@ -5519,14 +5442,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "yarn is the y-for-j glide error; mug rhymes with the anchor",
   "imageCards": [
@@ -5626,7 +5548,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5638,14 +5560,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jacket",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
@@ -5653,7 +5574,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jacket.webp",
   "resolvedImageAssetKey": "jacket",
-  "imageAlt": "Which letter makes the first sound in jacket?"
+  "imageAlt": "jacket"
  },
  {
   "id": "lp3.initial_sounds.l2.B.j.v2",
@@ -5713,7 +5634,7 @@ export const questions = [
    "y": "D-DEVELOPMENTAL",
    "d": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5725,14 +5646,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jellyfish",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
@@ -5740,7 +5660,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/jellyfish.webp",
   "resolvedImageAssetKey": "jellyfish",
-  "imageAlt": "Which letter makes the first sound in jellyfish?"
+  "imageAlt": "jellyfish"
  },
  {
   "id": "lp3.initial_sounds.l2.C.j.v3",
@@ -5812,14 +5732,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glide panel: /dʒ/ key against y/y/d pressure",
   "imageCards": [
@@ -5919,7 +5838,7 @@ export const questions = [
    "g": "D-ONSET",
    "h": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -5931,14 +5850,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "kite",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/kite.webp",
@@ -5946,7 +5864,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/kite.webp",
   "targetImagePath": "/images/assessment/long-vowels/kite.webp",
   "resolvedImageAssetKey": "kite",
-  "imageAlt": "Which letter makes the first sound in kite?"
+  "imageAlt": "kite"
  },
  {
   "id": "lp3.initial_sounds.l1.B.k.v2",
@@ -6006,7 +5924,7 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6018,14 +5936,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "king",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
@@ -6033,7 +5950,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ing/king-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
   "resolvedImageAssetKey": "king",
-  "imageAlt": "Which letter makes the first sound in king?"
+  "imageAlt": "king"
  },
  {
   "id": "lp3.initial_sounds.l1.C.k.v3",
@@ -6105,14 +6022,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "duck ends /k/; bike shares the i_e rime AND ends /k/ — it also ties the like/kite letter overlap so scanning cannot win",
   "imageCards": [
@@ -6212,7 +6128,7 @@ export const questions = [
    "h": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6224,14 +6140,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "kangaroo",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
@@ -6239,7 +6154,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/kangaroo-kangaroos-01.webp",
   "resolvedImageAssetKey": "kangaroo",
-  "imageAlt": "Which letter makes the first sound in kangaroo?"
+  "imageAlt": "kangaroo"
  },
  {
   "id": "lp3.initial_sounds.l2.B.k.v2",
@@ -6299,7 +6214,7 @@ export const questions = [
    "l": "D-POSITION",
    "g": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6311,14 +6226,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "kettle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
@@ -6326,7 +6240,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/kettle.webp",
   "resolvedImageAssetKey": "kettle",
-  "imageAlt": "Which letter makes the first sound in kettle?"
+  "imageAlt": "kettle"
  },
  {
   "id": "lp3.initial_sounds.l2.C.k.v3",
@@ -6398,14 +6312,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /k/ key against three /g/ starters",
   "imageCards": [
@@ -6505,7 +6418,7 @@ export const questions = [
    "i": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6517,14 +6430,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lamp",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/lamp.webp",
@@ -6532,7 +6444,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
   "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Which letter makes the first sound in lamp?"
+  "imageAlt": "lamp"
  },
  {
   "id": "lp3.initial_sounds.l1.B.l.v2",
@@ -6592,7 +6504,7 @@ export const questions = [
    "g": "D-POSITION",
    "r": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6604,14 +6516,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "leg",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
@@ -6619,7 +6530,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "resolvedImageAssetKey": "leg",
-  "imageAlt": "Which letter makes the first sound in leg?"
+  "imageAlt": "leg"
  },
  {
   "id": "lp3.initial_sounds.l1.C.l.v3",
@@ -6691,14 +6602,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wheel ends /l/; map shares the anchor's -amp/-ap ending feel",
   "imageCards": [
@@ -6798,7 +6708,7 @@ export const questions = [
    "r": "D-ONSET",
    "i": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6810,14 +6720,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lemon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
@@ -6825,7 +6734,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/lemon.webp",
   "resolvedImageAssetKey": "lemon",
-  "imageAlt": "Which letter makes the first sound in lemon?"
+  "imageAlt": "lemon"
  },
  {
   "id": "lp3.initial_sounds.l2.B.l.v2",
@@ -6885,7 +6794,7 @@ export const questions = [
    "t": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -6897,14 +6806,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lion",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
@@ -6912,7 +6820,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
   "resolvedImageAssetKey": "lion",
-  "imageAlt": "Which letter makes the first sound in lion?"
+  "imageAlt": "lion"
  },
  {
   "id": "lp3.initial_sounds.l2.C.l.v3",
@@ -6984,14 +6892,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "liquid panel: /l/ key against three /r/ starters",
   "imageCards": [
@@ -7091,7 +6998,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "p": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7103,14 +7010,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "map",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
@@ -7118,7 +7024,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/map-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
   "resolvedImageAssetKey": "map",
-  "imageAlt": "Which letter makes the first sound in map?"
+  "imageAlt": "map"
  },
  {
   "id": "lp3.initial_sounds.l1.B.m.v2",
@@ -7178,7 +7084,7 @@ export const questions = [
    "n": "D-ONSET",
    "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7190,14 +7096,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
@@ -7205,7 +7110,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "resolvedImageAssetKey": "mug",
-  "imageAlt": "Which letter makes the first sound in mug?"
+  "imageAlt": "mug"
  },
  {
   "id": "lp3.initial_sounds.l1.C.m.v3",
@@ -7277,14 +7182,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "drum ends /m/; spoon rhymes with the anchor",
   "imageCards": [
@@ -7384,7 +7288,7 @@ export const questions = [
    "t": "D-POSITION",
    "n": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7396,14 +7300,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mountain",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
@@ -7411,7 +7314,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/mountain.webp",
   "resolvedImageAssetKey": "mountain",
-  "imageAlt": "Which letter makes the first sound in mountain?"
+  "imageAlt": "mountain"
  },
  {
   "id": "lp3.initial_sounds.l2.B.m.v2",
@@ -7471,7 +7374,7 @@ export const questions = [
    "w": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7483,14 +7386,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "microphone",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/microphone.webp",
@@ -7498,7 +7400,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/microphone.webp",
   "targetImagePath": "/images/assessment/digraphs/microphone.webp",
   "resolvedImageAssetKey": "microphone",
-  "imageAlt": "Which letter makes the first sound in microphone?"
+  "imageAlt": "microphone"
  },
  {
   "id": "lp3.initial_sounds.l2.C.m.v3",
@@ -7570,14 +7472,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "nasal panel: /m/ key against three /n/ starters",
   "imageCards": [
@@ -7677,7 +7578,7 @@ export const questions = [
    "t": "D-POSITION",
    "m": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7689,14 +7590,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "net",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
@@ -7704,7 +7604,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
   "resolvedImageAssetKey": "net",
-  "imageAlt": "Which letter makes the first sound in net?"
+  "imageAlt": "net"
  },
  {
   "id": "lp3.initial_sounds.l1.B.n.v2",
@@ -7764,7 +7664,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "z": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7776,14 +7676,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nose",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
@@ -7791,7 +7690,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
   "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
   "resolvedImageAssetKey": "nose",
-  "imageAlt": "Which letter makes the first sound in nose?"
+  "imageAlt": "nose"
  },
  {
   "id": "lp3.initial_sounds.l1.C.n.v3",
@@ -7863,14 +7762,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "pin ends /n/; vet rhymes with the anchor",
   "imageCards": [
@@ -7970,7 +7868,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "s": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -7982,14 +7880,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "necklace",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
@@ -7997,7 +7894,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/necklace.webp",
   "resolvedImageAssetKey": "necklace",
-  "imageAlt": "Which letter makes the first sound in necklace?"
+  "imageAlt": "necklace"
  },
  {
   "id": "lp3.initial_sounds.l2.B.n.v2",
@@ -8057,7 +7954,7 @@ export const questions = [
    "m": "D-ONSET",
    "u": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8069,14 +7966,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "newspaper",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
@@ -8084,7 +7980,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
   "resolvedImageAssetKey": "newspaper",
-  "imageAlt": "Which letter makes the first sound in newspaper?"
+  "imageAlt": "newspaper"
  },
  {
   "id": "lp3.initial_sounds.l2.C.n.v3",
@@ -8156,14 +8052,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "nasal panel: /n/ key against three /m/ starters",
   "imageCards": [
@@ -8263,7 +8158,7 @@ export const questions = [
    "u": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8275,14 +8170,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ox",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/ox.png",
@@ -8290,7 +8184,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/ox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ox.png",
   "resolvedImageAssetKey": "ox",
-  "imageAlt": "Which letter makes the first sound in ox?"
+  "imageAlt": "ox"
  },
  {
   "id": "lp3.initial_sounds.l1.B.o.v2",
@@ -8350,7 +8244,7 @@ export const questions = [
    "c": "D-VOWEL",
    "s": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8362,14 +8256,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "octopus",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/octopus.png",
@@ -8377,7 +8270,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/octopus.png",
   "targetImagePath": "/images/child-mode/initial-sounds/octopus.png",
   "resolvedImageAssetKey": "octopus",
-  "imageAlt": "Which letter makes the first sound in octopus?"
+  "imageAlt": "octopus"
  },
  {
   "id": "lp3.initial_sounds.l1.C.o.v3",
@@ -8449,14 +8342,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -8556,7 +8448,7 @@ export const questions = [
    "c": "D-VOWEL",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8568,14 +8460,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "otter",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/otter.webp",
@@ -8583,7 +8474,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/otter.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/otter.webp",
   "resolvedImageAssetKey": "otter",
-  "imageAlt": "Which letter makes the first sound in otter?"
+  "imageAlt": "otter"
  },
  {
   "id": "lp3.initial_sounds.l2.B.o.v2",
@@ -8643,7 +8534,7 @@ export const questions = [
    "v": "D-POSITION",
    "a": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8655,14 +8546,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "olive",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/olive.webp",
@@ -8670,7 +8560,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/olive.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/olive.webp",
   "resolvedImageAssetKey": "olive",
-  "imageAlt": "Which letter makes the first sound in olive?"
+  "imageAlt": "olive"
  },
  {
   "id": "lp3.initial_sounds.l2.C.o.v3",
@@ -8742,14 +8632,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -8849,7 +8738,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8861,14 +8750,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pig",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
@@ -8876,7 +8764,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "resolvedImageAssetKey": "pig",
-  "imageAlt": "Which letter makes the first sound in pig?"
+  "imageAlt": "pig"
  },
  {
   "id": "lp3.initial_sounds.l1.B.p.v2",
@@ -8936,7 +8824,7 @@ export const questions = [
    "n": "D-POSITION",
    "b": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -8948,14 +8836,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pen",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
@@ -8963,7 +8850,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/pen-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
   "resolvedImageAssetKey": "pen",
-  "imageAlt": "Which letter makes the first sound in pen?"
+  "imageAlt": "pen"
  },
  {
   "id": "lp3.initial_sounds.l1.C.p.v3",
@@ -9035,14 +8922,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "map ends /p/; dig rhymes with the anchor",
   "imageCards": [
@@ -9142,7 +9028,7 @@ export const questions = [
    "b": "D-ONSET",
    "d": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9154,14 +9040,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "penguin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
@@ -9169,7 +9054,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/penguin.webp",
   "resolvedImageAssetKey": "penguin",
-  "imageAlt": "Which letter makes the first sound in penguin?"
+  "imageAlt": "penguin"
  },
  {
   "id": "lp3.initial_sounds.l2.B.p.v2",
@@ -9229,7 +9114,7 @@ export const questions = [
    "q": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9241,14 +9126,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pumpkin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
@@ -9256,7 +9140,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/pumpkin.webp",
   "resolvedImageAssetKey": "pumpkin",
-  "imageAlt": "Which letter makes the first sound in pumpkin?"
+  "imageAlt": "pumpkin"
  },
  {
   "id": "lp3.initial_sounds.l2.C.p.v3",
@@ -9328,14 +9212,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /p/ key against three /b/ starters",
   "imageCards": [
@@ -9435,7 +9318,7 @@ export const questions = [
    "p": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9447,14 +9330,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "queen",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/queen.png",
@@ -9462,7 +9344,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/queen.png",
   "targetImagePath": "/images/child-mode/initial-sounds/queen.png",
   "resolvedImageAssetKey": "queen",
-  "imageAlt": "Which letter makes the first sound in queen?"
+  "imageAlt": "queen"
  },
  {
   "id": "lp3.initial_sounds.l1.B.q.v2",
@@ -9522,7 +9404,7 @@ export const questions = [
    "w": "D-DEVELOPMENTAL",
    "p": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9534,14 +9416,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "quilt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/quilt.png",
@@ -9549,7 +9430,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/quilt.png",
   "targetImagePath": "/images/child-mode/initial-sounds/quilt.png",
   "resolvedImageAssetKey": "quilt",
-  "imageAlt": "Which letter makes the first sound in quilt?"
+  "imageAlt": "quilt"
  },
  {
   "id": "lp3.initial_sounds.l1.C.q.v3",
@@ -9621,14 +9502,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "king starts the bare /k/; wheel is the /w/-component error and ties the queen ee-overlap; the crown belongs to the queen",
   "imageCards": [
@@ -9728,7 +9608,7 @@ export const questions = [
    "n": "D-POSITION",
    "w": "D-DEVELOPMENTAL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9740,14 +9620,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "question",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
@@ -9755,7 +9634,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
   "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
   "resolvedImageAssetKey": "question",
-  "imageAlt": "Which letter makes the first sound in question?"
+  "imageAlt": "question"
  },
  {
   "id": "lp3.initial_sounds.l2.B.q.v2",
@@ -9815,7 +9694,7 @@ export const questions = [
    "g": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -9827,14 +9706,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "quarter",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
@@ -9842,7 +9720,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/quarter.webp",
   "resolvedImageAssetKey": "quarter",
-  "imageAlt": "Which letter makes the first sound in quarter?"
+  "imageAlt": "quarter"
  },
  {
   "id": "lp3.initial_sounds.l2.C.q.v3",
@@ -9914,14 +9792,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "web/wheel are the /w/-reduction; vest ties the question st-overlap so scanning cannot win",
   "imageCards": [
@@ -10021,7 +9898,7 @@ export const questions = [
    "g": "D-POSITION",
    "w": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10033,14 +9910,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
@@ -10048,7 +9924,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "resolvedImageAssetKey": "rug",
-  "imageAlt": "Which letter makes the first sound in rug?"
+  "imageAlt": "rug"
  },
  {
   "id": "lp3.initial_sounds.l1.B.r.v2",
@@ -10108,7 +9984,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "g": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10120,14 +9996,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ring",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
@@ -10135,7 +10010,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ing/ring-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ing/ring-02.webp",
   "resolvedImageAssetKey": "ring",
-  "imageAlt": "Which letter makes the first sound in ring?"
+  "imageAlt": "ring"
  },
  {
   "id": "lp3.initial_sounds.l1.C.r.v3",
@@ -10207,14 +10082,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "deer ends /r/; king rhymes with the anchor",
   "imageCards": [
@@ -10314,7 +10188,7 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10326,14 +10200,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rainbow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
@@ -10341,7 +10214,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/rainbow.webp",
   "resolvedImageAssetKey": "rainbow",
-  "imageAlt": "Which letter makes the first sound in rainbow?"
+  "imageAlt": "rainbow"
  },
  {
   "id": "lp3.initial_sounds.l2.B.r.v2",
@@ -10401,7 +10274,7 @@ export const questions = [
    "w": "D-ONSET",
    "l": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10413,14 +10286,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rocket",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
@@ -10428,7 +10300,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/rocket.webp",
   "resolvedImageAssetKey": "rocket",
-  "imageAlt": "Which letter makes the first sound in rocket?"
+  "imageAlt": "rocket"
  },
  {
   "id": "lp3.initial_sounds.l2.C.r.v3",
@@ -10500,14 +10372,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glide panel: /r/ key against three /w/ starters — the wabbit error",
   "imageCards": [
@@ -10607,7 +10478,7 @@ export const questions = [
    "z": "D-ONSET",
    "e": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10619,14 +10490,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sun",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
@@ -10634,7 +10504,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "resolvedImageAssetKey": "sun",
-  "imageAlt": "Which letter makes the first sound in sun?"
+  "imageAlt": "sun"
  },
  {
   "id": "lp3.initial_sounds.l1.B.s.v2",
@@ -10694,7 +10564,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10706,14 +10576,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -10721,7 +10590,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Which letter makes the first sound in sock?"
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.initial_sounds.l1.C.s.v3",
@@ -10793,14 +10662,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glass ends /s/; run rhymes with the anchor",
   "imageCards": [
@@ -10900,7 +10768,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "r": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10912,14 +10780,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sunflower",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
@@ -10927,7 +10794,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sunflower.webp",
   "resolvedImageAssetKey": "sunflower",
-  "imageAlt": "Which letter makes the first sound in sunflower?"
+  "imageAlt": "sunflower"
  },
  {
   "id": "lp3.initial_sounds.l2.B.s.v2",
@@ -10987,7 +10854,7 @@ export const questions = [
    "h": "D-POSITION",
    "z": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -10999,14 +10866,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sandwich",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
@@ -11014,7 +10880,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandwich.webp",
   "resolvedImageAssetKey": "sandwich",
-  "imageAlt": "Which letter makes the first sound in sandwich?"
+  "imageAlt": "sandwich"
  },
  {
   "id": "lp3.initial_sounds.l2.C.s.v3",
@@ -11086,14 +10952,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /s/ key against three /z/ starters",
   "imageCards": [
@@ -11193,7 +11058,7 @@ export const questions = [
    "f": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11205,14 +11070,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tent",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/tent.webp",
@@ -11220,7 +11084,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
   "resolvedImageAssetKey": "tent",
-  "imageAlt": "Which letter makes the first sound in tent?"
+  "imageAlt": "tent"
  },
  {
   "id": "lp3.initial_sounds.l1.B.t.v2",
@@ -11280,7 +11144,7 @@ export const questions = [
    "o": "D-POSITION",
    "d": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11292,14 +11156,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "toe",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/toe.webp",
@@ -11307,7 +11170,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/toe.webp",
   "targetImagePath": "/images/assessment/long-vowels/toe.webp",
   "resolvedImageAssetKey": "toe",
-  "imageAlt": "Which letter makes the first sound in toe?"
+  "imageAlt": "toe"
  },
  {
   "id": "lp3.initial_sounds.l1.C.t.v3",
@@ -11379,14 +11242,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "hat ends /t/; net shares the anchor's -et ending",
   "imageCards": [
@@ -11486,7 +11348,7 @@ export const questions = [
    "d": "D-ONSET",
    "f": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11498,14 +11360,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tiger",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
@@ -11513,7 +11374,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
   "resolvedImageAssetKey": "tiger",
-  "imageAlt": "Which letter makes the first sound in tiger?"
+  "imageAlt": "tiger"
  },
  {
   "id": "lp3.initial_sounds.l2.B.t.v2",
@@ -11573,7 +11434,7 @@ export const questions = [
    "l": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11585,14 +11446,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tomato",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
@@ -11600,7 +11460,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/tomato-tomatoes-01.webp",
   "resolvedImageAssetKey": "tomato",
-  "imageAlt": "Which letter makes the first sound in tomato?"
+  "imageAlt": "tomato"
  },
  {
   "id": "lp3.initial_sounds.l2.C.t.v3",
@@ -11672,14 +11532,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /t/ key against three /d/ starters",
   "imageCards": [
@@ -11779,7 +11638,7 @@ export const questions = [
    "n": "D-VOWEL",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11791,14 +11650,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "umbrella",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/umbrella.png",
@@ -11806,7 +11664,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/umbrella.png",
   "targetImagePath": "/images/child-mode/initial-sounds/umbrella.png",
   "resolvedImageAssetKey": "umbrella",
-  "imageAlt": "Which letter makes the first sound in umbrella?"
+  "imageAlt": "umbrella"
  },
  {
   "id": "lp3.initial_sounds.l1.B.u.v2",
@@ -11866,7 +11724,7 @@ export const questions = [
    "o": "D-VOWEL",
    "n": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -11878,14 +11736,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "uncle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/uncle.png",
@@ -11893,7 +11750,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/uncle.png",
   "targetImagePath": "/images/child-mode/initial-sounds/uncle.png",
   "resolvedImageAssetKey": "uncle",
-  "imageAlt": "Which letter makes the first sound in uncle?"
+  "imageAlt": "uncle"
  },
  {
   "id": "lp3.initial_sounds.l1.C.u.v3",
@@ -11965,14 +11822,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -12072,7 +11928,7 @@ export const questions = [
    "r": "D-POSITION",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12084,14 +11940,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "umpire",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
@@ -12099,7 +11954,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/umpire.webp",
   "resolvedImageAssetKey": "umpire",
-  "imageAlt": "Which letter makes the first sound in umpire?"
+  "imageAlt": "umpire"
  },
  {
   "id": "lp3.initial_sounds.l2.B.u.v2",
@@ -12159,7 +12014,7 @@ export const questions = [
    "v": "D-VOWEL",
    "d": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12171,14 +12026,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "uniform",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
@@ -12186,7 +12040,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/uniform.webp",
   "resolvedImageAssetKey": "uniform",
-  "imageAlt": "Which letter makes the first sound in uniform?"
+  "imageAlt": "uniform"
  },
  {
   "id": "lp3.initial_sounds.l2.C.u.v3",
@@ -12258,14 +12112,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -12365,7 +12218,7 @@ export const questions = [
    "n": "D-POSITION",
    "f": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12377,14 +12230,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "van",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
@@ -12392,7 +12244,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/an/van-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
   "resolvedImageAssetKey": "van",
-  "imageAlt": "Which letter makes the first sound in van?"
+  "imageAlt": "van"
  },
  {
   "id": "lp3.initial_sounds.l1.B.v.v2",
@@ -12452,7 +12304,7 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "t": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12464,14 +12316,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "vet",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/vet.png",
@@ -12479,7 +12330,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/vet.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
   "resolvedImageAssetKey": "vet",
-  "imageAlt": "Which letter makes the first sound in vet?"
+  "imageAlt": "vet"
  },
  {
   "id": "lp3.initial_sounds.l1.C.v.v3",
@@ -12551,14 +12402,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fan is the f/v voicing trap AND rhymes with the anchor; man rhymes too",
   "imageCards": [
@@ -12658,7 +12508,7 @@ export const questions = [
    "y": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12670,14 +12520,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "volcano",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
@@ -12685,7 +12534,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/volcano.webp",
   "resolvedImageAssetKey": "volcano",
-  "imageAlt": "Which letter makes the first sound in volcano?"
+  "imageAlt": "volcano"
  },
  {
   "id": "lp3.initial_sounds.l2.B.v.v2",
@@ -12745,7 +12594,7 @@ export const questions = [
    "f": "D-ONSET",
    "w": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12757,14 +12606,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "vulture",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
@@ -12772,7 +12620,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/vulture.webp",
   "resolvedImageAssetKey": "vulture",
-  "imageAlt": "Which letter makes the first sound in vulture?"
+  "imageAlt": "vulture"
  },
  {
   "id": "lp3.initial_sounds.l2.C.v.v3",
@@ -12844,14 +12692,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /v/ key against three /f/ starters; van/fan is a true minimal pair",
   "imageCards": [
@@ -12951,7 +12798,7 @@ export const questions = [
    "v": "D-ONSET",
    "m": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -12963,14 +12810,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "web",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/web.png",
@@ -12978,7 +12824,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/web.png",
   "targetImagePath": "/images/child-mode/initial-sounds/web.png",
   "resolvedImageAssetKey": "web",
-  "imageAlt": "Which letter makes the first sound in web?"
+  "imageAlt": "web"
  },
  {
   "id": "lp3.initial_sounds.l1.B.w.v2",
@@ -13038,7 +12884,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "m": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13050,14 +12896,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "worm",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/worm.png",
@@ -13065,7 +12910,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/worm.png",
   "targetImagePath": "/images/child-mode/initial-sounds/worm.png",
   "resolvedImageAssetKey": "worm",
-  "imageAlt": "Which letter makes the first sound in worm?"
+  "imageAlt": "worm"
  },
  {
   "id": "lp3.initial_sounds.l1.C.w.v3",
@@ -13137,14 +12982,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "a net looks and works like a web — semantic pull with a different onset",
   "imageCards": [
@@ -13244,7 +13088,7 @@ export const questions = [
    "m": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13256,14 +13100,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "watermelon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
@@ -13271,7 +13114,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/watermelon.webp",
   "resolvedImageAssetKey": "watermelon",
-  "imageAlt": "Which letter makes the first sound in watermelon?"
+  "imageAlt": "watermelon"
  },
  {
   "id": "lp3.initial_sounds.l2.B.w.v2",
@@ -13331,7 +13174,7 @@ export const questions = [
    "o": "D-POSITION",
    "v": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13343,14 +13186,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "window",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
@@ -13358,7 +13200,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
   "resolvedImageAssetKey": "window",
-  "imageAlt": "Which letter makes the first sound in window?"
+  "imageAlt": "window"
  },
  {
   "id": "lp3.initial_sounds.l2.C.w.v3",
@@ -13430,14 +13272,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glide panel: /w/ key against three /v/ starters",
   "imageCards": [
@@ -13537,7 +13378,7 @@ export const questions = [
    "v": "D-VISUAL-NEIGHBOR",
    "k": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13549,14 +13390,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yak",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/yak.png",
@@ -13564,7 +13404,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/yak.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yak.png",
   "resolvedImageAssetKey": "yak",
-  "imageAlt": "Which letter makes the first sound in yak?"
+  "imageAlt": "yak"
  },
  {
   "id": "lp3.initial_sounds.l1.B.y.v2",
@@ -13624,7 +13464,7 @@ export const questions = [
    "w": "D-ONSET",
    "v": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13636,14 +13476,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yarn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/yarn.png",
@@ -13651,7 +13490,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/yarn.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
   "resolvedImageAssetKey": "yarn",
-  "imageAlt": "Which letter makes the first sound in yarn?"
+  "imageAlt": "yarn"
  },
  {
   "id": "lp3.initial_sounds.l1.C.y.v3",
@@ -13723,14 +13562,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "jam is the j-letter-name trap; the farm is where the yak lives — and its ar ties the starts-overlap",
   "imageCards": [
@@ -13830,7 +13668,7 @@ export const questions = [
    "t": "D-POSITION",
    "w": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13842,14 +13680,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yoghurt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
@@ -13857,7 +13694,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yoghurt.webp",
   "resolvedImageAssetKey": "yoghurt",
-  "imageAlt": "Which letter makes the first sound in yoghurt?"
+  "imageAlt": "yoghurt"
  },
  {
   "id": "lp3.initial_sounds.l2.B.y.v2",
@@ -13917,7 +13754,7 @@ export const questions = [
    "u": "D-VISUAL-NEIGHBOR",
    "n": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -13929,14 +13766,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yawn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
@@ -13944,7 +13780,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
   "resolvedImageAssetKey": "yawn",
-  "imageAlt": "Which letter makes the first sound in yawn?"
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.initial_sounds.l2.C.y.v3",
@@ -14016,14 +13852,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "jam/jet keep the yet/jet pressure; star ties the yarn ar-overlap so scanning cannot win",
   "imageCards": [
@@ -14123,7 +13958,7 @@ export const questions = [
    "p": "D-POSITION",
    "s": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14135,14 +13970,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zip",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
@@ -14150,7 +13984,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "resolvedImageAssetKey": "zip",
-  "imageAlt": "Which letter makes the first sound in zip?"
+  "imageAlt": "zip"
  },
  {
   "id": "lp3.initial_sounds.l1.B.z.v2",
@@ -14210,7 +14044,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "o": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14222,14 +14056,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zoo",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
@@ -14237,7 +14070,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
   "resolvedImageAssetKey": "zoo",
-  "imageAlt": "Which letter makes the first sound in zoo?"
+  "imageAlt": "zoo"
  },
  {
   "id": "lp3.initial_sounds.l1.C.z.v3",
@@ -14309,14 +14142,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "quiz ends /z/; ship rhymes with the anchor",
   "imageCards": [
@@ -14416,7 +14248,7 @@ export const questions = [
    "n": "D-VISUAL-NEIGHBOR",
    "a": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14428,14 +14260,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zebra",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/zebra.png",
@@ -14443,7 +14274,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/zebra.png",
   "targetImagePath": "/images/child-mode/initial-sounds/zebra.png",
   "resolvedImageAssetKey": "zebra",
-  "imageAlt": "Which letter makes the first sound in zebra?"
+  "imageAlt": "zebra"
  },
  {
   "id": "lp3.initial_sounds.l2.B.z.v2",
@@ -14503,7 +14334,7 @@ export const questions = [
    "s": "D-ONSET",
    "n": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
@@ -14515,14 +14346,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zigzag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
@@ -14530,7 +14360,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/zigzag.webp",
   "resolvedImageAssetKey": "zigzag",
-  "imageAlt": "Which letter makes the first sound in zigzag?"
+  "imageAlt": "zigzag"
  },
  {
   "id": "lp3.initial_sounds.l2.C.z.v3",
@@ -14602,14 +14432,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "voicing panel: /z/ key against three /s/ starters",
   "imageCards": [
@@ -14709,34 +14538,26 @@ export const questions = [
    "e": "D-VOWEL",
    "o": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "ambulance",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-a-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/a.webp",
-  "imageUrl": "/images/assessment/hfw/a.webp",
-  "targetImage": "/images/assessment/hfw/a.webp",
-  "targetImagePath": "/images/assessment/hfw/a.webp",
-  "resolvedImageAssetKey": "a",
-  "imageAlt": "Which letter makes the first sound in ambulance?"
+  "notes": ""
  },
  {
   "id": "lp3.initial_sounds.l2.R.e.v7r",
@@ -14796,7 +14617,7 @@ export const questions = [
    "i": "D-VOWEL",
    "c": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -14808,14 +14629,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "engine",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
@@ -14823,7 +14643,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/engine.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/engine.webp",
   "resolvedImageAssetKey": "engine",
-  "imageAlt": "Which letter makes the first sound in engine?"
+  "imageAlt": "engine"
  },
  {
   "id": "lp3.initial_sounds.l1.R.m.v7r",
@@ -14883,7 +14703,7 @@ export const questions = [
    "t": "D-POSITION",
    "n": "D-ONSET"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -14895,14 +14715,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
@@ -14910,7 +14729,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/mat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
   "resolvedImageAssetKey": "mat",
-  "imageAlt": "Which letter makes the first sound in mat?"
+  "imageAlt": "mat"
  },
  {
   "id": "lp3.initial_sounds.l2.R.s.v7r",
@@ -14970,7 +14789,7 @@ export const questions = [
    "e": "D-VISUAL-NEIGHBOR",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -14982,14 +14801,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sandcastle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
@@ -14997,7 +14815,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
   "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
   "resolvedImageAssetKey": "sandcastle",
-  "imageAlt": "Which letter makes the first sound in sandcastle?"
+  "imageAlt": "sandcastle"
  },
  {
   "id": "lp3.initial_sounds.l2.R.t.v7r",
@@ -15057,7 +14875,7 @@ export const questions = [
    "f": "D-VISUAL-NEIGHBOR",
    "l": "D-POSITION"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "image-optional",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
@@ -15069,14 +14887,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "table",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
@@ -15084,7 +14901,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/table-tables-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/table-tables-01.webp",
   "resolvedImageAssetKey": "table",
-  "imageAlt": "Which letter makes the first sound in table?"
+  "imageAlt": "table"
  },
  {
   "id": "lp3.initial_sounds.l1.R.b.v7r",
@@ -15156,14 +14973,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -15275,14 +15091,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -15394,14 +15209,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -15513,14 +15327,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -15632,14 +15445,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/initial_sounds.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [

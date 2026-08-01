@@ -26,7 +26,7 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
     <div className="phonics-picker">
       <h1 data-child-title="">Choose a letter</h1>
 
-      <p data-child-instruction="">Tap a letter to hear its sound and start practising.</p>
+      <p data-child-instruction="">Tap a letter to hear its sound.</p>
       {recommendedLetter && (
         <p className="phonics-recommendation-reason">
           <strong>Why this one?</strong>{" "}

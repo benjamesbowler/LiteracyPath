@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import {
@@ -534,7 +534,10 @@ function PictureSequenceOrderQuestion({
   speakText,
   onEvidenceImageError
 }) {
-  const sourceCards = currentQuestion.sequenceCards || [];
+  const sourceCards = useMemo(
+    () => currentQuestion.sequenceCards || [],
+    [currentQuestion.sequenceCards]
+  );
   const displayCards = useMemo(() => {
     if (sourceCards.length < 2) return sourceCards;
     const offset = Array.from(String(currentQuestion.id || "sequence"))
@@ -2122,7 +2125,7 @@ const MANUAL_OUTCOME_CHOICES = [
 ];
 
 // Green yes / red no marking, one tap per field. Restores the pre-dropdown
-// interaction Benjamin asked for; the recorded values are unchanged
+// current interaction; the recorded values are unchanged
 // ("correct" | "incorrect" | "not_administered").
 function ManualOutcomeChoice({ groupId, label, value, disabled, onChange }) {
   return (
@@ -2598,6 +2601,22 @@ export function AssessmentPage({
     label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
   };
   const assessmentExit = returnToStudentOverview || endAssessment;
+  const feedbackAdvanceRef = useRef({ pickQuestion, setFeedback });
+
+  useEffect(() => {
+    feedbackAdvanceRef.current = { pickQuestion, setFeedback };
+  }, [pickQuestion, setFeedback]);
+
+  useEffect(() => {
+    if (!feedback) return undefined;
+    const delay = feedback.isCorrect ? 1800 : 3200;
+    const timer = window.setTimeout(() => {
+      const actions = feedbackAdvanceRef.current;
+      actions.setFeedback(null);
+      actions.pickQuestion();
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [feedback]);
 
   const isListenAndFindWord =
     hasCurrentQuestion && (
@@ -2765,95 +2784,14 @@ export function AssessmentPage({
         feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
         feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
       ].filter(Boolean).join(" ")}
+      role="status"
+      aria-live="assertive"
       initial={{ scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
-      <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Let's look closer!" : "Let's learn from that one"}</h2>
-
-      {feedback.support?.type !== "pair_selection" && (
-        <>
-          <p><strong>Your answer:</strong> {formatAnswerForFeedback(feedback.chosen)}</p>
-          <p><strong>Correct answer:</strong> {formatAnswerForFeedback(feedback.correct)}</p>
-        </>
-      )}
-
-      {!feedback.isCorrect && (
-        <div className="teaching-slide">
-          {feedback.support?.type === "pair_selection" ? (
-            <div className="initial-sound-support">
-              <section>
-                <strong>Correct answer</strong>
-                <div className="support-image-row">
-                  {(feedback.support.correctWords || []).map(word => {
-                    const card = feedback.support.cardsByWord?.[word];
-                    return card ? (
-                      <figure key={word}>
-                        <img
-                          src={card.image}
-                          alt={card.alt || `Picture for ${word}`}
-                          data-assessment-media-kind="feedback"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </figure>
-                    ) : null;
-                  })}
-                </div>
-              </section>
-
-              <section>
-                <strong>You answered</strong>
-                <div className="support-image-row">
-                  {(feedback.support.chosenWords || []).map(word => {
-                    const card = feedback.support.cardsByWord?.[word];
-                    return card ? (
-                      <figure key={word}>
-                        <img
-                          src={card.image}
-                          alt={card.alt || `Picture for ${word}`}
-                          data-assessment-media-kind="feedback"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </figure>
-                    ) : null;
-                  })}
-                </div>
-              </section>
-
-              <p>Words are made up of sounds. Some words share the same beginning, ending, or rhyming sound.</p>
-              <p>{feedback.support.exampleText}</p>
-              <p>{feedback.support.wrongText}</p>
-            </div>
-          ) : (
-            <>
-              <h3>Teaching Tip</h3>
-              <p>{feedback.explanation}</p>
-              <p><strong>Skill focus:</strong> {feedback.skill}</p>
-            </>
-          )}
-        </div>
-      )}
-
-      <div className="button-row assessment-feedback-actions">
-        <button
-          className="reset-button"
-          onClick={() => reviseLastAnswer?.(feedback.question, feedback.answerEventId)}
-          type="button"
-        >
-          ← Change my answer
-        </button>
-        <button
-          className="main-button"
-          onClick={() => {
-            pickQuestion();
-            setFeedback(null);
-          }}
-          type="button"
-        >
-          Continue
-        </button>
-      </div>
+      <h2>{feedback.isCorrect ? "Correct" : "Incorrect"}</h2>
+      <p>{feedback.explanation}</p>
+      <p className="feedback-auto-advance">Next question…</p>
     </motion.div>
   ) : null;
 
@@ -2929,14 +2867,11 @@ export function AssessmentPage({
     }
   }
   const visiblePrompt = getStudentVisiblePrompt(currentQuestion);
-  const promptAudioText = isFinalSoundsEndingItem
-    ? visiblePrompt
-    : (
-      currentQuestion?.spokenPrompt ||
-      visiblePrompt ||
-      currentQuestion?.audioText ||
-      ""
-    );
+  const promptAudioText =
+    currentQuestion?.spokenPrompt ||
+    visiblePrompt ||
+    currentQuestion?.audioText ||
+    "";
   const promptAudioPath = getApprovedAudioPath(
     promptAudioText,
     currentQuestion?.promptAudioPath

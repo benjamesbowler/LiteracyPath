@@ -72,14 +72,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "block",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/block.webp",
@@ -87,7 +86,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/block.webp",
   "targetImagePath": "/images/assessment/blends/block.webp",
   "resolvedImageAssetKey": "block",
-  "imageAlt": "Finish: __ock"
+  "imageAlt": "block"
  },
  {
   "id": "lp3.blends.l1.B.bl.v2",
@@ -159,14 +158,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glue rhymes with the anchor — it ties the scanner and tempts the rhyme-matcher",
   "imageCards": [
@@ -278,14 +276,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "block",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "lock is the b-dropped reduction — THE blend error",
   "imagePath": "/images/assessment/blends/block.webp",
@@ -293,7 +290,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/block.webp",
   "targetImagePath": "/images/assessment/blends/block.webp",
   "resolvedImageAssetKey": "block",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "block"
  },
  {
   "id": "lp3.blends.l1.A.bl.v4",
@@ -366,14 +363,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "blue",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "glue is real — the blue image pins the target",
   "imagePath": "/images/assessment/blends/blue.webp",
@@ -381,7 +377,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/blue.webp",
   "targetImagePath": "/images/assessment/blends/blue.webp",
   "resolvedImageAssetKey": "blue",
-  "imageAlt": "Finish: __ue"
+  "imageAlt": "blue"
  },
  {
   "id": "lp3.blends.l1.A.cl.v1",
@@ -454,14 +450,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clap",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/clap.webp",
@@ -469,7 +464,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/clap.webp",
   "targetImagePath": "/images/assessment/blends/clap.webp",
   "resolvedImageAssetKey": "clap",
-  "imageAlt": "Finish: __ap"
+  "imageAlt": "clap"
  },
  {
   "id": "lp3.blends.l1.B.cl.v2",
@@ -541,14 +536,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "lamp is the l-only reduction and ties the clap overlap; map rhymes with the anchor",
   "imageCards": [
@@ -660,14 +654,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/clock.webp",
@@ -675,7 +668,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/clock.webp",
   "targetImagePath": "/images/assessment/blends/clock.webp",
   "resolvedImageAssetKey": "clock",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "clock"
  },
  {
   "id": "lp3.blends.l1.A.cl.v4",
@@ -748,14 +741,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cloth",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/cloth.webp",
@@ -763,7 +755,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/cloth.webp",
   "targetImagePath": "/images/assessment/digraphs/cloth.webp",
   "resolvedImageAssetKey": "cloth",
-  "imageAlt": "Finish: __oth"
+  "imageAlt": "cloth"
  },
  {
   "id": "lp3.blends.l1.A.fl.v1",
@@ -836,14 +828,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -851,7 +842,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Finish: __ag"
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.blends.l1.B.fl.v2",
@@ -923,14 +914,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "crown carries the anchor's ow letters — the scanner tie",
   "imageCards": [
@@ -1042,14 +1032,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -1057,7 +1046,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.blends.l1.A.fl.v4",
@@ -1130,14 +1119,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flute",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/long-vowels/flute.webp",
@@ -1145,7 +1133,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/flute.webp",
   "targetImagePath": "/images/assessment/long-vowels/flute.webp",
   "resolvedImageAssetKey": "flute",
-  "imageAlt": "Finish: __ute"
+  "imageAlt": "flute"
  },
  {
   "id": "lp3.blends.l1.A.pl.v1",
@@ -1218,14 +1206,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/plug.webp",
@@ -1233,7 +1220,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
   "resolvedImageAssetKey": "plug",
-  "imageAlt": "Finish: __ug"
+  "imageAlt": "plug"
  },
  {
   "id": "lp3.blends.l1.B.pl.v2",
@@ -1305,14 +1292,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "anchor avoids plum/plug's shared plu-chunk; lamp ties the play la-overlap",
   "imageCards": [
@@ -1424,14 +1410,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/plug.webp",
@@ -1439,7 +1424,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
   "resolvedImageAssetKey": "plug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "plug"
  },
  {
   "id": "lp3.blends.l1.A.pl.v4",
@@ -1512,14 +1497,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plant",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "grant is real — the plant image pins the target",
   "imagePath": "/images/assessment/blends/plant.webp",
@@ -1527,7 +1511,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/plant.webp",
   "targetImagePath": "/images/assessment/blends/plant.webp",
   "resolvedImageAssetKey": "plant",
-  "imageAlt": "Finish: __ant"
+  "imageAlt": "plant"
  },
  {
   "id": "lp3.blends.l1.A.sl.v1",
@@ -1600,14 +1584,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sled",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/sled.webp",
@@ -1615,7 +1598,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
   "resolvedImageAssetKey": "sled",
-  "imageAlt": "Finish: __ed"
+  "imageAlt": "sled"
  },
  {
   "id": "lp3.blends.l1.B.sl.v2",
@@ -1687,14 +1670,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ship shares the anchor's ip — the scanner tie and the rhyme trap",
   "imageCards": [
@@ -1806,14 +1788,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sled",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/sled.webp",
@@ -1821,7 +1802,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
   "resolvedImageAssetKey": "sled",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "sled"
  },
  {
   "id": "lp3.blends.l1.A.sl.v4",
@@ -1894,14 +1875,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "slide",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/slide.webp",
@@ -1909,7 +1889,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/slide.webp",
   "targetImagePath": "/images/assessment/blends/slide.webp",
   "resolvedImageAssetKey": "slide",
-  "imageAlt": "Finish: __ide"
+  "imageAlt": "slide"
  },
  {
   "id": "lp3.blends.l1.A.br.v1",
@@ -1982,14 +1962,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bread",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/bread.webp",
@@ -1997,7 +1976,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/bread.webp",
   "targetImagePath": "/images/assessment/blends/bread.webp",
   "resolvedImageAssetKey": "bread",
-  "imageAlt": "Finish: __ead"
+  "imageAlt": "bread"
  },
  {
   "id": "lp3.blends.l1.B.br.v2",
@@ -2069,14 +2048,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "crown rhymes with the anchor and out-chunks the key — the scanner falls for it",
   "imageCards": [
@@ -2188,14 +2166,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bread",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "red is the b-dropped reduction",
   "imagePath": "/images/assessment/blends/bread.webp",
@@ -2203,7 +2180,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/bread.webp",
   "targetImagePath": "/images/assessment/blends/bread.webp",
   "resolvedImageAssetKey": "bread",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bread"
  },
  {
   "id": "lp3.blends.l1.A.br.v4",
@@ -2276,14 +2253,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/brick.webp",
@@ -2291,7 +2267,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
   "resolvedImageAssetKey": "brick",
-  "imageAlt": "Finish: __ick"
+  "imageAlt": "brick"
  },
  {
   "id": "lp3.blends.l1.A.cr.v1",
@@ -2364,14 +2340,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crab",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/crab.webp",
@@ -2379,7 +2354,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
   "resolvedImageAssetKey": "crab",
-  "imageAlt": "Finish: __ab"
+  "imageAlt": "crab"
  },
  {
   "id": "lp3.blends.l1.B.cr.v2",
@@ -2451,14 +2426,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "brown rhymes with the anchor; rock is the c-dropped reduction",
   "imageCards": [
@@ -2570,14 +2544,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crab",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cab is the r-dropped reduction",
   "imagePath": "/images/assessment/blends/crab.webp",
@@ -2585,7 +2558,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
   "resolvedImageAssetKey": "crab",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "crab"
  },
  {
   "id": "lp3.blends.l1.A.cr.v4",
@@ -2658,14 +2631,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crown",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "brown and drown are real — the crown image pins the target",
   "imagePath": "/images/assessment/blends/crown.webp",
@@ -2673,7 +2645,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crown.webp",
   "targetImagePath": "/images/assessment/blends/crown.webp",
   "resolvedImageAssetKey": "crown",
-  "imageAlt": "Finish: __own"
+  "imageAlt": "crown"
  },
  {
   "id": "lp3.blends.l1.A.dr.v1",
@@ -2746,14 +2718,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "drum",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/drum.webp",
@@ -2761,7 +2732,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
   "resolvedImageAssetKey": "drum",
-  "imageAlt": "Finish: __um"
+  "imageAlt": "drum"
  },
  {
   "id": "lp3.blends.l1.B.dr.v2",
@@ -2833,14 +2804,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "vest shares the anchor's es letters — the scanner tie",
   "imageCards": [
@@ -2952,14 +2922,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "draw",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "raw is the d-dropped reduction",
   "imagePath": "/images/assessment/blends/draw.webp",
@@ -2967,7 +2936,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
   "resolvedImageAssetKey": "draw",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "draw"
  },
  {
   "id": "lp3.blends.l1.A.dr.v4",
@@ -3040,14 +3009,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "draw",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "claw is real — the draw image pins the target",
   "imagePath": "/images/assessment/blends/draw.webp",
@@ -3055,7 +3023,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/draw.webp",
   "targetImagePath": "/images/assessment/blends/draw.webp",
   "resolvedImageAssetKey": "draw",
-  "imageAlt": "Finish: __aw"
+  "imageAlt": "draw"
  },
  {
   "id": "lp3.blends.l1.A.fr.v1",
@@ -3128,14 +3096,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "frog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "clog is real — the frog image pins the target",
   "imagePath": "/images/assessment/blends/frog.webp",
@@ -3143,7 +3110,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
   "resolvedImageAssetKey": "frog",
-  "imageAlt": "Finish: __og"
+  "imageAlt": "frog"
  },
  {
   "id": "lp3.blends.l1.B.fr.v2",
@@ -3215,14 +3182,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "sit carries the anchor's it letters — the scanner tie",
   "imageCards": [
@@ -3334,14 +3300,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "frog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fog is the r-dropped reduction — the spec's own example",
   "imagePath": "/images/assessment/blends/frog.webp",
@@ -3349,7 +3314,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
   "resolvedImageAssetKey": "frog",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "frog"
  },
  {
   "id": "lp3.blends.l1.A.fr.v4",
@@ -3422,14 +3387,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fruit",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/fruit.webp",
@@ -3437,7 +3401,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/fruit.webp",
   "targetImagePath": "/images/assessment/blends/fruit.webp",
   "resolvedImageAssetKey": "fruit",
-  "imageAlt": "Finish: __uit"
+  "imageAlt": "fruit"
  },
  {
   "id": "lp3.blends.l1.A.gr.v1",
@@ -3510,14 +3474,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "grapes",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/grapes.webp",
@@ -3525,7 +3488,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/grapes.webp",
   "targetImagePath": "/images/assessment/blends/grapes.webp",
   "resolvedImageAssetKey": "grapes",
-  "imageAlt": "Finish: __apes"
+  "imageAlt": "grapes"
  },
  {
   "id": "lp3.blends.l1.B.gr.v2",
@@ -3597,14 +3560,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "sheep carries the anchor's ee — the scanner tie",
   "imageCards": [
@@ -3716,14 +3678,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ground",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "round is the g-dropped reduction",
   "imagePath": "/images/quest/dino/ground.webp",
@@ -3731,7 +3692,7 @@ export const questions = [
   "targetImage": "/images/quest/dino/ground.webp",
   "targetImagePath": "/images/quest/dino/ground.webp",
   "resolvedImageAssetKey": "ground",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "ground"
  },
  {
   "id": "lp3.blends.l1.A.gr.v4",
@@ -3804,14 +3765,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "green",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/green.webp",
@@ -3819,7 +3779,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/green.webp",
   "targetImagePath": "/images/assessment/blends/green.webp",
   "resolvedImageAssetKey": "green",
-  "imageAlt": "Finish: __een"
+  "imageAlt": "green"
  },
  {
   "id": "lp3.blends.l1.A.st.v1",
@@ -3892,14 +3852,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "star",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
@@ -3907,7 +3866,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "resolvedImageAssetKey": "star",
-  "imageAlt": "Finish: __ar"
+  "imageAlt": "star"
  },
  {
   "id": "lp3.blends.l1.B.st.v2",
@@ -3979,14 +3938,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word starts contains star, so star can never be a key in this frame; car rhymes with the anchor and ties its ar-chunk",
   "imageCards": [
@@ -4098,14 +4056,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "star",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tar is the s-dropped reduction",
   "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
@@ -4113,7 +4070,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "resolvedImageAssetKey": "star",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "star"
  },
  {
   "id": "lp3.blends.l1.A.st.v4",
@@ -4186,14 +4143,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "stop",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "shop, drop and crop are real — the stop image pins the target",
   "imagePath": "/images/assessment/blends/stop.webp",
@@ -4201,7 +4157,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/stop.webp",
   "targetImagePath": "/images/assessment/blends/stop.webp",
   "resolvedImageAssetKey": "stop",
-  "imageAlt": "Finish: __op"
+  "imageAlt": "stop"
  },
  {
   "id": "lp3.blends.l1.A.sw.v1",
@@ -4274,14 +4230,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "swim",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/swim.webp",
@@ -4289,7 +4244,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
   "resolvedImageAssetKey": "swim",
-  "imageAlt": "Finish: __im"
+  "imageAlt": "swim"
  },
  {
   "id": "lp3.blends.l1.B.sw.v2",
@@ -4361,14 +4316,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "feet rhymes with the anchor and out-chunks the key; wasp is the s-dropped w-start",
   "imageCards": [
@@ -4480,14 +4434,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "swim",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/swim.webp",
@@ -4495,7 +4448,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
   "resolvedImageAssetKey": "swim",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "swim"
  },
  {
   "id": "lp3.blends.l1.A.sw.v4",
@@ -4568,14 +4521,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "swing",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no swing image — but sning, gring and cring are non-words, so the completion is pinned",
   "imagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
@@ -4583,7 +4535,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ing/swing-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ing/swing-02.webp",
   "resolvedImageAssetKey": "swing",
-  "imageAlt": "Finish: __ing"
+  "imageAlt": "swing"
  },
  {
   "id": "lp3.blends.l2.A.sc.v1",
@@ -4656,14 +4608,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "scarf",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/scarf.webp",
@@ -4671,7 +4622,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
   "resolvedImageAssetKey": "scarf",
-  "imageAlt": "Finish: __arf"
+  "imageAlt": "scarf"
  },
  {
   "id": "lp3.blends.l2.B.sc.v2",
@@ -4743,14 +4694,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "scarf",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "scar is the f-dropped ending error",
   "imagePath": "/images/assessment/blends/scarf.webp",
@@ -4758,7 +4708,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
   "resolvedImageAssetKey": "scarf",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "scarf"
  },
  {
   "id": "lp3.blends.l2.C.sc.v3",
@@ -4818,7 +4768,7 @@ export const questions = [
    "tr": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4826,27 +4776,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "scooter",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sc-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no scooter image — smooter, snooter and trooter are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ooter"
+  "notes": "no scooter image — smooter, snooter and trooter are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sc.v4",
@@ -4906,7 +4848,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "dr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -4914,27 +4856,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "score",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sc-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ore"
+  "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sk.v1",
@@ -5007,14 +4941,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "skateboard",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/skateboard.webp",
@@ -5022,7 +4955,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/skateboard.webp",
   "targetImagePath": "/images/assessment/blends/skateboard.webp",
   "resolvedImageAssetKey": "skateboard",
-  "imageAlt": "Finish: __ateboard"
+  "imageAlt": "skateboard"
  },
  {
   "id": "lp3.blends.l2.B.sk.v2",
@@ -5094,14 +5027,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "skateboard",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the board family — same frame, different front",
   "imagePath": "/images/assessment/blends/skateboard.webp",
@@ -5109,7 +5041,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/skateboard.webp",
   "targetImagePath": "/images/assessment/blends/skateboard.webp",
   "resolvedImageAssetKey": "skateboard",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "skateboard"
  },
  {
   "id": "lp3.blends.l2.C.sk.v3",
@@ -5182,14 +5114,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "skip",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no skip image — scip, smip and spip are non-words",
   "imagePath": "/images/assessment/generated/concepts/skip.webp",
@@ -5197,7 +5128,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/skip.webp",
   "targetImagePath": "/images/assessment/generated/concepts/skip.webp",
   "resolvedImageAssetKey": "skip",
-  "imageAlt": "Finish: __ip"
+  "imageAlt": "skip"
  },
  {
   "id": "lp3.blends.l2.A.sk.v4",
@@ -5257,7 +5188,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5265,27 +5196,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "skin",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sk-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no skin image — scin and smin are non-words; snin too",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __in"
+  "notes": "no skin image — scin and smin are non-words; snin too"
  },
  {
   "id": "lp3.blends.l2.A.sm.v1",
@@ -5358,14 +5281,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "smile",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/smile.webp",
@@ -5373,7 +5295,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/smile.webp",
   "targetImagePath": "/images/assessment/blends/smile.webp",
   "resolvedImageAssetKey": "smile",
-  "imageAlt": "Finish: __ile"
+  "imageAlt": "smile"
  },
  {
   "id": "lp3.blends.l2.B.sm.v2",
@@ -5445,14 +5367,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "smile",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "mile is the s-dropped reduction",
   "imagePath": "/images/assessment/blends/smile.webp",
@@ -5460,7 +5381,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/smile.webp",
   "targetImagePath": "/images/assessment/blends/smile.webp",
   "resolvedImageAssetKey": "smile",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "smile"
  },
  {
   "id": "lp3.blends.l2.C.sm.v3",
@@ -5520,7 +5441,7 @@ export const questions = [
    "sc": "D-PATTERN-TRAP",
    "gr": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5528,27 +5449,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "smell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sm-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ell"
+  "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)"
  },
  {
   "id": "lp3.blends.l2.A.sm.v4",
@@ -5608,7 +5521,7 @@ export const questions = [
    "sn": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5616,27 +5529,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "smoke",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sm-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no smoke image — snoke, scoke and gloke are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __oke"
+  "notes": "no smoke image — snoke, scoke and gloke are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sn.v1",
@@ -5709,14 +5614,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snake",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "smake, scake and clake are non-words; the snake image pins it anyway",
   "imagePath": "/images/assessment/blends/snake.webp",
@@ -5724,7 +5628,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/snake.webp",
   "targetImagePath": "/images/assessment/blends/snake.webp",
   "resolvedImageAssetKey": "snake",
-  "imageAlt": "Finish: __ake"
+  "imageAlt": "snake"
  },
  {
   "id": "lp3.blends.l2.B.sn.v2",
@@ -5796,14 +5700,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snake",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "snack is the classic snake/snack near-word",
   "imagePath": "/images/assessment/blends/snake.webp",
@@ -5811,7 +5714,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/snake.webp",
   "targetImagePath": "/images/assessment/blends/snake.webp",
   "resolvedImageAssetKey": "snake",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "snake"
  },
  {
   "id": "lp3.blends.l2.C.sn.v3",
@@ -5871,7 +5774,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -5879,27 +5782,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "snail",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sn-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ail"
+  "notes": "no snail image — smail, scail and swail are non-words (trail stays out)"
  },
  {
   "id": "lp3.blends.l2.A.sn.v4",
@@ -5972,14 +5867,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snow",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no snow image — smow, skow and drow are non-words (glow and crow stay out)",
   "imagePath": "/images/assessment/long-vowels/snow.webp",
@@ -5987,7 +5881,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/snow.webp",
   "targetImagePath": "/images/assessment/long-vowels/snow.webp",
   "resolvedImageAssetKey": "snow",
-  "imageAlt": "Finish: __ow"
+  "imageAlt": "snow"
  },
  {
   "id": "lp3.blends.l2.A.sp.v1",
@@ -6060,14 +5954,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "spoon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "smoon, snoon and scoon are non-words; the spoon image pins it anyway",
   "imagePath": "/images/assessment/blends/spoon.webp",
@@ -6075,7 +5968,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/spoon.webp",
   "targetImagePath": "/images/assessment/blends/spoon.webp",
   "resolvedImageAssetKey": "spoon",
-  "imageAlt": "Finish: __oon"
+  "imageAlt": "spoon"
  },
  {
   "id": "lp3.blends.l2.B.sp.v2",
@@ -6147,14 +6040,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "spoon",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "soon is the p-dropped reduction",
   "imagePath": "/images/assessment/blends/spoon.webp",
@@ -6162,7 +6054,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/spoon.webp",
   "targetImagePath": "/images/assessment/blends/spoon.webp",
   "resolvedImageAssetKey": "spoon",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "spoon"
  },
  {
   "id": "lp3.blends.l2.C.sp.v3",
@@ -6222,7 +6114,7 @@ export const questions = [
    "sm": "D-PATTERN-TRAP",
    "sc": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6230,27 +6122,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "sport",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sp-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ort"
+  "notes": "no sport image — snort is deliberately absent; smort and scort are non-words"
  },
  {
   "id": "lp3.blends.l2.A.sp.v4",
@@ -6310,7 +6194,7 @@ export const questions = [
    "gl": "D-PATTERN-TRAP",
    "sm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -6318,27 +6202,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "spot",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sp-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ot"
+  "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)"
  },
  {
   "id": "lp3.blends.l2.A.tr.v1",
@@ -6411,14 +6287,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "truck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cluck is real — the truck image pins the target",
   "imagePath": "/images/assessment/blends/truck.webp",
@@ -6426,7 +6301,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/truck.webp",
   "targetImagePath": "/images/assessment/blends/truck.webp",
   "resolvedImageAssetKey": "truck",
-  "imageAlt": "Finish: __uck"
+  "imageAlt": "truck"
  },
  {
   "id": "lp3.blends.l2.B.tr.v2",
@@ -6498,14 +6373,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "truck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tuck is the r-dropped reduction",
   "imagePath": "/images/assessment/blends/truck.webp",
@@ -6513,7 +6387,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/truck.webp",
   "targetImagePath": "/images/assessment/blends/truck.webp",
   "resolvedImageAssetKey": "truck",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "truck"
  },
  {
   "id": "lp3.blends.l2.C.tr.v3",
@@ -6586,14 +6460,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "train",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "drain, grain and brain are all real — the train image pins the target",
   "imagePath": "/images/assessment/blends/train.webp",
@@ -6601,7 +6474,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/train.webp",
   "targetImagePath": "/images/assessment/blends/train.webp",
   "resolvedImageAssetKey": "train",
-  "imageAlt": "Finish: __ain"
+  "imageAlt": "train"
  },
  {
   "id": "lp3.blends.l2.A.tr.v4",
@@ -6674,14 +6547,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tray",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no tray image — smay, skay and glay are non-words (gray, play and clay stay out)",
   "imagePath": "/images/assessment/long-vowels/tray.webp",
@@ -6689,7 +6561,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/tray.webp",
   "targetImagePath": "/images/assessment/long-vowels/tray.webp",
   "resolvedImageAssetKey": "tray",
-  "imageAlt": "Finish: __ay"
+  "imageAlt": "tray"
  },
  {
   "id": "lp3.blends.l2.A.nd.v1",
@@ -6762,14 +6634,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/hand.webp",
@@ -6777,7 +6648,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Finish: ha__"
+  "imageAlt": "hand"
  },
  {
   "id": "lp3.blends.l2.B.nd.v2",
@@ -6849,14 +6720,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "had and ham drop the cluster two different ways",
   "imagePath": "/images/assessment/blends/hand.webp",
@@ -6864,7 +6734,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "hand"
  },
  {
   "id": "lp3.blends.l2.C.nd.v3",
@@ -6937,14 +6807,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pond",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no pond image — pont, ponk and polt are non-words",
   "imagePath": "/images/assessment/generated/concepts/pond.webp",
@@ -6952,7 +6821,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/pond.webp",
   "targetImagePath": "/images/assessment/generated/concepts/pond.webp",
   "resolvedImageAssetKey": "pond",
-  "imageAlt": "Finish: po__"
+  "imageAlt": "pond"
  },
  {
   "id": "lp3.blends.l2.A.nd.v4",
@@ -7012,7 +6881,7 @@ export const questions = [
    "nt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7020,27 +6889,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "sand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nd-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: sa__"
+  "notes": "no sand image — samp, sant and sask are non-words (salt stays out)"
  },
  {
   "id": "lp3.blends.l2.A.nt.v1",
@@ -7113,14 +6974,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tent",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tend is real — the tent image pins the target",
   "imagePath": "/images/assessment/blends/tent.webp",
@@ -7128,7 +6988,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
   "resolvedImageAssetKey": "tent",
-  "imageAlt": "Finish: te__"
+  "imageAlt": "tent"
  },
  {
   "id": "lp3.blends.l2.B.nt.v2",
@@ -7200,14 +7060,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tent",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ten is the t-dropped reduction",
   "imagePath": "/images/assessment/blends/tent.webp",
@@ -7215,7 +7074,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
   "resolvedImageAssetKey": "tent",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "tent"
  },
  {
   "id": "lp3.blends.l2.C.nt.v3",
@@ -7275,7 +7134,7 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "nd": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7283,27 +7142,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "print",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nt-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no print image — prind, prink and prift are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: pri__"
+  "notes": "no print image — prind, prink and prift are non-words"
  },
  {
   "id": "lp3.blends.l2.A.nt.v4",
@@ -7363,7 +7214,7 @@ export const questions = [
    "nk": "D-PATTERN-TRAP",
    "mp": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7371,27 +7222,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "paint",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nt-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "paind, paink and paimp are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: pai__"
+  "notes": "paind, paink and paimp are non-words"
  },
  {
   "id": "lp3.blends.l2.A.mp.v1",
@@ -7464,14 +7307,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lamp",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "land is real — the lamp image pins the target",
   "imagePath": "/images/assessment/blends/lamp.webp",
@@ -7479,7 +7321,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
   "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Finish: la__"
+  "imageAlt": "lamp"
  },
  {
   "id": "lp3.blends.l2.B.mp.v2",
@@ -7551,14 +7393,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lamp",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "lap is the m-dropped reduction",
   "imagePath": "/images/assessment/blends/lamp.webp",
@@ -7566,7 +7407,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
   "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "lamp"
  },
  {
   "id": "lp3.blends.l2.C.mp.v3",
@@ -7639,14 +7480,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jump",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no jump image — jund, junt and jult are non-words (just and junk stay out)",
   "imagePath": "/images/assessment/generated/concepts/jump.webp",
@@ -7654,7 +7494,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/jump.webp",
   "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
   "resolvedImageAssetKey": "jump",
-  "imageAlt": "Finish: ju__"
+  "imageAlt": "jump"
  },
  {
   "id": "lp3.blends.l2.A.mp.v4",
@@ -7714,7 +7554,7 @@ export const questions = [
    "lt": "D-PATTERN-TRAP",
    "sk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -7722,27 +7562,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "camp",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-mp-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: ca__"
+  "notes": "no camp image — cand, calt and cask are non-words (cant stays out)"
  },
  {
   "id": "lp3.blends.l2.A.nk.v1",
@@ -7815,14 +7647,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ink",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ind, int and ift are non-words; the ink image pins it anyway",
   "imagePath": "/images/child-mode/initial-sounds/ink.png",
@@ -7830,7 +7661,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
   "resolvedImageAssetKey": "ink",
-  "imageAlt": "Finish: i__"
+  "imageAlt": "ink"
  },
  {
   "id": "lp3.blends.l2.B.nk.v2",
@@ -7902,14 +7733,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ink",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "in is the k-dropped reduction; inch swaps the cluster",
   "imagePath": "/images/child-mode/initial-sounds/ink.png",
@@ -7917,7 +7747,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/ink.png",
   "targetImagePath": "/images/child-mode/initial-sounds/ink.png",
   "resolvedImageAssetKey": "ink",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "ink"
  },
  {
   "id": "lp3.blends.l2.C.nk.v3",
@@ -7990,14 +7820,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "think",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no think image — thind, thint and thift are non-words",
   "imagePath": "/images/assessment/generated/concepts/think.webp",
@@ -8005,7 +7834,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/think.webp",
   "targetImagePath": "/images/assessment/generated/concepts/think.webp",
   "resolvedImageAssetKey": "think",
-  "imageAlt": "Finish: thi__"
+  "imageAlt": "think"
  },
  {
   "id": "lp3.blends.l2.A.nk.v4",
@@ -8065,7 +7894,7 @@ export const questions = [
    "sc": "D-PATTERN-TRAP",
    "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -8073,27 +7902,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "bank",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nk-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: ba__"
+  "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)"
  },
  {
   "id": "lp3.blends.l2.A.lt.v1",
@@ -8166,14 +7987,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "belt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bend and bent are real — the belt image pins the target",
   "imagePath": "/images/assessment/blends/belt.webp",
@@ -8181,7 +8001,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
   "resolvedImageAssetKey": "belt",
-  "imageAlt": "Finish: be__"
+  "imageAlt": "belt"
  },
  {
   "id": "lp3.blends.l2.B.lt.v2",
@@ -8253,14 +8073,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "belt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bet is the l-dropped reduction; bell drops the t instead",
   "imagePath": "/images/assessment/blends/belt.webp",
@@ -8268,7 +8087,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
   "resolvedImageAssetKey": "belt",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "belt"
  },
  {
   "id": "lp3.blends.l2.C.lt.v3",
@@ -8341,14 +8160,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "quilt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "quint, quind and quimp are non-words; the quilt image pins it anyway",
   "imagePath": "/images/child-mode/initial-sounds/quilt.png",
@@ -8356,7 +8174,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/quilt.png",
   "targetImagePath": "/images/child-mode/initial-sounds/quilt.png",
   "resolvedImageAssetKey": "quilt",
-  "imageAlt": "Finish: qui__"
+  "imageAlt": "quilt"
  },
  {
   "id": "lp3.blends.l2.A.lt.v4",
@@ -8416,7 +8234,7 @@ export const questions = [
    "nd": "D-PATTERN-TRAP",
    "nk": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -8424,27 +8242,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "tilt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-lt-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: ti__"
+  "notes": "no tilt image — tind, tink and tift are non-words (tint stays out)"
  },
  {
   "id": "lp3.blends.l2.A.ft.v1",
@@ -8517,14 +8327,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gift",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "gint, gind and gink are non-words; the gift image pins it anyway",
   "imagePath": "/images/assessment/blends/gift.webp",
@@ -8532,7 +8341,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
   "resolvedImageAssetKey": "gift",
-  "imageAlt": "Finish: gi__"
+  "imageAlt": "gift"
  },
  {
   "id": "lp3.blends.l2.B.ft.v2",
@@ -8604,14 +8413,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gift",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "give is the gift's own verb — semantic pull with the wrong ending",
   "imagePath": "/images/assessment/blends/gift.webp",
@@ -8619,7 +8427,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
   "resolvedImageAssetKey": "gift",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "gift"
  },
  {
   "id": "lp3.blends.l2.C.ft.v3",
@@ -8692,14 +8500,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "left",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no left image — lesk, lemp and lelt are non-words (lent and lend stay out)",
   "imagePath": "/images/assessment/generated/concepts/left.webp",
@@ -8707,7 +8514,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/left.webp",
   "targetImagePath": "/images/assessment/generated/concepts/left.webp",
   "resolvedImageAssetKey": "left",
-  "imageAlt": "Finish: le__"
+  "imageAlt": "left"
  },
  {
   "id": "lp3.blends.l2.A.ft.v4",
@@ -8780,14 +8587,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "soft",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no soft image — sond, solt and somp are non-words",
   "imagePath": "/images/assessment/generated/concepts/soft.webp",
@@ -8795,7 +8601,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/soft.webp",
   "targetImagePath": "/images/assessment/generated/concepts/soft.webp",
   "resolvedImageAssetKey": "soft",
-  "imageAlt": "Finish: so__"
+  "imageAlt": "soft"
  },
  {
   "id": "lp3.blends.l1.R.br.v5r",
@@ -8868,14 +8674,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brush",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "crush, flush and plush are real — the brush image pins the target",
   "imagePath": "/images/assessment/digraphs/brush.webp",
@@ -8883,7 +8688,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
   "resolvedImageAssetKey": "brush",
-  "imageAlt": "Finish: __ush"
+  "imageAlt": "brush"
  },
  {
   "id": "lp3.blends.l1.R.br.v6r",
@@ -8956,14 +8761,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "broom",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "gloom is real — the broom image pins the target",
   "imagePath": "/images/assessment/blends/broom.webp",
@@ -8971,7 +8775,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/broom.webp",
   "targetImagePath": "/images/assessment/blends/broom.webp",
   "resolvedImageAssetKey": "broom",
-  "imageAlt": "Finish: __oom"
+  "imageAlt": "broom"
  },
  {
   "id": "lp3.blends.l1.R.cl.v5r",
@@ -9043,14 +8847,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clap",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/clap.webp",
@@ -9058,7 +8861,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/clap.webp",
   "targetImagePath": "/images/assessment/blends/clap.webp",
   "resolvedImageAssetKey": "clap",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "clap"
  },
  {
   "id": "lp3.blends.l2.R.sp.v5r",
@@ -9130,14 +8933,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "spring",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ring is the sp-dropped reduction",
   "imagePath": "/images/assessment/blends/spring.webp",
@@ -9145,7 +8947,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/spring.webp",
   "targetImagePath": "/images/assessment/blends/spring.webp",
   "resolvedImageAssetKey": "spring",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "spring"
  },
  {
   "id": "lp3.blends.l1.R.pl.v5r",
@@ -9217,14 +9019,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "gate rhymes with the anchor — the scanner tie",
   "imageCards": [
@@ -9324,7 +9125,7 @@ export const questions = [
    "sw": "D-PATTERN-TRAP",
    "gl": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "initial",
   "hadPTD": true,
   "nonGating": false,
@@ -9332,27 +9133,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "snack",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sn-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: __ack"
+  "notes": "no snack image — scack, swack and glack are non-words (smack stays out)"
  },
  {
   "id": "lp3.blends.l2.R.ft.v5r",
@@ -9425,14 +9218,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "raft",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "no raft image — rand, ralt and rasc are non-words for this age (ramp and rant stay out)",
   "imagePath": "/images/assessment/generated/concepts/raft.webp",
@@ -9440,7 +9232,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/raft.webp",
   "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
   "resolvedImageAssetKey": "raft",
-  "imageAlt": "Finish: ra__"
+  "imageAlt": "raft"
  },
  {
   "id": "lp3.blends.l2.R.nd.v5r",
@@ -9500,7 +9292,7 @@ export const questions = [
    "ft": "D-PATTERN-TRAP",
    "lt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "phonicsPosition": "final",
   "hadPTD": true,
   "nonGating": false,
@@ -9508,27 +9300,19 @@ export const questions = [
   "scannerExpected": false,
   "targetWord": "stand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nd-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: sta__"
+  "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)"
  },
  {
   "id": "lp3.blends.l1.R.st.v5r",
@@ -9600,14 +9384,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "stop",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "top is the s-dropped reduction",
   "imagePath": "/images/assessment/blends/stop.webp",
@@ -9615,7 +9398,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/stop.webp",
   "targetImagePath": "/images/assessment/blends/stop.webp",
   "resolvedImageAssetKey": "stop",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "stop"
  },
  {
   "id": "lp3.blends.l1.R.cl.v6r",
@@ -9687,14 +9470,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/blends.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "crown rhymes with the anchor and out-chunks the key",
   "imageCards": [

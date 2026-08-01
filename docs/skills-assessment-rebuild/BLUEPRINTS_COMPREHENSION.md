@@ -6,7 +6,7 @@
 
 ## Family-wide rules
 
-**Rule family C (cells).** Units are cells = `textType × focus`. A cell passes on 2 correct · 2 distinct passages · 2 days · latest correct (MASTERY_SYSTEM §3.2). Sitting = 8. Level pass adds ≥16 scored · ≥85% · latest sitting ≥80%.
+**Rule family C (cells).** Units are cells = `textType × focus`. A cell passes on 2 correct · 2 distinct passages · 2 days · latest correct (MASTERY_SYSTEM, Evidence units). Sitting = 8. Phase progression uses the one shared 70% rule; cell evidence supports teacher detail and review rather than adding another level-pass threshold.
 
 **Text types.** `fiction` (narrative with characters), `info` (simple informational/how-things-work), `everyday` (school/home scene, no plot arc). Every level's cell grid spans ≥2 text types — the current banks are 100% same-flavor narrative.
 

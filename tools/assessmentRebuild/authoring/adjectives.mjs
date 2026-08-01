@@ -12,12 +12,8 @@
 // Child wording: "describing word".
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §17.
 
-import { makeImageResolver } from "../lib.mjs";
-
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
-
-const resolver = makeImageResolver(["language", "hfw", "cvc", "rhyming", "blends", "digraphs", "long-vowels"]);
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
   u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",
@@ -147,9 +143,9 @@ export default {
     gsf("adj_precision", 2, 1, 1, "The path was ___ after days of rain.",
       ["muddy", "dusty", "sunny", "tidy"], [PU, PU, PU],
       "days of rain pins muddy — dusty is its dry opposite"),
-    gsf("adj_precision", 2, 1, 2, "The lemonade was ___ enough to make us wince.",
+    gsf("adj_precision", 2, 1, 2, "The lemonade was ___ and made our mouths pucker.",
       ["sour", "sweet", "warm", "pale"], [PU, PU, PU]),
-    gsf("adj_precision", 2, 1, 3, "The old stairs were ___ under our feet.",
+    gsf("adj_precision", 2, 1, 3, "The old stairs were ___ and groaned under our feet.",
       ["creaky", "quiet", "fresh", "damp"], [PU, PU, PU]),
     gsf("adj_precision", 2, 1, 4, "Wear the ___ coat — it is snowing hard.",
       ["thick", "thin", "torn", "wet"], [PU, PU, PU]),

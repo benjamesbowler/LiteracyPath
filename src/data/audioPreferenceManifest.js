@@ -1,7 +1,6 @@
-import { getKimiCleanAudio } from "./kimiCleanAudioManifest.js";
+import { getCleanAudio } from "./cleanAudioManifest.js";
 import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
-import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPreferences.js";
-import { kimiHighQualityMediaStyleAudioTasks } from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
+import { vocabularyAudioPreferences } from "./vocabularyAudioPreferences.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
 import { approvedPhonicsPatternAudio } from "./approvedPhonicsPatternAudio.js";
@@ -43,7 +42,7 @@ function cleanHumanMorphologyAudioPath(file) {
 function cleanAudioPath(key, category, fallbackPath) {
   const cleanKey = String(key || "").replace(/^hfw:/, "");
   if (blockedCleanAudioKeys.has(cleanKey)) return fallbackPath;
-  const clean = getKimiCleanAudio(cleanKey);
+  const clean = getCleanAudio(cleanKey);
   if (!clean) return fallbackPath;
   if (category === "hfw" && clean.category !== "hfw") return fallbackPath;
   if (category === "phrases" && clean.category !== "phrases") return fallbackPath;
@@ -69,11 +68,11 @@ function approvedPreference({ key, word = key, category, fallbackPath, source, n
     deprecatedAudioPaths: [...new Set(deprecated)],
     reviewNeededPaths: [...new Set(reviewNeededPaths)],
     source: preferredAudioPath.includes("/clean-human/")
-      ? "kimi_assets6_complete_audio"
+      ? "production_clean_audio"
       : source,
     status: "approved",
     notes: preferredAudioPath.includes("/clean-human/")
-      ? "Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment."
+      ? "Current clean production audio is preferred."
       : notes
   };
 }
@@ -139,71 +138,16 @@ const approvedPhraseAudioKeys = [
   "you-found-it"
 ];
 
-const quarantinedWordAudio = {
-  bad: ["bad-kimi3"],
-  bat: ["bat-kimi3"],
-  bed: ["bed-kimi3"],
-  bell: ["bell-kimi4"],
-  bid: ["bid-kimi3"],
-  boat: ["boat-kimi3"],
-  book: ["book-kimi3"],
-  bud: ["bud-kimi3"],
-  cake: ["cake-kimi4"],
-  cap: ["cap-kimi3"],
-  cat: ["cat-kimi3"],
-  coat: ["coat-kimi3"],
-  dig: ["dig-kimi3"],
-  dog: ["dog-kimi3"],
-  dug: ["dug-kimi3"],
-  fish: ["fish-kimi3"],
-  flag: ["flag-kimi3"],
-  goat: ["goat-kimi3"],
-  hat: ["hat-kimi3", "hat-kimi3-2"],
-  leaf: ["leaf-kimi3"],
-  man: ["man-kimi3"],
-  map: ["map-kimi3", "map-kimi3-2"],
-  nap: ["nap-kimi3"],
-  net: ["net-kimi3"],
-  nose: ["nose-kimi4"],
-  pan: ["pan-kimi3"],
-  pen: ["pen-kimi3"],
-  pig: ["pig-kimi3"],
-  pot: ["pot-kimi3"],
-  shell: ["shell-kimi3"],
-  ship: ["ship-kimi3"],
-  snake: ["snake-kimi3", "snake-kimi4"],
-  sock: ["sock-kimi3"],
-  star: ["star-kimi3"],
-  sun: ["sun-kimi3"],
-  tree: ["tree-kimi3"],
-  whale: ["whale-kimi3"],
-  wig: ["wig-kimi3"]
-};
-
-const quarantinedPhraseAudio = {};
-
 const activeReviewNeededWordAudio = {
   fan: {
     fallbackPath: "/audio/child-mode/clean-human/words/fan.mp3",
-    deprecatedAudioPaths: [
-      wordAudioPath("fan"),
-      "/media/initial-sounds/audio/f/fan.mp3",
-      "/guided-reading/audio/words/fan.mp3"
-    ],
-    reviewNeededPaths: [
-      wordAudioPath("fan"),
-      "/media/initial-sounds/audio/f/fan.mp3",
-      "/guided-reading/audio/words/fan.mp3"
-    ],
-    source: "Kimi_Agent_High-Quality Generation.zip import",
-    notes: "Clean replacement imported on 2026-06-03 after live tablet QA blocked the previous fan audio. Older local fan recordings remain quarantined; active assessment should resolve to the clean-human path."
+    source: "production clean audio",
+    notes: "Current clean production audio for fan."
   },
   bud: {
     fallbackPath: wordAudioPath("bud"),
-    deprecatedAudioPaths: [wordAudioPath("bud-kimi3")],
-    reviewNeededPaths: [wordAudioPath("bud-kimi3")],
-    source: "Bud Audio File.zip import",
-    notes: "Clean bud audio imported on 2026-05-28. Bud image remains blocked from live assessment use until a clear unopened flower bud replacement is QA-approved."
+    source: "child-mode words",
+    notes: "Current production word audio for bud."
   }
 };
 
@@ -260,7 +204,7 @@ const approvedAssessmentWordAudioOverrideReviewPaths = {
   lip: ["/media/rhyming/audio/lip.mp3"],
   mop: [wordAudioPath("mop")],
   seed: [wordAudioPath("seed"), "/media/initial-sounds/audio/s/seed.mp3"],
-  sit: [wordAudioPath("sit"), wordAudioPath("sit-kimi3")],
+  sit: [wordAudioPath("sit")],
   zip: [
     wordAudioPath("zip"),
     "/audio/child-mode/clean-human/phrases/zip.mp3",
@@ -338,7 +282,7 @@ const approvedLowerSkillMorphologyAudio = [
 ];
 
 export const audioPreferenceManifest = Object.fromEntries([
-  ...Object.entries(kimiVocabulary500AudioPreferences),
+  ...Object.entries(vocabularyAudioPreferences),
   ...approvedLowerSkillInstructionAudio.map(([text, file]) => {
     const key = normalizeAudioPreferenceKey(text);
     return [
@@ -348,7 +292,7 @@ export const audioPreferenceManifest = Object.fromEntries([
         word: text,
         category: "instructions",
         fallbackPath: cleanHumanInstructionAudioPath(file),
-        source: "Kimi Agent Clean Child Audio Prompts",
+        source: "production clean audio",
         notes: "Approved clean lower-skill assessment instruction prompt."
       })
     ];
@@ -364,7 +308,7 @@ export const audioPreferenceManifest = Object.fromEntries([
         word: item.text,
         category: "graphemes",
         fallbackPath: getPreferredPhonemeAudioPath(item.key),
-        source: "Kimi Agent Clean Child Audio Prompts",
+        source: "production clean audio",
         notes: "Approved clean lower-skill grapheme or sound option audio."
       })
     ];
@@ -396,7 +340,7 @@ export const audioPreferenceManifest = Object.fromEntries([
         word: text,
         category: "morphology",
         fallbackPath: cleanHumanMorphologyAudioPath(file),
-        source: "Kimi Agent Clean Child Audio Prompts",
+        source: "production clean audio",
         notes: "Approved clean lower-skill morphology, preposition, or homophone option audio."
       })
     ];
@@ -447,17 +391,6 @@ export const audioPreferenceManifest = Object.fromEntries([
         notes: "Approved imported vocabulary audio from the strict missing-media repair pack."
       })
     ]),
-  ...kimiHighQualityMediaStyleAudioTasks.map(task => [
-    task.targetWord,
-    approvedPreference({
-      key: task.targetWord,
-      word: task.targetWord,
-      category: "words",
-      fallbackPath: task.path,
-      source: "kimi_high_quality_media_style_2026_06_05",
-      notes: "Approved Kimi high-quality media style exact-word audio imported for assessment language skills."
-    })
-  ]),
   ...Object.entries(approvedAssessmentWordAudioOverrides).map(([word, fallbackPath]) => {
     const reviewPaths = approvedAssessmentWordAudioOverrideReviewPaths[word] || [];
     return [
@@ -469,7 +402,7 @@ export const audioPreferenceManifest = Object.fromEntries([
         fallbackPath,
         deprecatedAudioPaths: reviewPaths,
         reviewNeededPaths: reviewPaths,
-        source: "kimi_audio_rerecord_2026_06",
+        source: "production_audio_replacement",
         notes: "Approved exact-word audio remake replacement for active assessment playback."
       })
     ];
@@ -502,32 +435,6 @@ export const audioPreferenceManifest = Object.fromEntries([
       fallbackPath: phraseAudioPath(phrase),
       source: "child-mode phrases",
       notes: "Approved static phrase MP3. Teacher assessment uses phrases only when the format explicitly supplies a static audio path."
-    })
-  ]),
-  ...Object.entries(quarantinedWordAudio).map(([word, variants]) => [
-    word,
-    approvedPreference({
-      key: word,
-      word,
-      category: "words",
-      fallbackPath: wordAudioPath(word),
-      deprecatedAudioPaths: variants.map(variant => wordAudioPath(variant)),
-      reviewNeededPaths: variants.map(variant => wordAudioPath(variant)),
-      source: "child-mode words",
-      notes: "Kimi alternate is quarantined until human review; stable local word audio remains preferred."
-    })
-  ]),
-  ...Object.entries(quarantinedPhraseAudio).map(([phrase, variants]) => [
-    phrase,
-    approvedPreference({
-      key: phrase,
-      word: phrase,
-      category: "phrases",
-      fallbackPath: phraseAudioPath(phrase),
-      deprecatedAudioPaths: variants.map(variant => phraseAudioPath(variant)),
-      reviewNeededPaths: variants.map(variant => phraseAudioPath(variant)),
-      source: "child-mode phrases",
-      notes: "Kimi phrase alternate is quarantined until human review; stable local phrase audio remains preferred."
     })
   ]),
   ...Object.entries(activeReviewNeededWordAudio).map(([word, config]) => [

@@ -193,7 +193,7 @@ ${decisionText}
 |---|---|---:|---|---|---|
 ${pageIssueRows.join("\n")}
 
-## Pages Needing Kimi Regeneration
+## Pages Needing Production Replacement
 
 | Book ID | Title | Page | Page ID | Reason | Current app text | Suggested replacement request |
 |---|---|---:|---|---|---|---|

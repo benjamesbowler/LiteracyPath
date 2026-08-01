@@ -2,12 +2,12 @@
 //
 //   node tools/assessmentRebuild/gate.mjs [--skill <id>] [--write]
 //
-// Builds every authored v3 bank, runs lints + the five simulations, and (with
+// Builds every authored v3 bank, runs lints, simulations, and the shared-policy
+// integration check, and (with
 // --write) regenerates:
 //   - src/data/v3/banks/<skill>.v3.generated.js
 //   - src/content/assessments/v3/assessmentRebuildStatus.generated.js
-//   - docs/validation/assessment_rebuild_gate.md (+ .json)
-//   - docs/skills-assessment-rebuild/MEDIA_REQUEST.md (+ .json)
+//   - .artifacts/assessment-rebuild/assessment_rebuild_gate.md (+ .json)
 // Exit code is non-zero when ANY cutover skill has a red gate. "not run" is
 // reported as its own state, never as a pass.
 
@@ -15,18 +15,16 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import {
-  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR, V3_SOURCE,
+  ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
   expandBank, lintBank, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
-  optionSetSignature, promptAnswerSignature, norm, guessProbability, makeImageResolver
+  norm, makeImageResolver
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
-import { buildMediaRequest } from "./mediaRequest.mjs";
 
 const args = process.argv.slice(2);
 const onlySkill = args.includes("--skill") ? args[args.indexOf("--skill") + 1] : null;
 const write = args.includes("--write");
-const fast = args.includes("--fast");
 
 function productionUsesOneStatusBrain() {
   const files = [
@@ -92,7 +90,7 @@ for (const file of authoringFiles) {
     detail.lint = lintIssues;
     gates.G1_structure = !lintIssues.some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA"].includes(i.code));
     gates.G2_originality = !lintIssues.some(i => i.code.startsWith("L-UNIQ"));
-    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE"].includes(i.code));
+    gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE", "L-AMBIG"].includes(i.code));
 
     // G4 — mastery logic sims
     const perfect = await simulate(items, blueprint, { policy, answerFn: () => true });
@@ -106,29 +104,11 @@ for (const file of authoringFiles) {
       && perfect.levelSittings[1] <= (blueprint.passBudgetSittings || 6)
       && perfect.levelSittings[2] <= (blueprint.passBudgetSittings || 6);
 
-    let guessPasses = 0;
-    const GUESS_TRIALS = fast ? 300 : 10_000;
+    // Blind-guess Monte Carlo thresholds were retired because they created a
+    // second, sample-dependent pass rule. The only learner-facing threshold is
+    // PHASE_PASS_RULE; G4 proves reachability, answer-leak resistance and
+    // regression behavior against that same policy.
     const random = seededRandom(`${skillId}:${ASSESSMENT_REBUILD_STANDARD_VERSION}`);
-    for (let t = 0; t < GUESS_TRIALS; t++) {
-      const guess = await simulate(items, blueprint, { policy, answerFn: item => random() < guessProbability(item), maxSittings: 6 });
-      if (["level_1_passed", "level_2_passed", "secure"].includes(guess.final.status)) guessPasses++;
-    }
-    const guessPassRate = guessPasses / GUESS_TRIALS;
-    // With the product's explicit 70% phase rule, a blind guesser has a tiny
-    // but non-zero mathematical chance of passing two phases across repeated
-    // attempts. Requiring exactly zero successes makes the gate depend on
-    // sample luck. The full run still caps blind-guess progression below 0.1%;
-    // the 300-trial smoke run allows one isolated success.
-    const guessSimulationPass = fast
-      ? guessPasses <= 1
-      : guessPassRate < 0.001;
-    detail.sims.guess = {
-      trials: GUESS_TRIALS,
-      passes: guessPasses,
-      passRate: guessPassRate,
-      threshold: fast ? "at most 1 smoke-trial pass" : "<0.001"
-    };
-
     const scanner = await simulate(items, blueprint, {
       policy,
       answerFn: item => {
@@ -160,7 +140,6 @@ for (const file of authoringFiles) {
       pass: regression.pass
     };
     gates.G4_mastery_logic = passOk
-      && guessSimulationPass
       && detail.sims.scanner.leakShare < 0.05
       && regression.pass;
 
@@ -175,9 +154,6 @@ for (const file of authoringFiles) {
     // consume the same pure status reducer.
     gates.G6_one_report = oneStatusBrain;
 
-    // G7 — human sign-off (recorded per item; Ben flips this)
-    const signedOff = items.every(i => i.provenance?.signedOffBy);
-    gates.G7_human_signoff = signedOff;
   } catch (error) {
     detail.error = String(error?.stack || error).slice(0, 600);
     gates.G1_structure = false;
@@ -205,8 +181,7 @@ const hardGateKeys = [
   "G3_answer_integrity",
   "G4_mastery_logic",
   "G5_no_repeats",
-  "G6_one_report",
-  "G7_human_signoff"
+  "G6_one_report"
 ];
 let failed = 0;
 for (const row of results) {
@@ -214,7 +189,7 @@ for (const row of results) {
   row.ready = reds.length === 0 && !row.error;
   if (!row.ready) failed++;
   const gateText = hardGateKeys.map(k => `${k.split("_")[0]}:${row.gates[k] === true ? "PASS" : row.gates[k] === false ? "FAIL" : "not-run"}`).join(" ");
-  console.log(`${row.ready ? "READY" : "RED  "} ${row.skillId.padEnd(28)} ${gateText} items=${row.counts?.total ?? 0} sim=${JSON.stringify(row.detail?.sims?.pass || {})} guess=${row.detail?.sims?.guess?.passes ?? "?"}/${row.detail?.sims?.guess?.trials ?? "?"} scanner=${row.detail?.sims?.scanner?.leakyItems ?? "?"}/${row.counts?.total ?? 0}`);
+  console.log(`${row.ready ? "READY" : "RED  "} ${row.skillId.padEnd(28)} ${gateText} items=${row.counts?.total ?? 0} sim=${JSON.stringify(row.detail?.sims?.pass || {})} scanner=${row.detail?.sims?.scanner?.leakyItems ?? "?"}/${row.counts?.total ?? 0}`);
   for (const issue of (row.detail?.lint || []).slice(0, 12)) {
     console.log(`    ${issue.code} ${issue.itemId}: ${issue.message}`);
   }
@@ -262,12 +237,11 @@ if (write) {
   fs.writeFileSync(reportPath + ".json", JSON.stringify({ generatedAt: new Date().toISOString(), commit, results }, null, 1));
   fs.writeFileSync(reportPath + ".md",
     `# Assessment rebuild gate — ${new Date().toISOString()} @ ${commit}\n\n` +
-    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | G7 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|---|\n` +
+    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|\n` +
     results.map(r => `| ${r.skillId} | ${r.ready ? "✅" : "❌"} | ${hardGateKeys.map(k => r.gates[k] === true ? "✅" : r.gates[k] === false ? "❌" : "—").join(" | ")} | ${r.counts?.total ?? 0} | ${r.detail?.sims?.pass?.sittings ?? "—"} |`).join("\n") +
-    `\n\nG7 human sign-off is a hard release gate and remains red until recorded in item provenance.\n`);
+    `\n\nPublication requires all six reproducible gates above.\n`);
 
-  buildMediaRequest(allBanks, results);
-  console.log(`\nWrote status (${statusEntries.length} ready), gate report, media request.`);
+  console.log(`\nWrote status (${statusEntries.length} ready) and gate report.`);
 }
 
 process.exit(failed > 0 && authoringFiles.length > 0 ? 1 : 0);

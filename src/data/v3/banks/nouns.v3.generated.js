@@ -69,14 +69,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "nurse and baker keys stay out of this frame — their er/rs chunks sit inside person",
   "imageCards": [
@@ -186,14 +185,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -303,14 +301,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -410,33 +407,25 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "wet": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_person-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/vet.png",
-  "imageUrl": "/images/child-mode/initial-sounds/vet.png",
-  "targetImage": "/images/child-mode/initial-sounds/vet.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
-  "resolvedImageAssetKey": "vet",
-  "imageAlt": "Which word names a person?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_person.v5",
@@ -496,33 +485,25 @@ export const questions = [
    "sing": "D-FUNCTION-SWAP",
    "soft": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_person-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
-  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
-  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
-  "resolvedImageAssetKey": "nurse",
-  "imageAlt": "Which word names a person?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_person.v6",
@@ -582,33 +563,25 @@ export const questions = [
    "jump": "D-FUNCTION-SWAP",
    "cold": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_person-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ing/king-02.webp",
-  "resolvedImageAssetKey": "king",
-  "imageAlt": "Which word names a person?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.A.noun_animal.v1",
@@ -678,14 +651,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -795,14 +767,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -912,14 +883,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1019,33 +989,25 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "big": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_animal-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/frog.webp",
-  "imageUrl": "/images/assessment/blends/frog.webp",
-  "targetImage": "/images/assessment/blends/frog.webp",
-  "targetImagePath": "/images/assessment/blends/frog.webp",
-  "resolvedImageAssetKey": "frog",
-  "imageAlt": "Which word names an animal?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_animal.v5",
@@ -1105,33 +1067,25 @@ export const questions = [
    "hot": "D-FUNCTION-SWAP",
    "nap": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_animal-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/duck.webp",
-  "imageUrl": "/images/assessment/digraphs/duck.webp",
-  "targetImage": "/images/assessment/digraphs/duck.webp",
-  "targetImagePath": "/images/assessment/digraphs/duck.webp",
-  "resolvedImageAssetKey": "duck",
-  "imageAlt": "Which word names an animal?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_animal.v6",
@@ -1191,33 +1145,25 @@ export const questions = [
    "tall": "D-FUNCTION-SWAP",
    "eat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_animal-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/lion-lions-01.webp",
-  "resolvedImageAssetKey": "lion",
-  "imageAlt": "Which word names an animal?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.A.noun_place.v1",
@@ -1287,14 +1233,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1404,14 +1349,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1521,14 +1465,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1628,33 +1571,25 @@ export const questions = [
    "slow": "D-FUNCTION-SWAP",
    "spin": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_place-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/shop.png",
-  "imageUrl": "/images/child-mode/initial-sounds/shop.png",
-  "targetImage": "/images/child-mode/initial-sounds/shop.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/shop.png",
-  "resolvedImageAssetKey": "shop",
-  "imageAlt": "Which word names a place?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_place.v5",
@@ -1714,33 +1649,25 @@ export const questions = [
    "bring": "D-FUNCTION-SWAP",
    "brave": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_place-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "lace ties the ac/place overlap — it names a thing, never a place",
-  "imagePath": "/images/assessment/long-vowels/beach.webp",
-  "imageUrl": "/images/assessment/long-vowels/beach.webp",
-  "targetImage": "/images/assessment/long-vowels/beach.webp",
-  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
-  "resolvedImageAssetKey": "beach",
-  "imageAlt": "Which word names a place?"
+  "notes": "lace ties the ac/place overlap — it names a thing, never a place"
  },
  {
   "id": "lp3.nouns.l1.C.noun_place.v6",
@@ -1800,33 +1727,25 @@ export const questions = [
    "chat": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_place-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "chat ties the ch/which overlap",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
-  "imageAlt": "Which word names a place?"
+  "notes": "chat ties the ch/which overlap"
  },
  {
   "id": "lp3.nouns.l1.A.noun_thing.v1",
@@ -1896,14 +1815,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2013,14 +1931,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2130,14 +2047,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2237,33 +2153,25 @@ export const questions = [
    "loud": "D-FUNCTION-SWAP",
    "lick": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_thing-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/lamp.webp",
-  "imageUrl": "/images/assessment/blends/lamp.webp",
-  "targetImage": "/images/assessment/blends/lamp.webp",
-  "targetImagePath": "/images/assessment/blends/lamp.webp",
-  "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Which word names a thing?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.B.noun_thing.v5",
@@ -2323,33 +2231,25 @@ export const questions = [
    "bite": "D-FUNCTION-SWAP",
    "bend": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_thing-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/belt.webp",
-  "imageUrl": "/images/assessment/blends/belt.webp",
-  "targetImage": "/images/assessment/blends/belt.webp",
-  "targetImagePath": "/images/assessment/blends/belt.webp",
-  "resolvedImageAssetKey": "belt",
-  "imageAlt": "Which word names a thing?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.C.noun_thing.v6",
@@ -2409,33 +2309,25 @@ export const questions = [
    "clean": "D-FUNCTION-SWAP",
    "cry": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_thing-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/clock.webp",
-  "imageUrl": "/images/assessment/digraphs/clock.webp",
-  "targetImage": "/images/assessment/digraphs/clock.webp",
-  "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "resolvedImageAssetKey": "clock",
-  "imageAlt": "Which word names a thing?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v1",
@@ -2496,34 +2388,26 @@ export const questions = [
    "wet": "D-FUNCTION-SWAP",
    "ran": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ sailed into the bay.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot",
-  "imagePath": "/images/assessment/digraphs/ship.webp",
-  "imageUrl": "/images/assessment/digraphs/ship.webp",
-  "targetImage": "/images/assessment/digraphs/ship.webp",
-  "targetImagePath": "/images/assessment/digraphs/ship.webp",
-  "resolvedImageAssetKey": "ship",
-  "imageAlt": "The ship sailed into the bay."
+  "notes": "only ship can NAME the sailer — went/wet/ran cannot fill a naming slot"
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v2",
@@ -2584,34 +2468,26 @@ export const questions = [
    "loud": "D-FUNCTION-SWAP",
    "ran": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ buzzed by my ear.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "by, not past — past contains as and would gift the key a chunk",
-  "imagePath": "/images/assessment/blends/wasp.webp",
-  "imageUrl": "/images/assessment/blends/wasp.webp",
-  "targetImage": "/images/assessment/blends/wasp.webp",
-  "targetImagePath": "/images/assessment/blends/wasp.webp",
-  "resolvedImageAssetKey": "wasp",
-  "imageAlt": "A wasp buzzed by my ear."
+  "notes": "by, not past — past contains as and would gift the key a chunk"
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v3",
@@ -2672,34 +2548,26 @@ export const questions = [
    "damp": "D-FUNCTION-SWAP",
    "fell": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ dripped on the rug.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "resolvedImageAssetKey": "rug",
-  "imageAlt": "The paint dripped on the rug."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v4",
@@ -2760,34 +2628,26 @@ export const questions = [
    "shut": "D-FUNCTION-SWAP",
    "blew": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our ___ creaks in the wind.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/gate.webp",
-  "imageUrl": "/images/assessment/long-vowels/gate.webp",
-  "targetImage": "/images/assessment/long-vowels/gate.webp",
-  "targetImagePath": "/images/assessment/long-vowels/gate.webp",
-  "resolvedImageAssetKey": "gate",
-  "imageAlt": "Our gate creaks in the wind."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v5",
@@ -2847,33 +2707,25 @@ export const questions = [
    "spun": "D-FUNCTION-SWAP",
    "and": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/kite.webp",
-  "imageUrl": "/images/assessment/long-vowels/kite.webp",
-  "targetImage": "/images/assessment/long-vowels/kite.webp",
-  "targetImagePath": "/images/assessment/long-vowels/kite.webp",
-  "resolvedImageAssetKey": "kite",
-  "imageAlt": "Which word in this sentence is a naming word? \"The kite dipped and spun.\""
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_in_sentence.v6",
@@ -2933,33 +2785,25 @@ export const questions = [
    "my": "D-FUNCTION-SWAP",
    "got": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/boots.webp",
-  "imageUrl": "/images/assessment/generated/concepts/boots.webp",
-  "targetImage": "/images/assessment/generated/concepts/boots.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/boots.webp",
-  "resolvedImageAssetKey": "boots",
-  "imageAlt": "Which word in this sentence is a naming word? \"My boots got soaked.\""
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_in_sentence.v7",
@@ -3020,34 +2864,26 @@ export const questions = [
    "slept": "D-FUNCTION-SWAP",
    "dark": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ hooted all night long.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
-  "imageAlt": "The owl hooted all night long."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_in_sentence.v8",
@@ -3108,34 +2944,26 @@ export const questions = [
    "broke": "D-FUNCTION-SWAP",
    "full": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ rolled off the shelf.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/shelf.webp",
-  "imageUrl": "/images/assessment/blends/shelf.webp",
-  "targetImage": "/images/assessment/blends/shelf.webp",
-  "targetImagePath": "/images/assessment/blends/shelf.webp",
-  "resolvedImageAssetKey": "shelf",
-  "imageAlt": "A jar rolled off the shelf."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v1",
@@ -3195,33 +3023,25 @@ export const questions = [
    "run": "D-FUNCTION-SWAP",
    "go": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the blueprint exemplar set",
-  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "resolvedImageAssetKey": "bed",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": "the blueprint exemplar set"
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v2",
@@ -3281,33 +3101,25 @@ export const questions = [
    "chop": "D-FUNCTION-SWAP",
    "pour": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-  "resolvedImageAssetKey": "fork",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v3",
@@ -3367,33 +3179,25 @@ export const questions = [
    "hike": "D-FUNCTION-SWAP",
    "rest": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/tent.webp",
-  "imageUrl": "/images/assessment/blends/tent.webp",
-  "targetImage": "/images/assessment/blends/tent.webp",
-  "targetImagePath": "/images/assessment/blends/tent.webp",
-  "resolvedImageAssetKey": "tent",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v4",
@@ -3454,34 +3258,26 @@ export const questions = [
    "sang": "D-FUNCTION-SWAP",
    "sing": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ sang to the crowd.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the whole verb family competes — only the naming word can follow The",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/singer-01.webp",
-  "resolvedImageAssetKey": "singer",
-  "imageAlt": "The singer sang to the crowd."
+  "notes": "the whole verb family competes — only the naming word can follow The"
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v5",
@@ -3541,33 +3337,25 @@ export const questions = [
    "scrub": "D-FUNCTION-SWAP",
    "wipe": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/broom.webp",
-  "imageUrl": "/images/assessment/blends/broom.webp",
-  "targetImage": "/images/assessment/blends/broom.webp",
-  "targetImagePath": "/images/assessment/blends/broom.webp",
-  "resolvedImageAssetKey": "broom",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_vs_verb.v6",
@@ -3627,33 +3415,25 @@ export const questions = [
    "wall": "D-FUNCTION-SWAP",
    "ladder": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_vs_verb.v7",
@@ -3713,33 +3493,25 @@ export const questions = [
    "soar": "D-FUNCTION-SWAP",
    "glide": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/kite.webp",
-  "imageUrl": "/images/assessment/long-vowels/kite.webp",
-  "targetImage": "/images/assessment/long-vowels/kite.webp",
-  "targetImagePath": "/images/assessment/long-vowels/kite.webp",
-  "resolvedImageAssetKey": "kite",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_vs_verb.v8",
@@ -3800,34 +3572,26 @@ export const questions = [
    "teach": "D-FUNCTION-SWAP",
    "taught": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our ___ reads to us after lunch.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "imageUrl": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImage": "/images/assessment/generated/concepts/teacher.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/teacher.webp",
-  "resolvedImageAssetKey": "teacher",
-  "imageAlt": "Our teacher reads to us after lunch."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v1",
@@ -3887,33 +3651,25 @@ export const questions = [
    "Run fast and jump high.": "D-FUNCTION-SWAP",
    "She is very happy.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cat + mat; the others name one thing or none",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": "cat + mat; the others name one thing or none"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v2",
@@ -3973,33 +3729,25 @@ export const questions = [
    "They are so tall.": "D-FUNCTION-SWAP",
    "I ran off quickly.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/bone.webp",
-  "imageUrl": "/images/assessment/long-vowels/bone.webp",
-  "targetImage": "/images/assessment/long-vowels/bone.webp",
-  "targetImagePath": "/images/assessment/long-vowels/bone.webp",
-  "resolvedImageAssetKey": "bone",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v3",
@@ -4059,33 +3807,25 @@ export const questions = [
    "She sang and danced.": "D-FUNCTION-SWAP",
    "It is too cold.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/frog.webp",
-  "imageUrl": "/images/assessment/blends/frog.webp",
-  "targetImage": "/images/assessment/blends/frog.webp",
-  "targetImagePath": "/images/assessment/blends/frog.webp",
-  "resolvedImageAssetKey": "frog",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v4",
@@ -4146,34 +3886,26 @@ export const questions = [
    "wet": "D-FUNCTION-SWAP",
    "hid": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The cat and the ___ hid in the barn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "finish the two-thing list — only a naming word can join the and",
-  "imagePath": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/mouse/mouse-02.webp",
-  "resolvedImageAssetKey": "mouse",
-  "imageAlt": "The cat and the mouse hid in the barn."
+  "notes": "finish the two-thing list — only a naming word can join the and"
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v5",
@@ -4233,33 +3965,25 @@ export const questions = [
    "It was so loud.": "D-FUNCTION-SWAP",
    "They ran and hid.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ell/fell-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ell/fell-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ell/fell-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ell/fell-02.webp",
-  "resolvedImageAssetKey": "fell",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.C.noun_two_step.v6",
@@ -4319,33 +4043,25 @@ export const questions = [
    "She is quite quick.": "D-FUNCTION-SWAP",
    "He will not stop.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/flew.webp",
-  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
-  "targetImage": "/images/assessment/generated/concepts/flew.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
-  "resolvedImageAssetKey": "flew",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.A.noun_two_step.v7",
@@ -4405,33 +4121,25 @@ export const questions = [
    "It got very dark.": "D-FUNCTION-SWAP",
    "You may go in.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/under.png",
-  "imageUrl": "/images/child-mode/initial-sounds/under.png",
-  "targetImage": "/images/child-mode/initial-sounds/under.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
-  "resolvedImageAssetKey": "under",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.B.noun_two_step.v8",
@@ -4492,34 +4200,26 @@ export const questions = [
    "eat": "D-FUNCTION-SWAP",
    "clean": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A fork and a ___ sat by the plate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/spoon.webp",
-  "imageUrl": "/images/assessment/long-vowels/spoon.webp",
-  "targetImage": "/images/assessment/long-vowels/spoon.webp",
-  "targetImagePath": "/images/assessment/long-vowels/spoon.webp",
-  "resolvedImageAssetKey": "spoon",
-  "imageAlt": "A fork and a spoon sat by the plate."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v7r",
@@ -4589,14 +4289,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4706,14 +4405,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4813,33 +4511,25 @@ export const questions = [
    "pink": "D-FUNCTION-SWAP",
    "peck": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_place-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/park.png",
-  "imageUrl": "/images/child-mode/initial-sounds/park.png",
-  "targetImage": "/images/child-mode/initial-sounds/park.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/park.png",
-  "resolvedImageAssetKey": "park",
-  "imageAlt": "Which word names a place?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_thing.v7r",
@@ -4899,33 +4589,25 @@ export const questions = [
    "blow": "D-FUNCTION-SWAP",
    "brave": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_thing-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/brush.webp",
-  "imageUrl": "/images/assessment/digraphs/brush.webp",
-  "targetImage": "/images/assessment/digraphs/brush.webp",
-  "targetImagePath": "/images/assessment/digraphs/brush.webp",
-  "resolvedImageAssetKey": "brush",
-  "imageAlt": "Which word names a thing?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v9r",
@@ -4986,34 +4668,26 @@ export const questions = [
    "slow": "D-FUNCTION-SWAP",
    "rang": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ___ chimed at noon.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/clock.webp",
-  "imageUrl": "/images/assessment/digraphs/clock.webp",
-  "targetImage": "/images/assessment/digraphs/clock.webp",
-  "targetImagePath": "/images/assessment/digraphs/clock.webp",
-  "resolvedImageAssetKey": "clock",
-  "imageAlt": "The clock chimed at noon."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v9r",
@@ -5073,33 +4747,25 @@ export const questions = [
    "peck": "D-FUNCTION-SWAP",
    "build": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/blends/nest.webp",
-  "imageUrl": "/images/assessment/blends/nest.webp",
-  "targetImage": "/images/assessment/blends/nest.webp",
-  "targetImagePath": "/images/assessment/blends/nest.webp",
-  "resolvedImageAssetKey": "nest",
-  "imageAlt": "Which word names a thing, not a doing word?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v9r",
@@ -5159,33 +4825,25 @@ export const questions = [
    "She may not come.": "D-FUNCTION-SWAP",
    "Duck down and creep in.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v9",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l1.R.noun_person.v8r",
@@ -5245,33 +4903,25 @@ export const questions = [
    "mix": "D-FUNCTION-SWAP",
    "bake": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_person-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "water ties the er/person overlap — it names a thing, never a person",
-  "imagePath": "/images/assessment/generated/concepts/baker.webp",
-  "imageUrl": "/images/assessment/generated/concepts/baker.webp",
-  "targetImage": "/images/assessment/generated/concepts/baker.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/baker.webp",
-  "resolvedImageAssetKey": "baker",
-  "imageAlt": "Which word names a person?"
+  "notes": "water ties the er/person overlap — it names a thing, never a person"
  },
  {
   "id": "lp3.nouns.l1.R.noun_animal.v8r",
@@ -5331,33 +4981,25 @@ export const questions = [
    "sharp": "D-FUNCTION-SWAP",
    "swim": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_animal-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/shark.webp",
-  "imageUrl": "/images/assessment/digraphs/shark.webp",
-  "targetImage": "/images/assessment/digraphs/shark.webp",
-  "targetImagePath": "/images/assessment/digraphs/shark.webp",
-  "resolvedImageAssetKey": "shark",
-  "imageAlt": "Which word names an animal?"
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_in_sentence.v10r",
@@ -5418,34 +5060,26 @@ export const questions = [
    "sang": "D-FUNCTION-SWAP",
    "flew": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "A ___ nested in our chimney.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_in_sentence-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
-  "imageAlt": "A bird nested in our chimney."
+  "notes": ""
  },
  {
   "id": "lp3.nouns.l2.R.noun_vs_verb.v10r",
@@ -5505,33 +5139,25 @@ export const questions = [
    "puddle": "D-FUNCTION-SWAP",
    "pond": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_vs_verb-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap",
-  "imagePath": "/images/assessment/blends/splash.webp",
-  "imageUrl": "/images/assessment/blends/splash.webp",
-  "targetImage": "/images/assessment/blends/splash.webp",
-  "targetImagePath": "/images/assessment/blends/splash.webp",
-  "resolvedImageAssetKey": "splash",
-  "imageAlt": "Which word is a doing word, not a naming word?"
+  "notes": "splash and duck both zero-derive — the frame asks for the doing word, and only splash is pictured as pure action; duck the animal is the trap"
  },
  {
   "id": "lp3.nouns.l2.R.noun_two_step.v10r",
@@ -5591,32 +5217,24 @@ export const questions = [
    "You can all go.": "D-FUNCTION-SWAP",
    "Spin round and sit down.": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "nouns-noun_two_step-v10",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/nouns.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/digraphs/moth.webp",
-  "imageUrl": "/images/assessment/digraphs/moth.webp",
-  "targetImage": "/images/assessment/digraphs/moth.webp",
-  "targetImagePath": "/images/assessment/digraphs/moth.webp",
-  "resolvedImageAssetKey": "moth",
-  "imageAlt": "Which sentence names TWO things?"
+  "notes": ""
  }
 ];

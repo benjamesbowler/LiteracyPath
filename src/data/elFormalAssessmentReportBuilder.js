@@ -9,11 +9,8 @@ import {
   resolveElBenchmarkReportScope
 } from "./elBenchmarkReportScope.js";
 import {
-  LEARNING_CONCLUSION_SCOPES,
   LEARNING_EVIDENCE_POLICY,
   LEARNING_POLICY_VERSION,
-  LEARNING_STATUS_IDS,
-  evaluateLearningConclusion,
   isLearningEvidenceRecent
 } from "../policy/learningPolicy.js";
 
@@ -738,25 +735,6 @@ function getClassId(student = {}) {
   return student.classId || student.class_id || "";
 }
 
-function getStatus(correct = 0, attempts = 0, observedAt = "", now = new Date()) {
-  if (!attempts) return "not_assessed";
-  const accuracy = Math.round((correct / attempts) * 100);
-  const conclusion = evaluateLearningConclusion({
-    scope: LEARNING_CONCLUSION_SCOPES.ITEM,
-    accuracy,
-    attempts,
-    skillDiversity: 1,
-    minimumAttempts: LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts,
-    observedAt,
-    now,
-    requireRecency: true
-  });
-  if (!conclusion.ready) return "not_enough_evidence";
-  if (conclusion.status.id === LEARNING_STATUS_IDS.SECURE) return "mastered";
-  if (conclusion.status.id === LEARNING_STATUS_IDS.DEVELOPING) return "developing";
-  return "needs_support";
-}
-
 function makeCell() {
   return {
     status: "not_assessed",
@@ -776,24 +754,6 @@ function makeCell() {
     lastAssessed: "",
     lastCurrentAssessed: "",
     details: []
-  };
-}
-
-function finalizeCell(cell, now = new Date()) {
-  const accuracy = cell.attempts ? Math.round((cell.correct / cell.attempts) * 100) : null;
-  const status = cell.attempts
-    ? getStatus(cell.correct, cell.attempts, cell.lastCurrentAssessed, now)
-    : cell.currentEvidenceCount > 0
-      ? "unscored_evidence"
-      : cell.evidenceCount > 0
-        ? "not_enough_evidence"
-      : "not_assessed";
-  return {
-    ...cell,
-    incorrect: cell.attempts - cell.correct,
-    accuracy,
-    status,
-    statusLabel: STATUS_LABELS[status]
   };
 }
 

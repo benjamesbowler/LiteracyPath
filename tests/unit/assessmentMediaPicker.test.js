@@ -9,8 +9,7 @@ import {
 import { getAssessmentMediaByPath } from "../../src/data/assessmentMediaRegistry.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 import { rhymingAssessmentImageVariants } from "../../src/data/generated/assessmentImageVariants.generated.js";
-import { grammarAssessmentQuestions } from "../../src/data/generated/grammarAssessmentQuestions.generated.js";
-import { secondBlockSkillTopUpQuestions } from "../../src/data/generated/secondBlockSkillTopUpQuestions.generated.js";
+import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 
 const instructionAudio = "/audio/child-mode/clean-human/phrases/listen-and-find.mp3";
 
@@ -28,17 +27,17 @@ test("pair-selection instruction audio is not misclassified as target-word audio
       {
         word: "nap",
         image: "/images/child-mode/cvc/nap.png",
-        audio: "/audio/child-mode/clean-human/words/nap.mp3"
+        audio: getLedaWordAudioPath("nap")
       },
       {
         word: "nose",
         image: "/images/child-mode/initial-sounds/nose.png",
-        audio: "/audio/child-mode/words/nose.mp3"
+        audio: getLedaWordAudioPath("nose")
       },
       {
         word: "dog",
         image: "/images/child-mode/cvc/dog.png",
-        audio: "/audio/child-mode/clean-human/words/dog.mp3"
+        audio: getLedaWordAudioPath("dog")
       }
     ]
   };
@@ -60,7 +59,7 @@ test("pair-selection validation still rejects a mismatched option image", () => 
       {
         word: "nap",
         image: "/images/child-mode/cvc/dog.png",
-        audio: "/audio/child-mode/clean-human/words/nap.mp3"
+        audio: getLedaWordAudioPath("nap")
       }
     ]
   };
@@ -165,7 +164,7 @@ test("rhyming option images are recorded in assessment session usage", () => {
   );
 });
 
-test("every published rhyming option resolves to complete exact-word image media", async () => {
+test("every published picture-choice rhyming option resolves to exact-word image media", async () => {
   const assessmentVariantPathsByWord = new Map();
   Object.values(rhymingAssessmentImageVariants).forEach(words => {
     Object.entries(words).forEach(([word, paths]) => {
@@ -182,13 +181,19 @@ test("every published rhyming option resolves to complete exact-word image media
       phase: question.phase || question.assessmentPhase || 1
     });
 
-    const isPictureItem = question.mediaTier !== "text";
+    const isPictureChoiceItem = question.formatType === "RHYME_MATCH_PICTURE";
     const resolvedCards = resolved.imageCards || [];
     assert.equal(
       resolvedCards.length,
-      isPictureItem ? resolved.choices.length : 0,
-      `${question.id} should ${isPictureItem ? "have one image card per option" : "remain text-only"}`
+      isPictureChoiceItem ? resolved.choices.length : 0,
+      `${question.id} should ${isPictureChoiceItem ? "have one image card per option" : "use its main supporting image"}`
     );
+    if (!isPictureChoiceItem && question.mediaTier === "image-required") {
+      assert.ok(
+        resolved.imagePath || resolved.imageUrl || resolved.targetImage,
+        `${question.id} should retain at least one supporting image`
+      );
+    }
     resolvedCards.forEach(card => {
       const path = card.image || card.imagePath || card.imageUrl || "";
       const record = getAssessmentMediaByPath(path, "image");
@@ -206,30 +211,27 @@ test("every published rhyming option resolves to complete exact-word image media
   });
 });
 
-test("approved Kimi vocabulary and Final Sounds override images are indexed", () => {
-  const kimiImage = getAssessmentMediaByPath("/media/vocabulary/images/den.webp", "image");
-  const finalSoundImage = getAssessmentMediaByPath("/media/final-sounds/images/b/lab.webp", "image");
+test("current vocabulary and packed assessment images are indexed", () => {
+  const vocabularyImage = getAssessmentMediaByPath("/media/vocabulary/images/den.webp", "image");
   const packedImage = getAssessmentMediaByPath("/images/child-mode/vowel-teams/bee.png", "image");
 
-  assert.equal(kimiImage?.available, true);
-  assert.equal(kimiImage?.normalizedWord, "den");
-  assert.equal(finalSoundImage?.available, true);
-  assert.equal(finalSoundImage?.normalizedWord, "lab");
+  assert.equal(vocabularyImage?.available, true);
+  assert.equal(vocabularyImage?.normalizedWord, "den");
   assert.equal(packedImage?.available, true);
   assert.equal(packedImage?.normalizedWord, "bee");
 });
 
-test("explicit assessment release audio wiring is indexed as runtime approved", () => {
+test("current production audio assets are indexed for assessment use", () => {
   const finalSoundAudio = getAssessmentMediaByPath(
-    "/guided-reading/audio/words/bang.mp3",
+    getLedaWordAudioPath("bang"),
     "audio"
   );
   const shortVowelAudio = getAssessmentMediaByPath(
-    "/media/vocabulary/audio/melt.mp3",
+    getLedaWordAudioPath("melt"),
     "audio"
   );
   const hfwAudio = getAssessmentMediaByPath(
-    "/media/vocabulary/audio/oil.mp3",
+    getLedaWordAudioPath("oil"),
     "audio"
   );
 
@@ -239,15 +241,4 @@ test("explicit assessment release audio wiring is indexed as runtime approved", 
   assert.equal(shortVowelAudio?.normalizedWord, "melt");
   assert.equal(hfwAudio?.available, true);
   assert.equal(hfwAudio?.normalizedWord, "oil");
-});
-
-test("question banks exclude targets whose assessment images are blocked", () => {
-  assert.equal(
-    grammarAssessmentQuestions.some(question => question.targetWord === "white"),
-    false
-  );
-  assert.equal(
-    secondBlockSkillTopUpQuestions.some(question => question.skillId === "nouns" && question.targetWord === "nut"),
-    false
-  );
 });

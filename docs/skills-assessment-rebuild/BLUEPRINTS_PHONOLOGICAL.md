@@ -65,7 +65,7 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 **Units.** L1: the 21 CVC rime families already configured (`at an ap am ag ad ed en et eg ig in ip it og op ot ug un up ut`). L2: the 24 configured harder families (`ing ang ong ink ock ack ick ill all ell ash ish uck ake ame ide ight oat eep ouse ird urn ar or` — keep the ank/unk media holdout). Rule family **D-large** at L1 (21 units), **D-large** at L2.
 
 **Formats.**
-- L1 text tier (interim until audio): `RHYME_MATCH_PICTURE` — spoken-style prompt text ("Which one rhymes with **cat**?"), target word shown, **4 picture choices with NO printed labels** (the images exist today; label suppression is a renderer flag, not new media). Imageability whitelist: only `rhymeGroups` words Ben approves as unambiguous pictures (drop `fun/hit/gain/top`-class abstracts — the audit's ambiguous-image list seeds the blocklist).
+- L1 text tier (interim until audio): `RHYME_MATCH_PICTURE` — spoken-style prompt text ("Which one rhymes with **cat**?"), target word shown, **4 picture choices with NO printed labels**. The checked-in imageability whitelist contains only concrete words whose current assets pass the media gate.
 - L1 audio tier (deferred, specced now): same items with recorded target + choice audio and replay buttons; prompt audio un-suppressed.
 - L2 text tier: `READ_FIND_RHYME` (printed words, labels intentional — the orthographic construct) and `RHYME_ODD_ONE_OUT` (4 printed words, one doesn't rhyme). Print giveaway is legal here BY DESIGN — but distractors must include a `D-PATTERN-TRAP` (visual rime, different sound: *cow/snow*-class, *ear/bear*) so chunk-matching alone still fails SIM-SCANNER.
 

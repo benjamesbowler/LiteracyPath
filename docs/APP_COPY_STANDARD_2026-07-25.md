@@ -1,7 +1,8 @@
 # App-Wide Copy Standard — plain words, everywhere
-**Adopted:** 2026-07-25 · **Teacher taxonomy updated:** 2026-07-27 · **For:** Codex
+**Adopted:** 2026-07-25 · **Teacher taxonomy updated:** 2026-07-27
 **Scope: THE ENTIRE PRODUCT.** Every string a human can see: student screens, teacher screens, parent-facing reports, assessment runner, dialogs, toasts, empty states, errors, tooltips, emails, exports, printables, accessible names read by screen readers. The Students-page rewrite in §6 is the *worked example*, not the scope. Treat any surface whose copy violates this standard as a bug, wherever it lives.
-**Relation to the plan:** implements A6.6 + A6.8, D-005 and D-007, and the copy halves of A1.7, A2.2, A2.6, A2.10, A7.10 from `TEN_OUT_OF_TEN_PLAN_2026-07-23.md` / `docs/release/DISCOVERED.md`. The underlying models, thresholds, and both class averages do not change — only the words on the surface, with precision moving into tooltips.
+This standard changes surface language only. It does not change the underlying
+models, current thresholds, or class-average calculations.
 
 **Current teacher terminology:** use **student / students** and **assessment /
 assessments**. This replaces the original child/check wording on teacher-facing

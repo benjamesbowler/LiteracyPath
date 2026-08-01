@@ -3373,7 +3373,13 @@
 .q-chapter-tabs strong { font-size: 12px; }
 .q-chapter-tabs small { font-size: 10px; opacity: .75; }
 
-.q-map-v2-land { position: relative; min-height: 440px; overflow: hidden; background: #8eb778; isolation: isolate; }
+/* Fill the row the map grid already reserves (`minmax(0, 1fr)`) instead of
+   forcing a floor. A hard min-height cannot shrink for a short laptop window,
+   so the bottom of the map — including the "Chapter destination" card — gets
+   clipped by .q-map-v2's overflow: hidden, and browser zoom appears to "fix"
+   it only because zooming out hands the page more CSS pixels of height. The
+   landscape-phone rule below still opts into scrolling under 500px tall. */
+.q-map-v2-land { position: relative; min-height: 0; height: 100%; overflow: hidden; background: #8eb778; isolation: isolate; }
 .q-map-v2[data-chapter="river-gardens"] .q-map-v2-land { background: #5f9b8b; }
 .q-map-v2[data-chapter="fossil-canyon"] .q-map-v2-land { background: #a96f49; }
 .q-map-v2[data-chapter="forge-settlement"] .q-map-v2-land { background: #514d55; }

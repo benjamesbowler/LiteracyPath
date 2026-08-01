@@ -828,6 +828,7 @@ export function ElSkillsQuest({
     return (
       <main
         className="skills-block-quest"
+        data-learning-lane="practice_and_play"
         data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}
         data-child-surface="adventure-map"
       >
@@ -941,7 +942,7 @@ export function ElSkillsQuest({
   if (celebration) {
     const isCycle = celebration.kind === "cycle";
     return (
-      <main className="skills-block-quest">
+      <main className="skills-block-quest" data-learning-lane="practice_and_play">
         <div className="sbq-celebrate">
           {isCycle && <ConfettiCelebration show={celebration.stars > 0} />}
           <img src={isCycle ? worldForCycle(activeCycle.cycleNumber).cheer : worldForCycle(activeCycle.cycleNumber).point} alt="" />
@@ -1012,7 +1013,7 @@ export function ElSkillsQuest({
   // ── Station picker for the open cycle ─────────────────────────────────────
   if (!stationId) {
     return (
-      <main className="skills-block-quest" data-pal-world={worldForCycle(activeCycle.cycleNumber).id} style={worldStyle(worldForCycle(activeCycle.cycleNumber))}>
+      <main className="skills-block-quest" data-learning-lane="practice_and_play" data-pal-world={worldForCycle(activeCycle.cycleNumber).id} style={worldStyle(worldForCycle(activeCycle.cycleNumber))}>
         <header className="sbq-top">
           <div>
             <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>
@@ -1061,6 +1062,7 @@ export function ElSkillsQuest({
   return (
     <main
       className="skills-block-quest"
+      data-learning-lane="practice_and_play"
       data-pal-world={roundWorld.id}
       style={{ ...worldStyle(roundWorld), "--pal-scene": `url(${sceneForKey(roundWorld, `${activeCycle.id}-${stationId}`)})` }}
     >
@@ -1091,6 +1093,7 @@ export function ElSkillsQuest({
             <span className="sbq-sparkle" aria-hidden="true" onAnimationEnd={() => setSparkle(false)}>✨</span>
           )}
           <p className="sbq-round-prompt">{round.prompt}</p>
+          {round.support && <p className="sbq-round-support">{round.support}</p>}
           {encourage && <p className="sbq-encourage" role="status">Almost! Try again.</p>}
           {round.audio && (
             <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>

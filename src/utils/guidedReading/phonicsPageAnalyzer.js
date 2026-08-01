@@ -8,6 +8,7 @@ import {
   inferVowelPattern,
   normalizeLexiconWord
 } from "../phonics/phonicsHeuristics.js";
+import { buildMeaningPrompts } from "../../data/knowledgeJourneys.js";
 
 const HIGH_FREQUENCY_WORDS = new Set([
   "a", "i", "the", "my", "is", "can", "go", "to", "we", "me", "you", "and", "it", "in", "on", "at", "up",
@@ -147,19 +148,6 @@ export function enrichGuidedReadingBook(book = {}) {
 }
 
 export function buildComprehensionQuestionSeeds(book = {}) {
-  const type = String(book.type || "nonfiction").toLowerCase().replace(/[^a-z]/g, "");
-  if (type === "nonfiction") {
-    return [
-      "What is the topic?",
-      "Name one fact from the book.",
-      "What did the picture help you understand?"
-    ];
-  }
-  return [
-    "Who is in the story?",
-    "Where does it happen?",
-    "What happened first?",
-    "What happened at the end?",
-    "What was the problem?"
-  ];
+  const prompts = buildMeaningPrompts(book);
+  return [prompts.question, prompts.talk, prompts.vocabulary, prompts.writing];
 }

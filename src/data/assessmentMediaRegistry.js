@@ -5,22 +5,14 @@ import {
 } from "./audioPreferenceManifest.js";
 import { childWordAssets, getChildWordAsset } from "./childAssets.js";
 import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
-import { kimiVocabularyRuntime } from "./generated/kimiVocabularyRuntime.generated.js";
-import { endingSoundLevelQuestions } from "./finalSoundCoverageQuestions.js";
+import { vocabularyRuntime } from "./generated/vocabularyRuntime.generated.js";
 import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generated.js";
-import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
-import { kimiAssets3WordAssets } from "./kimiAssets3Manifest.js";
-import { kimiAssets4WordAssets } from "./kimiAssets4Manifest.js";
+import { childWordMediaManifest } from "./childWordMediaManifest.js";
 import { isMediaQaRuntimeAllowed } from "./mediaQaManifest.js";
-import { legacyInitialSoundImageRegistry } from "./generated/legacyInitialSoundImageRegistry.generated.js";
 import {
   hfwAssessmentImageVariants,
   rhymingAssessmentImageVariants
 } from "./generated/assessmentImageVariants.generated.js";
-import {
-  kimiHighQualityMediaStyleImageTasks,
-  kimiHighQualityMediaStyleAudioTasks
-} from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
 import {
   HFW_WORDS_1_25,
   HFW_WORDS_26_50,
@@ -28,10 +20,6 @@ import {
   HFW_WORDS_76_100
 } from "./highFrequencyWordBands.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
-import {
-  assessmentHfwAudioWiring,
-  assessmentMediaWiring
-} from "../content/assessments/assessmentMediaReleaseManifest.js";
 
 const HFW_BANDS = {
   hfw_1_25: HFW_WORDS_1_25,
@@ -330,42 +318,9 @@ function recordsFromK3VocabularyMedia() {
   });
 }
 
-function recordsFromAssessmentReleaseWiring() {
-  const questionWiringRecords = assessmentMediaWiring.map(entry => createRecord({
-    mediaType: entry.mediaType,
-    path: entry.filePath,
-    targetWord: entry.target,
-    audioType: entry.mediaType === "audio"
-      ? inferAudioType(entry.filePath, entry.target)
-      : "",
-    imageRole: entry.mediaType === "image" ? "target_object" : "",
-    visualVariantGroup: `assessment-release:${normalizeToken(entry.target)}`,
-    sourceManifest: "assessmentMediaReleaseManifest",
-    releaseApproved: true,
-    notes: `${entry.reviewStatus}. ${entry.pronunciationVariant}.`
-  }));
-  const hfwAudioRecords = Object.entries(assessmentHfwAudioWiring).map(
-    ([targetWord, filePath]) => createRecord({
-      mediaType: "audio",
-      path: filePath,
-      targetWord,
-      audioType: "whole_word",
-      visualVariantGroup: `assessment-hfw-release:${normalizeToken(targetWord)}`,
-      sourceManifest: "assessmentHfwAudioWiring",
-      releaseApproved: true,
-      notes: "Explicit HFW assessment release wiring."
-    })
-  );
-  return [...questionWiringRecords, ...hfwAudioRecords];
-}
-
-function recordsFromKimiAssetPacks() {
-  return [
-    ["kimiAssets2WordAssets", kimiAssets2WordAssets],
-    ["kimiAssets3WordAssets", kimiAssets3WordAssets],
-    ["kimiAssets4WordAssets", kimiAssets4WordAssets]
-  ].flatMap(([sourceManifest, assets]) =>
-    Object.entries(assets).flatMap(([key, asset]) => {
+function recordsFromChildWordMedia() {
+  const sourceManifest = "childWordMediaManifest";
+  return Object.entries(childWordMediaManifest).flatMap(([key, asset]) => {
       const targetWord = normalizeAssessmentMediaWord(asset?.word || key);
       return [
         asset?.image ? createRecord({
@@ -387,8 +342,7 @@ function recordsFromKimiAssetPacks() {
           notes: asset.notes || asset.audioNote || ""
         }) : null
       ].filter(Boolean);
-    })
-  );
+    });
 }
 
 function recordsFromImportedVocabulary() {
@@ -418,7 +372,7 @@ function recordsFromImportedVocabulary() {
   });
 }
 
-function kimiSkillTags(entry = {}) {
+function vocabularySkillTags(entry = {}) {
   const skills = entry.skills || {};
   return unique([
     skills.initialSounds?.eligible ? "initial_sounds" : "",
@@ -434,11 +388,11 @@ function kimiSkillTags(entry = {}) {
   ]);
 }
 
-function recordsFromKimiVocabularyLexicon() {
-  return kimiVocabularyRuntime.flatMap(entry => {
+function recordsFromVocabularyLexicon() {
+  return vocabularyRuntime.flatMap(entry => {
     if (entry?.status !== "approved") return [];
     const targetWord = entry.normalizedWord || entry.word;
-    const skillTags = kimiSkillTags(entry);
+    const skillTags = vocabularySkillTags(entry);
     return [
       entry.imagePath && entry.isImageable !== false ? createRecord({
         mediaType: "image",
@@ -448,8 +402,8 @@ function recordsFromKimiVocabularyLexicon() {
         level: entry.recommendedLevel,
         imageRole: "generic_word",
         imageability: entry.isImageable !== false,
-        visualVariantGroup: `kimi-vocabulary:${normalizeToken(targetWord)}`,
-        sourceManifest: "kimiVocabulary500Lexicon",
+        visualVariantGroup: `vocabulary:${normalizeToken(targetWord)}`,
+        sourceManifest: "vocabularyMediaLexicon",
         notes: entry.notes
       }) : null,
       entry.audioPath ? createRecord({
@@ -459,41 +413,9 @@ function recordsFromKimiVocabularyLexicon() {
         skillTags,
         level: entry.recommendedLevel,
         audioType: "whole_word",
-        visualVariantGroup: `kimi-vocabulary:${normalizeToken(targetWord)}`,
-        sourceManifest: "kimiVocabulary500Lexicon",
+        visualVariantGroup: `vocabulary:${normalizeToken(targetWord)}`,
+        sourceManifest: "vocabularyMediaLexicon",
         notes: entry.notes
-      }) : null
-    ].filter(Boolean);
-  });
-}
-
-function recordsFromFinalSoundOverrides() {
-  return endingSoundLevelQuestions.flatMap(question => {
-    const targetWord = normalizeAssessmentMediaWord(question.targetWord || question.audioText);
-    return [
-      question.imagePath ? createRecord({
-        mediaType: "image",
-        path: question.imagePath,
-        targetWord,
-        skillTags: ["final_sounds", "cvc_short_vowels", "short_vowel_discrimination"],
-        level: question.level,
-        phase: question.phase,
-        imageRole: "target_object",
-        visualVariantGroup: `final-sound:${normalizeToken(targetWord)}`,
-        sourceManifest: "finalSoundCoverageQuestions",
-        notes: "Exact target image used by the approved Final Sounds assessment bank."
-      }) : null,
-      question.audioPath ? createRecord({
-        mediaType: "audio",
-        path: question.audioPath,
-        targetWord,
-        skillTags: ["final_sounds", "cvc_short_vowels", "short_vowel_discrimination"],
-        level: question.level,
-        phase: question.phase,
-        audioType: "whole_word",
-        visualVariantGroup: `final-sound:${normalizeToken(targetWord)}`,
-        sourceManifest: "finalSoundCoverageQuestions",
-        notes: "Exact target audio used by the approved Final Sounds assessment bank."
       }) : null
     ].filter(Boolean);
   });
@@ -566,7 +488,6 @@ function recordsFromRhymingVariants() {
 
 function recordsFromInitialSoundBank() {
   return initialSoundWordBank.flatMap(item => {
-    const wordKey = normalizeToken(item.targetWord).replace(/_/g, "-");
     return [
       item.imageUrl ? createRecord({
       mediaType: "image",
@@ -579,17 +500,6 @@ function recordsFromInitialSoundBank() {
       sourceManifest: "initialSoundWordBank",
       notes: item.active === false ? item.qaNotes || "Inactive Initial Sounds item." : ""
       }) : null,
-      createRecord({
-        mediaType: "image",
-        path: `/images/child-mode/initial-sounds/${wordKey}.png`,
-        targetWord: item.targetWord,
-        skillTags: ["initial_sounds", "final_sounds", "cvc_short_vowels", "short_vowel_discrimination"],
-        level: item.level,
-        imageRole: "target_object",
-        visualVariantGroup: `initial-legacy:${item.letter}:${normalizeToken(item.targetWord)}`,
-        sourceManifest: "initialSoundWordBank:legacy-child-mode",
-        notes: "Legacy child-mode Initial Sounds asset path indexed so live assessment rows are not invisible to the registry."
-      }),
       item.audioUrl ? createRecord({
       mediaType: "audio",
       path: item.audioUrl,
@@ -603,21 +513,6 @@ function recordsFromInitialSoundBank() {
       }) : null
     ].filter(Boolean);
   });
-}
-
-function recordsFromLegacyInitialSoundImages() {
-  return Object.entries(legacyInitialSoundImageRegistry).map(([assetPath, word]) =>
-    createRecord({
-      mediaType: "image",
-      path: assetPath,
-      targetWord: word,
-      skillTags: ["initial_sounds", "final_sounds", "cvc_short_vowels", "short_vowel_discrimination"],
-      imageRole: "target_object",
-      visualVariantGroup: `legacy-initial-image:${normalizeToken(word)}`,
-      sourceManifest: "legacyInitialSoundImageRegistry",
-      notes: "Existing child-mode Initial Sounds image indexed for assessment media resolution."
-    })
-  );
 }
 
 function recordsFromHfwBaseImages() {
@@ -635,49 +530,6 @@ function recordsFromHfwBaseImages() {
   );
 }
 
-function imageRoleForKimiHighQualityTask(task = {}) {
-  if (task.skillId === "nouns" || task.itemType === "noun") return "noun_image";
-  if (task.skillId === "verbs" || task.itemType === "verb") return "verb_action";
-  if (task.skillId === "adjectives" || task.itemType === "adjective") return "adjective_visual";
-  if (task.skillId === "prepositions") return "preposition_scene";
-  if (task.skillId === "plurals" || task.itemType === "plural") return "plural_pair";
-  if (task.skillId === "antonyms_synonyms") return "antonym_synonym_scene";
-  if (task.skillId === "homophones_homonyms") return "homophone_context";
-  if (task.skillId === "hfw_1_25" || task.skillId === "hfw_26_50" || task.skillId === "hfw_51_75" || task.skillId === "hfw_76_100") return "hfw_scene";
-  if (task.skillId === "rhyming") return "rhyming_target";
-  return "grammar_pos";
-}
-
-function recordsFromKimiHighQualityMediaStyle() {
-  return [
-    ...kimiHighQualityMediaStyleImageTasks.map(task => ({
-      ...createRecord({
-        mediaType: "image",
-        path: task.path,
-        targetWord: task.targetWord,
-        skillTags: [task.skillId],
-        imageRole: imageRoleForKimiHighQualityTask(task),
-        visualVariantGroup: `kimi-high-quality:${task.skillId}:${normalizeToken(task.pair || task.targetWord)}`,
-        sourceManifest: "kimiHighQualityMediaStyleManifest",
-        notes: task.reason
-      }),
-      id: `image:${task.path}:${normalizeToken(task.targetWord)}`
-    })),
-    ...kimiHighQualityMediaStyleAudioTasks.map(task =>
-      createRecord({
-        mediaType: "audio",
-        path: task.path,
-        targetWord: task.targetWord,
-        skillTags: [task.skillId],
-        audioType: "whole_word",
-        visualVariantGroup: `kimi-high-quality-audio:${normalizeToken(task.targetWord)}`,
-        sourceManifest: "kimiHighQualityMediaStyleManifest",
-        notes: task.reason
-      })
-    )
-  ];
-}
-
 let cachedRegistry = null;
 let cachedRegistryByPath = null;
 let cachedRegistryByTypeAndWord = null;
@@ -686,19 +538,15 @@ export function getAssessmentMediaRegistry() {
   if (!cachedRegistry) {
     cachedRegistry = mergeRecords([
       ...recordsFromChildAssets(),
-      ...recordsFromKimiAssetPacks(),
+      ...recordsFromChildWordMedia(),
       ...recordsFromK3VocabularyMedia(),
-      ...recordsFromAssessmentReleaseWiring(),
       ...recordsFromImportedVocabulary(),
-      ...recordsFromKimiVocabularyLexicon(),
-      ...recordsFromFinalSoundOverrides(),
+      ...recordsFromVocabularyLexicon(),
       ...recordsFromAudioPreferences(),
       ...recordsFromInitialSoundBank(),
-      ...recordsFromLegacyInitialSoundImages(),
       ...recordsFromHfwBaseImages(),
       ...recordsFromHfwVariants(),
-      ...recordsFromRhymingVariants(),
-      ...recordsFromKimiHighQualityMediaStyle()
+      ...recordsFromRhymingVariants()
     ].filter(record => {
       if (!record?.path) return false;
       return record.mediaType === "image" ? IMAGE_EXTENSIONS.test(record.path) : AUDIO_EXTENSIONS.test(record.path);
@@ -724,14 +572,7 @@ export function getAssessmentMediaByPath(path = "", mediaType = "") {
   getAssessmentMediaRegistry();
   if (mediaType) {
     const direct = cachedRegistryByPath.get(`${mediaType}:${normalizedPath}`);
-    if (direct || mediaType !== "audio") return direct || null;
-    const legacyWord = normalizeAssessmentMediaWord(
-      normalizedPath.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") || ""
-    );
-    const replacementPath = getApprovedAudioPath(legacyWord, normalizedPath);
-    return replacementPath
-      ? cachedRegistryByPath.get(`audio:${replacementPath}`) || null
-      : null;
+    return direct || null;
   }
   return cachedRegistryByPath.get(`image:${normalizedPath}`) ||
     cachedRegistryByPath.get(`audio:${normalizedPath}`) ||

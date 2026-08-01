@@ -1,0 +1,679 @@
+/* KIDS LIBRARY — the Books screen and the Story Quests screen (phase D of the
+ * 2026-07-29 redesign).
+ *
+ * Binding spec: mockups/design-handoff-kids-side/README.md, "### 4. Books" and
+ * "### 5. Story Quests". Every radius, size and colour below is copied from it
+ * or from the tokens kids-glass.css publishes — none is invented.
+ *
+ * ONE FILE FOR TWO SCREENS, ON PURPOSE — the same reason kids-trail.css holds
+ * the Sound Trail and the Adventure Map. Books and Story Quests are one idea
+ * twice: a panel about the thing you already started, then a grid of things you
+ * could start. The card recipes are written once here and skinned per screen.
+ *
+ * THIS FILE OWNS LAYOUT AND SKINS ONLY. Every frosted surface, scrim, type
+ * step, control and animation comes from kids-glass.css — take a class, never
+ * re-declare a recipe. Phase D needed no new system tier.
+ *
+ * WHY EVERY RULE CARRIES `.kg-stage`. App.css styles every `.app button` at
+ * (0,1,1), which out-specifies a bare `.kg-*` class at (0,1,0) and would win.
+ * The prefix is load-bearing, not decoration; kids-glass.css records the
+ * measurement that proved it.
+ *
+ * ROWS ARE FIXED, COLUMNS BREATHE. The canvas is 834 design px tall on every
+ * device and 1024-1560 wide (src/utils/kidsStage.js). Both screens budget their
+ * height as a constant — which is what makes "these screens never scroll" a
+ * checkable claim — and every horizontal track is a fraction. Nothing here may
+ * assume 1194px of width.
+ *
+ * THE HEIGHT BUDGET, MEASURED, so the next person can change it safely.
+ * Content area 664 (834 - 78 header - 92 tab bar); .kg-screen padding takes 28;
+ * two 13px row gaps take 26; 610 remain.
+ *
+ *   Books   head ~64 + Continue 158 + shelves 388.
+ *           A shelf is 188: heading 26, gap 7, and 155 of card grid — two rows
+ *           of 72. A card is 50px of cover plus 7px of padding either side = 64.
+ *   Quests  head 50 + grid 573: two rows of 279, art on top, footer ~68.
+ *
+ * WHY EIGHT BOOKS A SHELF AND NOT THE SPEC'S FOUR. The spec draws one row of
+ * four per shelf. On this canvas that row is 155px tall holding a 50px cover:
+ * two-thirds of every card is air, which is exactly the "half-empty panel" the
+ * owner's standing critique forbids — and it would put 8 of 176 books on
+ * screen. Four columns by two rows fills the same space with real books at the
+ * spec's own card geometry. Nothing about the card changed; only how many of
+ * them there are.
+ */
+
+/* ── Screen: Books ────────────────────────────────────────────────────────── */
+.kg-stage .kg-books {
+  display: grid;
+  gap: var(--kg-space-13);
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+.kg-stage .kg-books[data-library-view="knowledge"] {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.kg-stage .kg-books-head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--kg-space-16);
+}
+
+.kg-stage .kg-books-headline {
+  margin: 2px 0 0;
+  font-size: 16.5px;
+  color: var(--kg-ink-muted);
+}
+
+/* THE LEVEL FILTER LIVES IN THE TITLE ROW, not in a shelf heading, and that is
+   a height decision rather than a taste one. Chips are interactive, so they are
+   44px tall by the child-area floor; in a shelf heading they push both headings
+   from 26px to 44px and take 36px out of the card grid, which is more than a
+   card row can spare. In the title row they cost nothing — the row is already
+   64px tall for the title and its line. */
+.kg-stage .kg-segment-tray {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 18px;
+}
+
+.kg-stage .kg-segment {
+  --kg-self-border: transparent;
+  --kg-self-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kg-space-7);
+  height: var(--kg-hit);
+  padding: 0 var(--kg-space-16);
+  border: 1px solid var(--kg-self-border);
+  border-radius: var(--kg-radius-market);
+  background: transparent;
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-display);
+  font-size: 17.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kg-stage .kg-segment.is-active {
+  --kg-self-border: rgba(255, 255, 255, 0.35);
+  --kg-self-shadow: 0 10px 20px -12px rgba(20, 45, 38, 0.55);
+  background: linear-gradient(150deg, rgba(46, 75, 62, 0.94), rgba(62, 119, 107, 0.86));
+  box-shadow: var(--kg-self-shadow);
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-segment-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--kg-segment-dot, var(--kg-sage));
+  flex: 0 0 auto;
+}
+
+/* The spec's 50px / radius-18 glass button. .kg-button--sm is 50px at radius
+   17, so only the radius is restated. */
+.kg-stage .kg-books-stories {
+  border-radius: 18px;
+  font-size: 19px;
+  color: var(--kg-ink-deep);
+}
+
+.kg-stage .kg-books-stories .kg-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+
+/* THE CONTINUE PANEL IS A ROW, NOT A STACK — the one place this screen leaves
+   the prototype's arrangement, and for the reason kids-trail.css records for
+   the next-stop panel. Stacked, the 58px actions sat under the title with the
+   whole right half of a 976-1512px panel empty. Side by side, the same
+   elements at the same sizes fill the panel at every width in the range. */
+.kg-stage .kg-continue {
+  --kg-tint: var(--kg-tint-books);
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--kg-space-20);
+  padding: var(--kg-space-14) var(--kg-space-20);
+  border-radius: 28px;
+}
+
+.kg-stage .kg-continue-cover {
+  width: 190px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 28px -18px rgba(30, 60, 50, 0.55);
+  background: linear-gradient(150deg, #BFE3D8, #EFF3EA);
+}
+
+.kg-stage .kg-continue-title {
+  margin: 3px 0 0;
+  font-size: 28px;
+}
+
+.kg-stage .kg-continue-reason {
+  display: block;
+  margin-top: var(--kg-space-7);
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-continue-meter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--kg-space-7);
+}
+
+.kg-stage .kg-meter {
+  width: 250px;
+  max-width: 100%;
+  height: 10px;
+  flex: 0 1 250px;
+  border-radius: var(--kg-radius-pill);
+  background: rgba(62, 119, 107, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+}
+
+.kg-stage .kg-meter i {
+  display: block;
+  height: 100%;
+  border-radius: var(--kg-radius-pill);
+  background: var(--kg-progress);
+}
+
+.kg-stage .kg-continue-page {
+  font-family: var(--kg-font-body);
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-continue-actions {
+  display: flex;
+  gap: var(--kg-space-11);
+}
+
+.kg-stage .kg-continue-hear {
+  border-radius: 20px;
+}
+
+/* Knowledge is a supported-reading destination, not another book level. The
+   child chooses one coherent idea and sees its books, repeated vocabulary and
+   guiding question together. */
+.kg-stage .kg-knowledge {
+  min-height: 0;
+  padding: var(--kg-space-20);
+  border-radius: var(--kg-radius-panel);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: var(--kg-space-13);
+  overflow: hidden;
+}
+
+.kg-stage .kg-knowledge-head {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+  align-items: end;
+  gap: var(--kg-space-20);
+}
+
+.kg-stage .kg-knowledge-head h2,
+.kg-stage .kg-knowledge-head p,
+.kg-stage .kg-knowledge-words {
+  margin: 0;
+}
+
+.kg-stage .kg-knowledge-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--kg-space-7);
+}
+
+.kg-stage .kg-knowledge-tabs button {
+  min-height: var(--kg-hit);
+  padding: 0 var(--kg-space-14);
+  border: 1px solid rgba(62, 119, 107, 0.2);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-body);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.kg-stage .kg-knowledge-tabs button.is-active {
+  background: var(--kg-ink-deep);
+  color: #FFFFFF;
+}
+
+.kg-stage .kg-knowledge-words {
+  color: var(--kg-ink-muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.kg-stage .kg-knowledge-books {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--kg-space-14);
+}
+
+.kg-stage .kg-knowledge-book {
+  min-width: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  justify-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: var(--kg-radius-card);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--kg-ink);
+  text-align: left;
+}
+
+.kg-stage .kg-knowledge-book img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.kg-stage .kg-knowledge-book > span {
+  display: grid;
+  gap: 2px;
+  padding: var(--kg-space-11) var(--kg-space-13);
+}
+
+.kg-stage .kg-knowledge-book strong {
+  font-family: var(--kg-font-display);
+  font-size: 18px;
+}
+
+.kg-stage .kg-knowledge-book small,
+.kg-stage .kg-book-purpose {
+  color: var(--kg-ink-muted);
+  font-family: var(--kg-font-body);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+/* ── The two shelves ──────────────────────────────────────────────────────── */
+.kg-stage .kg-shelves {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kg-stage .kg-shelf {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--kg-space-7);
+}
+
+.kg-stage .kg-shelf-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kg-stage .kg-shelf-swatch {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  border-radius: var(--kg-radius-swatch);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: var(--kg-shelf-tint, var(--kg-success-soft));
+}
+
+.kg-stage .kg-shelf-title {
+  font-size: 20px;
+}
+
+.kg-stage .kg-shelf-note {
+  font-family: var(--kg-font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-shelf-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+/* Same button reset as the quest card: `.app button` centres content, and a
+   centred track here shrinks the card's columns to their content and drops the
+   star pill off the right edge. align-items stays `center` on purpose — the
+   cover and the title are one row and they line up on it. */
+.kg-stage .kg-book-card {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  border-radius: var(--kg-radius-card);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: stretch;
+  justify-content: normal;
+  align-content: normal;
+  gap: 10px;
+  font-family: inherit;
+  text-align: left;
+  color: var(--kg-ink);
+  cursor: pointer;
+}
+
+.kg-stage .kg-book-card-main {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: var(--kg-space-11);
+  row-gap: 2px;
+  padding: var(--kg-space-7) 0 var(--kg-space-7) var(--kg-space-9);
+}
+
+.kg-stage .kg-book-cover {
+  width: 66px;
+  height: 50px;
+  flex: 0 0 66px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 16px -10px rgba(30, 60, 50, 0.5);
+  background: linear-gradient(150deg, #BFE3D8, #EFF3EA);
+  grid-row: 1 / 3;
+}
+
+/* Two title lines leave room for the truthful reading-purpose label beneath.
+   Longer titles still remain available to assistive technology through the
+   button's text content. */
+.kg-stage .kg-book-title {
+  min-width: 0;
+  font-family: var(--kg-font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.15;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.kg-stage .kg-book-purpose {
+  align-self: start;
+}
+
+.kg-stage .kg-book-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex: 0 0 auto;
+  margin-right: var(--kg-space-9);
+  padding: 4px 11px 4px 8px;
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  font-family: var(--kg-font-body);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+/* THE PAGER IS A TILE, NOT A HEADER BUTTON. A 44px control in the shelf
+   heading costs 18px of every card row; a tile in the last cell costs nothing,
+   is already 64px tall, and reads to a pre-reader as "there are more books
+   behind this one". It wraps, so it walks the whole shelf and never needs a
+   page number — a page counter would be a third numeric system. */
+.kg-stage .kg-book-card--more {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0;
+}
+
+.kg-stage .kg-book-card--more .kg-book-card-main {
+  display: flex;
+  justify-content: center;
+  padding: var(--kg-space-7) var(--kg-space-9);
+  gap: var(--kg-space-9);
+}
+
+.kg-stage .kg-book-more-glyph {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: var(--kg-ink-deep);
+}
+
+/* ── Screen: Story Quests ─────────────────────────────────────────────────── */
+.kg-stage .kg-quests {
+  display: grid;
+  gap: var(--kg-space-13);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.kg-stage .kg-quests-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kg-stage .kg-back {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: var(--kg-radius-secondary);
+  color: var(--kg-ink-deep);
+  cursor: pointer;
+}
+
+.kg-stage .kg-back .kg-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.4;
+}
+
+.kg-stage .kg-quests-pill {
+  padding: 6px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 241, 232, 0.7);
+  font-size: 14.5px;
+  color: var(--kg-ink-terracotta);
+}
+
+/* The region wrapper exists so the child-surface regions stay honest: the
+   section is where the child's state is shown (every badge on it), the grid
+   inside it is the set of choices. It must not eat the row's height. */
+.kg-stage .kg-quest-region {
+  min-height: 0;
+  display: grid;
+}
+
+.kg-stage .kg-quest-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+/* align-items/justify-items/justify-content are RESET, not styled — the same
+   trap kids-home.css records for the doorway cards. App.css's `.app button`
+   centres every button's content, which collapses this grid's art row to zero:
+   measured here before the fix, the art element was 0px tall inside a 279px
+   card, so the picture vanished and the badge was clipped away with it. */
+.kg-stage .kg-quest-card {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: normal;
+  align-content: normal;
+  font-family: inherit;
+  text-align: left;
+  color: var(--kg-ink);
+  cursor: pointer;
+}
+
+/* Each world tints its own cards' footers — the spec's Arcade world colours at
+   panel alpha, so a Meadow story and a Moonwood story do not read as the same
+   grey card. Literal rgba rather than color-mix(): iPad Safari is the primary
+   device and this has to render on the older ones too. The tint only shows in
+   the footer; the art owns the rest of the card. */
+.kg-stage .kg-quest-card[data-quest-world="meadow"] {
+  --kg-tint: rgba(111, 179, 95, 0.22);
+}
+
+.kg-stage .kg-quest-card[data-quest-world="dino"] {
+  --kg-tint: rgba(217, 136, 65, 0.22);
+}
+
+.kg-stage .kg-quest-card[data-quest-world="moonwood"] {
+  --kg-tint: rgba(94, 77, 156, 0.2);
+}
+
+/* A deep-green ground under the art, not decoration: art that fails to load
+   leaves this, and a badge with dark ink still sits on a light pill above it. */
+.kg-stage .kg-quest-art {
+  position: relative;
+  min-height: 0;
+  display: block;
+  overflow: hidden;
+  background: linear-gradient(120deg, #2E4B3E, #3E776B);
+}
+
+.kg-stage .kg-quest-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kg-stage .kg-quest-badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 13px;
+  border-radius: var(--kg-radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(var(--kg-blur-button)) saturate(1.5);
+  -webkit-backdrop-filter: blur(var(--kg-blur-button)) saturate(1.5);
+  font-family: var(--kg-font-body);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+
+/* The four badge states are the spec's own colours. All four are DARK ink on a
+   light pill: white ink on light glass over an illustration is the one
+   combination this system forbids. */
+.kg-stage .kg-quest-badge--carry-on {
+  background: linear-gradient(
+    150deg,
+    rgba(var(--kg-accent-rgb), 0.94),
+    rgba(var(--kg-accent-rgb), 0.72)
+  );
+  color: var(--kg-ink-on-accent);
+}
+
+.kg-stage .kg-quest-badge--new {
+  background: rgba(191, 227, 216, 0.8);
+  color: var(--kg-ink-deep);
+}
+
+.kg-stage .kg-quest-badge--done {
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-quest-badge--next-world {
+  background: rgba(245, 231, 208, 0.85);
+  color: var(--kg-ink-brown);
+}
+
+.kg-stage .kg-quest-foot {
+  display: block;
+  padding: 11px 14px 13px;
+}
+
+.kg-stage .kg-quest-title {
+  display: block;
+  font-family: var(--kg-font-display);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.kg-stage .kg-quest-note {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--kg-font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+/* THE ONE CARD THE CHILD SHOULD TAP. Same size and same badge as the rest —
+   only an accent ring, the treatment the spec already uses for "up next" on
+   Home. It is written into --kg-self-shadow as well as box-shadow so the focus
+   rule in kids-glass.css puts the ring back instead of stripping it. */
+.kg-stage .kg-quest-card--pick {
+  --kg-self-border: rgba(var(--kg-accent-rgb), 0.55);
+  --kg-self-shadow:
+    0 0 0 3px rgba(var(--kg-accent-rgb), 0.3),
+    0 18px 34px -26px rgba(30, 60, 50, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border-color: var(--kg-self-border);
+  box-shadow: var(--kg-self-shadow);
+}
+
+/* ── Nothing to show, and reads that failed ──────────────────────────────────
+ * A storage error is not a child with an empty library, and neither is a
+ * shelf the content team has not filled yet. Both say what actually happened.
+ */
+.kg-stage .kg-library-empty {
+  min-height: 0;
+  display: grid;
+  place-content: center;
+  gap: var(--kg-space-7);
+  padding: var(--kg-space-24);
+  border-radius: var(--kg-radius-panel);
+  text-align: center;
+}
+
+.kg-stage .kg-library-empty p {
+  margin: 0;
+  color: var(--kg-ink-muted);
+}

@@ -5939,6 +5939,25 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   letter-spacing: 0.02em;
 }
 
+.guided-reading-purpose-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid rgba(15, 118, 110, 0.28);
+  border-radius: 999px;
+  background: rgba(204, 251, 241, 0.88);
+  color: #115e59;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.guided-reading-purpose-badge[data-reading-purpose="supported"] {
+  border-color: rgba(79, 70, 229, 0.22);
+  background: rgba(238, 242, 255, 0.94);
+  color: #3730a3;
+}
+
 .guided-reader-header h3,
 .guided-reader-header p,
 .guided-notes-panel h3,
@@ -8878,7 +8897,7 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   border-color: rgba(225, 29, 72, 0.28);
 }
 
-.media-qa-card.status-needs_kimi {
+.media-qa-card.status-needs_replacement {
   border-color: rgba(245, 158, 11, 0.34);
 }
 
@@ -11339,6 +11358,31 @@ select:focus {
   margin: 0;
   font-weight: 800;
   text-align: center;
+}
+
+.assessment-feedback {
+  width: min(560px, calc(100% - 24px));
+  min-height: 0;
+  margin: clamp(20px, 9vh, 80px) auto;
+  padding: clamp(20px, 4vw, 34px);
+  text-align: center;
+}
+
+.assessment-feedback h2 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.assessment-feedback > p:not(.feedback-auto-advance) {
+  margin: 10px 0 4px;
+  font-size: clamp(17px, 2.1vw, 22px);
+  line-height: 1.4;
+}
+
+.assessment-feedback .feedback-auto-advance {
+  margin-top: 14px;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
 }
 
 .checkpoint-decision-shell {

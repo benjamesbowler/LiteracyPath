@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "car",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cor, cer and cir are non-words",
   "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
   "resolvedImageAssetKey": "car",
-  "imageAlt": "Finish: c__"
+  "imageAlt": "car"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ar.v2",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "star",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "stir is real — the star image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ar/star-02.webp",
   "resolvedImageAssetKey": "star",
-  "imageAlt": "Finish: st__"
+  "imageAlt": "star"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ar.v3",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "farm",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "form and firm are real — the farm image pins the target",
   "imagePath": "/images/child-mode/initial-sounds/farm.png",
@@ -260,7 +257,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/farm.png",
   "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
   "resolvedImageAssetKey": "farm",
-  "imageAlt": "Finish: f__m"
+  "imageAlt": "farm"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ar.v4",
@@ -332,14 +329,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shark",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/digraphs/shark.webp",
@@ -347,7 +343,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shark.webp",
   "targetImagePath": "/images/assessment/digraphs/shark.webp",
   "resolvedImageAssetKey": "shark",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "shark"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ar.v5",
@@ -419,14 +415,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "yarn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/child-mode/initial-sounds/yarn.png",
@@ -434,7 +429,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/yarn.png",
   "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
   "resolvedImageAssetKey": "yarn",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "yarn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ar.v6",
@@ -506,14 +501,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "park",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/child-mode/initial-sounds/park.png",
@@ -521,7 +515,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/park.png",
   "targetImagePath": "/images/child-mode/initial-sounds/park.png",
   "resolvedImageAssetKey": "park",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "park"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ar.v1",
@@ -593,14 +587,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "scarf",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "scorf, scerf and scurf-ish strings are not child words",
   "imagePath": "/images/assessment/blends/scarf.webp",
@@ -608,7 +601,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/scarf.webp",
   "targetImagePath": "/images/assessment/blends/scarf.webp",
   "resolvedImageAssetKey": "scarf",
-  "imageAlt": "Finish: sc__f"
+  "imageAlt": "scarf"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ar.v2",
@@ -680,14 +673,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sharp",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "shorp, shirp and shurp are non-words",
   "imagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
@@ -695,7 +687,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
   "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
   "resolvedImageAssetKey": "sharp",
-  "imageAlt": "Finish: sh__p"
+  "imageAlt": "sharp"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ar.v3",
@@ -767,14 +759,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "barn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "born and burn are real, so they stay out — birn, bern and bain are non-words",
   "imagePath": "/images/vocabulary/barn.png",
@@ -782,7 +773,7 @@ export const questions = [
   "targetImage": "/images/vocabulary/barn.png",
   "targetImagePath": "/images/vocabulary/barn.png",
   "resolvedImageAssetKey": "barn",
-  "imageAlt": "Finish: b__n"
+  "imageAlt": "barn"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ar.v4",
@@ -842,33 +833,25 @@ export const questions = [
    "pin": "D-VOWEL",
    "shirt": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "care has the ar letters without the sound and out-chunks the key; shirt is the /ɜr/ neighbour",
-  "imagePath": "/images/assessment/digraphs/shark.webp",
-  "imageUrl": "/images/assessment/digraphs/shark.webp",
-  "targetImage": "/images/assessment/digraphs/shark.webp",
-  "targetImagePath": "/images/assessment/digraphs/shark.webp",
-  "resolvedImageAssetKey": "shark",
-  "imageAlt": "Which word has the ar (as in car) sound?"
+  "notes": "care has the ar letters without the sound and out-chunks the key; shirt is the /ɜr/ neighbour"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ar.v5",
@@ -928,33 +911,25 @@ export const questions = [
    "fin": "D-VOWEL",
    "fun": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "an all-f panel — only the vowel work is left",
-  "imagePath": "/images/child-mode/initial-sounds/farm.png",
-  "imageUrl": "/images/child-mode/initial-sounds/farm.png",
-  "targetImage": "/images/child-mode/initial-sounds/farm.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
-  "resolvedImageAssetKey": "farm",
-  "imageAlt": "Which word has the ar (as in car) sound?"
+  "notes": "an all-f panel — only the vowel work is left"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ar.v6",
@@ -1014,33 +989,25 @@ export const questions = [
    "hen": "D-VOWEL",
    "warm": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "warm has ar without the sound; win ties the in-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "resolvedImageAssetKey": "car",
-  "imageAlt": "Which word has the ar (as in car) sound?"
+  "notes": "warm has ar without the sound; win ties the in-chunk"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.or.v1",
@@ -1112,14 +1079,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "corn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "carn, cern and curn are non-words",
   "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
@@ -1127,7 +1093,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "resolvedImageAssetKey": "corn",
-  "imageAlt": "Finish: c__n"
+  "imageAlt": "corn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.or.v2",
@@ -1199,14 +1165,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fork",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fark, firk and ferk are non-words",
   "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
@@ -1214,7 +1179,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
   "resolvedImageAssetKey": "fork",
-  "imageAlt": "Finish: f__k"
+  "imageAlt": "fork"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.or.v3",
@@ -1286,14 +1251,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "storm",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "starm, sterm and stirm are non-words",
   "imagePath": "/images/objects/storm.png",
@@ -1301,7 +1265,7 @@ export const questions = [
   "targetImage": "/images/objects/storm.png",
   "targetImagePath": "/images/objects/storm.png",
   "resolvedImageAssetKey": "storm",
-  "imageAlt": "Finish: st__m"
+  "imageAlt": "storm"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.or.v4",
@@ -1373,14 +1337,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "corn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
@@ -1388,7 +1351,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
   "resolvedImageAssetKey": "corn",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "corn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.or.v5",
@@ -1460,14 +1423,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fork",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
@@ -1475,7 +1437,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
   "resolvedImageAssetKey": "fork",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "fork"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.or.v6",
@@ -1547,14 +1509,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "horn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
@@ -1562,7 +1523,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/or/horn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
   "resolvedImageAssetKey": "horn",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "horn"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.or.v1",
@@ -1622,34 +1583,26 @@ export const questions = [
    "ar": "D-VOWEL",
    "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "short",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "shirt is real — the spoken word and sentence-free frame pin short via the sh__t stem's only sensible completion being pinned by audio; shart, shirt and shurt traps stay honest because the target is spoken",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: sh__t"
+  "notes": "shirt is real — the spoken word and sentence-free frame pin short via the sh__t stem's only sensible completion being pinned by audio; shart, shirt and shurt traps stay honest because the target is spoken"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.or.v2",
@@ -1709,34 +1662,26 @@ export const questions = [
    "ar": "D-VOWEL",
    "er": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "sport",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "spart, spert and spirt are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: sp__t"
+  "notes": "spart, spert and spirt are non-words"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.or.v3",
@@ -1808,14 +1753,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fort",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fart is crude and stays out; fert and furt are non-words — ar is excluded from this set",
   "imagePath": "/images/assessment/generated/concepts/fort.webp",
@@ -1823,7 +1767,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/fort.webp",
   "targetImagePath": "/images/assessment/generated/concepts/fort.webp",
   "resolvedImageAssetKey": "fort",
-  "imageAlt": "Finish: f__t"
+  "imageAlt": "fort"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.or.v4",
@@ -1883,33 +1827,25 @@ export const questions = [
    "pin": "D-VOWEL",
    "bug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/objects/storm.png",
-  "imageUrl": "/images/objects/storm.png",
-  "targetImage": "/images/objects/storm.png",
-  "targetImagePath": "/images/objects/storm.png",
-  "resolvedImageAssetKey": "storm",
-  "imageAlt": "Which word has the or (as in corn) sound?"
+  "notes": ""
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.or.v5",
@@ -1969,33 +1905,25 @@ export const questions = [
    "pin": "D-VOWEL",
    "word": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn",
-  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "resolvedImageAssetKey": "corn",
-  "imageAlt": "Which word has the or (as in corn) sound?"
+  "notes": "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.or.v6",
@@ -2055,33 +1983,25 @@ export const questions = [
    "win": "D-VOWEL",
    "net": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "worm has or with the /ɜr/ sound; win ties the in-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "resolvedImageAssetKey": "corn",
-  "imageAlt": "Which word has the or (as in corn) sound?"
+  "notes": "worm has or with the /ɜr/ sound; win ties the in-chunk"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.er.v1",
@@ -2153,14 +2073,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "her",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "hor and hoa are non-words; har stays out as crude-adjacent — or carries the contrast",
   "imagePath": "/images/assessment/hfw/her.webp",
@@ -2168,7 +2087,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/her.webp",
   "targetImagePath": "/images/assessment/hfw/her.webp",
   "resolvedImageAssetKey": "her",
-  "imageAlt": "Finish: h__"
+  "imageAlt": "her"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.er.v2",
@@ -2240,14 +2159,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fern",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "firn, furn and farn are non-words — the full three-way choice",
   "imagePath": "/images/assessment/generated/concepts/fern.webp",
@@ -2255,7 +2173,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/fern.webp",
   "targetImagePath": "/images/assessment/generated/concepts/fern.webp",
   "resolvedImageAssetKey": "fern",
-  "imageAlt": "Finish: f__n"
+  "imageAlt": "fern"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.er.v3",
@@ -2327,14 +2245,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "herd",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "hird, hurd and hord are non-words",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
@@ -2342,7 +2259,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
   "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
   "resolvedImageAssetKey": "herd",
-  "imageAlt": "Finish: h__d"
+  "imageAlt": "herd"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.er.v4",
@@ -2414,14 +2331,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tiger",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the unstressed final er — tiger, not a CVC word",
   "imagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
@@ -2429,7 +2345,7 @@ export const questions = [
   "targetImage": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
   "targetImagePath": "/images/assessment/language/variants/plurals/tiger-tigers-01.webp",
   "resolvedImageAssetKey": "tiger",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "tiger"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.er.v5",
@@ -2501,14 +2417,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flower",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/blends/flower.webp",
@@ -2516,7 +2431,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flower.webp",
   "targetImagePath": "/images/assessment/blends/flower.webp",
   "resolvedImageAssetKey": "flower",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "flower"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.er.v6",
@@ -2588,14 +2503,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "spider",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/objects/spider.png",
@@ -2603,7 +2517,7 @@ export const questions = [
   "targetImage": "/images/objects/spider.png",
   "targetImagePath": "/images/objects/spider.png",
   "resolvedImageAssetKey": "spider",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "spider"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.er.v1",
@@ -2675,14 +2589,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "her",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the blueprint exemplar: the sentence frame pins her against hir/hur",
   "imagePath": "/images/assessment/hfw/her.webp",
@@ -2690,7 +2603,7 @@ export const questions = [
   "targetImage": "/images/assessment/hfw/her.webp",
   "targetImagePath": "/images/assessment/hfw/her.webp",
   "resolvedImageAssetKey": "her",
-  "imageAlt": "Finish: h__ (she did it — it belongs to er)"
+  "imageAlt": "her"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.er.v2",
@@ -2762,14 +2675,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "letter",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "letter's double t locks the spelling family; lettir, lettur and lettar are non-words",
   "imagePath": "/images/assessment/generated/concepts/letter.webp",
@@ -2777,7 +2689,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/letter.webp",
   "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
   "resolvedImageAssetKey": "letter",
-  "imageAlt": "Finish: lett__"
+  "imageAlt": "letter"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.er.v3",
@@ -2849,14 +2761,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "winter",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "wintir, wintur and wintor are non-words",
   "imagePath": "/images/vocabulary/winter.png",
@@ -2864,7 +2775,7 @@ export const questions = [
   "targetImage": "/images/vocabulary/winter.png",
   "targetImagePath": "/images/vocabulary/winter.png",
   "resolvedImageAssetKey": "winter",
-  "imageAlt": "Finish: wint__"
+  "imageAlt": "winter"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.er.v4",
@@ -2924,33 +2835,25 @@ export const questions = [
    "fox": "D-VOWEL",
    "here": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-er-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "here carries the her letters without the sound and out-chunks the key; er=ir=ur share one sound, so siblings stay out",
-  "imagePath": "/images/assessment/generated/concepts/fern.webp",
-  "imageUrl": "/images/assessment/generated/concepts/fern.webp",
-  "targetImage": "/images/assessment/generated/concepts/fern.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/fern.webp",
-  "resolvedImageAssetKey": "fern",
-  "imageAlt": "Which word has the er (as in her) sound?"
+  "notes": "here carries the her letters without the sound and out-chunks the key; er=ir=ur share one sound, so siblings stay out"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.er.v5",
@@ -3010,33 +2913,25 @@ export const questions = [
    "hard": "D-PATTERN-TRAP",
    "hop": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-er-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "herd and here both carry the her letters — the scanner ties",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "resolvedImageAssetKey": "herd",
-  "imageAlt": "Which word has the er (as in her) sound?"
+  "notes": "herd and here both carry the her letters — the scanner ties"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.er.v6",
@@ -3096,33 +2991,25 @@ export const questions = [
    "cart": "D-PATTERN-TRAP",
    "very": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-er-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "very has er letters with the short sound",
-  "imagePath": "/images/assessment/generated/concepts/letter.webp",
-  "imageUrl": "/images/assessment/generated/concepts/letter.webp",
-  "targetImage": "/images/assessment/generated/concepts/letter.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/letter.webp",
-  "resolvedImageAssetKey": "letter",
-  "imageAlt": "Which word has the er (as in her) sound?"
+  "notes": "very has er letters with the short sound"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ir.v1",
@@ -3194,14 +3081,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "berd and burd are non-words; bard is real but the bird image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
@@ -3209,7 +3095,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
   "resolvedImageAssetKey": "bird",
-  "imageAlt": "Finish: b__d"
+  "imageAlt": "bird"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ir.v2",
@@ -3281,14 +3167,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "girl",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "gurl, gerl and garl are non-words",
   "imagePath": "/images/child-mode/initial-sounds/girl.png",
@@ -3296,7 +3181,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/girl.png",
   "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
   "resolvedImageAssetKey": "girl",
-  "imageAlt": "Finish: g__l"
+  "imageAlt": "girl"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ir.v3",
@@ -3368,14 +3253,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shirt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "short is real — the shirt image pins the target",
   "imagePath": "/images/assessment/digraphs/shirt.webp",
@@ -3383,7 +3267,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shirt.webp",
   "targetImagePath": "/images/assessment/digraphs/shirt.webp",
   "resolvedImageAssetKey": "shirt",
-  "imageAlt": "Finish: sh__t"
+  "imageAlt": "shirt"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ir.v4",
@@ -3455,14 +3339,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bird",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
@@ -3470,7 +3353,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
   "resolvedImageAssetKey": "bird",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "bird"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ir.v5",
@@ -3542,14 +3425,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "girl",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/child-mode/initial-sounds/girl.png",
@@ -3557,7 +3439,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/girl.png",
   "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
   "resolvedImageAssetKey": "girl",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "girl"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ir.v6",
@@ -3629,14 +3511,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shirt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/digraphs/shirt.webp",
@@ -3644,7 +3525,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shirt.webp",
   "targetImagePath": "/images/assessment/digraphs/shirt.webp",
   "resolvedImageAssetKey": "shirt",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "shirt"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ir.v1",
@@ -3704,34 +3585,26 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "furst, ferst and forst are non-words — the pure three-way plus or",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: f__st"
+  "notes": "furst, ferst and forst are non-words — the pure three-way plus or"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ir.v2",
@@ -3803,14 +3676,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "third",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "thurd, therd and thard are non-words",
   "imagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
@@ -3818,7 +3690,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ird/third-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ird/third-02.webp",
   "resolvedImageAssetKey": "third",
-  "imageAlt": "Finish: th__d"
+  "imageAlt": "third"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ir.v3",
@@ -3878,34 +3750,26 @@ export const questions = [
    "ur": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "dirt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "dert and durt are non-words; dart is real, so ar stays out and oa fills the vowel slot",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: d__t"
+  "notes": "dert and durt are non-words; dart is real, so ar stays out and oa fills the vowel slot"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ir.v4",
@@ -3965,33 +3829,25 @@ export const questions = [
    "log": "D-VOWEL",
    "fire": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fire has the ir letters with a different sound — the tie and the trap",
-  "imagePath": "/images/child-mode/initial-sounds/girl.png",
-  "imageUrl": "/images/child-mode/initial-sounds/girl.png",
-  "targetImage": "/images/child-mode/initial-sounds/girl.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/girl.png",
-  "resolvedImageAssetKey": "girl",
-  "imageAlt": "Which word has the ir (as in bird) sound?"
+  "notes": "fire has the ir letters with a different sound — the tie and the trap"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ir.v5",
@@ -4051,33 +3907,25 @@ export const questions = [
    "shark": "D-PATTERN-TRAP",
    "ship": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fire ties the ir letters; shark carries the ar contrast",
-  "imagePath": "/images/assessment/digraphs/shirt.webp",
-  "imageUrl": "/images/assessment/digraphs/shirt.webp",
-  "targetImage": "/images/assessment/digraphs/shirt.webp",
-  "targetImagePath": "/images/assessment/digraphs/shirt.webp",
-  "resolvedImageAssetKey": "shirt",
-  "imageAlt": "Which word has the ir (as in bird) sound?"
+  "notes": "fire ties the ir letters; shark carries the ar contrast"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ir.v6",
@@ -4137,33 +3985,25 @@ export const questions = [
    "dig": "D-VOWEL",
    "dart": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tin ties the in-chunk of the prompt",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
-  "imageAlt": "Which word has the ir (as in bird) sound?"
+  "notes": "tin ties the in-chunk of the prompt"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ur.v1",
@@ -4223,34 +4063,26 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "hurt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hirt and hert are non-words; hort too",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: h__t"
+  "notes": "hirt and hert are non-words; hort too"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ur.v2",
@@ -4322,14 +4154,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nurse",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "nerse, nirse and norse are not child words",
   "imagePath": "/images/assessment/generated/concepts/nurse.webp",
@@ -4337,7 +4168,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/nurse.webp",
   "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
   "resolvedImageAssetKey": "nurse",
-  "imageAlt": "Finish: n__se"
+  "imageAlt": "nurse"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ur.v3",
@@ -4409,14 +4240,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "burn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "birn and bern are non-words; born is real, so or stays out and oa fills the slot",
   "imagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
@@ -4424,7 +4254,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/burn/burn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/burn/burn-02.webp",
   "resolvedImageAssetKey": "burn",
-  "imageAlt": "Finish: b__n"
+  "imageAlt": "burn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.A.ur.v4",
@@ -4496,14 +4326,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "purse",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/objects/purse.png",
@@ -4511,7 +4340,7 @@ export const questions = [
   "targetImage": "/images/objects/purse.png",
   "targetImagePath": "/images/objects/purse.png",
   "resolvedImageAssetKey": "purse",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "purse"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.B.ur.v5",
@@ -4583,14 +4412,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "surf",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/objects/surf.png",
@@ -4598,7 +4426,7 @@ export const questions = [
   "targetImage": "/images/objects/surf.png",
   "targetImagePath": "/images/objects/surf.png",
   "resolvedImageAssetKey": "surf",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "surf"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.C.ur.v6",
@@ -4670,14 +4498,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "turtle",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/objects/turtle.png",
@@ -4685,7 +4512,7 @@ export const questions = [
   "targetImage": "/images/objects/turtle.png",
   "targetImagePath": "/images/objects/turtle.png",
   "resolvedImageAssetKey": "turtle",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "turtle"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ur.v1",
@@ -4745,34 +4572,26 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "ar": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "curl",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cirl, cerl and carl are non-words for this age",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: c__l"
+  "notes": "cirl, cerl and carl are non-words for this age"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ur.v2",
@@ -4832,34 +4651,26 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "or": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "turnip",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tirnip, ternip and tornip are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: t__nip"
+  "notes": "tirnip, ternip and tornip are non-words"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ur.v3",
@@ -4919,34 +4730,26 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "burst",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "birst, berst and boast-adjacent strings are non-words in this frame",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: b__st"
+  "notes": "birst, berst and boast-adjacent strings are non-words in this frame"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.A.ur.v4",
@@ -5006,33 +4809,25 @@ export const questions = [
    "bin": "D-VOWEL",
    "your": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "burn-type keys stay out (turn contains urn); your has ur without the sound; bin ties the in-chunk",
-  "imagePath": "/images/objects/surf.png",
-  "imageUrl": "/images/objects/surf.png",
-  "targetImage": "/images/objects/surf.png",
-  "targetImagePath": "/images/objects/surf.png",
-  "resolvedImageAssetKey": "surf",
-  "imageAlt": "Which word has the ur (as in turn) sound?"
+  "notes": "burn-type keys stay out (turn contains urn); your has ur without the sound; bin ties the in-chunk"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.B.ur.v5",
@@ -5092,33 +4887,25 @@ export const questions = [
    "cart": "D-PATTERN-TRAP",
    "pin": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "resolvedImageAssetKey": "turn",
-  "imageAlt": "Which word has the ur (as in turn) sound?"
+  "notes": ""
  },
  {
   "id": "lp3.r_controlled_vowels.l2.C.ur.v6",
@@ -5178,33 +4965,25 @@ export const questions = [
    "nut": "D-VOWEL",
    "north": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "win ties the in-chunk",
-  "imagePath": "/images/assessment/generated/concepts/nurse.webp",
-  "imageUrl": "/images/assessment/generated/concepts/nurse.webp",
-  "targetImage": "/images/assessment/generated/concepts/nurse.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
-  "resolvedImageAssetKey": "nurse",
-  "imageAlt": "Which word has the ur (as in turn) sound?"
+  "notes": "win ties the in-chunk"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v7r",
@@ -5264,34 +5043,26 @@ export const questions = [
    "or": "D-VOWEL",
    "ir": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "jar",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "jor, jir and jer are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: j__"
+  "notes": "jor, jir and jer are non-words"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.or.v7r",
@@ -5363,14 +5134,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "horn",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "harn, hern and hirn are non-words",
   "imagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
@@ -5378,7 +5148,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/or/horn-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/or/horn-02.webp",
   "resolvedImageAssetKey": "horn",
-  "imageAlt": "Finish: h__n"
+  "imageAlt": "horn"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ar.v8r",
@@ -5450,14 +5220,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "car",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
@@ -5465,7 +5234,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
   "resolvedImageAssetKey": "car",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "car"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.or.v8r",
@@ -5537,14 +5306,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "storm",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is spoken and pictured, never printed",
   "imagePath": "/images/objects/storm.png",
@@ -5552,7 +5320,7 @@ export const questions = [
   "targetImage": "/images/objects/storm.png",
   "targetImagePath": "/images/objects/storm.png",
   "resolvedImageAssetKey": "storm",
-  "imageAlt": "Which letters make the sound you hear in this picture's word?"
+  "imageAlt": "storm"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ir.v7r",
@@ -5612,34 +5380,26 @@ export const questions = [
    "th": "D-PATTERN-TRAP",
    "ft": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "first",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "firnd, firth and firft are non-words — first is the unique real completion",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: fir__"
+  "notes": "firnd, firth and firft are non-words — first is the unique real completion"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ur.v7r",
@@ -5711,14 +5471,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nurse",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "nurce, nurs and nurss are rival spellings — developmental traps",
   "imagePath": "/images/assessment/generated/concepts/nurse.webp",
@@ -5726,7 +5485,7 @@ export const questions = [
   "targetImage": "/images/assessment/generated/concepts/nurse.webp",
   "targetImagePath": "/images/assessment/generated/concepts/nurse.webp",
   "resolvedImageAssetKey": "nurse",
-  "imageAlt": "Finish: nur__"
+  "imageAlt": "nurse"
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ir.v8r",
@@ -5786,33 +5545,25 @@ export const questions = [
    "fire": "D-PATTERN-TRAP",
    "fort": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
-  "imageAlt": "Which word has the ir (as in bird) sound?"
+  "notes": ""
  },
  {
   "id": "lp3.r_controlled_vowels.l2.R.ar.v8r",
@@ -5872,33 +5623,25 @@ export const questions = [
    "warm": "D-PATTERN-TRAP",
    "win": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/yarn.png",
-  "imageUrl": "/images/child-mode/initial-sounds/yarn.png",
-  "targetImage": "/images/child-mode/initial-sounds/yarn.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/yarn.png",
-  "resolvedImageAssetKey": "yarn",
-  "imageAlt": "Which word has the ar (as in car) sound?"
+  "notes": ""
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.er.v7r",
@@ -5958,34 +5701,26 @@ export const questions = [
    "ir": "D-PATTERN-TRAP",
    "ur": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "sister",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-er-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "sistir, sistur and sistar are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: sist__"
+  "notes": "sistir, sistur and sistar are non-words"
  },
  {
   "id": "lp3.r_controlled_vowels.l1.R.ur.v8r",
@@ -6045,33 +5780,25 @@ export const questions = [
    "er": "D-PATTERN-TRAP",
    "oa": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "targetWord": "fur",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/r_controlled_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
-  "imageAlt": "Finish: f__"
+  "notes": "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word"
  }
 ];

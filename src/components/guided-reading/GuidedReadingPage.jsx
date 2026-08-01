@@ -10,18 +10,17 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   formatGuidedReadingType,
   getGuidedReadingProgress,
-  guidedReadingBooks,
   normalizeGuidedReadingType,
   summarizeGuidedReadingRecord,
   summarizeGuidedReadingRecords
 } from "../../data/guidedReadingBooks";
 import { enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../../utils/guidedReading/recommendBooksForStudent.js";
-import { applyGuidedReadingLevelOverride, readGuidedReadingLevelOverrides } from "../../utils/guidedReading/bookLevelOverrides.js";
-import {
-  isGuidedReadingAssetDeleted,
-  isGuidedReadingBookDeleted
-} from "../../data/deletedMediaManifest.js";
+// The runtime library (retired books and pages removed, teacher level
+// overrides applied) moved to its own module on 2026-07-29 so the child's Books
+// screen shelves exactly the list this reader opens. See runtimeBooks.js.
+import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
+import { isGuidedReadingAssetDeleted } from "../../data/deletedMediaManifest.js";
 import {
   getGuidedReadingBookAudioPath,
   getGuidedReadingWordProductionAudioPath,
@@ -38,6 +37,7 @@ import {
 import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
+import { classifyBookReadingPurpose } from "../../policy/literacyExperiencePolicy.js";
 import {
   ChildRecommendationExplanation,
   TeacherRecommendationExplanation
@@ -430,26 +430,6 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
-function getRuntimeGuidedReadingBooks() {
-  const levelOverrides = readGuidedReadingLevelOverrides();
-  return guidedReadingBooks
-    .filter(book => !isGuidedReadingBookDeleted(book.id))
-    .map(book => applyGuidedReadingLevelOverride(book, levelOverrides))
-    .map(book => ({
-      ...book,
-      pages: (book.pages || []).filter(page =>
-        page.active !== false &&
-        (!page.qaStatus || page.qaStatus === "approved") &&
-        !isGuidedReadingAssetDeleted({
-          bookId: book.id,
-          path: page.image,
-          pageNumber: page.pageNumber
-        })
-      )
-    }))
-    .filter(book => (book.pages || []).length > 0);
-}
-
 function getGuidedReadingTypeStats(type) {
   const normalizedType = normalizeGuidedReadingType(type);
   const books = getRuntimeGuidedReadingBooks().filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
@@ -495,7 +475,12 @@ export function GuidedReadingPage({
   mode = "teacher",
   autoNarration = false,
   launchBookId = "",
-  onLaunchBookHandled = null
+  onLaunchBookHandled = null,
+  // Phase D (2026-07-29): the child's Books screen is the front door for this
+  // page in student mode, so "back to library" has somewhere to go that is not
+  // the old shelf underneath. Absent (teacher and whole-class modes), closing
+  // the reader behaves exactly as it always did.
+  onCloseReader = null
 }) {
   const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
@@ -562,6 +547,9 @@ export function GuidedReadingPage({
   const summary = summarizeGuidedReadingRecord(record);
   const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
+  const selectedReadingPurpose = selectedBook
+    ? classifyBookReadingPurpose(selectedBook, studentProgress || {})
+    : null;
   const readAloudState = selectedBook && page
     ? getGuidedReadingReadAloudState(selectedBook, page, "guided_support")
     : getGuidedReadingReadAloudState({}, {}, "guided_support");
@@ -1067,6 +1055,8 @@ export function GuidedReadingPage({
     setReaderOpen(false);
     setShowSummary(false);
     setShowQuiz(false);
+    // Phase D: hand the child back to the Books screen they opened this from.
+    onCloseReader?.();
   }
 
   async function toggleReaderFullscreen() {
@@ -1739,6 +1729,13 @@ export function GuidedReadingPage({
         {!isStudentMode && (
           <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
         )}
+        {/* NOT THE CHILD'S FRONT DOOR ANY MORE (phase D, 2026-07-29).
+            src/components/StudentBooksPage.jsx is the shelf a child lands on;
+            this page is entered with a book already chosen, so `readerOpen` is
+            true and the block below does not render for them. It is kept as the
+            fallback for a mount with no book (a retired id, a preview harness),
+            which is why its reading-goal panel — a third numeric system the
+            redesign removed — is not reachable from the child area. */}
         {isStudentMode && (() => {
           const booksRead = countBooksRead(guidedReadingRecords);
           const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
@@ -2009,6 +2006,8 @@ export function GuidedReadingPage({
           ].filter(Boolean).join(" ")}
           ref={guidedReaderShellRef}
           aria-label={`${selectedBook.title} full-screen reader`}
+          data-learning-lane="language_and_meaning"
+          data-reading-purpose={selectedReadingPurpose?.id || "supported"}
         >
           <div className="guided-reader-card">
             <div className="guided-reader-header">
@@ -2019,7 +2018,12 @@ export function GuidedReadingPage({
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
                   )}
                   {isStudentMode && (
-                    <span className="guided-child-level-badge">Level {selectedBook.level}</span>
+                    <>
+                      <span className="guided-child-level-badge">Level {selectedBook.level}</span>
+                      <span className="guided-reading-purpose-badge" data-reading-purpose={selectedReadingPurpose?.id}>
+                        {selectedReadingPurpose?.label || "Read with help"}
+                      </span>
+                    </>
                   )}
                 </div>
                 <h3>{selectedBook.title}</h3>
@@ -2148,8 +2152,12 @@ export function GuidedReadingPage({
             {!isReaderFullscreen && <div className={isStudentMode ? "guided-reader-modebar student" : "guided-reader-modebar"} aria-label="Guided reading mode">
               {isStudentMode ? (
                 <div className="guided-student-mode-note">
-                  <strong>Reading</strong>
-                  <span>Tap words to hear them.</span>
+                  <strong>{selectedReadingPurpose?.label || "Read with help"}</strong>
+                  <span>
+                    {selectedReadingPurpose?.id === "independent"
+                      ? "Use the sounds. Tap only when needed."
+                      : "Listen or tap words, then talk about the ideas."}
+                  </span>
                 </div>
               ) : canRecord ? (
                 <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
@@ -2310,8 +2318,8 @@ export function GuidedReadingPage({
                     </label>
                   </details>}
 
-                  {!isStudentMode && !isReaderFullscreen && <details className="guided-note-drawer">
-                    <summary>Comprehension prompts</summary>
+                  {!isReaderFullscreen && (!isStudentMode || pageIndex === selectedBook.pages.length - 1) && <details className="guided-note-drawer" open={isStudentMode || undefined}>
+                    <summary>{isStudentMode ? "Talk and write" : "Comprehension prompts"}</summary>
                     <div className="guided-comprehension-prompts">
                       {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
                         <span key={prompt} className="guided-comprehension-chip">

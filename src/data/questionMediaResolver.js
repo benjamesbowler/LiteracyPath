@@ -10,12 +10,6 @@ import {
   isMediaPairingApproved,
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
-import { getLexiconMediaEntry } from "../content/lexicon/lexiconMediaIndex.generated.js";
-import {
-  getAssessmentHfwAudioWiring,
-  getAssessmentMediaWiring,
-  resolveLegacyAssessmentAudioPath
-} from "../content/assessments/assessmentMediaReleaseManifest.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
 const MEDIA_SKILLS = new Set([
@@ -89,18 +83,15 @@ function resolveWordAsset(word) {
   const normalized = normalizeWord(word);
   if (!normalized) return null;
   const childAsset = getChildWordAsset(normalized);
-  const lexiconEntry = getLexiconMediaEntry(normalized);
   const importedMedia = getImportedVocabularyMedia(normalized);
   const image = firstPath(
     childAsset?.image,
     childAsset?.fallbackImage,
-    lexiconEntry?.imageUrl,
-    lexiconEntry?.imagePath,
     importedMedia?.image
   );
   const audio = getApprovedAudioPath(
     normalized,
-    firstPath(childAsset?.audio, getChildAudioPath(normalized), lexiconEntry?.audioUrl, lexiconEntry?.audioPath, importedMedia?.audio)
+    firstPath(childAsset?.audio, getChildAudioPath(normalized), importedMedia?.audio)
   );
   if (!image && !audio) return null;
   return {
@@ -108,7 +99,7 @@ function resolveWordAsset(word) {
     image,
     audio,
     alt: childAsset?.alt || `Picture for ${normalized}`,
-    source: childAsset?.source || lexiconEntry?.source || "existing-media"
+    source: childAsset?.source || "existing-media"
   };
 }
 
@@ -415,7 +406,7 @@ function isHfwSentenceSkill(skillId = "") {
 }
 
 export function enrichQuestionWithExistingMedia(question = {}) {
-  const releaseWiring = getAssessmentMediaWiring(question.id);
+  const releaseWiring = [];
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
   const normalizeAudioFields = (value, inheritedText = "") => {
     if (!value || typeof value !== "object") return value;
@@ -434,8 +425,7 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       const replacement =
         getApprovedAudioPath(spokenText, normalized[field]) ||
         getApprovedAudioPath(inferLegacyAudioText(normalized[field]), normalized[field]) ||
-        getLedaInstructionAudioPath(inferLegacyAudioText(normalized[field])) ||
-        resolveLegacyAssessmentAudioPath(normalized[field]);
+        getLedaInstructionAudioPath(inferLegacyAudioText(normalized[field]));
       if (replacement) normalized[field] = replacement;
       else delete normalized[field];
     }
@@ -498,8 +488,7 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     const existingAudio = firstPath(question.audioPath, question.audioUrl, question.audio);
     const approvedAudio = suppressAudio
       ? ""
-      : getAssessmentHfwAudioWiring(targetWord) ||
-        getApprovedAudioPath(`hfw:${targetWord}`, existingAudio);
+      : getApprovedAudioPath(`hfw:${targetWord}`, existingAudio);
     const audioWiredQuestion = approvedAudio
       ? {
           ...question,
@@ -522,6 +511,12 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       audioWiredQuestion.targetImageUrl,
       audioWiredQuestion.targetImage
     );
+    // Published v3 HFW banks carry authored, gate-checked image pairings.
+    // The legacy exact-pair register predates those banks and must not strip
+    // their required visuals after the v3 gate has accepted them.
+    if (question.source === "skills_rebuild_v3_2026_08") {
+      return applyReleaseWiring(audioWiredQuestion);
+    }
     const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
     if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingApproved(pairing))) {
       return applyReleaseWiring(stripHfwQuestionImageFields({

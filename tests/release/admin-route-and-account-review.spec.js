@@ -139,7 +139,7 @@ test("all 17 Admin pages own cold links, reload and browser history", async ({
   const historySections = [
     ADMIN_SECTIONS.find(row => row.sectionId === "schools"),
     ADMIN_SECTIONS.find(row => row.sectionId === "release"),
-    ADMIN_SECTIONS.find(row => row.sectionId === "assessmentAudio")
+    ADMIN_SECTIONS.find(row => row.sectionId === "guidedMediaQa")
   ];
   for (const section of historySections) {
     await openAdminSection(page, section.area, section.sectionId);

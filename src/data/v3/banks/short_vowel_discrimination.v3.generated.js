@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ag/bag-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
   "resolvedImageAssetKey": "bag",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "bag"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v2",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ram",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
   "resolvedImageAssetKey": "ram",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "ram"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v3",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tap",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
@@ -260,7 +257,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
   "resolvedImageAssetKey": "tap",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "tap"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_a.v4",
@@ -332,14 +329,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tap",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
@@ -347,7 +343,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
   "resolvedImageAssetKey": "tap",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "tap"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_a.v5",
@@ -419,14 +415,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bad",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
@@ -434,7 +429,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ad/bad-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ad/bad-02.webp",
   "resolvedImageAssetKey": "bad",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bad"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_a.v6",
@@ -506,14 +501,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ram",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
@@ -521,7 +515,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
   "resolvedImageAssetKey": "ram",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "ram"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v1",
@@ -593,14 +587,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/hand.webp",
@@ -608,7 +601,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "hand"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v2",
@@ -680,14 +673,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -695,7 +687,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_a.v3",
@@ -767,14 +759,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/hand.webp",
@@ -782,7 +773,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "hand"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_a.v4",
@@ -854,14 +845,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "flag/flap differ by one letter; flip/flop swap the vowel",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -869,7 +859,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_a.v5",
@@ -939,14 +929,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1056,14 +1045,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -1175,14 +1163,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "web",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/child-mode/initial-sounds/web.png",
@@ -1190,7 +1177,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/web.png",
   "targetImagePath": "/images/child-mode/initial-sounds/web.png",
   "resolvedImageAssetKey": "web",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "web"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v2",
@@ -1262,14 +1249,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ten",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
@@ -1277,7 +1263,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
   "resolvedImageAssetKey": "ten",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "ten"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v3",
@@ -1349,14 +1335,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "leg",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
@@ -1364,7 +1349,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "resolvedImageAssetKey": "leg",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "leg"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_e.v4",
@@ -1436,14 +1421,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "ten",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
@@ -1451,7 +1435,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
   "resolvedImageAssetKey": "ten",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "ten"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_e.v5",
@@ -1523,14 +1507,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bell",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
@@ -1538,7 +1521,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ell/bell-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
   "resolvedImageAssetKey": "bell",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bell"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_e.v6",
@@ -1610,14 +1593,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "leg",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
@@ -1625,7 +1607,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "resolvedImageAssetKey": "leg",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "leg"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v1",
@@ -1697,14 +1679,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nest",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/nest.webp",
@@ -1712,7 +1693,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
   "resolvedImageAssetKey": "nest",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "nest"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v2",
@@ -1784,14 +1765,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shell",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/digraphs/shell.webp",
@@ -1799,7 +1779,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shell.webp",
   "targetImagePath": "/images/assessment/digraphs/shell.webp",
   "resolvedImageAssetKey": "shell",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "shell"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_e.v3",
@@ -1871,14 +1851,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nest",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "vest rhymes with the key and ties its es/goes overlap",
   "imagePath": "/images/assessment/blends/nest.webp",
@@ -1886,7 +1865,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
   "resolvedImageAssetKey": "nest",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "nest"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_e.v4",
@@ -1958,14 +1937,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "belt",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bell drops the final t — cluster reduction",
   "imagePath": "/images/assessment/blends/belt.webp",
@@ -1973,7 +1951,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/belt.webp",
   "targetImagePath": "/images/assessment/blends/belt.webp",
   "resolvedImageAssetKey": "belt",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "belt"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_e.v5",
@@ -2043,14 +2021,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2160,14 +2137,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -2279,14 +2255,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
@@ -2294,7 +2269,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
   "resolvedImageAssetKey": "bin",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "bin"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v2",
@@ -2366,14 +2341,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zip",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
@@ -2381,7 +2355,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "resolvedImageAssetKey": "zip",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "zip"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v3",
@@ -2453,14 +2427,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hit",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
@@ -2468,7 +2441,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
   "resolvedImageAssetKey": "hit",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "hit"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_i.v4",
@@ -2540,14 +2513,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
@@ -2555,7 +2527,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/bin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/bin-02.webp",
   "resolvedImageAssetKey": "bin",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bin"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_i.v5",
@@ -2627,14 +2599,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hit",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "hid ties the hi/which overlap",
   "imagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
@@ -2642,7 +2613,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/it/hit-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/it/hit-02.webp",
   "resolvedImageAssetKey": "hit",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "hit"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_i.v6",
@@ -2714,14 +2685,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "zip",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
@@ -2729,7 +2699,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "resolvedImageAssetKey": "zip",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "zip"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v1",
@@ -2801,14 +2771,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/digraphs/brick.webp",
@@ -2816,7 +2785,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
   "resolvedImageAssetKey": "brick",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "brick"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v2",
@@ -2888,14 +2857,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gift",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/gift.webp",
@@ -2903,7 +2871,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
   "resolvedImageAssetKey": "gift",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "gift"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_i.v3",
@@ -2975,14 +2943,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gift",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/gift.webp",
@@ -2990,7 +2957,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
   "resolvedImageAssetKey": "gift",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "gift"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_i.v4",
@@ -3062,14 +3029,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "click ties the ic/which overlap",
   "imagePath": "/images/assessment/digraphs/brick.webp",
@@ -3077,7 +3043,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
   "resolvedImageAssetKey": "brick",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "brick"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_i.v5",
@@ -3147,14 +3113,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3264,14 +3229,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -3383,14 +3347,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fox",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/child-mode/initial-sounds/fox.png",
@@ -3398,7 +3361,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/fox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
   "resolvedImageAssetKey": "fox",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "fox"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v2",
@@ -3470,14 +3433,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mop",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
@@ -3485,7 +3447,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/op/mop-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
   "resolvedImageAssetKey": "mop",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "mop"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v3",
@@ -3557,14 +3519,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
@@ -3572,7 +3533,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ot/dot-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ot/dot-02.webp",
   "resolvedImageAssetKey": "dot",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "dot"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_o.v4",
@@ -3644,14 +3605,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
@@ -3659,7 +3619,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "dog"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_o.v5",
@@ -3731,14 +3691,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "top",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
@@ -3746,7 +3705,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/op/top-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/op/top-02.webp",
   "resolvedImageAssetKey": "top",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "top"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_o.v6",
@@ -3818,14 +3777,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
@@ -3833,7 +3791,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "resolvedImageAssetKey": "pot",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pot"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v1",
@@ -3905,14 +3863,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -3920,7 +3877,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v2",
@@ -3992,14 +3949,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/digraphs/clock.webp",
@@ -4007,7 +3963,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
   "resolvedImageAssetKey": "clock",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "clock"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_o.v3",
@@ -4079,14 +4035,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/clock.webp",
@@ -4094,7 +4049,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
   "resolvedImageAssetKey": "clock",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "clock"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_o.v4",
@@ -4166,14 +4121,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/vocabulary/dock.png",
@@ -4181,7 +4135,7 @@ export const questions = [
   "targetImage": "/images/vocabulary/dock.png",
   "targetImagePath": "/images/vocabulary/dock.png",
   "resolvedImageAssetKey": "dock",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "dock"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_o.v5",
@@ -4251,14 +4205,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4368,14 +4321,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -4487,14 +4439,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
@@ -4502,7 +4453,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
   "resolvedImageAssetKey": "jug",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "jug"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v2",
@@ -4574,14 +4525,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
@@ -4589,7 +4539,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "resolvedImageAssetKey": "cup",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "cup"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v3",
@@ -4661,14 +4611,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mud",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/child-mode/initial-sounds/mud.png",
@@ -4676,7 +4625,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/mud.png",
   "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
   "resolvedImageAssetKey": "mud",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "mud"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.A.short_u.v4",
@@ -4748,14 +4697,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
@@ -4763,7 +4711,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/jug/jug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
   "resolvedImageAssetKey": "jug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "jug"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.B.short_u.v5",
@@ -4835,14 +4783,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cup",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cape is the long-a silent-e decoy",
   "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
@@ -4850,7 +4797,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "resolvedImageAssetKey": "cup",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "cup"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.C.short_u.v6",
@@ -4922,14 +4869,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
@@ -4937,7 +4883,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "resolvedImageAssetKey": "rug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "rug"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v1",
@@ -5009,14 +4955,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "drum",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/drum.webp",
@@ -5024,7 +4969,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
   "resolvedImageAssetKey": "drum",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "drum"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v2",
@@ -5096,14 +5041,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brush",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/digraphs/brush.webp",
@@ -5111,7 +5055,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
   "resolvedImageAssetKey": "brush",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "brush"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.C.short_u.v3",
@@ -5183,14 +5127,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/plug.webp",
@@ -5198,7 +5141,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
   "resolvedImageAssetKey": "plug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "plug"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.A.short_u.v4",
@@ -5270,14 +5213,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "truck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/truck.webp",
@@ -5285,7 +5227,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/truck.webp",
   "targetImagePath": "/images/assessment/digraphs/truck.webp",
   "resolvedImageAssetKey": "truck",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "truck"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.B.short_u.v5",
@@ -5355,14 +5297,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5472,14 +5413,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -5591,14 +5531,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hen",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
@@ -5606,7 +5545,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "resolvedImageAssetKey": "hen",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "hen"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v7r",
@@ -5678,14 +5617,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hut",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
@@ -5693,7 +5631,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "resolvedImageAssetKey": "hut",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "hut"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v7r",
@@ -5765,14 +5703,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hop",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
@@ -5780,7 +5717,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
   "resolvedImageAssetKey": "hop",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "hop"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_i.v7r",
@@ -5852,14 +5789,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sit",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
@@ -5867,7 +5803,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/it/sit-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/it/sit-02.webp",
   "resolvedImageAssetKey": "sit",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "sit"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_a.v7r",
@@ -5939,14 +5875,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crab",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the word is never printed — the picture carries it",
   "imagePath": "/images/assessment/blends/crab.webp",
@@ -5954,7 +5889,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
   "resolvedImageAssetKey": "crab",
-  "imageAlt": "Which vowel do you hear in the middle?"
+  "imageAlt": "crab"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_e.v8r",
@@ -6026,14 +5961,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "vet",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/vet.png",
@@ -6041,7 +5975,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/vet.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vet.png",
   "resolvedImageAssetKey": "vet",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "vet"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_o.v8r",
@@ -6113,14 +6047,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hop",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
@@ -6128,7 +6061,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
   "resolvedImageAssetKey": "hop",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "hop"
  },
  {
   "id": "lp3.short_vowel_discrimination.l1.R.short_u.v8r",
@@ -6200,14 +6133,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/cvc/dug.png",
@@ -6215,7 +6147,7 @@ export const questions = [
   "targetImage": "/images/child-mode/cvc/dug.png",
   "targetImagePath": "/images/child-mode/cvc/dug.png",
   "resolvedImageAssetKey": "dug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "dug"
  },
  {
   "id": "lp3.short_vowel_discrimination.l2.R.short_e.v7r",
@@ -6285,14 +6217,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [
@@ -6402,14 +6333,13 @@ export const questions = [
    "cards": true
   },
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/short_vowel_discrimination.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imageCards": [

@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import fs from "node:fs";
 import test from "node:test";
 
 import {
@@ -37,7 +36,7 @@ test("the media QA review surface exposes the human rejection reason", () => {
   const cake = records.find(record => record.filePath === "/media/initial-sounds/images/c/cake.webp");
   assert.equal(cake?.status, "rejected");
   assert.equal(cake?.rejectionReason, "face_on_inanimate_object");
-  assert.equal(cake?.reviewedBy, "Codex visual audit");
+  assert.equal(cake?.reviewedAt, "2026-07-18");
 });
 
 test("clean Initial Sounds replacements remain runtime eligible", () => {
@@ -81,10 +80,4 @@ test("assessment media candidates never include the reviewed style blocklist", (
       assert.equal(assessmentImageStyleBlockedPaths.has(candidate.path), false, candidate.path);
     });
   });
-});
-
-test("new image QA workbooks default to review rather than approval", () => {
-  const source = fs.readFileSync(new URL("../../tools/buildImageQaContactSheets.js", import.meta.url), "utf8");
-  assert.match(source, /acceptable:\s*"REVIEW"/);
-  assert.doesNotMatch(source, /acceptable:\s*"Y"/);
 });

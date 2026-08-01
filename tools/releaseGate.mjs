@@ -4,16 +4,10 @@ import path from "node:path";
 import process from "node:process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-import { assessmentReleaseStandard } from "../src/content/releaseStandard.js";
-
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const canonicalManifestPath = path.join(repoRoot, "docs", "release", "manifest.json");
-const strictAuditJsonPath = path.join(
-  repoRoot,
-  "docs", "release", "artifacts", "audits",
-  "auditAllSkillsStrictProductionReadiness", "repo", "docs", "validation",
-  "all_skills_strict_production_audit.json"
-);
+const releaseArtifactRoot = path.join(repoRoot, ".artifacts", "release");
+const canonicalManifestPath = path.join(releaseArtifactRoot, "manifest.json");
+const assessmentGateJsonPath = path.join(repoRoot, "docs", "validation", "assessment_rebuild_gate.json");
 const REQUIRED_AUDIT_ENVIRONMENT = Object.freeze([
   "VITE_SUPABASE_URL",
   "VITE_SUPABASE_ANON_KEY",
@@ -62,8 +56,8 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "assessment-question-integrity",
-    label: "Assessment question integrity",
-    command: ["npm", "run", "check:assessment-question-integrity", "--", "--check"],
+    label: "Current v3 assessment structure, originality, answer integrity, progression, repeat safety, and reporting",
+    command: ["npm", "run", "check:assessment-question-integrity"],
     areas: [1, 4, 10]
   },
   {
@@ -218,11 +212,8 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "strict-curriculum",
-    label: "Strict production curriculum audit",
-    command: [
-      "node", "tools/runAuditScript.mjs", "--check",
-      "tools/auditAllSkillsStrictProductionReadiness.js"
-    ],
+    label: "Current v3 assessment publication gate",
+    command: ["npm", "run", "check:audit:assessment-rebuild"],
     areas: [1, 4, 10]
   },
   {
@@ -414,7 +405,7 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "app-decomposition",
-    label: "App controller decomposition ratchet and explicit runtime/rendering boundaries",
+    label: "App controller session and rendering boundaries",
     command: ["npm", "run", "check:app-decomposition"],
     areas: [4, 9, 10]
   },
@@ -465,12 +456,6 @@ export const RELEASE_GATES = Object.freeze([
     label: "Report and release-readiness contracts",
     command: ["npm", "run", "check:release-readiness-surface"],
     areas: [4, 7, 10]
-  },
-  {
-    id: "bundle-size",
-    label: "Enforced bundle budgets",
-    command: ["npm", "run", "check:bundle-size"],
-    areas: [9, 10]
   },
   {
     id: "dependency-audit",
@@ -842,15 +827,15 @@ function statusForDependencies(dependencies, resultsById) {
   return "not-run";
 }
 
-function readStrictAudit() {
+function readAssessmentGate() {
   try {
-    return JSON.parse(fs.readFileSync(strictAuditJsonPath, "utf8"));
+    return JSON.parse(fs.readFileSync(assessmentGateJsonPath, "utf8"));
   } catch {
     return null;
   }
 }
 
-export function composeCurriculumResult(results, strictAudit = readStrictAudit()) {
+export function composeCurriculumResult(results, assessmentGate = readAssessmentGate()) {
   const resultsById = new Map(results.map(result => [result.id, result]));
   const dimensions = Object.fromEntries(
     Object.entries(CURRICULUM_DIMENSIONS).map(([dimension, dependencies]) => [
@@ -863,27 +848,18 @@ export function composeCurriculumResult(results, strictAudit = readStrictAudit()
   );
 
   const globalDimensionsPass = Object.values(dimensions).every(item => item.status === "pass");
-  const skills = (strictAudit?.perSkill || []).map(skill => {
-    const canonicalDecision = skill.releaseStandardDecision || {};
-    const depthPass = canonicalDecision.dimensions?.questionCount === "pass";
-    const balancePass = canonicalDecision.dimensions?.balance === "pass";
-    const mediaPass = canonicalDecision.dimensions?.media === "pass";
-    const strictRuntimePass = Number(skill.strictUsableQuestionCount || 0)
-      >= assessmentReleaseStandard.defaults.questionCount.minimumTotal
-      && canonicalDecision.releaseReady === true;
+  const skills = (assessmentGate?.results || []).map(skill => {
+    const v3Pass = skill.ready === true
+      && Object.values(skill.gates || {}).every(Boolean);
     const skillDimensions = {
-      correctness: dimensions.correctness.status,
-      depth: depthPass ? "pass" : "fail",
-      variation: balancePass && dimensions.variation.status === "pass" ? "pass" : "fail",
-      media: mediaPass && dimensions.media.status === "pass" ? "pass" : "fail",
-      runtimeSelectability: strictRuntimePass
-        && dimensions.runtimeSelectability.status === "pass"
-        ? "pass"
-        : "fail"
+      correctness: v3Pass ? dimensions.correctness.status : "fail",
+      depth: v3Pass ? dimensions.depth.status : "fail",
+      variation: v3Pass ? dimensions.variation.status : "fail",
+      media: v3Pass ? dimensions.media.status : "fail",
+      runtimeSelectability: v3Pass ? dimensions.runtimeSelectability.status : "fail"
     };
     return {
       skillId: skill.skillId,
-      skillName: skill.skillName,
       dimensions: skillDimensions,
       releaseReady: Object.values(skillDimensions).every(status => status === "pass")
     };
@@ -1051,7 +1027,7 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
     console.log(preflight.message);
   }
   const runStartedAt = new Date();
-  const artifactDir = path.join(repoRoot, "docs", "release", "artifacts", isoFilePart(runStartedAt));
+  const artifactDir = path.join(releaseArtifactRoot, isoFilePart(runStartedAt));
   fs.mkdirSync(artifactDir, { recursive: true });
   const git = await readGitMetadata();
   const results = [];

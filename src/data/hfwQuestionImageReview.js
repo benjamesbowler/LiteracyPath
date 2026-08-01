@@ -6,7 +6,7 @@ export const HFW_QUESTION_IMAGE_QA_STATUSES = [
   "pending",
   "approved",
   "rejected",
-  "needs_kimi",
+  "needs_replacement",
   "no_image_required"
 ];
 

@@ -1,6 +1,5 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import {
   QUEST_STOPS,
   QUEST_ACTS,
@@ -180,18 +179,10 @@ test("targetsAtStop returns the mastery targets, not the graphemes", () => {
   assert.deepEqual(targetsAtStop("s8"), [], "a boss stop teaches nothing new");
 });
 
-test("the design plan and runtime agree on the four s37 alternatives", () => {
+test("the current runtime defines the four s37 alternatives", () => {
   assert.deepEqual(targetsAtStop("s37"), ["c_s", "g_j", "ch_k", "ea_e"]);
   assert.deepEqual(targetsAtStop("s29"), ["ou", "ow_ou"]);
   assert.deepEqual(getStop("s29").sortPairs, [["ow_ou", "ow"]]);
-
-  const plan = readFileSync(new URL("../../docs/QUEST_DESIGN_PLAN_2026-07-11.md", import.meta.url), "utf8");
-  const knowledgeTreeLine = plan.split("\n").find(line => line.startsWith("*The Knowledge Tree*"));
-  assert.ok(knowledgeTreeLine, "the design plan must name the Knowledge Tree curriculum");
-  for (const contrast of ["`c`=/s/", "`g`=/j/", "`ea`=/e/", "`ch`=/k/"]) {
-    assert.match(knowledgeTreeLine, new RegExp(contrast.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  }
-  assert.match(knowledgeTreeLine, /`ow`=\/oa\/ contrast is already taught at stop 29/);
 });
 
 test("the boss stops are where they should be", () => {

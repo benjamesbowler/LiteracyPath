@@ -25,9 +25,9 @@ import { buildEngagementRow } from "../../src/utils/exportReportSections.js";
 
 test("getPassRule reads the tuned rule for configured skills", () => {
   const rule = getPassRule("Initial Sounds");
-  assert.equal(rule.passScore, 6);
-  assert.equal(rule.roundLength, 8);
-  assert.equal(rule.text, "Pass: 6 of 8");
+  assert.equal(rule.passScore, 7);
+  assert.equal(rule.roundLength, 10);
+  assert.equal(rule.text, "Pass: 7 of 10");
 });
 
 test("getPassRule falls back to the default rule for unlisted skills", () => {

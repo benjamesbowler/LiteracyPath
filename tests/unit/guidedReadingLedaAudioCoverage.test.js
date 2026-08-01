@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
@@ -77,11 +77,9 @@ test("deleted legacy full-book files cannot override replacement page narration"
 });
 
 test("whole-book mode keeps child-paced narration and automatic page turns", async () => {
-  const source = await import("node:fs/promises").then(({ readFile }) =>
-    readFile(
-      new URL("../../src/components/guided-reading/GuidedReadingPage.jsx", import.meta.url),
-      "utf8"
-    )
+  const source = await readFile(
+    new URL("../../src/components/guided-reading/GuidedReadingPage.jsx", import.meta.url),
+    "utf8"
   );
   assert.match(source, /const GUIDED_READING_NARRATION_RATE = 0\.88/);
   assert.match(source, /audio\.playbackRate = GUIDED_READING_NARRATION_RATE/);

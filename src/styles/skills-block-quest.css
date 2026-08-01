@@ -270,6 +270,14 @@
   font-weight: 700;
 }
 
+.sbq-round-support {
+  margin: -10px 0 0;
+  color: var(--lp-color-text-muted);
+  font-family: var(--lp-font-reading);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .sbq-listen-button {
   display: inline-flex;
   align-items: center;

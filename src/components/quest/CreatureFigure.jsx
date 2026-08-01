@@ -2,7 +2,7 @@
 //
 // Deliberately dumb: all the placement thinking lives in the pure module
 // src/utils/creatureLayout.js, which this and the static contact-sheet tool
-// BOTH consume. That is not tidiness for its own sake — if the preview Benjamin
+// BOTH consume. That is not tidiness for its own sake — if the preview
 // approves and the app he ships disagreed about where a hat sits, the preview
 // would be worthless.
 //

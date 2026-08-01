@@ -54,7 +54,6 @@ test("all runtime sound surfaces route through the reviewed bank", async () => {
   const directImports = [
     "src/components/AppPages.jsx",
     "src/components/elQuest/elQuestEngine.js",
-    "src/content/assessments/assessmentMediaReleaseManifest.js",
     "src/data/audioPreferenceManifest.js",
     "src/data/cvcWordFamilies.js",
     "src/data/phonicsLessons.js",

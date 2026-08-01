@@ -1,208 +1,50 @@
-export const masteryRules = {
-  "Initial Sounds": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
+import { skillTree } from "./skillTree.js";
+import {
+  getSkillBlueprint,
+  PHASE_PASS_RULE
+} from "./content/blueprints/skillBlueprints.js";
 
-  "Final Sounds": {
-    roundLength: 15,
-    passScore: 12,
-    reviewAfter: 15
-  },
+// Compatibility adapter for the few UI surfaces that still need a sitting
+// length and "x of y" label. The blueprint and PHASE_PASS_RULE are the only
+// rule sources; there is no second per-skill threshold table.
+export const DEFAULT_PHASE_PASS_RATE = PHASE_PASS_RULE.accuracyMin;
 
-  "Rhyming": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
+const SKILL_ID_ALIASES = Object.freeze({
+  long_vowels: "long_vowels_silent_e",
+  r_controlled: "r_controlled_vowels",
+  prepositions: "prepositions_of_place",
+  prefix_suffix: "prefixes_suffixes",
+  homophones: "homophones_homonyms",
+  theme: "theme_higher_comprehension"
+});
 
-  "CVC and Short Vowels": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
+function normalize(value = "") {
+  return String(value)
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
 
-  "Short Vowel Discrimination": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
+function assessmentSkillIdFor(value = "") {
+  const normalized = normalize(value);
+  const treeMatch = skillTree.find(skill => skill.id === normalized || normalize(skill.label) === normalized);
+  const runtimeId = treeMatch?.id || normalized;
+  return SKILL_ID_ALIASES[runtimeId] || runtimeId;
+}
 
-  "High-Frequency Words 1-25": {
-    roundLength: 10,
-    passScore: 9,
-    reviewAfter: 20
-  },
-
-  "High-Frequency Words 26-50": {
-    roundLength: 10,
-    passScore: 9,
-    reviewAfter: 20
-  },
-
-  "High-Frequency Words 51-75": {
-    roundLength: 10,
-    passScore: 9,
-    reviewAfter: 20
-  },
-
-  "High-Frequency Words 76-100": {
-    roundLength: 10,
-    passScore: 9,
-    reviewAfter: 20
-  },
-
-  "Blends": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
-
-  "Digraphs": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
-
-  "Long Vowels and Silent E": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Vowel Teams": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "R-Controlled Vowels": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Nouns": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
-
-  "Verbs": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
-
-  "Adjectives": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
-
-  "Prepositions of Place": {
-    roundLength: 8,
-    passScore: 7,
-    reviewAfter: 15
-  },
-
-  "Plurals": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
-
-  "Prefixes and Suffixes": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
-
-  "Antonyms and Synonyms": {
-    roundLength: 10,
-    passScore: 8,
-    reviewAfter: 20
-  },
-
-  "Homophones and Homonyms": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Sentence Comprehension": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Key Details": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Sequencing": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Main Idea": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Inference": {
-    roundLength: 14,
-    passScore: 12,
-    reviewAfter: 30
-  },
-
-  "Cause and Effect": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
-  },
-
-  "Context Clues": {
-    roundLength: 14,
-    passScore: 12,
-    reviewAfter: 30
-  },
-
-  "Theme and Higher Comprehension": {
-    roundLength: 14,
-    passScore: 12,
-    reviewAfter: 30
-  }
-};
-
-const MIN_PHASE_ROUND_LENGTH = 10;
-export const DEFAULT_PHASE_PASS_RATE = 0.7;
-
-export function getMasteryRule(skillLabel) {
-  const rule = masteryRules[skillLabel] || {
-    roundLength: MIN_PHASE_ROUND_LENGTH,
-    passScore: Math.ceil(MIN_PHASE_ROUND_LENGTH * DEFAULT_PHASE_PASS_RATE),
-    reviewAfter: 20
-  };
-
-  // Honour the per-skill table: configured skills keep their tuned round
-  // length and pass score. Only UNCONFIGURED skills get the 15-question /
-  // 80% default floor (previously the floor force-overrode every skill,
-  // making the table above dead config).
-  const configured = Boolean(masteryRules[skillLabel]);
-  const roundLength = configured
-    ? Math.max(5, rule.roundLength || MIN_PHASE_ROUND_LENGTH)
-    : Math.max(MIN_PHASE_ROUND_LENGTH, rule.roundLength || MIN_PHASE_ROUND_LENGTH);
-  const passScore = Math.ceil(roundLength * DEFAULT_PHASE_PASS_RATE);
-
+export function getMasteryRule(skillLabelOrId = "") {
+  const skillId = assessmentSkillIdFor(skillLabelOrId);
+  const blueprint = getSkillBlueprint(skillId);
+  const roundLength = Math.max(1, Number(blueprint?.sitting || 10));
   return {
-    ...rule,
+    skillId,
     roundLength,
-    passScore: Math.min(roundLength, Math.max(1, passScore))
+    passScore: Math.ceil(roundLength * PHASE_PASS_RULE.accuracyMin),
+    passRate: PHASE_PASS_RULE.accuracyMin
   };
 }
+
+export const masteryRules = Object.freeze(Object.fromEntries(
+  skillTree.map(skill => [skill.label, getMasteryRule(skill.id)])
+));

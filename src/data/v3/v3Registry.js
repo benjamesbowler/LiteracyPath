@@ -3,8 +3,9 @@
 // Maps rebuilt skills to their generated v3 banks and answers ONE question for
 // the rest of the app: "is this skill published under the v3 standard?" A skill
 // is v3-published only when the gate (tools/assessmentRebuild/gate.mjs) wrote a
-// status entry with every hard gate green at the current standard version.
-// Anything else falls back to the legacy publication path untouched.
+// status entry with every automated hard gate green at the current standard
+// version. There is intentionally no legacy fallback and no personal sign-off
+// switch: reproducible checks are the publication authority.
 
 import {
   assessmentRebuildStatusBySkillId,
@@ -62,7 +63,14 @@ const V3_BANK_IMPORTS = {
   homophones_homonyms: () => import("./banks/homophones_homonyms.v3.generated.js")
 };
 
-const HARD_GATES = ["G1_structure", "G2_originality", "G3_answer_integrity", "G4_mastery_logic", "G5_no_repeats"];
+const HARD_GATES = [
+  "G1_structure",
+  "G2_originality",
+  "G3_answer_integrity",
+  "G4_mastery_logic",
+  "G5_no_repeats",
+  "G6_one_report"
+];
 
 export function getV3PublicationStatus(assessmentSkillId = "") {
   if (assessmentRebuildStatusVersion !== ASSESSMENT_REBUILD_STANDARD_VERSION) return null;
@@ -88,12 +96,10 @@ export async function importV3Bank(assessmentSkillId = "") {
   return module.questions || [];
 }
 
-// Runtime eligibility for v3 items. Returns null when the question is NOT a v3
-// item (caller falls through to its legacy rules); otherwise returns the issue
-// list (empty = eligible). Keeps the legacy replacement-bank locks intact for
-// legacy items while letting gate-proven v3 banks through.
+// Runtime eligibility for current v3 items. A non-v3 item is ineligible because
+// v3 is the only published assessment source.
 export function getV3RuntimeEligibilityIssues(question = {}, assessmentSkillId = "") {
-  if (question?.source !== V3_QUESTION_SOURCE) return null;
+  if (question?.source !== V3_QUESTION_SOURCE) return ["question is not from the current v3 assessment source"];
   if (!isV3PublishedSkill(assessmentSkillId)) return ["v3 bank is not published for this skill"];
   const blueprint = skillBlueprints[assessmentSkillId];
   const issues = [];

@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cake",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode cake as a_e",
   "imagePath": "/images/assessment/long-vowels/cake.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/cake.webp",
   "targetImagePath": "/images/assessment/long-vowels/cake.webp",
   "resolvedImageAssetKey": "cake",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: c_k_?"
+  "imageAlt": "cake"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.a_e.v2",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gate",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode gate as a_e",
   "imagePath": "/images/assessment/long-vowels/gate.webp",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/gate.webp",
   "targetImagePath": "/images/assessment/long-vowels/gate.webp",
   "resolvedImageAssetKey": "gate",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: g_t_?"
+  "imageAlt": "gate"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.a_e.v3",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "snake",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode snake as a_e",
   "imagePath": "/images/assessment/long-vowels/snake.webp",
@@ -260,7 +257,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/snake.webp",
   "targetImagePath": "/images/assessment/long-vowels/snake.webp",
   "resolvedImageAssetKey": "snake",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: sn_k_?"
+  "imageAlt": "snake"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.a_e.v4",
@@ -320,33 +317,25 @@ export const questions = [
    "cope": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cap → cape; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of cap. What word do you make?"
+  "notes": "cap → cape; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.a_e.v5",
@@ -406,33 +395,25 @@ export const questions = [
    "tip": "D-VOWEL",
    "top": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tap → tape; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of tap. What word do you make?"
+  "notes": "tap → tape; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.a_e.v6",
@@ -492,33 +473,25 @@ export const questions = [
    "mine": "D-VOWEL",
    "men": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "man → mane; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of man. What word do you make?"
+  "notes": "man → mane; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.i_e.v1",
@@ -590,14 +563,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "kite",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode kite as i_e",
   "imagePath": "/images/assessment/long-vowels/kite.webp",
@@ -605,7 +577,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/kite.webp",
   "targetImagePath": "/images/assessment/long-vowels/kite.webp",
   "resolvedImageAssetKey": "kite",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: k_t_?"
+  "imageAlt": "kite"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.i_e.v2",
@@ -677,14 +649,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "five",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode five as i_e",
   "imagePath": "/images/assessment/long-vowels/five.webp",
@@ -692,7 +663,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/five.webp",
   "targetImagePath": "/images/assessment/long-vowels/five.webp",
   "resolvedImageAssetKey": "five",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: f_v_?"
+  "imageAlt": "five"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.i_e.v3",
@@ -764,14 +735,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "smile",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode smile as i_e",
   "imagePath": "/images/assessment/long-vowels/smile.webp",
@@ -779,7 +749,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/smile.webp",
   "targetImagePath": "/images/assessment/long-vowels/smile.webp",
   "resolvedImageAssetKey": "smile",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: sm_l_?"
+  "imageAlt": "smile"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.i_e.v4",
@@ -839,33 +809,25 @@ export const questions = [
    "bit": "D-VOWEL",
    "late": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "kit → kite; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/kite.webp",
-  "imageUrl": "/images/assessment/long-vowels/kite.webp",
-  "targetImage": "/images/assessment/long-vowels/kite.webp",
-  "targetImagePath": "/images/assessment/long-vowels/kite.webp",
-  "resolvedImageAssetKey": "kite",
-  "imageAlt": "Add e to the end of kit. What word do you make?"
+  "notes": "kit → kite; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.i_e.v5",
@@ -925,33 +887,25 @@ export const questions = [
    "pane": "D-VOWEL",
    "pen": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "pin → pine; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of pin. What word do you make?"
+  "notes": "pin → pine; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.i_e.v6",
@@ -1011,33 +965,25 @@ export const questions = [
    "rode": "D-VOWEL",
    "red": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rid → ride; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ide/ride-02.webp",
-  "resolvedImageAssetKey": "ride",
-  "imageAlt": "Add e to the end of rid. What word do you make?"
+  "notes": "rid → ride; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.o_e.v1",
@@ -1109,14 +1055,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bone",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode bone as o_e",
   "imagePath": "/images/assessment/long-vowels/bone.webp",
@@ -1124,7 +1069,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/bone.webp",
   "targetImagePath": "/images/assessment/long-vowels/bone.webp",
   "resolvedImageAssetKey": "bone",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: b_n_?"
+  "imageAlt": "bone"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.o_e.v2",
@@ -1196,14 +1141,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rope",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode rope as o_e",
   "imagePath": "/images/assessment/long-vowels/rope.webp",
@@ -1211,7 +1155,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/rope.webp",
   "targetImagePath": "/images/assessment/long-vowels/rope.webp",
   "resolvedImageAssetKey": "rope",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: r_p_?"
+  "imageAlt": "rope"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.o_e.v3",
@@ -1283,14 +1227,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "rose",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode rose as o_e",
   "imagePath": "/images/assessment/long-vowels/rose.webp",
@@ -1298,7 +1241,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/rose.webp",
   "targetImagePath": "/images/assessment/long-vowels/rose.webp",
   "resolvedImageAssetKey": "rose",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: r_s_?"
+  "imageAlt": "rose"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.o_e.v4",
@@ -1358,33 +1301,25 @@ export const questions = [
    "hate": "D-VOWEL",
    "hop": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hop → hope; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of hop. What word do you make?"
+  "notes": "hop → hope; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.o_e.v5",
@@ -1444,33 +1379,25 @@ export const questions = [
    "nut": "D-VOWEL",
    "not": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "not → note; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/note.webp",
-  "imageUrl": "/images/assessment/long-vowels/note.webp",
-  "targetImage": "/images/assessment/long-vowels/note.webp",
-  "targetImagePath": "/images/assessment/long-vowels/note.webp",
-  "resolvedImageAssetKey": "note",
-  "imageAlt": "Add e to the end of not. What word do you make?"
+  "notes": "not → note; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.o_e.v6",
@@ -1530,33 +1457,25 @@ export const questions = [
    "rub": "D-VOWEL",
    "rob": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rob → robe; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of rob. What word do you make?"
+  "notes": "rob → robe; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.u_e.v1",
@@ -1628,14 +1547,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cube",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode cube as u_e",
   "imagePath": "/images/assessment/long-vowels/cube.webp",
@@ -1643,7 +1561,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/cube.webp",
   "targetImagePath": "/images/assessment/long-vowels/cube.webp",
   "resolvedImageAssetKey": "cube",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: c_b_?"
+  "imageAlt": "cube"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.u_e.v2",
@@ -1715,14 +1633,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mule",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode mule as u_e",
   "imagePath": "/images/assessment/long-vowels/mule.webp",
@@ -1730,7 +1647,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/mule.webp",
   "targetImagePath": "/images/assessment/long-vowels/mule.webp",
   "resolvedImageAssetKey": "mule",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: m_l_?"
+  "imageAlt": "mule"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.u_e.v3",
@@ -1802,14 +1719,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tube",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode tube as u_e",
   "imagePath": "/images/assessment/long-vowels/tube.webp",
@@ -1817,7 +1733,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/tube.webp",
   "targetImagePath": "/images/assessment/long-vowels/tube.webp",
   "resolvedImageAssetKey": "tube",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: t_b_?"
+  "imageAlt": "tube"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.u_e.v4",
@@ -1877,33 +1793,25 @@ export const questions = [
    "cap": "D-VOWEL",
    "cup": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cub → cube; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/cube.webp",
-  "imageUrl": "/images/assessment/long-vowels/cube.webp",
-  "targetImage": "/images/assessment/long-vowels/cube.webp",
-  "targetImagePath": "/images/assessment/long-vowels/cube.webp",
-  "resolvedImageAssetKey": "cube",
-  "imageAlt": "Add e to the end of cub. What word do you make?"
+  "notes": "cub → cube; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.u_e.v5",
@@ -1963,33 +1871,25 @@ export const questions = [
    "cot": "D-VOWEL",
    "cat": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cut → cute; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/cute.webp",
-  "imageUrl": "/images/assessment/long-vowels/cute.webp",
-  "targetImage": "/images/assessment/long-vowels/cute.webp",
-  "targetImagePath": "/images/assessment/long-vowels/cute.webp",
-  "resolvedImageAssetKey": "cute",
-  "imageAlt": "Add e to the end of cut. What word do you make?"
+  "notes": "cut → cute; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.u_e.v6",
@@ -2049,33 +1949,25 @@ export const questions = [
    "tap": "D-VOWEL",
    "top": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tub → tube; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/tube.webp",
-  "imageUrl": "/images/assessment/long-vowels/tube.webp",
-  "targetImage": "/images/assessment/long-vowels/tube.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tube.webp",
-  "resolvedImageAssetKey": "tube",
-  "imageAlt": "Add e to the end of tub. What word do you make?"
+  "notes": "tub → tube; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.e_e.v1",
@@ -2147,14 +2039,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "theme",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode theme as e_e",
   "imagePath": "/images/assessment/long-vowels/theme.webp",
@@ -2162,7 +2053,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/theme.webp",
   "targetImagePath": "/images/assessment/long-vowels/theme.webp",
   "resolvedImageAssetKey": "theme",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: th_m_?"
+  "imageAlt": "theme"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.B.e_e.v2",
@@ -2234,14 +2125,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "scene",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode scene as e_e",
   "imagePath": "/images/assessment/long-vowels/scene.webp",
@@ -2249,7 +2139,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/scene.webp",
   "targetImagePath": "/images/assessment/long-vowels/scene.webp",
   "resolvedImageAssetKey": "scene",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: sc_n_?"
+  "imageAlt": "scene"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.C.e_e.v3",
@@ -2321,14 +2211,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "these",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode these as e_e",
   "imagePath": "/images/assessment/long-vowels/these.webp",
@@ -2336,7 +2225,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/these.webp",
   "targetImagePath": "/images/assessment/long-vowels/these.webp",
   "resolvedImageAssetKey": "these",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: th_s_?"
+  "imageAlt": "these"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.A.e_e.v4",
@@ -2408,14 +2297,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "complete",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode complete as e_e",
   "imagePath": "/images/assessment/long-vowels/complete.webp",
@@ -2423,7 +2311,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/complete.webp",
   "targetImagePath": "/images/assessment/long-vowels/complete.webp",
   "resolvedImageAssetKey": "complete",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: compl_t_?"
+  "imageAlt": "complete"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.a_e.v1",
@@ -2483,34 +2371,26 @@ export const questions = [
    "bed": "D-VOWEL",
    "kite": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-a CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/gate.webp",
-  "imageUrl": "/images/assessment/long-vowels/gate.webp",
-  "targetImage": "/images/assessment/long-vowels/gate.webp",
-  "targetImagePath": "/images/assessment/long-vowels/gate.webp",
-  "resolvedImageAssetKey": "gate",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "long-a CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.a_e.v2",
@@ -2570,34 +2450,26 @@ export const questions = [
    "rope": "D-VOWEL",
    "can": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-a CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "long-a CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.a_e.v3",
@@ -2657,33 +2529,25 @@ export const questions = [
    "tip": "D-VOWEL",
    "pat": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tape → tap; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ap/tap-02.webp",
-  "resolvedImageAssetKey": "tap",
-  "imageAlt": "Take the silent e away from tape. What word is left?"
+  "notes": "tape → tap; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.a_e.v4",
@@ -2743,33 +2607,25 @@ export const questions = [
    "made": "D-PATTERN-TRAP",
    "mud": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "made → mad; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/rhyming/variants/ad/mad-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ad/mad-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ad/mad-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ad/mad-02.webp",
-  "resolvedImageAssetKey": "mad",
-  "imageAlt": "Take the silent e away from made. What word is left?"
+  "notes": "made → mad; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.a_e.v5",
@@ -2841,14 +2697,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plane",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode plane as a_e",
   "imagePath": "/images/assessment/long-vowels/plane.webp",
@@ -2856,7 +2711,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/plane.webp",
   "targetImagePath": "/images/assessment/long-vowels/plane.webp",
   "resolvedImageAssetKey": "plane",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: pl_n_?"
+  "imageAlt": "plane"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.a_e.v6",
@@ -2928,14 +2783,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "grape",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode grape as a_e",
   "imagePath": "/images/assessment/long-vowels/grape.webp",
@@ -2943,7 +2797,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/grape.webp",
   "targetImagePath": "/images/assessment/long-vowels/grape.webp",
   "resolvedImageAssetKey": "grape",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: gr_p_?"
+  "imageAlt": "grape"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.i_e.v1",
@@ -3003,34 +2857,26 @@ export const questions = [
    "sock": "D-VOWEL",
    "cake": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-i CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/slide.webp",
-  "imageUrl": "/images/assessment/long-vowels/slide.webp",
-  "targetImage": "/images/assessment/long-vowels/slide.webp",
-  "targetImagePath": "/images/assessment/long-vowels/slide.webp",
-  "resolvedImageAssetKey": "slide",
-  "imageAlt": "Which word has the long i sound?"
+  "notes": "long-i CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.i_e.v2",
@@ -3090,34 +2936,26 @@ export const questions = [
    "boat": "D-VOWEL",
    "shin": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-i CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/generated/concepts/shine.webp",
-  "imageUrl": "/images/assessment/generated/concepts/shine.webp",
-  "targetImage": "/images/assessment/generated/concepts/shine.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/shine.webp",
-  "resolvedImageAssetKey": "shine",
-  "imageAlt": "Which word has the long i sound?"
+  "notes": "long-i CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.i_e.v3",
@@ -3177,33 +3015,25 @@ export const questions = [
    "bat": "D-VOWEL",
    "bet": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "bite → bit; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from bite. What word is left?"
+  "notes": "bite → bit; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.i_e.v4",
@@ -3263,33 +3093,25 @@ export const questions = [
    "ripe": "D-PATTERN-TRAP",
    "rope": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "ripe → rip; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from ripe. What word is left?"
+  "notes": "ripe → rip; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.i_e.v5",
@@ -3361,14 +3183,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "prize",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode prize as i_e",
   "imagePath": "/images/assessment/long-vowels/prize.webp",
@@ -3376,7 +3197,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/prize.webp",
   "targetImagePath": "/images/assessment/long-vowels/prize.webp",
   "resolvedImageAssetKey": "prize",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: pr_z_?"
+  "imageAlt": "prize"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.i_e.v6",
@@ -3448,14 +3269,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "slide",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode slide as i_e",
   "imagePath": "/images/assessment/long-vowels/slide.webp",
@@ -3463,7 +3283,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/slide.webp",
   "targetImagePath": "/images/assessment/long-vowels/slide.webp",
   "resolvedImageAssetKey": "slide",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: sl_d_?"
+  "imageAlt": "slide"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.o_e.v1",
@@ -3523,34 +3343,26 @@ export const questions = [
    "five": "D-VOWEL",
    "hop": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-o CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/home.webp",
-  "imageUrl": "/images/assessment/long-vowels/home.webp",
-  "targetImage": "/images/assessment/long-vowels/home.webp",
-  "targetImagePath": "/images/assessment/long-vowels/home.webp",
-  "resolvedImageAssetKey": "home",
-  "imageAlt": "Which word has the long o sound?"
+  "notes": "long-o CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.o_e.v2",
@@ -3610,34 +3422,26 @@ export const questions = [
    "rain": "D-VOWEL",
    "mule": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-o CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word has the long o sound?"
+  "notes": "long-o CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.o_e.v3",
@@ -3697,33 +3501,25 @@ export const questions = [
    "hen": "D-VOWEL",
    "hope": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hope → hop; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-  "resolvedImageAssetKey": "hop",
-  "imageAlt": "Take the silent e away from hope. What word is left?"
+  "notes": "hope → hop; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.o_e.v4",
@@ -3783,33 +3579,25 @@ export const questions = [
    "rub": "D-VOWEL",
    "red": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "robe → rob; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from robe. What word is left?"
+  "notes": "robe → rob; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.o_e.v5",
@@ -3881,14 +3669,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cone",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "hard item: c_n_ + a_e spells cane, a real competing word — the picture decides",
   "imagePath": "/images/assessment/long-vowels/cone.webp",
@@ -3896,7 +3683,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/cone.webp",
   "targetImagePath": "/images/assessment/long-vowels/cone.webp",
   "resolvedImageAssetKey": "cone",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: c_n_?"
+  "imageAlt": "cone"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.o_e.v6",
@@ -3968,14 +3755,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "note",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode note as o_e",
   "imagePath": "/images/assessment/long-vowels/note.webp",
@@ -3983,7 +3769,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/note.webp",
   "targetImagePath": "/images/assessment/long-vowels/note.webp",
   "resolvedImageAssetKey": "note",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: n_t_?"
+  "imageAlt": "note"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.u_e.v1",
@@ -4043,34 +3829,26 @@ export const questions = [
    "coat": "D-VOWEL",
    "dime": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-u CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/cube.webp",
-  "imageUrl": "/images/assessment/long-vowels/cube.webp",
-  "targetImage": "/images/assessment/long-vowels/cube.webp",
-  "targetImagePath": "/images/assessment/long-vowels/cube.webp",
-  "resolvedImageAssetKey": "cube",
-  "imageAlt": "Which word has the long u sound?"
+  "notes": "long-u CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.u_e.v2",
@@ -4130,34 +3908,26 @@ export const questions = [
    "rock": "D-VOWEL",
    "mud": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-u CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/mule.webp",
-  "imageUrl": "/images/assessment/long-vowels/mule.webp",
-  "targetImage": "/images/assessment/long-vowels/mule.webp",
-  "targetImagePath": "/images/assessment/long-vowels/mule.webp",
-  "resolvedImageAssetKey": "mule",
-  "imageAlt": "Which word has the long u sound?"
+  "notes": "long-u CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.u_e.v3",
@@ -4217,33 +3987,25 @@ export const questions = [
    "cab": "D-VOWEL",
    "bus": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cube → cub; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from cube. What word is left?"
+  "notes": "cube → cub; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.A.u_e.v4",
@@ -4303,33 +4065,25 @@ export const questions = [
    "cute": "D-PATTERN-TRAP",
    "cot": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cute → cut; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
-  "resolvedImageAssetKey": "cut",
-  "imageAlt": "Take the silent e away from cute. What word is left?"
+  "notes": "cute → cut; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.B.u_e.v5",
@@ -4401,14 +4155,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flute",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode flute as u_e",
   "imagePath": "/images/assessment/long-vowels/flute.webp",
@@ -4416,7 +4169,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/flute.webp",
   "targetImagePath": "/images/assessment/long-vowels/flute.webp",
   "resolvedImageAssetKey": "flute",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: fl_t_?"
+  "imageAlt": "flute"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.C.u_e.v6",
@@ -4488,14 +4241,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "huge",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode huge as u_e",
   "imagePath": "/images/assessment/long-vowels/huge.webp",
@@ -4503,7 +4255,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/huge.webp",
   "targetImagePath": "/images/assessment/long-vowels/huge.webp",
   "resolvedImageAssetKey": "huge",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: h_g_?"
+  "imageAlt": "huge"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.a_e.v7r",
@@ -4575,14 +4327,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "lake",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode lake as a_e",
   "imagePath": "/images/assessment/long-vowels/lake.webp",
@@ -4590,7 +4341,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/lake.webp",
   "targetImagePath": "/images/assessment/long-vowels/lake.webp",
   "resolvedImageAssetKey": "lake",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: l_k_?"
+  "imageAlt": "lake"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.a_e.v8r",
@@ -4650,33 +4401,25 @@ export const questions = [
    "pan": "D-PATTERN-TRAP",
    "pine": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "pan → pane; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of pan. What word do you make?"
+  "notes": "pan → pane; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.a_e.v7r",
@@ -4736,34 +4479,26 @@ export const questions = [
    "leg": "D-VOWEL",
    "log": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_a",
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-a CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/early-late-01.webp",
-  "resolvedImageAssetKey": "late",
-  "imageAlt": "Which word has the long a sound?"
+  "notes": "long-a CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.a_e.v8r",
@@ -4823,33 +4558,25 @@ export const questions = [
    "pen": "D-VOWEL",
    "cane": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-a_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cane → can; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/hfw/can.webp",
-  "imageUrl": "/images/assessment/hfw/can.webp",
-  "targetImage": "/images/assessment/hfw/can.webp",
-  "targetImagePath": "/images/assessment/hfw/can.webp",
-  "resolvedImageAssetKey": "can",
-  "imageAlt": "Take the silent e away from cane. What word is left?"
+  "notes": "cane → can; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.i_e.v7r",
@@ -4921,14 +4648,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bike",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode bike as i_e",
   "imagePath": "/images/assessment/long-vowels/bike.webp",
@@ -4936,7 +4662,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/bike.webp",
   "targetImagePath": "/images/assessment/long-vowels/bike.webp",
   "resolvedImageAssetKey": "bike",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: b_k_?"
+  "imageAlt": "bike"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.i_e.v8r",
@@ -4996,33 +4722,25 @@ export const questions = [
    "fin": "D-PATTERN-TRAP",
    "fan": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "fin → fine; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of fin. What word do you make?"
+  "notes": "fin → fine; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.i_e.v7r",
@@ -5082,33 +4800,25 @@ export const questions = [
    "had": "D-VOWEL",
    "hat": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hide → hid; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from hide. What word is left?"
+  "notes": "hide → hid; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.i_e.v8r",
@@ -5168,34 +4878,26 @@ export const questions = [
    "tray": "D-VOWEL",
    "tin": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_i",
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-i_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-i CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word has the long i sound?"
+  "notes": "long-i CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.o_e.v7r",
@@ -5255,33 +4957,25 @@ export const questions = [
    "red": "D-VOWEL",
    "rod": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rod → rode; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
-  "imageAlt": "Add e to the end of rod. What word do you make?"
+  "notes": "rod → rode; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.o_e.v8r",
@@ -5353,14 +5047,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "home",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode home as o_e",
   "imagePath": "/images/assessment/long-vowels/home.webp",
@@ -5368,7 +5061,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/home.webp",
   "targetImagePath": "/images/assessment/long-vowels/home.webp",
   "resolvedImageAssetKey": "home",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: h_m_?"
+  "imageAlt": "home"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.o_e.v7r",
@@ -5428,34 +5121,26 @@ export const questions = [
    "not": "D-PATTERN-TRAP",
    "nap": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_o",
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-o CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp",
-  "resolvedImageAssetKey": "nose",
-  "imageAlt": "Which word has the long o sound?"
+  "notes": "long-o CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.o_e.v8r",
@@ -5515,33 +5200,25 @@ export const questions = [
    "road": "D-HOMOPHONE",
    "red": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-o_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "rode → rod; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
-  "imageAlt": "Take the silent e away from rode. What word is left?"
+  "notes": "rode → rod; scanner picks the unchanged word and fails"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.u_e.v7r",
@@ -5601,33 +5278,25 @@ export const questions = [
    "hog": "D-VOWEL",
    "hat": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "hug → huge; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/long-vowels/huge.webp",
-  "imageUrl": "/images/assessment/long-vowels/huge.webp",
-  "targetImage": "/images/assessment/long-vowels/huge.webp",
-  "targetImagePath": "/images/assessment/long-vowels/huge.webp",
-  "resolvedImageAssetKey": "huge",
-  "imageAlt": "Add e to the end of hug. What word do you make?"
+  "notes": "hug → huge; the no-change trap catches ignoring the e"
  },
  {
   "id": "lp3.long_vowels_silent_e.l1.R.u_e.v8r",
@@ -5699,14 +5368,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cute",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "encode cute as u_e",
   "imagePath": "/images/assessment/long-vowels/cute.webp",
@@ -5714,7 +5382,7 @@ export const questions = [
   "targetImage": "/images/assessment/long-vowels/cute.webp",
   "targetImagePath": "/images/assessment/long-vowels/cute.webp",
   "resolvedImageAssetKey": "cute",
-  "imageAlt": "Look at the picture. Which pattern finishes the word: c_t_?"
+  "imageAlt": "cute"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.u_e.v7r",
@@ -5774,34 +5442,26 @@ export const questions = [
    "tent": "D-VOWEL",
    "tie": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "crossPatternGroup": "long_u",
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "long-u CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/long-vowels/tube.webp",
-  "imageUrl": "/images/assessment/long-vowels/tube.webp",
-  "targetImage": "/images/assessment/long-vowels/tube.webp",
-  "targetImagePath": "/images/assessment/long-vowels/tube.webp",
-  "resolvedImageAssetKey": "tube",
-  "imageAlt": "Which word has the long u sound?"
+  "notes": "long-u CPS; short-vowel trap shares letters, not sound"
  },
  {
   "id": "lp3.long_vowels_silent_e.l2.R.u_e.v8r",
@@ -5861,32 +5521,24 @@ export const questions = [
    "ten": "D-VOWEL",
    "tube": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "long_vowels_silent_e-u_e-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/long_vowels_silent_e.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "tube → tub; scanner picks the unchanged word and fails",
-  "imagePath": "/images/child-mode/initial-sounds/tub.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tub.png",
-  "targetImage": "/images/child-mode/initial-sounds/tub.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tub.png",
-  "resolvedImageAssetKey": "tub",
-  "imageAlt": "Take the silent e away from tube. What word is left?"
+  "notes": "tube → tub; scanner picks the unchanged word and fails"
  }
 ];

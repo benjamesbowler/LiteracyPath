@@ -7,8 +7,8 @@ Canonical release standard: `2026.07.24-a1.4`
 
 ## Current truth
 
-- Skills ready: **29/30**
-- Skills blocked: **1/30**
+- Skills ready: **30/30**
+- Skills blocked: **0/30**
 - A READY row means the canonical question-count, balance, media,
   accessibility, and live runtime-selectability dimensions pass.
 - “Student exposure today” is counted from the real student bank loader after
@@ -19,36 +19,36 @@ Canonical release standard: `2026.07.24-a1.4`
 
 | Skill | Gate | Owner | Authored | Approved | Student exposure today | Exact exposure set | Gate reason | Release exclusions / waivers |
 | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
-| Initial Sounds | READY | Phonics curriculum + media QA | 152 | 133 | 92 today (L1 46; L2 46) | sha256:acbeb7a8e62e | All canonical release dimensions pass. | None |
-| Final Sounds | READY | Phonics curriculum + media QA | 530 | 366 | 366 today (L1 189; L2 177) | sha256:cd43aa53a702 | All canonical release dimensions pass. | 6 excluded; review 2026-10-23 |
-| Rhyming | READY | Phonics curriculum + media QA | 803 | 656 | 656 today (L1 476; L2 180) | sha256:3d96c7c43a0d | All canonical release dimensions pass. | None |
-| CVC Short Vowels | READY | Phonics curriculum + media QA | 467 | 412 | 412 today (L1 266; L2 146) | sha256:2d3a933c2665 | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
-| Short Vowel Discrimination | READY | Phonics curriculum + media QA | 527 | 299 | 299 today (L1 103; L2 196) | sha256:17a8aed32509 | All canonical release dimensions pass. | 7 excluded; review 2026-10-23 |
-| High-Frequency Words 1-25 | READY | Literacy curriculum + media QA | 150 | 147 | 147 today (L1 72; L2 75) | sha256:12fe53fe2754 | All canonical release dimensions pass. | None |
-| High-Frequency Words 26-50 | READY | Literacy curriculum + media QA | 150 | 149 | 149 today (L1 74; L2 75) | sha256:8e4f8e4628d6 | All canonical release dimensions pass. | None |
-| High-Frequency Words 51-75 | READY | Literacy curriculum + media QA | 150 | 148 | 148 today (L1 73; L2 75) | sha256:2be19e1d1e85 | All canonical release dimensions pass. | None |
-| High-Frequency Words 76-100 | READY | Literacy curriculum + media QA | 148 | 144 | 144 today (L1 70; L2 74) | sha256:95d083463de9 | All canonical release dimensions pass. | None |
-| Blends | READY | Phonics curriculum + media QA | 253 | 97 | 97 today (L1 47; L2 50) | sha256:318b21a4799d | All canonical release dimensions pass. | None |
-| Digraphs | READY | Phonics curriculum + media QA | 252 | 120 | 120 today (L1 60; L2 60) | sha256:faebe50b8669 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
-| Long Vowels and Silent E | READY | Phonics curriculum + media QA | 226 | 104 | 104 today (L1 50; L2 54) | sha256:7ceda9ae4f27 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
-| Vowel Teams | READY | Phonics curriculum + media QA | 141 | 141 | 141 today (L1 56; L2 85) | sha256:37526c9d6223 | All canonical release dimensions pass. | None |
-| R-Controlled Vowels | READY | Phonics curriculum + media QA | 128 | 128 | 128 today (L1 47; L2 81) | sha256:b36797e95bcb | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
-| Nouns | READY | Curriculum + media QA | 398 | 146 | 146 today (L1 70; L2 76) | sha256:0e54affb9633 | All canonical release dimensions pass. | None |
-| Verbs | READY | Curriculum + media QA | 420 | 119 | 119 today (L1 51; L2 68) | sha256:675f40b68193 | All canonical release dimensions pass. | None |
-| Adjectives | READY | Curriculum + media QA | 384 | 112 | 112 today (L1 46; L2 66) | sha256:de455124f4b4 | All canonical release dimensions pass. | None |
-| Prepositions of Place | BLOCKED | Curriculum + media QA | 314 | 214 | 0 — blocked from children | sha256:e3b0c44298fc | Question-count floor is not met at both levels. Target, phoneme, prompt-family, or response-format concentration is outside the release balance standard. | None |
-| Plurals | READY | Curriculum + media QA | 184 | 138 | 138 today (L1 46; L2 92) | sha256:beb6299d2a8b | All canonical release dimensions pass. | None |
-| Prefixes and Suffixes | READY | Curriculum + media QA | 317 | 92 | 92 today (L1 46; L2 46) | sha256:29a178b2fc81 | All canonical release dimensions pass. | None |
-| Antonyms and Synonyms | READY | Curriculum + media QA | 236 | 234 | 234 today (L1 60; L2 174) | sha256:8ef6c279b72e | All canonical release dimensions pass. | None |
-| Homophones and Homonyms | READY | Curriculum + media QA | 162 | 116 | 116 today (L1 46; L2 70) | sha256:167aae34f270 | All canonical release dimensions pass. | None |
-| Sentence Comprehension | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:7efc64c1c5b2 | All canonical release dimensions pass. | None |
-| Key Details | READY | Curriculum + media QA | 185 | 93 | 93 today (L1 46; L2 47) | sha256:14ea8cb5bbd9 | All canonical release dimensions pass. | None |
-| Sequencing | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:5bcf0215c8c8 | All canonical release dimensions pass. | None |
-| Main Idea | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:f3ac8d890867 | All canonical release dimensions pass. | None |
-| Inference | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:06e87b07334d | All canonical release dimensions pass. | None |
-| Cause and Effect | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:423871366f72 | All canonical release dimensions pass. | None |
-| Context Clues | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:3792c6cfa335 | All canonical release dimensions pass. | None |
-| Theme and Higher Comprehension | READY | Curriculum + media QA | 92 | 92 | 92 today (L1 46; L2 46) | sha256:59055bf504ab | All canonical release dimensions pass. | None |
+| Initial Sounds | READY | Phonics curriculum + media QA | 160 | 150 | 150 today (L1 75; L2 75) | sha256:5a8d08d31b33 | All canonical release dimensions pass. | None |
+| Final Sounds | READY | Phonics curriculum + media QA | 82 | 72 | 72 today (L1 32; L2 40) | sha256:792d2b5acd8e | All canonical release dimensions pass. | 6 excluded; review 2026-10-23 |
+| Rhyming | READY | Phonics curriculum + media QA | 145 | 135 | 135 today (L1 63; L2 72) | sha256:a584c49a334d | All canonical release dimensions pass. | None |
+| CVC Short Vowels | READY | Phonics curriculum + media QA | 70 | 60 | 60 today (L1 30; L2 30) | sha256:8895370ed274 | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
+| Short Vowel Discrimination | READY | Phonics curriculum + media QA | 70 | 60 | 60 today (L1 30; L2 30) | sha256:d136976a088c | All canonical release dimensions pass. | 7 excluded; review 2026-10-23 |
+| High-Frequency Words 1-25 | READY | Literacy curriculum + media QA | 135 | 125 | 125 today (L1 75; L2 50) | sha256:4602748ce347 | All canonical release dimensions pass. | None |
+| High-Frequency Words 26-50 | READY | Literacy curriculum + media QA | 135 | 125 | 125 today (L1 75; L2 50) | sha256:b177c4ed286a | All canonical release dimensions pass. | None |
+| High-Frequency Words 51-75 | READY | Literacy curriculum + media QA | 135 | 125 | 125 today (L1 75; L2 50) | sha256:9671b253f1a7 | All canonical release dimensions pass. | None |
+| High-Frequency Words 76-100 | READY | Literacy curriculum + media QA | 135 | 125 | 125 today (L1 75; L2 50) | sha256:947f4817c4ea | All canonical release dimensions pass. | None |
+| Blends | READY | Phonics curriculum + media QA | 106 | 96 | 96 today (L1 48; L2 48) | sha256:1b3edd4cd138 | All canonical release dimensions pass. | None |
+| Digraphs | READY | Phonics curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:fe8e51ae6288 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
+| Long Vowels and Silent E | READY | Phonics curriculum + media QA | 68 | 52 | 52 today (L1 28; L2 24) | sha256:f0d29587fd04 | All canonical release dimensions pass. | 1 excluded; review 2026-10-23 |
+| Vowel Teams | READY | Phonics curriculum + media QA | 90 | 78 | 78 today (L1 36; L2 42) | sha256:f70111c2de9b | All canonical release dimensions pass. | None |
+| R-Controlled Vowels | READY | Phonics curriculum + media QA | 70 | 60 | 60 today (L1 30; L2 30) | sha256:8866d9de7b92 | All canonical release dimensions pass. | 5 excluded; review 2026-10-23 |
+| Nouns | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:a60b945df67d | All canonical release dimensions pass. | None |
+| Verbs | READY | Curriculum + media QA | 58 | 48 | 48 today (L1 24; L2 24) | sha256:01c977a394a3 | All canonical release dimensions pass. | None |
+| Adjectives | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:7c34e81508ba | All canonical release dimensions pass. | None |
+| Prepositions of Place | READY | Curriculum + media QA | 76 | 64 | 64 today (L1 36; L2 28) | sha256:308101e8f6b4 | All canonical release dimensions pass. | None |
+| Plurals | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:b039bb470ff8 | All canonical release dimensions pass. | None |
+| Prefixes and Suffixes | READY | Curriculum + media QA | 78 | 66 | 66 today (L1 30; L2 36) | sha256:204c291a286e | All canonical release dimensions pass. | None |
+| Antonyms and Synonyms | READY | Curriculum + media QA | 60 | 48 | 48 today (L1 24; L2 24) | sha256:34b7591b8835 | All canonical release dimensions pass. | None |
+| Homophones and Homonyms | READY | Curriculum + media QA | 80 | 68 | 68 today (L1 32; L2 36) | sha256:a09300c0bbf0 | All canonical release dimensions pass. | None |
+| Sentence Comprehension | READY | Curriculum + media QA | 72 | 56 | 56 today (L1 32; L2 24) | sha256:43ccd3d9c94b | All canonical release dimensions pass. | None |
+| Key Details | READY | Curriculum + media QA | 71 | 56 | 56 today (L1 32; L2 24) | sha256:24251fcd7b59 | All canonical release dimensions pass. | None |
+| Sequencing | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:15ebbabbb920 | All canonical release dimensions pass. | None |
+| Main Idea | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:5f24920ef552 | All canonical release dimensions pass. | None |
+| Inference | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:7907ac6aa6b3 | All canonical release dimensions pass. | None |
+| Cause and Effect | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:54707866a9c4 | All canonical release dimensions pass. | None |
+| Context Clues | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:031ac8be7b9f | All canonical release dimensions pass. | None |
+| Theme and Higher Comprehension | READY | Curriculum + media QA | 64 | 48 | 48 today (L1 24; L2 24) | sha256:ba2abb97fdde | All canonical release dimensions pass. | None |
 
 ## Loop D rule
 

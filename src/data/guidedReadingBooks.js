@@ -121,7 +121,7 @@ const rawGuidedReadingBooks = [
       "park"
     ],
     "theme": "maps show places",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-a-26-cover.png",
     "pages": [
       {
@@ -223,7 +223,7 @@ const rawGuidedReadingBooks = [
       "sky"
     ],
     "theme": "basic day/night cycle",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-a-27-cover.png",
     "pages": [
       {
@@ -320,7 +320,7 @@ const rawGuidedReadingBooks = [
       "grow"
     ],
     "theme": "rain supports plants",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-a-28-cover.png",
     "pages": [
       {
@@ -420,7 +420,7 @@ const rawGuidedReadingBooks = [
       "pond"
     ],
     "theme": "animals need safe homes",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-a-29-cover.png",
     "pages": [
       {
@@ -523,7 +523,7 @@ const rawGuidedReadingBooks = [
       "shelf"
     ],
     "theme": "book care routines",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-a-30-cover.png",
     "pages": [
       {
@@ -622,7 +622,7 @@ const rawGuidedReadingBooks = [
       "short vowels"
     ],
     "theme": "plant life cycle",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-b-31-cover.png",
     "pages": [
       {
@@ -745,7 +745,7 @@ const rawGuidedReadingBooks = [
       "simple cause-effect"
     ],
     "theme": "pollination and nature's partnerships",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-b-32-cover.png",
     "pages": [
       {
@@ -874,7 +874,7 @@ const rawGuidedReadingBooks = [
       "question-answer format"
     ],
     "theme": "physics of light and shadows",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-b-33-cover.png",
     "pages": [
       {
@@ -1000,7 +1000,7 @@ const rawGuidedReadingBooks = [
       "food science vocabulary"
     ],
     "theme": "from wheat to bread",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-b-34-cover.png",
     "pages": [
       {
@@ -1144,7 +1144,7 @@ const rawGuidedReadingBooks = [
       "action words"
     ],
     "theme": "construction vehicles and their jobs",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-b-35-cover.png",
     "pages": [
       {
@@ -1275,7 +1275,7 @@ const rawGuidedReadingBooks = [
       "descriptive language"
     ],
     "theme": "water in our daily lives",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-c-37-cover.png",
     "pages": [
       {
@@ -1409,7 +1409,7 @@ const rawGuidedReadingBooks = [
       "nature vocabulary"
     ],
     "theme": "how birds construct homes",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-c-38-cover.png",
     "pages": [
       {
@@ -1547,7 +1547,7 @@ const rawGuidedReadingBooks = [
       "nature science"
     ],
     "theme": "complete metamorphosis",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-c-39-cover.png",
     "pages": [
       {
@@ -1682,7 +1682,7 @@ const rawGuidedReadingBooks = [
       "hygiene vocabulary"
     ],
     "theme": "proper handwashing and health",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-c-40-cover.png",
     "pages": [
       {
@@ -1809,7 +1809,7 @@ const rawGuidedReadingBooks = [
       "nature cycles"
     ],
     "theme": "the science of autumn leaf color",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-d-42-cover.png",
     "pages": [
       {
@@ -1946,7 +1946,7 @@ const rawGuidedReadingBooks = [
       "cause-effect"
     ],
     "theme": "pollinators and food production",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-d-43-cover.png",
     "pages": [
       {
@@ -2087,7 +2087,7 @@ const rawGuidedReadingBooks = [
       "compare-contrast"
     ],
     "theme": "shared community places and their purposes",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-d-44-cover.png",
     "pages": [
       {
@@ -2236,7 +2236,7 @@ const rawGuidedReadingBooks = [
       "scientific vocabulary"
     ],
     "theme": "soil composition and importance",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-d-45-cover.png",
     "pages": [
       {
@@ -2390,7 +2390,7 @@ const rawGuidedReadingBooks = [
       "process description"
     ],
     "theme": "water as a force that shapes landscapes",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-e-46-cover.png",
     "pages": [
       {
@@ -2535,7 +2535,7 @@ const rawGuidedReadingBooks = [
       "procedural planning"
     ],
     "theme": "how to plan safe walking routes",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-e-47-cover.png",
     "pages": [
       {
@@ -2690,7 +2690,7 @@ const rawGuidedReadingBooks = [
       "ecosystem connections"
     ],
     "theme": "the reasons and methods of animal migration",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-e-48-cover.png",
     "pages": [
       {
@@ -2846,7 +2846,7 @@ const rawGuidedReadingBooks = [
       "real-world applications"
     ],
     "theme": "simple machines and their uses",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-e-49-cover.png",
     "pages": [
       {
@@ -2992,7 +2992,7 @@ const rawGuidedReadingBooks = [
       "literacy metacognition"
     ],
     "theme": "how to read and learn like a researcher",
-    "source": "kimi_assets8_guided_reading_pack_01",
+    "source": "guided_reading_current",
     "coverImage": "/guided-reading/covers/gr-e-50-cover.png",
     "pages": [
       {
@@ -3135,7 +3135,7 @@ const rawGuidedReadingBooks = [
 ];
 
 const PACK_8_REGENERATION_REASON =
-  "Pack 8 page art contains embedded book text and/or visual story details that conflict with the app text and narration. Disable until Kimi regenerates clean illustration-only page images or provides matching app text and narration.";
+  "Pack 8 page art contains embedded book text and/or visual story details that conflict with the app text and narration. Disable until production replaces clean illustration-only page images or provides matching app text and narration.";
 
 export const guidedReadingBookCandidates = rawGuidedReadingBooks.map(book => ({
   ...book,

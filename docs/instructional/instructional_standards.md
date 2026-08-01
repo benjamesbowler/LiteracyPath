@@ -1,526 +1,139 @@
-# LiteracyPath Instructional Standards
-
-## Core Principles
-
-LiteracyPath is designed to assess and develop real early literacy ability, not visual pattern memorization or test-taking tricks.
-
-The system should prioritize:
-- real decoding
-- phonological awareness
-- sound-symbol understanding
-- listening comprehension
-- meaningful reading
-- developmental appropriateness
-- ESL accessibility
-- mastery through varied evidence
+# LiteracyPath instructional standard
 
-The app must avoid:
-- artificial “worksheet” feeling
-- obvious fake distractors
-- visual scanning shortcuts
-- isolated phoneme TTS problems
-- overly academic teacher-language
-- inflated mastery from weak evidence
+This is the current whole-product instructional standard. The running application,
+the fixed EL cycle data, the EL benchmark implementation, and the current v3 Skills
+assessment blueprints remain the executable authority for their own scopes.
 
-Question quality is more important than question quantity.
+This document replaces earlier instructional policies. A future policy change
+must update this authority and remove its superseded rule and implementation;
+parallel variants are permitted only for an explicitly requested A/B test.
 
-A smaller, cleaner, more valid question bank is preferred over a larger low-quality bank.
+## The literacy model
 
----
+LiteracyPath has three complementary learning lanes. They are not competing
+curricula and they do not share one universal completion or pass rule.
 
-# Anchor Word Standards
+### 1. Teach the code — EL
 
-Anchor words are used to avoid isolated phoneme TTS and to create stable sound associations for children.
+The EL-aligned benchmark is used to identify and teacher-confirm the student's
+instructional microphase and cycle anchor. Formal teaching continues from that
+confirmed point.
 
-The same anchor word should remain consistent across the entire app whenever possible.
+The current EL benchmark content, assessments, 27-cycle sequence and Present
+experience remain unchanged by this standard.
 
-## Initial Sound Anchors
+### 2. Practise through play
 
-| Sound | Anchor |
-|---|---|
-| m | moon |
-| s | sun |
-| b | ball |
-| t | top |
-| p | pig |
-| d | dog |
-| c/k | cat |
-| g | goat |
-| r | rabbit |
-| l | lion |
-| f | fish |
-| h | hat |
-| n | net |
-| w | whale |
-| y | yo-yo |
+Adventure Map, Sound Seekers and general games provide retrieval, reinforcement,
+automaticity and enjoyment. Every child may begin this practice journey at Cycle 1,
+including a child whose formal EL starting point is later.
 
-## Short Vowel Anchors
+Practice completion, stars, coins, game scores, help use and exposure must not:
 
-| Vowel | Anchor |
-|---|---|
-| short a | cat |
-| short e | bed |
-| short i | pig |
-| short o | pot |
-| short u | sun |
+- change a teacher-confirmed EL placement;
+- create a formal Secure judgement by themselves;
+- prevent access to the child's assessed teaching point;
+- be described as an assessment result.
 
-## Digraph Anchors
+Printed decoding and encoding challenges inside EL-linked practice use only code
+that has been taught by that cycle. Listening, stories and meaning activities may
+contain richer language when support is explicit.
 
-| Pattern | Anchor |
-|---|---|
-| sh | shell |
-| ch | chair |
-| th | thumb |
-| wh | whale |
-| ph | phone |
+### 3. Build language and meaning
 
-## Blend Anchors
+Books and Story Quests build oral language, vocabulary, knowledge, comprehension,
+syntax, morphology, fluency, motivation and writing. Their ideas do not have to be
+restricted to the child's EL cycle.
 
-| Blend | Anchor |
-|---|---|
-| bl | blue |
-| st | stop |
-| dr | drum |
-| gr | green |
-| tr | train |
-| cl | clock |
+Every book is presented for one truthful purpose:
 
----
+- **Read it yourself:** every running word is a taught high-frequency word or uses
+  code available at the student's confirmed EL cycle anchor.
+- **Read with help:** narration, word help or an adult supports access to richer
+  language and ideas. Supported reading remains valuable but is not independent
+  decoding evidence.
 
-# Approved Question Formats
+Pictures support meaning and knowledge. They must not be used to guess an unknown
+printed word. Decoding support directs attention to the word's sounds and spelling.
 
-Question formats are categorized by educational strength.
+## Knowledge journeys
 
-## VPM — Visual Pattern Match
+Nonfiction is organised into cumulative text sets rather than isolated facts. Each
+knowledge journey has:
 
-Definition:
-Student visually identifies a spelling pattern.
+- a guiding question;
+- repeated domain vocabulary;
+- books that revisit and extend the topic;
+- oral explanation using evidence from the book;
+- a drawing or writing response.
 
-Example:
-“Which word has ai?”
+The current journeys are plants and growth, earth and sky, animals and habitats,
+body and health, and water and forces. Their live source is
+`src/data/knowledgeJourneys.js`.
 
-Allowed:
-- introduction only
-- early exposure only
+## High-frequency words
 
-Not valid for mastery alone.
+High-frequency and sight words are a separate learning strand that runs beside
+phonics. Their introduction does not wait for every letter or spelling in the
+word to have been taught through the phonics sequence. This is why a word such
+as **are** can be taught and recognised before `e` is a phonics focus.
 
----
+Dedicated practice teaches children to recognise, understand and use the whole
+word, with repeated reading and spelling in meaningful language. It must not be
+reported as evidence that the child has mastered each phonics pattern inside the
+word. Conversely, a high-frequency word already taught in its own strand counts
+as available when deciding whether a book can be read independently.
 
-## APM — Audio Pattern Match
+EL retains authority for which high-frequency words are introduced and when;
+their order is not recalculated from phonics coverage.
 
-Definition:
-Student hears an anchor word and identifies matching sound pattern.
+## Comprehension and writing
 
-Example:
-“Which word has the same middle sound as sun?”
+Finishing pages or retrying a multiple-choice quiz does not by itself demonstrate
+comprehension. Book and story experiences should repeatedly ask children to:
 
-Preferred for:
-- short vowels
-- vowel teams
-- digraphs
+- retell important information or events;
+- explain cause, motivation or change;
+- support an answer with the text or illustration;
+- use new vocabulary in speech;
+- compare ideas across books;
+- draw, label, dictate or write a response.
 
----
-
-## MPD — Minimal Pair Discrimination
-
-Definition:
-Student distinguishes similar sounds.
-
-Example:
-“Which word starts like ship?”
-choices:
-ship / chip / sip / sheep
-
-Strong mastery evidence.
-
----
-
-## CPS — Cross Pattern Selection
-
-Definition:
-Student distinguishes multiple spelling options for same sound.
-
-Example:
-“Which word has the long a sound?”
-choices:
-rain / bed / ship / frog
-
-Very strong mastery evidence.
-
----
-
-## PTD — Pattern Trap Distractor
-
-Definition:
-Question intentionally includes misleading visual distractors.
-
-Example:
-target: ai
-distractor: said
-
-Purpose:
-Detect visual scanners and fake mastery.
-
-Required for advanced phonics mastery.
-
----
-
-## OOS — Odd One Out
-
-Definition:
-Student identifies which word does not belong.
-
-Example:
-rain / train / snail / bed
-
-Good reinforcement and flexible review.
-
----
-
-## Cloze Sentence
-
-Definition:
-Student completes meaningful sentence.
-
-Example:
-“I can ___ high.”
-choices:
-jump / little / said / look
-
-Preferred for:
-- sight words
-- high frequency words
-- vocabulary
-
----
-
-## CVC Listening
-
-Definition:
-Student hears a word and selects matching CVC word.
-
-Visible:
-“Listen and find the word.”
-
-Spoken:
-“Find the word cat.”
-
-Strong early decoding evidence.
-
----
-
-# Banned Formats
-
-The following formats are not allowed.
-
-## Fake Word Spotting
-
-Not allowed:
-mih / him / hhim / hime
-
-Reason:
-Tests ability to identify the only real word.
-
----
-
-## Reversed Target Words
-
-Not allowed:
-saw / was
-pots / stop
-
-unless explicitly testing reversal errors.
-
----
-
-## Repeated Letter Fake Words
-
-Not allowed:
-hhim
-juump
-caat
-
----
-
-## Pure Letter Chunk Spotting
-
-Weak example:
-“Find the gr word.”
-
-Reason:
-Tests visual chunk detection only.
-
----
-
-## Isolated Phoneme TTS
-
-Not allowed:
-“What word has /ŭ/?”
-
-Reason:
-Browser speech synthesis pronounces phonemes poorly.
-
----
-
-## Vague Audio Wording
-
-Not allowed:
-“Which word has the vowel sound in it?”
-
-Reason:
-Too vague and instructionally weak.
-
----
-
-## Meta Grammar Language
-
-Avoid:
-“Which word is a noun?”
-
-Prefer:
-“Which word names a thing?”
-
----
-
-# Mastery Rules
-
-Mastery must come from varied evidence, not repeated success on one question type.
-
-Students should demonstrate:
-- listening
-- decoding
-- discrimination
-- transfer
-- cross-pattern understanding
-
-## General Mastery Requirements
-
-Mastery should require:
-- multiple sessions
-- multiple question formats
-- recent correct performance
-- no major PTD failures
-
----
-
-## VPM Limitation
-
-Visual Pattern Match questions alone can never produce mastery.
-
----
-
-## Recommended Evidence Mix
-
-### Early Phonics
-- VPM
-- APM
-
-### Intermediate
-- MPD
-- Cloze
-- Listening
-
-### Advanced
-- CPS
-- PTD
-- Cross-pattern discrimination
-
----
-
-## Long Vowel Mastery
-
-Long vowel mastery requires:
-- cross-pattern exposure
-- multiple spellings
-- pattern-trap distractors
-
-Example:
-long a:
-- ai
-- ay
-- a_e
-- eigh
-
----
-
-## Digraph Mastery
-
-Must include:
-- beginning position
-- ending position
-- listening discrimination
-
----
-
-## Blend Mastery
-
-Must include:
-- sound segmentation
-- auditory discrimination
-- not only visual blend recognition
-
----
-
-# PTD Rules
-
-Pattern Trap Distractors are required for later-stage mastery confirmation.
-
-Purpose:
-Detect children who visually scan for spelling chunks instead of decoding sounds.
-
-Examples:
-- ai → said
-- ea → bread
-- ow → cow vs snow
-
-PTDs should:
-- be believable
-- be developmentally appropriate
-- not be absurd trick questions
-
-PTDs should NOT:
-- overwhelm early learners
-- appear too early
-- dominate beginner practice
-
----
-
-# ESL Considerations
-
-The app should remain highly accessible to ESL learners.
-
-## Use:
-- simple sentence structures
-- consistent anchor words
-- familiar vocabulary
-- visual support when possible
-- short instructions
-
-## Avoid:
-- idioms
-- culturally obscure vocabulary
-- overly academic language
-- unnecessary complexity
-
----
-
-# Audio Standards
-
-Spoken prompts should:
-- sound natural
-- be full sentences
-- avoid isolated phonemes
-- avoid robotic notation
-
-Preferred:
-“Which word starts like moon?”
-
-Avoid:
-“Which word starts with /m/?”
-
----
-
-# Image Standards
-
-Images should:
-- support comprehension
-- reinforce anchor words
-- clarify meaning
-- assist ESL learners
-
-Images should NOT:
-- give away answers instantly
-- replace decoding entirely
-- become decorative clutter
-
----
-
-# Sequencing Standards
-
-Use explicit ordinal wording.
-
-Preferred:
-- What happened first?
-- What happened second?
-- What happened last?
-
-Avoid ambiguous:
-- What happened next?
-
-unless the sequence is intentionally unfinished.
-
----
-
-# Sight Word Standards
-
-Sight words should be assessed through meaning and context.
-
-Preferred:
-meaningful cloze sentences
-
-Avoid:
-- visual spotting only
-- nonsense distractors
-- fake spellings
-
----
-
-# Audit Requirements
-
-The audit system should detect:
-
-- fake words
-- repeated-letter nonwords
-- visual-only phonics tasks
-- isolated phoneme prompts
-- vague audio wording
-- inconsistent anchor mappings
-- weak distractors
-- skill contamination
-- sequencing ambiguity
-- answer-giveaway wording
-- advanced phonics leaking into beginner banks
-
-Audit rules should prioritize:
-instructional validity over raw quantity.
-
----
-
-# Future Improvements
-
-## Short Term
-- improve mastery evidence diversity
-- expand PTD coverage
-- improve cross-pattern questions
-- strengthen listening tasks
-- improve sight-word cloze quality
-
-## Medium Term
-- human-recorded anchor audio
-- adaptive review scheduling
-- teacher-facing mastery reports
-- misconception tracking
-- targeted intervention recommendations
-
-## Long Term
-- true phoneme-level mastery modeling
-- fluency timing
-- oral reading integration
-- pseudoword decoding module
-- diagnostic literacy pathways
-
----
-
-# Guiding Principle
-
-LiteracyPath should assess:
-real reading ability,
-not shortcut strategies.
-
-Whenever choosing between:
-- easier generation
-or
-- stronger educational validity
-
-the system should prioritize educational validity.
+## Fluency
+
+Fluency means accurate, increasingly automatic and expressive oral reading. Page
+turns and silent taps are participation evidence, not fluency measures. Formal
+fluency evidence continues to come from the teacher-led EL assessment and recorded
+reading observations. Rereading and phrasing practice may support fluency without
+claiming to measure it.
+
+## Assessment boundaries
+
+- EL benchmarks retain their own administration, scoring and teacher-confirmation
+  rules.
+- The v3 Skills assessment retains the single phase rule defined in
+  `src/content/blueprints/skillBlueprints.js`.
+- There is no whole-product 80%, 85%, 90% or named-person approval rule.
+- Exposure, supported performance, independent performance and formal assessment
+  remain distinguishable in saved evidence and reports.
+
+## Current implementation sources
+
+- `src/policy/literacyExperiencePolicy.js` — lane, placement and reading-purpose rules
+- `src/data/elSkillsBlockCycles.js` — fixed EL cycle sequence
+- `src/data/elBenchmarkAssessmentCatalog.js` — fixed EL-aligned benchmark definitions
+- `src/data/knowledgeJourneys.js` — cumulative knowledge text sets
+- `src/utils/guidedReading/recommendBooksForStudent.js` — reading recommendations
+- `src/components/elQuest/elQuestEngine.js` — cycle-bounded practice generation
+- `src/data/reportingEvidenceModel.js` — evidence claim boundaries
+
+## Research basis
+
+This standard follows converging evidence rather than treating the Science of
+Reading as one programme or phonics alone:
+
+- [IES foundational reading recommendations](https://ies.ed.gov/ncee/wwc/PracticeGuide/21/Published)
+- [IES K–3 comprehension recommendations](https://ies.ed.gov/ncee/wwc/PracticeGuide/14)
+- [EL Skills Block Resource Manual](https://eleducation.org/documents/1619/Curriculum_Tools_K2_Skills_Block_Resource_Manual-0124.pdf)
+- [Duke and Cartwright, The Science of Reading Progresses](https://ila.onlinelibrary.wiley.com/doi/10.1002/rrq.411)
+- [Ehri, orthographic mapping](https://eric.ed.gov/?id=EJ1027413)

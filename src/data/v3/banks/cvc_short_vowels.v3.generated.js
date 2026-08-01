@@ -71,14 +71,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "c-o-t and c-u-t are real words — the cat image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
@@ -86,7 +85,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
   "resolvedImageAssetKey": "cat",
-  "imageAlt": "Complete: c_t"
+  "imageAlt": "cat"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_a.v2",
@@ -158,14 +157,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
@@ -173,7 +171,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "resolvedImageAssetKey": "hat",
-  "imageAlt": "Complete: h_t"
+  "imageAlt": "hat"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_a.v3",
@@ -245,14 +243,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pan",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
@@ -260,7 +257,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
   "resolvedImageAssetKey": "pan",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pan"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_a.v4",
@@ -332,14 +329,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
@@ -347,7 +343,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
   "resolvedImageAssetKey": "bat",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bat"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_a.v5",
@@ -407,33 +403,25 @@ export const questions = [
    "pig": "D-VOWEL",
    "cake": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_a-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "cake has the letter a but the long sound — the honest discrimination and the letter-scanner tie",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
-  "imageAlt": "Which word has the short a sound?"
+  "notes": "cake has the letter a but the long sound — the honest discrimination and the letter-scanner tie"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_a.v6",
@@ -493,33 +481,25 @@ export const questions = [
    "dog": "D-VOWEL",
    "rain": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_a-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
-  "resolvedImageAssetKey": "pan",
-  "imageAlt": "Which word has the short a sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_a.v1",
@@ -591,14 +571,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -606,7 +585,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Complete: fl_g"
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_a.v2",
@@ -678,14 +657,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hand",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/hand.webp",
@@ -693,7 +671,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/hand.webp",
   "targetImagePath": "/images/assessment/blends/hand.webp",
   "resolvedImageAssetKey": "hand",
-  "imageAlt": "Complete: h_nd"
+  "imageAlt": "hand"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_a.v3",
@@ -765,14 +743,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crab",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "cab drops the r — the cluster-reduction error",
   "imagePath": "/images/assessment/blends/crab.webp",
@@ -780,7 +757,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
   "resolvedImageAssetKey": "crab",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "crab"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_a.v4",
@@ -852,14 +829,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "jam",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
@@ -867,7 +843,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "resolvedImageAssetKey": "jam",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "jam"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_a.v5",
@@ -923,14 +899,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "flag",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/flag.webp",
@@ -938,7 +913,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/flag.webp",
   "targetImagePath": "/images/assessment/blends/flag.webp",
   "resolvedImageAssetKey": "flag",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "flag"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_a.v6",
@@ -994,14 +969,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "crab",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/crab.webp",
@@ -1009,7 +983,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/crab.webp",
   "targetImagePath": "/images/assessment/blends/crab.webp",
   "resolvedImageAssetKey": "crab",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "crab"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_e.v1",
@@ -1081,14 +1055,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bed",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "b-a-d and b-u-d are real words — the bed image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
@@ -1096,7 +1069,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
   "resolvedImageAssetKey": "bed",
-  "imageAlt": "Complete: b_d"
+  "imageAlt": "bed"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_e.v2",
@@ -1168,14 +1141,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "net",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
@@ -1183,7 +1155,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
   "resolvedImageAssetKey": "net",
-  "imageAlt": "Complete: n_t"
+  "imageAlt": "net"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_e.v3",
@@ -1255,14 +1227,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pen",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
@@ -1270,7 +1241,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/pen-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/pen-02.webp",
   "resolvedImageAssetKey": "pen",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pen"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_e.v4",
@@ -1342,14 +1313,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "net",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
@@ -1357,7 +1327,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
   "resolvedImageAssetKey": "net",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "net"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_e.v5",
@@ -1417,33 +1387,25 @@ export const questions = [
    "bug": "D-VOWEL",
    "bee": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_e-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-  "resolvedImageAssetKey": "bed",
-  "imageAlt": "Which word has the short e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_e.v6",
@@ -1503,33 +1465,25 @@ export const questions = [
    "top": "D-VOWEL",
    "tree": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_e-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "Which word has the short e sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_e.v1",
@@ -1601,14 +1555,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nest",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/nest.webp",
@@ -1616,7 +1569,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
   "resolvedImageAssetKey": "nest",
-  "imageAlt": "Complete: n_st"
+  "imageAlt": "nest"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_e.v2",
@@ -1688,14 +1641,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "desk",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/desk.webp",
@@ -1703,7 +1655,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/desk.webp",
   "targetImagePath": "/images/assessment/blends/desk.webp",
   "resolvedImageAssetKey": "desk",
-  "imageAlt": "Complete: d_sk"
+  "imageAlt": "desk"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_e.v3",
@@ -1775,14 +1727,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "tent",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "ten drops the final t — the cluster-reduction error",
   "imagePath": "/images/assessment/blends/tent.webp",
@@ -1790,7 +1741,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/tent.webp",
   "targetImagePath": "/images/assessment/blends/tent.webp",
   "resolvedImageAssetKey": "tent",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "tent"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_e.v4",
@@ -1862,14 +1813,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "shell",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/shell.webp",
@@ -1877,7 +1827,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/shell.webp",
   "targetImagePath": "/images/assessment/digraphs/shell.webp",
   "resolvedImageAssetKey": "shell",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "shell"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_e.v5",
@@ -1933,14 +1883,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nest",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/nest.webp",
@@ -1948,7 +1897,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/nest.webp",
   "targetImagePath": "/images/assessment/blends/nest.webp",
   "resolvedImageAssetKey": "nest",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "nest"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_e.v6",
@@ -2004,14 +1953,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "vest",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/child-mode/initial-sounds/vest.png",
@@ -2019,7 +1967,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/vest.png",
   "targetImagePath": "/images/child-mode/initial-sounds/vest.png",
   "resolvedImageAssetKey": "vest",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "vest"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_i.v1",
@@ -2091,14 +2039,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pig",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
@@ -2106,7 +2053,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "resolvedImageAssetKey": "pig",
-  "imageAlt": "Complete: p_g"
+  "imageAlt": "pig"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_i.v2",
@@ -2178,14 +2125,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "p-a-n and p-e-n are real words — the pin image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
@@ -2193,7 +2139,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
   "resolvedImageAssetKey": "pin",
-  "imageAlt": "Complete: p_n"
+  "imageAlt": "pin"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_i.v3",
@@ -2265,14 +2211,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pig",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "pit ties the pi/picture overlap so the key cannot be scanned out",
   "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
@@ -2280,7 +2225,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "resolvedImageAssetKey": "pig",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pig"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_i.v4",
@@ -2352,14 +2297,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
@@ -2367,7 +2311,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/fin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
   "resolvedImageAssetKey": "fin",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "fin"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_i.v5",
@@ -2427,33 +2371,25 @@ export const questions = [
    "pot": "D-VOWEL",
    "pine": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_i-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "pine is one silent e away — the short/long discrimination",
-  "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/in/pin-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
-  "resolvedImageAssetKey": "pin",
-  "imageAlt": "Which word has the short i sound?"
+  "notes": "pine is one silent e away — the short/long discrimination"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_i.v6",
@@ -2513,33 +2449,25 @@ export const questions = [
    "bed": "D-VOWEL",
    "bike": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_i-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/big.webp",
-  "imageUrl": "/images/assessment/hfw/big.webp",
-  "targetImage": "/images/assessment/hfw/big.webp",
-  "targetImagePath": "/images/assessment/hfw/big.webp",
-  "resolvedImageAssetKey": "big",
-  "imageAlt": "Which word has the short i sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_i.v1",
@@ -2611,14 +2539,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brick",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/brick.webp",
@@ -2626,7 +2553,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brick.webp",
   "targetImagePath": "/images/assessment/digraphs/brick.webp",
   "resolvedImageAssetKey": "brick",
-  "imageAlt": "Complete: br_ck"
+  "imageAlt": "brick"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_i.v2",
@@ -2698,14 +2625,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "gift",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/gift.webp",
@@ -2713,7 +2639,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/gift.webp",
   "targetImagePath": "/images/assessment/blends/gift.webp",
   "resolvedImageAssetKey": "gift",
-  "imageAlt": "Complete: g_ft"
+  "imageAlt": "gift"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_i.v3",
@@ -2785,14 +2711,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "swim",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "swim/swam/swum — the real verb family; win ties the wi/with overlap",
   "imagePath": "/images/assessment/blends/swim.webp",
@@ -2800,7 +2725,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
   "resolvedImageAssetKey": "swim",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "swim"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_i.v4",
@@ -2872,14 +2797,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fish",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/fish.webp",
@@ -2887,7 +2811,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/fish.webp",
   "targetImagePath": "/images/assessment/digraphs/fish.webp",
   "resolvedImageAssetKey": "fish",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "fish"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_i.v5",
@@ -2943,14 +2867,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "swim",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/swim.webp",
@@ -2958,7 +2881,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/swim.webp",
   "targetImagePath": "/images/assessment/blends/swim.webp",
   "resolvedImageAssetKey": "swim",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "swim"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_i.v6",
@@ -3013,14 +2936,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fish",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/digraphs/fish.webp",
@@ -3028,7 +2950,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/fish.webp",
   "targetImagePath": "/images/assessment/digraphs/fish.webp",
   "resolvedImageAssetKey": "fish",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "fish"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_o.v1",
@@ -3100,14 +3022,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "dog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "d-u-g and d-i-g are real words — the dog image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
@@ -3115,7 +3036,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "resolvedImageAssetKey": "dog",
-  "imageAlt": "Complete: d_g"
+  "imageAlt": "dog"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_o.v2",
@@ -3187,14 +3108,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
@@ -3202,7 +3122,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "resolvedImageAssetKey": "pot",
-  "imageAlt": "Complete: p_t"
+  "imageAlt": "pot"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_o.v3",
@@ -3274,14 +3194,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pot",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
@@ -3289,7 +3208,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
   "resolvedImageAssetKey": "pot",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pot"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_o.v4",
@@ -3361,14 +3280,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "log",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
@@ -3376,7 +3294,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/log-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
   "resolvedImageAssetKey": "log",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "log"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_o.v5",
@@ -3436,33 +3354,25 @@ export const questions = [
    "dig": "D-VOWEL",
    "dug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_o-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
-  "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which word has the short o sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_o.v6",
@@ -3522,33 +3432,25 @@ export const questions = [
    "pat": "D-VOWEL",
    "pet": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_o-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-  "resolvedImageAssetKey": "pot",
-  "imageAlt": "Which word has the short o sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_o.v1",
@@ -3620,14 +3522,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -3635,7 +3536,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Complete: s_ck"
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_o.v2",
@@ -3707,14 +3608,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "clock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/clock.webp",
@@ -3722,7 +3622,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/clock.webp",
   "targetImagePath": "/images/assessment/digraphs/clock.webp",
   "resolvedImageAssetKey": "clock",
-  "imageAlt": "Complete: cl_ck"
+  "imageAlt": "clock"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_o.v3",
@@ -3794,14 +3694,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -3809,7 +3708,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_o.v4",
@@ -3881,14 +3780,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "frog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "fog drops the r — the cluster-reduction error",
   "imagePath": "/images/assessment/blends/frog.webp",
@@ -3896,7 +3794,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
   "resolvedImageAssetKey": "frog",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "frog"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_o.v5",
@@ -3952,14 +3850,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "frog",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/frog.webp",
@@ -3967,7 +3864,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/frog.webp",
   "targetImagePath": "/images/assessment/blends/frog.webp",
   "resolvedImageAssetKey": "frog",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "frog"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_o.v6",
@@ -4022,14 +3919,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sock",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/digraphs/sock.webp",
@@ -4037,7 +3933,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/sock.webp",
   "targetImagePath": "/images/assessment/digraphs/sock.webp",
   "resolvedImageAssetKey": "sock",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "sock"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_u.v1",
@@ -4109,14 +4005,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "b-a-g and b-i-g are real words — the bug image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
@@ -4124,7 +4019,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
   "resolvedImageAssetKey": "bug",
-  "imageAlt": "Complete: b_g"
+  "imageAlt": "bug"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_u.v2",
@@ -4196,14 +4091,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sun",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
@@ -4211,7 +4105,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "resolvedImageAssetKey": "sun",
-  "imageAlt": "Complete: s_n"
+  "imageAlt": "sun"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_u.v3",
@@ -4283,14 +4177,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "bug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
@@ -4298,7 +4191,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
   "resolvedImageAssetKey": "bug",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "bug"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.A.short_u.v4",
@@ -4370,14 +4263,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "nut",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/child-mode/initial-sounds/nut.png",
@@ -4385,7 +4277,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/nut.png",
   "targetImagePath": "/images/child-mode/initial-sounds/nut.png",
   "resolvedImageAssetKey": "nut",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "nut"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.B.short_u.v5",
@@ -4445,33 +4337,25 @@ export const questions = [
    "big": "D-VOWEL",
    "cube": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_u-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/bug/bug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/bug/bug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
-  "resolvedImageAssetKey": "bug",
-  "imageAlt": "Which word has the short u sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l1.C.short_u.v6",
@@ -4531,33 +4415,25 @@ export const questions = [
    "mid": "D-VOWEL",
    "moon": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_u-v6",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
-  "targetImage": "/images/child-mode/initial-sounds/mud.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
-  "resolvedImageAssetKey": "mud",
-  "imageAlt": "Which word has the short u sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_u.v1",
@@ -4629,14 +4505,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "drum",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/drum.webp",
@@ -4644,7 +4519,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
   "resolvedImageAssetKey": "drum",
-  "imageAlt": "Complete: dr_m"
+  "imageAlt": "drum"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_u.v2",
@@ -4716,14 +4591,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "truck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/digraphs/truck.webp",
@@ -4731,7 +4605,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/truck.webp",
   "targetImagePath": "/images/assessment/digraphs/truck.webp",
   "resolvedImageAssetKey": "truck",
-  "imageAlt": "Complete: tr_ck"
+  "imageAlt": "truck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_u.v3",
@@ -4803,14 +4677,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "duck",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "duck/deck/dock — a true vowel minimal triple",
   "imagePath": "/images/assessment/digraphs/duck.webp",
@@ -4818,7 +4691,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/duck.webp",
   "targetImagePath": "/images/assessment/digraphs/duck.webp",
   "resolvedImageAssetKey": "duck",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "duck"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.A.short_u.v4",
@@ -4890,14 +4763,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brush",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "bush drops the r and shifts the vowel sound despite the u",
   "imagePath": "/images/assessment/digraphs/brush.webp",
@@ -4905,7 +4777,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
   "resolvedImageAssetKey": "brush",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "brush"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.B.short_u.v5",
@@ -4961,14 +4833,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "drum",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/drum.webp",
@@ -4976,7 +4847,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/drum.webp",
   "targetImagePath": "/images/assessment/blends/drum.webp",
   "resolvedImageAssetKey": "drum",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "drum"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.C.short_u.v6",
@@ -5032,14 +4903,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "brush",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/digraphs/brush.webp",
@@ -5047,7 +4917,7 @@ export const questions = [
   "targetImage": "/images/assessment/digraphs/brush.webp",
   "targetImagePath": "/images/assessment/digraphs/brush.webp",
   "resolvedImageAssetKey": "brush",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "brush"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v7r",
@@ -5119,14 +4989,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hut",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "h-a-t and h-o-t are real words — the hut image pins the target",
   "imagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
@@ -5134,7 +5003,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "resolvedImageAssetKey": "hut",
-  "imageAlt": "Complete: h_t"
+  "imageAlt": "hut"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_u.v8r",
@@ -5206,14 +5075,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "mug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
@@ -5221,7 +5089,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "resolvedImageAssetKey": "mug",
-  "imageAlt": "Complete: m_g"
+  "imageAlt": "mug"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_a.v7r",
@@ -5293,14 +5161,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "hat",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "the full hat/hot/hut/hit vowel square",
   "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
@@ -5308,7 +5175,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
   "resolvedImageAssetKey": "hat",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "hat"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_i.v7r",
@@ -5380,14 +5247,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "pin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
@@ -5395,7 +5261,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/pin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
   "resolvedImageAssetKey": "pin",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "pin"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_a.v8r",
@@ -5455,33 +5321,25 @@ export const questions = [
    "jet": "D-VOWEL",
    "jug": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_a-v8",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "resolvedImageAssetKey": "jam",
-  "imageAlt": "Which word has the short a sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_o.v7r",
@@ -5541,33 +5399,25 @@ export const questions = [
    "hat": "D-VOWEL",
    "hut": "D-VOWEL"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "cvc_short_vowels-short_o-v7",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-  "resolvedImageAssetKey": "hot",
-  "imageAlt": "Which word has the short o sound?"
+  "notes": ""
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_e.v7r",
@@ -5639,14 +5489,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "sled",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/blends/sled.webp",
@@ -5654,7 +5503,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/sled.webp",
   "targetImagePath": "/images/assessment/blends/sled.webp",
   "resolvedImageAssetKey": "sled",
-  "imageAlt": "Complete: sl_d"
+  "imageAlt": "sled"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_u.v7r",
@@ -5710,14 +5559,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "plug",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "tiles are phonemes, not letters — sh/ck ride as one tile",
   "imagePath": "/images/assessment/blends/plug.webp",
@@ -5725,7 +5573,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/plug.webp",
   "targetImagePath": "/images/assessment/blends/plug.webp",
   "resolvedImageAssetKey": "plug",
-  "imageAlt": "Put the sounds in order to build the picture's word."
+  "imageAlt": "plug"
  },
  {
   "id": "lp3.cvc_short_vowels.l1.R.short_i.v8r",
@@ -5797,14 +5645,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "fin",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
@@ -5812,7 +5659,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/in/fin-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
   "resolvedImageAssetKey": "fin",
-  "imageAlt": "Complete: f_n"
+  "imageAlt": "fin"
  },
  {
   "id": "lp3.cvc_short_vowels.l2.R.short_u.v8r",
@@ -5884,14 +5731,13 @@ export const questions = [
   },
   "requiredImageAssetKey": "cut",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/cvc_short_vowels.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
   "notes": "",
   "imagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
@@ -5899,6 +5745,6 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/cut/cut-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/cut/cut-02.webp",
   "resolvedImageAssetKey": "cut",
-  "imageAlt": "Which word goes with the picture?"
+  "imageAlt": "cut"
  }
 ];

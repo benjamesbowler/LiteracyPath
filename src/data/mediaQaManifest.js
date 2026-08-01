@@ -9,11 +9,11 @@ import {
   imageQaReviewNeededPaths
 } from "./generated/imageQaReviewBlocklist.generated.js";
 
-export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked", "deleted"];
+export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_replacement", "blocked", "deleted"];
 
-const STORAGE_KEY = "lpMediaQaOverrides";
+const STORAGE_KEY = "lpMediaQaOverridesV2";
 const BAD_IMAGE_WORDS = ["rainbow", "sparkle", "sparkly", "glow", "aura", "multicolor", "psychedelic"];
-const BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi", "deleted"]);
+const BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_replacement", "deleted"]);
 
 export function normalizeMediaPath(filePath = "") {
   return String(filePath || "").trim();
@@ -35,7 +35,6 @@ function buildInitialSoundMediaQaSeedManifest() {
       rejectionReason: item.active === false ? item.qaNotes || "Inactive Initial Sounds target." : "",
       reviewerNotes: item.active === false ? item.qaStatus || "" : "",
       reviewedAt: "",
-      reviewedBy: "",
       replacementPath: ""
     };
 
@@ -72,7 +71,6 @@ function buildAssessmentImageStyleSeedManifest() {
     rejectionReason: row.issueType,
     reviewerNotes: row.reviewerNotes,
     reviewedAt: "2026-07-18",
-    reviewedBy: "Codex visual audit",
     heuristicFlags: [row.issueType],
     replacementPath: ""
   }));
@@ -163,7 +161,6 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
           rejectionReason: "",
           reviewerNotes: "",
           reviewedAt: "",
-          reviewedBy: "",
           heuristicFlags: getHeuristicFlags(mediaType, filePath),
           replacementPath: "",
           exists: true,
@@ -228,7 +225,7 @@ export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options =
   const id = getMediaQaId(mediaType, filePath);
   const override = readMediaQaOverrides()[id];
   if (override?.status) {
-    if (override.status === "needs_kimi" && options.reviewMode) return true;
+    if (override.status === "needs_replacement" && options.reviewMode) return true;
     return !BLOCKING_STATUSES.has(override.status);
   }
 
@@ -236,7 +233,7 @@ export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options =
   const statuses = seeds.map(record => record.status || "unreviewed");
   const blockingStatus = statuses.find(status => BLOCKING_STATUSES.has(status));
   const status = blockingStatus || statuses.find(Boolean) || "unreviewed";
-  if (status === "needs_kimi" && options.reviewMode) return true;
+  if (status === "needs_replacement" && options.reviewMode) return true;
   if (status === "unreviewed" && !options.reviewMode) {
     const heuristicFlags = seeds.flatMap(record => record.heuristicFlags || []);
     if (heuristicFlags.length > 0) return false;

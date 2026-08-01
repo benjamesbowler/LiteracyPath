@@ -60,7 +60,7 @@ raw evidence rather than storing a second summary:
 
 | View | Source and rule |
 |---|---|
-| Skill acquisition | First completed check for a skill at 80%+ across at least 8 scored responses; the line is the cumulative count. |
+| Skill acquisition | First completed check that meets the current shared Secure evidence policy; the line is the cumulative count. |
 | Retention | Later policy-ready checks of an already acquired skill, averaged by UTC month. |
 | Fluency | Saved WCPM from completed oral-reading-fluency checks. |
 | Support dependence | Percentage of question records that explicitly captured `supportUsed` or `supported`; missing support capture does not become zero. |

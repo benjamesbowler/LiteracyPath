@@ -13,8 +13,8 @@
 //      and beast arrives glued to its own square of sky, and the world becomes a
 //      collage of stickers.
 //
-// It cannot tell you whether the art is GOOD. That is Benjamin's job, and
-// docs/previews/quest-art-contact-sheet.html exists so he can do it in one look.
+// It cannot tell you whether the art is good; that still requires visual review, and
+// .artifacts/quest-art/quest-art-contact-sheet.html can be generated for one-look review.
 
 import fs from "node:fs";
 import path from "node:path";

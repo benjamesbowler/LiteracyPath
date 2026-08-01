@@ -98,7 +98,7 @@ Automated checks must never populate the reviewer or approval fields.
 - [ ] Confirm every unresolved deployment fact is closed or expressly blocks launch.
 - [ ] Record approved document versions and immutable evidence.
 - [ ] Set annual and change-triggered review dates.
-- [ ] Update `docs/release/EXTERNAL.md` only with genuine external approval evidence.
+- [ ] Update the current release issue only with genuine external approval evidence.
 
 ## Approval boundary
 

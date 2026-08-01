@@ -73,15 +73,6 @@ export const PHASE_PASS_RULE = Object.freeze({
   accuracyMin: 0.7
 });
 
-// Longer-term evidence thresholds retained for teacher diagnostics and the
-// optional "Secure" distinction. These do not control next-skill access.
-export const LEVEL_PASS_RULE = Object.freeze({
-  accuracyMin: 0.85,
-  minScoredDiscrete: 20,
-  minScoredCell: 16,
-  latestSittingMin: 0.8,
-  sessionsMin: 2
-});
 export const RETENTION_RULE = Object.freeze({
   items: 8, passMin: 7, minDaysAfterPass: 3
 });

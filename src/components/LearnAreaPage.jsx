@@ -42,42 +42,37 @@ function resolveStoryQuestLevel(quest = {}) {
   return "A";
 }
 
-export function LearnAreaPage({ progressScopeKey = "default" }) {
+/**
+ * @param launchQuestId  phase D (2026-07-29): the child's Story Quests screen
+ *   is the front door now, so this page can be mounted with the story already
+ *   chosen. Read at mount — never through an effect — and the quest is marked
+ *   opened exactly as startQuest() marks it.
+ * @param onExitLibrary  where leaving the player goes. Absent (teacher preview,
+ *   the standalone harness) it falls back to this page's own shelf.
+ */
+export function LearnAreaPage({
+  progressScopeKey = "default",
+  launchQuestId = "",
+  onExitLibrary = null
+}) {
   const teacherPreview = isStoryQuestTeacherPreviewScope(progressScopeKey);
-  const [activeQuestId, setActiveQuestId] = useState("");
+  const [activeQuestId, setActiveQuestId] = useState(launchQuestId);
   const [selectedQuestId, setSelectedQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
   const [storyPage, setStoryPage] = useState(0);
-  const [questProgress, setQuestProgress] = useState(() => (
-    teacherPreview ? {} : loadStoryQuestProgress(progressScopeKey)
-  ));
+  const [questProgress, setQuestProgress] = useState(() => {
+    const saved = teacherPreview ? {} : loadStoryQuestProgress(progressScopeKey);
+    if (!launchQuestId) return saved;
+    return {
+      ...saved,
+      [launchQuestId]: mergeStoryQuestProgressRow(saved[launchQuestId], {})
+    };
+  });
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
   const questGroups = STORY_QUEST_LEVELS.map(level => ({
     ...level,
     quests: storyQuests.filter(quest => resolveStoryQuestLevel(quest) === level.key)
   }));
-  const questSummary = useMemo(() => {
-    const completed = storyQuests.filter(quest => questProgress[quest.id]?.completed).length;
-    const inProgress = storyQuests.filter(quest => {
-      const progress = questProgress[quest.id] || {};
-      return progress.opened && !progress.completed;
-    }).length;
-    const foundWords = new Set(
-      storyQuests.flatMap(quest => questProgress[quest.id]?.wordsFound || [])
-        .map(word => String(word).toLowerCase())
-    );
-    const targetWords = new Set(
-      storyQuests.flatMap(quest => quest.targetWords || [])
-        .map(word => String(word).toLowerCase())
-    );
-
-    return {
-      completed,
-      inProgress,
-      foundWords: foundWords.size,
-      targetWords: targetWords.size
-    };
-  }, [questProgress]);
   const continueQuests = useMemo(() => storyQuests
     .filter(quest => {
       const progress = questProgress[quest.id] || {};
@@ -129,7 +124,10 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     });
   }, [activeQuestId, updateQuestProgress]);
 
-  const handleQuestExit = useCallback(() => setActiveQuestId(""), []);
+  const handleQuestExit = useCallback(() => {
+    setActiveQuestId("");
+    onExitLibrary?.();
+  }, [onExitLibrary]);
 
   const handleQuestProgress = useCallback((pageId, progressPatch = {}) => {
     if (!activeQuestId) return;
@@ -191,15 +189,14 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
               <img src="/images/comic/story-quests-logo.webp" alt="" />
             </h1>
             <p data-child-instruction="">Read a story. Choose what happens next.</p>
-            <div
-              className="story-quest-library-stats"
-              aria-label={teacherPreview ? "Temporary preview activity" : "Story Quest progress"}
-              data-child-progress=""
-            >
-              <span><strong>{questSummary.completed}</strong> complete</span>
-              <span><strong>{questSummary.inProgress}</strong> in progress</span>
-              <span><strong>{questSummary.foundWords} of {questSummary.targetWords}</strong> story words seen</span>
-            </div>
+            {/* THE THREE COUNTERS ARE GONE (phase D, 2026-07-29). This header
+                used to lead with a completed tally, an in-progress tally and a
+                running total of the target words a child had met. The child UI
+                caps its numeric systems at two — stars and coins — and those
+                were three more. The child's real shelf is
+                src/components/StudentStoryQuestsPage.jsx, where the same state
+                is a per-story badge (Carry on / New / Done / Next world)
+                instead of a score. */}
             {primaryQuest && (
               <button
                 className="story-quest-primary-action"
@@ -216,23 +213,26 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
             )}
           </div>
 
-          <div className="learn-story-level-selector" aria-label="Story Quest level menu">
-            {questGroups.map(level => {
-              const completedCount = level.quests.filter(quest => questProgress[quest.id]?.completed).length;
-
-              return (
-                <button
-                  aria-pressed={selectedLevelKey === level.key}
-                  className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
-                  key={level.key}
-                  onClick={() => jumpToLevel(level.key)}
-                  type="button"
-                >
-                  <strong>Level {level.key}</strong>
-                  <span>{completedCount} of {level.quests.length} complete</span>
-                </button>
-              );
-            })}
+          {/* The per-level "N of M complete" line went the same way as the
+              three header counters: it is a fourth numeric system, and the
+              level buttons work as jump links without one. */}
+          <div
+            className="learn-story-level-selector"
+            aria-label="Story Quest level menu"
+            data-child-progress=""
+          >
+            {questGroups.map(level => (
+              <button
+                aria-pressed={selectedLevelKey === level.key}
+                className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
+                key={level.key}
+                onClick={() => jumpToLevel(level.key)}
+                type="button"
+              >
+                <strong>Level {level.key}</strong>
+                <span>{level.subheading}</span>
+              </button>
+            ))}
           </div>
         </div>
 
@@ -276,9 +276,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                     : progress.opened
                       ? "in-progress"
                       : "not-started";
-                  const seenCount = Array.isArray(progress.wordsFound)
-                    ? new Set(progress.wordsFound.map(word => String(word).toLowerCase())).size
-                    : 0;
                   return (
                     <button
                       aria-label={`${teacherPreview ? "Preview" : status} ${quest.title}`}
@@ -301,11 +298,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                         <span className={`story-quest-status ${statusClass}`}>
                           {teacherPreview && status === "Not started" ? "Ready to preview" : status}
                         </span>
-                        {(progress.opened || progress.completed) && (
-                          <span className="story-quest-card-progress">
-                            {seenCount} of {quest.targetWords?.length || 0} story words seen
-                          </span>
-                        )}
                       </div>
                     </button>
                   );

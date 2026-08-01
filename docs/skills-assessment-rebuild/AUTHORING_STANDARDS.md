@@ -33,8 +33,9 @@ The one-sentence version: **an item is a hand-written measurement instrument wit
   ],
   "answer": "bat",
   "readability": { "promptWords": 5, "passageWords": 0, "maxSentenceWords": 5 },
-  "provenance": { "author": "opus", "wave": "W3", "date": "2026-08-xx",
-                  "reviewedBy": [], "signedOffBy": null },
+  "provenance": { "generatedBy": "assessment-rebuild-gate",
+                  "sourceFile": "tools/assessmentRebuild/authoring/rhyming.mjs",
+                  "standardVersion": "v3" },
   "notes": "why this item exists / what misconception it separates (1 line, author-facing)"
 }
 ```
@@ -64,8 +65,18 @@ Verified context for why these exist: in the current published bank, Main Idea's
 ## 3. Correctness rules (one defensible key)
 
 - **C-1** The key must be uniquely correct under a literal reading. Adversarial check at review: try to argue each distractor as correct; any semi-defensible distractor is replaced. (Current counter-example, Prepositions: `underneath` keyed against distractor `under` for "directly under something" — indefensible.)
+- **C-1a Child interpretation wins.** A distinction that is technically
+  recoverable by an adult is still ambiguous if a five- or six-year-old can
+  answer the printed or spoken wording literally. Never put bare `d` beside
+  `nd`, one `l` beside `ll`, or a second noun/preposition that truthfully fits
+  the scene or sentence. Scanner resistance never outranks one defensible key.
+- **C-1b A grammatical sentence is not enough.** Cloze distractors may be
+  grammatical only when the surrounding words or required image make them
+  clearly false. Frames such as “Both ___ lost a tooth” cannot offer two
+  plausible plural people words; location frames cannot rely on an
+  unillustrated imagined scene.
 - **C-2** No construct leakage: an item may only require its own skill. Long Vowels items must not require vowel-team knowledge (the current L2 tests `ai/ay` inside "Long Vowels and Silent E" — moved to Vowel Teams by the blueprints); grammar items must not hinge on reading stamina; comprehension keys must not hinge on one vocabulary word unless the skill is Context Clues.
-- **C-3** Every phonics/word mapping is validated against a **human-approved pronunciation lexicon** (new file `content/lexicon/approvedPhonics.json`, seeded from the blueprint word lists, each entry `{word, pattern, dialectNote?}` reviewed by Ben once). Lint `L-LEX` fails any item whose target word→pattern mapping is not in the lexicon. This is what makes `apple → a_e`-class errors impossible to publish.
+- **C-3** Every phonics/word mapping is validated against the current pronunciation lexicon (`content/lexicon/approvedPhonics.json`). Lint `L-LEX` fails any item whose target word→pattern mapping is not in that checked-in source. Lexicon changes must pass the same automated content gates as bank changes; no personal approval flag controls publication.
 - **C-4** Prompts pass a grammar/wording lint `L-GRAM`: article agreement ("a adjective" — 30 published Adjectives prompts currently fail this), no truncated frames ("Choose the precise word means…" — 19 published Prepositions prompts), no meta-language at L1 where the standards require child words ("which word names a thing", not "which word is a noun"), explicit ordinals for sequencing.
 - **C-5** Reading load caps (ESL rule made checkable, `L-READ`): L1 prompt ≤ 12 words, sentence ≤ 9 words, passage ≤ 60 words; L2 prompt ≤ 16, sentence ≤ 12, passage ≤ 110. Vocabulary outside the K-2 familiar list needs a blueprint justification (Context Clues targets are the sanctioned exception).
 
@@ -85,17 +96,17 @@ Per item: three distractors, ≥ 2 distinct codes, no code twice unless the blue
 
 ---
 
-## 5. The authoring loop (how Opus actually writes these)
+## 5. The authoring loop
 
 Per skill, per level, in chunks of ~8 items:
 
 1. Read the skill blueprint. Open the unit/cell checklist for the form being filled.
 2. Draft 8 items directly in schema v3, each with its author note naming the misconception it separates.
 3. Self-review against §2–§4 (the checklist in §7 verbatim).
-4. Run the lints locally (`npm run check:bank-lints -- --skill rhyming`). Fix reds. **Never weaken a lint to pass it** — a lint change is a standards change and needs Ben.
+4. Run the lints locally (`npm run check:bank-lints -- --skill rhyming`). Fix reds. A lint may only change with a documented standards reason and updated tests.
 5. Run SIM-SCANNER + SIM-NOREPEAT for the skill once a form completes.
 6. Commit the chunk with the lint output in the message. Move to the next chunk.
-7. When the skill's forms are complete: run the full gate (`check:audit:assessment-rebuild -- --skill X`), then hand Ben the human-review pack (§7) — publish only after sign-off recorded in `provenance.signedOffBy`.
+7. When the skill's forms are complete, run the full gate (`check:audit:assessment-rebuild -- --skill X --write`). Publication occurs only when every automated hard gate passes.
 
 Chunked authoring matters: 8 items is small enough to keep each one genuinely distinct (the failure mode this whole rebuild exists to kill is "generate 92 at once").
 
@@ -115,23 +126,21 @@ Blueprints are designed so the honest strategy is the only reliable one; authors
 
 ---
 
-## 7. Human review pack (what Ben signs off, per skill)
+## 7. Verification evidence
 
-One markdown file per skill, generated by tooling: every item rendered (prompt, choices with rationale codes, key marked), lint summary, sim results, unit-coverage matrix, and three flagged-for-attention lists (hardest items, any waiver requests, any lexicon additions). Sign-off = Ben replies with the skill name + "approved" (or edits); recorded in provenance and required by the release gate. Two independent passes for comprehension skills (editorial + measurement, per the audit's acceptance criteria) — Ben may delegate one pass to a future session with fresh eyes, but both must be recorded.
+The gate emits a machine-readable report with every item, lint result, simulation result, coverage count, media requirement, and current standard version. This reproducible evidence is the publication authority. Editorial review can still improve content, but it is not represented as an owner-specific switch and cannot silently override a failing gate.
 
 ---
 
-## 8. Banned patterns — the wall of shame (all verbatim from the current published bank, 2026-07-29)
+## 8. Banned pattern classes
 
-Kept here so no future generation pass reinvents them:
-
-- Token-swap cloning: *"Owen and Aunt Jo spent the morning at the fire station…"* / *"Ruby and Mr. Patel spent the morning at the forest trail…"* — same skeleton, same key, published as L1 AND L2.
-- Stock emotion sets: Inference's `proud / angry / very sleepy / hungry` rotated across 92 items.
-- Self-answering prompts: *"Choose the word that uses the "ch" digraph"* (answer contains `ch`, distractors don't).
-- Printed-rime giveaway: *"Which word rhymes with cat?"* with `-at` visible in exactly one choice, all 656 Rhyming items one format, audio suppressed.
-- Non-word distractors: `boxs`, `boxies`, `staries`, `foxies`, `dishies` (Plurals).
-- Broken frames: *"Choose the precise word means facing across from something?"* (×19, Prepositions L2); *"Tap the picture that shows a adjective."* (×30, Adjectives L1).
-- Near-synonym key/distractor pairs: `underneath` keyed against `under`.
-- Per-question evidence keys: `the_HFWQ-0001` … six variants of "the" as six different skills.
-- Quota-driven counts: 46-per-level padding regardless of construct (Rhyming 656 published while Digraphs has 6 units; Prepositions 303 with 19 malformed).
-- Cross-construct leakage: `ai`/`ay` vowel-team completions published inside Long Vowels & Silent E Level 2.
+- Token-swap or skeleton-cloned items.
+- Stock distractor sets reused across questions.
+- Prompts that reveal their own answers.
+- Printed-pattern shortcuts in listening constructs.
+- Unapproved non-word distractors.
+- Grammatically broken or child-ambiguous frames.
+- Near-synonym key/distractor pairs with more than one defensible answer.
+- Per-question evidence keys instead of construct-shaped units.
+- Quota padding unrelated to construct coverage.
+- Cross-construct questions filed under the wrong skill.

@@ -84,6 +84,11 @@ function pngDimensions(filePath) {
   });
 }
 
+const QUEST_PIXEL_PROVENANCE = fs.readFileSync(
+  "public/game-assets/quest-pixel/SOURCE.md",
+  "utf8"
+);
+
 test("performance tiers respect explicit accessibility and low-device signals", () => {
   assert.deepEqual(normalizeQuestSettings({ quietSoundscape: true }), {
     displayMode: "auto",
@@ -1315,7 +1320,7 @@ test("Seedwake premium scenery retains authored provenance and fixed display can
     "trail-ruin.png": { width: 112, height: 112 },
     "seed-lantern.png": { width: 80, height: 80 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored premium Seedwake scenery/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored premium Seedwake scenery/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1335,7 +1340,7 @@ test("River Gardens premium scenery retains authored provenance and fixed displa
     "garden-arch.png": { width: 144, height: 144 },
     "willow-bank.png": { width: 144, height: 144 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored premium River Gardens scenery/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored premium River Gardens scenery/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1356,7 +1361,7 @@ test("Fossil Canyon premium scenery retains authored provenance and fixed displa
     "survey-station.png": { width: 160, height: 160 },
     "dig-basin.png": { width: 256, height: 192 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Fossil Canyon scenery kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Fossil Canyon scenery kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1376,7 +1381,7 @@ test("Fossil Canyon premium interaction props retain authored provenance and rep
     "fossil-beacon.png": { width: 88, height: 88 },
     "brush-station.png": { width: 96, height: 96 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Fossil Canyon interaction kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Fossil Canyon interaction kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1403,7 +1408,7 @@ test("Forge Settlement premium scenery retains authored provenance and gives eve
     "sorting-conveyor.png": { width: 224, height: 160 },
     "ember-rivet.png": { width: 64, height: 64 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Forge Settlement scenery kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Forge Settlement scenery kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1423,7 +1428,7 @@ test("Forge Settlement premium interaction props replace generic task shapes", (
     "word-plate.png": { width: 88, height: 88 },
     "gear-socket.png": { width: 96, height: 96 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Forge Settlement interaction kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Forge Settlement interaction kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1449,7 +1454,7 @@ test("Glass Marsh premium scenery replaces the inherited meadow and ruin kit", (
     "glass-boardwalk.png": { width: 208, height: 112 },
     "mirror-gem.png": { width: 64, height: 64 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Glass Marsh scenery kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Glass Marsh scenery kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1469,7 +1474,7 @@ test("Glass Marsh premium interaction props make every chapter verb physical", (
     "fen-beacon.png": { width: 96, height: 112 },
     "mirror-socket.png": { width: 112, height: 88 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Glass Marsh interaction kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Glass Marsh interaction kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1495,7 +1500,7 @@ test("Storm Coast premium scenery replaces inherited meadow houses and sea strip
     "sailcloth-windbreak.png": { width: 152, height: 112 },
     "lens-shard-pickup.png": { width: 64, height: 72 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Storm Coast scenery kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Storm Coast scenery kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1515,7 +1520,7 @@ test("Storm Coast premium interaction props make every chapter verb physical", (
     "fleet-signal-flag.png": { width: 88, height: 112 },
     "lighthouse-lens-socket.png": { width: 120, height: 96 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored Storm Coast interaction kit/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored Storm Coast interaction kit/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1541,7 +1546,7 @@ test("Lantern Forest premium scenery replaces inherited meadow and Moonwood plac
     "telescope-pedestal.png": { width: 112, height: 128 },
     "living-map-pickup.png": { width: 72, height: 64 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored.*Lantern Forest/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored.*Lantern Forest/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1561,7 +1566,7 @@ test("Lantern Forest premium interaction props make every chapter verb physical"
     "observatory-orbit-dial.png": { width: 120, height: 120 },
     "observatory-alignment-socket.png": { width: 120, height: 112 }
   };
-  assert.match(fs.readFileSync(`${root}/SOURCE.md`, "utf8"), /project-authored.*Lantern Forest/i);
+  assert.match(QUEST_PIXEL_PROVENANCE, /project-authored.*Lantern Forest/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
     assert.deepEqual(pngDimensions(`${root}/${asset}`), dimensions, `${asset} changed canvas size`);
   }
@@ -1587,7 +1592,7 @@ test("Star Reach premium scenery replaces inherited Moonwood ruins and duplicate
     "dawn-crystals.png": { width: 144, height: 112 },
     "reader-page-pickup.png": { width: 72, height: 72 }
   };
-  const provenance = fs.readFileSync(`${root}/SOURCE.md`, "utf8");
+  const provenance = QUEST_PIXEL_PROVENANCE;
   assert.match(provenance, /Star Reach premium scenery sources/i);
   assert.match(provenance, /Project-authored with OpenAI image generation/i);
   for (const [asset, dimensions] of Object.entries(expected)) {
@@ -1609,7 +1614,7 @@ test("Star Reach premium interaction props make every final-chapter verb physica
     "reading-sound-sigil.png": { width: 120, height: 120 },
     "first-reading-star-socket.png": { width: 120, height: 120 }
   };
-  const provenance = fs.readFileSync(`${root}/SOURCE.md`, "utf8");
+  const provenance = QUEST_PIXEL_PROVENANCE;
   assert.match(provenance, /Star Reach premium interaction sources/i);
   assert.match(provenance, /Project-authored with OpenAI image generation/i);
   for (const [asset, dimensions] of Object.entries(expected)) {

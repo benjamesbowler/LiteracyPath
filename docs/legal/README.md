@@ -64,7 +64,7 @@ Before a paid, public, or school-scale launch, the owner must:
 5. publish only counsel-approved public text;
 6. complete the independent accessibility and live security reviews; and
 7. record dated approval evidence in `COUNSEL_REVIEW_CHECKLIST.md` and
-   `docs/release/EXTERNAL.md`.
+   the current release issue.
 
 ## Maintenance
 

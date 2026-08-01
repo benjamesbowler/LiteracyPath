@@ -25,7 +25,7 @@
 //              teacher dashboard's weakest-five)
 //   --stop     curriculum position 1-40 (default 40): words use only sounds
 //              taught at or before this stop
-//   --out      output directory (default docs/previews/practice-sheets)
+//   --out      output directory (default .artifacts/practice-sheets)
 //
 // Output: <out>/<name>-<date>/practice.json + rendered .html/.docx per page.
 
@@ -48,7 +48,7 @@ function arg(flag, fallback = null) {
 const childName = arg("--name", "").trim();
 const targets = (arg("--targets", "") || "").split(",").map(t => t.trim().toLowerCase()).filter(Boolean);
 const stopIndex = Math.max(1, Math.min(QUEST_STOPS.length, Number(arg("--stop", QUEST_STOPS.length)) || QUEST_STOPS.length));
-const outBase = arg("--out", path.join(ROOT, "docs", "previews", "practice-sheets"));
+const outBase = arg("--out", path.join(ROOT, ".artifacts", "practice-sheets"));
 
 if (!childName || !targets.length) {
   console.error('usage: node tools/practiceSheet/buildPracticeSheet.mjs --name "Sam" --targets sh,ch,e --stop 13');

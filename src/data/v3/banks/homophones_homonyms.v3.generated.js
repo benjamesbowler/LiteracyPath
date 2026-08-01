@@ -59,33 +59,25 @@ export const questions = [
    "sand": "D-SEMANTIC",
    "say": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sea_see-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "salty gifts sa to sand and say — tied distractors, key clean",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "resolvedImageAssetKey": "sea",
-  "imageAlt": "Which spelling names the big salty water?"
+  "notes": "salty gifts sa to sand and say — tied distractors, key clean"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.sea_see.v2",
@@ -145,33 +137,25 @@ export const questions = [
    "sea": "D-HOMOPHONE",
    "saw": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sea_see-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "means gifts ea to sea — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/see.webp",
-  "imageUrl": "/images/assessment/hfw/see.webp",
-  "targetImage": "/images/assessment/hfw/see.webp",
-  "targetImagePath": "/images/assessment/hfw/see.webp",
-  "resolvedImageAssetKey": "see",
-  "imageAlt": "Which spelling means you look with your eyes?"
+  "notes": "means gifts ea to sea — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.sea_see.v3",
@@ -232,34 +216,26 @@ export const questions = [
    "seat": "D-VISUAL-NEIGHBOR",
    "snow": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "We sailed far out on the deep blue ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sea_see-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "deep gifts ee to the pair mate see — a distractor tops",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "resolvedImageAssetKey": "sea",
-  "imageAlt": "We sailed far out on the deep blue sea."
+  "notes": "deep gifts ee to the pair mate see — a distractor tops"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sea_see.v4",
@@ -320,34 +296,26 @@ export const questions = [
    "sit": "D-SEMANTIC",
    "sea": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Close your eyes — now open and ___!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sea_see-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/see.webp",
-  "imageUrl": "/images/assessment/hfw/see.webp",
-  "targetImage": "/images/assessment/hfw/see.webp",
-  "targetImagePath": "/images/assessment/hfw/see.webp",
-  "resolvedImageAssetKey": "see",
-  "imageAlt": "Close your eyes — now open and see!"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sun_son.v1",
@@ -407,33 +375,25 @@ export const questions = [
    "son": "D-HOMOPHONE",
    "sand": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sun_son-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "resolvedImageAssetKey": "sun",
-  "imageAlt": "Which spelling is the hot star in the sky?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.sun_son.v2",
@@ -493,33 +453,25 @@ export const questions = [
    "sock": "D-VISUAL-NEIGHBOR",
    "sad": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sun_son-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/son.png",
-  "imageUrl": "/images/child-mode/initial-sounds/son.png",
-  "targetImage": "/images/child-mode/initial-sounds/son.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/son.png",
-  "resolvedImageAssetKey": "son",
-  "imageAlt": "Which spelling is a boy in a family?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.sun_son.v3",
@@ -580,34 +532,26 @@ export const questions = [
    "son": "D-HOMOPHONE",
    "spoon": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ rose over the hill at dawn.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sun_son-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "spoon and sofa parse and are absurd — no rising rival like moon or star",
-  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "resolvedImageAssetKey": "sun",
-  "imageAlt": "The sun rose over the hill at dawn."
+  "notes": "spoon and sofa parse and are absurd — no rising rival like moon or star"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sun_son.v4",
@@ -668,34 +612,26 @@ export const questions = [
    "sock": "D-SEMANTIC",
    "spoon": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Grandpa hugged his ___ at the gate.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sun_son-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/son.png",
-  "imageUrl": "/images/child-mode/initial-sounds/son.png",
-  "targetImage": "/images/child-mode/initial-sounds/son.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/son.png",
-  "resolvedImageAssetKey": "son",
-  "imageAlt": "Grandpa hugged his son at the gate."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.be_bee.v1",
@@ -755,33 +691,25 @@ export const questions = [
    "leaf": "D-SEMANTIC",
    "bat": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-be_bee-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "resolvedImageAssetKey": "bee",
-  "imageAlt": "Which spelling is the buzzing insect?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.be_bee.v2",
@@ -841,33 +769,25 @@ export const questions = [
    "by": "D-VISUAL-NEIGHBOR",
    "bed": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-be_bee-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/be.webp",
-  "imageUrl": "/images/assessment/hfw/be.webp",
-  "targetImage": "/images/assessment/hfw/be.webp",
-  "targetImagePath": "/images/assessment/hfw/be.webp",
-  "resolvedImageAssetKey": "be",
-  "imageAlt": "Which spelling is the doing word in 'Let it be'?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.be_bee.v3",
@@ -928,34 +848,26 @@ export const questions = [
    "sock": "D-SEMANTIC",
    "spoon": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A ___ landed on the flower.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-be_bee-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "resolvedImageAssetKey": "bee",
-  "imageAlt": "A bee landed on the flower."
+  "notes": "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.be_bee.v4",
@@ -1016,34 +928,26 @@ export const questions = [
    "bee": "D-HOMOPHONE",
    "draw": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "I will ___ seven on my next birthday.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-be_bee-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "draw seven parses (the numeral) and is defensibly wrong for an age",
-  "imagePath": "/images/assessment/hfw/be.webp",
-  "imageUrl": "/images/assessment/hfw/be.webp",
-  "targetImage": "/images/assessment/hfw/be.webp",
-  "targetImagePath": "/images/assessment/hfw/be.webp",
-  "resolvedImageAssetKey": "be",
-  "imageAlt": "I will be seven on my next birthday."
+  "notes": "draw seven parses (the numeral) and is defensibly wrong for an age"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.no_know.v1",
@@ -1103,33 +1007,25 @@ export const questions = [
    "now": "D-VISUAL-NEIGHBOR",
    "new": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-no_know-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "not gifts no to key, know and now together — three-way tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "resolvedImageAssetKey": "no",
-  "imageAlt": "Which spelling is the word for 'not yes'?"
+  "notes": "not gifts no to key, know and now together — three-way tie"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.no_know.v2",
@@ -1189,33 +1085,25 @@ export const questions = [
    "no": "D-HOMOPHONE",
    "now": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-no_know-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/know.webp",
-  "imageUrl": "/images/assessment/hfw/know.webp",
-  "targetImage": "/images/assessment/hfw/know.webp",
-  "targetImagePath": "/images/assessment/hfw/know.webp",
-  "resolvedImageAssetKey": "know",
-  "imageAlt": "Which spelling fits 'to know the answer'?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.no_know.v3",
@@ -1276,34 +1164,26 @@ export const questions = [
    "now": "D-VISUAL-NEIGHBOR",
    "oops": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Dad said ___ when I asked for sweets.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-no_know-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/no-know-01.webp",
-  "resolvedImageAssetKey": "no",
-  "imageAlt": "Dad said no when I asked for sweets."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.no_know.v4",
@@ -1364,34 +1244,26 @@ export const questions = [
    "draw": "D-SEMANTIC",
    "no": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Do you ___ the way to school?",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-no_know-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "draw the way parses (a map) and is defensibly not the asked meaning",
-  "imagePath": "/images/assessment/hfw/know.webp",
-  "imageUrl": "/images/assessment/hfw/know.webp",
-  "targetImage": "/images/assessment/hfw/know.webp",
-  "targetImagePath": "/images/assessment/hfw/know.webp",
-  "resolvedImageAssetKey": "know",
-  "imageAlt": "Do you know the way to school?"
+  "notes": "draw the way parses (a map) and is defensibly not the asked meaning"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.one_won.v1",
@@ -1451,33 +1323,25 @@ export const questions = [
    "own": "D-VISUAL-NEIGHBOR",
    "once": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-one_won-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Which spelling is the number after zero?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.one_won.v2",
@@ -1537,33 +1401,25 @@ export const questions = [
    "one": "D-HOMOPHONE",
    "win": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-one_won-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "which gifts wh to when — a distractor tops, never the key",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "resolvedImageAssetKey": "won",
-  "imageAlt": "Which spelling tells that your team came first?"
+  "notes": "which gifts wh to when — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.one_won.v3",
@@ -1624,34 +1480,26 @@ export const questions = [
    "two": "D-FUNCTION-SWAP",
    "ten": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Pick just ___ card from the pack.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-one_won-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "two card and ten card break number agreement — the classic count trap",
-  "imagePath": "/images/assessment/hfw/one.webp",
-  "imageUrl": "/images/assessment/hfw/one.webp",
-  "targetImage": "/images/assessment/hfw/one.webp",
-  "targetImagePath": "/images/assessment/hfw/one.webp",
-  "resolvedImageAssetKey": "one",
-  "imageAlt": "Pick just one card from the pack."
+  "notes": "two card and ten card break number agreement — the classic count trap"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.one_won.v4",
@@ -1712,34 +1560,26 @@ export const questions = [
    "wins": "D-FUNCTION-SWAP",
    "one": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Our team ___ the cup last year!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-one_won-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "resolvedImageAssetKey": "won",
-  "imageAlt": "Our team won the cup last year!"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.ate_eight.v1",
@@ -1799,33 +1639,25 @@ export const questions = [
    "eighty": "D-VISUAL-NEIGHBOR",
    "ten": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-ate_eight-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "after gifts te to ate and ten — tied distractors, key clean",
-  "imagePath": "/images/assessment/long-vowels/eight.webp",
-  "imageUrl": "/images/assessment/long-vowels/eight.webp",
-  "targetImage": "/images/assessment/long-vowels/eight.webp",
-  "targetImagePath": "/images/assessment/long-vowels/eight.webp",
-  "resolvedImageAssetKey": "eight",
-  "imageAlt": "Which spelling is the number after seven?"
+  "notes": "after gifts te to ate and ten — tied distractors, key clean"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.ate_eight.v2",
@@ -1885,33 +1717,25 @@ export const questions = [
    "egg": "D-VISUAL-NEIGHBOR",
    "eight": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-ate_eight-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "that gifts at to key and eat together — tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "resolvedImageAssetKey": "ate",
-  "imageAlt": "Which spelling tells that lunch is all gone?"
+  "notes": "that gifts at to key and eat together — tie"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.ate_eight.v3",
@@ -1972,34 +1796,26 @@ export const questions = [
    "eat": "D-FUNCTION-SWAP",
    "eats": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Ben ___ all his peas at dinner.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-ate_eight-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "at gifts itself to key, eat and eats — three-way tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/ate-eight-01.webp",
-  "resolvedImageAssetKey": "ate",
-  "imageAlt": "Ben ate all his peas at dinner."
+  "notes": "at gifts itself to key, eat and eats — three-way tie"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.ate_eight.v4",
@@ -2060,34 +1876,26 @@ export const questions = [
    "ate": "D-HOMOPHONE",
    "six": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "There are ___ legs on a spider.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-ate_eight-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "six parses but a spider has eight — the fact pins it",
-  "imagePath": "/images/assessment/long-vowels/eight.webp",
-  "imageUrl": "/images/assessment/long-vowels/eight.webp",
-  "targetImage": "/images/assessment/long-vowels/eight.webp",
-  "targetImagePath": "/images/assessment/long-vowels/eight.webp",
-  "resolvedImageAssetKey": "eight",
-  "imageAlt": "There are eight legs on a spider."
+  "notes": "six parses but a spider has eight — the fact pins it"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.hear_here.v1",
@@ -2147,33 +1955,25 @@ export const questions = [
    "heart": "D-VISUAL-NEIGHBOR",
    "head": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hear_here-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "ears gifts ear to key and heart together — tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "resolvedImageAssetKey": "hear",
-  "imageAlt": "Which spelling uses your ears?"
+  "notes": "ears gifts ear to key and heart together — tie"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.hear_here.v2",
@@ -2233,33 +2033,25 @@ export const questions = [
    "hear": "D-HOMOPHONE",
    "there": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hear_here-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "this gifts th to there — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/here.webp",
-  "imageUrl": "/images/assessment/hfw/here.webp",
-  "targetImage": "/images/assessment/hfw/here.webp",
-  "targetImagePath": "/images/assessment/hfw/here.webp",
-  "resolvedImageAssetKey": "here",
-  "imageAlt": "Which spelling points to this place?"
+  "notes": "this gifts th to there — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.hear_here.v3",
@@ -2320,34 +2112,26 @@ export const questions = [
    "feed": "D-SEMANTIC",
    "name": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Shh! I can ___ the owl outside.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hear_here-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "shh pins listening — feeding an owl mid-shh is defensibly wrong",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "resolvedImageAssetKey": "hear",
-  "imageAlt": "Shh! I can hear the owl outside."
+  "notes": "shh pins listening — feeding an owl mid-shh is defensibly wrong"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.hear_here.v4",
@@ -2408,34 +2192,26 @@ export const questions = [
    "nearby": "D-SEMANTIC",
    "hear": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The bus stops right ___, at this very corner.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hear_here-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "at this very corner names the speaker's exact spot — there points away and nearby is vague; very and corner gift er to key, there and nearby alike",
-  "imagePath": "/images/assessment/hfw/here.webp",
-  "imageUrl": "/images/assessment/hfw/here.webp",
-  "targetImage": "/images/assessment/hfw/here.webp",
-  "targetImagePath": "/images/assessment/hfw/here.webp",
-  "resolvedImageAssetKey": "here",
-  "imageAlt": "The bus stops right here, at this very corner."
+  "notes": "at this very corner names the speaker's exact spot — there points away and nearby is vague; very and corner gift er to key, there and nearby alike"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.blue_blew.v1",
@@ -2495,33 +2271,25 @@ export const questions = [
    "black": "D-SEMANTIC",
    "brown": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-blue_blew-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/blue.webp",
-  "imageUrl": "/images/assessment/long-vowels/blue.webp",
-  "targetImage": "/images/assessment/long-vowels/blue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
-  "resolvedImageAssetKey": "blue",
-  "imageAlt": "Which spelling is the color of the sky?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.blue_blew.v2",
@@ -2581,33 +2349,25 @@ export const questions = [
    "blue": "D-HOMOPHONE",
    "blow": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-blue_blew-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "resolvedImageAssetKey": "blew",
-  "imageAlt": "Which spelling tells what the wind did?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.blue_blew.v3",
@@ -2668,34 +2428,26 @@ export const questions = [
    "blows": "D-FUNCTION-SWAP",
    "grew": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The wind ___ my hat into the pond!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-blue_blew-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "blows misses the story's past tense; grew is absurd",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/blue-blew-01.webp",
-  "resolvedImageAssetKey": "blew",
-  "imageAlt": "The wind blew my hat into the pond!"
+  "notes": "blows misses the story's past tense; grew is absurd"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.blue_blew.v4",
@@ -2756,34 +2508,26 @@ export const questions = [
    "tall": "D-SEMANTIC",
    "blew": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Milo wore his ___ scarf, blue like the sea.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-blue_blew-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the color of the sea pins blue — loud and tall parse and contradict it",
-  "imagePath": "/images/assessment/long-vowels/blue.webp",
-  "imageUrl": "/images/assessment/long-vowels/blue.webp",
-  "targetImage": "/images/assessment/long-vowels/blue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
-  "resolvedImageAssetKey": "blue",
-  "imageAlt": "Milo wore his blue scarf, blue like the sea."
+  "notes": "the color of the sea pins blue — loud and tall parse and contradict it"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.to_two_too.v1",
@@ -2844,34 +2588,26 @@ export const questions = [
    "two": "D-HOMOPHONE",
    "toe": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "May I come ___ the park with you?",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-to_two_too-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/to.webp",
-  "imageUrl": "/images/assessment/hfw/to.webp",
-  "targetImage": "/images/assessment/hfw/to.webp",
-  "targetImagePath": "/images/assessment/hfw/to.webp",
-  "resolvedImageAssetKey": "to",
-  "imageAlt": "May I come to the park with you?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.to_two_too.v2",
@@ -2932,34 +2668,26 @@ export const questions = [
    "to": "D-HOMOPHONE",
    "ten": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Nan baked ___ pies, one for each hand.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-to_two_too-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "one for each hand counts to exactly two — ten parses and is pinned wrong",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "two",
-  "imageAlt": "Nan baked two pies, one for each hand."
+  "notes": "one for each hand counts to exactly two — ten parses and is pinned wrong"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.to_two_too.v3",
@@ -3020,34 +2748,26 @@ export const questions = [
    "two": "D-HOMOPHONE",
    "very": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "That soup is ___ hot to eat!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-to_two_too-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the too-hot-to-eat frame needs too — very hot to eat drops the result meaning",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "too",
-  "imageAlt": "That soup is too hot to eat!"
+  "notes": "the too-hot-to-eat frame needs too — very hot to eat drops the result meaning"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.to_two_too.v4",
@@ -3107,33 +2827,25 @@ export const questions = [
    "to": "D-HOMOPHONE",
    "too": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-to_two_too-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "two",
-  "imageAlt": "Which spelling is the number?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.there_their.v1",
@@ -3194,34 +2906,26 @@ export const questions = [
    "them": "D-FUNCTION-SWAP",
    "they": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The twins packed ___ bags for camp.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-there_their-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the gifts th to all four options — full tie by construction",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "The twins packed their bags for camp."
+  "notes": "the gifts th to all four options — full tie by construction"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.there_their.v2",
@@ -3282,34 +2986,26 @@ export const questions = [
    "then": "D-VISUAL-NEIGHBOR",
    "their": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Look over ___ — the parade is coming!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-there_their-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Look over there — the parade is coming!"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.there_their.v3",
@@ -3369,33 +3065,25 @@ export const questions = [
    "then": "D-VISUAL-NEIGHBOR",
    "thin": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-there_their-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "them gifts the to key, there and then — three-way tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "Which spelling shows something belongs to them?"
+  "notes": "them gifts the to key, there and then — three-way tie"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.there_their.v4",
@@ -3455,33 +3143,25 @@ export const questions = [
    "their": "D-HOMOPHONE",
    "then": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-there_their-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "there",
-  "imageAlt": "Which spelling points to a place?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.right_write.v1",
@@ -3542,34 +3222,26 @@ export const questions = [
    "wrong": "D-OPPOSITE",
    "long": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The teacher ticked it — my sum was ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-right_write-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "ticked pins correct — wrong parses and contradicts the tick; it gifts its chunk to write, a distractor tops",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "resolvedImageAssetKey": "right",
-  "imageAlt": "The teacher ticked it — my sum was right."
+  "notes": "ticked pins correct — wrong parses and contradicts the tick; it gifts its chunk to write, a distractor tops"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.right_write.v2",
@@ -3630,34 +3302,26 @@ export const questions = [
    "right": "D-HOMOPHONE",
    "wrote": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "I will ___ a letter to Gran tonight.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-right_write-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "letter gifts te to key and wrote together — tie",
-  "imagePath": "/images/assessment/generated/concepts/write.webp",
-  "imageUrl": "/images/assessment/generated/concepts/write.webp",
-  "targetImage": "/images/assessment/generated/concepts/write.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/write.webp",
-  "resolvedImageAssetKey": "write",
-  "imageAlt": "I will write a letter to Gran tonight."
+  "notes": "letter gifts te to key and wrote together — tie"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.right_write.v3",
@@ -3717,33 +3381,25 @@ export const questions = [
    "night": "D-VISUAL-NEIGHBOR",
    "light": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-right_write-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "opposite gifts it to write — a distractor tops, never the key",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "resolvedImageAssetKey": "right",
-  "imageAlt": "Which spelling is the opposite of left?"
+  "notes": "opposite gifts it to write — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.right_write.v4",
@@ -3803,33 +3459,25 @@ export const questions = [
    "white": "D-VISUAL-NEIGHBOR",
    "right": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-right_write-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "with gifts it to key and white together — tie",
-  "imagePath": "/images/assessment/generated/concepts/write.webp",
-  "imageUrl": "/images/assessment/generated/concepts/write.webp",
-  "targetImage": "/images/assessment/generated/concepts/write.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/write.webp",
-  "resolvedImageAssetKey": "write",
-  "imageAlt": "Which spelling is done with a pencil?"
+  "notes": "with gifts it to key and white together — tie"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.new_knew.v1",
@@ -3890,34 +3538,26 @@ export const questions = [
    "blue": "D-SEMANTIC",
    "wet": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "My shoes are ___ — I got them today.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-new_knew-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "I got them today explains newness, not color or wetness",
-  "imagePath": "/images/assessment/hfw/new.webp",
-  "imageUrl": "/images/assessment/hfw/new.webp",
-  "targetImage": "/images/assessment/hfw/new.webp",
-  "targetImagePath": "/images/assessment/hfw/new.webp",
-  "resolvedImageAssetKey": "new",
-  "imageAlt": "My shoes are new — I got them today."
+  "notes": "I got them today explains newness, not color or wetness"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.new_knew.v2",
@@ -3978,34 +3618,26 @@ export const questions = [
    "know": "D-FUNCTION-SWAP",
    "knows": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "I ___ the answer before anyone else.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-new_knew-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "know and knows clash with the before-past frame",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "resolvedImageAssetKey": "answer",
-  "imageAlt": "I knew the answer before anyone else."
+  "notes": "know and knows clash with the before-past frame"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.new_knew.v3",
@@ -4065,33 +3697,25 @@ export const questions = [
    "now": "D-VISUAL-NEIGHBOR",
    "nod": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-new_knew-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "understood gifts od to nod — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
-  "imageAlt": "Which spelling tells you understood it all along?"
+  "notes": "understood gifts od to nod — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.new_knew.v4",
@@ -4151,33 +3775,25 @@ export const questions = [
    "near": "D-VISUAL-NEIGHBOR",
    "knew": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-new_knew-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/new.webp",
-  "imageUrl": "/images/assessment/hfw/new.webp",
-  "targetImage": "/images/assessment/hfw/new.webp",
-  "targetImagePath": "/images/assessment/hfw/new.webp",
-  "resolvedImageAssetKey": "new",
-  "imageAlt": "Which spelling is the opposite of old?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.hour_our.v1",
@@ -4238,34 +3854,26 @@ export const questions = [
    "week": "D-SEMANTIC",
    "our": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The cake bakes for one ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hour_our-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "one hours breaks agreement; a one-week cake bake is defensibly absurd",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "resolvedImageAssetKey": "hour",
-  "imageAlt": "The cake bakes for one hour."
+  "notes": "one hours breaks agreement; a one-week cake bake is defensibly absurd"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.hour_our.v2",
@@ -4326,34 +3934,26 @@ export const questions = [
    "oar": "D-VISUAL-NEIGHBOR",
    "hour": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "That swing is ___ special spot.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hour_our-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/our.webp",
-  "imageUrl": "/images/assessment/hfw/our.webp",
-  "targetImage": "/images/assessment/hfw/our.webp",
-  "targetImagePath": "/images/assessment/hfw/our.webp",
-  "resolvedImageAssetKey": "our",
-  "imageAlt": "That swing is our special spot."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.hour_our.v3",
@@ -4413,33 +4013,25 @@ export const questions = [
    "day": "D-SEMANTIC",
    "our": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hour_our-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/our-hour-01.webp",
-  "resolvedImageAssetKey": "hour",
-  "imageAlt": "Which spelling is sixty minutes?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.hour_our.v4",
@@ -4499,33 +4091,25 @@ export const questions = [
    "ours": "D-VISUAL-NEIGHBOR",
    "out": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hour_our-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/our.webp",
-  "imageUrl": "/images/assessment/hfw/our.webp",
-  "targetImage": "/images/assessment/hfw/our.webp",
-  "targetImagePath": "/images/assessment/hfw/our.webp",
-  "resolvedImageAssetKey": "our",
-  "imageAlt": "Which spelling means it belongs to us?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.flower_flour.v1",
@@ -4586,34 +4170,26 @@ export const questions = [
    "flower": "D-HOMOPHONE",
    "floor": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Sift the ___ into the bowl for the cake.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-flower_flour-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "resolvedImageAssetKey": "flour",
-  "imageAlt": "Sift the flour into the bowl for the cake."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.flower_flour.v2",
@@ -4674,34 +4250,26 @@ export const questions = [
    "flour": "D-HOMOPHONE",
    "floor": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "A bee landed on the pink ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-flower_flour-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "landed gifts la to flag — a distractor tops, never the key",
-  "imagePath": "/images/assessment/blends/flower.webp",
-  "imageUrl": "/images/assessment/blends/flower.webp",
-  "targetImage": "/images/assessment/blends/flower.webp",
-  "targetImagePath": "/images/assessment/blends/flower.webp",
-  "resolvedImageAssetKey": "flower",
-  "imageAlt": "A bee landed on the pink flower."
+  "notes": "landed gifts la to flag — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.flower_flour.v3",
@@ -4761,33 +4329,25 @@ export const questions = [
    "flour": "D-HOMOPHONE",
    "floor": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-flower_flour-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "grows gifts ow to key and crow together — tie; no growing rival like tree",
-  "imagePath": "/images/assessment/blends/flower.webp",
-  "imageUrl": "/images/assessment/blends/flower.webp",
-  "targetImage": "/images/assessment/blends/flower.webp",
-  "targetImagePath": "/images/assessment/blends/flower.webp",
-  "resolvedImageAssetKey": "flower",
-  "imageAlt": "Which spelling grows in the garden?"
+  "notes": "grows gifts ow to key and crow together — tie; no growing rival like tree"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.flower_flour.v4",
@@ -4847,33 +4407,25 @@ export const questions = [
    "floor": "D-VISUAL-NEIGHBOR",
    "fork": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-flower_flour-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "powder gifts ow to flower and for gifts or to fork — tied distractors",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/flower-flour-01.webp",
-  "resolvedImageAssetKey": "flour",
-  "imageAlt": "Which spelling is powder for baking?"
+  "notes": "powder gifts ow to flower and for gifts or to fork — tied distractors"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.would_wood.v1",
@@ -4934,34 +4486,26 @@ export const questions = [
    "Will": "D-FUNCTION-SWAP",
    "Wood": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "___ you like some juice?",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-would_wood-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "could and will parse — would is the polite offer the frame asks for",
-  "imagePath": "/images/assessment/hfw/like.webp",
-  "imageUrl": "/images/assessment/hfw/like.webp",
-  "targetImage": "/images/assessment/hfw/like.webp",
-  "targetImagePath": "/images/assessment/hfw/like.webp",
-  "resolvedImageAssetKey": "like",
-  "imageAlt": "Would you like some juice?"
+  "notes": "could and will parse — would is the polite offer the frame asks for"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.would_wood.v2",
@@ -5022,34 +4566,26 @@ export const questions = [
    "glass": "D-SEMANTIC",
    "would": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The bench is made of ___ from the old oak.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-would_wood-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "from the old oak pins wood; old gifts ol to wool, a distractor tops",
-  "imagePath": "/images/assessment/digraphs/bench.webp",
-  "imageUrl": "/images/assessment/digraphs/bench.webp",
-  "targetImage": "/images/assessment/digraphs/bench.webp",
-  "targetImagePath": "/images/assessment/digraphs/bench.webp",
-  "resolvedImageAssetKey": "bench",
-  "imageAlt": "The bench is made of wood from the old oak."
+  "notes": "from the old oak pins wood; old gifts ol to wool, a distractor tops"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.would_wood.v3",
@@ -5109,33 +4645,25 @@ export const questions = [
    "rock": "D-SEMANTIC",
    "would": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-would_wood-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no tree-borne rival like leaf — rock and wool are clean foils",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "resolvedImageAssetKey": "trees",
-  "imageAlt": "Which spelling comes from trees?"
+  "notes": "no tree-borne rival like leaf — rock and wool are clean foils"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.would_wood.v4",
@@ -5195,33 +4723,25 @@ export const questions = [
    "wound": "D-VISUAL-NEIGHBOR",
    "word": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-would_wood-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "you gifts ou to the key — wound carries ou too and ties",
-  "imagePath": "/images/assessment/hfw/help.webp",
-  "imageUrl": "/images/assessment/hfw/help.webp",
-  "targetImage": "/images/assessment/hfw/help.webp",
-  "targetImagePath": "/images/assessment/hfw/help.webp",
-  "resolvedImageAssetKey": "help",
-  "imageAlt": "Which spelling asks politely, as in 'would you help me?'"
+  "notes": "you gifts ou to the key — wound carries ou too and ties"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.made_maid.v1",
@@ -5282,34 +4802,26 @@ export const questions = [
    "make": "D-FUNCTION-SWAP",
    "makes": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Gran ___ pancakes for breakfast.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-made_maid-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "pancakes gifts ke to make and makes — tied distractors, key clean",
-  "imagePath": "/images/assessment/hfw/made.webp",
-  "imageUrl": "/images/assessment/hfw/made.webp",
-  "targetImage": "/images/assessment/hfw/made.webp",
-  "targetImagePath": "/images/assessment/hfw/made.webp",
-  "resolvedImageAssetKey": "made",
-  "imageAlt": "Gran made pancakes for breakfast."
+  "notes": "pancakes gifts ke to make and makes — tied distractors, key clean"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.made_maid.v2",
@@ -5370,34 +4882,26 @@ export const questions = [
    "moon": "D-SEMANTIC",
    "made": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "The ___ swept the castle floor.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-made_maid-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "floor gifts oo to moon — a distractor tops; no sweeping rival like cook",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "resolvedImageAssetKey": "maid",
-  "imageAlt": "The maid swept the castle floor."
+  "notes": "floor gifts oo to moon — a distractor tops; no sweeping rival like cook"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.made_maid.v3",
@@ -5457,33 +4961,25 @@ export const questions = [
    "make": "D-FUNCTION-SWAP",
    "mend": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-made_maid-v3",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "something gifts me to mend — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/made.webp",
-  "imageUrl": "/images/assessment/hfw/made.webp",
-  "targetImage": "/images/assessment/hfw/made.webp",
-  "targetImagePath": "/images/assessment/hfw/made.webp",
-  "resolvedImageAssetKey": "made",
-  "imageAlt": "Which spelling tells that you built something?"
+  "notes": "something gifts me to mend — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.made_maid.v4",
@@ -5543,33 +5039,25 @@ export const questions = [
    "made": "D-HOMOPHONE",
    "mad": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-made_maid-v4",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/made-maid-01.webp",
-  "resolvedImageAssetKey": "maid",
-  "imageAlt": "Which spelling is a castle helper?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.homonym_bat.v1",
@@ -5629,33 +5117,25 @@ export const questions = [
    "Dad bought a new bat for cricket.": "D-SEMANTIC",
    "Ben swung the bat at the ball.": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-homonym_bat-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "every sentence carries bat — the shared word ties all four",
-  "imagePath": "/images/assessment/hfw/down.webp",
-  "imageUrl": "/images/assessment/hfw/down.webp",
-  "targetImage": "/images/assessment/hfw/down.webp",
-  "targetImagePath": "/images/assessment/hfw/down.webp",
-  "resolvedImageAssetKey": "down",
-  "imageAlt": "Which sentence uses bat to mean the animal?"
+  "notes": "every sentence carries bat — the shared word ties all four"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.homonym_bat.v2",
@@ -5715,33 +5195,25 @@ export const questions = [
    "A baby bat clung to its mother.": "D-SEMANTIC",
    "The bat hung from the branch by its feet.": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-homonym_bat-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "resolvedImageAssetKey": "bat",
-  "imageAlt": "Which sentence uses bat as the thing you HIT with?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.homonym_ring.v1",
@@ -5801,33 +5273,25 @@ export const questions = [
    "The ring slipped off her finger.": "D-SEMANTIC",
    "Gran keeps her ring in a tiny box.": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-homonym_ring-v1",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "resolvedImageAssetKey": "heard",
-  "imageAlt": "A ring can be jewelry or a sound. Which sentence uses ring as the SOUND?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.homonym_ring.v2",
@@ -5887,33 +5351,25 @@ export const questions = [
    "Give the bell a loud ring at noon.": "D-SEMANTIC",
    "The ring of laughter filled the hall.": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-homonym_ring-v2",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
-  "resolvedImageAssetKey": "silver",
-  "imageAlt": "Which sentence uses ring as the thing you WEAR?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.sea_see.v5r",
@@ -5974,34 +5430,26 @@ export const questions = [
    "seat": "D-VISUAL-NEIGHBOR",
    "sofa": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Shells wash up from the ___.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sea_see-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/see-sea-01.webp",
-  "resolvedImageAssetKey": "sea",
-  "imageAlt": "Shells wash up from the sea."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.sun_son.v5r",
@@ -6061,33 +5509,25 @@ export const questions = [
    "rain": "D-SEMANTIC",
    "son": "D-HOMOPHONE"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-sun_son-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no warming rival — star would be defensibly true",
-  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-  "resolvedImageAssetKey": "sun",
-  "imageAlt": "Which spelling warms the earth?"
+  "notes": "no warming rival — star would be defensibly true"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.be_bee.v5r",
@@ -6148,34 +5588,26 @@ export const questions = [
    "dog": "D-SEMANTIC",
    "key": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The ___ buzzed from rose to rose.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-be_bee-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "no buzzing rival like fly — dog and key are clean foils",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
-  "resolvedImageAssetKey": "bee",
-  "imageAlt": "The bee buzzed from rose to rose."
+  "notes": "no buzzing rival like fly — dog and key are clean foils"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.no_know.v5r",
@@ -6235,33 +5667,25 @@ export const questions = [
    "now": "D-VISUAL-NEIGHBOR",
    "nest": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-no_know-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/know.webp",
-  "imageUrl": "/images/assessment/hfw/know.webp",
-  "targetImage": "/images/assessment/hfw/know.webp",
-  "targetImagePath": "/images/assessment/hfw/know.webp",
-  "resolvedImageAssetKey": "know",
-  "imageAlt": "Which spelling fits: I know my phone number by heart?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.one_won.v5r",
@@ -6322,34 +5746,26 @@ export const questions = [
    "when": "D-VISUAL-NEIGHBOR",
    "wins": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "We ___ the quiz by a single point!",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-one_won-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "single and point gift in to wins — a distractor tops; lost would be defensibly true",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/one-won-01.webp",
-  "resolvedImageAssetKey": "won",
-  "imageAlt": "We won the quiz by a single point!"
+  "notes": "single and point gift in to wins — a distractor tops; lost would be defensibly true"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.ate_eight.v5r",
@@ -6409,33 +5825,25 @@ export const questions = [
    "ate": "D-HOMOPHONE",
    "six": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-ate_eight-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/long-vowels/eight.webp",
-  "imageUrl": "/images/assessment/long-vowels/eight.webp",
-  "targetImage": "/images/assessment/long-vowels/eight.webp",
-  "targetImagePath": "/images/assessment/long-vowels/eight.webp",
-  "resolvedImageAssetKey": "eight",
-  "imageAlt": "Which spelling is how many legs an octopus has?"
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.hear_here.v5r",
@@ -6496,34 +5904,26 @@ export const questions = [
    "hold": "D-SEMANTIC",
    "name": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Stand still and you can ___ the waves.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-hear_here-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "stand and can gift an to name — a distractor tops, never the key",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hear-here-01.webp",
-  "resolvedImageAssetKey": "hear",
-  "imageAlt": "Stand still and you can hear the waves."
+  "notes": "stand and can gift an to name — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.blue_blew.v5r",
@@ -6583,33 +5983,25 @@ export const questions = [
    "blow": "D-VISUAL-NEIGHBOR",
    "glue": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-blue_blew-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "color gifts lo to blow — a distractor tops, never the key",
-  "imagePath": "/images/assessment/long-vowels/blue.webp",
-  "imageUrl": "/images/assessment/long-vowels/blue.webp",
-  "targetImage": "/images/assessment/long-vowels/blue.webp",
-  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
-  "resolvedImageAssetKey": "blue",
-  "imageAlt": "Which spelling is a color?"
+  "notes": "color gifts lo to blow — a distractor tops, never the key"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.to_two_too.v5r",
@@ -6670,34 +6062,26 @@ export const questions = [
    "two": "D-HOMOPHONE",
    "so": "D-SEMANTIC"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "It is ___ dark to read outside now.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-to_two_too-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the too-dark-to-read frame needs too — so drops the result meaning",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/to-too-two-01.webp",
-  "resolvedImageAssetKey": "too",
-  "imageAlt": "It is too dark to read outside now."
+  "notes": "the too-dark-to-read frame needs too — so drops the result meaning"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.there_their.v5r",
@@ -6758,34 +6142,26 @@ export const questions = [
    "there": "D-HOMOPHONE",
    "they": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "The birds built ___ nest in the oak.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-there_their-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "the gifts the to key, there and they — three-way tie",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/there-their-they-re-01.webp",
-  "resolvedImageAssetKey": "their",
-  "imageAlt": "The birds built their nest in the oak."
+  "notes": "the gifts the to key, there and they — three-way tie"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.right_write.v5r",
@@ -6846,34 +6222,26 @@ export const questions = [
    "wrote": "D-FUNCTION-SWAP",
    "ride": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "Use the pencil to ___ your name.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-right_write-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/write.webp",
-  "imageUrl": "/images/assessment/generated/concepts/write.webp",
-  "targetImage": "/images/assessment/generated/concepts/write.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/write.webp",
-  "resolvedImageAssetKey": "write",
-  "imageAlt": "Use the pencil to write your name."
+  "notes": ""
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.made_maid.v5r",
@@ -6934,33 +6302,25 @@ export const questions = [
    "maid": "D-HOMOPHONE",
    "make": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
   "scannerExpected": false,
   "sentenceText": "We ___ a fort out of pillows.",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
-  "requiredImageAssetKey": "homophones_homonyms-made_maid-v5",
   "active": true,
-  "qaStatus": "approved",
+  "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
   "provenance": {
-   "author": "claude-fable-5",
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/homophones_homonyms.mjs",
    "wave": "",
-   "date": "2026-07-29",
-   "reviewedBy": [],
-   "signedOffBy": null
+   "standardVersion": "v3"
   },
-  "notes": "",
-  "imagePath": "/images/assessment/hfw/made.webp",
-  "imageUrl": "/images/assessment/hfw/made.webp",
-  "targetImage": "/images/assessment/hfw/made.webp",
-  "targetImagePath": "/images/assessment/hfw/made.webp",
-  "resolvedImageAssetKey": "made",
-  "imageAlt": "We made a fort out of pillows."
+  "notes": ""
  }
 ];

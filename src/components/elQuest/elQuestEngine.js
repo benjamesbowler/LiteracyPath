@@ -137,10 +137,28 @@ function taughtGraphemesThrough(cycleNumber) {
     if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
     for (const item of cycle.focusLetters || []) {
       const spelling = (item.spelling || "").toLowerCase();
-      if (spelling && spelling.length <= 2 && !taught.includes(spelling)) taught.push(spelling);
+      const parts = spelling.split(/[\s/,+]+/u).filter(part => /^[a-z]{1,2}$/u.test(part));
+      for (const part of parts) {
+        if (!taught.includes(part)) taught.push(part);
+      }
     }
   }
   return taught;
+}
+
+const ADVANCED_PRINT_PATTERNS = [
+  "sh", "ch", "th", "wh", "ph", "ck", "ng",
+  "ff", "ss", "zz", "ll"
+];
+
+function wordUsesTaughtPrint(word = "", cycleNumber = 1) {
+  const clean = String(word || "").toLowerCase();
+  const taught = new Set(taughtGraphemesThrough(cycleNumber));
+  const singleLetters = new Set([...taught].filter(grapheme => grapheme.length === 1));
+  if (![...clean].every(letter => singleLetters.has(letter))) return false;
+  return ADVANCED_PRINT_PATTERNS.every(pattern => (
+    !clean.includes(pattern) || taught.has(pattern)
+  ));
 }
 
 function distractorGraphemes(correct, count, cycleNumber) {
@@ -149,9 +167,11 @@ function distractorGraphemes(correct, count, cycleNumber) {
   const taught = cycleNumber
     ? taughtGraphemesThrough(cycleNumber).filter(g => !sharesSound(g, correct))
     : [];
-  const pool = taught.length >= count
+  // A two-choice early round is preferable to introducing an untaught printed
+  // letter merely to fill a three-choice layout.
+  const pool = taught.length
     ? taught
-    : [...new Set([...taught, ...ALL_GRAPHEMES.filter(g => !sharesSound(g, correct))])];
+    : ALL_GRAPHEMES.filter(g => !sharesSound(g, correct));
   return shuffleItems(pool.filter(g => !sharesSound(g, correct))).slice(0, count);
 }
 
@@ -199,7 +219,11 @@ function buildLetterRounds(cycle) {
   const rounds = singles.flatMap(entry => {
     const lower = entry.spelling;
     const upper = lower.toUpperCase();
-    const others = shuffleItems(SINGLE_LETTERS.filter(g => g !== lower)).slice(0, 2);
+    const taughtOthers = taughtGraphemesThrough(cycle.cycleNumber || 1)
+      .filter(grapheme => grapheme.length === 1 && grapheme !== lower);
+    const others = shuffleItems(taughtOthers.length
+      ? taughtOthers
+      : SINGLE_LETTERS.filter(g => g !== lower)).slice(0, 2);
     return [
       {
         type: "letter",
@@ -290,8 +314,9 @@ function buildHuntRounds(cycle) {
   return rounds.length ? rounds : buildSoundRounds(cycle);
 }
 
-// Station - Quick Words: hear the high-frequency word, tap it.
-// Review words and distractors only come from cycles already taught.
+// Station - Quick Words is the parallel high-frequency/sight-word strand.
+// These words follow their own EL order and do not wait for every letter or
+// spelling inside them to appear in the phonics strand.
 function buildQuickWordRounds(cycle) {
   const own = (cycle.highFrequencyWords || []).map(w => w.toLowerCase());
   const taught = taughtHfwThrough(cycle.cycleNumber || 1);
@@ -313,7 +338,8 @@ function buildQuickWordRounds(cycle) {
       type: "quick",
       audio: wordAudioPath(word),
       speechFallback: word,
-      prompt: "Listen, then tap the word.",
+      prompt: "Listen. Find the whole word. Tap it.",
+      support: "Learn this high-frequency word as its own word.",
       display: "",
       choices: shuffleItems([word, ...distractors]),
       answer: word,
@@ -322,20 +348,24 @@ function buildQuickWordRounds(cycle) {
   });
 }
 
-// Station - Word Build: build a word that uses a focus letter.
+// Station - Word Build is phonics/encoding practice. A high-frequency word may
+// appear here only when its print also uses code taught through this cycle; the
+// dedicated Quick Words station remains free to teach it earlier.
 function buildWordBuildRounds(cycle) {
-  const pool = focusEntries(cycle)
-    .flatMap(entry => exampleWordsFor(entry.spelling))
+  const pool = [
+    ...focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling)),
+    ...(cycle.highFrequencyWords || []).map(word => String(word || "").toLowerCase()),
+    ...Object.values(LETTER_EXAMPLES).flat(),
+    ...taughtHfwThrough(cycle.cycleNumber || 1)
+  ]
     // Only clean 2-5 letter words: a single letter or a stray space would
     // render the wrong number of boxes and make the round impossible to pass.
     // And only words with a real recording - the round says the word aloud.
     .filter(word => /^[a-z]{2,5}$/.test(word) && wordAudioPath(word));
-  // Curriculum rule (same as the worksheets): prefer words built ONLY from
-  // letters taught by this cycle, so children never assemble letters they
-  // have not met. Fall back to the full pool rather than an empty station.
-  const taughtLetters = new Set(taughtGraphemesThrough(cycle.cycleNumber || 27).filter(g => g.length === 1));
-  const taughtOnly = pool.filter(word => [...word].every(letter => taughtLetters.has(letter)));
-  const candidates = taughtOnly.length >= 2 ? taughtOnly : pool;
+  // Building print is decoding/encoding practice, so it never falls forward
+  // to untaught letters merely to fill a station. An empty build station falls
+  // back to a sound round in buildStationRounds().
+  const candidates = pool.filter(word => wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
   return words.map(word => ({
     type: "build",
@@ -362,10 +392,16 @@ function uniqueChoices(items) {
 function buildWordPlayRounds(cycle) {
   const rounds = [];
   const focusWords = uniqueChoices(
-    focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling))
-  ).filter(word => /^[a-z]{2,5}$/.test(word));
+    [
+      ...focusEntries(cycle).flatMap(entry => exampleWordsFor(entry.spelling)),
+      ...(cycle.highFrequencyWords || []).map(word => String(word || "").toLowerCase())
+    ]
+  ).filter(word => /^[a-z]{2,5}$/.test(word) && wordUsesTaughtPrint(word, cycle.cycleNumber || 1));
   const allWords = uniqueChoices(Object.values(LETTER_EXAMPLES).flat())
-    .filter(word => /^[a-z]{2,5}$/.test(word));
+    .filter(word => (
+      /^[a-z]{2,5}$/.test(word)
+      && wordUsesTaughtPrint(word, cycle.cycleNumber || 1)
+    ));
 
   // Change the first sound: same rime, different onset.
   for (const word of shuffleItems(focusWords)) {
@@ -412,7 +448,12 @@ function buildWordPlayRounds(cycle) {
   }
 
   // Join two small words into one big compound word.
-  const pair = shuffleItems(COMPOUND_WORDS).find(([a, b]) => wordAudioPath(a + b));
+  const pair = shuffleItems(COMPOUND_WORDS).find(([a, b]) => (
+    wordAudioPath(a + b)
+    && wordUsesTaughtPrint(a, cycle.cycleNumber || 1)
+    && wordUsesTaughtPrint(b, cycle.cycleNumber || 1)
+    && wordUsesTaughtPrint(a + b, cycle.cycleNumber || 1)
+  ));
   if (pair) {
     const full = pair[0] + pair[1];
     const decoys = shuffleItems(
@@ -606,7 +647,8 @@ function buildSpeedyWordRounds(cycle) {
   return buildQuickWordRounds(cycle).map(round => ({
     ...round,
     type: "speed",
-    prompt: "Read it, then tap the word - be quick!",
+    prompt: "Read the whole word, then tap it.",
+    support: "Use the sounds and spelling, not its shape.",
     display: round.answer
   }));
 }
