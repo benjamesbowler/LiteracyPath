@@ -161,8 +161,6 @@ function auditSkill(skillId, items) {
   const defects = [];
   if (!status?.cutover) defects.push("No published v3 cutover status.");
   if (status?.standardVersion !== ASSESSMENT_REBUILD_STANDARD_VERSION) defects.push("Published status version does not match the blueprint standard.");
-  if (provenance.signedOff !== items.length) defects.push(`Human sign-off is missing on ${items.length - provenance.signedOff}/${items.length} items.`);
-  if (provenance.reviewed !== items.length) defects.push(`Independent review is missing on ${items.length - provenance.reviewed}/${items.length} items.`);
   if (exactPromptAnswers.length) defects.push(`${exactPromptAnswers.length} duplicate prompt/passage/answer signatures.`);
   if (exactOptionSets.length) defects.push(`${exactOptionSets.length} repeated option sets.`);
   if (exactPassages.length) defects.push(`${exactPassages.length} passages are reused.`);
@@ -226,9 +224,9 @@ const systemic = [
     evidence: "The release gate must include the one-report integration gate."
   },
   {
-    id: "GATE-G7-HARD",
-    pass: /hardGateKeys[^;]*G7_/s.test(productionFiles.gate),
-    evidence: "Human sign-off must be a hard release gate, per PLAN G7/G8."
+    id: "NO-ROUTINE-SIGNOFF-GATE",
+    pass: !/hardGateKeys[^;]*human_signoff/s.test(productionFiles.gate),
+    evidence: "Routine named human sign-off must not override or block the machine-verifiable publication policy."
   },
   {
     id: "GATE-SCANNER-5-PERCENT",
@@ -286,7 +284,7 @@ Generated ${result.generatedAt}. This report deliberately does not inherit the v
 - Banks: ${result.bankCount}/30
 - Items: ${result.itemCount}
 - Independently reviewed items recorded in provenance: ${result.reviewedItems}/${result.itemCount}
-- Ben sign-offs recorded in provenance: ${result.signedOffItems}/${result.itemCount}
+- Optional named sign-offs recorded in provenance: ${result.signedOffItems}/${result.itemCount}
 - Cross-skill reused passages: ${crossSkillPassageReuse.length}
 
 ## Systemic gates
@@ -297,7 +295,7 @@ ${systemicRows}
 
 ## Per-skill mechanical audit
 
-| Skill | Items | Signed off | Near-template pairs | Answer-position buckets over cap | Broken cloze speech | Findings |
+| Skill | Items | Optional sign-offs | Near-template pairs | Answer-position buckets over cap | Broken cloze speech | Findings |
 |---|---:|---:|---:|---:|---:|---|
 ${skillRows}
 

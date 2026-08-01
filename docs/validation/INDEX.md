@@ -84,7 +84,9 @@ they show what was checked and what was found at the time.
 | [performance_loading_audit](performance_loading_audit.md) | 249 | Performance Loading Audit |
 | [quest_device_acceptance](quest_device_acceptance.md) | 180 | Sound Seekers Device Acceptance |
 | [quest_human_acceptance](quest_human_acceptance.md) | 194 | Sound Seekers Human Acceptance |
+| [game_control_audit_2026-08-01](game_control_audit_2026-08-01.md) | 732 | Child game control audit: layout, input parity, cancellation and open physical-device evidence |
 | [question_bank_quality_audit](question_bank_quality_audit.md) | 5,611 | Question Bank Quality Audit |
+| [question_design_policy_audit_2026-08-01](question_design_policy_audit_2026-08-01.md) | 562 | Question Design Bible runtime audit across 30 assessment skills, reading, quests, all 11 arcade games and worksheets |
 | [reading_media_size_audit](reading_media_size_audit.md) | 14,928 | Reading Media Size Audit |
 | [repeat_question_audit](repeat_question_audit.md) | 1,990 | Repeat Question Audit |
 | [replacement_skill_round_depth_audit](replacement_skill_round_depth_audit.md) | 1,269 | Replacement Skill Round Depth Audit |

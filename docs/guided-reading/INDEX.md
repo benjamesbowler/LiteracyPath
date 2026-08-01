@@ -6,6 +6,16 @@ Guided Reading is the levelled-book side of the app: 176 books with narration,
 word-tap audio and quizzes. This folder holds both the systems that produce those
 books and the audits of each import batch.
 
+### Runtime read-aloud pacing
+
+“Read whole book” uses verified page-level narration whenever it is available.
+Each page is shown for 1.5 seconds before narration starts, and remains visible
+for 1.5 seconds after narration ends before an automatic page turn. Narration
+plays at 0.88×: slow enough for early readers without unnaturally stretching the
+voice. Stop, manual page turns, route changes and component teardown cancel any
+pending pause or automatic advance. The permanent contract is
+`tests/unit/guidedReadingReadAloudPacing.test.js`.
+
 ## Systems and standards — still current
 
 These describe how books are made and what they must satisfy. Read these.

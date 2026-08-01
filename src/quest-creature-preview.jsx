@@ -1,22 +1,17 @@
-// Sound Seekers — creature preview harness (dev only, not in the build).
-//
-// THIS IS THE DECISION POINT. Slice 1 builds the creature FIRST, on purpose:
-// the layered-vector approach is the biggest risk in the whole mode, and this
-// page exists so Benjamin can look at it and say yes or no before we build
-// forty stops on top of it.
+// Sound Seekers — character preview harness (dev only, not in the build).
 //
 //   npm run dev -- --host      then open the NETWORK url (not localhost — the
 //                              Chrome extension can't reach localhost)
 //   /quest-creature-preview.html?seed=7&count=24
 //
-// Top half: a wall of randomised creatures — the honest test, because a child
-// won't build the one I'd have hand-picked.
-// Bottom half: the live builder, so you can drive every slot yourself and check
-// the anchors hold on all six bodies.
+// The first row is the shipping book-character system with every wearable slot
+// filled simultaneously. The legacy vector wall and builder remain below for
+// save-compatibility inspection.
 
 import { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import CreatureFigure from "./components/quest/CreatureFigure.jsx";
+import BookCharacterAvatar from "./components/quest/BookCharacterAvatar.jsx";
 import {
   CREATURE_BODIES,
   CREATURE_DYES,
@@ -27,6 +22,13 @@ import {
 import "./styles/quest.css";
 
 const MOODS = ["idle", "walk", "cheer", "think", "sad", "hatch"];
+const BOOK_CHARACTER_BODIES = ["tuft", "pebble", "moth"];
+const FULL_EQUIPMENT = Object.freeze({
+  head: "acorn-hat",
+  back: "moth-wings",
+  neck: "vine-scarf",
+  held: "stone-staff"
+});
 
 // Deterministic PRNG so ?seed=7 always gives the same wall — otherwise "it
 // looked fine last time" is unfalsifiable.
@@ -73,6 +75,29 @@ function Wall({ seed, count }) {
   );
 }
 
+function BookCharacterEquipmentWall() {
+  return (
+    <section aria-labelledby="book-character-equipment-heading">
+      <h2 id="book-character-equipment-heading">Shipping book characters · all gear equipped</h2>
+      <div className="qp-grid qp-book-grid">
+        {BOOK_CHARACTER_BODIES.map(body => {
+          const creature = {
+            ...defaultCreature(),
+            body,
+            equipped: FULL_EQUIPMENT
+          };
+          return (
+            <figure className="qp-cell" key={body}>
+              <BookCharacterAvatar creature={creature} size={240} />
+              <figcaption>{body} · back + head + neck + held</figcaption>
+            </figure>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function Builder() {
   const [creature, setCreature] = useState(() => defaultCreature());
   const [mood, setMood] = useState("idle");
@@ -88,7 +113,7 @@ function Builder() {
 
   return (
     <div className="qp-builder">
-      <div className="qp-stage">
+      <div className="qp-builder-stage">
         <CreatureFigure key={`${mood}-${replay}`} creature={creature} size={260} mood={mood} />
         <div className="qp-moods">
           {MOODS.map(m => (
@@ -171,13 +196,13 @@ function Preview() {
 
   return (
     <div className="qp-shell">
-      <h1>Sound Seekers — the creature</h1>
+      <h1>Sound Seekers — character and equipment audit</h1>
       <p className="qp-note">
-        {count} randomised creatures (seed {seed} — change it with <code>?seed=</code>), then the live
-        builder. The question this page exists to answer: does a layered-vector creature look good
-        enough for a child to love? If not, we stop here and fall back to a pal base with layered
-        accessories — one slice lost, not the project.
+        The book-character row is the shipping visual check: wings remain behind the body, hats and
+        scarves stay attached, and held objects sit in front. The {count} legacy randomised creatures
+        (seed {seed}) and builder remain below to verify old saves.
       </p>
+      <BookCharacterEquipmentWall />
       <Wall seed={seed} count={count} />
       <Builder />
     </div>

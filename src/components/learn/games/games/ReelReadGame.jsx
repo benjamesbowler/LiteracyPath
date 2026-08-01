@@ -1145,6 +1145,7 @@ function startGame(mount, opts) {
   function setButton(button, key) {
     button.addEventListener("pointerdown", event => {
       event.preventDefault();
+      button.setPointerCapture?.(event.pointerId);
       keys[key] = true;
       button.style.transform = "translateY(2px) scale(.98)";
     });
@@ -1154,6 +1155,10 @@ function startGame(mount, opts) {
       button.style.transform = "";
     });
     button.addEventListener("pointercancel", () => {
+      keys[key] = false;
+      button.style.transform = "";
+    });
+    button.addEventListener("lostpointercapture", () => {
       keys[key] = false;
       button.style.transform = "";
     });

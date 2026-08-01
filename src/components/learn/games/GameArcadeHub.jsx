@@ -233,6 +233,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         role="tabpanel"
         aria-labelledby={`lg-arcade-tab-${tab}`}
         data-child-choices=""
+        data-child-progress=""
       >
         {visibleGames.map(game => {
           const gameProgress = getLearnGameProgress(progress, game.id);

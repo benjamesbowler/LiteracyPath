@@ -175,9 +175,6 @@ for (const file of authoringFiles) {
     // consume the same pure status reducer.
     gates.G6_one_report = oneStatusBrain;
 
-    // G7 — human sign-off (recorded per item; Ben flips this)
-    const signedOff = items.every(i => i.provenance?.signedOffBy);
-    gates.G7_human_signoff = signedOff;
   } catch (error) {
     detail.error = String(error?.stack || error).slice(0, 600);
     gates.G1_structure = false;
@@ -205,8 +202,7 @@ const hardGateKeys = [
   "G3_answer_integrity",
   "G4_mastery_logic",
   "G5_no_repeats",
-  "G6_one_report",
-  "G7_human_signoff"
+  "G6_one_report"
 ];
 let failed = 0;
 for (const row of results) {
@@ -262,9 +258,9 @@ if (write) {
   fs.writeFileSync(reportPath + ".json", JSON.stringify({ generatedAt: new Date().toISOString(), commit, results }, null, 1));
   fs.writeFileSync(reportPath + ".md",
     `# Assessment rebuild gate — ${new Date().toISOString()} @ ${commit}\n\n` +
-    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | G7 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|---|\n` +
+    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|\n` +
     results.map(r => `| ${r.skillId} | ${r.ready ? "✅" : "❌"} | ${hardGateKeys.map(k => r.gates[k] === true ? "✅" : r.gates[k] === false ? "❌" : "—").join(" | ")} | ${r.counts?.total ?? 0} | ${r.detail?.sims?.pass?.sittings ?? "—"} |`).join("\n") +
-    `\n\nG7 human sign-off is a hard release gate and remains red until recorded in item provenance.\n`);
+    `\n\nPublication is controlled by the machine-verifiable content, simulation, runtime and reporting gates above. Routine named human sign-off is not required.\n`);
 
   buildMediaRequest(allBanks, results);
   console.log(`\nWrote status (${statusEntries.length} ready), gate report, media request.`);

@@ -1,23 +1,23 @@
 import { expect, test } from "@playwright/test";
 
 const SCREENSHOT_VIEWPORT = Object.freeze({ width: 1920, height: 1030 });
+const COMMON_CHILD_VIEWPORT = Object.freeze({ width: 1366, height: 768 });
 
-test("the whole arcade remains above the persistent navigation", async ({ page }) => {
-  await page.setViewportSize(SCREENSHOT_VIEWPORT);
+test("the whole arcade fits a common child laptop viewport", async ({ page }) => {
+  await page.setViewportSize(COMMON_CHILD_VIEWPORT);
   await page.goto("/preview/child-surfaces.html?surface=arcade");
 
   const grid = page.locator(".lg-game-tilegrid");
   const tiles = grid.locator(".lg-game-tile");
-  const bottomBand = page.locator(".lg-arcade-bottomband");
 
   await expect(tiles).toHaveCount(11);
-  await expect(bottomBand).toBeVisible();
 
   const geometry = await page.evaluate(() => {
     const rect = selector => document.querySelector(selector).getBoundingClientRect();
     const mainBox = rect(".kg-main");
+    const route = document.querySelector(".student-surface-arcade");
+    const arcade = document.querySelector(".lg-arcade");
     const gridBox = rect(".lg-game-tilegrid");
-    const bottomBox = rect(".lg-arcade-bottomband");
     const tabBox = rect(".kg-tabbar");
     const tileState = [...document.querySelectorAll(".lg-game-tile")].map(tile => {
       const tileBox = tile.getBoundingClientRect();
@@ -31,19 +31,60 @@ test("the whole arcade remains above the persistent navigation", async ({ page }
       };
     });
     return {
-      bottomBandInsideMain: bottomBox.bottom <= mainBox.bottom + 1,
+      routeFits: route.scrollHeight <= route.clientHeight + 1,
+      arcadeFits: arcade.scrollHeight <= arcade.clientHeight + 1,
       gridInsideMain: gridBox.bottom <= mainBox.bottom + 1,
       mainAboveTabs: mainBox.bottom <= tabBox.top + 1,
       tileState
     };
   });
 
-  expect(geometry.bottomBandInsideMain).toBe(true);
+  expect(geometry.routeFits, JSON.stringify(geometry)).toBe(true);
+  expect(geometry.arcadeFits, JSON.stringify(geometry)).toBe(true);
   expect(geometry.gridInsideMain).toBe(true);
   expect(geometry.mainAboveTabs).toBe(true);
   expect(geometry.tileState.every(tile => (
     tile.insideGrid && tile.nameInside && tile.footInside && tile.contentFits
   ))).toBe(true);
+});
+
+test("all Letters content fits a common child laptop viewport", async ({ page }) => {
+  await page.setViewportSize(COMMON_CHILD_VIEWPORT);
+  await page.goto("/preview/child-surfaces.html?surface=phonics");
+
+  const letters = page.locator(".phonics-letter-card");
+  await expect(letters).toHaveCount(26);
+  await expect(page.locator(".phonics-picker-progress")).toBeVisible();
+
+  const geometry = await page.evaluate(() => {
+    const main = document.querySelector(".kg-main");
+    const route = document.querySelector(".student-surface-phonics");
+    const shell = document.querySelector(".phonics-tab-shell");
+    const picker = document.querySelector(".phonics-picker");
+    const mainBox = main.getBoundingClientRect();
+    const progressBox = document.querySelector(".phonics-picker-progress").getBoundingClientRect();
+    const letterState = [...document.querySelectorAll(".phonics-letter-card")].map(letter => {
+      const box = letter.getBoundingClientRect();
+      return box.top >= mainBox.top - 1 && box.bottom <= mainBox.bottom + 1;
+    });
+    return {
+      mainFits: main.scrollHeight <= main.clientHeight + 1,
+      routeFits: route.scrollHeight <= route.clientHeight + 1,
+      shellFits: shell.scrollHeight <= shell.clientHeight + 1,
+      pickerFits: picker.scrollHeight <= picker.clientHeight + 1,
+      progressInsideMain: progressBox.top >= mainBox.top - 1 && progressBox.bottom <= mainBox.bottom + 1,
+      allLettersInsideMain: letterState.every(Boolean)
+    };
+  });
+
+  expect(geometry, JSON.stringify(geometry)).toEqual({
+    mainFits: true,
+    routeFits: true,
+    shellFits: true,
+    pickerFits: true,
+    progressInsideMain: true,
+    allLettersInsideMain: true
+  });
 });
 
 test("the phone arcade keeps every card in the scroll flow", async ({ page }) => {
@@ -53,23 +94,26 @@ test("the phone arcade keeps every card in the scroll flow", async ({ page }) =>
 
   const geometry = await page.evaluate(() => {
     const grid = document.querySelector(".lg-game-tilegrid");
+    const route = document.querySelector(".student-surface-arcade");
     const tiles = [...document.querySelectorAll(".lg-game-tile")];
     const gridBox = grid.getBoundingClientRect();
+    const routeBox = route.getBoundingClientRect();
     const firstBox = tiles[0].getBoundingClientRect();
     const lastBox = tiles.at(-1).getBoundingClientRect();
-    const bottomBox = document.querySelector(".lg-arcade-bottomband").getBoundingClientRect();
     return {
-      bottomAfterCards: bottomBox.top >= lastBox.bottom - 1,
       gridContainsCards: gridBox.top <= firstBox.top && gridBox.bottom >= lastBox.bottom - 1,
+      routeScrollContainsCards: route.scrollHeight >= lastBox.bottom - routeBox.top - 1,
       gridHeight: gridBox.height,
-      lastCardHeight: lastBox.height
+      lastCardHeight: lastBox.height,
+      tileContentFits: tiles.every(tile => tile.scrollHeight <= tile.clientHeight + 1)
     };
   });
 
   expect(geometry.gridHeight).toBeGreaterThan(1000);
   expect(geometry.lastCardHeight).toBeGreaterThanOrEqual(210);
   expect(geometry.gridContainsCards).toBe(true);
-  expect(geometry.bottomAfterCards).toBe(true);
+  expect(geometry.routeScrollContainsCards).toBe(true);
+  expect(geometry.tileContentFits).toBe(true);
 });
 
 test("the earned-coins notice is opaque and clears the navigation", async ({ page }) => {

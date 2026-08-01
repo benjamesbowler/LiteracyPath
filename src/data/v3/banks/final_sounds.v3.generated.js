@@ -4076,7 +4076,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "final_sounds-ll-v3",
+  "requiredImageAssetKey": "hill",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4088,11 +4088,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "No one-l option because it would share the same final sound.",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/hi-high-01.webp",
-  "resolvedImageAssetKey": "hi",
+  "imagePath": "/media/initial-sounds/images/h/hill.webp",
+  "imageUrl": "/media/initial-sounds/images/h/hill.webp",
+  "targetImage": "/media/initial-sounds/images/h/hill.webp",
+  "targetImagePath": "/media/initial-sounds/images/h/hill.webp",
+  "resolvedImageAssetKey": "hill",
   "imageAlt": "Complete: hi__"
  },
  {
@@ -6426,7 +6426,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "final_sounds-lt-v1",
+  "requiredImageAssetKey": "melt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6438,11 +6438,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "me+ft/sk/m are non-words (mess and men stay out)",
-  "imagePath": "/images/assessment/hfw/me.webp",
-  "imageUrl": "/images/assessment/hfw/me.webp",
-  "targetImage": "/images/assessment/hfw/me.webp",
-  "targetImagePath": "/images/assessment/hfw/me.webp",
-  "resolvedImageAssetKey": "me",
+  "imagePath": "/media/vocabulary/images/melt.webp",
+  "imageUrl": "/media/vocabulary/images/melt.webp",
+  "targetImage": "/media/vocabulary/images/melt.webp",
+  "targetImagePath": "/media/vocabulary/images/melt.webp",
+  "resolvedImageAssetKey": "melt",
   "imageAlt": "Complete: me__"
  },
  {
@@ -6878,10 +6878,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
-  "targetImage": "/images/child-mode/initial-sounds/mud.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
+  "imagePath": "/images/child-mode/short-u/mud.png",
+  "imageUrl": "/images/child-mode/short-u/mud.png",
+  "targetImage": "/images/child-mode/short-u/mud.png",
+  "targetImagePath": "/images/child-mode/short-u/mud.png",
   "resolvedImageAssetKey": "mud",
   "imageAlt": "Which word ends like mud?"
  },
@@ -7525,11 +7525,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
-  "imagePath": "/images/assessment/generated/concepts/salt.webp",
-  "imageUrl": "/images/assessment/generated/concepts/salt.webp",
-  "targetImage": "/images/assessment/generated/concepts/salt.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/salt.webp",
-  "resolvedImageAssetKey": "salt",
+  "imagePath": "/media/vocabulary/images/melt.webp",
+  "imageUrl": "/media/vocabulary/images/melt.webp",
+  "targetImage": "/media/vocabulary/images/melt.webp",
+  "targetImagePath": "/media/vocabulary/images/melt.webp",
+  "resolvedImageAssetKey": "melt",
   "imageAlt": "Which word ends with the same letters as melt?"
  },
  {

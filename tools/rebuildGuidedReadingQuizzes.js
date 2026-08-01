@@ -260,7 +260,7 @@ function fictionQuestions(book) {
         ? `What goes wrong in ${book.title}?`
         : advanced
           ? `Which event shows that the first attempt fails in ${book.title}?`
-          : `Which event shows the main plan is not working in ${book.title}?`,
+          : `Which event shows the first plan fails in ${book.title}?`,
       answerIndex: failureIndex,
       skill: book.id === "bob-and-nan-06-zoo" ? "cause_effect" : "problem_solution",
       rationale: `${book.pages[failureIndex].text} This shows that the first attempt does not solve the central problem.`,

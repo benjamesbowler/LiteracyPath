@@ -2,7 +2,8 @@ import {
   bookCharacterAsset,
   bookCharacterForCreature,
   bookCharacterMood,
-  bookCharacterWearables
+  bookCharacterWearables,
+  bookCharacterWearableStyle
 } from "./bookCharacterAvatar.js";
 
 export default function BookCharacterAvatar({
@@ -33,6 +34,7 @@ export default function BookCharacterAvatar({
           key={item.id}
           className={`q-book-avatar-wearable is-${item.id}`}
           src={item.asset}
+          style={bookCharacterWearableStyle(item)}
           alt=""
         />
       ))}
@@ -42,6 +44,7 @@ export default function BookCharacterAvatar({
           key={item.id}
           className={`q-book-avatar-wearable is-${item.id}`}
           src={item.asset}
+          style={bookCharacterWearableStyle(item)}
           alt=""
         />
       ))}

@@ -1,6 +1,7 @@
 import { assessmentReleaseStandard } from "../content/releaseStandard.js";
 import { hfwApprovedWordsBySkill } from "./generated/hfwEligibilityKeys.generated.js";
 import { managedAssessmentSkillDepthConfig } from "./skillLevelDepthConfig.js";
+import { getMasteryRule } from "../masterySystem.js";
 
 export const ASSESSMENT_CONTRACT_ROUND_SIZE =
   assessmentReleaseStandard.defaults.questionCount.phaseSize;
@@ -16,23 +17,24 @@ function phaseKey(level, phase) {
   return `L${level}P${phase}`;
 }
 
-function makePhase(level, phase, levelConfig = {}) {
+function makePhase(level, phase, levelConfig = {}, roundSize = ASSESSMENT_CONTRACT_ROUND_SIZE) {
   return {
     level,
     phase,
     learnerBand: level === 1 ? "kindergarten_entry_esl" : "grade_1_extension",
     allowedFormats: [...(levelConfig.allowedFormats || [])],
-    minimumSelectableCount: ASSESSMENT_CONTRACT_ROUND_SIZE,
-    roundSize: ASSESSMENT_CONTRACT_ROUND_SIZE,
+    minimumSelectableCount: roundSize,
+    roundSize,
     rule: levelConfig.rule || ""
   };
 }
 
 function makeContract(config = {}) {
+  const roundSize = getMasteryRule(config.skillName).roundLength;
   const phases = {};
   for (const level of [1, 2]) {
     for (const phase of [1, 2]) {
-      phases[phaseKey(level, phase)] = makePhase(level, phase, config.levels?.[level]);
+      phases[phaseKey(level, phase)] = makePhase(level, phase, config.levels?.[level], roundSize);
     }
   }
 
@@ -57,8 +59,8 @@ function makeContract(config = {}) {
         rule: config.levels?.[2]?.rule || ""
       }
     },
-    roundSize: ASSESSMENT_CONTRACT_ROUND_SIZE,
-    minimumSelectableCountPerPhase: ASSESSMENT_CONTRACT_ROUND_SIZE,
+    roundSize,
+    minimumSelectableCountPerPhase: roundSize,
     retryWrongAnswerAllowance: 3,
     qaBlockedMediaMustFail: true,
     exactPublishedExposureRequired: true,

@@ -91,6 +91,18 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 4, 10]
   },
   {
+    id: "question-design-policy",
+    label: "Research-backed question design across assessments, reading, quests, games, and worksheets",
+    command: ["npm", "run", "check:question-design-policy"],
+    areas: [1, 2, 3, 4, 8, 10]
+  },
+  {
+    id: "learn-games",
+    label: "Arcade literacy mechanics, recorded cues, media, and integration",
+    command: ["npm", "run", "check:learn-games"],
+    areas: [1, 2, 3, 4, 8, 10]
+  },
+  {
     id: "guided-reading-decoding-support",
     label: "Guided Reading decoding ladder and teacher-visible support events",
     command: ["npm", "run", "check:guided-reading-decoding-support"],

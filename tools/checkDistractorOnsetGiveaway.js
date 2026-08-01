@@ -15,7 +15,10 @@ function wordOnset(word = "") {
 }
 
 function getSkillId(question = {}) {
-  return normalizeWord(question.skillId || question.assessmentSkillId || question.stage || "");
+  return String(question.skillId || question.assessmentSkillId || question.stage || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
 }
 
 function getAnswer(question = {}) {

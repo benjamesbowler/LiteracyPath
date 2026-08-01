@@ -4671,10 +4671,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the word is never printed — the picture carries it",
-  "imagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
-  "targetImage": "/images/child-mode/initial-sounds/mud.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
+  "imagePath": "/images/child-mode/short-u/mud.png",
+  "imageUrl": "/images/child-mode/short-u/mud.png",
+  "targetImage": "/images/child-mode/short-u/mud.png",
+  "targetImagePath": "/images/child-mode/short-u/mud.png",
   "resolvedImageAssetKey": "mud",
   "imageAlt": "Which vowel do you hear in the middle?"
  },

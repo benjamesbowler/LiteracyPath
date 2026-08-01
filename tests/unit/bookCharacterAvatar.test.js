@@ -34,6 +34,8 @@ test("character wearables compose across all four independent slots", () => {
   assert.equal(wearables.length, 4);
   for (const wearable of wearables) {
     assert.ok(existsSync(`public${wearable.asset}`), `${wearable.id} has no real art asset`);
+    assert.ok(wearable.layout, `${wearable.id} has no body-specific anchor`);
+    assert.ok(wearable.layout.width > 0 && wearable.layout.height > 0, `${wearable.id} has an invalid size`);
   }
 
   // Changing the head slot must preserve every other worn item.
@@ -45,4 +47,14 @@ test("character wearables compose across all four independent slots", () => {
     bookCharacterWearables(changedHat).map(item => item.id),
     ["moth-wings", "acorn-hat", "vine-scarf", "stone-staff"]
   );
+});
+
+test("every book character has coherent anchors for every simultaneous wearable slot", () => {
+  for (const body of ["tuft", "pebble", "moth"]) {
+    const wearables = bookCharacterWearables({ ...fullyDressed, body });
+    assert.equal(wearables.length, 4, `${body} lost a wearable slot`);
+    assert.deepEqual(wearables.map(item => item.slot), ["back", "head", "neck", "held"]);
+    assert.equal(wearables.find(item => item.slot === "back").layout.depth, 0, `${body} wings are not behind the body`);
+    assert.ok(wearables.find(item => item.slot === "held").layout.depth > 0, `${body} held item is not in front`);
+  }
 });

@@ -73,6 +73,32 @@ const WEARABLES = Object.freeze({
   "stone-staff": Object.freeze({ slot: "held", asset: "/game-assets/sound-seekers/characters/wearables/stone-staff.webp" })
 });
 
+// Wearables are independent transparent layers, so a child can combine one
+// item from every slot without requiring a pre-rendered image for each outfit.
+// Each book character has different proportions; these anchors keep the same
+// item attached to the correct body part instead of using one floating box for
+// a pig, a dinosaur and a child-shaped forest character.
+const WEARABLE_LAYOUTS = Object.freeze({
+  muddy: Object.freeze({
+    back: Object.freeze({ x: 50, y: 50, width: 108, height: 70, depth: 0 }),
+    head: Object.freeze({ x: 50, y: 6, width: 48, height: 26, depth: 3 }),
+    neck: Object.freeze({ x: 53, y: 58, width: 46, height: 24, depth: 3 }),
+    held: Object.freeze({ x: 80, y: 56, width: 28, height: 82, depth: 4 })
+  }),
+  chompy: Object.freeze({
+    back: Object.freeze({ x: 51, y: 51, width: 112, height: 72, depth: 0 }),
+    head: Object.freeze({ x: 51, y: 6, width: 46, height: 24, depth: 3 }),
+    neck: Object.freeze({ x: 51, y: 54, width: 46, height: 24, depth: 3 }),
+    held: Object.freeze({ x: 82, y: 58, width: 27, height: 80, depth: 4 })
+  }),
+  pip: Object.freeze({
+    back: Object.freeze({ x: 50, y: 49, width: 94, height: 66, depth: 0 }),
+    head: Object.freeze({ x: 51, y: 8, width: 44, height: 25, depth: 3 }),
+    neck: Object.freeze({ x: 51, y: 53, width: 40, height: 22, depth: 3 }),
+    held: Object.freeze({ x: 77, y: 57, width: 25, height: 78, depth: 4 })
+  })
+});
+
 export function bookCharacterForCreature(creature = {}) {
   const bodyId = CHARACTER_BY_BODY[creature.body]
     ? creature.body
@@ -120,14 +146,28 @@ export function bookCharacterAsset(creature = {}, { pose } = {}) {
 }
 
 export function bookCharacterWearables(creature = {}) {
+  const character = bookCharacterForCreature(creature);
   const equipped = creature.equipped || {};
   return ["back", "head", "neck", "held"]
     .map(slot => {
       const id = equipped[slot];
       const wearable = WEARABLES[id];
-      return wearable ? { id, ...wearable } : null;
+      const layout = WEARABLE_LAYOUTS[character.id]?.[slot];
+      return wearable && layout ? { id, ...wearable, layout } : null;
     })
     .filter(Boolean);
+}
+
+export function bookCharacterWearableStyle(wearable) {
+  const layout = wearable?.layout;
+  if (!layout) return undefined;
+  return {
+    "--q-wearable-x": `${layout.x}%`,
+    "--q-wearable-y": `${layout.y}%`,
+    "--q-wearable-width": `${layout.width}%`,
+    "--q-wearable-height": `${layout.height}%`,
+    "--q-wearable-depth": layout.depth
+  };
 }
 
 // Kept as a compatibility export for the runtime. Character colour is now

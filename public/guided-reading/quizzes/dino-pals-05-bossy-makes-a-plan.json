@@ -20,7 +20,7 @@
     },
     {
       "id": "dino-pals-05-bossy-makes-a-plan-q2",
-      "prompt": "Which event shows the main plan is not working in Bossy Makes a Plan?",
+      "prompt": "Which event shows the first plan fails in Bossy Makes a Plan?",
       "choices": [
         "Bossy's first plan leaves an empty rock.",
         "Bossy wants the picnic ready before noon.",

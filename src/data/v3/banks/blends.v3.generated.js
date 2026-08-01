@@ -4917,7 +4917,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sc-v4",
+  "requiredImageAssetKey": "score",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4929,11 +4929,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no score image — snore is deliberately absent from the set; smore and drore are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/score.webp",
+  "imageUrl": "/media/vocabulary/images/score.webp",
+  "targetImage": "/media/vocabulary/images/score.webp",
+  "targetImagePath": "/media/vocabulary/images/score.webp",
+  "resolvedImageAssetKey": "score",
   "imageAlt": "Finish: __ore"
  },
  {
@@ -5268,7 +5268,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sk-v4",
+  "requiredImageAssetKey": "skin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5280,11 +5280,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no skin image — scin and smin are non-words; snin too",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/skin.webp",
+  "imageUrl": "/media/vocabulary/images/skin.webp",
+  "targetImage": "/media/vocabulary/images/skin.webp",
+  "targetImagePath": "/media/vocabulary/images/skin.webp",
+  "resolvedImageAssetKey": "skin",
   "imageAlt": "Finish: __in"
  },
  {
@@ -5531,7 +5531,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sm-v3",
+  "requiredImageAssetKey": "smell",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5543,11 +5543,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no smell image — snell, scell and grell are non-words (spell and swell stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/smell.webp",
+  "imageUrl": "/media/vocabulary/images/smell.webp",
+  "targetImage": "/media/vocabulary/images/smell.webp",
+  "targetImagePath": "/media/vocabulary/images/smell.webp",
+  "resolvedImageAssetKey": "smell",
   "imageAlt": "Finish: __ell"
  },
  {
@@ -5619,7 +5619,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sm-v4",
+  "requiredImageAssetKey": "smoke",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5631,11 +5631,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no smoke image — snoke, scoke and gloke are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/smoke.webp",
+  "imageUrl": "/media/vocabulary/images/smoke.webp",
+  "targetImage": "/media/vocabulary/images/smoke.webp",
+  "targetImagePath": "/media/vocabulary/images/smoke.webp",
+  "resolvedImageAssetKey": "smoke",
   "imageAlt": "Finish: __oke"
  },
  {
@@ -5882,7 +5882,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sn-v3",
+  "requiredImageAssetKey": "snail",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5894,11 +5894,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no snail image — smail, scail and swail are non-words (trail stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/snail.webp",
+  "imageUrl": "/media/vocabulary/images/snail.webp",
+  "targetImage": "/media/vocabulary/images/snail.webp",
+  "targetImagePath": "/media/vocabulary/images/snail.webp",
+  "resolvedImageAssetKey": "snail",
   "imageAlt": "Finish: __ail"
  },
  {
@@ -6233,7 +6233,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sp-v3",
+  "requiredImageAssetKey": "sport",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6245,11 +6245,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no sport image — snort is deliberately absent; smort and scort are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/sport.webp",
+  "imageUrl": "/media/vocabulary/images/sport.webp",
+  "targetImage": "/media/vocabulary/images/sport.webp",
+  "targetImagePath": "/media/vocabulary/images/sport.webp",
+  "resolvedImageAssetKey": "sport",
   "imageAlt": "Finish: __ort"
  },
  {
@@ -6321,7 +6321,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sp-v4",
+  "requiredImageAssetKey": "spot",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6333,11 +6333,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no spot image — smot, skot and glot are non-words (slot and trot stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/spot.webp",
+  "imageUrl": "/media/vocabulary/images/spot.webp",
+  "targetImage": "/media/vocabulary/images/spot.webp",
+  "targetImagePath": "/media/vocabulary/images/spot.webp",
+  "resolvedImageAssetKey": "spot",
   "imageAlt": "Finish: __ot"
  },
  {
@@ -7023,7 +7023,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nd-v4",
+  "requiredImageAssetKey": "sand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7035,11 +7035,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no sand image — samp, sant and sask are non-words (salt stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/initial-sounds/images/s/sand.webp",
+  "imageUrl": "/media/initial-sounds/images/s/sand.webp",
+  "targetImage": "/media/initial-sounds/images/s/sand.webp",
+  "targetImagePath": "/media/initial-sounds/images/s/sand.webp",
+  "resolvedImageAssetKey": "sand",
   "imageAlt": "Finish: sa__"
  },
  {
@@ -7286,7 +7286,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nt-v3",
+  "requiredImageAssetKey": "print",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7298,11 +7298,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no print image — prind, prink and prift are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/print.webp",
+  "imageUrl": "/media/vocabulary/images/print.webp",
+  "targetImage": "/media/vocabulary/images/print.webp",
+  "targetImagePath": "/media/vocabulary/images/print.webp",
+  "resolvedImageAssetKey": "print",
   "imageAlt": "Finish: pri__"
  },
  {
@@ -7374,7 +7374,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nt-v4",
+  "requiredImageAssetKey": "paint",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7386,11 +7386,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "paind, paink and paimp are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/paint.webp",
+  "imageUrl": "/media/vocabulary/images/paint.webp",
+  "targetImage": "/media/vocabulary/images/paint.webp",
+  "targetImagePath": "/media/vocabulary/images/paint.webp",
+  "resolvedImageAssetKey": "paint",
   "imageAlt": "Finish: pai__"
  },
  {
@@ -7725,7 +7725,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-mp-v4",
+  "requiredImageAssetKey": "camp",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7737,11 +7737,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no camp image — cand, calt and cask are non-words (cant stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/camp.webp",
+  "imageUrl": "/media/vocabulary/images/camp.webp",
+  "targetImage": "/media/vocabulary/images/camp.webp",
+  "targetImagePath": "/media/vocabulary/images/camp.webp",
+  "resolvedImageAssetKey": "camp",
   "imageAlt": "Finish: ca__"
  },
  {
@@ -8076,7 +8076,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nk-v4",
+  "requiredImageAssetKey": "bank",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -8088,11 +8088,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no bank image — balt, baft and basc are non-words (band and bath stay out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/bank.webp",
+  "imageUrl": "/media/vocabulary/images/bank.webp",
+  "targetImage": "/media/vocabulary/images/bank.webp",
+  "targetImagePath": "/media/vocabulary/images/bank.webp",
+  "resolvedImageAssetKey": "bank",
   "imageAlt": "Finish: ba__"
  },
  {
@@ -9335,7 +9335,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-sn-v5",
+  "requiredImageAssetKey": "snack",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9347,11 +9347,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no snack image — scack, swack and glack are non-words (smack stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/snack.webp",
+  "imageUrl": "/media/vocabulary/images/snack.webp",
+  "targetImage": "/media/vocabulary/images/snack.webp",
+  "targetImagePath": "/media/vocabulary/images/snack.webp",
+  "resolvedImageAssetKey": "snack",
   "imageAlt": "Finish: __ack"
  },
  {
@@ -9511,7 +9511,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "blends-nd-v5",
+  "requiredImageAssetKey": "stand",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -9523,11 +9523,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no stand image — staft, stalt and stasc are non-words (stamp stays out)",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/stand.webp",
+  "imageUrl": "/media/vocabulary/images/stand.webp",
+  "targetImage": "/media/vocabulary/images/stand.webp",
+  "targetImagePath": "/media/vocabulary/images/stand.webp",
+  "resolvedImageAssetKey": "stand",
   "imageAlt": "Finish: sta__"
  },
  {

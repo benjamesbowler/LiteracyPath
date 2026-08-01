@@ -362,7 +362,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-a-v1",
+  "requiredImageAssetKey": "astronaut",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -374,11 +374,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/a.webp",
-  "imageUrl": "/images/assessment/hfw/a.webp",
-  "targetImage": "/images/assessment/hfw/a.webp",
-  "targetImagePath": "/images/assessment/hfw/a.webp",
-  "resolvedImageAssetKey": "a",
+  "imagePath": "/media/initial-sounds/images/a/astronaut.webp",
+  "imageUrl": "/media/initial-sounds/images/a/astronaut.webp",
+  "targetImage": "/media/initial-sounds/images/a/astronaut.webp",
+  "targetImagePath": "/media/initial-sounds/images/a/astronaut.webp",
+  "resolvedImageAssetKey": "astronaut",
   "imageAlt": "Which letter makes the first sound in astronaut?"
  },
  {
@@ -449,7 +449,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "initial_sounds-a-v2",
+  "requiredImageAssetKey": "alligator",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -461,11 +461,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/a.webp",
-  "imageUrl": "/images/assessment/hfw/a.webp",
-  "targetImage": "/images/assessment/hfw/a.webp",
-  "targetImagePath": "/images/assessment/hfw/a.webp",
-  "resolvedImageAssetKey": "a",
+  "imagePath": "/media/vocabulary/images/alligator.webp",
+  "imageUrl": "/media/vocabulary/images/alligator.webp",
+  "targetImage": "/media/vocabulary/images/alligator.webp",
+  "targetImagePath": "/media/vocabulary/images/alligator.webp",
+  "resolvedImageAssetKey": "alligator",
   "imageAlt": "Which letter makes the first sound in alligator?"
  },
  {
@@ -7604,8 +7604,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {

@@ -20,7 +20,7 @@
     },
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q2",
-      "prompt": "Which event shows the main plan is not working in Dozy Won't Wake Up?",
+      "prompt": "Which event shows the first plan fails in Dozy Won't Wake Up?",
       "choices": [
         "Honky calls. The cave shakes, not Dozy.",
         "Picnic morning begins, but Dozy still sleeps.",

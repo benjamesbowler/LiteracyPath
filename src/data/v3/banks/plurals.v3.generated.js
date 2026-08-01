@@ -1394,11 +1394,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/many-lots-01.webp",
-  "resolvedImageAssetKey": "lots",
+  "imagePath": "/media/vocabulary/images/frogs.webp",
+  "imageUrl": "/media/vocabulary/images/frogs.webp",
+  "targetImage": "/media/vocabulary/images/frogs.webp",
+  "targetImagePath": "/media/vocabulary/images/frogs.webp",
+  "resolvedImageAssetKey": "frogs",
   "imageAlt": "Lots of frogs hop in the grass."
  },
  {
@@ -2095,11 +2095,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
-  "resolvedImageAssetKey": "red",
+  "imagePath": "/media/vocabulary/images/foxes.webp",
+  "imageUrl": "/media/vocabulary/images/foxes.webp",
+  "targetImage": "/media/vocabulary/images/foxes.webp",
+  "targetImagePath": "/media/vocabulary/images/foxes.webp",
+  "resolvedImageAssetKey": "foxes",
   "imageAlt": "Two red foxes hid in the den."
  },
  {
@@ -2879,11 +2879,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "kitchen outscores mouses, so the scanner lands on a correct word",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
+  "imagePath": "/media/initial-sounds/images/k/kitchen.webp",
+  "imageUrl": "/media/initial-sounds/images/k/kitchen.webp",
+  "targetImage": "/media/initial-sounds/images/k/kitchen.webp",
+  "targetImagePath": "/media/initial-sounds/images/k/kitchen.webp",
+  "resolvedImageAssetKey": "kitchen",
   "imageAlt": "Spot the wrong word: The mouses hid in the kitchen."
  },
  {
@@ -3573,11 +3573,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "window",
+  "imagePath": "/media/vocabulary/images/outside.webp",
+  "imageUrl": "/media/vocabulary/images/outside.webp",
+  "targetImage": "/media/vocabulary/images/outside.webp",
+  "targetImagePath": "/media/vocabulary/images/outside.webp",
+  "resolvedImageAssetKey": "outside",
   "imageAlt": "Spot the wrong word: Wolfs howled outside the window."
  },
  {
@@ -4009,11 +4009,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "grazed and meadow tie sheeps at six letters",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
+  "imagePath": "/media/vocabulary/images/meadow.webp",
+  "imageUrl": "/media/vocabulary/images/meadow.webp",
+  "targetImage": "/media/vocabulary/images/meadow.webp",
+  "targetImagePath": "/media/vocabulary/images/meadow.webp",
+  "resolvedImageAssetKey": "meadow",
   "imageAlt": "Spot the wrong word: Three sheeps grazed in the meadow."
  },
  {
@@ -4364,7 +4364,7 @@ export const questions = [
   "imageAlt": "Ten dogs bark at the gate."
  },
  {
-  "id": "lp3.plurals.l1.R.plural_add_es.v9r",
+  "id": "lp3.plurals.l1.C.plural_add_es.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "plurals",
@@ -4377,7 +4377,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "plural_add_es",
   "formatType": "PLURAL_SPELLING_CONTEXT",
@@ -4388,12 +4388,17 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Four … played near the barn.",
   "sentence": "Four ___ played near the barn.",
   "choices": [
+   "foxes",
    "fox",
    "book",
-   "sun",
-   "foxes"
+   "sun"
   ],
   "answerOptions": [
+   {
+    "value": "foxes",
+    "label": "foxes",
+    "text": "foxes"
+   },
    {
     "value": "fox",
     "label": "fox",
@@ -4408,24 +4413,19 @@ export const questions = [
     "value": "sun",
     "label": "sun",
     "text": "sun"
-   },
-   {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
    }
   ],
   "answer": "foxes",
   "correctAnswer": "foxes",
   "distractorRationales": {
+   "fox": "D-FUNCTION-SWAP",
    "book": "D-SEMANTIC",
-   "sun": "D-SEMANTIC",
-   "fox": "D-FUNCTION-SWAP"
+   "sun": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
+  "retentionOnly": false,
   "scannerExpected": false,
   "sentenceText": "Four ___ played near the barn.",
   "v3AuthoredMedia": {
@@ -4444,15 +4444,15 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "four gifts fo to foxes and fox alike",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/for-four-fore-01.webp",
-  "resolvedImageAssetKey": "four",
+  "imagePath": "/media/vocabulary/images/foxes.webp",
+  "imageUrl": "/media/vocabulary/images/foxes.webp",
+  "targetImage": "/media/vocabulary/images/foxes.webp",
+  "targetImagePath": "/media/vocabulary/images/foxes.webp",
+  "resolvedImageAssetKey": "foxes",
   "imageAlt": "Four foxes played near the barn."
  },
  {
-  "id": "lp3.plurals.l1.R.plural_add_es.v10r",
+  "id": "lp3.plurals.l1.A.plural_add_es.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "plurals",
@@ -4465,7 +4465,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "plural_add_es",
   "formatType": "PLURAL_IMAGE_SPELLING",
@@ -4475,12 +4475,17 @@ export const questions = [
   "question": "Which word tells what you see?",
   "spokenPrompt": "Which word tells what you see?",
   "choices": [
+   "cat",
    "boxes",
    "box",
-   "cats",
-   "cat"
+   "cats"
   ],
   "answerOptions": [
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   },
    {
     "value": "boxes",
     "label": "boxes",
@@ -4495,24 +4500,19 @@ export const questions = [
     "value": "cats",
     "label": "cats",
     "text": "cats"
-   },
-   {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
    }
   ],
   "answer": "boxes",
   "correctAnswer": "boxes",
   "distractorRationales": {
+   "box": "D-FUNCTION-SWAP",
    "cats": "D-SEMANTIC",
-   "cat": "D-SEMANTIC",
-   "box": "D-FUNCTION-SWAP"
+   "cat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
+  "retentionOnly": false,
   "scannerExpected": false,
   "targetWord": "boxes",
   "v3AuthoredMedia": {
@@ -4563,22 +4563,12 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Just one … purred by the fire.",
   "sentence": "Just one ___ purred by the fire.",
   "choices": [
-   "hens",
-   "cat",
    "cats",
-   "frogs"
+   "frogs",
+   "hens",
+   "cat"
   ],
   "answerOptions": [
-   {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
-   },
-   {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
-   },
    {
     "value": "cats",
     "label": "cats",
@@ -4588,6 +4578,16 @@ export const questions = [
     "value": "frogs",
     "label": "frogs",
     "text": "frogs"
+   },
+   {
+    "value": "hens",
+    "label": "hens",
+    "text": "hens"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
   "answer": "cat",
@@ -4650,22 +4650,12 @@ export const questions = [
   "question": "More than one! Which word?",
   "spokenPrompt": "More than one! Which word?",
   "choices": [
-   "hens",
-   "hen",
    "books",
-   "book"
+   "book",
+   "hens",
+   "hen"
   ],
   "answerOptions": [
-   {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
-   },
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
-   },
    {
     "value": "books",
     "label": "books",
@@ -4675,6 +4665,16 @@ export const questions = [
     "value": "book",
     "label": "book",
     "text": "book"
+   },
+   {
+    "value": "hens",
+    "label": "hens",
+    "text": "hens"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
    }
   ],
   "answer": "books",
@@ -5054,11 +5054,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/tooth.webp",
-  "imageUrl": "/images/assessment/digraphs/tooth.webp",
-  "targetImage": "/images/assessment/digraphs/tooth.webp",
-  "targetImagePath": "/images/assessment/digraphs/tooth.webp",
-  "resolvedImageAssetKey": "tooth",
+  "imagePath": "/media/vocabulary/images/teeth.webp",
+  "imageUrl": "/media/vocabulary/images/teeth.webp",
+  "targetImage": "/media/vocabulary/images/teeth.webp",
+  "targetImagePath": "/media/vocabulary/images/teeth.webp",
+  "resolvedImageAssetKey": "teeth",
   "imageAlt": "Which is the plural of tooth?"
  },
  {

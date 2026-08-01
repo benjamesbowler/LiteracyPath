@@ -13,7 +13,8 @@ import {
   GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY,
   grammarGrindChoiceFeedback,
   grammarGrindIsCorrect,
-  grammarGrindLadder
+  grammarGrindLadder,
+  grammarGrindSegmentChoices
 } from "../../src/utils/grammarGrindLevels.js";
 
 const isArcade = game => (game.surfaces || []).includes("arcade");
@@ -128,4 +129,18 @@ test("Spell & Skate has ten unambiguous spelling levels per difficulty", () => {
   }
   assert.ok(grammarGrindLadder("medium").some(level => level.segments.some(segment => ["ai", "ee", "oa", "igh", "oo", "ay", "oi"].includes(segment))), "medium should introduce vowel teams");
   assert.ok(grammarGrindLadder("hard").some(level => level.segments.some(segment => segment.includes("_e"))), "hard should introduce split digraphs");
+});
+
+test("Spell & Skate rebuilds three unambiguous sound choices for every word step", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const ladder = grammarGrindLadder(difficulty);
+    for (const level of ladder) {
+      level.segments.forEach((expected, stepIndex) => {
+        const choices = grammarGrindSegmentChoices(level, ladder, stepIndex, level.level);
+        assert.equal(choices.length, 3, `${difficulty} ${level.audioWord} step ${stepIndex + 1} needs three tiles`);
+        assert.equal(new Set(choices).size, 3, `${difficulty} ${level.audioWord} step ${stepIndex + 1} repeats a tile`);
+        assert.equal(choices.filter(choice => choice === expected).length, 1, `${difficulty} ${level.audioWord} step ${stepIndex + 1} needs one answer`);
+      });
+    }
+  }
 });

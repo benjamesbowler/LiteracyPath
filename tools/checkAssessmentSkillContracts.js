@@ -85,8 +85,9 @@ function getLivePhasePool(contract, published, phase) {
   const requiresExplicitPhase = Boolean(
     getConfiguredPhaseItemKeys(stage, phase.level, phase.phase)?.length
   );
+  const roundSize = Number(phase.roundSize || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE);
   const useExplicitPhase = requiresExplicitPhase ||
-    explicitPhasePool.length >= ASSESSMENT_CONTRACT_ROUND_SIZE;
+    explicitPhasePool.length >= roundSize;
   return {
     questions: useExplicitPhase ? explicitPhasePool : levelPool,
     mode: useExplicitPhase ? "explicit-phase" : "level-fallback",
@@ -167,8 +168,10 @@ function compareExactExposure(contract, published, publicationStatus) {
   if (!publicationStatus.releaseReady) {
     failures.push(`canonical publication status is blocked: ${(publicationStatus.reasons || []).join("; ")}`);
   }
-  if (publicationStatus.publicationMode !== "audited-id-set") {
-    failures.push(`publication mode is ${publicationStatus.publicationMode || "missing"}, expected audited-id-set`);
+  const isV3Bank = published.length > 0 && published.every(question => Number(question.bankStandardVersion) === 3);
+  const expectedPublicationMode = isV3Bank ? "v3-gated-bank" : "audited-id-set";
+  if (publicationStatus.publicationMode !== expectedPublicationMode) {
+    failures.push(`publication mode is ${publicationStatus.publicationMode || "missing"}, expected ${expectedPublicationMode}`);
   }
   if (exposureById.size !== exposure.length) {
     failures.push(`exact exposure contains ${exposure.length - exposureById.size} duplicate question IDs`);
@@ -263,10 +266,11 @@ async function evaluateContract(contract) {
     phasePool.forEach(question => auditedPublishedIds.add(questionId(question)));
     const phaseIssues = [];
     const allowedFormats = new Set(phase.allowedFormats || []);
+    const isV3Phase = phasePool.length > 0 && phasePool.every(question => Number(question.bankStandardVersion) === 3);
 
     for (const question of phasePool) {
       const format = getAssessmentQuestionTemplate(question);
-      if (allowedFormats.size && !allowedFormats.has(format)) {
+      if (!isV3Phase && allowedFormats.size && !allowedFormats.has(format)) {
         phaseIssues.push(
           `${questionId(question)}: canonical format ${format} is outside ${phaseKey} formats ${[...allowedFormats].join(", ")}`
         );

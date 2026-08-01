@@ -20,7 +20,7 @@
     },
     {
       "id": "james-and-anna-04-dentist-q2",
-      "prompt": "Which event shows the main plan is not working in James and Anna go to the Dentist?",
+      "prompt": "Which event shows the first plan fails in James and Anna go to the Dentist?",
       "choices": [
         "When the chair rises, James's worried feeling rushes back.",
         "James and Anna feel worried about their dentist visit.",

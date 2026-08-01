@@ -82,11 +82,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/orange.png",
-  "imageUrl": "/images/child-mode/initial-sounds/orange.png",
-  "targetImage": "/images/child-mode/initial-sounds/orange.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/orange.png",
-  "resolvedImageAssetKey": "orange",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v1",
   "imageAlt": "Illustration for All week the nights were freezing cold. By Saturday, the park pond wore a lid of grey ice. The ducks stood on top of it, looking puzzled, and slid about on flat orange feet."
  },
  {
@@ -170,11 +170,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/flower.webp",
-  "imageUrl": "/images/assessment/blends/flower.webp",
-  "targetImage": "/images/assessment/blends/flower.webp",
-  "targetImagePath": "/images/assessment/blends/flower.webp",
-  "resolvedImageAssetKey": "flower",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v2",
   "imageAlt": "Illustration for Zack tipped the seed packet too fast. Seeds sprayed all over the path instead of the flower bed. Within a minute, six pigeons landed and began pecking up every last one."
  },
  {
@@ -258,11 +258,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/after.webp",
-  "imageUrl": "/images/assessment/hfw/after.webp",
-  "targetImage": "/images/assessment/hfw/after.webp",
-  "targetImagePath": "/images/assessment/hfw/after.webp",
-  "resolvedImageAssetKey": "after",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v3",
   "imageAlt": "Illustration for Gran put three drops of oil on the door hinge. She swung the door back and forth to work the oil in. After that, the door opened without its awful screech, and the baby could nap in peace."
  },
  {
@@ -346,11 +346,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v4",
   "imageAlt": "Illustration for Nobody watered the classroom plant over half term. When the children came back, its leaves hung down like tired flags, and the soil in the pot was hard and pale."
  },
  {
@@ -434,11 +434,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v5",
   "imageAlt": "Illustration for Dad left the crayon box on the back seat of the car on the hottest day of summer. When Mina opened the door after lunch, the crayons had melted together into one rainbow lump."
  },
  {
@@ -522,11 +522,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v6",
   "imageAlt": "Illustration for Leah rubbed the balloon on her jumper ten times. Then she held it just above her head. Her hair rose up toward the balloon in thin strands, as if it wanted to follow it around the room."
  },
  {
@@ -610,11 +610,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v7",
   "imageAlt": "Illustration for Snow fell all night without stopping. By morning it lay deeper than Papa's boots. The radio read a list of closed schools, and Amini's school was third on the list."
  },
  {
@@ -698,11 +698,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/press.webp",
-  "imageUrl": "/images/assessment/blends/press.webp",
-  "targetImage": "/images/assessment/blends/press.webp",
-  "targetImagePath": "/images/assessment/blends/press.webp",
-  "resolvedImageAssetKey": "press",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v8",
   "imageAlt": "Illustration for Omar forgot to press the lid onto the popcorn pot. When the corn began to pop, it leapt from the pot like tiny white fireworks, bouncing off the counter and skittering across the kitchen floor."
  },
  {
@@ -786,11 +786,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/whistle.webp",
-  "imageUrl": "/images/assessment/digraphs/whistle.webp",
-  "targetImage": "/images/assessment/digraphs/whistle.webp",
-  "targetImagePath": "/images/assessment/digraphs/whistle.webp",
-  "resolvedImageAssetKey": "whistle",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v1",
   "imageAlt": "Illustration for The kettle began to whistle, high and loud. Auntie hurried in from the garden, still holding her trowel, and lifted it off the heat. The whistling faded to a sigh."
  },
  {
@@ -874,11 +874,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/movement-01.webp",
-  "resolvedImageAssetKey": "movement",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v2",
   "imageAlt": "Illustration for Bruno barked before anyone knocked. Two seconds later, the doorbell rang, and the delivery man stood on the step. Bruno's ears had heard the gate creak long before any human did."
  },
  {
@@ -962,11 +962,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/disappear-01.webp",
-  "resolvedImageAssetKey": "disappear",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v3",
   "imageAlt": "Illustration for Hana's chalk drawing of a rocket covered the whole path. That night, rain fell for hours. In the morning only a faint pink cloud remained where the rocket had been."
  },
  {
@@ -1050,11 +1050,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "licking fast is the RESPONSE to melting, not the cause of drips",
-  "imagePath": "/images/assessment/digraphs/white.webp",
-  "imageUrl": "/images/assessment/digraphs/white.webp",
-  "targetImage": "/images/assessment/digraphs/white.webp",
-  "targetImagePath": "/images/assessment/digraphs/white.webp",
-  "resolvedImageAssetKey": "white",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v4",
   "imageAlt": "Illustration for By the end of the walk, Milly was carrying her ice cream cone at a slant, licking fast. Sweet white drips raced down her fingers and dotted the pavement behind her like a trail."
  },
  {
@@ -1138,11 +1138,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "resolvedImageAssetKey": "straight",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v5",
   "imageAlt": "Illustration for In the tunnel under the railway, Finn shouted 'HELLO!' His own voice bounced straight back at him, twice. He grinned and tried a bark, a whoop, and a tiny polite cough."
  },
  {
@@ -1226,11 +1226,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/vocabulary/winter.png",
-  "imageUrl": "/images/vocabulary/winter.png",
-  "targetImage": "/images/vocabulary/winter.png",
-  "targetImagePath": "/images/vocabulary/winter.png",
-  "resolvedImageAssetKey": "winter",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v6",
   "imageAlt": "Illustration for Mo's bike had spent the whole winter outside under no cover. In spring, the chain was stiff and the handlebars wore freckles of orange rust that had not been there before."
  },
  {
@@ -1314,11 +1314,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v7",
   "imageAlt": "Illustration for At the beach, Rosa built her sandcastle close to the shining wet sand. She worked on it all afternoon. By teatime, the sea had crept up the beach, and her castle softened into a smooth little hill."
  },
  {
@@ -1402,11 +1402,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/window-windows-01.webp",
-  "resolvedImageAssetKey": "window",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v8",
   "imageAlt": "Illustration for All the curtains in the front room used to be deep blue. The pair by the big sunny window are now pale, almost grey, while the pair in the shady corner still look brand new."
  },
  {
@@ -1490,11 +1490,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/light.webp",
-  "imageUrl": "/images/assessment/long-vowels/light.webp",
-  "targetImage": "/images/assessment/long-vowels/light.webp",
-  "targetImagePath": "/images/assessment/long-vowels/light.webp",
-  "resolvedImageAssetKey": "light",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v1",
   "imageAlt": "Illustration for The moth circled the porch light for the tenth time. Round and round it went, tapping the warm glass, ignoring the whole dark garden behind it."
  },
  {
@@ -1578,11 +1578,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/shoe-shoes-01.webp",
-  "resolvedImageAssetKey": "shoes",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v2",
   "imageAlt": "Illustration for Pia's shoes had fitted at the start of summer. Now her toes pressed the ends, and by home time her feet ached. Mum measured her feet and laughed: a whole size bigger."
  },
  {
@@ -1666,11 +1666,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v3",
   "imageAlt": "Illustration for Nobody wrapped the bread after breakfast. It sat on the board all day and all night. By morning the slices were hard at the edges and curled up like little rooftops."
  },
  {
@@ -1754,11 +1754,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v4",
   "imageAlt": "Illustration for The little ramp was set up on the rug. Kip let go of the marble at the top. It rolled faster and faster, shot off the end, and did not stop until it clicked against the skirting board."
  },
  {
@@ -1842,11 +1842,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v5",
   "imageAlt": "Illustration for It rained hard all morning. When it stopped, the path through the grass was dotted with worms, dozens of them, stretched out on the wet stones."
  },
  {
@@ -1930,11 +1930,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "resolvedImageAssetKey": "newspaper",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v6",
   "imageAlt": "Illustration for Ivy laughed first, at nothing much at all. Then her brother caught it, then Dad, then even Grandma behind her newspaper. Soon the whole room was laughing and nobody could say why."
  },
  {
@@ -2018,11 +2018,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/before.webp",
-  "imageUrl": "/images/assessment/hfw/before.webp",
-  "targetImage": "/images/assessment/hfw/before.webp",
-  "targetImagePath": "/images/assessment/hfw/before.webp",
-  "resolvedImageAssetKey": "before",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v7",
   "imageAlt": "Illustration for The candle flame stood tall and still until Dad opened the hallway door. Then it bent sideways, flickered wildly, and almost went out before the door clicked shut again."
  },
  {
@@ -2106,11 +2106,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/story-stories-01.webp",
-  "resolvedImageAssetKey": "story",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v8",
   "imageAlt": "Illustration for Warm milk, a dim lamp, one last story. Halfway through the second page, Suki's eyes closed all by themselves, and Papa tiptoed out with the book still open in his hand."
  },
  {
@@ -2194,11 +2194,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "middle-link question: jam → wasp → jump → elbow → flour",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v1",
   "imageAlt": "Illustration for A wasp smelled the open jam jar on the windowsill. It flew in through the kitchen window. Startled, Uncle Josh jumped back from the counter, knocked the flour bag with his elbow, and a white cloud settled slowly over the clean dishes."
  },
  {
@@ -2282,11 +2282,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v2",
   "imageAlt": "Illustration for The night frost cracked the old clay pot on the balcony. Soil trickled out of the crack all week. With half its soil gone, the rosemary plant tipped over in the next strong wind, and the falling pot startled the pigeons off the rail."
  },
  {
@@ -2370,11 +2370,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v3",
   "imageAlt": "Illustration for Dee left the bath tap running while she answered the phone. The call was long. Water crept over the edge of the bath, found the gap by the pipe, and by the time Dee hung up, a brown ring was spreading on the kitchen ceiling below."
  },
  {
@@ -2458,11 +2458,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v4",
   "imageAlt": "Illustration for The football pitch flooded on Friday, so Saturday's match moved to the school yard. The yard's hard ground made the ball bounce twice as high, and twice-as-high bounces sailed over the fence, which is how Mr Njoku's tomatoes met seven footballs in one afternoon."
  },
  {
@@ -2546,11 +2546,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v5",
   "imageAlt": "Illustration for Someone propped the freezer door open with a yoghurt pot during the party. Overnight the ice cream softened to milkshake. In the morning, the melting tub dripped through the shelf onto the peas, gluing the bags together in one frosty block."
  },
  {
@@ -2634,11 +2634,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v6",
   "imageAlt": "Illustration for The lift was crowded, and somebody's rucksack pressed every button at once. The lift began stopping at every single floor. All the stopping made Priya late to the dentist upstairs, and her name was called just as she burst out of the lift doors, breathing hard."
  },
  {
@@ -2722,11 +2722,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v7",
   "imageAlt": "Illustration for A strong gust snapped the kite's thin tail. Without its tail, the kite began spinning instead of gliding. The spinning wound the string around the flagpole three times, and that is where the kite stayed, rattling like a trapped bird, until the caretaker fetched his ladder."
  },
  {
@@ -2810,11 +2810,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v8",
   "imageAlt": "Illustration for The bathroom mirror steamed up during Amir's hot shower. He wiped it with a towel, which left fine fluff all over the glass. When the mirror dried, the fluff showed worse than the steam had, so he washed the mirror properly, which is how one hot shower led to cleaning the whole bathroom."
  },
  {
@@ -2898,11 +2898,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "NOT-a-cause format: three real causes, one invented",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/weather-whether-01.webp",
-  "resolvedImageAssetKey": "weather",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v1",
   "imageAlt": "Illustration for The school fair made more money than ever this year. The weather was warm and dry, so crowds stayed all afternoon. The new baking stall sold out twice. And because the fair fell on payday weekend, purses were a little fuller than usual."
  },
  {
@@ -2986,11 +2986,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/little.webp",
-  "imageUrl": "/images/assessment/hfw/little.webp",
-  "targetImage": "/images/assessment/hfw/little.webp",
-  "targetImagePath": "/images/assessment/hfw/little.webp",
-  "resolvedImageAssetKey": "little",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v2",
   "imageAlt": "Illustration for Rui slept through his alarm for three reasons. He had stayed up late finishing his comic. His phone had died in the night, so the alarm never rang. And the thick new curtains kept his room as dark as a cave long past sunrise."
  },
  {
@@ -3074,11 +3074,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the invented option is the intuitive-but-backwards cause",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v3",
   "imageAlt": "Illustration for The cactus on the windowsill turned soft and brown. Grandpa had watered it every single day, though a cactus wants water rarely. The pot had no hole, so the water sat around its roots. And the cold glass at night chilled it again and again."
  },
  {
@@ -3162,11 +3162,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v4",
   "imageAlt": "Illustration for Half the class had colds by Friday. All week the rain had kept everyone crowded indoors at break. The window monitor was away, so no one aired the stuffy room. And two children had come in sniffing on Monday instead of resting at home."
  },
  {
@@ -3250,11 +3250,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v5",
   "imageAlt": "Illustration for The old rope swing finally snapped on Sunday. Years of rain and sun had chewed at the fibres. The knot rubbed the same branch groove every swing. And that afternoon, for the first time, two riders had squeezed on together."
  },
  {
@@ -3338,11 +3338,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/round.webp",
-  "imageUrl": "/images/assessment/hfw/round.webp",
-  "targetImage": "/images/assessment/hfw/round.webp",
-  "targetImagePath": "/images/assessment/hfw/round.webp",
-  "resolvedImageAssetKey": "round",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v6",
   "imageAlt": "Illustration for The bakery queue stretched round the corner on Saturday. A food show had filmed there on Tuesday, and clips were everywhere. The rival bakery across town was shut for repairs. And Saturday was the first day of the famous plum tarts."
  },
  {
@@ -3426,11 +3426,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "resolvedImageAssetKey": "heard",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v7",
   "imageAlt": "Illustration for Nobody heard the phone ring at lunch. The blender was roaring through a smoothie. The radio was on for the cricket. And the phone itself was buried somewhere under the sofa cushions, ringing into the springs."
  },
  {
@@ -3514,11 +3514,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "resolvedImageAssetKey": "straight",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v8",
   "imageAlt": "Illustration for The little boat was hard to row home. The tide had turned against them. The wind blew straight off the shore into their faces. And the afternoon's happy swimming had left both rowers with arms like wet spaghetti."
  },
  {
@@ -3602,11 +3602,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/children.webp",
-  "imageUrl": "/images/assessment/generated/concepts/children.webp",
-  "targetImage": "/images/assessment/generated/concepts/children.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/children.webp",
-  "resolvedImageAssetKey": "children",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v1.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v1.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v1.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v1.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v1",
   "imageAlt": "Illustration for Wherever the school cat sat, children gathered. New visitors sometimes thought the children attracted the cat. The dinner ladies knew better: the cat chose the sunniest spot first, and the children simply followed him to it."
  },
  {
@@ -3690,11 +3690,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImage": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
-  "resolvedImageAssetKey": "practice",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v2.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v2.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v2.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v2.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v2",
   "imageAlt": "Illustration for On sports day, Jo wore her lucky red socks and won three races. 'The socks make me fast,' she told everyone. Her coach smiled and pointed at the training chart on the wall: every square of the last two months was ticked."
  },
  {
@@ -3778,11 +3778,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/every.webp",
-  "imageUrl": "/images/assessment/hfw/every.webp",
-  "targetImage": "/images/assessment/hfw/every.webp",
-  "targetImagePath": "/images/assessment/hfw/every.webp",
-  "resolvedImageAssetKey": "every",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v3.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v3.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v3.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v3.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v3",
   "imageAlt": "Illustration for Every time the floorboard by the kitchen creaked, Biscuit the dog appeared, and moments later food hit his bowl. A visitor might think the creak fed the dog. In truth, Dad stepping on that board meant Dad was fetching the dog food tin from that exact cupboard."
  },
  {
@@ -3866,11 +3866,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "two-way causation — the honest answer is the loop itself",
-  "imagePath": "/images/assessment/language/variants/adjectives/harder-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/harder-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/harder-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/harder-01.webp",
-  "resolvedImageAssetKey": "harder",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v4.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v4.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v4.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v4.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v4",
   "imageAlt": "Illustration for The louder the crowd sang, the harder the band played. And the harder the band played, the louder the crowd sang. By the last song, no one could say who was driving whom — the whole hall had become one big engine of noise."
  },
  {
@@ -3954,11 +3954,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/together-apart-01.webp",
-  "resolvedImageAssetKey": "together",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v5.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v5.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v5.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v5.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v5",
   "imageAlt": "Illustration for Umbrellas do not bring the rain, Gran says, though on our street it can look that way: the moment umbrellas bloom along the pavement, down it comes. Of course, everyone opens them because the first drops have already begun to fall."
  },
  {
@@ -4042,11 +4042,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/passed-past-01.webp",
-  "resolvedImageAssetKey": "passed",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v6.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v6.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v6.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v6.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v6",
   "imageAlt": "Illustration for Whenever the ice-cream van's tune started, Tam's tummy rumbled. Tam decided the tune made him hungry. Mum laughed: the van always came at four o'clock — exactly the hour a boy who skipped his lunchtime peas gets hungry anyway."
  },
  {
@@ -4130,11 +4130,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v7.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v7.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v7.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v7.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v7",
   "imageAlt": "Illustration for The rooster crowed, and the sun came up. It happened every single morning, in that order. The farmer liked to joke that his rooster raised the sun. The vet put it differently: the first grey light wakes the rooster, and the crowing follows."
  },
  {
@@ -4218,11 +4218,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/right-correct-01.webp",
-  "resolvedImageAssetKey": "right",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v8.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v8.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v8.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v8.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v8",
   "imageAlt": "Illustration for Firefighters arrive at big fires, and small fires have no firefighters at all. Looking only at that, you might decide firefighters make fires bigger. Ana's project poster explained it the right way round: the bigger the fire already is, the more firefighters get sent to it."
  },
  {
@@ -4306,11 +4306,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/objects/drink.png",
-  "imageUrl": "/images/objects/drink.png",
-  "targetImage": "/images/objects/drink.png",
-  "targetImagePath": "/images/objects/drink.png",
-  "resolvedImageAssetKey": "drink",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v9",
   "imageAlt": "Illustration for Joss shook the fizzy drink can all the way home, just to hear it slosh. When Dad opened it at the table, a hissing fountain leapt out and rained on the tablecloth."
  },
  {
@@ -4394,11 +4394,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/vocabulary/winter.png",
-  "imageUrl": "/images/vocabulary/winter.png",
-  "targetImage": "/images/vocabulary/winter.png",
-  "targetImagePath": "/images/vocabulary/winter.png",
-  "resolvedImageAssetKey": "winter",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v10",
   "imageAlt": "Illustration for The torch had sat in the freezing shed all winter. When Ben clicked it on for the camp-out, the beam glowed dull orange for a minute and then gave up completely."
  },
  {
@@ -4482,11 +4482,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/comfortable-01.webp",
-  "resolvedImageAssetKey": "comfortable",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v9",
   "imageAlt": "Illustration for Auntie Bel sneezed six times before she even said hello. Her eyes were pink and watery. On her lap, completely comfortable, sat the neighbour's fluffy white cat."
  },
  {
@@ -4570,11 +4570,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/found.webp",
-  "imageUrl": "/images/assessment/hfw/found.webp",
-  "targetImage": "/images/assessment/hfw/found.webp",
-  "targetImagePath": "/images/assessment/hfw/found.webp",
-  "resolvedImageAssetKey": "found",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v10",
   "imageAlt": "Illustration for The strawberries were forgotten at the back of the fridge for two weeks. When Val found the box, a soft grey fur had crept over every berry."
  },
  {
@@ -4658,11 +4658,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v9",
   "imageAlt": "Illustration for The plug chain had slipped off its hook into the water. Nobody noticed while the bath emptied itself, glug by glug, until only a cold puddle was left around Otto's toes."
  },
  {
@@ -4746,11 +4746,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
-  "resolvedImageAssetKey": "straight",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-because_sentence-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-because_sentence-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-because_sentence-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-because_sentence-v10",
   "imageAlt": "Illustration for Nia's birthday balloon slipped out of her hand indoors. It sailed straight up and bumped softly against the ceiling, where it stayed all week, just out of reach of the broom."
  },
  {
@@ -4834,11 +4834,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "imageUrl": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "targetImage": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
-  "resolvedImageAssetKey": "spotted",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v11.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_effect-v11.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_effect-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_effect-v11.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_effect-v11",
   "imageAlt": "Illustration for A seagull spotted Pia's chip bag the moment she sat on the sea wall. It swooped once, low and bold, and a heartbeat later the biggest chip was travelling down the beach at wing-speed."
  },
  {
@@ -4922,11 +4922,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/around.webp",
-  "imageUrl": "/images/assessment/hfw/around.webp",
-  "targetImage": "/images/assessment/hfw/around.webp",
-  "targetImagePath": "/images/assessment/hfw/around.webp",
-  "resolvedImageAssetKey": "around",
+  "imagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v11.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l1-find_cause-v11.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l1-find_cause-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l1-find_cause-v11.webp",
+  "resolvedImageAssetKey": "cause_effect-l1-find_cause-v11",
   "imageAlt": "Illustration for The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it."
  },
  {
@@ -5010,11 +5010,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v9",
   "imageAlt": "Illustration for Marta's hiccups started when she gulped her fizzy lemonade too fast. The hiccups made her giggle. The giggling shook more bubbles loose, which brought more hiccups, and soon she had to put the glass down until both the giggles and the hiccups wore themselves out."
  },
  {
@@ -5098,11 +5098,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v10",
   "imageAlt": "Illustration for The paint tin was left open overnight. By morning a skin had formed across the top. When Dad stirred the skin in, little rubbery flecks spread through the paint, and every stroke he brushed onto the door left tiny lumps, so the whole door had to be sanded and painted again."
  },
  {
@@ -5186,11 +5186,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v9",
   "imageAlt": "Illustration for The washing took all day to dry. The morning was misty and damp. The line hung in the shadiest corner of the yard. And Mum had wrung nothing out, pegging everything up still dripping."
  },
  {
@@ -5274,11 +5274,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/school.webp",
-  "imageUrl": "/images/assessment/generated/concepts/school.webp",
-  "targetImage": "/images/assessment/generated/concepts/school.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/school.webp",
-  "resolvedImageAssetKey": "school",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v10",
   "imageAlt": "Illustration for The school hamster escaped in the night. His cage door had a weak latch that never quite clicked. The caretaker had moved the cage next to the shelf, making a perfect bridge. And carrot night meant the door had been opened one extra time."
  },
  {
@@ -5362,11 +5362,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/newspaper.webp",
-  "resolvedImageAssetKey": "newspaper",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v9.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v9.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v9.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v9.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v9",
   "imageAlt": "Illustration for Ice-cream sales and sunburn both jump in July. One silly newspaper joked that ice cream causes sunburn. Class 4 worked out the truth for their science wall: hot sunny weather causes BOTH — more cones eaten, more skin burned."
  },
  {
@@ -5450,11 +5450,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/darkness-01.webp",
-  "resolvedImageAssetKey": "darkness",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v10.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v10.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v10.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-reversal_trap-v10.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-reversal_trap-v10",
   "imageAlt": "Illustration for Grandad noticed that the streetlights always came on just as he yawned his first evening yawn. 'My yawns switch them on,' he liked to say. Actually both had the same cause: the sky growing dark — dark enough for lights, late enough for yawns."
  },
  {
@@ -5538,11 +5538,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/digraphs/chain.webp",
-  "imageUrl": "/images/assessment/digraphs/chain.webp",
-  "targetImage": "/images/assessment/digraphs/chain.webp",
-  "targetImagePath": "/images/assessment/digraphs/chain.webp",
-  "resolvedImageAssetKey": "chain",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-chain-v11.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-chain-v11.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-chain-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-chain-v11.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-chain-v11",
   "imageAlt": "Illustration for The magnet in Theo's pocket sat right next to his compass on the hike. The needle swung to point at the magnet instead of north. Trusting the needle, the group turned left at the fork, and the left path took them in a long loop back to their own starting stile."
  },
  {
@@ -5626,11 +5626,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/going.webp",
-  "imageUrl": "/images/assessment/hfw/going.webp",
-  "targetImage": "/images/assessment/hfw/going.webp",
-  "targetImagePath": "/images/assessment/hfw/going.webp",
-  "resolvedImageAssetKey": "going",
+  "imagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v11.webp",
+  "imageUrl": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v11.webp",
+  "targetImage": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v11.webp",
+  "targetImagePath": "/images/assessment/scenes/cause_effect-l2-multiple_causes-v11.webp",
+  "resolvedImageAssetKey": "cause_effect-l2-multiple_causes-v11",
   "imageAlt": "Illustration for The candles on the cake would not stay lit. The back door stood open to the garden. The ceiling fan spun on full. And two excited cousins were bouncing on the bench, puffing with laughter right at candle height."
  }
 ];

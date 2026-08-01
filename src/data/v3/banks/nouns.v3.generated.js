@@ -2694,11 +2694,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
-  "resolvedImageAssetKey": "rug",
+  "imagePath": "/media/vocabulary/images/paint.webp",
+  "imageUrl": "/media/vocabulary/images/paint.webp",
+  "targetImage": "/media/vocabulary/images/paint.webp",
+  "targetImagePath": "/media/vocabulary/images/paint.webp",
+  "resolvedImageAssetKey": "paint",
   "imageAlt": "The paint dripped on the rug."
  },
  {
@@ -3042,11 +3042,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
+  "imagePath": "/media/initial-sounds/images/o/owl.webp",
+  "imageUrl": "/media/initial-sounds/images/o/owl.webp",
+  "targetImage": "/media/initial-sounds/images/o/owl.webp",
+  "targetImagePath": "/media/initial-sounds/images/o/owl.webp",
+  "resolvedImageAssetKey": "owl",
   "imageAlt": "The owl hooted all night long."
  },
  {
@@ -3130,11 +3130,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/shelf.webp",
-  "imageUrl": "/images/assessment/blends/shelf.webp",
-  "targetImage": "/images/assessment/blends/shelf.webp",
-  "targetImagePath": "/images/assessment/blends/shelf.webp",
-  "resolvedImageAssetKey": "shelf",
+  "imagePath": "/media/initial-sounds/images/j/jar.webp",
+  "imageUrl": "/media/initial-sounds/images/j/jar.webp",
+  "targetImage": "/media/initial-sounds/images/j/jar.webp",
+  "targetImagePath": "/media/initial-sounds/images/j/jar.webp",
+  "resolvedImageAssetKey": "jar",
   "imageAlt": "A jar rolled off the shelf."
  },
  {
@@ -3648,11 +3648,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/climb.webp",
+  "imageUrl": "/media/vocabulary/images/climb.webp",
+  "targetImage": "/media/vocabulary/images/climb.webp",
+  "targetImagePath": "/media/vocabulary/images/climb.webp",
+  "resolvedImageAssetKey": "climb",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {

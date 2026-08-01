@@ -690,11 +690,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/again.webp",
-  "imageUrl": "/images/assessment/hfw/again.webp",
-  "targetImage": "/images/assessment/hfw/again.webp",
-  "targetImagePath": "/images/assessment/hfw/again.webp",
-  "resolvedImageAssetKey": "again",
+  "imagePath": "/media/vocabulary/images/child.webp",
+  "imageUrl": "/media/vocabulary/images/child.webp",
+  "targetImage": "/media/vocabulary/images/child.webp",
+  "targetImagePath": "/media/vocabulary/images/child.webp",
+  "resolvedImageAssetKey": "child",
   "imageAlt": "child remakes model"
  },
  {
@@ -864,11 +864,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wrong-incorrect-01.webp",
-  "resolvedImageAssetKey": "wrong",
+  "imagePath": "/media/vocabulary/images/child.webp",
+  "imageUrl": "/media/vocabulary/images/child.webp",
+  "targetImage": "/media/vocabulary/images/child.webp",
+  "targetImagePath": "/media/vocabulary/images/child.webp",
+  "resolvedImageAssetKey": "child",
   "imageAlt": "child remakes picture"
  },
  {
@@ -2604,11 +2604,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/farm.png",
-  "imageUrl": "/images/child-mode/initial-sounds/farm.png",
-  "targetImage": "/images/child-mode/initial-sounds/farm.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/farm.png",
-  "resolvedImageAssetKey": "farm",
+  "imagePath": "/media/vocabulary/images/farmer.webp",
+  "imageUrl": "/media/vocabulary/images/farmer.webp",
+  "targetImage": "/media/vocabulary/images/farmer.webp",
+  "targetImagePath": "/media/vocabulary/images/farmer.webp",
+  "resolvedImageAssetKey": "farmer",
   "imageAlt": "farmer on farm"
  },
  {
@@ -2691,11 +2691,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
-  "resolvedImageAssetKey": "hen",
+  "imagePath": "/media/vocabulary/images/hens.webp",
+  "imageUrl": "/media/vocabulary/images/hens.webp",
+  "targetImage": "/media/vocabulary/images/hens.webp",
+  "targetImagePath": "/media/vocabulary/images/hens.webp",
+  "resolvedImageAssetKey": "hens",
   "imageAlt": "Add -s to hen"
  },
  {
@@ -2778,11 +2778,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/fox.png",
-  "imageUrl": "/images/child-mode/initial-sounds/fox.png",
-  "targetImage": "/images/child-mode/initial-sounds/fox.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
-  "resolvedImageAssetKey": "fox",
+  "imagePath": "/media/vocabulary/images/foxes.webp",
+  "imageUrl": "/media/vocabulary/images/foxes.webp",
+  "targetImage": "/media/vocabulary/images/foxes.webp",
+  "targetImagePath": "/media/vocabulary/images/foxes.webp",
+  "resolvedImageAssetKey": "foxes",
   "imageAlt": "Add -es to fox"
  },
  {
@@ -3043,11 +3043,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
-  "resolvedImageAssetKey": "cat",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "My cat naps on the mat each day."
  },
  {
@@ -3219,11 +3219,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
+  "imagePath": "/media/vocabulary/images/jumping.webp",
+  "imageUrl": "/media/vocabulary/images/jumping.webp",
+  "targetImage": "/media/vocabulary/images/jumping.webp",
+  "targetImagePath": "/media/vocabulary/images/jumping.webp",
+  "resolvedImageAssetKey": "jumping",
   "imageAlt": "Add -ing to jump"
  },
  {
@@ -3306,11 +3306,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/read.webp",
-  "imageUrl": "/images/assessment/hfw/read.webp",
-  "targetImage": "/images/assessment/hfw/read.webp",
-  "targetImagePath": "/images/assessment/hfw/read.webp",
-  "resolvedImageAssetKey": "read",
+  "imagePath": "/media/vocabulary/images/reading.webp",
+  "imageUrl": "/media/vocabulary/images/reading.webp",
+  "targetImage": "/media/vocabulary/images/reading.webp",
+  "targetImagePath": "/media/vocabulary/images/reading.webp",
+  "resolvedImageAssetKey": "reading",
   "imageAlt": "Add -ing to read"
  },
  {
@@ -3393,11 +3393,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
+  "imagePath": "/media/vocabulary/images/playing.webp",
+  "imageUrl": "/media/vocabulary/images/playing.webp",
+  "targetImage": "/media/vocabulary/images/playing.webp",
+  "targetImagePath": "/media/vocabulary/images/playing.webp",
+  "resolvedImageAssetKey": "playing",
   "imageAlt": "Add -ing to play"
  },
  {
@@ -3571,11 +3571,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "imageUrl": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImage": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/sandcastle.webp",
-  "resolvedImageAssetKey": "sandcastle",
+  "imagePath": "/media/initial-sounds/images/b/building.webp",
+  "imageUrl": "/media/initial-sounds/images/b/building.webp",
+  "targetImage": "/media/initial-sounds/images/b/building.webp",
+  "targetImagePath": "/media/initial-sounds/images/b/building.webp",
+  "resolvedImageAssetKey": "building",
   "imageAlt": "We are building a sandcastle today."
  },
  {
@@ -3660,11 +3660,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/running.webp",
+  "imageUrl": "/media/vocabulary/images/running.webp",
+  "targetImage": "/media/vocabulary/images/running.webp",
+  "targetImagePath": "/media/vocabulary/images/running.webp",
+  "resolvedImageAssetKey": "running",
   "imageAlt": "Keep running! The finish line is close."
  },
  {
@@ -3834,11 +3834,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/help.webp",
-  "imageUrl": "/images/assessment/hfw/help.webp",
-  "targetImage": "/images/assessment/hfw/help.webp",
-  "targetImagePath": "/images/assessment/hfw/help.webp",
-  "resolvedImageAssetKey": "help",
+  "imagePath": "/media/vocabulary/images/helped.webp",
+  "imageUrl": "/media/vocabulary/images/helped.webp",
+  "targetImage": "/media/vocabulary/images/helped.webp",
+  "targetImagePath": "/media/vocabulary/images/helped.webp",
+  "resolvedImageAssetKey": "helped",
   "imageAlt": "Add -ed to help"
  },
  {
@@ -3921,11 +3921,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/jump.webp",
-  "imageUrl": "/images/assessment/generated/concepts/jump.webp",
-  "targetImage": "/images/assessment/generated/concepts/jump.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/jump.webp",
-  "resolvedImageAssetKey": "jump",
+  "imagePath": "/media/vocabulary/images/jumped.webp",
+  "imageUrl": "/media/vocabulary/images/jumped.webp",
+  "targetImage": "/media/vocabulary/images/jumped.webp",
+  "targetImagePath": "/media/vocabulary/images/jumped.webp",
+  "resolvedImageAssetKey": "jumped",
   "imageAlt": "Add -ed to jump"
  },
  {
@@ -4099,11 +4099,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/night.webp",
-  "imageUrl": "/images/assessment/long-vowels/night.webp",
-  "targetImage": "/images/assessment/long-vowels/night.webp",
-  "targetImagePath": "/images/assessment/long-vowels/night.webp",
-  "resolvedImageAssetKey": "night",
+  "imagePath": "/media/vocabulary/images/cried.webp",
+  "imageUrl": "/media/vocabulary/images/cried.webp",
+  "targetImage": "/media/vocabulary/images/cried.webp",
+  "targetImagePath": "/media/vocabulary/images/cried.webp",
+  "resolvedImageAssetKey": "cried",
   "imageAlt": "Last night, the baby cried for hours."
  },
  {
@@ -4362,11 +4362,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/fast.webp",
-  "imageUrl": "/images/assessment/generated/concepts/fast.webp",
-  "targetImage": "/images/assessment/generated/concepts/fast.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/fast.webp",
-  "resolvedImageAssetKey": "fast",
+  "imagePath": "/media/vocabulary/images/faster.webp",
+  "imageUrl": "/media/vocabulary/images/faster.webp",
+  "targetImage": "/media/vocabulary/images/faster.webp",
+  "targetImagePath": "/media/vocabulary/images/faster.webp",
+  "resolvedImageAssetKey": "faster",
   "imageAlt": "Add -er to fast"
  },
  {
@@ -4451,11 +4451,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
+  "imagePath": "/media/vocabulary/images/taller.webp",
+  "imageUrl": "/media/vocabulary/images/taller.webp",
+  "targetImage": "/media/vocabulary/images/taller.webp",
+  "targetImagePath": "/media/vocabulary/images/taller.webp",
+  "resolvedImageAssetKey": "taller",
   "imageAlt": "Ben is tall, but Ana is even taller."
  },
  {
@@ -4540,11 +4540,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/dog-dogs-01.webp",
-  "resolvedImageAssetKey": "dogs",
+  "imagePath": "/media/vocabulary/images/fastest.webp",
+  "imageUrl": "/media/vocabulary/images/fastest.webp",
+  "targetImage": "/media/vocabulary/images/fastest.webp",
+  "targetImagePath": "/media/vocabulary/images/fastest.webp",
+  "resolvedImageAssetKey": "fastest",
   "imageAlt": "Of all three dogs, Rex is the fastest."
  },
  {
@@ -4627,11 +4627,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
-  "resolvedImageAssetKey": "tall",
+  "imagePath": "/media/vocabulary/images/taller.webp",
+  "imageUrl": "/media/vocabulary/images/taller.webp",
+  "targetImage": "/media/vocabulary/images/taller.webp",
+  "targetImagePath": "/media/vocabulary/images/taller.webp",
+  "resolvedImageAssetKey": "taller",
   "imageAlt": "Which word compares two tall things?"
  },
  {
@@ -6549,11 +6549,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/play.webp",
-  "imageUrl": "/images/assessment/long-vowels/play.webp",
-  "targetImage": "/images/assessment/long-vowels/play.webp",
-  "targetImagePath": "/images/assessment/long-vowels/play.webp",
-  "resolvedImageAssetKey": "play",
+  "imagePath": "/media/vocabulary/images/played.webp",
+  "imageUrl": "/media/vocabulary/images/played.webp",
+  "targetImage": "/media/vocabulary/images/played.webp",
+  "targetImagePath": "/media/vocabulary/images/played.webp",
+  "resolvedImageAssetKey": "played",
   "imageAlt": "Add -ed to play"
  },
  {

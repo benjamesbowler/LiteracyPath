@@ -20,7 +20,7 @@
     },
     {
       "id": "dino-pals-04-grumpy-needs-help-q2",
-      "prompt": "Which event shows the main plan is not working in Grumpy Needs Help?",
+      "prompt": "Which event shows the first plan fails in Grumpy Needs Help?",
       "choices": [
         "Grumpy pulls. The rock sinks deeper.",
         "A heavy rock traps Grumpy's club tail.",

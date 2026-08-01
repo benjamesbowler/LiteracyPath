@@ -14,7 +14,7 @@ const EASY_LEVELS = [
     ["capital-dog", "Choose the sentence starter", "__ dog had a nap.", "A", ["A", "a", "An"], "capital"],
     ["punct-stop", "Choose the end mark", "Stop__", "!", [".", "?", "!"], "punctuation"],
     ["sound-fish", "Choose the missing sound", "f__sh", "i", ["i", "e", "a"], "short vowel"],
-    ["word-the", "Fix the tricky word", "__ cat is big", "The", ["the", "The", "They"], "sight word"]
+    ["word-the", "Fix the tricky word", "__ cat is big", "The", ["She", "The", "They"], "sight word"]
   ],
   [
     ["capital-sun", "Choose the sentence starter", "__ sun is hot.", "The", ["The", "the", "They"], "capital"],
@@ -38,7 +38,7 @@ const EASY_LEVELS = [
     ["capital-bug", "Choose the sentence starter", "__ bug is small.", "This", ["This", "this", "These"], "capital"],
     ["punct-can", "Choose the end mark", "Can we play__", "?", [".", "?", "!"], "punctuation"],
     ["sound-map", "Choose the missing sound", "m__p", "a", ["a", "e", "o"], "short vowel"],
-    ["word-come", "Fix the tricky word", "__ here", "Come", ["come", "Come", "came"], "sight word"]
+    ["word-come", "Fix the tricky word", "__ here", "Come", ["home", "Come", "came"], "sight word"]
   ],
   [
     ["capital-red", "Choose the sentence starter", "__ red fox ran.", "A", ["A", "a", "An"], "capital"],

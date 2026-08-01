@@ -34,6 +34,8 @@ file to overrule one.
 
 - [instructional/instructional_standards](instructional/instructional_standards.md) — the teaching rules
 - [instructional/LiteracyPath_Phonics_Question_Model_Framework_v1](instructional/LiteracyPath_Phonics_Question_Model_Framework_v1.md) — how a phonics question is shaped
+- [content/QUESTION_DESIGN_BIBLE](content/QUESTION_DESIGN_BIBLE.md) — canonical research-backed standard for every assessment, quiz, literacy game task and worksheet question for ages 4–12
+- [content/WORKSHEET_DESIGN_BIBLE](content/WORKSHEET_DESIGN_BIBLE.md) — canonical standard for printable practice, multi-page progression, images, answer integrity, accessibility and deterministic worksheet QA for ages 4–12
 - [design/LEARNING_POLICY](design/LEARNING_POLICY.md) — what counts as evidence of learning
 - [design/ASSESSMENT_MEDIA_EVIDENCE](design/ASSESSMENT_MEDIA_EVIDENCE.md) — why assessment media is evidence, not decoration
 - [EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21](EL_ALIGNED_BENCHMARK_ASSESSMENT_SUITE_2026-07-21.md) — the benchmark suite and what it aligns to
@@ -47,6 +49,7 @@ file to overrule one.
 
 **What the child sees**
 
+- [design/GAME_DESIGN_BIBLE](design/GAME_DESIGN_BIBLE.md) — canonical research-backed learning, controls, route, character, accessibility, privacy and shipping standard for every game
 - [design/CHILD_SURFACE_RULES](design/CHILD_SURFACE_RULES.md) — rules for every child-facing screen
 - [design/STUDENT_EMPHASIS_BUDGET](design/STUDENT_EMPHASIS_BUDGET.md) — how much visual shouting is allowed
 - [LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md) — the child-area design system
@@ -150,6 +153,7 @@ Newest first. These are records — they describe a moment, and the moments accu
 
 | Date | Record | What happened |
 | --- | --- | --- |
+| 2026-08-01 | [guided-reading/guided_reading_story_bible_content_audit_2026-08-01](guided-reading/guided_reading_story_bible_content_audit_2026-08-01.md) | All 176 active Guided Reading books, 1,601 pages, 528 questions, exact-text Leda narration and hash-locked page images passed the Story Bible release gates; all 176 books now have explicit rewrite/review records and no open failure |
 | 2026-07-31 | [content/STORY_QUEST_POLICY_AUDIT_2026-07-31](content/STORY_QUEST_POLICY_AUDIT_2026-07-31.md) | All 13 active Story Quests, 313 pages and 4,325 graph routes audited against the two-part Story Bible; 0/13 approved, with complete target text and page-level illustration outlines recorded |
 | 2026-07-31 | [SOUND_SEEKERS_RELEASE_BIBLE](SOUND_SEEKERS_RELEASE_BIBLE.md) | Five-lens browser release pass completed: 40 stops and 106 encounter loops played, phone and desktop visuals inspected, four-way controls and child-facing legibility repaired, and the local software ship gate cleared while external child, teacher, device, assistive-technology and professional media certification remains open |
 | 2026-07-29 | [KIDS_EXPERIENCE_SHIP_PASS_2026-07-29](KIDS_EXPERIENCE_SHIP_PASS_2026-07-29.md) | Child hubs made full-width and one-screen; map made forward-only Meadow→Dino→Moonwood; persistent book-character Little Literacy Guide, structured library, teacher class-entry gate and Beastie nook shipped |

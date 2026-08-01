@@ -199,12 +199,14 @@ test("the early adventure and skate routes stay book-led, physical, and recovera
 
   assert.match(skate, /MAX_SPEED = \{ easy: 9,/);
   assert.match(skate, /TOKEN_COUNT = \{ easy: 0,/);
-  assert.match(skate, /The skater moves for you\. Use only ← and →\./);
-  assert.match(skate, /Try the glowing sound/);
-  assert.match(skate, /player\.pos\.set\(0, 0, lineReady \? -38 : 24\)/);
-  assert.match(skate, /easyLaneChosen/);
+  assert.match(skate, /Explore the skate park\. Find each sound in order/);
+  assert.match(skate, /grammarGrindSegmentChoices/);
+  assert.match(skate, /rebuildLineChoices\(\)/);
+  assert.match(skate, /Move forward/);
+  assert.match(skate, /Move back/);
   assert.match(skate, /player\.pos\.set\(0, 0, 24\)/);
-  assert.match(skate, /Tap left or right to choose/);
+  assert.doesNotMatch(skate, /easyLaneChosen/);
+  assert.doesNotMatch(skate, /The skater moves for you/);
   assert.match(chapters, /guide: \{ name: "Bouncy", role: "lantern keeper"/);
   assert.doesNotMatch(chapters, /guide: \{ name: "Pip", role: "lantern keeper"/);
 });

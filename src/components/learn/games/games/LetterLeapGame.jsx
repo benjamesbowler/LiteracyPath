@@ -101,10 +101,10 @@ function startGame(mount, opts) {
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
   padWrap.innerHTML =
     '<div style="position:absolute;bottom:20px;left:20px;display:flex;gap:12px;pointer-events:auto">' +
-      '<button data-ll="left" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(18px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">◀</button>' +
-      '<button data-ll="right" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(10px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">▶</button></div>' +
+      '<button data-ll="left" aria-label="Move left" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(18px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">◀</button>' +
+      '<button data-ll="right" aria-label="Move right" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(10px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">▶</button></div>' +
     '<div style="position:absolute;bottom:20px;right:20px;pointer-events:auto">' +
-      '<button data-ll="jump" style="width:96px;height:76px;border:1px solid rgba(255,255,255,.62);background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;font-size:1rem;font-weight:900;letter-spacing:.04em;box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18);clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)">JUMP</button></div>';
+      '<button data-ll="jump" aria-label="Jump" style="width:96px;height:76px;border:1px solid rgba(255,255,255,.62);background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;font-size:1rem;font-weight:900;letter-spacing:.04em;box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18);clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)">JUMP</button></div>';
   mount.appendChild(padWrap);
 
   const overlay = document.createElement("div");
@@ -500,9 +500,9 @@ function startGame(mount, opts) {
   const holders = [];
   const hold = (sel, k) => {
     const el = padWrap.querySelector(sel);
-    const down = e => { e.preventDefault(); keys[k] = true; if (k === "jump") jumpBufT = JUMP_BUFFER; };
+    const down = e => { e.preventDefault(); el.setPointerCapture?.(e.pointerId); keys[k] = true; if (k === "jump") jumpBufT = JUMP_BUFFER; };
     const up = () => { keys[k] = false; };
-    el.addEventListener("pointerdown", down); el.addEventListener("pointerup", up); el.addEventListener("pointerleave", up);
+    el.addEventListener("pointerdown", down); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); el.addEventListener("lostpointercapture", up);
     holders.push([el, down, up]);
   };
   hold('[data-ll="left"]', "left"); hold('[data-ll="right"]', "right"); hold('[data-ll="jump"]', "jump");
@@ -960,7 +960,12 @@ function startGame(mount, opts) {
     running = false;
     cancelAnimationFrame(rafId);
     window.removeEventListener("keydown", onKeyDown); window.removeEventListener("keyup", onKeyUp);
-    holders.forEach(([el, down, up]) => { el.removeEventListener("pointerdown", down); el.removeEventListener("pointerup", up); el.removeEventListener("pointerleave", up); });
+    holders.forEach(([el, down, up]) => {
+      el.removeEventListener("pointerdown", down);
+      el.removeEventListener("pointerup", up);
+      el.removeEventListener("pointercancel", up);
+      el.removeEventListener("lostpointercapture", up);
+    });
     ro.disconnect();
     [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
   }

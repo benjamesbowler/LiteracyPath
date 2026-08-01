@@ -1035,11 +1035,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "warm has ar without the sound; win ties the in-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ar/car-02.webp",
-  "resolvedImageAssetKey": "car",
+  "imagePath": "/media/initial-sounds/images/y/yard.webp",
+  "imageUrl": "/media/initial-sounds/images/y/yard.webp",
+  "targetImage": "/media/initial-sounds/images/y/yard.webp",
+  "targetImagePath": "/media/initial-sounds/images/y/yard.webp",
+  "resolvedImageAssetKey": "yard",
   "imageAlt": "Which word has the ar (as in car) sound?"
  },
  {
@@ -1632,7 +1632,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v1",
+  "requiredImageAssetKey": "short",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1644,11 +1644,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "shirt is real — the spoken word and sentence-free frame pin short via the sh__t stem's only sensible completion being pinned by audio; shart, shirt and shurt traps stay honest because the target is spoken",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/short.webp",
+  "imageUrl": "/media/vocabulary/images/short.webp",
+  "targetImage": "/media/vocabulary/images/short.webp",
+  "targetImagePath": "/media/vocabulary/images/short.webp",
+  "resolvedImageAssetKey": "short",
   "imageAlt": "Finish: sh__t"
  },
  {
@@ -1719,7 +1719,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-or-v2",
+  "requiredImageAssetKey": "sport",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1731,11 +1731,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "spart, spert and spirt are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/sport.webp",
+  "imageUrl": "/media/vocabulary/images/sport.webp",
+  "targetImage": "/media/vocabulary/images/sport.webp",
+  "targetImagePath": "/media/vocabulary/images/sport.webp",
+  "resolvedImageAssetKey": "sport",
   "imageAlt": "Finish: sp__t"
  },
  {
@@ -1990,11 +1990,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn",
-  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "resolvedImageAssetKey": "corn",
+  "imagePath": "/media/vocabulary/images/sport.webp",
+  "imageUrl": "/media/vocabulary/images/sport.webp",
+  "targetImage": "/media/vocabulary/images/sport.webp",
+  "targetImagePath": "/media/vocabulary/images/sport.webp",
+  "resolvedImageAssetKey": "sport",
   "imageAlt": "Which word has the or (as in corn) sound?"
  },
  {
@@ -2076,11 +2076,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "worm has or with the /ɜr/ sound; win ties the in-chunk",
-  "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-  "resolvedImageAssetKey": "corn",
+  "imagePath": "/media/vocabulary/images/north.webp",
+  "imageUrl": "/media/vocabulary/images/north.webp",
+  "targetImage": "/media/vocabulary/images/north.webp",
+  "targetImagePath": "/media/vocabulary/images/north.webp",
+  "resolvedImageAssetKey": "north",
   "imageAlt": "Which word has the or (as in corn) sound?"
  },
  {
@@ -3714,7 +3714,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v1",
+  "requiredImageAssetKey": "first",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3726,11 +3726,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "furst, ferst and forst are non-words — the pure three-way plus or",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/first.webp",
+  "imageUrl": "/media/vocabulary/images/first.webp",
+  "targetImage": "/media/vocabulary/images/first.webp",
+  "targetImagePath": "/media/vocabulary/images/first.webp",
+  "resolvedImageAssetKey": "first",
   "imageAlt": "Finish: f__st"
  },
  {
@@ -3888,7 +3888,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v3",
+  "requiredImageAssetKey": "dirt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3900,11 +3900,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "dert and durt are non-words; dart is real, so ar stays out and oa fills the vowel slot",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/dirt.webp",
+  "imageUrl": "/media/vocabulary/images/dirt.webp",
+  "targetImage": "/media/vocabulary/images/dirt.webp",
+  "targetImagePath": "/media/vocabulary/images/dirt.webp",
+  "resolvedImageAssetKey": "dirt",
   "imageAlt": "Finish: d__t"
  },
  {
@@ -4158,11 +4158,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "tin ties the in-chunk of the prompt",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
+  "imagePath": "/media/vocabulary/images/dirt.webp",
+  "imageUrl": "/media/vocabulary/images/dirt.webp",
+  "targetImage": "/media/vocabulary/images/dirt.webp",
+  "targetImagePath": "/media/vocabulary/images/dirt.webp",
+  "resolvedImageAssetKey": "dirt",
   "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
@@ -4233,7 +4233,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
+  "requiredImageAssetKey": "hurt",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4245,11 +4245,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "hirt and hert are non-words; hort too",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/hurt.webp",
+  "imageUrl": "/media/vocabulary/images/hurt.webp",
+  "targetImage": "/media/vocabulary/images/hurt.webp",
+  "targetImagePath": "/media/vocabulary/images/hurt.webp",
+  "resolvedImageAssetKey": "hurt",
   "imageAlt": "Finish: h__t"
  },
  {
@@ -4755,7 +4755,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v1",
+  "requiredImageAssetKey": "curl",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4767,11 +4767,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "cirl, cerl and carl are non-words for this age",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/curl.webp",
+  "imageUrl": "/media/vocabulary/images/curl.webp",
+  "targetImage": "/media/vocabulary/images/curl.webp",
+  "targetImagePath": "/media/vocabulary/images/curl.webp",
+  "resolvedImageAssetKey": "curl",
   "imageAlt": "Finish: c__l"
  },
  {
@@ -4842,7 +4842,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v2",
+  "requiredImageAssetKey": "turnip",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4854,11 +4854,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "tirnip, ternip and tornip are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/turnip.webp",
+  "imageUrl": "/media/vocabulary/images/turnip.webp",
+  "targetImage": "/media/vocabulary/images/turnip.webp",
+  "targetImagePath": "/media/vocabulary/images/turnip.webp",
+  "resolvedImageAssetKey": "turnip",
   "imageAlt": "Finish: t__nip"
  },
  {
@@ -4929,7 +4929,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v3",
+  "requiredImageAssetKey": "burst",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4941,11 +4941,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "birst, berst and boast-adjacent strings are non-words in this frame",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/burst.webp",
+  "imageUrl": "/media/vocabulary/images/burst.webp",
+  "targetImage": "/media/vocabulary/images/burst.webp",
+  "targetImagePath": "/media/vocabulary/images/burst.webp",
+  "resolvedImageAssetKey": "burst",
   "imageAlt": "Finish: b__st"
  },
  {
@@ -5113,11 +5113,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/turn/turn-02.webp",
-  "resolvedImageAssetKey": "turn",
+  "imagePath": "/media/vocabulary/images/curl.webp",
+  "imageUrl": "/media/vocabulary/images/curl.webp",
+  "targetImage": "/media/vocabulary/images/curl.webp",
+  "targetImagePath": "/media/vocabulary/images/curl.webp",
+  "resolvedImageAssetKey": "curl",
   "imageAlt": "Which word has the ur (as in turn) sound?"
  },
  {
@@ -5274,7 +5274,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ar-v7",
+  "requiredImageAssetKey": "jar",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5286,11 +5286,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "jor, jir and jer are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/initial-sounds/images/j/jar.webp",
+  "imageUrl": "/media/initial-sounds/images/j/jar.webp",
+  "targetImage": "/media/initial-sounds/images/j/jar.webp",
+  "targetImagePath": "/media/initial-sounds/images/j/jar.webp",
+  "resolvedImageAssetKey": "jar",
   "imageAlt": "Finish: j__"
  },
  {
@@ -5622,7 +5622,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ir-v7",
+  "requiredImageAssetKey": "first",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5634,11 +5634,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "firnd, firth and firft are non-words — first is the unique real completion",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/first.webp",
+  "imageUrl": "/media/vocabulary/images/first.webp",
+  "targetImage": "/media/vocabulary/images/first.webp",
+  "targetImagePath": "/media/vocabulary/images/first.webp",
+  "resolvedImageAssetKey": "first",
   "imageAlt": "Finish: fir__"
  },
  {
@@ -5807,11 +5807,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ird/bird-02.webp",
-  "resolvedImageAssetKey": "bird",
+  "imagePath": "/media/vocabulary/images/first.webp",
+  "imageUrl": "/media/vocabulary/images/first.webp",
+  "targetImage": "/media/vocabulary/images/first.webp",
+  "targetImagePath": "/media/vocabulary/images/first.webp",
+  "resolvedImageAssetKey": "first",
   "imageAlt": "Which word has the ir (as in bird) sound?"
  },
  {
@@ -5968,7 +5968,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-er-v7",
+  "requiredImageAssetKey": "sister",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5980,11 +5980,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "sistir, sistur and sistar are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/sister.webp",
+  "imageUrl": "/media/vocabulary/images/sister.webp",
+  "targetImage": "/media/vocabulary/images/sister.webp",
+  "targetImagePath": "/media/vocabulary/images/sister.webp",
+  "resolvedImageAssetKey": "sister",
   "imageAlt": "Finish: sist__"
  },
  {
@@ -6055,7 +6055,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "r_controlled_vowels-ur-v8",
+  "requiredImageAssetKey": "fur",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6067,11 +6067,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "fir and fer — fir is a real tree, so the fur image pins the target; foa is a non-word",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/fur.webp",
+  "imageUrl": "/media/vocabulary/images/fur.webp",
+  "targetImage": "/media/vocabulary/images/fur.webp",
+  "targetImagePath": "/media/vocabulary/images/fur.webp",
+  "resolvedImageAssetKey": "fur",
   "imageAlt": "Finish: f__"
  }
 ];

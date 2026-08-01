@@ -1830,8 +1830,9 @@ test("the Den, map and Trading Post keep their complete phone controls", () => {
   assert.match(den, /aria-label="Open settings"/, "the adult comfort controls are not clearly named");
   assert.match(map, /className="q-chapter-picker"/, "the phone map has no complete chapter picker");
   assert.match(map, /Choose a story chapter/, "the phone chapter picker is not named for assistive technology");
-  assert.match(map, /\{ x: 15, y: 70 \}/, "the first stop can clip at 320px");
-  assert.match(map, /\{ x: 85, y: 56 \}/, "the last stop can clip at 320px");
+  assert.match(map, /const MAP_POINTS_BY_WORLD/, "each painted world map needs its own road anchors");
+  assert.match(map, /MAP_POINTS_BY_WORLD\[chapter\.worldKit\]/, "the map ignores its world-specific road anchors");
+  assert.doesNotMatch(map, /className="q-map-road-(?:edge|centre)"/, "a generic route is still painted over the authored road");
   assert.match(map, /const currentPosition = journeyComplete\s*\? null/, "the walker remains on a completed final stop");
   assert.match(map, /const isNext = !journeyComplete && !isDone && stop\.index === nextIndex/, "the final stop remains both done and current");
   assert.match(css, /\.q-post > \* \{ flex: 0 0 auto; \}/, "shop rows can collapse and overlap while scrolling");

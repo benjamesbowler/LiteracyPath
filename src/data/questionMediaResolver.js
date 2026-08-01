@@ -294,11 +294,25 @@ export function balanceShortVowelDiscriminationChoices(question = {}) {
   const choices = buildBalancedShortVowelChoices(question, answerWord);
   if (choices.length !== 4 || !choices.includes(answerWord)) return question;
 
+  const targetVowel = shortVowelTargetFromQuestion(question, answerWord) || shortVowelInWord(answerWord);
+  const distractorRationales = Object.fromEntries(
+    choices
+      .filter(choice => optionWord(choice) !== answerWord)
+      .map(choice => {
+        const word = optionWord(choice);
+        return [
+          word,
+          shortVowelInWord(word) === targetVowel ? "D-VISUAL-NEIGHBOR" : "D-VOWEL"
+        ];
+      })
+  );
+
   return {
     ...question,
     choices,
     answerOptions: choices,
     options: Array.isArray(question.options) ? choices : question.options,
+    distractorRationales,
     shortVowelDistractorsBalanced: true
   };
 }

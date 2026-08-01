@@ -4000,11 +4000,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "know and knows clash with the before-past frame",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
-  "resolvedImageAssetKey": "answer",
+  "imagePath": "/media/vocabulary/images/knew.webp",
+  "imageUrl": "/media/vocabulary/images/knew.webp",
+  "targetImage": "/media/vocabulary/images/knew.webp",
+  "targetImagePath": "/media/vocabulary/images/knew.webp",
+  "resolvedImageAssetKey": "knew",
   "imageAlt": "I knew the answer before anyone else."
  },
  {
@@ -4086,11 +4086,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "understood gifts od to nod — a distractor tops, never the key",
-  "imagePath": "/images/assessment/hfw/all.webp",
-  "imageUrl": "/images/assessment/hfw/all.webp",
-  "targetImage": "/images/assessment/hfw/all.webp",
-  "targetImagePath": "/images/assessment/hfw/all.webp",
-  "resolvedImageAssetKey": "all",
+  "imagePath": "/media/vocabulary/images/knew.webp",
+  "imageUrl": "/media/vocabulary/images/knew.webp",
+  "targetImage": "/media/vocabulary/images/knew.webp",
+  "targetImagePath": "/media/vocabulary/images/knew.webp",
+  "resolvedImageAssetKey": "knew",
   "imageAlt": "Which spelling tells you understood it all along?"
  },
  {
@@ -4956,11 +4956,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "could and will parse — would is the polite offer the frame asks for",
-  "imagePath": "/images/assessment/hfw/like.webp",
-  "imageUrl": "/images/assessment/hfw/like.webp",
-  "targetImage": "/images/assessment/hfw/like.webp",
-  "targetImagePath": "/images/assessment/hfw/like.webp",
-  "resolvedImageAssetKey": "like",
+  "imagePath": "/media/vocabulary/images/would.webp",
+  "imageUrl": "/media/vocabulary/images/would.webp",
+  "targetImage": "/media/vocabulary/images/would.webp",
+  "targetImagePath": "/media/vocabulary/images/would.webp",
+  "resolvedImageAssetKey": "Would",
   "imageAlt": "Would you like some juice?"
  },
  {
@@ -5044,11 +5044,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "from the old oak pins wood; old gifts ol to wool, a distractor tops",
-  "imagePath": "/images/assessment/digraphs/bench.webp",
-  "imageUrl": "/images/assessment/digraphs/bench.webp",
-  "targetImage": "/images/assessment/digraphs/bench.webp",
-  "targetImagePath": "/images/assessment/digraphs/bench.webp",
-  "resolvedImageAssetKey": "bench",
+  "imagePath": "/media/vocabulary/images/wood.webp",
+  "imageUrl": "/media/vocabulary/images/wood.webp",
+  "targetImage": "/media/vocabulary/images/wood.webp",
+  "targetImagePath": "/media/vocabulary/images/wood.webp",
+  "resolvedImageAssetKey": "wood",
   "imageAlt": "The bench is made of wood from the old oak."
  },
  {
@@ -5130,11 +5130,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "no tree-borne rival like leaf — rock and wool are clean foils",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/trees-01.webp",
-  "resolvedImageAssetKey": "trees",
+  "imagePath": "/media/vocabulary/images/wood.webp",
+  "imageUrl": "/media/vocabulary/images/wood.webp",
+  "targetImage": "/media/vocabulary/images/wood.webp",
+  "targetImagePath": "/media/vocabulary/images/wood.webp",
+  "resolvedImageAssetKey": "wood",
   "imageAlt": "Which spelling comes from trees?"
  },
  {
@@ -5216,11 +5216,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "you gifts ou to the key — wound carries ou too and ties",
-  "imagePath": "/images/assessment/hfw/help.webp",
-  "imageUrl": "/images/assessment/hfw/help.webp",
-  "targetImage": "/images/assessment/hfw/help.webp",
-  "targetImagePath": "/images/assessment/hfw/help.webp",
-  "resolvedImageAssetKey": "help",
+  "imagePath": "/media/vocabulary/images/would.webp",
+  "imageUrl": "/media/vocabulary/images/would.webp",
+  "targetImage": "/media/vocabulary/images/would.webp",
+  "targetImagePath": "/media/vocabulary/images/would.webp",
+  "resolvedImageAssetKey": "would",
   "imageAlt": "Which spelling asks politely, as in 'would you help me?'"
  },
  {
@@ -5650,11 +5650,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "every sentence carries bat — the shared word ties all four",
-  "imagePath": "/images/assessment/hfw/down.webp",
-  "imageUrl": "/images/assessment/hfw/down.webp",
-  "targetImage": "/images/assessment/hfw/down.webp",
-  "targetImagePath": "/images/assessment/hfw/down.webp",
-  "resolvedImageAssetKey": "down",
+  "imagePath": "/media/initial-sounds/images/a/animal.webp",
+  "imageUrl": "/media/initial-sounds/images/a/animal.webp",
+  "targetImage": "/media/initial-sounds/images/a/animal.webp",
+  "targetImagePath": "/media/initial-sounds/images/a/animal.webp",
+  "resolvedImageAssetKey": "animal",
   "imageAlt": "Which sentence uses bat to mean the animal?"
  },
  {
@@ -5736,11 +5736,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
-  "resolvedImageAssetKey": "bat",
+  "imagePath": "/media/vocabulary/images/thing.webp",
+  "imageUrl": "/media/vocabulary/images/thing.webp",
+  "targetImage": "/media/vocabulary/images/thing.webp",
+  "targetImagePath": "/media/vocabulary/images/thing.webp",
+  "resolvedImageAssetKey": "thing",
   "imageAlt": "Which sentence uses bat as the thing you HIT with?"
  },
  {
@@ -5822,11 +5822,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/heard-herd-01.webp",
-  "resolvedImageAssetKey": "heard",
+  "imagePath": "/media/initial-sounds/images/j/jewelry.webp",
+  "imageUrl": "/media/initial-sounds/images/j/jewelry.webp",
+  "targetImage": "/media/initial-sounds/images/j/jewelry.webp",
+  "targetImagePath": "/media/initial-sounds/images/j/jewelry.webp",
+  "resolvedImageAssetKey": "jewelry",
   "imageAlt": "A ring can be jewelry or a sound. Which sentence uses ring as the SOUND?"
  },
  {

@@ -9,6 +9,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, "..", "..");
 
 import { V3_QUESTION_SOURCE } from "../../src/content/blueprints/skillBlueprints.js";
+import { assessmentImageStyleBlockedPaths } from "../../src/data/assessmentImageStyleBlocklist.js";
+import {
+  imageQaReviewBlockedPaths,
+  imageQaReviewNeededPaths
+} from "../../src/data/generated/imageQaReviewBlocklist.generated.js";
+import { isMediaDeleted } from "../../src/data/deletedMediaManifest.js";
 export const V3_SOURCE = V3_QUESTION_SOURCE;
 export const AUTHORING_DIR = path.join(ROOT, "tools", "assessmentRebuild", "authoring");
 export const BANKS_DIR = path.join(ROOT, "src", "data", "v3", "banks");
@@ -171,6 +177,8 @@ export function expandItem(raw, blueprint, imageResolver) {
   const hasChoiceImages =
     (Array.isArray(raw.cards) && raw.cards.length > 0)
     || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
+  const hasLetterTiles = Array.isArray(raw.letterTiles) && raw.letterTiles.length > 0;
+  const hasSoundTiles = Array.isArray(raw.soundTiles) && raw.soundTiles.length > 0;
   const isComprehensionItem = String(raw.fmt || "").toUpperCase() === "COMPREHENSION";
   const supportImageKey = raw.img || raw.supportImg || (
     hasChoiceImages
@@ -199,15 +207,20 @@ export function expandItem(raw, blueprint, imageResolver) {
     itemKey: raw.u,
     formatType: raw.fmt,
     templateType: raw.fmt,
-    questionType: raw.questionType || (raw.cards ? "visual_card_choice" : "multiple_choice"),
+    questionType: raw.questionType || (
+      raw.cards ? "visual_card_choice"
+        : hasLetterTiles ? "letter_build"
+          : hasSoundTiles ? "sound_build"
+            : "multiple_choice"
+    ),
     prompt: raw.prompt,
     question: raw.prompt,
     spokenPrompt: normalizeSpokenCloze(raw.spoken || raw.prompt),
     sentence: raw.sentence,
     passage: raw.passage,
     cell: raw.cell,
-    choices,
-    answerOptions: raw.cards
+    choices: (hasLetterTiles || hasSoundTiles) ? [] : choices,
+    answerOptions: (raw.cards || hasLetterTiles || hasSoundTiles)
       ? undefined
       : choices.map(text => ({ value: text, label: text, text })),
     answer,
@@ -226,6 +239,7 @@ export function expandItem(raw, blueprint, imageResolver) {
     soundTiles: raw.soundTiles,
     letterTiles: raw.letterTiles,
     letterBank: raw.letterTiles,
+    correctLetterSequence: hasLetterTiles ? answer.split("") : undefined,
     sentenceText: raw.sentenceText || raw.sentence,
     targetWord,
     // Which media the AUTHOR declared. The runtime loader strips any
@@ -281,7 +295,7 @@ export function expandItem(raw, blueprint, imageResolver) {
     // repository when a question-specific key has not been drawn yet. Spatial
     // questions are deliberately excluded: a generic noun picture cannot
     // prove "under", "between", "near", or another relationship.
-    if (!image && skillId !== "prepositions_of_place") {
+    if (!image && skillId !== "prepositions_of_place" && !isComprehensionItem) {
       for (const candidate of semanticSupportImageCandidates(raw, answer)) {
         image = imageResolver(candidate, skillId);
         if (image) {
@@ -934,6 +948,13 @@ export function buildImageIndex() {
     "images/child-mode", "images/vocabulary", "images/objects", "images/cvc", "images/vowels", "images/prepositions"
   ];
   const index = new Map();
+  const isAllowed = rel => {
+    const publicPath = `/${rel}`;
+    return !assessmentImageStyleBlockedPaths.has(publicPath)
+      && !imageQaReviewBlockedPaths.has(publicPath)
+      && !imageQaReviewNeededPaths.has(publicPath)
+      && !isMediaDeleted(publicPath);
+  };
   const rank = file => {
     const i = priority.findIndex(p => file.startsWith(p));
     return i === -1 ? priority.length : i;
@@ -945,6 +966,7 @@ export function buildImageIndex() {
       if (!/\.(webp|png|svg|jpg|jpeg)$/i.test(entry.name)) continue;
       const stem = entry.name.replace(/\.[a-z]+$/i, "").toLowerCase();
       const rel = path.relative(path.join(ROOT, "public"), full).split(path.sep).join("/");
+      if (!isAllowed(rel)) continue;
       const add = key => {
         if (!key) return;
         const existing = index.get(key);
@@ -972,6 +994,8 @@ export function buildImageIndex() {
   };
   const imagesRoot = path.join(ROOT, "public", "images");
   if (fs.existsSync(imagesRoot)) walk(imagesRoot);
+  const mediaRoot = path.join(ROOT, "public", "media");
+  if (fs.existsSync(mediaRoot)) walk(mediaRoot);
   IMAGE_INDEX = index;
   return index;
 }

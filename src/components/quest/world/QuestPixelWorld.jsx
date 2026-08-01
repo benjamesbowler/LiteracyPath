@@ -906,26 +906,51 @@ export default function QuestPixelWorld({
       {!ready && <div className="qp-loading" role="status">Opening the trail…</div>}
 
       {!ceremony && <nav className="qp-dpad" aria-label="Move your book character">
-        {[["up", "↑"], ["left", "←"], ["down", "↓"], ["right", "→"]].map(([dir, glyph]) => (
-          <button
-            key={dir}
-            type="button"
-            aria-label={`Move ${dir}`}
-            onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
-            onPointerDown={event => {
-              event.currentTarget.setPointerCapture?.(event.pointerId);
-              runtimeRef.current?.startMove(dir);
-              // A quick tap still nudges one visible step; a held pointer keeps
-              // driving the direct movement vector until release.
-              runtimeRef.current?.move(dir);
-            }}
-            onPointerUp={() => runtimeRef.current?.stopMove(dir)}
-            onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
-            onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
-          >
-            <span aria-hidden="true">{glyph}</span>
+        <div className="qp-depth-controls" aria-label="Move forward or back">
+          {[["up", "↑"], ["down", "↓"]].map(([dir, glyph]) => (
+            <button
+              key={dir}
+              type="button"
+              aria-label={`Move ${dir}`}
+              data-direction={dir}
+              onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
+              onPointerDown={event => {
+                event.currentTarget.setPointerCapture?.(event.pointerId);
+                runtimeRef.current?.startMove(dir);
+                runtimeRef.current?.move(dir);
+              }}
+              onPointerUp={() => runtimeRef.current?.stopMove(dir)}
+              onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
+              onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
+            >
+              <span aria-hidden="true">{glyph}</span>
+            </button>
+          ))}
+        </div>
+        <div className="qp-steer-controls" aria-label="Steer and listen">
+          {[["left", "←"], ["right", "→"]].map(([dir, glyph]) => (
+            <button
+              key={dir}
+              type="button"
+              aria-label={`Move ${dir}`}
+              data-direction={dir}
+              onClick={event => { if (event.detail === 0) runtimeRef.current?.move(dir); }}
+              onPointerDown={event => {
+                event.currentTarget.setPointerCapture?.(event.pointerId);
+                runtimeRef.current?.startMove(dir);
+                runtimeRef.current?.move(dir);
+              }}
+              onPointerUp={() => runtimeRef.current?.stopMove(dir)}
+              onPointerCancel={() => runtimeRef.current?.stopMove(dir)}
+              onLostPointerCapture={() => runtimeRef.current?.stopMove(dir)}
+            >
+              <span aria-hidden="true">{glyph}</span>
+            </button>
+          ))}
+          <button type="button" className="qp-listen-control" aria-label="Hear the instruction again" onClick={replayCue}>
+            <span aria-hidden="true">♪</span>
           </button>
-        ))}
+        </div>
       </nav>}
 
       {!ceremony && encounterStarted && visibleChoices.length > 0 && (

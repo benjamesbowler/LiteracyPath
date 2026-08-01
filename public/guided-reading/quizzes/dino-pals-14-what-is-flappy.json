@@ -20,7 +20,7 @@
     },
     {
       "id": "dino-pals-14-what-is-flappy-q2",
-      "prompt": "Which event shows the main plan is not working in What is Flappy??",
+      "prompt": "Which event shows the first plan fails in What is Flappy??",
       "choices": [
         "Flappy tries stomping. Small feet make small thumps.",
         "Flappy flaps toward a branch, then lands in mud.",

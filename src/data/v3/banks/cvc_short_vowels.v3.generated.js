@@ -4380,10 +4380,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/nut.png",
-  "imageUrl": "/images/child-mode/initial-sounds/nut.png",
-  "targetImage": "/images/child-mode/initial-sounds/nut.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/nut.png",
+  "imagePath": "/images/child-mode/short-u/nut.png",
+  "imageUrl": "/images/child-mode/short-u/nut.png",
+  "targetImage": "/images/child-mode/short-u/nut.png",
+  "targetImagePath": "/images/child-mode/short-u/nut.png",
   "resolvedImageAssetKey": "nut",
   "imageAlt": "Which word goes with the picture?"
  },
@@ -4552,10 +4552,10 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
-  "targetImage": "/images/child-mode/initial-sounds/mud.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
+  "imagePath": "/images/child-mode/short-u/mud.png",
+  "imageUrl": "/images/child-mode/short-u/mud.png",
+  "targetImage": "/images/child-mode/short-u/mud.png",
+  "targetImagePath": "/images/child-mode/short-u/mud.png",
   "resolvedImageAssetKey": "mud",
   "imageAlt": "Which word has the short u sound?"
  },

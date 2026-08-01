@@ -6,13 +6,31 @@ import { currentStopIndex, unlockedChapterRewards } from "../../utils/questProgr
 import { playWhoosh } from "../../utils/audio/gameSfx.js";
 import { freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 
-const MAP_POINTS = Object.freeze([
-  { x: 15, y: 70 },
-  { x: 30, y: 52 },
-  { x: 48, y: 64 },
-  { x: 68, y: 43 },
-  { x: 85, y: 56 }
-]);
+// These anchors sit on the roads painted into each 1680 x 941 world plate.
+// The plate is the route artwork: do not draw a second generic road over it.
+const MAP_POINTS_BY_WORLD = Object.freeze({
+  meadow: Object.freeze([
+    { x: 27, y: 87 },
+    { x: 35, y: 69 },
+    { x: 51, y: 61 },
+    { x: 68, y: 47 },
+    { x: 87, y: 55 }
+  ]),
+  dino: Object.freeze([
+    { x: 18, y: 82 },
+    { x: 34, y: 64 },
+    { x: 52, y: 57 },
+    { x: 67, y: 43 },
+    { x: 86, y: 34 }
+  ]),
+  moonwood: Object.freeze([
+    { x: 16, y: 79 },
+    { x: 35, y: 68 },
+    { x: 50, y: 53 },
+    { x: 67, y: 67 },
+    { x: 84, y: 78 }
+  ])
+});
 
 const MAP_LANDMARKS = Object.freeze({
   "seedwake-meadow": ["hollow-tree", "trail-ruin", "blossom-tree", "round-tree", "seed-lantern"].map(asset => `/game-assets/quest-pixel/seedwake/scenery-premium/${asset}.png`),
@@ -64,7 +82,8 @@ export default function TrailMap({
   const reviewPlan = freeRoamReviewPlan(state);
   const [walkingStop, setWalkingStop] = useState(null);
   const walkTimer = useRef(0);
-  const positions = stops.map((stop, index) => ({ stop, ...MAP_POINTS[index] }));
+  const mapPoints = MAP_POINTS_BY_WORLD[chapter.worldKit] || MAP_POINTS_BY_WORLD.meadow;
+  const positions = stops.map((stop, index) => ({ stop, ...mapPoints[index] }));
   const landmarks = MAP_LANDMARKS[chapter.id] || [];
   const worldChapters = QUEST_CHAPTERS.filter(candidate => candidate.worldKit === chapter.worldKit);
   const worldStops = worldChapters.flatMap(candidate => candidate.stopIds);
@@ -72,7 +91,6 @@ export default function TrailMap({
   const levelStart = chapterWorldOffset + 1;
   const levelEnd = levelStart + chapter.stopIds.length - 1;
   const worldLabel = WORLD_LABELS[chapter.worldKit] || chapter.title;
-  const road = mapPath(positions);
   const chapterComplete = chapter.stopIds.every(stopId => done.has(stopId));
   const shortcutUnlocked = chapterComplete && relicIds.has(chapter.id) && Boolean(chapter.shortcut);
   const shortcutRoad = shortcutUnlocked
@@ -197,12 +215,12 @@ export default function TrailMap({
           <i className="q-map-ambient-spark is-two" />
           <i className="q-map-ambient-spark is-three" />
         </div>
-        <svg className="q-map-v2-road" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <path d={road} className="q-map-road-edge" />
-          <path d={road} className="q-map-road-centre" />
-          {shortcutUnlocked && <path d={shortcutRoad} className="q-map-shortcut-edge" />}
-          {shortcutUnlocked && <path d={shortcutRoad} className="q-map-shortcut-centre" />}
-        </svg>
+        {shortcutUnlocked && (
+          <svg className="q-map-v2-road" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d={shortcutRoad} className="q-map-shortcut-edge" />
+            <path d={shortcutRoad} className="q-map-shortcut-centre" />
+          </svg>
+        )}
         {shortcutUnlocked && (
           <button
             type="button"

@@ -20,7 +20,7 @@
     },
     {
       "id": "dino-pals-08-zippy-slows-down-q2",
-      "prompt": "Which event shows the main plan is not working in Zippy Slows Down?",
+      "prompt": "Which event shows the first plan fails in Zippy Slows Down?",
       "choices": [
         "Zippy stops. Sunny Hollow is nowhere nearby.",
         "Zippy races out to find a picnic path.",

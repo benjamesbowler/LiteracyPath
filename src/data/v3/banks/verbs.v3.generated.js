@@ -1506,8 +1506,8 @@ export const questions = [
     "word": "lid",
     "value": "lid",
     "label": "lid",
-    "image": "/images/child-mode/initial-sounds/lid.png",
-    "imagePath": "/images/child-mode/initial-sounds/lid.png",
+    "image": "/images/child-mode/short-i/lid.png",
+    "imagePath": "/images/child-mode/short-i/lid.png",
     "imageAlt": "lid"
    },
    {
@@ -2518,11 +2518,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot",
-  "imagePath": "/images/assessment/generated/concepts/raft.webp",
-  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
-  "targetImage": "/images/assessment/generated/concepts/raft.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
-  "resolvedImageAssetKey": "raft",
+  "imagePath": "/media/vocabulary/images/pull.webp",
+  "imageUrl": "/media/vocabulary/images/pull.webp",
+  "targetImage": "/media/vocabulary/images/pull.webp",
+  "targetImagePath": "/media/vocabulary/images/pull.webp",
+  "resolvedImageAssetKey": "pull",
   "imageAlt": "We pull the raft to the dock."
  },
  {
@@ -2694,11 +2694,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImage": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/prefixes-suffixes/quietly-01.webp",
-  "resolvedImageAssetKey": "quietly",
+  "imagePath": "/media/vocabulary/images/shut.webp",
+  "imageUrl": "/media/vocabulary/images/shut.webp",
+  "targetImage": "/media/vocabulary/images/shut.webp",
+  "targetImagePath": "/media/vocabulary/images/shut.webp",
+  "resolvedImageAssetKey": "shut",
   "imageAlt": "Please shut the door quietly."
  },
  {
@@ -2868,11 +2868,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties",
-  "imagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/pup/pup-02.webp",
-  "resolvedImageAssetKey": "pup",
+  "imagePath": "/media/vocabulary/images/dinner.webp",
+  "imageUrl": "/media/vocabulary/images/dinner.webp",
+  "targetImage": "/media/vocabulary/images/dinner.webp",
+  "targetImagePath": "/media/vocabulary/images/dinner.webp",
+  "resolvedImageAssetKey": "dinner",
   "imageAlt": "Which word in this sentence is the doing word? \"The pup chased its dinner.\""
  },
  {
@@ -2954,11 +2954,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/sock-socks-01.webp",
-  "resolvedImageAssetKey": "socks",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word in this sentence is the doing word? \"Gran knits thick socks.\""
  },
  {
@@ -3250,7 +3250,7 @@ export const questions = [
    "bake",
    "baker",
    "bread",
-   "oven"
+   "pan"
   ],
   "answerOptions": [
    {
@@ -3269,9 +3269,9 @@ export const questions = [
     "text": "bread"
    },
    {
-    "value": "oven",
-    "label": "oven",
-    "text": "oven"
+    "value": "pan",
+    "label": "pan",
+    "text": "pan"
    }
   ],
   "answer": "bake",
@@ -3279,7 +3279,7 @@ export const questions = [
   "distractorRationales": {
    "baker": "D-FUNCTION-SWAP",
    "bread": "D-FUNCTION-SWAP",
-   "oven": "D-FUNCTION-SWAP"
+   "pan": "D-FUNCTION-SWAP"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
@@ -3302,11 +3302,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/bake.webp",
+  "imageUrl": "/media/vocabulary/images/bake.webp",
+  "targetImage": "/media/vocabulary/images/bake.webp",
+  "targetImagePath": "/media/vocabulary/images/bake.webp",
+  "resolvedImageAssetKey": "bake",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
@@ -3388,11 +3388,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/teach.webp",
+  "imageUrl": "/media/vocabulary/images/teach.webp",
+  "targetImage": "/media/vocabulary/images/teach.webp",
+  "targetImagePath": "/media/vocabulary/images/teach.webp",
+  "resolvedImageAssetKey": "teach",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
@@ -3562,11 +3562,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
@@ -3648,11 +3648,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
@@ -3822,11 +3822,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the past-tense form is unambiguously the action",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/painted.webp",
+  "imageUrl": "/media/vocabulary/images/painted.webp",
+  "targetImage": "/media/vocabulary/images/painted.webp",
+  "targetImagePath": "/media/vocabulary/images/painted.webp",
+  "resolvedImageAssetKey": "painted",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {
@@ -3910,11 +3910,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "all four are grammatical — one big spring pins jumped",
-  "imagePath": "/images/assessment/blends/spring.webp",
-  "imageUrl": "/images/assessment/blends/spring.webp",
-  "targetImage": "/images/assessment/blends/spring.webp",
-  "targetImagePath": "/images/assessment/blends/spring.webp",
-  "resolvedImageAssetKey": "spring",
+  "imagePath": "/media/vocabulary/images/jumped.webp",
+  "imageUrl": "/media/vocabulary/images/jumped.webp",
+  "targetImage": "/media/vocabulary/images/jumped.webp",
+  "targetImagePath": "/media/vocabulary/images/jumped.webp",
+  "resolvedImageAssetKey": "jumped",
   "imageAlt": "The frog jumped over the log in one big spring."
  },
  {
@@ -3998,11 +3998,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "bubbles pin boiled",
-  "imagePath": "/images/assessment/long-vowels/rose.webp",
-  "imageUrl": "/images/assessment/long-vowels/rose.webp",
-  "targetImage": "/images/assessment/long-vowels/rose.webp",
-  "targetImagePath": "/images/assessment/long-vowels/rose.webp",
-  "resolvedImageAssetKey": "rose",
+  "imagePath": "/media/vocabulary/images/until.webp",
+  "imageUrl": "/media/vocabulary/images/until.webp",
+  "targetImage": "/media/vocabulary/images/until.webp",
+  "targetImagePath": "/media/vocabulary/images/until.webp",
+  "resolvedImageAssetKey": "until",
   "imageAlt": "The soup boiled in the pot until bubbles rose."
  },
  {
@@ -4084,11 +4084,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap",
-  "imagePath": "/images/assessment/generated/concepts/water.webp",
-  "imageUrl": "/images/assessment/generated/concepts/water.webp",
-  "targetImage": "/images/assessment/generated/concepts/water.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/water.webp",
-  "resolvedImageAssetKey": "water",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which doing word fits best for water falling drop by drop?"
  },
  {
@@ -4172,11 +4172,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "in half and half again pins folded",
-  "imagePath": "/images/assessment/hfw/again.webp",
-  "imageUrl": "/images/assessment/hfw/again.webp",
-  "targetImage": "/images/assessment/hfw/again.webp",
-  "targetImagePath": "/images/assessment/hfw/again.webp",
-  "resolvedImageAssetKey": "again",
+  "imagePath": "/media/vocabulary/images/folded.webp",
+  "imageUrl": "/media/vocabulary/images/folded.webp",
+  "targetImage": "/media/vocabulary/images/folded.webp",
+  "targetImagePath": "/media/vocabulary/images/folded.webp",
+  "resolvedImageAssetKey": "folded",
   "imageAlt": "She folded the note in half and half again."
  },
  {
@@ -4985,11 +4985,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a doing word, not a naming word?"
  },
  {

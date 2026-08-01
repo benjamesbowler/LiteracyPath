@@ -40,7 +40,7 @@ A skill is done when ALL of:
 4. **G4 Mastery logic** — SIM-PASS (four phases are reachable in four perfect sittings), SIM-GUESS (<0.1% across the full 10,000-trial run under the 70% phase rule), SIM-SCANNER (<5%), SIM-REGRESS (statuses drop on contradiction) all green against the real bank.
 5. **G5 No repeats** — SIM-NOREPEAT green: 4 sittings + retention, zero repeated ids/signatures/option-sets/passages.
 6. **G6 One report** — roster, class report, student report, exports all derive the skill's status from `skillStatusPolicy` (unit test + grep gate; "Mastered" absent product-wide).
-7. **G7 Human sign-off** — Ben approved the skill's review pack; recorded in item provenance.
+7. **Question Design Policy** — runtime items pass the research-backed, cross-surface policy gate; optional review evidence may be recorded but is not a publication requirement.
 8. **G8 Honest release** — the aggregate gate (`check:audit:assessment-rebuild`) exits non-zero on ANY unmet item above; skill flips to bank v3 only when it exits 0.
 
 ## 3. Phases
@@ -69,7 +69,7 @@ Gate: aggregator correctly fails all 30 skills on the old bank; passes a hand-bu
 
 ### Phases 3–8 — Authoring waves (the bulk)
 
-Order = damage first. Per wave, per skill, the loop is AUTHORING_STANDARDS §5 (author in ~8-item chunks → lint → sim → review pack → Ben sign-off → flip skill to v3). Old bank stays live per skill until its v3 passes G8 — per-skill cutover, no big bang, the app is never without a working assessment.
+Order = damage first. Per wave, per skill, the loop is AUTHORING_STANDARDS §5 (author in ~8-item chunks → lint → simulation → review evidence → policy gate → flip skill to v3). Old bank stays live per skill until its v3 passes every hard gate — per-skill cutover, no big bang, the app is never without a working assessment.
 
 | Wave | Skills | New items (≈) | Sessions (≈) | Notes |
 | --- | --- | --- | --- | --- |

@@ -415,7 +415,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v5",
+  "requiredImageAssetKey": "snail",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -427,11 +427,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/snail.webp",
+  "imageUrl": "/media/vocabulary/images/snail.webp",
+  "targetImage": "/media/vocabulary/images/snail.webp",
+  "targetImagePath": "/media/vocabulary/images/snail.webp",
+  "resolvedImageAssetKey": "snail",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -502,7 +502,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ai-v6",
+  "requiredImageAssetKey": "paint",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -514,11 +514,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/paint.webp",
+  "imageUrl": "/media/vocabulary/images/paint.webp",
+  "targetImage": "/media/vocabulary/images/paint.webp",
+  "targetImagePath": "/media/vocabulary/images/paint.webp",
+  "resolvedImageAssetKey": "paint",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -1022,7 +1022,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ay-v6",
+  "requiredImageAssetKey": "stay",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -1034,11 +1034,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/stay.webp",
+  "imageUrl": "/media/vocabulary/images/stay.webp",
+  "targetImage": "/media/vocabulary/images/stay.webp",
+  "targetImagePath": "/media/vocabulary/images/stay.webp",
+  "resolvedImageAssetKey": "stay",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -1841,9 +1841,9 @@ export const questions = [
   "formatType": "PTD",
   "templateType": "PTD",
   "questionType": "multiple_choice",
-  "prompt": "Which word does NOT have the long e sound?",
-  "question": "Which word does NOT have the long e sound?",
-  "spokenPrompt": "Which word does not have the long e sound?",
+  "prompt": "Which word has the short e sound?",
+  "question": "Which word has the short e sound?",
+  "spokenPrompt": "Which word has the short e sound?",
   "choices": [
    "leaf",
    "beach",
@@ -1905,7 +1905,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/bread.webp",
   "targetImagePath": "/images/assessment/blends/bread.webp",
   "resolvedImageAssetKey": "bread",
-  "imageAlt": "Which word does NOT have the long e sound?"
+  "imageAlt": "Which word has the short e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v5",
@@ -1927,12 +1927,12 @@ export const questions = [
   "formatType": "PTD",
   "templateType": "PTD",
   "questionType": "multiple_choice",
-  "prompt": "Which word does NOT have the long e sound?",
-  "question": "Which word does NOT have the long e sound?",
-  "spokenPrompt": "Which word does not have the long e sound?",
+  "prompt": "Which word has the short e sound?",
+  "question": "Which word has the short e sound?",
+  "spokenPrompt": "Which word has the short e sound?",
   "choices": [
    "peach",
-   "head",
+   "dead",
    "sea",
    "beach"
   ],
@@ -1943,9 +1943,9 @@ export const questions = [
     "text": "peach"
    },
    {
-    "value": "head",
-    "label": "head",
-    "text": "head"
+    "value": "dead",
+    "label": "dead",
+    "text": "dead"
    },
    {
     "value": "sea",
@@ -1958,8 +1958,8 @@ export const questions = [
     "text": "beach"
    }
   ],
-  "answer": "head",
-  "correctAnswer": "head",
+  "answer": "dead",
+  "correctAnswer": "dead",
   "distractorRationales": {
    "beach": "D-PATTERN-TRAP",
    "peach": "D-PATTERN-TRAP",
@@ -1986,12 +1986,12 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
-  "imageAlt": "Which word does NOT have the long e sound?"
+  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/dead-alive-01.webp",
+  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/dead-alive-01.webp",
+  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/dead-alive-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/dead-alive-01.webp",
+  "resolvedImageAssetKey": "dead",
+  "imageAlt": "Which word has the short e sound?"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v6",
@@ -3795,7 +3795,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ow-v2",
+  "requiredImageAssetKey": "grow",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -3807,11 +3807,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/grow.webp",
+  "imageUrl": "/media/vocabulary/images/grow.webp",
+  "targetImage": "/media/vocabulary/images/grow.webp",
+  "targetImagePath": "/media/vocabulary/images/grow.webp",
+  "resolvedImageAssetKey": "grow",
   "imageAlt": "Finish: gr__"
  },
  {
@@ -4587,11 +4587,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "soup's ou says oo — the variable-team contrast",
-  "imagePath": "/images/child-mode/blends/cloud.png",
-  "imageUrl": "/images/child-mode/blends/cloud.png",
-  "targetImage": "/images/child-mode/blends/cloud.png",
-  "targetImagePath": "/images/child-mode/blends/cloud.png",
-  "resolvedImageAssetKey": "cloud",
+  "imagePath": "/media/vocabulary/images/soup.webp",
+  "imageUrl": "/media/vocabulary/images/soup.webp",
+  "targetImage": "/media/vocabulary/images/soup.webp",
+  "targetImagePath": "/media/vocabulary/images/soup.webp",
+  "resolvedImageAssetKey": "soup",
   "imageAlt": "Which word does NOT have the ou (as in cloud) sound?"
  },
  {
@@ -4748,7 +4748,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v1",
+  "requiredImageAssetKey": "coin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -4760,11 +4760,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/coin.webp",
+  "imageUrl": "/media/vocabulary/images/coin.webp",
+  "targetImage": "/media/vocabulary/images/coin.webp",
+  "targetImagePath": "/media/vocabulary/images/coin.webp",
+  "resolvedImageAssetKey": "coin",
   "imageAlt": "Finish: c__n"
  },
  {
@@ -5096,7 +5096,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v5",
+  "requiredImageAssetKey": "coin",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5108,11 +5108,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "coyn is the oy-in-the-middle position error",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/coin.webp",
+  "imageUrl": "/media/vocabulary/images/coin.webp",
+  "targetImage": "/media/vocabulary/images/coin.webp",
+  "targetImagePath": "/media/vocabulary/images/coin.webp",
+  "resolvedImageAssetKey": "coin",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -5183,7 +5183,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oi-v6",
+  "requiredImageAssetKey": "point",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -5195,11 +5195,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/point.webp",
+  "imageUrl": "/media/vocabulary/images/point.webp",
+  "targetImage": "/media/vocabulary/images/point.webp",
+  "targetImagePath": "/media/vocabulary/images/point.webp",
+  "resolvedImageAssetKey": "point",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -5456,11 +5456,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
-  "resolvedImageAssetKey": "toy",
+  "imagePath": "/media/vocabulary/images/coin.webp",
+  "imageUrl": "/media/vocabulary/images/coin.webp",
+  "targetImage": "/media/vocabulary/images/coin.webp",
+  "targetImagePath": "/media/vocabulary/images/coin.webp",
+  "resolvedImageAssetKey": "coin",
   "imageAlt": "Which word has the same sound as coin?"
  },
  {
@@ -6227,7 +6227,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-ew-v6",
+  "requiredImageAssetKey": "grew",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6239,11 +6239,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/grew.webp",
+  "imageUrl": "/media/vocabulary/images/grew.webp",
+  "targetImage": "/media/vocabulary/images/grew.webp",
+  "targetImagePath": "/media/vocabulary/images/grew.webp",
+  "resolvedImageAssetKey": "grew",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -6662,7 +6662,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v5",
+  "requiredImageAssetKey": "saw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6674,11 +6674,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "soar is a real word but not this one — the picture decides",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/saw.webp",
+  "imageUrl": "/media/vocabulary/images/saw.webp",
+  "targetImage": "/media/vocabulary/images/saw.webp",
+  "targetImagePath": "/media/vocabulary/images/saw.webp",
+  "resolvedImageAssetKey": "saw",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -6749,7 +6749,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v6",
+  "requiredImageAssetKey": "claw",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6761,11 +6761,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rival spellings are pronounceable developmental errors",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/real-fake-01.webp",
-  "resolvedImageAssetKey": "real",
+  "imagePath": "/media/vocabulary/images/claw.webp",
+  "imageUrl": "/media/vocabulary/images/claw.webp",
+  "targetImage": "/media/vocabulary/images/claw.webp",
+  "targetImagePath": "/media/vocabulary/images/claw.webp",
+  "resolvedImageAssetKey": "claw",
   "imageAlt": "Which is the real word?"
  },
  {
@@ -6923,7 +6923,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-oa-v7",
+  "requiredImageAssetKey": "toast",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -6935,11 +6935,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/toast.webp",
+  "imageUrl": "/media/vocabulary/images/toast.webp",
+  "targetImage": "/media/vocabulary/images/toast.webp",
+  "targetImagePath": "/media/vocabulary/images/toast.webp",
+  "resolvedImageAssetKey": "toast",
   "imageAlt": "Finish: t__st"
  },
  {
@@ -7790,7 +7790,7 @@ export const questions = [
    "target": true,
    "cards": false
   },
-  "requiredImageAssetKey": "vowel_teams-aw-v8",
+  "requiredImageAssetKey": "crawl",
   "active": true,
   "qaStatus": "approved",
   "source": "skills_rebuild_v3_2026_08",
@@ -7802,11 +7802,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "crowl, creel and crool are non-words",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/finish-end-01.webp",
-  "resolvedImageAssetKey": "finish",
+  "imagePath": "/media/vocabulary/images/crawl.webp",
+  "imageUrl": "/media/vocabulary/images/crawl.webp",
+  "targetImage": "/media/vocabulary/images/crawl.webp",
+  "targetImagePath": "/media/vocabulary/images/crawl.webp",
+  "resolvedImageAssetKey": "crawl",
   "imageAlt": "Finish: cr__l"
  }
 ];

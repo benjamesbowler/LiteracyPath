@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-07-30T05:18:11.798Z",
- "commit": "be4e2940",
+ "generatedAt": "2026-08-01T03:30:56.414Z",
+ "commit": "e3331de6",
  "results": [
   {
    "skillId": "adjectives",
@@ -16,24 +16,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 6,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 1,
+      "leakShare": 0.016666666666666666
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -53,24 +68,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 6,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 1,
-      "leakShare": 0.016666666666666666
+      "leakyItems": 2,
+      "leakShare": 0.03333333333333333
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -90,24 +120,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 10,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -122,70 +167,742 @@
     "retention": 16
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_effect.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_effect.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.find_effect.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_effect.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_effect.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.find_effect.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_effect.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_effect.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_cause.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_cause.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.find_cause.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_cause.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_cause.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.find_cause.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.find_cause.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.find_cause.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.because_sentence.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.because_sentence.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.because_sentence.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.because_sentence.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.because_sentence.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.C.because_sentence.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.A.because_sentence.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.B.because_sentence.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.chain.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.chain.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.chain.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.chain.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.chain.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.chain.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.chain.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.chain.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.multiple_causes.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.multiple_causes.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.multiple_causes.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.multiple_causes.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.multiple_causes.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.multiple_causes.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.multiple_causes.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.multiple_causes.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.reversal_trap.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.reversal_trap.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.reversal_trap.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.reversal_trap.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.reversal_trap.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.C.reversal_trap.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.A.reversal_trap.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.B.reversal_trap.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_effect.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_effect.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_cause.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_cause.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.because_sentence.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.because_sentence.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_effect.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l1.R.find_cause.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.chain.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.chain.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.multiple_causes.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.multiple_causes.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.reversal_trap.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.reversal_trap.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.chain.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.cause_effect.l2.R.multiple_causes.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 11,
-      "leakShare": 0.171875
+      "leakyItems": 2,
+      "leakShare": 0.03125
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "context_clues",
    "counts": {
     "total": 64,
-    "level1": 24,
-    "level2": 24,
-    "retention": 16
+    "level1": 28,
+    "level2": 28,
+    "retention": 8
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.definition_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.definition_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.definition_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.definition_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.definition_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.definition_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.definition_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.definition_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.example_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.example_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.example_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.example_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.example_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.example_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.example_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.example_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.action_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.action_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.action_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.action_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.action_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.action_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.action_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.B.action_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.synonym_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.synonym_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.synonym_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.synonym_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.synonym_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.synonym_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.synonym_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.synonym_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.inference_clue.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.inference_clue.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.inference_clue.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.inference_clue.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.inference_clue.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.inference_clue.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.inference_clue.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.B.inference_clue.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.definition_clue.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.definition_clue.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.C.example_clue.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.A.example_clue.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.R.action_clue.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.R.action_clue.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.R.definition_clue.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l1.R.example_clue.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.synonym_clue.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.synonym_clue.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.R.inference_clue.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.R.inference_clue.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.R.synonym_clue.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.context_clues.l2.R.inference_clue.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 9,
-      "leakShare": 0.140625
+      "leakyItems": 0,
+      "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "cvc_short_vowels",
@@ -201,7 +918,7 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
@@ -209,16 +926,31 @@
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -238,24 +970,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 5,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 3,
-      "leakShare": 0.05
+      "leakyItems": 0,
+      "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -275,24 +1022,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 8,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 1,
+      "leakShare": 0.012195121951219513
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -312,24 +1074,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 7,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 1,
+      "leakShare": 0.007407407407407408
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -349,24 +1126,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 7,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -386,24 +1178,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 7,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
-      "finalStatus": "in_progress",
+      "finalStatus": "level_1_passed",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -423,24 +1230,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 7,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
-      "finalStatus": "in_progress",
+      "finalStatus": "level_1_passed",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -460,24 +1282,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 8,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 1,
+      "leakShare": 0.0125
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -487,38 +1324,374 @@
    "skillId": "inference",
    "counts": {
     "total": 64,
-    "level1": 24,
-    "level2": 24,
-    "retention": 16
+    "level1": 32,
+    "level2": 28,
+    "retention": 4
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
-    "G4_mastery_logic": true,
+    "G4_mastery_logic": false,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.feeling_from_evidence.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.feeling_from_evidence.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.feeling_from_evidence.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.feeling_from_evidence.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.feeling_from_evidence.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.feeling_from_evidence.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.feeling_from_evidence.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.feeling_from_evidence.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.where_am_i.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.where_am_i.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.where_am_i.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.where_am_i.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.where_am_i.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.where_am_i.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.where_am_i.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.where_am_i.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.what_happens_next.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.what_happens_next.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.what_happens_next.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.what_happens_next.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.what_happens_next.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.what_happens_next.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.what_happens_next.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.B.what_happens_next.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.why_did_they.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.why_did_they.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.why_did_they.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.why_did_they.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.why_did_they.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.why_did_they.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.why_did_they.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.why_did_they.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.what_went_unsaid.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.what_went_unsaid.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.what_went_unsaid.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.what_went_unsaid.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.what_went_unsaid.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.what_went_unsaid.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.what_went_unsaid.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.what_went_unsaid.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.evidence_pick.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.evidence_pick.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.evidence_pick.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.evidence_pick.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.evidence_pick.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.evidence_pick.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.evidence_pick.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.B.evidence_pick.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.feeling_from_evidence.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.feeling_from_evidence.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.where_am_i.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.where_am_i.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.C.what_happens_next.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.what_happens_next.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.feeling_from_evidence.v11",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l1.A.where_am_i.v11",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.why_did_they.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.why_did_they.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.C.what_went_unsaid.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.A.what_went_unsaid.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.R.evidence_pick.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.R.evidence_pick.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.R.why_did_they.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.inference.l2.R.what_went_unsaid.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
-      "status": "secure",
+      "status": "level_2_passed",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 2,
+      "passRate": 0.006666666666666667,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "initial_sounds",
@@ -534,24 +1707,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 7,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -566,33 +1754,404 @@
     "retention": 15
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.what_happened.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.what_happened.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.what_happened.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.what_happened.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.what_happened.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.what_happened.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.what_happened.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.what_happened.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.where.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.where.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.where.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.where.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.where.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.where.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.where.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.where.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.who.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.who.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.who.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.who.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.who.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.number_detail.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.number_detail.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.number_detail.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.number_detail.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.precise_detail.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.precise_detail.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.precise_detail.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.precise_detail.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.precise_detail.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.precise_detail.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.precise_detail.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.what_happened.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.what_happened.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.what_happened.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.where.v12r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.where.v13r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v12r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v13r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v14r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.who.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.who.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.who.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.number_detail.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.C.number_detail.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.A.number_detail.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.B.number_detail.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.precise_detail.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.detail_across_sentences.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.detail_across_sentences.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.detail_across_sentences.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.detail_across_sentences.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.detail_across_sentences.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.detail_across_sentences.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.detail_across_sentences.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.detail_across_sentences.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.which_is_not.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.which_is_not.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.which_is_not.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.which_is_not.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.which_is_not.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.C.which_is_not.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.A.which_is_not.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.B.which_is_not.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.who.v12r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l1.R.number_detail.v12r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.which_is_not.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.key_details.l2.R.detail_across_sentences.v15r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 7,
-      "leakShare": 0.09859154929577464
+      "leakyItems": 0,
+      "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "long_vowels_silent_e",
@@ -608,24 +2167,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 5,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -640,33 +2214,369 @@
     "retention": 16
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_fiction.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_fiction.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_fiction.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_fiction.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_info.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_info.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_info.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_info.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_info.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_info.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_info.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_info.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_everyday.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.C.mostly_about_everyday.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.A.mostly_about_everyday.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.B.mostly_about_everyday.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.best_title.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.best_title.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.best_title.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.best_title.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.best_title.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.best_title.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.best_title.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.best_title.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.main_idea_vs_detail.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.main_idea_vs_detail.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.main_idea_vs_detail.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.main_idea_vs_detail.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.summary_choice.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.summary_choice.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.summary_choice.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.summary_choice.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.summary_choice.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.C.summary_choice.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.A.summary_choice.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.B.summary_choice.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_info.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_info.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_everyday.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_everyday.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_fiction.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l1.R.mostly_about_info.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.best_title.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.best_title.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.main_idea_vs_detail.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.main_idea_vs_detail.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.summary_choice.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.summary_choice.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.best_title.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.main_idea.l2.R.summary_choice.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "nouns",
@@ -682,24 +2592,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 6,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -709,9 +2634,9 @@
    "skillId": "plurals",
    "counts": {
     "total": 60,
-    "level1": 24,
+    "level1": 26,
     "level2": 24,
-    "retention": 12
+    "retention": 10
    },
    "gates": {
     "G1_structure": true,
@@ -719,24 +2644,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 6,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 2,
       "leakShare": 0.03333333333333333
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -756,24 +2696,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 5,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -793,24 +2748,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 9,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 2,
+      "leakShare": 0.02631578947368421
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -830,24 +2800,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 5,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -867,24 +2852,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 12,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -899,70 +2899,622 @@
     "retention": 16
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_who_what.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_who_what.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_where_when.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_where_when.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.picture_match.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.picture_match.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_action.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.C.literal_action.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.two_clause.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.two_clause.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.pronoun_reference.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.pronoun_reference.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.best_restatement.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.C.best_restatement.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_who_what.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_where_when.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.picture_match.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_action.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_where_when.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.picture_match.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l1.R.literal_action.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.two_clause.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.best_restatement.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.literal_action.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
-      "finalStatus": "level_1_passed",
+      "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "sequencing",
    "counts": {
-    "total": 64,
+    "total": 62,
     "level1": 24,
     "level2": 24,
-    "retention": 16
+    "retention": 14
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.before_after_relation.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.before_after_relation.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.before_after_relation.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.before_after_relation.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.before_after_relation.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.before_after_relation.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.before_after_relation.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.before_after_relation.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.implied_order.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.implied_order.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.implied_order.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.implied_order.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.implied_order.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.implied_order.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.implied_order.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.implied_order.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.process_order.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.process_order.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.process_order.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.process_order.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.process_order.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.C.process_order.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.A.process_order.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.B.process_order.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.before_after_relation.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.before_after_relation.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.implied_order.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.implied_order.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.process_order.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.process_order.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.before_after_relation.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.sequencing.l2.R.process_order.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 1,
+      "passRate": 0.0033333333333333335,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 9,
-      "leakShare": 0.140625
+      "leakyItems": 0,
+      "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "short_vowel_discrimination",
@@ -978,7 +3530,7 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
@@ -986,16 +3538,31 @@
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -1005,38 +3572,374 @@
    "skillId": "theme_higher_comprehension",
    "counts": {
     "total": 64,
-    "level1": 24,
-    "level2": 24,
-    "retention": 16
+    "level1": 28,
+    "level2": 28,
+    "retention": 8
    },
    "gates": {
-    "G1_structure": true,
+    "G1_structure": false,
     "G2_originality": true,
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
-    "lint": [],
+    "lint": [
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     },
+     {
+      "code": "L-MEDIA",
+      "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
+      "message": "image-required item has no resolved imagePath or imageCards"
+     }
+    ],
     "sims": {
      "pass": {
       "status": "secure",
       "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 12,
-      "leakShare": 0.1875
+      "leakyItems": 1,
+      "leakShare": 0.015625
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
-   "ready": true
+   "ready": false
   },
   {
    "skillId": "verbs",
@@ -1052,24 +3955,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 6,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
-      "leakyItems": 0,
-      "leakShare": 0
+      "leakyItems": 2,
+      "leakShare": 0.034482758620689655
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },
@@ -1089,24 +4007,39 @@
     "G3_answer_integrity": true,
     "G4_mastery_logic": true,
     "G5_no_repeats": true,
-    "G7_human_signoff": "pending-ben"
+    "G6_one_report": true
    },
    "detail": {
     "lint": [],
     "sims": {
      "pass": {
       "status": "secure",
-      "sittings": 5,
+      "sittings": 4,
+      "levelSittings": {
+       "1": 2,
+       "2": 2
+      },
       "repeats": 0
      },
      "guess": {
       "trials": 300,
-      "passes": 0
+      "passes": 0,
+      "passRate": 0,
+      "threshold": "at most 1 smoke-trial pass"
      },
      "scanner": {
       "finalStatus": "in_progress",
       "leakyItems": 0,
       "leakShare": 0
+     },
+     "regression": {
+      "afterFailure": "level_2_passed",
+      "failureNeedsReview": true,
+      "afterClean": "level_2_passed",
+      "cleanNeedsReview": false,
+      "afterRetentionFailure": "level_2_passed",
+      "retentionNeedsReview": true,
+      "pass": true
      }
     }
    },

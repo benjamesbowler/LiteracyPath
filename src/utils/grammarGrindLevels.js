@@ -83,6 +83,23 @@ export function grammarGrindChoiceFeedback(choice, currentLevel, { reveal = fals
     : `"${chosen}" is not the word. ${hint}`;
 }
 
+export function grammarGrindSegmentChoices(currentLevel, ladder, stepIndex = 0, seedOffset = 0) {
+  const expected = currentLevel?.segments?.[stepIndex];
+  if (!expected) return [];
+  const pool = [...new Set((ladder || []).flatMap(item => item?.segments || []))]
+    .filter(segment => segment && segment !== expected);
+  const start = Math.abs((Number(seedOffset) || 0) * 5 + stepIndex * 3) % Math.max(1, pool.length);
+  const distractors = [];
+  for (let index = 0; index < pool.length && distractors.length < 2; index += 1) {
+    const candidate = pool[(start + index) % pool.length];
+    if (!distractors.includes(candidate)) distractors.push(candidate);
+  }
+  const choices = [expected, ...distractors];
+  while (choices.length < 3) choices.push(`?${choices.length}`);
+  const shift = Math.abs((Number(seedOffset) || 0) + stepIndex) % choices.length;
+  return [...choices.slice(shift), ...choices.slice(0, shift)];
+}
+
 export function grammarGrindStars(result = {}) {
   return starRubric(result);
 }

@@ -1408,11 +1408,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/like.webp",
-  "imageUrl": "/images/assessment/hfw/like.webp",
-  "targetImage": "/images/assessment/hfw/like.webp",
-  "targetImagePath": "/images/assessment/hfw/like.webp",
-  "resolvedImageAssetKey": "like",
+  "imagePath": "/media/vocabulary/images/do.webp",
+  "imageUrl": "/media/vocabulary/images/do.webp",
+  "targetImage": "/media/vocabulary/images/do.webp",
+  "targetImagePath": "/media/vocabulary/images/do.webp",
+  "resolvedImageAssetKey": "do",
   "imageAlt": "do you like plums?"
  },
  {
@@ -1497,11 +1497,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "imageUrl": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImage": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/plurals/cow-cows-01.webp",
-  "resolvedImageAssetKey": "cows",
+  "imagePath": "/media/vocabulary/images/do.webp",
+  "imageUrl": "/media/vocabulary/images/do.webp",
+  "targetImage": "/media/vocabulary/images/do.webp",
+  "targetImagePath": "/media/vocabulary/images/do.webp",
+  "resolvedImageAssetKey": "do",
   "imageAlt": "What do cows eat?"
  },
  {
@@ -1584,11 +1584,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
+  "imagePath": "/media/vocabulary/images/do.webp",
+  "imageUrl": "/media/vocabulary/images/do.webp",
+  "targetImage": "/media/vocabulary/images/do.webp",
+  "targetImagePath": "/media/vocabulary/images/do.webp",
+  "resolvedImageAssetKey": "do",
   "imageAlt": "Find the word: do"
  },
  {
@@ -1673,11 +1673,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "all kid — the agreement slip children make",
-  "imagePath": "/images/child-mode/initial-sounds/kid.png",
-  "imageUrl": "/images/child-mode/initial-sounds/kid.png",
-  "targetImage": "/images/child-mode/initial-sounds/kid.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/kid.png",
-  "resolvedImageAssetKey": "kid",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "each kid got a badge."
  },
  {
@@ -1762,11 +1762,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/desk.webp",
-  "imageUrl": "/images/assessment/blends/desk.webp",
-  "targetImage": "/images/assessment/blends/desk.webp",
-  "targetImagePath": "/images/assessment/blends/desk.webp",
-  "resolvedImageAssetKey": "desk",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "Put a cup at each desk."
  },
  {
@@ -1849,11 +1849,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "Find the word: each"
  },
  {
@@ -3263,11 +3263,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/want-wish-01.webp",
-  "resolvedImageAssetKey": "want",
+  "imagePath": "/media/vocabulary/images/or.webp",
+  "imageUrl": "/media/vocabulary/images/or.webp",
+  "targetImage": "/media/vocabulary/images/or.webp",
+  "targetImagePath": "/media/vocabulary/images/or.webp",
+  "resolvedImageAssetKey": "or",
   "imageAlt": "Do you want jam or ham?"
  },
  {
@@ -3352,11 +3352,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/empty-filled-01.webp",
-  "resolvedImageAssetKey": "empty",
+  "imagePath": "/media/vocabulary/images/or.webp",
+  "imageUrl": "/media/vocabulary/images/or.webp",
+  "targetImage": "/media/vocabulary/images/or.webp",
+  "targetImagePath": "/media/vocabulary/images/or.webp",
+  "resolvedImageAssetKey": "or",
   "imageAlt": "Is the cup full or empty?"
  },
  {
@@ -3439,11 +3439,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
+  "imagePath": "/media/vocabulary/images/or.webp",
+  "imageUrl": "/media/vocabulary/images/or.webp",
+  "targetImage": "/media/vocabulary/images/or.webp",
+  "targetImagePath": "/media/vocabulary/images/or.webp",
+  "resolvedImageAssetKey": "or",
   "imageAlt": "Find the word: or"
  },
  {
@@ -5118,11 +5118,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "the shops was — the agreement slip; are misses the tense",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "The shops were shut at ten."
  },
  {
@@ -5207,11 +5207,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "you was — THE developmental error",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/brave-afraid-01.webp",
-  "resolvedImageAssetKey": "brave",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "You were so brave at the vet!"
  },
  {
@@ -5294,11 +5294,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "print recognition IS the construct — surface match is the task",
-  "imagePath": "/images/assessment/hfw/find.webp",
-  "imageUrl": "/images/assessment/hfw/find.webp",
-  "targetImage": "/images/assessment/hfw/find.webp",
-  "targetImagePath": "/images/assessment/hfw/find.webp",
-  "resolvedImageAssetKey": "find",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "Find the word: were"
  },
  {
@@ -6178,11 +6178,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "six new word — the plural slip",
-  "imagePath": "/images/assessment/hfw/read.webp",
-  "imageUrl": "/images/assessment/hfw/read.webp",
-  "targetImage": "/images/assessment/hfw/read.webp",
-  "targetImagePath": "/images/assessment/hfw/read.webp",
-  "resolvedImageAssetKey": "read",
+  "imagePath": "/media/vocabulary/images/today.webp",
+  "imageUrl": "/media/vocabulary/images/today.webp",
+  "targetImage": "/media/vocabulary/images/today.webp",
+  "targetImagePath": "/media/vocabulary/images/today.webp",
+  "resolvedImageAssetKey": "today",
   "imageAlt": "We read six new words today."
  },
  {
@@ -6267,11 +6267,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/big.webp",
-  "imageUrl": "/images/assessment/hfw/big.webp",
-  "targetImage": "/images/assessment/hfw/big.webp",
-  "targetImagePath": "/images/assessment/hfw/big.webp",
-  "resolvedImageAssetKey": "big",
+  "imagePath": "/media/vocabulary/images/spell.webp",
+  "imageUrl": "/media/vocabulary/images/spell.webp",
+  "targetImage": "/media/vocabulary/images/spell.webp",
+  "targetImagePath": "/media/vocabulary/images/spell.webp",
+  "resolvedImageAssetKey": "spell",
   "imageAlt": "Big words can be fun to spell."
  },
  {
@@ -6645,21 +6645,12 @@ export const questions = [
   "itemKey": "all",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: We ate ___ the grapes.",
   "question": "Build the missing word: We ate ___ the grapes.",
   "spokenPrompt": "Build the missing word. We ate … the grapes.",
   "sentence": "We ate ___ the grapes.",
-  "choices": [
-   "all"
-  ],
-  "answerOptions": [
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
-   }
-  ],
+  "choices": [],
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
@@ -6681,6 +6672,11 @@ export const questions = [
    "l",
    "o",
    "u"
+  ],
+  "correctLetterSequence": [
+   "a",
+   "l",
+   "l"
   ],
   "sentenceText": "We ate all the grapes.",
   "targetWord": "all",
@@ -6726,21 +6722,12 @@ export const questions = [
   "itemKey": "all",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ my pens ran out.",
   "question": "Build the missing word: ___ my pens ran out.",
   "spokenPrompt": "Build the missing word. … my pens ran out.",
   "sentence": "___ my pens ran out.",
-  "choices": [
-   "all"
-  ],
-  "answerOptions": [
-   {
-    "value": "all",
-    "label": "all",
-    "text": "all"
-   }
-  ],
+  "choices": [],
   "answer": "all",
   "correctAnswer": "all",
   "distractorRationales": {},
@@ -6762,6 +6749,11 @@ export const questions = [
    "l",
    "u",
    "o"
+  ],
+  "correctLetterSequence": [
+   "a",
+   "l",
+   "l"
   ],
   "sentenceText": "all my pens ran out.",
   "targetWord": "all",
@@ -6807,21 +6799,12 @@ export const questions = [
   "itemKey": "an",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: He fed ___ ox at the farm.",
   "question": "Build the missing word: He fed ___ ox at the farm.",
   "spokenPrompt": "Build the missing word. He fed … ox at the farm.",
   "sentence": "He fed ___ ox at the farm.",
-  "choices": [
-   "an"
-  ],
-  "answerOptions": [
-   {
-    "value": "an",
-    "label": "an",
-    "text": "an"
-   }
-  ],
+  "choices": [],
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
@@ -6841,6 +6824,10 @@ export const questions = [
    "n",
    "e",
    "m"
+  ],
+  "correctLetterSequence": [
+   "a",
+   "n"
   ],
   "sentenceText": "He fed an ox at the farm.",
   "targetWord": "an",
@@ -6886,21 +6873,12 @@ export const questions = [
   "itemKey": "an",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: I need ___ extra bed.",
   "question": "Build the missing word: I need ___ extra bed.",
   "spokenPrompt": "Build the missing word. I need … extra bed.",
   "sentence": "I need ___ extra bed.",
-  "choices": [
-   "an"
-  ],
-  "answerOptions": [
-   {
-    "value": "an",
-    "label": "an",
-    "text": "an"
-   }
-  ],
+  "choices": [],
   "answer": "an",
   "correctAnswer": "an",
   "distractorRationales": {},
@@ -6920,6 +6898,10 @@ export const questions = [
    "n",
    "m",
    "e"
+  ],
+  "correctLetterSequence": [
+   "a",
+   "n"
   ],
   "sentenceText": "I need an extra bed.",
   "targetWord": "an",
@@ -6965,21 +6947,12 @@ export const questions = [
   "itemKey": "but",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: I tried, ___ I slipped.",
   "question": "Build the missing word: I tried, ___ I slipped.",
   "spokenPrompt": "Build the missing word. I tried, … I slipped.",
   "sentence": "I tried, ___ I slipped.",
-  "choices": [
-   "but"
-  ],
-  "answerOptions": [
-   {
-    "value": "but",
-    "label": "but",
-    "text": "but"
-   }
-  ],
+  "choices": [],
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
@@ -7001,6 +6974,11 @@ export const questions = [
    "t",
    "a",
    "d"
+  ],
+  "correctLetterSequence": [
+   "b",
+   "u",
+   "t"
   ],
   "sentenceText": "I tried, but I slipped.",
   "targetWord": "but",
@@ -7046,21 +7024,12 @@ export const questions = [
   "itemKey": "but",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Small ___ strong!",
   "question": "Build the missing word: Small ___ strong!",
   "spokenPrompt": "Build the missing word. Small … strong!",
   "sentence": "Small ___ strong!",
-  "choices": [
-   "but"
-  ],
-  "answerOptions": [
-   {
-    "value": "but",
-    "label": "but",
-    "text": "but"
-   }
-  ],
+  "choices": [],
   "answer": "but",
   "correctAnswer": "but",
   "distractorRationales": {},
@@ -7082,6 +7051,11 @@ export const questions = [
    "t",
    "d",
    "a"
+  ],
+  "correctLetterSequence": [
+   "b",
+   "u",
+   "t"
   ],
   "sentenceText": "Small but strong!",
   "targetWord": "but",
@@ -7127,21 +7101,12 @@ export const questions = [
   "itemKey": "by",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Stand ___ the door, please.",
   "question": "Build the missing word: Stand ___ the door, please.",
   "spokenPrompt": "Build the missing word. Stand … the door, please.",
   "sentence": "Stand ___ the door, please.",
-  "choices": [
-   "by"
-  ],
-  "answerOptions": [
-   {
-    "value": "by",
-    "label": "by",
-    "text": "by"
-   }
-  ],
+  "choices": [],
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
@@ -7161,6 +7126,10 @@ export const questions = [
    "y",
    "i",
    "e"
+  ],
+  "correctLetterSequence": [
+   "b",
+   "y"
   ],
   "sentenceText": "Stand by the door, please.",
   "targetWord": "by",
@@ -7206,21 +7175,12 @@ export const questions = [
   "itemKey": "by",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The mill sits ___ a stream.",
   "question": "Build the missing word: The mill sits ___ a stream.",
   "spokenPrompt": "Build the missing word. The mill sits … a stream.",
   "sentence": "The mill sits ___ a stream.",
-  "choices": [
-   "by"
-  ],
-  "answerOptions": [
-   {
-    "value": "by",
-    "label": "by",
-    "text": "by"
-   }
-  ],
+  "choices": [],
   "answer": "by",
   "correctAnswer": "by",
   "distractorRationales": {},
@@ -7240,6 +7200,10 @@ export const questions = [
    "y",
    "e",
    "i"
+  ],
+  "correctLetterSequence": [
+   "b",
+   "y"
   ],
   "sentenceText": "The mill sits by a stream.",
   "targetWord": "by",
@@ -7285,21 +7249,12 @@ export const questions = [
   "itemKey": "can",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Foxes ___ jump high.",
   "question": "Build the missing word: Foxes ___ jump high.",
   "spokenPrompt": "Build the missing word. Foxes … jump high.",
   "sentence": "Foxes ___ jump high.",
-  "choices": [
-   "can"
-  ],
-  "answerOptions": [
-   {
-    "value": "can",
-    "label": "can",
-    "text": "can"
-   }
-  ],
+  "choices": [],
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
@@ -7321,6 +7276,11 @@ export const questions = [
    "n",
    "k",
    "e"
+  ],
+  "correctLetterSequence": [
+   "c",
+   "a",
+   "n"
   ],
   "sentenceText": "Foxes can jump high.",
   "targetWord": "can",
@@ -7366,21 +7326,12 @@ export const questions = [
   "itemKey": "can",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ we camp out back?",
   "question": "Build the missing word: ___ we camp out back?",
   "spokenPrompt": "Build the missing word. … we camp out back?",
   "sentence": "___ we camp out back?",
-  "choices": [
-   "can"
-  ],
-  "answerOptions": [
-   {
-    "value": "can",
-    "label": "can",
-    "text": "can"
-   }
-  ],
+  "choices": [],
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
@@ -7402,6 +7353,11 @@ export const questions = [
    "n",
    "e",
    "k"
+  ],
+  "correctLetterSequence": [
+   "c",
+   "a",
+   "n"
   ],
   "sentenceText": "can we camp out back?",
   "targetWord": "can",
@@ -7447,21 +7403,12 @@ export const questions = [
   "itemKey": "do",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ frogs sleep in mud?",
   "question": "Build the missing word: ___ frogs sleep in mud?",
   "spokenPrompt": "Build the missing word. … frogs sleep in mud?",
   "sentence": "___ frogs sleep in mud?",
-  "choices": [
-   "do"
-  ],
-  "answerOptions": [
-   {
-    "value": "do",
-    "label": "do",
-    "text": "do"
-   }
-  ],
+  "choices": [],
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
@@ -7482,6 +7429,10 @@ export const questions = [
    "u",
    "w"
   ],
+  "correctLetterSequence": [
+   "d",
+   "o"
+  ],
   "sentenceText": "do frogs sleep in mud?",
   "targetWord": "do",
   "v3AuthoredMedia": {
@@ -7500,11 +7451,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "doo — the u is present and tempting",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/do.webp",
+  "imageUrl": "/media/vocabulary/images/do.webp",
+  "targetImage": "/media/vocabulary/images/do.webp",
+  "targetImagePath": "/media/vocabulary/images/do.webp",
+  "resolvedImageAssetKey": "do",
   "imageAlt": "Build the missing word: do frogs sleep in mud?"
  },
  {
@@ -7526,21 +7477,12 @@ export const questions = [
   "itemKey": "do",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: We ___ sums after lunch.",
   "question": "Build the missing word: We ___ sums after lunch.",
   "spokenPrompt": "Build the missing word. We … sums after lunch.",
   "sentence": "We ___ sums after lunch.",
-  "choices": [
-   "do"
-  ],
-  "answerOptions": [
-   {
-    "value": "do",
-    "label": "do",
-    "text": "do"
-   }
-  ],
+  "choices": [],
   "answer": "do",
   "correctAnswer": "do",
   "distractorRationales": {},
@@ -7561,6 +7503,10 @@ export const questions = [
    "w",
    "u"
   ],
+  "correctLetterSequence": [
+   "d",
+   "o"
+  ],
   "sentenceText": "We do sums after lunch.",
   "targetWord": "do",
   "v3AuthoredMedia": {
@@ -7579,11 +7525,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/do.webp",
+  "imageUrl": "/media/vocabulary/images/do.webp",
+  "targetImage": "/media/vocabulary/images/do.webp",
+  "targetImagePath": "/media/vocabulary/images/do.webp",
+  "resolvedImageAssetKey": "do",
   "imageAlt": "Build the missing word: We do sums after lunch."
  },
  {
@@ -7605,21 +7551,12 @@ export const questions = [
   "itemKey": "each",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Give ___ hen some corn.",
   "question": "Build the missing word: Give ___ hen some corn.",
   "spokenPrompt": "Build the missing word. Give … hen some corn.",
   "sentence": "Give ___ hen some corn.",
-  "choices": [
-   "each"
-  ],
-  "answerOptions": [
-   {
-    "value": "each",
-    "label": "each",
-    "text": "each"
-   }
-  ],
+  "choices": [],
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
@@ -7642,6 +7579,12 @@ export const questions = [
    "h",
    "i"
   ],
+  "correctLetterSequence": [
+   "e",
+   "a",
+   "c",
+   "h"
+  ],
   "sentenceText": "Give each hen some corn.",
   "targetWord": "each",
   "v3AuthoredMedia": {
@@ -7660,11 +7603,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "eech — the i tempts the phonetic build",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "Build the missing word: Give each hen some corn."
  },
  {
@@ -7686,21 +7629,12 @@ export const questions = [
   "itemKey": "each",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ box has a lid.",
   "question": "Build the missing word: ___ box has a lid.",
   "spokenPrompt": "Build the missing word. … box has a lid.",
   "sentence": "___ box has a lid.",
-  "choices": [
-   "each"
-  ],
-  "answerOptions": [
-   {
-    "value": "each",
-    "label": "each",
-    "text": "each"
-   }
-  ],
+  "choices": [],
   "answer": "each",
   "correctAnswer": "each",
   "distractorRationales": {},
@@ -7723,6 +7657,12 @@ export const questions = [
    "h",
    "t"
   ],
+  "correctLetterSequence": [
+   "e",
+   "a",
+   "c",
+   "h"
+  ],
   "sentenceText": "each box has a lid.",
   "targetWord": "each",
   "v3AuthoredMedia": {
@@ -7741,11 +7681,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/each.webp",
+  "imageUrl": "/media/vocabulary/images/each.webp",
+  "targetImage": "/media/vocabulary/images/each.webp",
+  "targetImagePath": "/media/vocabulary/images/each.webp",
+  "resolvedImageAssetKey": "each",
   "imageAlt": "Build the missing word: each box has a lid."
  },
  {
@@ -7767,21 +7707,12 @@ export const questions = [
   "itemKey": "had",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: We ___ fun at the fair.",
   "question": "Build the missing word: We ___ fun at the fair.",
   "spokenPrompt": "Build the missing word. We … fun at the fair.",
   "sentence": "We ___ fun at the fair.",
-  "choices": [
-   "had"
-  ],
-  "answerOptions": [
-   {
-    "value": "had",
-    "label": "had",
-    "text": "had"
-   }
-  ],
+  "choices": [],
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
@@ -7803,6 +7734,11 @@ export const questions = [
    "d",
    "e",
    "t"
+  ],
+  "correctLetterSequence": [
+   "h",
+   "a",
+   "d"
   ],
   "sentenceText": "We had fun at the fair.",
   "targetWord": "had",
@@ -7848,21 +7784,12 @@ export const questions = [
   "itemKey": "had",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The pup ___ my sock!",
   "question": "Build the missing word: The pup ___ my sock!",
   "spokenPrompt": "Build the missing word. The pup … my sock!",
   "sentence": "The pup ___ my sock!",
-  "choices": [
-   "had"
-  ],
-  "answerOptions": [
-   {
-    "value": "had",
-    "label": "had",
-    "text": "had"
-   }
-  ],
+  "choices": [],
   "answer": "had",
   "correctAnswer": "had",
   "distractorRationales": {},
@@ -7884,6 +7811,11 @@ export const questions = [
    "d",
    "t",
    "e"
+  ],
+  "correctLetterSequence": [
+   "h",
+   "a",
+   "d"
   ],
   "sentenceText": "The pup had my sock!",
   "targetWord": "had",
@@ -7929,21 +7861,12 @@ export const questions = [
   "itemKey": "how",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ do bees make honey?",
   "question": "Build the missing word: ___ do bees make honey?",
   "spokenPrompt": "Build the missing word. … do bees make honey?",
   "sentence": "___ do bees make honey?",
-  "choices": [
-   "how"
-  ],
-  "answerOptions": [
-   {
-    "value": "how",
-    "label": "how",
-    "text": "how"
-   }
-  ],
+  "choices": [],
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
@@ -7965,6 +7888,11 @@ export const questions = [
    "w",
    "u",
    "n"
+  ],
+  "correctLetterSequence": [
+   "h",
+   "o",
+   "w"
   ],
   "sentenceText": "how do bees make honey?",
   "targetWord": "how",
@@ -8010,21 +7938,12 @@ export const questions = [
   "itemKey": "how",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Show me ___ to knit.",
   "question": "Build the missing word: Show me ___ to knit.",
   "spokenPrompt": "Build the missing word. Show me … to knit.",
   "sentence": "Show me ___ to knit.",
-  "choices": [
-   "how"
-  ],
-  "answerOptions": [
-   {
-    "value": "how",
-    "label": "how",
-    "text": "how"
-   }
-  ],
+  "choices": [],
   "answer": "how",
   "correctAnswer": "how",
   "distractorRationales": {},
@@ -8046,6 +7965,11 @@ export const questions = [
    "w",
    "n",
    "u"
+  ],
+  "correctLetterSequence": [
+   "h",
+   "o",
+   "w"
   ],
   "sentenceText": "Show me how to knit.",
   "targetWord": "how",
@@ -8091,21 +8015,12 @@ export const questions = [
   "itemKey": "if",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Yell ___ you spot land!",
   "question": "Build the missing word: Yell ___ you spot land!",
   "spokenPrompt": "Build the missing word. Yell … you spot land!",
   "sentence": "Yell ___ you spot land!",
-  "choices": [
-   "if"
-  ],
-  "answerOptions": [
-   {
-    "value": "if",
-    "label": "if",
-    "text": "if"
-   }
-  ],
+  "choices": [],
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
@@ -8125,6 +8040,10 @@ export const questions = [
    "f",
    "e",
    "v"
+  ],
+  "correctLetterSequence": [
+   "i",
+   "f"
   ],
   "sentenceText": "Yell if you spot land!",
   "targetWord": "if",
@@ -8170,21 +8089,12 @@ export const questions = [
   "itemKey": "if",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Ask Dad ___ we may go.",
   "question": "Build the missing word: Ask Dad ___ we may go.",
   "spokenPrompt": "Build the missing word. Ask Dad … we may go.",
   "sentence": "Ask Dad ___ we may go.",
-  "choices": [
-   "if"
-  ],
-  "answerOptions": [
-   {
-    "value": "if",
-    "label": "if",
-    "text": "if"
-   }
-  ],
+  "choices": [],
   "answer": "if",
   "correctAnswer": "if",
   "distractorRationales": {},
@@ -8204,6 +8114,10 @@ export const questions = [
    "f",
    "v",
    "e"
+  ],
+  "correctLetterSequence": [
+   "i",
+   "f"
   ],
   "sentenceText": "Ask Dad if we may go.",
   "targetWord": "if",
@@ -8249,21 +8163,12 @@ export const questions = [
   "itemKey": "not",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: That is ___ my cup.",
   "question": "Build the missing word: That is ___ my cup.",
   "spokenPrompt": "Build the missing word. That is … my cup.",
   "sentence": "That is ___ my cup.",
-  "choices": [
-   "not"
-  ],
-  "answerOptions": [
-   {
-    "value": "not",
-    "label": "not",
-    "text": "not"
-   }
-  ],
+  "choices": [],
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
@@ -8285,6 +8190,11 @@ export const questions = [
    "t",
    "u",
    "k"
+  ],
+  "correctLetterSequence": [
+   "n",
+   "o",
+   "t"
   ],
   "sentenceText": "That is not my cup.",
   "targetWord": "not",
@@ -8330,21 +8240,12 @@ export const questions = [
   "itemKey": "not",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Do ___ wake the baby!",
   "question": "Build the missing word: Do ___ wake the baby!",
   "spokenPrompt": "Build the missing word. Do … wake the baby!",
   "sentence": "Do ___ wake the baby!",
-  "choices": [
-   "not"
-  ],
-  "answerOptions": [
-   {
-    "value": "not",
-    "label": "not",
-    "text": "not"
-   }
-  ],
+  "choices": [],
   "answer": "not",
   "correctAnswer": "not",
   "distractorRationales": {},
@@ -8366,6 +8267,11 @@ export const questions = [
    "t",
    "k",
    "u"
+  ],
+  "correctLetterSequence": [
+   "n",
+   "o",
+   "t"
   ],
   "sentenceText": "Do not wake the baby!",
   "targetWord": "not",
@@ -8411,21 +8317,12 @@ export const questions = [
   "itemKey": "one",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Just ___ more lap to run!",
   "question": "Build the missing word: Just ___ more lap to run!",
   "spokenPrompt": "Build the missing word. Just … more lap to run!",
   "sentence": "Just ___ more lap to run!",
-  "choices": [
-   "one"
-  ],
-  "answerOptions": [
-   {
-    "value": "one",
-    "label": "one",
-    "text": "one"
-   }
-  ],
+  "choices": [],
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
@@ -8447,6 +8344,11 @@ export const questions = [
    "e",
    "w",
    "u"
+  ],
+  "correctLetterSequence": [
+   "o",
+   "n",
+   "e"
   ],
   "sentenceText": "Just one more lap to run!",
   "targetWord": "one",
@@ -8492,21 +8394,12 @@ export const questions = [
   "itemKey": "one",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ star shone first.",
   "question": "Build the missing word: ___ star shone first.",
   "spokenPrompt": "Build the missing word. … star shone first.",
   "sentence": "___ star shone first.",
-  "choices": [
-   "one"
-  ],
-  "answerOptions": [
-   {
-    "value": "one",
-    "label": "one",
-    "text": "one"
-   }
-  ],
+  "choices": [],
   "answer": "one",
   "correctAnswer": "one",
   "distractorRationales": {},
@@ -8528,6 +8421,11 @@ export const questions = [
    "e",
    "u",
    "w"
+  ],
+  "correctLetterSequence": [
+   "o",
+   "n",
+   "e"
   ],
   "sentenceText": "one star shone first.",
   "targetWord": "one",
@@ -8573,21 +8471,12 @@ export const questions = [
   "itemKey": "or",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Milk ___ water with lunch?",
   "question": "Build the missing word: Milk ___ water with lunch?",
   "spokenPrompt": "Build the missing word. Milk … water with lunch?",
   "sentence": "Milk ___ water with lunch?",
-  "choices": [
-   "or"
-  ],
-  "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   }
-  ],
+  "choices": [],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
@@ -8608,6 +8497,10 @@ export const questions = [
    "e",
    "u"
   ],
+  "correctLetterSequence": [
+   "o",
+   "r"
+  ],
   "sentenceText": "Milk or water with lunch?",
   "targetWord": "or",
   "v3AuthoredMedia": {
@@ -8626,11 +8519,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/or.webp",
+  "imageUrl": "/media/vocabulary/images/or.webp",
+  "targetImage": "/media/vocabulary/images/or.webp",
+  "targetImagePath": "/media/vocabulary/images/or.webp",
+  "resolvedImageAssetKey": "or",
   "imageAlt": "Build the missing word: Milk or water with lunch?"
  },
  {
@@ -8652,21 +8545,12 @@ export const questions = [
   "itemKey": "or",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Walk ___ ride — you pick.",
   "question": "Build the missing word: Walk ___ ride — you pick.",
   "spokenPrompt": "Build the missing word. Walk … ride — you pick.",
   "sentence": "Walk ___ ride — you pick.",
-  "choices": [
-   "or"
-  ],
-  "answerOptions": [
-   {
-    "value": "or",
-    "label": "or",
-    "text": "or"
-   }
-  ],
+  "choices": [],
   "answer": "or",
   "correctAnswer": "or",
   "distractorRationales": {},
@@ -8687,6 +8571,10 @@ export const questions = [
    "u",
    "e"
   ],
+  "correctLetterSequence": [
+   "o",
+   "r"
+  ],
   "sentenceText": "Walk or ride — you pick.",
   "targetWord": "or",
   "v3AuthoredMedia": {
@@ -8705,11 +8593,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/or.webp",
+  "imageUrl": "/media/vocabulary/images/or.webp",
+  "targetImage": "/media/vocabulary/images/or.webp",
+  "targetImagePath": "/media/vocabulary/images/or.webp",
+  "resolvedImageAssetKey": "or",
   "imageAlt": "Build the missing word: Walk or ride — you pick."
  },
  {
@@ -8731,21 +8619,12 @@ export const questions = [
   "itemKey": "said",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The vet ___ to rest the pup.",
   "question": "Build the missing word: The vet ___ to rest the pup.",
   "spokenPrompt": "Build the missing word. The vet … to rest the pup.",
   "sentence": "The vet ___ to rest the pup.",
-  "choices": [
-   "said"
-  ],
-  "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   }
-  ],
+  "choices": [],
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
@@ -8767,6 +8646,12 @@ export const questions = [
    "i",
    "d",
    "e"
+  ],
+  "correctLetterSequence": [
+   "s",
+   "a",
+   "i",
+   "d"
   ],
   "sentenceText": "The vet said to rest the pup.",
   "targetWord": "said",
@@ -8812,21 +8697,12 @@ export const questions = [
   "itemKey": "said",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Gran ___ bedtime is nine.",
   "question": "Build the missing word: Gran ___ bedtime is nine.",
   "spokenPrompt": "Build the missing word. Gran … bedtime is nine.",
   "sentence": "Gran ___ bedtime is nine.",
-  "choices": [
-   "said"
-  ],
-  "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   }
-  ],
+  "choices": [],
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
@@ -8848,6 +8724,12 @@ export const questions = [
    "i",
    "d",
    "e"
+  ],
+  "correctLetterSequence": [
+   "s",
+   "a",
+   "i",
+   "d"
   ],
   "sentenceText": "Gran said bedtime is nine.",
   "targetWord": "said",
@@ -8893,21 +8775,12 @@ export const questions = [
   "itemKey": "she",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: May ___ join our team?",
   "question": "Build the missing word: May ___ join our team?",
   "spokenPrompt": "Build the missing word. May … join our team?",
   "sentence": "May ___ join our team?",
-  "choices": [
-   "she"
-  ],
-  "answerOptions": [
-   {
-    "value": "she",
-    "label": "she",
-    "text": "she"
-   }
-  ],
+  "choices": [],
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
@@ -8929,6 +8802,11 @@ export const questions = [
    "e",
    "i",
    "c"
+  ],
+  "correctLetterSequence": [
+   "s",
+   "h",
+   "e"
   ],
   "sentenceText": "May she join our team?",
   "targetWord": "she",
@@ -8974,21 +8852,12 @@ export const questions = [
   "itemKey": "she",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ dug up a gem!",
   "question": "Build the missing word: ___ dug up a gem!",
   "spokenPrompt": "Build the missing word. … dug up a gem!",
   "sentence": "___ dug up a gem!",
-  "choices": [
-   "she"
-  ],
-  "answerOptions": [
-   {
-    "value": "she",
-    "label": "she",
-    "text": "she"
-   }
-  ],
+  "choices": [],
   "answer": "she",
   "correctAnswer": "she",
   "distractorRationales": {},
@@ -9010,6 +8879,11 @@ export const questions = [
    "e",
    "c",
    "i"
+  ],
+  "correctLetterSequence": [
+   "s",
+   "h",
+   "e"
   ],
   "sentenceText": "she dug up a gem!",
   "targetWord": "she",
@@ -9055,21 +8929,12 @@ export const questions = [
   "itemKey": "their",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The bees kept ___ honey safe.",
   "question": "Build the missing word: The bees kept ___ honey safe.",
   "spokenPrompt": "Build the missing word. The bees kept … honey safe.",
   "sentence": "The bees kept ___ honey safe.",
-  "choices": [
-   "their"
-  ],
-  "answerOptions": [
-   {
-    "value": "their",
-    "label": "their",
-    "text": "their"
-   }
-  ],
+  "choices": [],
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
@@ -9093,6 +8958,13 @@ export const questions = [
    "i",
    "r",
    "a"
+  ],
+  "correctLetterSequence": [
+   "t",
+   "h",
+   "e",
+   "i",
+   "r"
   ],
   "sentenceText": "The bees kept their honey safe.",
   "targetWord": "their",
@@ -9138,21 +9010,12 @@ export const questions = [
   "itemKey": "their",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The kids lost ___ ball again.",
   "question": "Build the missing word: The kids lost ___ ball again.",
   "spokenPrompt": "Build the missing word. The kids lost … ball again.",
   "sentence": "The kids lost ___ ball again.",
-  "choices": [
-   "their"
-  ],
-  "answerOptions": [
-   {
-    "value": "their",
-    "label": "their",
-    "text": "their"
-   }
-  ],
+  "choices": [],
   "answer": "their",
   "correctAnswer": "their",
   "distractorRationales": {},
@@ -9176,6 +9039,13 @@ export const questions = [
    "i",
    "r",
    "a"
+  ],
+  "correctLetterSequence": [
+   "t",
+   "h",
+   "e",
+   "i",
+   "r"
   ],
   "sentenceText": "The kids lost their ball again.",
   "targetWord": "their",
@@ -9221,21 +9091,12 @@ export const questions = [
   "itemKey": "there",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Park the bikes over ___.",
   "question": "Build the missing word: Park the bikes over ___.",
   "spokenPrompt": "Build the missing word. Park the bikes over ….",
   "sentence": "Park the bikes over ___.",
-  "choices": [
-   "there"
-  ],
-  "answerOptions": [
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   }
-  ],
+  "choices": [],
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
@@ -9259,6 +9120,13 @@ export const questions = [
    "r",
    "e",
    "i"
+  ],
+  "correctLetterSequence": [
+   "t",
+   "h",
+   "e",
+   "r",
+   "e"
   ],
   "sentenceText": "Park the bikes over there.",
   "targetWord": "there",
@@ -9304,21 +9172,12 @@ export const questions = [
   "itemKey": "there",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Is anybody ___?",
   "question": "Build the missing word: Is anybody ___?",
   "spokenPrompt": "Build the missing word. Is anybody …?",
   "sentence": "Is anybody ___?",
-  "choices": [
-   "there"
-  ],
-  "answerOptions": [
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   }
-  ],
+  "choices": [],
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
@@ -9342,6 +9201,13 @@ export const questions = [
    "r",
    "e",
    "i"
+  ],
+  "correctLetterSequence": [
+   "t",
+   "h",
+   "e",
+   "r",
+   "e"
   ],
   "sentenceText": "Is anybody there?",
   "targetWord": "there",
@@ -9387,21 +9253,12 @@ export const questions = [
   "itemKey": "use",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ both hands to lift it.",
   "question": "Build the missing word: ___ both hands to lift it.",
   "spokenPrompt": "Build the missing word. … both hands to lift it.",
   "sentence": "___ both hands to lift it.",
-  "choices": [
-   "use"
-  ],
-  "answerOptions": [
-   {
-    "value": "use",
-    "label": "use",
-    "text": "use"
-   }
-  ],
+  "choices": [],
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
@@ -9423,6 +9280,11 @@ export const questions = [
    "e",
    "z",
    "o"
+  ],
+  "correctLetterSequence": [
+   "u",
+   "s",
+   "e"
   ],
   "sentenceText": "use both hands to lift it.",
   "targetWord": "use",
@@ -9468,21 +9330,12 @@ export const questions = [
   "itemKey": "use",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: We ___ twigs for the nest.",
   "question": "Build the missing word: We ___ twigs for the nest.",
   "spokenPrompt": "Build the missing word. We … twigs for the nest.",
   "sentence": "We ___ twigs for the nest.",
-  "choices": [
-   "use"
-  ],
-  "answerOptions": [
-   {
-    "value": "use",
-    "label": "use",
-    "text": "use"
-   }
-  ],
+  "choices": [],
   "answer": "use",
   "correctAnswer": "use",
   "distractorRationales": {},
@@ -9504,6 +9357,11 @@ export const questions = [
    "e",
    "o",
    "z"
+  ],
+  "correctLetterSequence": [
+   "u",
+   "s",
+   "e"
   ],
   "sentenceText": "We use twigs for the nest.",
   "targetWord": "use",
@@ -9549,21 +9407,12 @@ export const questions = [
   "itemKey": "we",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Can ___ bake a plum pie?",
   "question": "Build the missing word: Can ___ bake a plum pie?",
   "spokenPrompt": "Build the missing word. Can … bake a plum pie?",
   "sentence": "Can ___ bake a plum pie?",
-  "choices": [
-   "we"
-  ],
-  "answerOptions": [
-   {
-    "value": "we",
-    "label": "we",
-    "text": "we"
-   }
-  ],
+  "choices": [],
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
@@ -9583,6 +9432,10 @@ export const questions = [
    "e",
    "i",
    "u"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "e"
   ],
   "sentenceText": "Can we bake a plum pie?",
   "targetWord": "we",
@@ -9628,21 +9481,12 @@ export const questions = [
   "itemKey": "we",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ swam till six.",
   "question": "Build the missing word: ___ swam till six.",
   "spokenPrompt": "Build the missing word. … swam till six.",
   "sentence": "___ swam till six.",
-  "choices": [
-   "we"
-  ],
-  "answerOptions": [
-   {
-    "value": "we",
-    "label": "we",
-    "text": "we"
-   }
-  ],
+  "choices": [],
   "answer": "we",
   "correctAnswer": "we",
   "distractorRationales": {},
@@ -9662,6 +9506,10 @@ export const questions = [
    "e",
    "u",
    "i"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "e"
   ],
   "sentenceText": "we swam till six.",
   "targetWord": "we",
@@ -9707,21 +9555,12 @@ export const questions = [
   "itemKey": "were",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: The socks ___ still damp.",
   "question": "Build the missing word: The socks ___ still damp.",
   "spokenPrompt": "Build the missing word. The socks … still damp.",
   "sentence": "The socks ___ still damp.",
-  "choices": [
-   "were"
-  ],
-  "answerOptions": [
-   {
-    "value": "were",
-    "label": "were",
-    "text": "were"
-   }
-  ],
+  "choices": [],
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
@@ -9744,6 +9583,12 @@ export const questions = [
    "e",
    "u"
   ],
+  "correctLetterSequence": [
+   "w",
+   "e",
+   "r",
+   "e"
+  ],
   "sentenceText": "The socks were still damp.",
   "targetWord": "were",
   "v3AuthoredMedia": {
@@ -9762,11 +9607,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "wur — the u is present; the double e is the work",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "Build the missing word: The socks were still damp."
  },
  {
@@ -9788,21 +9633,12 @@ export const questions = [
   "itemKey": "were",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: You ___ fast today!",
   "question": "Build the missing word: You ___ fast today!",
   "spokenPrompt": "Build the missing word. You … fast today!",
   "sentence": "You ___ fast today!",
-  "choices": [
-   "were"
-  ],
-  "answerOptions": [
-   {
-    "value": "were",
-    "label": "were",
-    "text": "were"
-   }
-  ],
+  "choices": [],
   "answer": "were",
   "correctAnswer": "were",
   "distractorRationales": {},
@@ -9825,6 +9661,12 @@ export const questions = [
    "e",
    "u"
   ],
+  "correctLetterSequence": [
+   "w",
+   "e",
+   "r",
+   "e"
+  ],
   "sentenceText": "You were fast today!",
   "targetWord": "were",
   "v3AuthoredMedia": {
@@ -9843,11 +9685,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/build-construct-01.webp",
-  "resolvedImageAssetKey": "build",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "Build the missing word: You were fast today!"
  },
  {
@@ -9869,21 +9711,12 @@ export const questions = [
   "itemKey": "what",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ fell off the shelf?",
   "question": "Build the missing word: ___ fell off the shelf?",
   "spokenPrompt": "Build the missing word. … fell off the shelf?",
   "sentence": "___ fell off the shelf?",
-  "choices": [
-   "what"
-  ],
-  "answerOptions": [
-   {
-    "value": "what",
-    "label": "what",
-    "text": "what"
-   }
-  ],
+  "choices": [],
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
@@ -9905,6 +9738,12 @@ export const questions = [
    "a",
    "t",
    "o"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "a",
+   "t"
   ],
   "sentenceText": "what fell off the shelf?",
   "targetWord": "what",
@@ -9950,21 +9789,12 @@ export const questions = [
   "itemKey": "what",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Guess ___ I found!",
   "question": "Build the missing word: Guess ___ I found!",
   "spokenPrompt": "Build the missing word. Guess … I found!",
   "sentence": "Guess ___ I found!",
-  "choices": [
-   "what"
-  ],
-  "answerOptions": [
-   {
-    "value": "what",
-    "label": "what",
-    "text": "what"
-   }
-  ],
+  "choices": [],
   "answer": "what",
   "correctAnswer": "what",
   "distractorRationales": {},
@@ -9986,6 +9816,12 @@ export const questions = [
    "a",
    "t",
    "o"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "a",
+   "t"
   ],
   "sentenceText": "Guess what I found!",
   "targetWord": "what",
@@ -10031,21 +9867,12 @@ export const questions = [
   "itemKey": "when",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ does the pool open?",
   "question": "Build the missing word: ___ does the pool open?",
   "spokenPrompt": "Build the missing word. … does the pool open?",
   "sentence": "___ does the pool open?",
-  "choices": [
-   "when"
-  ],
-  "answerOptions": [
-   {
-    "value": "when",
-    "label": "when",
-    "text": "when"
-   }
-  ],
+  "choices": [],
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
@@ -10067,6 +9894,12 @@ export const questions = [
    "e",
    "n",
    "u"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "e",
+   "n"
   ],
   "sentenceText": "when does the pool open?",
   "targetWord": "when",
@@ -10112,21 +9945,12 @@ export const questions = [
   "itemKey": "when",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Clap ___ the song ends.",
   "question": "Build the missing word: Clap ___ the song ends.",
   "spokenPrompt": "Build the missing word. Clap … the song ends.",
   "sentence": "Clap ___ the song ends.",
-  "choices": [
-   "when"
-  ],
-  "answerOptions": [
-   {
-    "value": "when",
-    "label": "when",
-    "text": "when"
-   }
-  ],
+  "choices": [],
   "answer": "when",
   "correctAnswer": "when",
   "distractorRationales": {},
@@ -10148,6 +9972,12 @@ export const questions = [
    "e",
    "n",
    "u"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "e",
+   "n"
   ],
   "sentenceText": "Clap when the song ends.",
   "targetWord": "when",
@@ -10193,21 +10023,12 @@ export const questions = [
   "itemKey": "which",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: ___ sock is mine?",
   "question": "Build the missing word: ___ sock is mine?",
   "spokenPrompt": "Build the missing word. … sock is mine?",
   "sentence": "___ sock is mine?",
-  "choices": [
-   "which"
-  ],
-  "answerOptions": [
-   {
-    "value": "which",
-    "label": "which",
-    "text": "which"
-   }
-  ],
+  "choices": [],
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
@@ -10231,6 +10052,13 @@ export const questions = [
    "c",
    "h",
    "t"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "i",
+   "c",
+   "h"
   ],
   "sentenceText": "which sock is mine?",
   "targetWord": "which",
@@ -10276,21 +10104,12 @@ export const questions = [
   "itemKey": "which",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Pick ___ game we play.",
   "question": "Build the missing word: Pick ___ game we play.",
   "spokenPrompt": "Build the missing word. Pick … game we play.",
   "sentence": "Pick ___ game we play.",
-  "choices": [
-   "which"
-  ],
-  "answerOptions": [
-   {
-    "value": "which",
-    "label": "which",
-    "text": "which"
-   }
-  ],
+  "choices": [],
   "answer": "which",
   "correctAnswer": "which",
   "distractorRationales": {},
@@ -10314,6 +10133,13 @@ export const questions = [
    "c",
    "h",
    "t"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "h",
+   "i",
+   "c",
+   "h"
   ],
   "sentenceText": "Pick which game we play.",
   "targetWord": "which",
@@ -10359,21 +10185,12 @@ export const questions = [
   "itemKey": "words",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Rhyming ___ end the same.",
   "question": "Build the missing word: Rhyming ___ end the same.",
   "spokenPrompt": "Build the missing word. Rhyming … end the same.",
   "sentence": "Rhyming ___ end the same.",
-  "choices": [
-   "words"
-  ],
-  "answerOptions": [
-   {
-    "value": "words",
-    "label": "words",
-    "text": "words"
-   }
-  ],
+  "choices": [],
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
@@ -10397,6 +10214,13 @@ export const questions = [
    "d",
    "s",
    "u"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "o",
+   "r",
+   "d",
+   "s"
   ],
   "sentenceText": "Rhyming words end the same.",
   "targetWord": "words",
@@ -10442,21 +10266,12 @@ export const questions = [
   "itemKey": "words",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Long ___ need long tiles.",
   "question": "Build the missing word: Long ___ need long tiles.",
   "spokenPrompt": "Build the missing word. Long … need long tiles.",
   "sentence": "Long ___ need long tiles.",
-  "choices": [
-   "words"
-  ],
-  "answerOptions": [
-   {
-    "value": "words",
-    "label": "words",
-    "text": "words"
-   }
-  ],
+  "choices": [],
   "answer": "words",
   "correctAnswer": "words",
   "distractorRationales": {},
@@ -10480,6 +10295,13 @@ export const questions = [
    "d",
    "s",
    "u"
+  ],
+  "correctLetterSequence": [
+   "w",
+   "o",
+   "r",
+   "d",
+   "s"
   ],
   "sentenceText": "Long words need long tiles.",
   "targetWord": "words",
@@ -10525,21 +10347,12 @@ export const questions = [
   "itemKey": "your",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Tie ___ laces up tight.",
   "question": "Build the missing word: Tie ___ laces up tight.",
   "spokenPrompt": "Build the missing word. Tie … laces up tight.",
   "sentence": "Tie ___ laces up tight.",
-  "choices": [
-   "your"
-  ],
-  "answerOptions": [
-   {
-    "value": "your",
-    "label": "your",
-    "text": "your"
-   }
-  ],
+  "choices": [],
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
@@ -10561,6 +10374,12 @@ export const questions = [
    "u",
    "r",
    "e"
+  ],
+  "correctLetterSequence": [
+   "y",
+   "o",
+   "u",
+   "r"
   ],
   "sentenceText": "Tie your laces up tight.",
   "targetWord": "your",
@@ -10606,21 +10425,12 @@ export const questions = [
   "itemKey": "your",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Bring ___ kit on Monday.",
   "question": "Build the missing word: Bring ___ kit on Monday.",
   "spokenPrompt": "Build the missing word. Bring … kit on Monday.",
   "sentence": "Bring ___ kit on Monday.",
-  "choices": [
-   "your"
-  ],
-  "answerOptions": [
-   {
-    "value": "your",
-    "label": "your",
-    "text": "your"
-   }
-  ],
+  "choices": [],
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
@@ -10642,6 +10452,12 @@ export const questions = [
    "u",
    "r",
    "e"
+  ],
+  "correctLetterSequence": [
+   "y",
+   "o",
+   "u",
+   "r"
   ],
   "sentenceText": "Bring your kit on Monday.",
   "targetWord": "your",
@@ -10928,11 +10744,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/generated/concepts/warm.webp",
-  "imageUrl": "/images/assessment/generated/concepts/warm.webp",
-  "targetImage": "/images/assessment/generated/concepts/warm.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/warm.webp",
-  "resolvedImageAssetKey": "warm",
+  "imagePath": "/media/vocabulary/images/were.webp",
+  "imageUrl": "/media/vocabulary/images/were.webp",
+  "targetImage": "/media/vocabulary/images/were.webp",
+  "targetImagePath": "/media/vocabulary/images/were.webp",
+  "resolvedImageAssetKey": "were",
   "imageAlt": "The buns were still warm."
  },
  {
@@ -11217,21 +11033,12 @@ export const questions = [
   "itemKey": "there",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Sit ___ by the window.",
   "question": "Build the missing word: Sit ___ by the window.",
   "spokenPrompt": "Build the missing word. Sit … by the window.",
   "sentence": "Sit ___ by the window.",
-  "choices": [
-   "there"
-  ],
-  "answerOptions": [
-   {
-    "value": "there",
-    "label": "there",
-    "text": "there"
-   }
-  ],
+  "choices": [],
   "answer": "there",
   "correctAnswer": "there",
   "distractorRationales": {},
@@ -11255,6 +11062,13 @@ export const questions = [
    "r",
    "e",
    "i"
+  ],
+  "correctLetterSequence": [
+   "t",
+   "h",
+   "e",
+   "r",
+   "e"
   ],
   "sentenceText": "Sit there by the window.",
   "targetWord": "there",
@@ -11300,21 +11114,12 @@ export const questions = [
   "itemKey": "said",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Who ___ that?",
   "question": "Build the missing word: Who ___ that?",
   "spokenPrompt": "Build the missing word. Who … that?",
   "sentence": "Who ___ that?",
-  "choices": [
-   "said"
-  ],
-  "answerOptions": [
-   {
-    "value": "said",
-    "label": "said",
-    "text": "said"
-   }
-  ],
+  "choices": [],
   "answer": "said",
   "correctAnswer": "said",
   "distractorRationales": {},
@@ -11336,6 +11141,12 @@ export const questions = [
    "i",
    "d",
    "e"
+  ],
+  "correctLetterSequence": [
+   "s",
+   "a",
+   "i",
+   "d"
   ],
   "sentenceText": "Who said that?",
   "targetWord": "said",
@@ -11381,21 +11192,12 @@ export const questions = [
   "itemKey": "can",
   "formatType": "HFW_SENTENCE_SPELL_CONTEXT",
   "templateType": "HFW_SENTENCE_SPELL_CONTEXT",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Crabs ___ nip — take care!",
   "question": "Build the missing word: Crabs ___ nip — take care!",
   "spokenPrompt": "Build the missing word. Crabs … nip — take care!",
   "sentence": "Crabs ___ nip — take care!",
-  "choices": [
-   "can"
-  ],
-  "answerOptions": [
-   {
-    "value": "can",
-    "label": "can",
-    "text": "can"
-   }
-  ],
+  "choices": [],
   "answer": "can",
   "correctAnswer": "can",
   "distractorRationales": {},
@@ -11417,6 +11219,11 @@ export const questions = [
    "n",
    "k",
    "e"
+  ],
+  "correctLetterSequence": [
+   "c",
+   "a",
+   "n"
   ],
   "sentenceText": "Crabs can nip — take care!",
   "targetWord": "can",
@@ -11462,21 +11269,12 @@ export const questions = [
   "itemKey": "your",
   "formatType": "HFW_LETTER_BUILD",
   "templateType": "HFW_LETTER_BUILD",
-  "questionType": "multiple_choice",
+  "questionType": "letter_build",
   "prompt": "Build the missing word: Is this ___ pen or mine?",
   "question": "Build the missing word: Is this ___ pen or mine?",
   "spokenPrompt": "Build the missing word. Is this … pen or mine?",
   "sentence": "Is this ___ pen or mine?",
-  "choices": [
-   "your"
-  ],
-  "answerOptions": [
-   {
-    "value": "your",
-    "label": "your",
-    "text": "your"
-   }
-  ],
+  "choices": [],
   "answer": "your",
   "correctAnswer": "your",
   "distractorRationales": {},
@@ -11498,6 +11296,12 @@ export const questions = [
    "u",
    "r",
    "e"
+  ],
+  "correctLetterSequence": [
+   "y",
+   "o",
+   "u",
+   "r"
   ],
   "sentenceText": "Is this your pen or mine?",
   "targetWord": "your",

@@ -3037,11 +3037,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/quest/dino/ground.webp",
-  "imageUrl": "/images/quest/dino/ground.webp",
-  "targetImage": "/images/quest/dino/ground.webp",
-  "targetImagePath": "/images/quest/dino/ground.webp",
-  "resolvedImageAssetKey": "ground",
+  "imagePath": "/media/vocabulary/images/longest.webp",
+  "imageUrl": "/media/vocabulary/images/longest.webp",
+  "targetImage": "/media/vocabulary/images/longest.webp",
+  "targetImagePath": "/media/vocabulary/images/longest.webp",
+  "resolvedImageAssetKey": "longest",
   "imageAlt": "Her longest scarf trailed on the ground."
  },
  {
@@ -3213,11 +3213,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/made.webp",
-  "imageUrl": "/images/assessment/hfw/made.webp",
-  "targetImage": "/images/assessment/hfw/made.webp",
-  "targetImagePath": "/images/assessment/hfw/made.webp",
-  "resolvedImageAssetKey": "made",
+  "imagePath": "/media/vocabulary/images/sour.webp",
+  "imageUrl": "/media/vocabulary/images/sour.webp",
+  "targetImage": "/media/vocabulary/images/sour.webp",
+  "targetImagePath": "/media/vocabulary/images/sour.webp",
+  "resolvedImageAssetKey": "sour",
   "imageAlt": "The lemonade was sour and made our mouths pucker."
  },
  {
@@ -3301,11 +3301,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/under.png",
-  "imageUrl": "/images/child-mode/initial-sounds/under.png",
-  "targetImage": "/images/child-mode/initial-sounds/under.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/under.png",
-  "resolvedImageAssetKey": "under",
+  "imagePath": "/media/vocabulary/images/stairs.webp",
+  "imageUrl": "/media/vocabulary/images/stairs.webp",
+  "targetImage": "/media/vocabulary/images/stairs.webp",
+  "targetImagePath": "/media/vocabulary/images/stairs.webp",
+  "resolvedImageAssetKey": "stairs",
   "imageAlt": "The old stairs were creaky and groaned under our feet."
  },
  {
@@ -3389,11 +3389,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/wear-where-01.webp",
-  "resolvedImageAssetKey": "wear",
+  "imagePath": "/media/vocabulary/images/thick.webp",
+  "imageUrl": "/media/vocabulary/images/thick.webp",
+  "targetImage": "/media/vocabulary/images/thick.webp",
+  "targetImagePath": "/media/vocabulary/images/thick.webp",
+  "resolvedImageAssetKey": "thick",
   "imageAlt": "Wear the thick coat — it is snowing hard."
  },
  {
@@ -4169,11 +4169,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
@@ -4429,11 +4429,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {
@@ -5066,11 +5066,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/hfw/not.webp",
-  "imageUrl": "/images/assessment/hfw/not.webp",
-  "targetImage": "/images/assessment/hfw/not.webp",
-  "targetImagePath": "/images/assessment/hfw/not.webp",
-  "resolvedImageAssetKey": "not",
+  "imagePath": "/media/vocabulary/images/doing.webp",
+  "imageUrl": "/media/vocabulary/images/doing.webp",
+  "targetImage": "/media/vocabulary/images/doing.webp",
+  "targetImagePath": "/media/vocabulary/images/doing.webp",
+  "resolvedImageAssetKey": "doing",
   "imageAlt": "Which word is a describing word, not a naming or doing word?"
  },
  {

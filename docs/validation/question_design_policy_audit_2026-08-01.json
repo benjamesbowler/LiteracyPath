@@ -1,0 +1,396 @@
+{
+  "policyVersion": "2026-08-01.1",
+  "generatedAt": "2026-08-01T03:48:26.340Z",
+  "verdict": "fail",
+  "totals": {
+    "surfaces": 17,
+    "questions": 4550,
+    "failures": 24
+  },
+  "surfaces": [
+    {
+      "surface": "30 assessment skills",
+      "questions": 1751,
+      "failures": 24
+    },
+    {
+      "surface": "Guided Reading quizzes",
+      "questions": 528,
+      "failures": 0
+    },
+    {
+      "surface": "Story Stop cover questions",
+      "questions": 38,
+      "failures": 0
+    },
+    {
+      "surface": "EL Quest stations",
+      "questions": 1181,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Rocket Run",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Letter Leap",
+      "questions": 128,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Sound Racer",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Word Bridge",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Sound Beat",
+      "questions": 82,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Rhyme Pop",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Sound Safari",
+      "questions": 90,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Reel & Read",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Sentence Grove",
+      "questions": 120,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Sentence Express",
+      "questions": 90,
+      "failures": 0
+    },
+    {
+      "surface": "Arcade · Spell & Skate",
+      "questions": 30,
+      "failures": 0
+    },
+    {
+      "surface": "Sentence Fix question bank",
+      "questions": 42,
+      "failures": 0
+    },
+    {
+      "surface": "Generated worksheets",
+      "questions": 320,
+      "documents": 76,
+      "failures": 0
+    }
+  ],
+  "assessmentSkills": [
+    {
+      "skillId": "initial_sounds",
+      "questions": 150,
+      "failures": 0
+    },
+    {
+      "skillId": "final_sounds",
+      "questions": 72,
+      "failures": 0
+    },
+    {
+      "skillId": "rhyming",
+      "questions": 135,
+      "failures": 0
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "questions": 60,
+      "failures": 0
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "questions": 60,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_1_25",
+      "questions": 125,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_26_50",
+      "questions": 125,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_51_75",
+      "questions": 125,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_76_100",
+      "questions": 125,
+      "failures": 0
+    },
+    {
+      "skillId": "blends",
+      "questions": 96,
+      "failures": 0
+    },
+    {
+      "skillId": "digraphs",
+      "questions": 48,
+      "failures": 0
+    },
+    {
+      "skillId": "long_vowels",
+      "questions": 52,
+      "failures": 0
+    },
+    {
+      "skillId": "vowel_teams",
+      "questions": 78,
+      "failures": 0
+    },
+    {
+      "skillId": "r_controlled",
+      "questions": 60,
+      "failures": 0
+    },
+    {
+      "skillId": "nouns",
+      "questions": 48,
+      "failures": 0
+    },
+    {
+      "skillId": "verbs",
+      "questions": 48,
+      "failures": 0
+    },
+    {
+      "skillId": "adjectives",
+      "questions": 48,
+      "failures": 0
+    },
+    {
+      "skillId": "prepositions",
+      "questions": 64,
+      "failures": 0
+    },
+    {
+      "skillId": "plurals",
+      "questions": 50,
+      "failures": 0
+    },
+    {
+      "skillId": "prefix_suffix",
+      "questions": 66,
+      "failures": 0
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "questions": 48,
+      "failures": 0
+    },
+    {
+      "skillId": "homophones",
+      "questions": 68,
+      "failures": 0
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "key_details",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "sequencing",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "main_idea",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "inference",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "cause_effect",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "context_clues",
+      "questions": 0,
+      "failures": 3
+    },
+    {
+      "skillId": "theme",
+      "questions": 0,
+      "failures": 3
+    }
+  ],
+  "failures": [
+    {
+      "surface": "Assessment skills",
+      "id": "sentence_comprehension",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "sentence_comprehension",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "sentence_comprehension",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "key_details",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "key_details",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "key_details",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "sequencing",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "sequencing",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "sequencing",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "main_idea",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "main_idea",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "main_idea",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "inference",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "inference",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "inference",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "cause_effect",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "cause_effect",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "cause_effect",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "context_clues",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "context_clues",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "context_clues",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "theme",
+      "code": "Q-EMPTY-SKILL",
+      "message": "Published runtime bank is empty."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "theme",
+      "code": "Q-LEVELS",
+      "message": "Both Level 1 and Level 2 are required."
+    },
+    {
+      "surface": "Assessment skills",
+      "id": "theme",
+      "code": "Q-PHASES",
+      "message": "Both Phase 1 and Phase 2 are required."
+    }
+  ]
+}

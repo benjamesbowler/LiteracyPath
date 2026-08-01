@@ -2092,8 +2092,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    },
    {
@@ -2346,8 +2346,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    },
    {
@@ -2927,8 +2927,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {
@@ -4924,8 +4924,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    },
    {
@@ -7075,8 +7075,8 @@ export const questions = [
     "word": "mud",
     "value": "mud",
     "label": "mud",
-    "image": "/images/child-mode/initial-sounds/mud.png",
-    "imagePath": "/images/child-mode/initial-sounds/mud.png",
+    "image": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "imageAlt": "mud"
    }
   ]
@@ -7193,8 +7193,8 @@ export const questions = [
     "word": "nut",
     "value": "nut",
     "label": "nut",
-    "image": "/images/child-mode/initial-sounds/nut.png",
-    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "image": "/images/child-mode/short-u/nut.png",
+    "imagePath": "/images/child-mode/short-u/nut.png",
     "imageAlt": "nut"
    }
   ]
@@ -7629,8 +7629,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "jam",
@@ -7693,7 +7693,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
   "resolvedImageAssetKey": "jam",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ang.v1",
@@ -7889,8 +7889,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "hang",
@@ -7953,7 +7953,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
   "resolvedImageAssetKey": "cup",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ong.v1",
@@ -7982,7 +7982,7 @@ export const questions = [
    "long",
    "son",
    "sang",
-   "sock"
+   "lung"
   ],
   "answerOptions": [
    {
@@ -8001,9 +8001,9 @@ export const questions = [
     "text": "sang"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "lung",
+    "label": "lung",
+    "text": "lung"
    }
   ],
   "answer": "long",
@@ -8011,7 +8011,7 @@ export const questions = [
   "distractorRationales": {
    "son": "D-PATTERN-TRAP",
    "sang": "D-VOWEL",
-   "sock": "D-RIME-NEAR"
+   "lung": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -8149,8 +8149,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "long",
@@ -8213,7 +8213,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/map-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
   "resolvedImageAssetKey": "map",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ink.v1",
@@ -8409,8 +8409,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pink",
@@ -8473,7 +8473,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/eg/leg-02.webp",
   "resolvedImageAssetKey": "leg",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ock.v1",
@@ -8669,8 +8669,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pan",
@@ -8733,7 +8733,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/an/pan-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/an/pan-02.webp",
   "resolvedImageAssetKey": "pan",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ack.v1",
@@ -8929,8 +8929,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pack",
@@ -8993,7 +8993,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
   "resolvedImageAssetKey": "mug",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ick.v1",
@@ -9022,7 +9022,7 @@ export const questions = [
    "brick",
    "stiff",
    "stack",
-   "sit"
+   "bit"
   ],
   "answerOptions": [
    {
@@ -9041,9 +9041,9 @@ export const questions = [
     "text": "stack"
    },
    {
-    "value": "sit",
-    "label": "sit",
-    "text": "sit"
+    "value": "bit",
+    "label": "bit",
+    "text": "bit"
    }
   ],
   "answer": "brick",
@@ -9051,7 +9051,7 @@ export const questions = [
   "distractorRationales": {
    "stiff": "D-PATTERN-TRAP",
    "stack": "D-VOWEL",
-   "sit": "D-RIME-NEAR"
+   "bit": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -9189,8 +9189,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "brick",
@@ -9253,7 +9253,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
   "resolvedImageAssetKey": "sun",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ill.v1",
@@ -9335,11 +9335,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ill/pill-02.webp",
-  "resolvedImageAssetKey": "pill",
+  "imagePath": "/media/initial-sounds/images/h/hill.webp",
+  "imageUrl": "/media/initial-sounds/images/h/hill.webp",
+  "targetImage": "/media/initial-sounds/images/h/hill.webp",
+  "targetImagePath": "/media/initial-sounds/images/h/hill.webp",
+  "resolvedImageAssetKey": "hill",
   "imageAlt": "Which word rhymes with hill?"
  },
  {
@@ -9449,8 +9449,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "hill",
@@ -9513,7 +9513,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/fox.png",
   "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
   "resolvedImageAssetKey": "fox",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.all.v1",
@@ -9628,7 +9628,7 @@ export const questions = [
   "choices": [
    "walk",
    "well",
-   "wag",
+   "smell",
    "small"
   ],
   "answerOptions": [
@@ -9643,9 +9643,9 @@ export const questions = [
     "text": "well"
    },
    {
-    "value": "wag",
-    "label": "wag",
-    "text": "wag"
+    "value": "smell",
+    "label": "smell",
+    "text": "smell"
    },
    {
     "value": "small",
@@ -9658,7 +9658,7 @@ export const questions = [
   "distractorRationales": {
    "walk": "D-PATTERN-TRAP",
    "well": "D-VOWEL",
-   "wag": "D-RIME-NEAR"
+   "smell": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -9709,8 +9709,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "pig",
@@ -9773,7 +9773,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
   "resolvedImageAssetKey": "pig",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ell.v1",
@@ -9801,7 +9801,7 @@ export const questions = [
   "choices": [
    "belt",
    "ball",
-   "bed",
+   "shop",
    "shell"
   ],
   "answerOptions": [
@@ -9816,9 +9816,9 @@ export const questions = [
     "text": "ball"
    },
    {
-    "value": "bed",
-    "label": "bed",
-    "text": "bed"
+    "value": "shop",
+    "label": "shop",
+    "text": "shop"
    },
    {
     "value": "shell",
@@ -9829,7 +9829,7 @@ export const questions = [
   "answer": "shell",
   "correctAnswer": "shell",
   "distractorRationales": {
-   "bed": "D-RIME-NEAR",
+   "shop": "D-RIME-NEAR",
    "belt": "D-PATTERN-TRAP",
    "ball": "D-VOWEL"
   },
@@ -9889,7 +9889,7 @@ export const questions = [
    "spell",
    "witch",
    "will",
-   "web"
+   "spot"
   ],
   "answerOptions": [
    {
@@ -9908,9 +9908,9 @@ export const questions = [
     "text": "will"
    },
    {
-    "value": "web",
-    "label": "web",
-    "text": "web"
+    "value": "spot",
+    "label": "spot",
+    "text": "spot"
    }
   ],
   "answer": "spell",
@@ -9918,7 +9918,7 @@ export const questions = [
   "distractorRationales": {
    "witch": "D-PATTERN-TRAP",
    "will": "D-VOWEL",
-   "web": "D-RIME-NEAR"
+   "spot": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -9969,8 +9969,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "shell",
@@ -10033,7 +10033,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
   "resolvedImageAssetKey": "cat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ash.v1",
@@ -10229,8 +10229,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "cash",
@@ -10293,7 +10293,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/bun/bun-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/bun/bun-02.webp",
   "resolvedImageAssetKey": "bun",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ish.v1",
@@ -10407,7 +10407,7 @@ export const questions = [
   "spokenPrompt": "fish. Which word rhymes with fish?",
   "choices": [
    "fresh",
-   "fin",
+   "swim",
    "swish",
    "fist"
   ],
@@ -10418,9 +10418,9 @@ export const questions = [
     "text": "fresh"
    },
    {
-    "value": "fin",
-    "label": "fin",
-    "text": "fin"
+    "value": "swim",
+    "label": "swim",
+    "text": "swim"
    },
    {
     "value": "swish",
@@ -10438,7 +10438,7 @@ export const questions = [
   "distractorRationales": {
    "fist": "D-PATTERN-TRAP",
    "fresh": "D-VOWEL",
-   "fin": "D-RIME-NEAR"
+   "swim": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -10489,8 +10489,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "dish",
@@ -10553,7 +10553,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/log-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
   "resolvedImageAssetKey": "log",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.uck.v1",
@@ -10749,8 +10749,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "ham",
@@ -10813,7 +10813,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/am/ham-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
   "resolvedImageAssetKey": "ham",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ake.v1",
@@ -11009,8 +11009,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "bake",
@@ -11073,7 +11073,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/fog-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/fog-02.webp",
   "resolvedImageAssetKey": "fog",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ame.v1",
@@ -11242,11 +11242,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ame/flame-02.webp",
-  "resolvedImageAssetKey": "flame",
+  "imagePath": "/media/vocabulary/images/same.webp",
+  "imageUrl": "/media/vocabulary/images/same.webp",
+  "targetImage": "/media/vocabulary/images/same.webp",
+  "targetImagePath": "/media/vocabulary/images/same.webp",
+  "resolvedImageAssetKey": "same",
   "imageAlt": "Which word rhymes with same?"
  },
  {
@@ -11269,8 +11269,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "name",
@@ -11333,7 +11333,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ip/zip-02.webp",
   "resolvedImageAssetKey": "zip",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ide.v1",
@@ -11502,11 +11502,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/wide-narrow-01.webp",
-  "resolvedImageAssetKey": "wide",
+  "imagePath": "/media/vocabulary/images/side.webp",
+  "imageUrl": "/media/vocabulary/images/side.webp",
+  "targetImage": "/media/vocabulary/images/side.webp",
+  "targetImagePath": "/media/vocabulary/images/side.webp",
+  "resolvedImageAssetKey": "side",
   "imageAlt": "Which word rhymes with side?"
  },
  {
@@ -11529,8 +11529,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "ride",
@@ -11593,7 +11593,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
   "resolvedImageAssetKey": "hen",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ight.v1",
@@ -11789,8 +11789,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "lamp",
@@ -11853,7 +11853,7 @@ export const questions = [
   "targetImage": "/images/assessment/blends/lamp.webp",
   "targetImagePath": "/images/assessment/blends/lamp.webp",
   "resolvedImageAssetKey": "lamp",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.oat.v1",
@@ -12049,8 +12049,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "goat",
@@ -12113,7 +12113,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/rug/rug-02.webp",
   "resolvedImageAssetKey": "rug",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.eep.v1",
@@ -12282,11 +12282,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "resolvedImageAssetKey": "sleep",
+  "imagePath": "/media/initial-sounds/images/j/jeep.webp",
+  "imageUrl": "/media/initial-sounds/images/j/jeep.webp",
+  "targetImage": "/media/initial-sounds/images/j/jeep.webp",
+  "targetImagePath": "/media/initial-sounds/images/j/jeep.webp",
+  "resolvedImageAssetKey": "jeep",
   "imageAlt": "Which word rhymes with jeep?"
  },
  {
@@ -12309,8 +12309,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "jeep",
@@ -12373,7 +12373,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/mat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
   "resolvedImageAssetKey": "mat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ouse.v1",
@@ -12395,8 +12395,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "blouse",
@@ -12459,7 +12459,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/bus.png",
   "targetImagePath": "/images/child-mode/initial-sounds/bus.png",
   "resolvedImageAssetKey": "bus",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.B.ouse.v2",
@@ -12481,8 +12481,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "house",
@@ -12545,7 +12545,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/an/van-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/an/van-02.webp",
   "resolvedImageAssetKey": "van",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.C.ouse.v3",
@@ -12567,8 +12567,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "house",
@@ -12631,7 +12631,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/gum.png",
   "targetImagePath": "/images/child-mode/initial-sounds/gum.png",
   "resolvedImageAssetKey": "gum",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ird.v1",
@@ -12827,8 +12827,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "cap",
@@ -12891,7 +12891,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ap/cap-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
   "resolvedImageAssetKey": "cap",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.urn.v1",
@@ -13087,8 +13087,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "churn",
@@ -13151,7 +13151,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
   "resolvedImageAssetKey": "dog",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.ar.v1",
@@ -13180,7 +13180,7 @@ export const questions = [
    "star",
    "cart",
    "care",
-   "can"
+   "stop"
   ],
   "answerOptions": [
    {
@@ -13199,9 +13199,9 @@ export const questions = [
     "text": "care"
    },
    {
-    "value": "can",
-    "label": "can",
-    "text": "can"
+    "value": "stop",
+    "label": "stop",
+    "text": "stop"
    }
   ],
   "answer": "star",
@@ -13209,7 +13209,7 @@ export const questions = [
   "distractorRationales": {
    "cart": "D-PATTERN-TRAP",
    "care": "D-VOWEL",
-   "can": "D-RIME-NEAR"
+   "stop": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "hadPTD": true,
@@ -13320,11 +13320,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "targetImage": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/antonyms-synonyms/far-distant-01.webp",
-  "resolvedImageAssetKey": "far",
+  "imagePath": "/media/initial-sounds/images/j/jar.webp",
+  "imageUrl": "/media/initial-sounds/images/j/jar.webp",
+  "targetImage": "/media/initial-sounds/images/j/jar.webp",
+  "targetImagePath": "/media/initial-sounds/images/j/jar.webp",
+  "resolvedImageAssetKey": "jar",
   "imageAlt": "Which word rhymes with jar?"
  },
  {
@@ -13347,8 +13347,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "star",
@@ -13411,7 +13411,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/hut/hut-02.webp",
   "resolvedImageAssetKey": "hut",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.A.or.v1",
@@ -13607,8 +13607,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "corn",
@@ -13671,7 +13671,7 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
   "resolvedImageAssetKey": "bed",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l1.R.at.v7r",
@@ -14430,11 +14430,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/snake.webp",
-  "imageUrl": "/images/assessment/blends/snake.webp",
-  "targetImage": "/images/assessment/blends/snake.webp",
-  "targetImagePath": "/images/assessment/blends/snake.webp",
-  "resolvedImageAssetKey": "snake",
+  "imagePath": "/media/vocabulary/images/bake.webp",
+  "imageUrl": "/media/vocabulary/images/bake.webp",
+  "targetImage": "/media/vocabulary/images/bake.webp",
+  "targetImagePath": "/media/vocabulary/images/bake.webp",
+  "resolvedImageAssetKey": "bake",
   "imageAlt": "Which word rhymes with bake?"
  },
  {
@@ -14457,8 +14457,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "yell",
@@ -14521,7 +14521,7 @@ export const questions = [
   "targetImage": "/images/child-mode/initial-sounds/tub.png",
   "targetImagePath": "/images/child-mode/initial-sounds/tub.png",
   "resolvedImageAssetKey": "tub",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  },
  {
   "id": "lp3.rhyming.l2.R.oat.v7r",
@@ -14630,8 +14630,8 @@ export const questions = [
   "formatType": "RHYME_ODD_ONE_OUT",
   "templateType": "RHYME_ODD_ONE_OUT",
   "questionType": "multiple_choice",
-  "prompt": "Which word does not rhyme with the others?",
-  "question": "Which word does not rhyme with the others?",
+  "prompt": "Which word does NOT rhyme with the others?",
+  "question": "Which word does NOT rhyme with the others?",
   "spokenPrompt": "Which word does not rhyme with the others?",
   "choices": [
    "sink",
@@ -14694,6 +14694,6 @@ export const questions = [
   "targetImage": "/images/assessment/rhyming/variants/at/bat-02.webp",
   "targetImagePath": "/images/assessment/rhyming/variants/at/bat-02.webp",
   "resolvedImageAssetKey": "bat",
-  "imageAlt": "Which word does not rhyme with the others?"
+  "imageAlt": "Which word does NOT rhyme with the others?"
  }
 ];

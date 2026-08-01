@@ -365,6 +365,35 @@ export function pixelRouteX(y, stopIndex = 1, chapterId = null) {
   return 320 + base + detail;
 }
 
+// The three illustrated book-world maps are fixed paintings. Their central
+// walkable trail is intentionally shared by every stop in that world, while
+// `pixelRouteX` remains the authored per-stop route used by the procedural
+// fallback and its forty-route diagnostics. Runtime actors must follow what a
+// child can actually see, so their anchors use these traced centre lines.
+const BOOK_WORLD_ROUTE_POINTS = Object.freeze({
+  meadow: Object.freeze([[0, 320], [0.16, 326], [0.32, 316], [0.5, 332], [0.68, 320], [0.84, 332], [1, 320]]),
+  dino: Object.freeze([[0, 320], [0.18, 320], [0.34, 294], [0.5, 322], [0.66, 346], [0.82, 318], [1, 320]]),
+  moonwood: Object.freeze([[0, 320], [0.18, 316], [0.36, 326], [0.54, 318], [0.72, 322], [0.88, 318], [1, 320]])
+});
+
+function bookWorldForStop(stopIndex = 1) {
+  const index = Math.max(1, Number(stopIndex) || 1);
+  if (index <= 10) return "meadow";
+  if (index <= 20) return "dino";
+  return "moonwood";
+}
+
+export function paintedBookWorldRouteX(y, stopIndex = 1) {
+  const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
+  const points = BOOK_WORLD_ROUTE_POINTS[bookWorldForStop(stopIndex)];
+  const upperIndex = points.findIndex(([pointProgress]) => pointProgress >= progress);
+  if (upperIndex <= 0) return points[0][1];
+  const [startProgress, startX] = points[upperIndex - 1];
+  const [endProgress, endX] = points[upperIndex];
+  const amount = (progress - startProgress) / Math.max(0.001, endProgress - startProgress);
+  return startX + (endX - startX) * amount;
+}
+
 function pixelRoutePathsX(y, stopIndex) {
   const map = stopPixelMap(stopIndex);
   const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
@@ -395,7 +424,7 @@ function pixelResidentPoint(section, encounter, index = 0) {
 
 export function progressToPixel(progress, stopIndex = 1, lateral = 0) {
   const y = 1060 - (Math.max(0, Math.min(1, Number(progress) || 0)) * 980);
-  return { x: pixelRouteX(y, stopIndex) + lateral, y };
+  return { x: paintedBookWorldRouteX(y, stopIndex) + lateral, y };
 }
 
 export function pixelToProgress(y) {
@@ -3889,7 +3918,7 @@ class QuestPixelScene extends Phaser.Scene {
       sprite.setData("encounterId", encounter.id);
       sprite.setData("baseX", point.x);
       sprite.setData("baseY", point.y);
-      const routeCentre = pixelRouteX(point.y, this.model.section.stopIndex);
+      const routeCentre = paintedBookWorldRouteX(point.y, this.model.section.stopIndex);
       const entry = {
         encounter,
         point,
@@ -5037,20 +5066,16 @@ class QuestPixelScene extends Phaser.Scene {
     const top = this.player.y - (height * 0.78);
     for (const wearable of this.playerWearables) {
       const sprite = wearable.sprite;
+      const layout = wearable.layout;
       if (!sprite?.active) continue;
-      if (wearable.slot === "back") {
-        sprite.setDisplaySize(width * 1.12, height * 0.72);
-        sprite.setPosition(this.player.x, top + (height * 0.52)).setDepth(this.player.y + 2);
-      } else if (wearable.slot === "head") {
-        sprite.setDisplaySize(width * 0.54, height * 0.32);
-        sprite.setPosition(this.player.x, top + (height * 0.16)).setDepth(this.player.y + 4);
-      } else if (wearable.slot === "neck") {
-        sprite.setDisplaySize(width * 0.48, height * 0.25);
-        sprite.setPosition(this.player.x, top + (height * 0.58)).setDepth(this.player.y + 4);
-      } else {
-        sprite.setDisplaySize(width * 0.27, height * 0.82);
-        sprite.setPosition(this.player.x + (width * 0.42), top + (height * 0.55)).setDepth(this.player.y + 4);
-      }
+      if (!layout) continue;
+      sprite
+        .setDisplaySize(width * (layout.width / 100), height * (layout.height / 100))
+        .setPosition(
+          this.player.x + width * ((layout.x - 50) / 100),
+          top + height * (layout.y / 100)
+        )
+        .setDepth(this.player.y + layout.depth + 1);
     }
   }
 

@@ -46,6 +46,8 @@ import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
 import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
 import { isQuestionBlockedByMediaQa } from "../../data/mediaQaManifest.js";
+import { getLexiconMediaEntry } from "../lexicon/lexiconMediaIndex.generated.js";
+import { getLedaWordAudioPath } from "../../data/ledaProductionAudio.js";
 import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel
@@ -383,8 +385,20 @@ export function normalizeRuntimeQuestionToSkillItem(question = {}) {
   const skillId = resolveManagedSkillId(question);
   if (!skillId) return null;
   const targetWord = normalizeTargetWord(question.targetWord || question.anchorWord || question.audioText || question.diagnosticTarget || question.answer || question.correctAnswer);
-  const target = inferRuntimeTarget(question);
+  const inferredTarget = inferRuntimeTarget(question);
+  const target = skillId === "long_vowels"
+    ? inferredTarget.replace(/\s+/g, "_")
+    : inferredTarget;
   const choices = getQuestionChoices(question);
+  const lexiconMedia = getLexiconMediaEntry(targetWord);
+  const imageUrl = question.imageUrl || question.imagePath || lexiconMedia?.imageUrl || "";
+  // Only repair an authored audio reference here. Questions that never
+  // declared audio must remain visibly incomplete to the release checker;
+  // otherwise a dictionary recording could silently promote legacy content.
+  const authoredAudioUrl = question.audioUrl || question.audioPath || "";
+  const audioUrl = authoredAudioUrl
+    ? (getLedaWordAudioPath(targetWord) || lexiconMedia?.audioUrl || authoredAudioUrl)
+    : "";
 
   return {
     id: question.id || runtimeQuestionSignature(question),
@@ -402,10 +416,10 @@ export function normalizeRuntimeQuestionToSkillItem(question = {}) {
     targetGroup: skillId === "rhyming" ? target : question.targetGroup || "",
     correctAnswer: question.correctAnswer || question.answer || "",
     answerOptions: choices,
-    imageUrl: question.imageUrl || question.imagePath || "",
-    audioUrl: question.audioUrl || question.audioPath || "",
-    imagePaths: getQuestionImagePaths(question),
-    audioPaths: getQuestionAudioPaths(question),
+    imageUrl,
+    audioUrl,
+    imagePaths: [...new Set([imageUrl, ...getQuestionImagePaths(question)].filter(Boolean))],
+    audioPaths: [...new Set([audioUrl, ...getQuestionAudioPaths(question)].filter(Boolean))],
     distractorType: question.distractorType || "",
     reviewPriority: question.reviewPriority || 0,
     active: question.active !== false,

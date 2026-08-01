@@ -3666,11 +3666,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImage": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/morning-mourning-01.webp",
-  "resolvedImageAssetKey": "morning",
+  "imagePath": "/media/initial-sounds/images/q/quiet.webp",
+  "imageUrl": "/media/initial-sounds/images/q/quiet.webp",
+  "targetImage": "/media/initial-sounds/images/q/quiet.webp",
+  "targetImagePath": "/media/initial-sounds/images/q/quiet.webp",
+  "resolvedImageAssetKey": "quiet",
   "imageAlt": "The morning was noisy. The night was quiet."
  },
  {
@@ -4190,11 +4190,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "fixed gifts ed to mended and painted — tie",
-  "imagePath": "/images/assessment/long-vowels/gate.webp",
-  "imageUrl": "/images/assessment/long-vowels/gate.webp",
-  "targetImage": "/images/assessment/long-vowels/gate.webp",
-  "targetImagePath": "/images/assessment/long-vowels/gate.webp",
-  "resolvedImageAssetKey": "gate",
+  "imagePath": "/media/initial-sounds/images/f/fence.webp",
+  "imageUrl": "/media/initial-sounds/images/f/fence.webp",
+  "targetImage": "/media/initial-sounds/images/f/fence.webp",
+  "targetImagePath": "/media/initial-sounds/images/f/fence.webp",
+  "resolvedImageAssetKey": "fence",
   "imageAlt": "Dad fixed the gate. In the same way, he mended the fence."
  },
  {
@@ -4278,11 +4278,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "soup gifts ou to delicious and loud; was gifts wa to warm — three-way tie",
-  "imagePath": "/images/assessment/blends/twin.webp",
-  "imageUrl": "/images/assessment/blends/twin.webp",
-  "targetImage": "/images/assessment/blends/twin.webp",
-  "targetImagePath": "/images/assessment/blends/twin.webp",
-  "resolvedImageAssetKey": "twin",
+  "imagePath": "/media/vocabulary/images/soup.webp",
+  "imageUrl": "/media/vocabulary/images/soup.webp",
+  "targetImage": "/media/vocabulary/images/soup.webp",
+  "targetImagePath": "/media/vocabulary/images/soup.webp",
+  "resolvedImageAssetKey": "soup",
   "imageAlt": "The soup was tasty. Its twin word is delicious."
  },
  {
@@ -4366,11 +4366,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/twin.webp",
-  "imageUrl": "/images/assessment/blends/twin.webp",
-  "targetImage": "/images/assessment/blends/twin.webp",
-  "targetImagePath": "/images/assessment/blends/twin.webp",
-  "resolvedImageAssetKey": "twin",
+  "imagePath": "/media/vocabulary/images/shouted.webp",
+  "imageUrl": "/media/vocabulary/images/shouted.webp",
+  "targetImage": "/media/vocabulary/images/shouted.webp",
+  "targetImagePath": "/media/vocabulary/images/shouted.webp",
+  "resolvedImageAssetKey": "shouted",
   "imageAlt": "We shouted with joy. Joy's twin word is glee."
  },
  {

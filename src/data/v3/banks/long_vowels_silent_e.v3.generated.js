@@ -341,11 +341,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "cap → cape; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/vocabulary/images/cape.webp",
+  "imageUrl": "/media/vocabulary/images/cape.webp",
+  "targetImage": "/media/vocabulary/images/cape.webp",
+  "targetImagePath": "/media/vocabulary/images/cape.webp",
+  "resolvedImageAssetKey": "cape",
   "imageAlt": "Add e to the end of cap. What word do you make?"
  },
  {
@@ -427,11 +427,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "tap → tape; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/vocabulary/images/tape.webp",
+  "imageUrl": "/media/vocabulary/images/tape.webp",
+  "targetImage": "/media/vocabulary/images/tape.webp",
+  "targetImagePath": "/media/vocabulary/images/tape.webp",
+  "resolvedImageAssetKey": "tape",
   "imageAlt": "Add e to the end of tap. What word do you make?"
  },
  {
@@ -946,11 +946,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "pin → pine; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/vocabulary/images/pine.webp",
+  "imageUrl": "/media/vocabulary/images/pine.webp",
+  "targetImage": "/media/vocabulary/images/pine.webp",
+  "targetImagePath": "/media/vocabulary/images/pine.webp",
+  "resolvedImageAssetKey": "pine",
   "imageAlt": "Add e to the end of pin. What word do you make?"
  },
  {
@@ -1379,11 +1379,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "hop → hope; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/vocabulary/images/hope.webp",
+  "imageUrl": "/media/vocabulary/images/hope.webp",
+  "targetImage": "/media/vocabulary/images/hope.webp",
+  "targetImagePath": "/media/vocabulary/images/hope.webp",
+  "resolvedImageAssetKey": "hope",
   "imageAlt": "Add e to the end of hop. What word do you make?"
  },
  {
@@ -1551,11 +1551,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rob → robe; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/final-sounds/images/b/robe.webp",
+  "imageUrl": "/media/final-sounds/images/b/robe.webp",
+  "targetImage": "/media/final-sounds/images/b/robe.webp",
+  "targetImagePath": "/media/final-sounds/images/b/robe.webp",
+  "resolvedImageAssetKey": "robe",
   "imageAlt": "Add e to the end of rob. What word do you make?"
  },
  {
@@ -2592,11 +2592,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "long-a CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
+  "imagePath": "/media/vocabulary/images/cane.webp",
+  "imageUrl": "/media/vocabulary/images/cane.webp",
+  "targetImage": "/media/vocabulary/images/cane.webp",
+  "targetImagePath": "/media/vocabulary/images/cane.webp",
+  "resolvedImageAssetKey": "cane",
   "imageAlt": "Which word has the long a sound?"
  },
  {
@@ -3284,11 +3284,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "ripe → rip; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
+  "imagePath": "/media/vocabulary/images/rip.webp",
+  "imageUrl": "/media/vocabulary/images/rip.webp",
+  "targetImage": "/media/vocabulary/images/rip.webp",
+  "targetImagePath": "/media/vocabulary/images/rip.webp",
+  "resolvedImageAssetKey": "rip",
   "imageAlt": "Take the silent e away from ripe. What word is left?"
  },
  {
@@ -3632,11 +3632,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "long-o CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
+  "imagePath": "/media/vocabulary/images/stone.webp",
+  "imageUrl": "/media/vocabulary/images/stone.webp",
+  "targetImage": "/media/vocabulary/images/stone.webp",
+  "targetImagePath": "/media/vocabulary/images/stone.webp",
+  "resolvedImageAssetKey": "stone",
   "imageAlt": "Which word has the long o sound?"
  },
  {
@@ -3804,11 +3804,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "robe → rob; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
+  "imagePath": "/media/vocabulary/images/rob.webp",
+  "imageUrl": "/media/vocabulary/images/rob.webp",
+  "targetImage": "/media/vocabulary/images/rob.webp",
+  "targetImagePath": "/media/vocabulary/images/rob.webp",
+  "resolvedImageAssetKey": "rob",
   "imageAlt": "Take the silent e away from robe. What word is left?"
  },
  {
@@ -4238,11 +4238,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "cube → cub; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
+  "imagePath": "/media/final-sounds/images/b/cub.webp",
+  "imageUrl": "/media/final-sounds/images/b/cub.webp",
+  "targetImage": "/media/final-sounds/images/b/cub.webp",
+  "targetImagePath": "/media/final-sounds/images/b/cub.webp",
+  "resolvedImageAssetKey": "cub",
   "imageAlt": "Take the silent e away from cube. What word is left?"
  },
  {
@@ -5103,11 +5103,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "hide → hid; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
+  "imagePath": "/media/vocabulary/images/hid.webp",
+  "imageUrl": "/media/vocabulary/images/hid.webp",
+  "targetImage": "/media/vocabulary/images/hid.webp",
+  "targetImagePath": "/media/vocabulary/images/hid.webp",
+  "resolvedImageAssetKey": "hid",
   "imageAlt": "Take the silent e away from hide. What word is left?"
  },
  {
@@ -5190,11 +5190,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "long-i CPS; short-vowel trap shares letters, not sound",
-  "imagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/ong/long-02.webp",
-  "resolvedImageAssetKey": "long",
+  "imagePath": "/media/vocabulary/images/time.webp",
+  "imageUrl": "/media/vocabulary/images/time.webp",
+  "targetImage": "/media/vocabulary/images/time.webp",
+  "targetImagePath": "/media/vocabulary/images/time.webp",
+  "resolvedImageAssetKey": "time",
   "imageAlt": "Which word has the long i sound?"
  },
  {
@@ -5276,11 +5276,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rod → rode; the no-change trap catches ignoring the e",
-  "imagePath": "/images/assessment/hfw/make.webp",
-  "imageUrl": "/images/assessment/hfw/make.webp",
-  "targetImage": "/images/assessment/hfw/make.webp",
-  "targetImagePath": "/images/assessment/hfw/make.webp",
-  "resolvedImageAssetKey": "make",
+  "imagePath": "/media/vocabulary/images/rode.webp",
+  "imageUrl": "/media/vocabulary/images/rode.webp",
+  "targetImage": "/media/vocabulary/images/rode.webp",
+  "targetImagePath": "/media/vocabulary/images/rode.webp",
+  "resolvedImageAssetKey": "rode",
   "imageAlt": "Add e to the end of rod. What word do you make?"
  },
  {
@@ -5536,11 +5536,11 @@ export const questions = [
    "signedOffBy": null
   },
   "notes": "rode → rod; scanner picks the unchanged word and fails",
-  "imagePath": "/images/assessment/generated/concepts/silent.webp",
-  "imageUrl": "/images/assessment/generated/concepts/silent.webp",
-  "targetImage": "/images/assessment/generated/concepts/silent.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/silent.webp",
-  "resolvedImageAssetKey": "silent",
+  "imagePath": "/media/vocabulary/images/rod.webp",
+  "imageUrl": "/media/vocabulary/images/rod.webp",
+  "targetImage": "/media/vocabulary/images/rod.webp",
+  "targetImagePath": "/media/vocabulary/images/rod.webp",
+  "resolvedImageAssetKey": "rod",
   "imageAlt": "Take the silent e away from rode. What word is left?"
  },
  {
