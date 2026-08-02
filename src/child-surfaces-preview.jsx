@@ -94,16 +94,18 @@ function ReadingLibrarySurface() {
       studentId={PREVIEW_SCOPE}
       guidedReadingRecords={records}
       renderReader={({ bookId, onExit }) => (
-        <GuidedReadingPage
-          initialBookId={bookId}
-          onCloseReader={onExit}
-          guidedReadingRecords={records}
-          mode="student"
-          saveGuidedReadingRecord={save}
-          speakText={() => {}}
-          studentId={PREVIEW_SCOPE}
-          studentName="Aaron"
-        />
+        <PreviewShell active="books">
+          <GuidedReadingPage
+            initialBookId={bookId}
+            onCloseReader={onExit}
+            guidedReadingRecords={records}
+            mode="student"
+            saveGuidedReadingRecord={save}
+            speakText={() => {}}
+            studentId={PREVIEW_SCOPE}
+            studentName="Aaron"
+          />
+        </PreviewShell>
       )}
     />
   );
@@ -142,16 +144,30 @@ function Surface() {
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.
     case "adventure-map":
+      if (PREVIEW_PARAMS.get("quest")) {
+        return (
+          <PreviewShell active="map">
+            <ElSkillsQuest
+              studentName="Aaron"
+              progressScopeKey={PREVIEW_SCOPE}
+              initialCycleId={PREVIEW_PARAMS.get("quest")}
+              initialStationId={PREVIEW_PARAMS.get("station") || ""}
+            />
+          </PreviewShell>
+        );
+      }
       return (
         <StudentAdventureMapPage
           studentName="Aaron"
           progressScopeKey={PREVIEW_SCOPE}
           renderQuest={({ cycleId }) => (
-            <ElSkillsQuest
-              studentName="Aaron"
-              progressScopeKey={PREVIEW_SCOPE}
-              initialCycleId={cycleId}
-            />
+            <PreviewShell active="map">
+              <ElSkillsQuest
+                studentName="Aaron"
+                progressScopeKey={PREVIEW_SCOPE}
+                initialCycleId={cycleId}
+              />
+            </PreviewShell>
           )}
         />
       );
@@ -186,7 +202,7 @@ function Surface() {
         />
       );
     case "reading-library":
-      return <PreviewShell active="books"><ReadingLibrarySurface /></PreviewShell>;
+      return <ReadingLibrarySurface />;
     case "my-hollow":
       return <PreviewShell active="hollow"><div className="student-surface-frame student-surface-rewards"><HollowPage studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "student-home":

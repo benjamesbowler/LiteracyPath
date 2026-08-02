@@ -501,7 +501,8 @@ function SpeedRound({ round, onResult, onHint }) {
 export function ElSkillsQuest({
   studentName = "Reader",
   progressScopeKey = "default",
-  initialCycleId = ""
+  initialCycleId = "",
+  initialStationId = ""
 }) {
   const playableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
@@ -512,9 +513,15 @@ export function ElSkillsQuest({
     playableCycles.find(cycle => !(progress.cycles?.[cycle.id]?.stars > 0)) || playableCycles[0]
   ), [playableCycles, progress]);
 
+  const initialCycle = playableCycles.find(cycle => cycle.id === initialCycleId) || null;
+  const initialStation = initialCycle
+    ? stationsForCycle(initialCycle).find(station => station.id === initialStationId)
+    : null;
   const [activeCycleId, setActiveCycleId] = useState(initialCycleId || null);
-  const [stationId, setStationId] = useState(null);
-  const [rounds, setRounds] = useState([]);
+  const [stationId, setStationId] = useState(initialStation?.id || null);
+  const [rounds, setRounds] = useState(() => (
+    initialCycle && initialStation ? buildStationRounds(initialCycle, initialStation.id) : []
+  ));
   const [roundIndex, setRoundIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [wrongs, setWrongs] = useState(0);
@@ -1039,6 +1046,7 @@ export function ElSkillsQuest({
                 key={station.id}
                 type="button"
                 className={`sbq-station${done ? " done" : ""}${isCheck ? " check" : ""}${checkLocked ? " locked" : ""}`}
+                data-station-id={station.id}
                 disabled={checkLocked}
                 onClick={() => startStation(activeCycle, station.id)}
               >
@@ -1063,6 +1071,9 @@ export function ElSkillsQuest({
     <main
       className="skills-block-quest"
       data-learning-lane="practice_and_play"
+      data-quest-view="round"
+      data-station-id={stationId}
+      data-round-type={round?.type || "loading"}
       data-pal-world={roundWorld.id}
       style={{ ...worldStyle(roundWorld), "--pal-scene": `url(${sceneForKey(roundWorld, `${activeCycle.id}-${stationId}`)})` }}
     >

@@ -40,6 +40,206 @@
   transform: translateX(-50%);
 }
 
+/* Every Adventure Map station is a child activity inside the shell's bounded
+   content row. The older presentation layer gave the round card a minimum of
+   72dvh, even though the shell had already removed its header and tab bar from
+   the available height. On iPad that counted the viewport twice: the card,
+   activity header and progress bar grew past .kg-main and the persistent tabs
+   masked the answers. Keep the whole player in one definite-height grid and
+   let the activity body, artwork and tracing canvas surrender space first. */
+.kg-stage .kg-main > .skills-block-quest {
+  display: grid;
+  grid-template-rows: auto 10px minmax(0, 1fr);
+  align-content: stretch;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 14px 10px;
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-top,
+.kg-stage .kg-main > .skills-block-quest > .sbq-progress-track {
+  width: min(100%, 1120px);
+  min-height: 0;
+  margin: 0 auto;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-top.compact {
+  align-items: center;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-top.compact h1 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-round-card {
+  align-self: stretch;
+  justify-self: center;
+  justify-content: center;
+  width: min(100%, 1120px);
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 16px;
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-round-prompt,
+.kg-stage .kg-main > .skills-block-quest .sbq-round-support,
+.kg-stage .kg-main > .skills-block-quest .sbq-poem-title,
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
+  flex: 0 0 auto;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-round-support {
+  margin: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-listen-button {
+  min-height: 44px;
+  padding-block: 8px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-answer-grid {
+  flex: 0 1 auto;
+  max-width: 100%;
+  min-height: 0;
+  gap: 8px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-answer-grid button {
+  min-height: 72px;
+  padding: 8px 12px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-answer-grid.pictures img {
+  width: 72px;
+  height: 72px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-story-cover {
+  flex: 0 1 190px;
+  min-height: 0;
+  gap: 5px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-story-cover img {
+  width: auto;
+  height: 100%;
+  min-height: 0;
+  max-height: 160px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-story-cover figcaption {
+  font-size: 1rem;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-round-display {
+  flex: 0 1 auto;
+  max-width: min(92%, 860px);
+  min-height: 0;
+  padding: 8px 16px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-round-display.sbq-poem {
+  line-height: 1.35;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-stage {
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 360px);
+  height: 100%;
+  min-height: 0;
+  max-height: 230px;
+  aspect-ratio: 23 / 15;
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-stage canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-actions {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 360px);
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  gap: 6px 12px;
+  overflow: hidden;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-demo {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 0;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-demo .letter-writer {
+  max-height: 120px;
+}
+
+.kg-stage .kg-main > .skills-block-quest .sbq-trace-message {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+/* A station picker has no progress row or round card. Give its station grid
+   the flexible row instead of allowing the generic three-row layout to create
+   an empty track. */
+.kg-stage .kg-main > .skills-block-quest:not([data-quest-view="round"]):has(> .sbq-stations) {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-stations {
+  min-height: 0;
+  overflow: hidden;
+  align-content: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.kg-stage .kg-main > .skills-block-quest > .sbq-stations .sbq-station {
+  min-height: 0;
+  padding: 7px 12px;
+}
+
+/* Grid items default to min-width:auto. On the Books screen that preserved the
+   combined intrinsic width of the level tray, collection tray and Story
+   Quests button, making every full-width row 23px wider than the iPad content
+   slot even though the screen itself was correctly sized. These rows are
+   fluid containers; their controls may shrink or use their existing internal
+   horizontal tray, but the page itself never scrolls sideways. */
+.kg-stage .kg-books > *,
+.kg-stage .kg-books-head,
+.kg-stage .kg-continue,
+.kg-stage .kg-shelves,
+.kg-stage .kg-shelf,
+.kg-stage .kg-shelf-head,
+.kg-stage .kg-shelf-grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
 /* Teacher pages use the content pane as their scroll owner. This keeps the
    navigation and its current-location context present throughout long class
    lists and reports. */
