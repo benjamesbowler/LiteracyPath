@@ -87,6 +87,12 @@ test("whole-book mode keeps child-paced narration and automatic page turns", asy
   assert.match(source, /audio\.onended = async \(\) => \{[\s\S]*readWholeBookFrom\(startIndex \+ 1, controller\)/);
   assert.match(source, /wholeBookAbortRef\.current\?\.abort\(\)/);
   assert.match(source, /if \(currentPageIndex === nextPageIndex\) return currentPageIndex/);
+  assert.match(source, /wholeBookSequenceAudioRef\.current \|\| new Audio\(audioPath\)/);
+  assert.ok(
+    source.indexOf("wholeBookFirstPlayPromiseRef.current = sequenceAudio.play()")
+      < source.indexOf("await readWholeBookFrom(pageIndex, controller)"),
+    "iPad playback must begin inside the original Read whole book tap"
+  );
   assert.ok(
     source.indexOf("if (allPagesHaveAudio)") < source.indexOf("if (fullBookAudioPath)"),
     "verified page narration must be preferred so page pauses are preserved"

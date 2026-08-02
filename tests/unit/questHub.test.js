@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { QUEST_STOPS } from "../../src/data/questSequence.js";
 import {
   buildTrailSection,
@@ -13,6 +14,15 @@ import {
   WORLD_VARIANTS
 } from "../../src/utils/questHub.js";
 import { responsesInWalk } from "../../src/utils/questEncounters.js";
+
+test("Sound Seekers keeps the three findable choices and removes the duplicate tile row", () => {
+  const pixelWorld = readFileSync("src/components/quest/world/QuestPixelWorld.jsx", "utf8");
+  const threeDimensionalWorld = readFileSync("src/components/quest/world/QuestHub.jsx", "utf8");
+  assert.doesNotMatch(pixelWorld, /qp-build-strip|Word progress:/);
+  assert.doesNotMatch(threeDimensionalWorld, /qh-phoneme-build|qh-phoneme-slots/);
+  assert.match(pixelWorld, /className=\{`qp-semantic-choices/);
+  assert.match(threeDimensionalWorld, /className=\{`qh-semantic-choices/);
+});
 
 test("every curriculum stop becomes one long ordered trail section", () => {
   for (const stop of QUEST_STOPS) {

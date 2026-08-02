@@ -798,14 +798,11 @@ export default function QuestPixelWorld({
   if (!section) return null;
 
   const stageCount = task?.stages?.length || 1;
-  const buildSequence = wordBuildTask && stageCount > 1
-    ? learningSequence(task).map(value => String(value || "").replace(/^hw:/, ""))
-    : [];
   const cueVisible = !ceremony && (phase === "teach" || encounterStarted || (phase === "gate" && hiddenGateHint !== stopId));
   const cueCompact = phase === "trail" && encounterStarted;
   return (
     <main
-      className={`q-screen qp-root${buildSequence.length > 1 ? " has-build-progress" : ""}`}
+      className="q-screen qp-root"
       data-world={section.world}
       data-ceremony={ceremony ? "true" : "false"}
       data-ready={ready ? "true" : "false"}
@@ -848,22 +845,6 @@ export default function QuestPixelWorld({
         {section.encounters.map(item => <span key={item.id} className={solved.has(item.id) ? "is-done" : item.id === encounter?.id ? "is-current" : ""} />)}
       </div>
 
-      {encounterStarted && buildSequence.length > 1 && (
-        <div className="qp-build-strip" aria-label={`Word progress: ${fieldStage} of ${buildSequence.length} parts found`}>
-          <strong>Build the word</strong>
-          <span>
-            {buildSequence.map((part, index) => (
-              <i
-                key={`${part}-${index}`}
-                className={index < fieldStage ? "is-filled" : index === fieldStage ? "is-next" : ""}
-              >
-                {index < fieldStage ? part : ""}
-              </i>
-            ))}
-          </span>
-        </div>
-      )}
-
       {!ceremony && pickupNotice && <aside className="qp-pickup-notice" role="status">{pickupNotice}</aside>}
 
       {ceremony && ready && (
@@ -878,7 +859,7 @@ export default function QuestPixelWorld({
           key={`${stage?.id || phase}:${feedback || "prompt"}`}
           ref={taskFocusRef}
           tabIndex={-1}
-          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}${buildSequence.length > 1 ? " has-build-progress" : ""}`}
+          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}`}
           aria-live="polite"
         >
           {phase === "teach" ? (

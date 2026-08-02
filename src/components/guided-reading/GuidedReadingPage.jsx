@@ -534,6 +534,8 @@ export function GuidedReadingPage({
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
   const wholeBookAbortRef = useRef(null);
+  const wholeBookSequenceAudioRef = useRef(null);
+  const wholeBookFirstPlayPromiseRef = useRef(null);
   const lastVisitedPageRef = useRef("");
   const readAloudPageChangeRef = useRef(false);
   const autoAdvanceReadAloudRef = useRef(autoAdvanceReadAloud);
@@ -741,6 +743,8 @@ export function GuidedReadingPage({
     return () => {
       wholeBookAbortRef.current?.abort();
       wholeBookAbortRef.current = null;
+      wholeBookSequenceAudioRef.current = null;
+      wholeBookFirstPlayPromiseRef.current = null;
       if (pageAudioRef.current) {
         pageAudioRef.current.pause();
         pageAudioRef.current = null;
@@ -1171,6 +1175,8 @@ export function GuidedReadingPage({
   function stopPageAudio() {
     wholeBookAbortRef.current?.abort();
     wholeBookAbortRef.current = null;
+    wholeBookSequenceAudioRef.current = null;
+    wholeBookFirstPlayPromiseRef.current = null;
     if (pageAudioRef.current) {
       pageAudioRef.current.pause();
       pageAudioRef.current.currentTime = 0;
@@ -1298,22 +1304,35 @@ export function GuidedReadingPage({
     setIsReadAloudLoading(true);
     setIsReadAloudPaused(false);
 
-    const readyToNarrate = await waitForGuidedReadingPause(
-      GUIDED_READING_PAGE_LEAD_IN_MS,
-      { signal: controller.signal }
-    );
-    if (!readyToNarrate || wholeBookAbortRef.current !== controller) return;
+    // iPad Safari permits media only while the original tap is still active.
+    // The first page has already started from that tap; later pages keep the
+    // same authorised Audio element and retain the child-paced lead-in.
+    const firstPlayPromise = wholeBookFirstPlayPromiseRef.current;
+    if (firstPlayPromise) wholeBookFirstPlayPromiseRef.current = null;
+    if (!firstPlayPromise) {
+      const readyToNarrate = await waitForGuidedReadingPause(
+        GUIDED_READING_PAGE_LEAD_IN_MS,
+        { signal: controller.signal }
+      );
+      if (!readyToNarrate || wholeBookAbortRef.current !== controller) return;
+    }
 
     try {
-      const audio = new Audio(audioPath);
+      const audio = wholeBookSequenceAudioRef.current || new Audio(audioPath);
+      if (!firstPlayPromise) {
+        audio.pause();
+        audio.src = audioPath;
+        audio.load();
+      }
       audio.playbackRate = GUIDED_READING_NARRATION_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
+      wholeBookSequenceAudioRef.current = audio;
       pageAudioRef.current = audio;
       audio.onended = async () => {
-        if (pageAudioRef.current === audio) pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
         const hasNextPage = autoAdvanceReadAloudRef.current
           && startIndex < selectedBook.pages.length - 1;
+        if (!hasNextPage && pageAudioRef.current === audio) pageAudioRef.current = null;
         setIsReadAloudLoading(hasNextPage);
 
         const readyToAdvance = await waitForGuidedReadingPause(
@@ -1326,6 +1345,8 @@ export function GuidedReadingPage({
           await readWholeBookFrom(startIndex + 1, controller);
         } else {
           wholeBookAbortRef.current = null;
+          wholeBookSequenceAudioRef.current = null;
+          wholeBookFirstPlayPromiseRef.current = null;
           setIsWholeBookReading(false);
           setIsReadAloudLoading(false);
           setHighlightedSentenceIndex(null);
@@ -1334,12 +1355,14 @@ export function GuidedReadingPage({
       audio.onerror = () => {
         if (pageAudioRef.current === audio) pageAudioRef.current = null;
         if (wholeBookAbortRef.current === controller) wholeBookAbortRef.current = null;
+        wholeBookSequenceAudioRef.current = null;
+        wholeBookFirstPlayPromiseRef.current = null;
         setIsPageAudioPlaying(false);
         setIsWholeBookReading(false);
         setIsReadAloudLoading(false);
         setAudioNotice("Read-aloud audio could not be loaded for this book.");
       };
-      await audio.play();
+      await (firstPlayPromise || audio.play());
       if (controller.signal.aborted || wholeBookAbortRef.current !== controller) {
         audio.pause();
         return;
@@ -1350,6 +1373,8 @@ export function GuidedReadingPage({
       if (controller.signal.aborted || wholeBookAbortRef.current !== controller) return;
       console.warn("Guided Reading whole-book audio unavailable.", error);
       wholeBookAbortRef.current = null;
+      wholeBookSequenceAudioRef.current = null;
+      wholeBookFirstPlayPromiseRef.current = null;
       setIsPageAudioPlaying(false);
       setIsWholeBookReading(false);
       setIsReadAloudLoading(false);
@@ -1372,6 +1397,21 @@ export function GuidedReadingPage({
     // when a legacy continuous file exists so children see each page before
     // hearing it, and have time to absorb it before the next page appears.
     if (allPagesHaveAudio) {
+      const firstAudioPath = getGuidedReadingPageAudioPath(selectedBook.pages[pageIndex] || {});
+      if (!firstAudioPath) {
+        wholeBookAbortRef.current = null;
+        setAudioNotice("Read-aloud audio is not available for the whole book yet.");
+        return;
+      }
+      const sequenceAudio = new Audio(firstAudioPath);
+      sequenceAudio.preload = "auto";
+      sequenceAudio.playbackRate = GUIDED_READING_NARRATION_RATE;
+      sequenceAudio.volume = applyLearnerAudioIntensity(1);
+      wholeBookSequenceAudioRef.current = sequenceAudio;
+      pageAudioRef.current = sequenceAudio;
+      // This call must stay synchronous in the button handler. Moving it below
+      // any pause makes iPad Safari reject the whole-book playback.
+      wholeBookFirstPlayPromiseRef.current = sequenceAudio.play();
       await readWholeBookFrom(pageIndex, controller);
       return;
     }

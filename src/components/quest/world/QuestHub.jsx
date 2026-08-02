@@ -82,7 +82,6 @@ import {
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
 import { seedwakeSatchel, seedwakeStopSpec } from "../../../data/questChapterOne.js";
-import { segmentWord } from "../../../utils/questSegments.js";
 import {
   advancePhonemeSlotState,
   applyQuestTaskInput,
@@ -3318,7 +3317,6 @@ export default function QuestHub({
   const [gateOpen, setGateOpen] = useState(initialGateOpen);
   const [routePercent, setRoutePercent] = useState(initialRoutePercent);
   const [pickupNotice, setPickupNotice] = useState(null);
-  const [phonemeFillCount, setPhonemeFillCount] = useState(initialFieldStage);
   const [interactionFeedback, setInteractionFeedback] = useState(null);
   const [fieldChoicesLocked, setFieldChoicesLocked] = useState(false);
 
@@ -3986,7 +3984,6 @@ export default function QuestHub({
       setSelectedId(null);
       setBeatIndex(0);
       setFieldStage(0);
-      setPhonemeFillCount(0);
       setInteractionFeedback(null);
       setActive(encounter);
       cuePhysicalTask(encounter, 0, 0);
@@ -4586,7 +4583,6 @@ export default function QuestHub({
     setActive(null);
     setBeatIndex(0);
     setFieldStage(0);
-    setPhonemeFillCount(0);
     setInteractionFeedback(null);
     setRemediationBeat(null);
     setCorrectionFor(null, 0, 0, { reset: true });
@@ -4626,7 +4622,6 @@ export default function QuestHub({
     lastCorrectRef.current = current.kind === "story-rock";
     setBeatIndex(reviewIndex);
     setFieldStage(0);
-    setPhonemeFillCount(0);
     setRemediationBeat(reviewIndex);
     setRetryNonce(value => value + 1);
     setCorrectionFor(current, reviewIndex, 0, { reset: true });
@@ -4673,7 +4668,6 @@ export default function QuestHub({
       lastCorrectRef.current = current.kind === "story-rock";
       setBeatIndex(nextIndex);
       setFieldStage(0);
-      setPhonemeFillCount(0);
       setCorrectionFor(current, nextIndex, 0);
       const followingTask = buildPhysicalTask(section, current, current.beats[nextIndex], nextIndex);
       verbStateRef.current = followingTask
@@ -4801,7 +4795,6 @@ export default function QuestHub({
       }
 
       const nextStage = fieldStageRef.current + 1;
-      setPhonemeFillCount(Math.min(task.stages.length, nextStage));
       if (nextStage < task.stages.length) {
         scheduleAction(() => {
           fieldStageRef.current = nextStage;
@@ -4857,25 +4850,6 @@ export default function QuestHub({
     }
   } : state), [picked.size, previousBestDrops, seedwakeSpec, state, stopId]);
   const satchel = useMemo(() => seedwakeSatchel(liveSeedwakeState), [liveSeedwakeState]);
-  const activeBeat = active?.beats?.[beatIndex] || null;
-  const wordBuild = useMemo(() => {
-    const taskParts = activeFieldTask ? physicalTaskAnswers(activeFieldTask) : [];
-    const activeWordSounds = activeBeat?.word ? new Set(segmentWord(activeBeat.word)) : new Set();
-    const stageAnswers = (activeFieldTask?.stages || [])
-      .map(stage => (stage.items || []).find(item => item.correct)?.value)
-      .filter(value => value != null)
-      .map(String)
-      .filter(value => activeWordSounds.has(value))
-      .filter((value, index, all) => value !== all[index - 1]);
-    const activeWordParts = Boolean(activeBeat?.word) && stageAnswers.length > 1
-      ? (taskParts.length > 1 ? taskParts : segmentWord(activeBeat.word))
-      : [];
-    let activeSlotState = createPhonemeSlotState(activeWordParts);
-    for (const grapheme of activeWordParts.slice(0, phonemeFillCount)) {
-      activeSlotState = advancePhonemeSlotState(activeSlotState, grapheme, true);
-    }
-    return { activeSlotState, activeWordParts };
-  }, [activeBeat, activeFieldTask, phonemeFillCount]);
   const encounterProgress = useMemo(() => {
     const stageCount = encounterTasks.reduce((total, task) => total + (task?.stages.length || 0), 0);
     const stageIndex = encounterTasks
@@ -4924,28 +4898,6 @@ export default function QuestHub({
   const pendingDropSparks = Math.max(0, picked.size - previousBestDrops) * SPARKS_PER_DROP;
   const liveSparks = availableSparks(state) + pendingDropSparks;
   const currentPocket = satchel.pockets.find(pocket => pocket.stopId === stopId);
-  // SHOW THE WORD BEING BUILT WHEREVER A WORD IS BEING BUILT.
-  //
-  // This used to be an allowlist of two mechanics ("bridge-build" and the
-  // echo cave), which meant every authored chapter sequence — dig-and-build,
-  // waterwheel-sequence, forge-recipe, telescope-build and the rest — spelt a
-  // word out one sound at a time and never showed the child the word taking
-  // shape. Same task, same learning moment, no builder, purely because the
-  // mechanic had a different name.
-  //
-  // The real condition is structural, not nominal: there is a word, and the
-  // stages answer with SUCCESSIVE DIFFERENT sounds of it.
-  //
-  // "More than one stage" is not enough, and getting that wrong showed a word
-  // builder reading "m". Several authored verbs are two-stage but single-sound
-  // — fish-rescue spots the letter and then chases it, so both stages answer
-  // `m` and the child is only ever asked for one sound. Collapsing repeats
-  // separates "spell m-a-t" from "find m, twice".
-  // Only the word's OWN sounds count. Many verbs answer a sound and then a
-  // place — track-sort picks `a` and then a route, delivery picks a parcel and
-  // then a marker. Those destination ids are not phonemes and must never land
-  // in a slot.
-  const { activeSlotState, activeWordParts } = wordBuild;
   const encounterStageCount = encounterProgress.stageCount;
   const encounterStageIndex = encounterProgress.stageIndex;
   const encounterHud = activeFieldStage
@@ -5131,31 +5083,6 @@ export default function QuestHub({
                 {displayGrapheme(item.label)}
               </button>
             ))}
-        </div>
-      )}
-
-      {activeWordParts.length > 1 && (
-        <div
-          className={`qh-phoneme-build${activeSlotState.complete ? " is-complete" : ""}${interactionFeedback?.kind === "blend" ? " is-blending" : ""}`}
-          data-word={activeBeat.word}
-          aria-label={`Build ${activeBeat.word}`}
-        >
-          <div className="qh-phoneme-slots">
-            {activeWordParts.map((grapheme, index) => (
-              <span
-                key={`${grapheme}-${index}`}
-                className={index < activeSlotState.filled.length ? "is-filled" : ""}
-                data-filled={index < activeSlotState.filled.length ? "true" : "false"}
-              >
-                {index < activeSlotState.filled.length ? displayGrapheme(grapheme) : ""}
-              </span>
-            ))}
-          </div>
-          {activeSlotState.complete && (
-            <strong className="qh-success-marker" aria-label="Word complete">
-              <span aria-hidden="true" />{activeBeat.word}
-            </strong>
-          )}
         </div>
       )}
 

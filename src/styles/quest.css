@@ -2920,97 +2920,6 @@
 .qh-encounter-reward strong { color: #f7d978; font-size: 20px; line-height: 1; }
 .qh-encounter-reward small { color: rgba(255, 255, 255, .76); font-size: 10px; font-weight: 800; }
 
-/* THE WORD THE CHILD IS BUILDING IS THE MAIN EVENT.
- *
- * This was a 220px strip pinned 18px off the bottom edge — a status bar under
- * the action. Playtest: "we should have a decent enough box that sees us spell
- * the word — so we collect L and L appears and stays in the box, then we get o
- * and now the box says LO."
- *
- * That is exactly right, and it is the whole product in one object: a child
- * watching separate sounds accumulate into a word IS the moment phonics
- * becomes reading. It cannot be a caption. So it now sits high and central,
- * the letters are big enough to read across a room, and each one lands with
- * weight as it is won.
- *
- * It sits ABOVE centre (top: 16%) rather than dead centre so it never covers
- * the choices the child is walking toward — the sightline pass protects those
- * in 3D, and this keeps the 2D layer out of their way too.
- */
-.qh-phoneme-build {
-  position: absolute;
-  z-index: 44;
-  top: 16%;
-  left: 50%;
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  min-width: min(420px, 84vw);
-  padding: 18px 26px 20px;
-  border: 2px solid rgba(255, 246, 202, .5);
-  border-radius: 14px;
-  background: rgba(19, 34, 25, .9);
-  box-shadow: 0 22px 54px rgba(8, 18, 11, .42);
-  transform: translateX(-50%);
-  backdrop-filter: blur(10px);
-}
-.qh-phoneme-slots { display: flex; justify-content: center; gap: 12px; }
-.qh-phoneme-slots > span {
-  display: grid;
-  width: 74px;
-  height: 84px;
-  border: 3px solid rgba(255, 255, 255, .5);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, .07);
-  color: #2e3527;
-  font-size: 46px;
-  font-weight: 900;
-  place-items: center;
-  /* An empty slot is a promise: this many sounds make this word. */
-  transition: transform 180ms cubic-bezier(.22, 1, .36, 1);
-}
-/* Each letter LANDS. The child should see it arrive and stay. */
-.qh-phoneme-slots > span.is-filled { animation: qh-slot-land 420ms cubic-bezier(.22, 1.4, .36, 1) both; }
-@keyframes qh-slot-land {
-  0% { transform: translateY(-26px) scale(1.35); opacity: 0; }
-  60% { transform: translateY(2px) scale(1); opacity: 1; }
-  100% { transform: none; opacity: 1; }
-}
-.qh-phoneme-slots > span.is-filled {
-  border-color: #fff4bd;
-  background: #f0c85c;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 5px 14px rgba(9, 20, 12, .22);
-}
-.qh-phoneme-build.is-blending .qh-phoneme-slots { animation: qh-blend-slots 620ms cubic-bezier(.22, 1, .36, 1) both; }
-.qh-success-marker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-  font-size: 20px;
-}
-.qh-success-marker > span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  border: 3px solid currentColor;
-  border-radius: 50%;
-  place-items: center;
-}
-.qh-success-marker > span::after {
-  width: 7px;
-  height: 12px;
-  border-right: 3px solid currentColor;
-  border-bottom: 3px solid currentColor;
-  content: "";
-  transform: translateY(-1px) rotate(45deg);
-}
-@keyframes qh-blend-slots {
-  0% { gap: 9px; transform: scale(1); }
-  58% { gap: 1px; transform: scale(1.08); }
-  100% { gap: 3px; transform: scale(1); }
-}
-
 .q-visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -3357,11 +3266,6 @@
   .qh-encounter-reward { grid-template-columns: 27px auto; min-width: 72px; min-height: 54px; padding: 4px 7px 4px 6px; }
   .qh-encounter-reward .qh-satchel-mark { width: 25px; height: 23px; }
   .qh-encounter-reward strong { font-size: 18px; }
-  /* Still the main event on a phone: high, central, and readable at arm's
-   * length. Slots shrink only as far as they must to fit a 5-sound word. */
-  .qh-phoneme-build { top: 13%; min-width: 0; max-width: calc(100vw - 20px); padding: 12px 14px 14px; gap: 9px; }
-  .qh-phoneme-slots { gap: 8px; }
-  .qh-phoneme-slots > span { width: min(58px, 16vw); height: min(66px, 18vw); font-size: min(34px, 9vw); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4422,58 +4326,6 @@
   pointer-events: none;
 }
 
-.qp-build-strip {
-  position: absolute;
-  z-index: 24;
-  top: 104px;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 54px;
-  padding: 8px 14px;
-  transform: translateX(-50%);
-  border: 3px solid #f0cf67;
-  border-radius: 10px;
-  background: rgba(31, 43, 42, .96);
-  color: #fff7d6;
-  box-shadow: 0 5px 0 rgba(20, 29, 28, .55);
-}
-
-.qp-build-strip > strong {
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.qp-build-strip > span {
-  display: flex;
-  gap: 6px;
-}
-
-.qp-build-strip i {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 38px;
-  border: 3px solid #aebbb0;
-  border-radius: 7px;
-  background: #fff9e7;
-  color: #253c36;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 950;
-}
-
-.qp-build-strip i.is-filled {
-  border-color: #79c46b;
-  background: #dff5d8;
-}
-
-.qp-build-strip i.is-next {
-  border-color: #f0cf67;
-  box-shadow: 0 0 0 4px rgba(240, 207, 103, .22);
-}
-
 .qp-pickup-notice {
   position: absolute;
   z-index: 24;
@@ -4491,10 +4343,6 @@
   text-align: center;
   transform: translateX(-50%);
   pointer-events: none;
-}
-
-.qp-root.has-build-progress .qp-pickup-notice {
-  top: 244px;
 }
 
 .qp-progress span {
@@ -4530,10 +4378,6 @@
   color: #2d2730;
   pointer-events: auto;
   transition: left 220ms ease, transform 220ms ease, width 220ms ease, min-height 220ms ease, padding 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease, color 220ms ease;
-}
-
-.qp-cue.has-build-progress {
-  top: 170px;
 }
 
 .qp-cue > span { color: #7d4f3b; font-size: 12px; font-weight: 950; text-transform: uppercase; }
@@ -4703,10 +4547,7 @@
   .qp-tally { height: 42px; }
   .qp-progress { top: 66px; }
   .qp-cue { top: 84px; width: min(360px, calc(100% - 20px)); min-height: 54px; padding-block: 8px; }
-  .qp-build-strip { top: 82px; max-width: calc(100% - 20px); }
-  .qp-cue.has-build-progress { top: 148px; }
   .qp-pickup-notice { top: 150px; }
-  .qp-root.has-build-progress .qp-pickup-notice { top: 214px; }
   .qp-cue > strong { font-size: 16px; }
   .qp-cue.qp-ceremony-cue { bottom: max(16px, env(safe-area-inset-bottom)); }
   .qp-cue.is-compact { left: 50%; width: min(230px, calc(100% - 20px)); min-height: 38px; padding-block: 6px; }

@@ -1004,7 +1004,7 @@ test("QuestHub audit guards keep scoring beat-based and the encounter render pat
   assert.match(hub, /const satchel = useMemo/, "the satchel is rebuilt on every render");
   assert.match(hub, /const dropRefCallbacks = useMemo/, "drop refs still detach and reattach every commit");
   assert.match(hub, /const landmarkRefCallbacks = useMemo/, "landmark refs still detach and reattach every commit");
-  assert.match(deferredReview, /setPhonemeFillCount\(0\)/, "deferred word review can inherit filled slots");
+  assert.doesNotMatch(deferredReview, /setPhonemeFillCount/, "removed duplicate tile progress state has returned");
   assert.match(hub, /encounters\.length === 0 \|\| isChapterGateOpen/, "an empty generated section can still strand the child");
   assert.match(hub, /if \(isSoundEnabled\) playStarChime\(\)/, "pickup rewards remain text-only");
   assert.match(hub, /if \(isSoundEnabled\) playWhoosh\(\)/, "gate and route transitions remain text-only");
