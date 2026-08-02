@@ -6,8 +6,8 @@ The original 2026-07-31 audit remains a dated record of the pre-remediation cata
 
 ## Current result
 
-- Active Story Quests: **13**
-- Approved at 100%: **13**
+- Active Story Quests: **14**
+- Approved at 100%: **14**
 - Still blocked: **0**
 - Approval does not require named human sign-off. It requires exact source fingerprints, complete graph and page evidence, present images, exact-text narration and no open mandatory violation.
 
@@ -182,9 +182,22 @@ The original 2026-07-31 audit remains a dated record of the pre-remediation cata
 - Audio repairs: 30 exact-text MP3 clips generated with `en-US-Chirp3-HD-Leda`; every locked page line resolves to its own present production file.
 - Gates passed: Story Quest integrity, Level B conformance, asset audit, Story Content Policy admission/media gate and complete live-browser page/image/audio/choice traversal.
 
+### 14. Shy's Snail Shade
+
+- ID: `dp_ra_b_05_shys_snail_shade`
+- Level: B
+- Score: **48/48**
+- Pages: **15/15 reachable, illustrated and narrated**
+- Finite graph routes: **32**
+- Browser evidence: two representative six-scene routes were completed in the live child preview, including Replay audio, Finish and Read Again; all 32 finite routes and all 15 unique pages were exhaustively verified by the focused graph test.
+- Story repairs: Shy now guides one stranded snail from drying hot sand into Fernwood shade. The leaf and twig first attempts both fail, bark and moss offer distinct path-building strategies, the final material choice is stated explicitly, and all four endings complete the same rescue promise.
+- Art repairs: all 15 active scenes were newly produced and checked at 1536 by 864 against Shy's locked model and route state. The bark-path scene was replaced so the route visibly reaches the shaded fern bank, and the fern ending was replaced so one snail feeler clearly peeks past Shy's planted foot.
+- Audio repairs: 15 exact-text MP3 clips generated with `en-US-Chirp3-HD-Leda`; every locked page line resolves to its own present production file and representative playback entered the active Playing audio state.
+- Gates passed: Story Quest integrity, Level B conformance, exhaustive route tests, full unit suite, lint, production build, asset audit and Story Content Policy admission for this quest. The repository-wide direct policy diagnostic still reports one unrelated pre-existing Guided Reading fingerprint drift.
+
 ## Repair queue
 
-None. All 13 active Story Quests are approved at 48/48 under the current locked fingerprints.
+None. All 14 active Story Quests are approved at 48/48 under their current Story Quest fingerprints.
 
 ## Approval rule used for every quest
 

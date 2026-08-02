@@ -1,6 +1,6 @@
 // LiteracyPath Story Quests
 //
-// REWRITTEN 2026-07-26. Every page of all 13 quests was re-authored to sit at its
+// REWRITTEN 2026-07-26. Every page of the original 13 quests was re-authored to sit at its
 // declared Fountas & Pinnell band and to match what the existing illustrations
 // actually show. See docs/STORY_QUEST_REWRITE_2026-07-26.md for the rationale,
 // the per-book change notes, and the art work orders.
@@ -73,6 +73,17 @@ export const dinoPalsStoryQuestMetadata = [
     cycleFocus: "guided_reading_level_b_story_choice",
     series: "Dino Pals",
     mediaFolder: "bouncy-big-bounce"
+  },
+  {
+    id: "dp_ra_b_05_shys_snail_shade",
+    title: "Shy's Snail Shade",
+    level: "B",
+    ageRange: "Ages 5-7",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Reading texture and path words through cause and effect",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    mediaFolder: "shy-snail-shade"
   }
 ];
 
@@ -2917,6 +2928,228 @@ export const storyQuests = [
         narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["chompy", "wiggly", "rock", "bounce", "bouncy"],
+        choices: [
+          { label: "Read again", nextPageId: "p01_start" },
+          { label: "Finish", nextPageId: "end" },
+        ]
+      }
+    ]
+  },
+  {
+    id: "dp_ra_b_05_shys_snail_shade",
+    title: "Shy's Snail Shade",
+    level: "B",
+    ageRange: "Ages 5-7",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Reading texture and path words through cause and effect",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    characters: ["Shy"],
+    location: "Sunny Hollow - Fernwood edge, stream, shaded fern bank",
+    targetWords: [
+      "Shy", "snail", "trail", "sun", "shade", "Fernwood", "leaf", "sand",
+      "twig", "bark", "moss", "stream", "fern", "log", "root", "stone",
+      "rough", "smooth", "damp", "cool"
+    ],
+    highFrequencyWords: ["a", "and", "in", "into", "it", "one", "the", "under"],
+    hfw: ["a", "and", "in", "into", "it", "one", "the", "under"],
+    mediaFolder: "shy-snail-shade",
+    sentenceFrame: "Shy lays the ___. The snail follows the ___.",
+    genuineFailurePageId: "p02_leaf_failure",
+    retiredPageIds: [],
+    coverImageUrl: dinoPalsImagePath("shy-snail-shade", "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      {
+        id: "p01_start",
+        text: ["Hot sun dries one snail trail.", "Shy must guide the snail into Fernwood shade."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p01_start"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p01_start"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "What can Shy try?",
+        skillTags: ["sun", "snail", "trail", "shy", "fernwood", "shade"],
+        choices: [
+          { label: "Slide a broad leaf", nextPageId: "p02_leaf_failure" },
+          { label: "Roll a small twig", nextPageId: "p02_twig_failure" },
+        ]
+      },
+      {
+        id: "p02_leaf_failure",
+        text: ["Shy slides the snail on a leaf.", "The smooth leaf tips. Back on sand."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p02_leaf_failure"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p02_leaf_failure"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "What surface can grip?",
+        skillTags: ["shy", "snail", "leaf", "smooth", "sand"],
+        choices: [
+          { label: "Try rough bark", nextPageId: "p03_bark" },
+          { label: "Lay damp moss", nextPageId: "p03_moss" },
+        ]
+      },
+      {
+        id: "p02_twig_failure",
+        text: ["Shy rolls a twig. Sand spills.", "The snail pulls in and stops."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p02_twig_failure"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p02_twig_failure"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "What surface can help?",
+        skillTags: ["shy", "snail", "twig", "sand"],
+        choices: [
+          { label: "Bridge with bark", nextPageId: "p03_bark" },
+          { label: "Mark with moss", nextPageId: "p03_moss" },
+        ]
+      },
+      {
+        id: "p03_bark",
+        text: ["Shy lays rough bark beside the snail.", "The snail grips it and crawls."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p03_bark"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p03_bark"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "How should bark lead?",
+        skillTags: ["shy", "rough", "bark", "snail"],
+        choices: [
+          { label: "Use short pieces", nextPageId: "p04_bark_steps" },
+          { label: "Use one strip", nextPageId: "p04_bark_strip" },
+        ]
+      },
+      {
+        id: "p03_moss",
+        text: ["Shy lays damp moss beside the snail.", "The snail follows its cool edge."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p03_moss"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p03_moss"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "How should moss lead?",
+        skillTags: ["shy", "damp", "moss", "snail", "cool"],
+        choices: [
+          { label: "Place small dots", nextPageId: "p04_moss_dots" },
+          { label: "Lay one strip", nextPageId: "p04_moss_strip" },
+        ]
+      },
+      {
+        id: "p04_bark_steps",
+        text: ["Three bark pieces cross the hot sand.", "Shy moves each piece ahead."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p04_bark_steps"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p04_bark_steps"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Which path reaches shade?",
+        skillTags: ["bark", "sand", "shy", "shade"],
+        choices: [
+          { label: "Finish with bark", nextPageId: "p05_bark" },
+          { label: "Finish with moss", nextPageId: "p05_moss" },
+        ]
+      },
+      {
+        id: "p04_bark_strip",
+        text: ["One bark strip points toward the ferns.", "The snail crawls along its rough edge."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p04_bark_strip"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p04_bark_strip"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Which path reaches shade?",
+        skillTags: ["bark", "fern", "snail", "rough", "shade"],
+        choices: [
+          { label: "Finish with bark", nextPageId: "p05_bark" },
+          { label: "Finish with moss", nextPageId: "p05_moss" },
+        ]
+      },
+      {
+        id: "p04_moss_dots",
+        text: ["Damp moss dots curve across the sand.", "The snail follows each cool patch."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p04_moss_dots"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p04_moss_dots"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Which path reaches shade?",
+        skillTags: ["damp", "moss", "sand", "snail", "cool", "shade"],
+        choices: [
+          { label: "Finish with bark", nextPageId: "p05_bark" },
+          { label: "Finish with moss", nextPageId: "p05_moss" },
+        ]
+      },
+      {
+        id: "p04_moss_strip",
+        text: ["One damp moss strip crosses the sand.", "The snail follows its green edge."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p04_moss_strip"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p04_moss_strip"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Which path reaches shade?",
+        skillTags: ["damp", "moss", "sand", "snail", "shade"],
+        choices: [
+          { label: "Finish with bark", nextPageId: "p05_bark" },
+          { label: "Finish with moss", nextPageId: "p05_moss" },
+        ]
+      },
+      {
+        id: "p05_bark",
+        text: ["Shy joins the bark into one rough path.", "It reaches the shaded fern bank."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p05_bark"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p05_bark"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Where can the snail rest?",
+        skillTags: ["shy", "bark", "rough", "fern", "snail"],
+        choices: [
+          { label: "Under the old log", nextPageId: "p06_log_ending" },
+          { label: "Up the mossy root", nextPageId: "p06_root_ending" },
+        ]
+      },
+      {
+        id: "p05_moss",
+        text: ["Shy joins the moss into one damp path.", "It reaches the shaded fern bank."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p05_moss"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p05_moss"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Where can the snail rest?",
+        skillTags: ["shy", "moss", "damp", "fern", "snail"],
+        choices: [
+          { label: "Beside the wet stone", nextPageId: "p06_stone_ending" },
+          { label: "Under the broad fern", nextPageId: "p06_fern_ending" },
+        ]
+      },
+      {
+        id: "p06_log_ending",
+        text: ["The snail reaches cool bark under the log.", "Shy watches one silver trail curl."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p06_log_ending"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p06_log_ending"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Read it again?",
+        skillTags: ["snail", "cool", "bark", "log", "shy", "trail"],
+        choices: [
+          { label: "Read again", nextPageId: "p01_start" },
+          { label: "Finish", nextPageId: "end" },
+        ]
+      },
+      {
+        id: "p06_root_ending",
+        text: ["The snail climbs the mossy root.", "Its silver trail curls above Shy's footprints."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p06_root_ending"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p06_root_ending"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Read it again?",
+        skillTags: ["snail", "moss", "root", "trail", "shy"],
+        choices: [
+          { label: "Read again", nextPageId: "p01_start" },
+          { label: "Finish", nextPageId: "end" },
+        ]
+      },
+      {
+        id: "p06_stone_ending",
+        text: ["The snail rests beside one wet stone.", "Shy places one stream drop near it."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p06_stone_ending"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p06_stone_ending"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Read it again?",
+        skillTags: ["snail", "stone", "shy", "stream"],
+        choices: [
+          { label: "Read again", nextPageId: "p01_start" },
+          { label: "Finish", nextPageId: "end" },
+        ]
+      },
+      {
+        id: "p06_fern_ending",
+        text: ["The snail slips under one broad fern.", "One feeler peeks past Shy's foot."],
+        imageUrl: dinoPalsImagePath("shy-snail-shade", "p06_fern_ending"),
+        audioUrl: dinoPalsAudioPath("shy-snail-shade", "p06_fern_ending"),
+        narrationNeedsRebuild: false,
+        choicePrompt: "Read it again?",
+        skillTags: ["snail", "fern", "shy"],
         choices: [
           { label: "Read again", nextPageId: "p01_start" },
           { label: "Finish", nextPageId: "end" },

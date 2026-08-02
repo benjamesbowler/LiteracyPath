@@ -291,6 +291,40 @@ export const storyQuestPolicyReviews = Object.freeze([
     })
   }),
   Object.freeze({
+    id: "dp_ra_b_05_shys_snail_shade",
+    sourceFingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae",
+    status: "approved",
+    reviewer: "Independent Codex review",
+    reviewedAt: "2026-08-02",
+    scores: { character: 4, goal: 4, causality: 4, obstacle: 4, agency: 4, ending: 4, language: 4, voice: 4, delight: 4, canon: 4, illustration: 4, audio: 4 },
+    mandatoryViolations: [],
+    summary: "Approved at 48/48 after a fresh independent review. Shy must guide one stranded snail from drying hot sand into Fernwood shade. A smooth leaf tips and a rolling twig startles the snail; rough bark or damp moss then supports four visible layouts, an explicit final-path choice and four distinct shaded resting places. All 15 scenes have route-true Dino Pals art and exact-text Leda narration.",
+    targetGoal: "Shy must guide one stranded snail into damp Fernwood shade before the hot sun dries its trail.",
+    rewriteActions: [
+      "No manuscript repair remains open; any future text, prompt, route or narration-flag change must invalidate this fingerprint and trigger a fresh review."
+    ],
+    illustrationActions: [
+      "Preserve the approved mint-green teal-spotted Shy model, single ordinary snail, late-afternoon Fernwood edge, leaf and twig failure states, bark and moss layout distinctions, final path endpoint, and four ending anchors exactly."
+    ],
+    routeEvidence: Object.freeze({
+      completeRoutes: 32,
+      pageNodes: 15,
+      method: "Exhaustive finite graph traversal excluding Read again replay edges; every route has six scenes and one full-beat failure. Two representative complete routes, replay and finish were also exercised in the live child player."
+    }),
+    pageEvidence: Object.freeze({
+      pages: 15,
+      images: 15,
+      imageTextMatches: 15,
+      method: "All 15 production illustrations were independently inspected at 1536 by 864 against the locked manuscript and route state; p05_bark and p06_fern_ending were repaired and accepted on a fresh review pass."
+    }),
+    audioEvidence: Object.freeze({
+      pages: 15,
+      exactTextMappings: 15,
+      voice: "en-US-Chirp3-HD-Leda",
+      format: "MP3 128 kbps from 24 kHz LINEAR16 source"
+    })
+  }),
+  Object.freeze({
     id: "story_quest_short_a_sam_pam_01",
     sourceFingerprint: "e7ee567aa1f77c58cf0733fe4478e877474bbe2eb6daef29bc820c4738547be2",
     status: "approved",
