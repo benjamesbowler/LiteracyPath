@@ -5,6 +5,12 @@ import { preloadMediaSet } from "../utils/preloadMedia.js";
 import { buildStoryQuestResumeHistory } from "../utils/storyQuestProgress.js";
 import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
 import { getStoryQuestLedaAudioPath } from "../data/storyQuestLedaAudio.js";
+import {
+  addBrowserFullscreenListener,
+  exitBrowserFullscreen,
+  getBrowserFullscreenElement,
+  requestBrowserFullscreen
+} from "../utils/browserFullscreen.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -188,11 +194,10 @@ export function StoryQuestPlayer({
     if (typeof document === "undefined") return undefined;
 
     function handleFullscreenChange() {
-      setIsFullscreen(document.fullscreenElement === playerRef.current);
+      setIsFullscreen(getBrowserFullscreenElement(document) === playerRef.current);
     }
 
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    return addBrowserFullscreenListener(document, handleFullscreenChange);
   }, []);
 
   function stopAudio() {
@@ -271,10 +276,10 @@ export function StoryQuestPlayer({
     }
 
     try {
-      if (document.fullscreenElement === player) {
-        await document.exitFullscreen();
-      } else if (player.requestFullscreen) {
-        await player.requestFullscreen();
+      if (getBrowserFullscreenElement(document) === player) {
+        await exitBrowserFullscreen(document);
+      } else if (player.requestFullscreen || player.webkitRequestFullscreen) {
+        await requestBrowserFullscreen(player);
       } else {
         setIsFullscreen(value => !value);
       }
@@ -286,8 +291,8 @@ export function StoryQuestPlayer({
 
   function exitReader() {
     stopAudio();
-    if (typeof document !== "undefined" && document.fullscreenElement === playerRef.current) {
-      document.exitFullscreen?.().catch(() => {});
+    if (typeof document !== "undefined" && getBrowserFullscreenElement(document) === playerRef.current) {
+      void exitBrowserFullscreen(document);
     }
     onExit?.();
   }

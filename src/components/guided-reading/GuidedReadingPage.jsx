@@ -51,6 +51,12 @@ import {
   waitForGuidedReadingPause
 } from "../../utils/guidedReading/readAloudPacing.js";
 import { shouldShowGuidedReadingScoreSummary } from "../../utils/guidedReading/completionPolicy.js";
+import {
+  addBrowserFullscreenListener,
+  exitBrowserFullscreen,
+  getBrowserFullscreenElement,
+  requestBrowserFullscreen
+} from "../../utils/browserFullscreen.js";
 import { ReadingSessionBar } from "./ReadingSessionBar.jsx";
 import { promptForReadingMarkTarget } from "./readingSessionUi.js";
 import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
@@ -853,12 +859,11 @@ export function GuidedReadingPage({
     if (typeof document === "undefined") return undefined;
 
     function handleFullscreenChange() {
-      setIsReaderFullscreen(document.fullscreenElement === guidedReaderShellRef.current);
+      setIsReaderFullscreen(getBrowserFullscreenElement(document) === guidedReaderShellRef.current);
       setReaderLayoutVersion(version => version + 1);
     }
 
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    return addBrowserFullscreenListener(document, handleFullscreenChange);
   }, []);
 
   useEffect(() => {
@@ -1097,8 +1102,8 @@ export function GuidedReadingPage({
       missionReturnPendingRef.current = false;
       announceMissionReturn("book");
     }
-    if (typeof document !== "undefined" && document.fullscreenElement === guidedReaderShellRef.current) {
-      document.exitFullscreen?.().catch(() => {});
+    if (typeof document !== "undefined" && getBrowserFullscreenElement(document) === guidedReaderShellRef.current) {
+      void exitBrowserFullscreen(document);
     }
     setReaderOpen(false);
     setShowSummary(false);
@@ -1115,10 +1120,10 @@ export function GuidedReadingPage({
     }
 
     try {
-      if (document.fullscreenElement === shell) {
-        await document.exitFullscreen();
-      } else if (shell.requestFullscreen) {
-        await shell.requestFullscreen();
+      if (getBrowserFullscreenElement(document) === shell) {
+        await exitBrowserFullscreen(document);
+      } else if (shell.requestFullscreen || shell.webkitRequestFullscreen) {
+        await requestBrowserFullscreen(shell);
       } else {
         setIsReaderFullscreen(value => !value);
       }

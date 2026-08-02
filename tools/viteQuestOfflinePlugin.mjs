@@ -194,6 +194,8 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         }
       }
       selected.add("/favicon.svg");
+      selected.add("/apple-touch-icon.png");
+      selected.add("/app-icon-512.png");
       selected.add("/icons.svg");
       selected.add("/manifest.webmanifest");
 
@@ -214,10 +216,14 @@ export function questOfflinePlugin({ includeQuestPreview = false, buildVariant =
         description: "Phonics, reading and Sound Seekers learning journeys.",
         start_url: "/",
         scope: "/",
-        display: "standalone",
+        display: "fullscreen",
+        display_override: ["fullscreen", "standalone"],
         background_color: "#f1f5f9",
         theme_color: "#0c6b65",
-        icons: [{ src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any maskable" }]
+        icons: [
+          { src: "/app-icon-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
+          { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
+        ]
       };
       this.emitFile({ type: "asset", fileName: "manifest.webmanifest", source: `${JSON.stringify(manifest, null, 2)}\n` });
       this.emitFile({

@@ -129,6 +129,37 @@ export function computeKidsStageMetrics(width, height) {
 }
 
 /**
+ * Safari keeps two viewport sizes on iPad: the layout viewport can continue
+ * behind its address/tab bars, while visualViewport is the part the child can
+ * actually see. Child screens must fit the latter or their bottom controls sit
+ * underneath browser chrome even though ordinary desktop checks pass.
+ */
+export function readKidsVisibleViewport(view = globalThis) {
+  const visualViewport = view?.visualViewport;
+  const visualWidth = Number(visualViewport?.width);
+  const visualHeight = Number(visualViewport?.height);
+  const fallbackWidth = Number(view?.innerWidth);
+  const fallbackHeight = Number(view?.innerHeight);
+  const width = Number.isFinite(visualWidth) && visualWidth > 0
+    ? visualWidth
+    : fallbackWidth;
+  const height = Number.isFinite(visualHeight) && visualHeight > 0
+    ? visualHeight
+    : fallbackHeight;
+
+  return {
+    width: Number.isFinite(width) && width > 0 ? width : KIDS_STAGE_WIDTH,
+    height: Number.isFinite(height) && height > 0 ? height : KIDS_STAGE_HEIGHT,
+    offsetLeft: Number.isFinite(Number(visualViewport?.offsetLeft))
+      ? Number(visualViewport.offsetLeft)
+      : 0,
+    offsetTop: Number.isFinite(Number(visualViewport?.offsetTop))
+      ? Number(visualViewport.offsetTop)
+      : 0
+  };
+}
+
+/**
  * Write the metrics onto the element as --kg-scale and --kg-stage-width.
  *
  * Deliberately a DOM write rather than React state: the shell would otherwise
@@ -137,7 +168,8 @@ export function computeKidsStageMetrics(width, height) {
  * whole child area to change two numbers. Returns what it wrote.
  */
 export function applyKidsStageMetrics(element, view = globalThis) {
-  const metrics = computeKidsStageMetrics(view?.innerWidth, view?.innerHeight);
+  const viewport = readKidsVisibleViewport(view);
+  const metrics = computeKidsStageMetrics(viewport.width, viewport.height);
   if (!element?.style) return { scale: 1, stageWidth: KIDS_STAGE_WIDTH };
   element.style.setProperty("--kg-scale", String(metrics.scale));
   element.style.setProperty("--kg-stage-width", `${metrics.stageWidth}px`);

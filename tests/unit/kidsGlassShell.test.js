@@ -38,7 +38,8 @@ import {
   applyKidsStageMetrics,
   computeKidsStageMetrics,
   computeKidsStageScale,
-  computeKidsStageWidth
+  computeKidsStageWidth,
+  readKidsVisibleViewport
 } from "../../src/utils/kidsStage.js";
 
 const css = readFileSync("src/styles/kids-glass.css", "utf8");
@@ -228,6 +229,35 @@ test("the metrics are written to the DOM as custom properties, not held in React
   assert.match(shellSource, /applyKidsStageMetrics\(stage, window\)/);
   assert.doesNotMatch(shellSource, /useState/);
   assert.match(shellSource, /removeEventListener\("resize", fit\)/);
+});
+
+test("iPad sizing follows Safari's visible viewport instead of space behind its browser bars", () => {
+  const safariWindow = {
+    innerWidth: 1194,
+    innerHeight: 834,
+    visualViewport: { width: 1194, height: 720, offsetLeft: 0, offsetTop: 52 }
+  };
+  assert.deepEqual(readKidsVisibleViewport(safariWindow), {
+    width: 1194,
+    height: 720,
+    offsetLeft: 0,
+    offsetTop: 52
+  });
+  const written = {};
+  const element = { style: { setProperty: (name, value) => { written[name] = value; } } };
+  const metrics = applyKidsStageMetrics(element, safariWindow);
+  assert.equal(metrics.scale.toFixed(4), (720 / 834).toFixed(4));
+  assert.equal(Math.round(metrics.stageWidth * metrics.scale), 1194);
+  assert.match(shellSource, /window\.visualViewport\?\.addEventListener\("resize", fit\)/);
+  assert.match(css, /height:\s*var\(--kg-visible-height, 100dvh\)/);
+});
+
+test("child buttons cannot turn a game tap into selected text", () => {
+  const appCss = readFileSync("src/App.css", "utf8");
+  assert.match(
+    appCss,
+    /\.student-mode-app :is\(button, \[role="button"\]\)[\s\S]*?-webkit-user-select:\s*none;[\s\S]*?touch-action:\s*manipulation;/
+  );
 });
 
 test("the stage centres with a translate inside the scaled transform, never with place-items", () => {

@@ -96,7 +96,10 @@ for (const [pattern, message] of [
   if (!pattern.test(shellRuntime)) fail(message);
 }
 
-if (manifest.display !== "standalone") fail("web app manifest is not installable in standalone mode");
+if (manifest.display !== "fullscreen") fail("web app manifest does not launch in fullscreen mode");
+if (!Array.isArray(manifest.display_override) || !manifest.display_override.includes("standalone")) {
+  fail("web app manifest has no standalone fallback");
+}
 if (manifest.start_url !== "/" || manifest.scope !== "/") fail("web app manifest start URL or scope changed");
 if (!Array.isArray(manifest.icons) || !manifest.icons.length) fail("web app manifest has no icon");
 if (!/<link\s+rel="manifest"\s+href="\/manifest\.webmanifest"\s*\/?\s*>/.test(indexHtml)) {

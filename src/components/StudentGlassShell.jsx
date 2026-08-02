@@ -25,7 +25,7 @@ import {
   STUDENT_TAB_BAR,
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
-import { applyKidsStageMetrics } from "../utils/kidsStage.js";
+import { applyKidsStageMetrics, readKidsVisibleViewport } from "../utils/kidsStage.js";
 import { getAvailableGuideStars, getCompanion } from "../utils/studentProfile.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
@@ -155,13 +155,25 @@ export default function StudentGlassShell({
   useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return undefined;
-    const fit = () => applyKidsStageMetrics(stage, window);
+    const viewportElement = stage.closest(".kg-viewport");
+    const fit = () => {
+      applyKidsStageMetrics(stage, window);
+      const viewport = readKidsVisibleViewport(window);
+      viewportElement?.style.setProperty("--kg-visible-width", `${viewport.width}px`);
+      viewportElement?.style.setProperty("--kg-visible-height", `${viewport.height}px`);
+      viewportElement?.style.setProperty("--kg-visible-left", `${viewport.offsetLeft}px`);
+      viewportElement?.style.setProperty("--kg-visible-top", `${viewport.offsetTop}px`);
+    };
     fit();
     window.addEventListener("resize", fit);
     window.addEventListener("orientationchange", fit);
+    window.visualViewport?.addEventListener("resize", fit);
+    window.visualViewport?.addEventListener("scroll", fit);
     return () => {
       window.removeEventListener("resize", fit);
       window.removeEventListener("orientationchange", fit);
+      window.visualViewport?.removeEventListener("resize", fit);
+      window.visualViewport?.removeEventListener("scroll", fit);
     };
   }, []);
 

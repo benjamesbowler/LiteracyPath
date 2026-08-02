@@ -46,6 +46,12 @@ import {
   isAdminRoutePath,
   withoutAdminQaHistoryState
 } from "./appState/adminQaNavigation.js";
+import {
+  addBrowserFullscreenListener,
+  exitBrowserFullscreen,
+  getBrowserFullscreenElement,
+  requestBrowserFullscreen
+} from "./utils/browserFullscreen.js";
 
 const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
@@ -327,14 +333,13 @@ export default function App() {
 
   useEffect(() => {
     function syncFullscreenState() {
-      if (!document.fullscreenElement) {
+      if (!getBrowserFullscreenElement(document)) {
         setLearnFullscreen(false);
         setAssessmentFullscreen(false);
       }
     }
 
-    document.addEventListener("fullscreenchange", syncFullscreenState);
-    return () => document.removeEventListener("fullscreenchange", syncFullscreenState);
+    return addBrowserFullscreenListener(document, syncFullscreenState);
   }, []);
 
   useEffect(() => {
@@ -368,13 +373,13 @@ export default function App() {
 
   function enterLearnFullscreen() {
     setLearnFullscreen(true);
-    document.documentElement.requestFullscreen?.().catch(() => {});
+    void requestBrowserFullscreen(document.documentElement);
   }
 
   function exitLearnFullscreen() {
     setLearnFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
+    if (getBrowserFullscreenElement(document)) {
+      void exitBrowserFullscreen(document);
     }
   }
 
@@ -388,13 +393,13 @@ export default function App() {
 
   function enterAssessmentFullscreen() {
     setAssessmentFullscreen(true);
-    document.documentElement.requestFullscreen?.().catch(() => {});
+    void requestBrowserFullscreen(document.documentElement);
   }
 
   function exitAssessmentFullscreen() {
     setAssessmentFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
+    if (getBrowserFullscreenElement(document)) {
+      void exitBrowserFullscreen(document);
     }
   }
 

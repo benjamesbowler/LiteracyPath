@@ -22,6 +22,11 @@ import {
   resumeFullscreenSurfaceName
 } from "../../../utils/fullscreenOverlayNames.js";
 import { LEARN_GAMES } from "./games/index.js";
+import {
+  exitBrowserFullscreen,
+  getBrowserFullscreenElement,
+  requestBrowserFullscreen
+} from "../../../utils/browserFullscreen.js";
 
 function CloseIcon() {
   return (
@@ -93,18 +98,18 @@ export function GamePlayer({
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
-    wasFullscreenRef.current = Boolean(document.fullscreenElement);
+    wasFullscreenRef.current = Boolean(getBrowserFullscreenElement(document));
 
-    if (document.documentElement?.requestFullscreen && !document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
+    if (!getBrowserFullscreenElement(document)) {
+      void requestBrowserFullscreen(document.documentElement);
     }
 
     return () => {
       clearActiveLearnGamesProgressScope();
       cancelSpeech();
       cancelGameSfx();
-      if (!wasFullscreenRef.current && document.fullscreenElement && document.exitFullscreen) {
-        document.exitFullscreen().catch(() => {});
+      if (!wasFullscreenRef.current && getBrowserFullscreenElement(document)) {
+        void exitBrowserFullscreen(document);
       }
     };
   }, [progressScopeKey]);

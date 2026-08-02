@@ -207,7 +207,11 @@
  */
 .kg-viewport {
   position: fixed;
-  inset: 0;
+  inset: auto;
+  left: var(--kg-visible-left, 0px);
+  top: var(--kg-visible-top, 0px);
+  width: var(--kg-visible-width, 100vw);
+  height: var(--kg-visible-height, 100dvh);
   overflow: hidden;
   background: var(--kg-page);
   /* place-items is explicitly reset: an ancestor grid centring rule must not

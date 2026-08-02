@@ -841,6 +841,17 @@ body {
   padding: 0;
 }
 
+/* Tablet taps are actions, never text-selection gestures. Keep this scoped to
+   the child app so teacher text remains selectable, and use manipulation only
+   on controls (game canvases retain their own drag/pointer touch policies). */
+.student-mode-app :is(button, [role="button"]) {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 .student-home-page {
   align-content: start;
   gap: 28px;
