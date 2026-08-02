@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-31-bouncys-hay-lift",
+  "contentHash": "sha256:730906d6e9624fdd8eb7b67152b8ded4d947b3beb13ba032c1b39b9b263e5ba6",
+  "questions": [
+    {
+      "id": "meadow-pals-31-bouncys-hay-lift-q1",
+      "prompt": "What happens first in Bouncy's Hay Lift?",
+      "choices": [
+        "Bouncy stacks hay for Woolly.",
+        "The bale flies past.",
+        "The bale fits on top."
+      ],
+      "answer": "Bouncy stacks hay for Woolly.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bouncy stacks hay for Woolly."
+    },
+    {
+      "id": "meadow-pals-31-bouncys-hay-lift-q2",
+      "prompt": "What goes wrong in Bouncy's Hay Lift?",
+      "choices": [
+        "The bale flies past.",
+        "Bouncy stacks hay for Woolly.",
+        "The bale fits on top."
+      ],
+      "answer": "The bale flies past.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The bale flies past. This shows that the first attempt does not solve the central problem introduced by Bouncy stacks hay for Woolly.",
+      "evidencePage": 4,
+      "evidenceText": "The bale flies past."
+    },
+    {
+      "id": "meadow-pals-31-bouncys-hay-lift-q3",
+      "prompt": "What solves the problem in Bouncy's Hay Lift?",
+      "choices": [
+        "The bale fits on top.",
+        "Bouncy stacks hay for Woolly.",
+        "The bale flies past."
+      ],
+      "answer": "The bale fits on top.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The bale fits on top. This event shows how the central problem is resolved after The bale flies past.",
+      "evidencePage": 8,
+      "evidenceText": "The bale fits on top."
+    }
+  ]
+}

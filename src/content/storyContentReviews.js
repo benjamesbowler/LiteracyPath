@@ -2,13 +2,13 @@ import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
 
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
-  itemCount: 176,
-  sourceFingerprint: "3269aae790a6a94fe3dbafcc02cb23360e379d2c425122c26a5749afcdcc18e6",
+  itemCount: 206,
+  sourceFingerprint: "592b9ae9ccf61e6cffa84d9f535a47236a48d5e3434fb9c32b621a0fbc77c0b3",
   status: "approved",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-01",
+  reviewedAt: "2026-08-02",
   reviewer: "Codex editorial audit",
-  claim: "Approved after a complete Story Bible audit of 176 books and 1,601 active pages: level-band manuscript checks, 528 evidence-grounded questions, exact-text Google Leda narration on every page, and a 1,601-page hash-locked illustration review all pass with zero open failures."
+  claim: "Approved after a complete Story Bible audit of 206 books and 1,861 active pages: level-band manuscript checks, 618 evidence-grounded questions, exact-text Google Leda narration on every page, and a 1,861-page hash-locked illustration review all pass with zero open failures."
 });
 
 export const storyQuestPolicyReviews = Object.freeze([

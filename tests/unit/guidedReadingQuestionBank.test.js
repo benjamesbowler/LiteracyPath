@@ -22,11 +22,11 @@ const quizDirectory = path.join(repoRoot, "public", "guided-reading", "quizzes")
 test("every active Guided Reading book has three evidence-grounded comprehension questions", () => {
   const result = auditGuidedReadingQuestionBank({ books: guidedReadingBooks, quizDirectory });
   assert.deepEqual(result.failures, []);
-  assert.equal(result.metrics.bookCount, 176);
-  assert.equal(result.metrics.quizFileCount, 176);
-  assert.equal(result.metrics.questionCount, 528);
-  assert.equal(result.metrics.evidenceCount, 528);
-  assert.equal(result.metrics.supportedAnswerCount, 528);
+  assert.equal(result.metrics.bookCount, 206);
+  assert.equal(result.metrics.quizFileCount, 206);
+  assert.equal(result.metrics.questionCount, 618);
+  assert.equal(result.metrics.evidenceCount, 618);
+  assert.equal(result.metrics.supportedAnswerCount, 618);
   assert.equal(result.metrics.prohibitedPromptCount, 0);
   assert.equal(result.metrics.repeatedAnswerCount, 0);
   assert.equal(result.metrics.answerLengthGiveawayCount, 0);

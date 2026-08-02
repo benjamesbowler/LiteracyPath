@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-22-shys-sinking-path",
+  "contentHash": "sha256:798645a61da98b3cc3cd368b4233a666f36a24dd14214cf8d042f0ab3883ccb9",
+  "questions": [
+    {
+      "id": "dino-pals-22-shys-sinking-path-q1",
+      "prompt": "Which event begins Shy's Sinking Path?",
+      "choices": [
+        "Shy spots bubbles under the Fernwood path.",
+        "The stone sinks. Mud covers the usual trail.",
+        "Every berry basket follows Shy's bright detour."
+      ],
+      "answer": "Shy spots bubbles under the Fernwood path.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Shy spots bubbles under the Fernwood path."
+    },
+    {
+      "id": "dino-pals-22-shys-sinking-path-q2",
+      "prompt": "Which event shows the first plan fails in Shy's Sinking Path?",
+      "choices": [
+        "The stone sinks. Mud covers the usual trail.",
+        "Shy spots bubbles under the Fernwood path.",
+        "Every berry basket follows Shy's bright detour."
+      ],
+      "answer": "The stone sinks. Mud covers the usual trail.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The stone sinks. Mud covers the usual trail. This shows that the first attempt does not solve the central problem introduced by Shy spots bubbles under the Fernwood path.",
+      "evidencePage": 4,
+      "evidenceText": "The stone sinks. Mud covers the usual trail."
+    },
+    {
+      "id": "dino-pals-22-shys-sinking-path-q3",
+      "prompt": "Which event solves the problem in Shy's Sinking Path?",
+      "choices": [
+        "Every berry basket follows Shy's bright detour.",
+        "Shy spots bubbles under the Fernwood path.",
+        "The stone sinks. Mud covers the usual trail."
+      ],
+      "answer": "Every berry basket follows Shy's bright detour.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Every berry basket follows Shy's bright detour. This event shows how the central problem is resolved after The stone sinks. Mud covers the usual trail.",
+      "evidencePage": 8,
+      "evidenceText": "Every berry basket follows Shy's bright detour."
+    }
+  ]
+}

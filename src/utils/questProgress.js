@@ -170,6 +170,15 @@ function normalizeAssignment(raw) {
 
 export const SPARKS_PER_STAR = 12;
 export const SPARKS_PER_DROP = 2;
+export const SPARKS_PER_STRONG_CHAPTER = 4;
+
+function strongChapterCount(state) {
+  const stars = state?.trail?.stars || {};
+  return QUEST_CHAPTERS.filter(chapter => (
+    chapter.stopIds.every(stopId => (state?.trail?.stopsDone || []).includes(stopId))
+    && chapter.stopIds.reduce((sum, stopId) => sum + (Number(stars[stopId]) || 0), 0) >= 12
+  )).length;
+}
 
 export function baseQuestState() {
   return {
@@ -325,7 +334,12 @@ export function totalDrops(state) {
 }
 
 export function earnedSparks(state) {
-  return totalStars(state) * SPARKS_PER_STAR + totalDrops(state) * SPARKS_PER_DROP;
+  // A strong whole chapter earns a tiny completion bonus. Eight strong chapters
+  // make the full wardrobe attainable by a narrow margin, while walking and
+  // collecting finds without reading-quality stars earns no hidden bonus.
+  return totalStars(state) * SPARKS_PER_STAR
+    + totalDrops(state) * SPARKS_PER_DROP
+    + strongChapterCount(state) * SPARKS_PER_STRONG_CHAPTER;
 }
 
 export function spentSparks(state) {

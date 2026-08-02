@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-29-cheekys-shadow-show",
+  "contentHash": "sha256:9ebd40c94d0c316916ee0c7555bbff527b591a6dc7218e7c86ca818250a1f68e",
+  "questions": [
+    {
+      "id": "dino-pals-29-cheekys-shadow-show-q1",
+      "prompt": "Which event begins Cheeky's Shadow Show?",
+      "choices": [
+        "Cheeky plans a shadow show beside Big Flat Rock.",
+        "Cheeky waves harder but shows only his feet.",
+        "Their giant shadow dinosaur bows to the Pals."
+      ],
+      "answer": "Cheeky plans a shadow show beside Big Flat Rock.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Cheeky plans a shadow show beside Big Flat Rock."
+    },
+    {
+      "id": "dino-pals-29-cheekys-shadow-show-q2",
+      "prompt": "Which event shows the first plan fails in Cheeky's Shadow Show?",
+      "choices": [
+        "Cheeky waves harder but shows only his feet.",
+        "Cheeky plans a shadow show beside Big Flat Rock.",
+        "Their giant shadow dinosaur bows to the Pals."
+      ],
+      "answer": "Cheeky waves harder but shows only his feet.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Cheeky waves harder but shows only his feet. This shows that the first attempt does not solve the central problem introduced by Cheeky plans a shadow show beside Big Flat Rock.",
+      "evidencePage": 4,
+      "evidenceText": "Cheeky waves harder but shows only his feet."
+    },
+    {
+      "id": "dino-pals-29-cheekys-shadow-show-q3",
+      "prompt": "Which event solves the problem in Cheeky's Shadow Show?",
+      "choices": [
+        "Their giant shadow dinosaur bows to the Pals.",
+        "Cheeky plans a shadow show beside Big Flat Rock.",
+        "Cheeky waves harder but shows only his feet."
+      ],
+      "answer": "Their giant shadow dinosaur bows to the Pals.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Their giant shadow dinosaur bows to the Pals. This event shows how the central problem is resolved after Cheeky waves harder but shows only his feet.",
+      "evidencePage": 8,
+      "evidenceText": "Their giant shadow dinosaur bows to the Pals."
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { guidedReadingBooks, normalizeGuidedReadingType } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingWorldExpansionBooks } from "../src/data/guidedReadingWorldExpansionBooks.js";
 import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReadableBook.js";
 
 const rootDir = process.cwd();
@@ -117,6 +118,7 @@ const allowedFictionIds = new Set([
   "moonwood-tales-c-24",
   "moonwood-tales-c-25"
 ]);
+guidedReadingWorldExpansionBooks.forEach(book => allowedFictionIds.add(book.id));
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
 if (unexpectedFictionBooks.length) {
@@ -173,7 +175,7 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-25 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are included as public nonfiction.",
+  "Every app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading includes the approved Bob and Nan, James and Anna, Aiden and Betty collections, Dino Pals Level B books 1-30, Meadow Pals Level A books 1-35, and Moonwood Tales Level C books 1-35 in student public release. First Facts nonfiction books 1-25 are Level B, First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are included as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,

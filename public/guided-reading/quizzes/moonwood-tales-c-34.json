@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-34",
+  "contentHash": "sha256:7fb6d7af7d770dc566ece4b8e7975915c467f64814577adc894ce990955410fd",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-34-q1",
+      "prompt": "Which event introduces the situation in Spark's Ten-Count Hook?",
+      "choices": [
+        "Hollow Oak needs a new curved hook for its lowest lantern.",
+        "At count ten the copy vanishes and Luna catches the lantern.",
+        "The fibre dries into a solid matching hook."
+      ],
+      "answer": "Hollow Oak needs a new curved hook for its lowest lantern.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Hollow Oak needs a new curved hook for its lowest lantern."
+    },
+    {
+      "id": "moonwood-tales-c-34-q2",
+      "prompt": "Which event shows that the first attempt fails in Spark's Ten-Count Hook?",
+      "choices": [
+        "At count ten the copy vanishes and Luna catches the lantern.",
+        "Hollow Oak needs a new curved hook for its lowest lantern.",
+        "The fibre dries into a solid matching hook."
+      ],
+      "answer": "At count ten the copy vanishes and Luna catches the lantern.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "At count ten the copy vanishes and Luna catches the lantern. This shows that the first attempt does not solve the central problem introduced by Hollow Oak needs a new curved hook for its lowest lantern.",
+      "evidencePage": 4,
+      "evidenceText": "At count ten the copy vanishes and Luna catches the lantern."
+    },
+    {
+      "id": "moonwood-tales-c-34-q3",
+      "prompt": "Which event resolves the central problem in Spark's Ten-Count Hook?",
+      "choices": [
+        "The fibre dries into a solid matching hook.",
+        "Hollow Oak needs a new curved hook for its lowest lantern.",
+        "At count ten the copy vanishes and Luna catches the lantern."
+      ],
+      "answer": "The fibre dries into a solid matching hook.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The fibre dries into a solid matching hook. This event shows how the central problem is resolved after At count ten the copy vanishes and Luna catches the lantern.",
+      "evidencePage": 9,
+      "evidenceText": "The fibre dries into a solid matching hook."
+    }
+  ]
+}

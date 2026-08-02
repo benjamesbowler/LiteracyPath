@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-27-bossys-three-paths",
+  "contentHash": "sha256:bcbd7013e553cc099969461a5ed9898b17c49822c75882b8d062d36dda145321",
+  "questions": [
+    {
+      "id": "dino-pals-27-bossys-three-paths-q1",
+      "prompt": "Which event begins Bossy's Three Paths?",
+      "choices": [
+        "Bossy plans eight stones across Muddy Puddle Pool.",
+        "Grumpy reaches the middle and cannot step farther.",
+        "Large and small Pals cross without splashing."
+      ],
+      "answer": "Bossy plans eight stones across Muddy Puddle Pool.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Bossy plans eight stones across Muddy Puddle Pool."
+    },
+    {
+      "id": "dino-pals-27-bossys-three-paths-q2",
+      "prompt": "Which event shows the first plan fails in Bossy's Three Paths?",
+      "choices": [
+        "Grumpy reaches the middle and cannot step farther.",
+        "Bossy plans eight stones across Muddy Puddle Pool.",
+        "Large and small Pals cross without splashing."
+      ],
+      "answer": "Grumpy reaches the middle and cannot step farther.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Grumpy reaches the middle and cannot step farther. This shows that the first attempt does not solve the central problem introduced by Bossy plans eight stones across Muddy Puddle Pool.",
+      "evidencePage": 3,
+      "evidenceText": "Grumpy reaches the middle and cannot step farther."
+    },
+    {
+      "id": "dino-pals-27-bossys-three-paths-q3",
+      "prompt": "Which event solves the problem in Bossy's Three Paths?",
+      "choices": [
+        "Large and small Pals cross without splashing.",
+        "Bossy plans eight stones across Muddy Puddle Pool.",
+        "Grumpy reaches the middle and cannot step farther."
+      ],
+      "answer": "Large and small Pals cross without splashing.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Large and small Pals cross without splashing. This event shows how the central problem is resolved after Grumpy reaches the middle and cannot step farther.",
+      "evidencePage": 8,
+      "evidenceText": "Large and small Pals cross without splashing."
+    }
+  ]
+}

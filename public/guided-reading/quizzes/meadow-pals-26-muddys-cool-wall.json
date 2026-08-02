@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-26-muddys-cool-wall",
+  "contentHash": "sha256:01d45d37417a50d883ecc46f51c41a47eac40b23c2983374b692279dce30551c",
+  "questions": [
+    {
+      "id": "meadow-pals-26-muddys-cool-wall-q1",
+      "prompt": "What happens first in Muddy's Cool Wall?",
+      "choices": [
+        "Muddy wants a cool mud pool.",
+        "The soft wall slumps down.",
+        "The wall makes cool shade."
+      ],
+      "answer": "Muddy wants a cool mud pool.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Muddy wants a cool mud pool."
+    },
+    {
+      "id": "meadow-pals-26-muddys-cool-wall-q2",
+      "prompt": "What goes wrong in Muddy's Cool Wall?",
+      "choices": [
+        "The soft wall slumps down.",
+        "Muddy wants a cool mud pool.",
+        "The wall makes cool shade."
+      ],
+      "answer": "The soft wall slumps down.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The soft wall slumps down. This shows that the first attempt does not solve the central problem introduced by Muddy wants a cool mud pool.",
+      "evidencePage": 3,
+      "evidenceText": "The soft wall slumps down."
+    },
+    {
+      "id": "meadow-pals-26-muddys-cool-wall-q3",
+      "prompt": "What solves the problem in Muddy's Cool Wall?",
+      "choices": [
+        "The wall makes cool shade.",
+        "Muddy wants a cool mud pool.",
+        "The soft wall slumps down."
+      ],
+      "answer": "The wall makes cool shade.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The wall makes cool shade. This event shows how the central problem is resolved after The soft wall slumps down.",
+      "evidencePage": 7,
+      "evidenceText": "The wall makes cool shade."
+    }
+  ]
+}

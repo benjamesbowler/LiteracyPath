@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-29-shys-pond-rings",
+  "contentHash": "sha256:a7e3717077febdf7cd2202fa637cf26dfff2de52f5f252fc4dcba5f1245332ce",
+  "questions": [
+    {
+      "id": "meadow-pals-29-shys-pond-rings-q1",
+      "prompt": "What happens first in Shy's Pond Rings?",
+      "choices": [
+        "Shy sees rings on pond.",
+        "Her loose stone splashes loudly.",
+        "A green frog pops up."
+      ],
+      "answer": "Shy sees rings on pond.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Shy sees rings on pond."
+    },
+    {
+      "id": "meadow-pals-29-shys-pond-rings-q2",
+      "prompt": "What goes wrong in Shy's Pond Rings?",
+      "choices": [
+        "Her loose stone splashes loudly.",
+        "Shy sees rings on pond.",
+        "A green frog pops up."
+      ],
+      "answer": "Her loose stone splashes loudly.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Her loose stone splashes loudly. This shows that the first attempt does not solve the central problem introduced by Shy sees rings on pond.",
+      "evidencePage": 4,
+      "evidenceText": "Her loose stone splashes loudly."
+    },
+    {
+      "id": "meadow-pals-29-shys-pond-rings-q3",
+      "prompt": "What solves the problem in Shy's Pond Rings?",
+      "choices": [
+        "A green frog pops up.",
+        "Shy sees rings on pond.",
+        "Her loose stone splashes loudly."
+      ],
+      "answer": "A green frog pops up.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "A green frog pops up. This event shows how the central problem is resolved after Her loose stone splashes loudly.",
+      "evidencePage": 7,
+      "evidenceText": "A green frog pops up."
+    }
+  ]
+}

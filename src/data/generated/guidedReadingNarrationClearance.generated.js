@@ -2851,6 +2851,566 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "da6bd5dc56f1afb38586fceedf637bb568f6f5f569344715749958b194be2591",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "dino-pals-21-fancys-moonleaf-arch::1": {
+    "audioPath": "/audio/production/en-US/guided_page/fancy-wants-a-moonleaf-arch-ready-before-sunset-840ed4b818.mp3",
+    "audioSha256": "a6d239fa58778c8cb3c6d7c147ba497c4a7cc436114f997962c50c0dc1d4b48a",
+    "displayedText": "Fancy wants a moonleaf arch ready before sunset.",
+    "displayedTextSha256": "462599ba3e916f677ff35de5224fb00f3755d192d9845b652b3857327b71d686",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-balances-long-branches-on-three-round-stones-631f3b5bd8.mp3",
+    "audioSha256": "9e42c5d6c3c29ac19d23ba4ae4e047fdbabc24aa1f6ba577244df92e9d6d16a4",
+    "displayedText": "She balances long branches on three round stones.",
+    "displayedTextSha256": "498e3495756c5123a00c0cbb0c7c8708a6d75d8ab9ccc17660395f8456b6c4b4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::3": {
+    "audioPath": "/audio/production/en-US/guided_page/a-breeze-rolls-the-stones-the-whole-arch-falls-775e90ae85.mp3",
+    "audioSha256": "4bc62024d95df722ccc8980abfff6dc006daf19cf1b378c251eb74a2c86daf69",
+    "displayedText": "A breeze rolls the stones. The whole arch falls.",
+    "displayedTextSha256": "45c20375f98eab2438959c2cc85d7d27d94c23b28e867dc171b5ffaed9eb792b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::4": {
+    "audioPath": "/audio/production/en-US/guided_page/fancy-studies-the-pieces-instead-of-stacking-again-a32bb262dc.mp3",
+    "audioSha256": "55f0be5e22fc5bffafeb94b4ce612468a16f39a404b8b693b4af43179b565b82",
+    "displayedText": "Fancy studies the pieces instead of stacking again.",
+    "displayedTextSha256": "113160bb034fba3306596a665c868971fdb78c1b9f29d8c5232ca7ba9f665051",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::5": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-brings-flat-stones-that-cannot-roll-3126d2c729.mp3",
+    "audioSha256": "f665c1da5ef71c23d38c8f43b5e54909a7ed76619d5692e1edda21d0bc9421a9",
+    "displayedText": "Grumpy brings flat stones that cannot roll.",
+    "displayedTextSha256": "ea39fa926cddb25321585ce5ccaf6e7eb22f0673a17053e433607c1f554bb786",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::6": {
+    "audioPath": "/audio/production/en-US/guided_page/wiggly-bends-two-branches-into-a-low-curve-88c3fdbef7.mp3",
+    "audioSha256": "cda1a69a5c3114c95882715ef191f69aaacc2709a72effde652ba236dea6a6c2",
+    "displayedText": "Wiggly bends two branches into a low curve.",
+    "displayedTextSha256": "f82f6900891248df32c14efc05923230ffcccfa1d44611c6140616bcab3461ed",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::7": {
+    "audioPath": "/audio/production/en-US/guided_page/fancy-ties-moonleaves-where-every-knot-can-hold-6150608943.mp3",
+    "audioSha256": "b74378d73392fac1e2c7d07d13fdce5b1c52bd8043f2b57eecb1d78003930c2a",
+    "displayedText": "Fancy ties moonleaves where every knot can hold.",
+    "displayedTextSha256": "d100528047ec106e63645cbfee0ab360cb75c51cb5077fbbc69cdfc7af885b5b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-21-fancys-moonleaf-arch::8": {
+    "audioPath": "/audio/production/en-US/guided_page/sunset-shines-through-her-sturdy-purple-arch-62f6e7deac.mp3",
+    "audioSha256": "96076ea27cabd743d5ee32f818ad53b19a628db063e91eb081cfc282faa814a0",
+    "displayedText": "Sunset shines through her sturdy purple arch.",
+    "displayedTextSha256": "dad620001a615980b5a5ec844625b407fa4dd36a6c4eaff55bc723eef0acbf54",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::1": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-spots-bubbles-under-the-fernwood-path-e63eb74c1e.mp3",
+    "audioSha256": "8ca6f5f78eb4160964277e69397c5e744e471a49667c7412a88d44551f8b01b3",
+    "displayedText": "Shy spots bubbles under the Fernwood path.",
+    "displayedTextSha256": "b8a96c6cc922d731647fa73f9230a3bd6f166bacd78f92fe8ea1f20c5a8f3354",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::2": {
+    "audioPath": "/audio/production/en-US/guided_page/berry-baskets-will-cross-before-the-picnic-8f68d58d77.mp3",
+    "audioSha256": "9e79cc238226aeccb03372bd6e5312798320db6bb8e147cdf09f78c60a98a4b0",
+    "displayedText": "Berry baskets will cross before the picnic.",
+    "displayedTextSha256": "29bdc9cf979e488686ec2e9c869bd2ae2a28214296001a8227bb150c23d7680a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::3": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-lays-one-flat-stone-across-the-bubbles-c717ea2aef.mp3",
+    "audioSha256": "c88d2642f2d83c71fed8ee3ac20fe7b4a89787748ccecff83c5f44ff947a447d",
+    "displayedText": "Shy lays one flat stone across the bubbles.",
+    "displayedTextSha256": "c98da750150f17a887d4d9f0888348f97068b82b280b26ff0f3c0ddb0e08ad8b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::4": {
+    "audioPath": "/audio/production/en-US/guided_page/the-stone-sinks-mud-covers-the-usual-trail-eb0150840f.mp3",
+    "audioSha256": "91fd7fa2d7b3f0c19934cedc7776705ebafcad64e438aa6c30b98482ddd8448a",
+    "displayedText": "The stone sinks. Mud covers the usual trail.",
+    "displayedTextSha256": "1080b80dc353d20d6cb5cba06a8e9f2fb41acb2742161406dafb0c8a16d252ae",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::5": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-notices-tiny-beetles-walking-around-the-mud-73de946d0b.mp3",
+    "audioSha256": "f39695c74be558272fcb106bba384ebf65bf1d4a2496c1946df702e2059b6f4b",
+    "displayedText": "Shy notices tiny beetles walking around the mud.",
+    "displayedTextSha256": "80baa7f42b9779a1093f7c7830cb3d4b4da996b3f994390a6b7598f1b2ef8569",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::6": {
+    "audioPath": "/audio/production/en-US/guided_page/their-dry-track-circles-the-sinking-path-91a0560a6e.mp3",
+    "audioSha256": "6774218aef99543a870e3c9b11b2833e167f51aa851b716ad8a55eec13dbe9b7",
+    "displayedText": "Their dry track circles the sinking path.",
+    "displayedTextSha256": "ad318f828a01e2e882925993b911e62ec10d61b3c294aa081916263b6fe49e9c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::7": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-lines-the-safe-track-with-yellow-leaves-fd05cb48ff.mp3",
+    "audioSha256": "49749705812376ff1b358e3bfb302b0ec2a8e113cfc4826d4df23d487ca0ab34",
+    "displayedText": "Shy lines the safe track with yellow leaves.",
+    "displayedTextSha256": "80e466defd6b2979c21b881edaf9dbf7a5e526c16d69fb190504907013f73abc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-22-shys-sinking-path::8": {
+    "audioPath": "/audio/production/en-US/guided_page/every-berry-basket-follows-shy-s-bright-detour-3418b038a9.mp3",
+    "audioSha256": "831584251e37b49177382d69af7fc0fef1c0cedb4d4931776a11ce36f59d5f5f",
+    "displayedText": "Every berry basket follows Shy's bright detour.",
+    "displayedTextSha256": "3069a47530526216abde96023e6c61a9c4a4664b7228b6886894b93238d5450d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::1": {
+    "audioPath": "/audio/production/en-US/guided_page/flappy-must-carry-one-wide-fern-before-rain-e017a6f06c.mp3",
+    "audioSha256": "a3240f75adb0a8deb1262d59faa38632ed0a9a87e5e9729b0f8177464cf458a9",
+    "displayedText": "Flappy must carry one wide fern before rain.",
+    "displayedTextSha256": "124632ebc1493e6cadee95362015b03a40307d5a43d5b2b07423440fa64785d5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-grips-the-middle-and-begins-a-low-glide-cad231a092.mp3",
+    "audioSha256": "bfc2136f16087b131544cba57375698be4d64a68d71e6709bfe4bc08d7e57abd",
+    "displayedText": "He grips the middle and begins a low glide.",
+    "displayedTextSha256": "717dd656296e811988021a29b4a702fbbcedc70efbd2c893dbd8f7219075f3cd",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::3": {
+    "audioPath": "/audio/production/en-US/guided_page/wind-catches-both-sides-the-fern-spins-flappy-b2d6ab8d25.mp3",
+    "audioSha256": "2f2cfb523b3fd4b6faa904b20f357f0d6ce119a6adf255c372608dccaa26549f",
+    "displayedText": "Wind catches both sides. The fern spins Flappy.",
+    "displayedTextSha256": "b2e2dbe64be0a721093bf31f62954c2b3e36a2d4217120793a921b26bb10a8a3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::4": {
+    "audioPath": "/audio/production/en-US/guided_page/flappy-lands-safely-but-cannot-see-ahead-19e10c03fe.mp3",
+    "audioSha256": "24e1d80fa729dfefb30ca0516baef8ffa50fbc6de707e38ec97b91eb366a0037",
+    "displayedText": "Flappy lands safely but cannot see ahead.",
+    "displayedTextSha256": "09b47927a5978e4209ec1253b99a8ab7f4d8592e568b9d3ce9a9c084949aeee5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::5": {
+    "audioPath": "/audio/production/en-US/guided_page/he-rolls-the-fern-into-one-narrow-bundle-cc36316146.mp3",
+    "audioSha256": "9fd6f9a566e68e950ec401c80f46a7aeef1459ab55d6a79b394a86e4b04c1b42",
+    "displayedText": "He rolls the fern into one narrow bundle.",
+    "displayedTextSha256": "b87320011785bafbefdc67ddf65d3638e5d53eabdaca1aa9e11a2bb526eadd4b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::6": {
+    "audioPath": "/audio/production/en-US/guided_page/wiggly-ties-it-with-a-long-grass-loop-b961a23b74.mp3",
+    "audioSha256": "158cf59f4d2f7c796c9f5c3fdf8b9e31c1e97a9044424e116b220b494d17862f",
+    "displayedText": "Wiggly ties it with a long grass loop.",
+    "displayedTextSha256": "acb1d0fd290e8d4493cc955227f288e9bc230adbcb1f5031bfc8ca80d9a8aca2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::7": {
+    "audioPath": "/audio/production/en-US/guided_page/flappy-glides-straight-with-the-bundle-below-d11eb5154b.mp3",
+    "audioSha256": "0173bdaf65e93d392c1e1e92da9e88cf3dbb26b441a40d9979d257d40d569e44",
+    "displayedText": "Flappy glides straight with the bundle below.",
+    "displayedTextSha256": "0531e98477c0af68a555cc249d9f8300cb5d7bb5c8fe99a0bc02a952477870e9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-23-flappys-fern-delivery::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-fern-roof-covers-cozy-cave-before-rain-7c98ca1245.mp3",
+    "audioSha256": "cb313552d80b271e3b7f051d3844bd957d8f6ff66975c3e999029a8589aca5cf",
+    "displayedText": "The fern roof covers Cozy Cave before rain.",
+    "displayedTextSha256": "00903cf2a1ac642a4d1c93f4e09fcf954ce66df03ed554b6782493b5bb1ca444",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::1": {
+    "audioPath": "/audio/production/en-US/guided_page/clumsy-must-place-four-water-bowls-before-the-games-4948339c52.mp3",
+    "audioSha256": "fc82998e07953151280343870a534ecc432af584973e5ed332dbaaebf31a5702",
+    "displayedText": "Clumsy must place four water bowls before the games.",
+    "displayedTextSha256": "118727857cb000feeee056f4ffc3607afc3c6246534a65d37a684e029d880c1f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-stacks-all-four-bowls-across-his-back-7e2daa52b0.mp3",
+    "audioSha256": "ce6d8a3ff41f6269d2b60541746308fd5245ee37567a5f3213540d79a0bccd0b",
+    "displayedText": "He stacks all four bowls across his back.",
+    "displayedTextSha256": "1da45d54ea2e8ad1191cb26f7ba2cc21a1955b8b5127abdd21dde1f6283ea478",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::3": {
+    "audioPath": "/audio/production/en-US/guided_page/one-turn-sends-every-bowl-rolling-downhill-6b0204bf29.mp3",
+    "audioSha256": "cbdf2b61305cd1b0bd700a73b4a9228270587dcb72da64f1a81cf3451769d2af",
+    "displayedText": "One turn sends every bowl rolling downhill.",
+    "displayedTextSha256": "48b7bfc8775c9464658c0f5c9ba51ddeb044e5f8c1232ca2449c27d3e340388b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::4": {
+    "audioPath": "/audio/production/en-US/guided_page/clumsy-follows-and-watches-where-each-bowl-stops-e358c90c98.mp3",
+    "audioSha256": "a4f9c35cf17153cd9e977b6c8760f2ce1c927dcc9621e2d174bfae5cdf8341cd",
+    "displayedText": "Clumsy follows and watches where each bowl stops.",
+    "displayedTextSha256": "e18545f06dc970380f30c63a10f59f5ae8d11bb4f373419f160e5c46d4298aca",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::5": {
+    "audioPath": "/audio/production/en-US/guided_page/the-widest-bowl-rests-beside-big-flat-rock-8e3f1c309e.mp3",
+    "audioSha256": "1cb76887061da4d73540f29af8d6b4c4d53df8d2a21b7866579e5cb00cff4b19",
+    "displayedText": "The widest bowl rests beside Big Flat Rock.",
+    "displayedTextSha256": "66236d18fb3ed007ad10c497530ad218aff42374445dc6a2ee001497214cf20f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::6": {
+    "audioPath": "/audio/production/en-US/guided_page/small-bowls-fit-between-roots-where-feet-cannot-tip-them-c667d803ae.mp3",
+    "audioSha256": "25683166078b0b4ead43ee001183c28aca7d2dbda7fd47fc694e09ff922087b1",
+    "displayedText": "Small bowls fit between roots where feet cannot tip them.",
+    "displayedTextSha256": "dc990f76e124bf3e0865eeaa09df0669fe96964e880f9628b998b73addec7127",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::7": {
+    "audioPath": "/audio/production/en-US/guided_page/clumsy-carries-one-filled-bowl-at-a-time-cc5c995a33.mp3",
+    "audioSha256": "22d30bd7cd22613b613dfebab6d93eb5dfdc8e880fc9271524726ddc16178f40",
+    "displayedText": "Clumsy carries one filled bowl at a time.",
+    "displayedTextSha256": "aad16063d8a782eecaeffe3aaf2e557e07b63bf00e51b2ffb6a152fd9076fa19",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-24-clumsys-steady-bowls::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-drinking-route-stays-full-and-steady-a14ecd1ffb.mp3",
+    "audioSha256": "4175487f9fdf553b90788146e67dca3142d580595abe053a80fa3c05dcaeeed2",
+    "displayedText": "The drinking route stays full and steady.",
+    "displayedTextSha256": "92eaeef8e9bebd0a2b422d381c369e39fd2263af9c933e171a57cd90c062e422",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::1": {
+    "audioPath": "/audio/production/en-US/guided_page/dry-seed-fluff-drifts-toward-cozy-cave-b00d958f6b.mp3",
+    "audioSha256": "5a9e18d3463e56def69e7b1b33903dad1099453050e74e1070b2aaedd6007d8a",
+    "displayedText": "Dry seed fluff drifts toward Cozy Cave.",
+    "displayedTextSha256": "024a51c119514ebd564b7cb2a864d934d8620414127d1062515580d2071b8660",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::2": {
+    "audioPath": "/audio/production/en-US/guided_page/sneezy-must-clear-it-before-dozy-naps-b24472382d.mp3",
+    "audioSha256": "a10629e976c9fd7c3fb8ea65bdf8bf805223af0e65ece0f4ea0bfd5979372705",
+    "displayedText": "Sneezy must clear it before Dozy naps.",
+    "displayedTextSha256": "286adfd009971dcf809c4c65383c3fcc6d7a48e6379e6f009c7f74aa640c9a0a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::3": {
+    "audioPath": "/audio/production/en-US/guided_page/he-warns-everyone-then-blows-one-careful-sneeze-14b0328825.mp3",
+    "audioSha256": "29c8abb133e327abbe92e1b21ecac12338c2ad39e7e3d32faf594df7d16c9b6d",
+    "displayedText": "He warns everyone then blows one careful sneeze.",
+    "displayedTextSha256": "ebf7858e72e8a72b3862aa057cb0ceffb904d2146cfc030c08a85dd61a4369ba",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::4": {
+    "audioPath": "/audio/production/en-US/guided_page/the-fluff-bursts-into-a-bigger-tickly-cloud-9db073bbed.mp3",
+    "audioSha256": "10d62e3afd87a90248998e8af64d723711e7dd7207d6bd2f34bc36bcb39b850f",
+    "displayedText": "The fluff bursts into a bigger tickly cloud.",
+    "displayedTextSha256": "99c1449321524a9b08382a37df1a991d33a9f1a11ba8f7bde189fa6b63874373",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::5": {
+    "audioPath": "/audio/production/en-US/guided_page/sneezy-notices-wet-seeds-sticking-beside-the-stream-85dc878124.mp3",
+    "audioSha256": "4cbca4d4caf60ea72ec708fd645e660b3922d032a024aaaeac86617eb6e5a70b",
+    "displayedText": "Sneezy notices wet seeds sticking beside the stream.",
+    "displayedTextSha256": "a6917011413c025a90b1d210ea5f7259ea0c3c32da7c4cedf44129ae00caec31",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::6": {
+    "audioPath": "/audio/production/en-US/guided_page/sunny-dampens-one-broad-leaf-with-clean-water-e9dc2fd75f.mp3",
+    "audioSha256": "44ac0d9b993fa8e73c47b78c35a51d6e667abbd55d12003c5eaab50aa3e9991c",
+    "displayedText": "Sunny dampens one broad leaf with clean water.",
+    "displayedTextSha256": "4c2b98eaa7dcdd68fd4234ca630cd8bfba4950d6d20365e67a2616bc7d2e6c24",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::7": {
+    "audioPath": "/audio/production/en-US/guided_page/sneezy-sweeps-the-fluff-onto-the-wet-leaf-92a1649cab.mp3",
+    "audioSha256": "7a6227a874c3acace24deb47749a10469499c79fd285c458a2252753df9e2cc0",
+    "displayedText": "Sneezy sweeps the fluff onto the wet leaf.",
+    "displayedTextSha256": "9de4d4c4174fef7039e2b22301bb0d9c76dd43d9025645db65d7ecc7c2e98a72",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-25-sneezys-seed-cloud::8": {
+    "audioPath": "/audio/production/en-US/guided_page/dozy-enters-while-sneezy-plants-seeds-outside-851b44d055.mp3",
+    "audioSha256": "2ae110c2f42d9e659e7d028f4424d650fa0bdcba4f4632fd5f9df57c869bfcf6",
+    "displayedText": "Dozy enters while Sneezy plants seeds outside.",
+    "displayedTextSha256": "a87dd2d367cc4e4e298936ebd42b39a6c28a62577860f147eb98eedfda5295cc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::1": {
+    "audioPath": "/audio/production/en-US/guided_page/sunny-chooses-big-flat-rock-for-a-picnic-04ce1485c0.mp3",
+    "audioSha256": "b56c9570513bcc0145b8ab6c8000e73728880c264732a9a5e4e737fd10439bd7",
+    "displayedText": "Sunny chooses Big Flat Rock for a picnic.",
+    "displayedTextSha256": "e5544017a7490222bba7e4589b5348b0dfd562de4394d3b2f5d69e69dc17d94a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::2": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-wants-shade-chompy-wants-warm-berries-fd97356571.mp3",
+    "audioSha256": "597077a1299b213e8ca9e0a7602e654dfb34b0c504ccd993b3ab4472b3649661",
+    "displayedText": "Grumpy wants shade. Chompy wants warm berries.",
+    "displayedTextSha256": "0b8b514093a9de9910c14ca0c22e417b675c2c44ed156bb04dcacaad536ca115",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::3": {
+    "audioPath": "/audio/production/en-US/guided_page/sunny-moves-everyone-beneath-one-thick-fern-94f16fd7cc.mp3",
+    "audioSha256": "85d560ab1a5aa6085823ce1e0ebe9f75f9cb98060c8b602a0897a5ec18480592",
+    "displayedText": "Sunny moves everyone beneath one thick fern.",
+    "displayedTextSha256": "051daadb8f264339c63105d16ee3590fb07b9d808b6628354df6ff98bf736ffb",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::4": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-cools-down-but-chompy-s-berries-stay-damp-cfc0991fdf.mp3",
+    "audioSha256": "13df3b5e7b05842546f8730f124963fc643a87e7b6471012f9f9da8e97723901",
+    "displayedText": "Grumpy cools down but Chompy's berries stay damp.",
+    "displayedTextSha256": "91b9aaa92c4584ab82a02fc846df9c1ea4178c638316b16cae2e05f5e574118e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::5": {
+    "audioPath": "/audio/production/en-US/guided_page/sunny-studies-the-rock-s-sharp-line-of-shade-c6e15aacb4.mp3",
+    "audioSha256": "d0da6ff52bba170898c758399c15076c55bc357983a93858612813850d97ef4e",
+    "displayedText": "Sunny studies the rock's sharp line of shade.",
+    "displayedTextSha256": "a1f1e0bc37dede59934fe4ec771955ec2f0df65674bec568b4963adb2f653bc5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::6": {
+    "audioPath": "/audio/production/en-US/guided_page/she-places-grumpy-s-mat-on-the-cool-half-d4a7ac39f4.mp3",
+    "audioSha256": "afdd05428a53195ab93f0424cced903b91bfee4453a8f0a3dbab3210a59f2091",
+    "displayedText": "She places Grumpy's mat on the cool half.",
+    "displayedTextSha256": "3376479d69095aff6908a1fb3c51fb2983f190ee3e2edfefa24b09cf184f84d3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::7": {
+    "audioPath": "/audio/production/en-US/guided_page/chompy-warms-berries-on-the-sunny-half-ff4114a213.mp3",
+    "audioSha256": "cf6063a044f06ca59294451bd58327bbff170b13453aca7817f68f52d7a3606a",
+    "displayedText": "Chompy warms berries on the sunny half.",
+    "displayedTextSha256": "7d908907e5c3691bfb7008a16c596fc6e6d1493cbc2c175e4115bf39fb156b91",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-26-sunnys-two-part-picnic::8": {
+    "audioPath": "/audio/production/en-US/guided_page/sunny-serves-one-picnic-across-two-temperatures-bb94dde2d0.mp3",
+    "audioSha256": "86a1cb01a31fa102655b2d32934cbaa1fed364f95a7047b6924cb694cc55aec3",
+    "displayedText": "Sunny serves one picnic across two temperatures.",
+    "displayedTextSha256": "2b38268b58eb85a0009f970b84b6778ad8ef0c570602c3c2ace3be1607819a1e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::1": {
+    "audioPath": "/audio/production/en-US/guided_page/bossy-plans-eight-stones-across-muddy-puddle-pool-316ad97279.mp3",
+    "audioSha256": "c55ec9dd9e5a72155df9bcc5b59b8e6ee86b5e077604154e3e556aa52f9fe9ea",
+    "displayedText": "Bossy plans eight stones across Muddy Puddle Pool.",
+    "displayedTextSha256": "799feb2da78e600b1572a7292cf7e58e42f8b2b012655b553457f9abb03da7b9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::2": {
+    "audioPath": "/audio/production/en-US/guided_page/the-equal-gaps-fit-zippy-s-quick-feet-33667e6434.mp3",
+    "audioSha256": "a28eae3d9f19f95699535b6d66537193bf633992e79d6f0d8c078f0a6c189c2a",
+    "displayedText": "The equal gaps fit Zippy's quick feet.",
+    "displayedTextSha256": "9ee80692d26a62d9c1674807f97d8bae3bc09c585f2b8748b0d51eabc66e4abd",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::3": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-reaches-the-middle-and-cannot-step-farther-884b223820.mp3",
+    "audioSha256": "f017525154d1158586336b1a0329292a17186f3883c67342a4a42f7647d3465b",
+    "displayedText": "Grumpy reaches the middle and cannot step farther.",
+    "displayedTextSha256": "b179ff9e6c1c5fcc2d4af58d8211bbcc672e1e97426e4e2124dab862155c11a4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::4": {
+    "audioPath": "/audio/production/en-US/guided_page/bossy-s-perfect-row-works-for-only-one-pal-25e79ad5ee.mp3",
+    "audioSha256": "88b68b0c8fef327fce7a2c8ed8ad8aa402c07fb89469c86952ef3df200643bfb",
+    "displayedText": "Bossy's perfect row works for only one Pal.",
+    "displayedTextSha256": "5a0156e77983587eb8a4a5401b01074ecf2b93d095004e89ee1ce8f9a4222490",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::5": {
+    "audioPath": "/audio/production/en-US/guided_page/she-asks-each-dinosaur-to-test-one-comfortable-gap-7097609370.mp3",
+    "audioSha256": "cd30dbcc6e1b17bd5635a87f5261b883b9e8d185a4c761ccb87c4c38bbdfc7b2",
+    "displayedText": "She asks each dinosaur to test one comfortable gap.",
+    "displayedTextSha256": "79a296a8e7b6d523b459c7bded2c52790876e982a89b449a8bde4660cc122344",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::6": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-and-branch-stations-replace-the-equal-row-bb46aac3d6.mp3",
+    "audioSha256": "02c1eb68c66fb3946cde573409ee40447ec0dbfa215a8766096604c39d496ec7",
+    "displayedText": "Stone and branch stations replace the equal row.",
+    "displayedTextSha256": "ab70852144cda438fa728d82ea250a9e6f4a56ea03268fb4a643fd63b6f5397c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::7": {
+    "audioPath": "/audio/production/en-US/guided_page/bossy-marks-all-three-routes-on-her-clipboard-b579c4d8c0.mp3",
+    "audioSha256": "834fbf4bbec7b1f11269ff4cb0c81edfb1411a2aed05ef1a2bce5029633a0cc2",
+    "displayedText": "Bossy marks all three routes on her clipboard.",
+    "displayedTextSha256": "9abb0b28f5f5ac074a7ecb290eefec265adb1082c2fdea69d19a7c809a3d9f23",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-27-bossys-three-paths::8": {
+    "audioPath": "/audio/production/en-US/guided_page/large-and-small-pals-cross-without-splashing-c398cbcc23.mp3",
+    "audioSha256": "5eec2905758cc6b13120c0828437b96f90117639c81b6b308d3eac86cda38aea",
+    "displayedText": "Large and small Pals cross without splashing.",
+    "displayedTextSha256": "681bc3382488f4cf922c69e7eaa1402169de3af1c6fc861c19e3c32caca3da2c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::1": {
+    "audioPath": "/audio/production/en-US/guided_page/honky-finds-three-tunnels-behind-cozy-cave-4abf1e602f.mp3",
+    "audioSha256": "ac3abc5984a5e66bde348fe7b5414474807c62f49c1bdcdbc6f7885be1917c35",
+    "displayedText": "Honky finds three tunnels behind Cozy Cave.",
+    "displayedTextSha256": "0688f74905e18973a376b49155336bc1f843fc5739a850e8bcc8a5ccf6e68824",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-wants-the-tunnel-that-reaches-the-stream-5661834491.mp3",
+    "audioSha256": "341e67b62f49924e3fc09d1f095e4960b5caa3d095025ba3387dc64a4de7e186",
+    "displayedText": "He wants the tunnel that reaches the stream.",
+    "displayedTextSha256": "aaba8234c25e4ee122d51e4255d9fb3884d509ddb2fe914f2983c7a34ddd3584",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::3": {
+    "audioPath": "/audio/production/en-US/guided_page/honky-sends-his-biggest-call-into-the-chamber-22518ff798.mp3",
+    "audioSha256": "a228f20474cb55154e94cf989ac6cf0f464da2f1b4530eea8001f0dff2944bf9",
+    "displayedText": "Honky sends his biggest call into the chamber.",
+    "displayedTextSha256": "bf3d4f7413a0e1833764415d5be793f5f07087fa4a205ab96ec28c2a56cb928c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::4": {
+    "audioPath": "/audio/production/en-US/guided_page/crashing-echoes-hide-every-direction-at-once-3125cc474c.mp3",
+    "audioSha256": "c78810e3c4464c2eba7ae185b542622fd5b2cdfa6536538b83ef1bca30f36e0b",
+    "displayedText": "Crashing echoes hide every direction at once.",
+    "displayedTextSha256": "493a2dcfb7e59a4809933b91160615f8d604a5b324326ed4cde144025d04a224",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::5": {
+    "audioPath": "/audio/production/en-US/guided_page/honky-taps-one-short-note-near-each-branch-3393e7e470.mp3",
+    "audioSha256": "29442b03dc46c94fd74a659ff08cb1eba6da393aaea9b3787b5ae9b2015be6e6",
+    "displayedText": "Honky taps one short note near each branch.",
+    "displayedTextSha256": "4b8ce4f0440d05323f5e830baad09d1a176efa2b4d09914449326c01e0783c79",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::6": {
+    "audioPath": "/audio/production/en-US/guided_page/two-branches-answer-with-deep-closed-echoes-6200716383.mp3",
+    "audioSha256": "2c2eb23ad52cdf08a1f161d24353a8f125f918db6f6f62eeb7449edd9161e9bc",
+    "displayedText": "Two branches answer with deep closed echoes.",
+    "displayedTextSha256": "225c22705316793ed1d662212d6bdcac8e10bd6d526ebf894ed1049176e1ceb9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::7": {
+    "audioPath": "/audio/production/en-US/guided_page/one-branch-answers-softly-with-moving-stream-air-b336a06641.mp3",
+    "audioSha256": "f91aad78556e73e0c2c0372076b06d8d49f6b67e29e4aca62b983dcdeba787d7",
+    "displayedText": "One branch answers softly with moving stream air.",
+    "displayedTextSha256": "d562572005b0b4839286f67995752c85320eba586ca0ae6c3d335fbdf877f4c3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-28-honkys-echo-tunnel::8": {
+    "audioPath": "/audio/production/en-US/guided_page/honky-marks-the-open-tunnel-and-turns-back-66edd9809f.mp3",
+    "audioSha256": "50751540811913789f2b7c1cc70f4a016409657a48f0c1452bfc55f7ebf9fb59",
+    "displayedText": "Honky marks the open tunnel and turns back.",
+    "displayedTextSha256": "4cb1c6eb4af8c71de65c7e8c18829ad145adb483ad6425ed97b64d54d433ccb7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::1": {
+    "audioPath": "/audio/production/en-US/guided_page/cheeky-plans-a-shadow-show-beside-big-flat-rock-e5a249b2e9.mp3",
+    "audioSha256": "27043ee6c9a2d8fe86bbd1e658d44bbcd75f271474a38667e26a831f7d84175c",
+    "displayedText": "Cheeky plans a shadow show beside Big Flat Rock.",
+    "displayedTextSha256": "ae1511b9d07c3f52b11f57ec02f9aee5eb919f5dee03f6f58ebc21c08c31826c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-shapes-a-funny-dinosaur-behind-the-leaf-49612471f5.mp3",
+    "audioSha256": "bf0478cd1b3875e2dc17f6325afb3d3dedffc38c1d6e10da462425bd22278bea",
+    "displayedText": "He shapes a funny dinosaur behind the leaf.",
+    "displayedTextSha256": "9f7943807c46919688d84bb14d4e14aae76238b92e9f0ca4b7c3c026204eb3b3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::3": {
+    "audioPath": "/audio/production/en-US/guided_page/noon-light-falls-straight-down-no-shadow-appears-226e96a990.mp3",
+    "audioSha256": "21a6dbce88b61d9ee744fc0734ea718f4edd2abe67ea58c38300ee795115e243",
+    "displayedText": "Noon light falls straight down. No shadow appears.",
+    "displayedTextSha256": "76237d063ff25d2cffb8cf00e84f1bbff814c0b5db5bc5d6472097847006f9d5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::4": {
+    "audioPath": "/audio/production/en-US/guided_page/cheeky-waves-harder-but-shows-only-his-feet-6bc04eb837.mp3",
+    "audioSha256": "cc58a7f3503f72df3b8a5e601fae92a04b7bc579b474995b7224693499b4a5c6",
+    "displayedText": "Cheeky waves harder but shows only his feet.",
+    "displayedTextSha256": "85a7f898fa106264bb9b9df41591c12eab2ec5f5dfcbd28714d4c3cb9af4a052",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::5": {
+    "audioPath": "/audio/production/en-US/guided_page/long-hill-shadows-point-away-from-the-sunset-1bc840ef7c.mp3",
+    "audioSha256": "7f44e1cb6297742e0ba31b68cfd71e35baf530764ee301601e40246f0a71acd4",
+    "displayedText": "Long hill shadows point away from the sunset.",
+    "displayedTextSha256": "c176ef24651b7226968a2c39c706807941254a64587129e1134bb088aa5362b9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::6": {
+    "audioPath": "/audio/production/en-US/guided_page/cheeky-moves-the-leaf-beside-the-western-hill-570dd12f7f.mp3",
+    "audioSha256": "e5b43ca974494d4ef02c34dda8b8dbca69d9dcd9252d218f1f226890ab202bfd",
+    "displayedText": "Cheeky moves the leaf beside the western hill.",
+    "displayedTextSha256": "9679ba4fc6ba7c4b5aa0c898f6acd5d36fbb79e59053f5fa061ddb363afcb5e3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::7": {
+    "audioPath": "/audio/production/en-US/guided_page/fancy-adds-ears-while-wiggly-adds-a-tail-06d3988941.mp3",
+    "audioSha256": "c6dae004aa1b8bc4571eb8451a307554b40c63604c7040e05bdb052bd11a3f6b",
+    "displayedText": "Fancy adds ears while Wiggly adds a tail.",
+    "displayedTextSha256": "e31e32fca8bb9f62a7a1e738b9dd474b3af5aded157bdee434d65e628bab0d6c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-29-cheekys-shadow-show::8": {
+    "audioPath": "/audio/production/en-US/guided_page/their-giant-shadow-dinosaur-bows-to-the-pals-21a585f683.mp3",
+    "audioSha256": "d8ee14af30bc741abca1635a4b6c35f61b20b816cabf8add8ecd5169efdd9f5f",
+    "displayedText": "Their giant shadow dinosaur bows to the Pals.",
+    "displayedTextSha256": "159688bf6b801c3393e65466e5968cdddfe0779a62f8df3f68a28a140c1d6b4f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::1": {
+    "audioPath": "/audio/production/en-US/guided_page/dozy-agrees-to-guard-one-round-melon-e96ab23943.mp3",
+    "audioSha256": "a4209b58983743a8179465f048f7185dc9be1970604f9c3b4000ce19a23a9cd7",
+    "displayedText": "Dozy agrees to guard one round melon.",
+    "displayedTextSha256": "168965e9a6b40da564cd1d719308561fa329cb9b10395fd8d058568602b7a8f2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-wedges-it-beside-his-blue-pillow-9d94a87cc1.mp3",
+    "audioSha256": "515fcaf2f74a60f8fcce10fded5adefaf19ba456e359695c03af58e5a8d2da70",
+    "displayedText": "He wedges it beside his blue pillow.",
+    "displayedTextSha256": "79381388fa0ad7f4beeb118bdd3d238415ce1165570e363fd612dae7077d9638",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::3": {
+    "audioPath": "/audio/production/en-US/guided_page/dozy-stretches-the-melon-nudges-the-pillow-away-bb4d613df3.mp3",
+    "audioSha256": "14b08d119a8a4a9fd0e73d491f4f41e714964c0fc3efccd49fca9e81e01fab32",
+    "displayedText": "Dozy stretches. The melon nudges the pillow away.",
+    "displayedTextSha256": "fb9029c5e443d9ffb2a645519a78f6603f10e5bd8d10acfe922fb522b2ace4bd",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::4": {
+    "audioPath": "/audio/production/en-US/guided_page/both-roll-down-the-long-meadow-a94255b50d.mp3",
+    "audioSha256": "023c1b80c23f5d17e7c377732495a5570147ec11722696fcac683d071b1bb0fe",
+    "displayedText": "Both roll down the long meadow.",
+    "displayedTextSha256": "4776baeffc6df01c2bccb2fc4c8f599f746facaef453fe8dc9faa6684bd2cefc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::5": {
+    "audioPath": "/audio/production/en-US/guided_page/zippy-chases-them-but-bumps-the-melon-faster-e7a2d7745f.mp3",
+    "audioSha256": "2659bf3c80aec75d987241f79bd848758e7af8ae551c570950bca0adf9cc23c3",
+    "displayedText": "Zippy chases them but bumps the melon faster.",
+    "displayedTextSha256": "d1f7efe5cc32cbfb537f220a3f69c3bfe474cab9a0491ec3c524e46ed7b68f40",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::6": {
+    "audioPath": "/audio/production/en-US/guided_page/dozy-walks-toward-the-narrow-grassy-dip-ahead-28cbd214ca.mp3",
+    "audioSha256": "6c69f61093ade30204a5482f016280c5d90e631b46cbc1251329801a9b7e7fa6",
+    "displayedText": "Dozy walks toward the narrow grassy dip ahead.",
+    "displayedTextSha256": "8246b7a9d214cc661f8090d199d8161696c73402ee3da80704154da31f38f94a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::7": {
+    "audioPath": "/audio/production/en-US/guided_page/he-places-his-pillow-across-the-dip-5feb5ca32f.mp3",
+    "audioSha256": "904e63407fc8ac8548d16bc7efb43f929d0c2d7843fe677399d6de6f81b07b4e",
+    "displayedText": "He places his pillow across the dip.",
+    "displayedTextSha256": "79fadefe90d5376f09573f7630eb3a2d546a25e4437a3664af2ca43c2a2d1d81",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "dino-pals-30-dozy-stops-the-melon::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-melon-stops-gently-beside-sleepy-dozy-fa9e8aecd6.mp3",
+    "audioSha256": "1c162bbf4b786395e81485e17109b1ef07449ff1709d8798b11ad840d74be19b",
+    "displayedText": "The melon stops gently beside sleepy Dozy.",
+    "displayedTextSha256": "77e23d8028e9fe2de3550c5aa3fae12224c6a5edf7fcaec43bac7f65884c4f3c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "first-facts-a-01-look-at-the-colours::1": {
     "audioPath": "/audio/production/en-US/guided_page/an-apple-can-look-red-a-robin-has-an-orange-red-breast-c1e169dd14.mp3",
     "audioSha256": "79d653d2a9c889c33aec0cf1fc4843c1ef7dd04d9e6da93561bb7d17e9989799",
@@ -9074,6 +9634,566 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "c8250bcdda02d96be12c506659cd836df8c524998e91d0e316634154b69eb2ca",
     "voice": "en-US-Chirp3-HD-Leda"
   },
+  "meadow-pals-26-muddys-cool-wall::1": {
+    "audioPath": "/audio/production/en-US/guided_page/muddy-wants-a-cool-mud-pool-8ef7002816.mp3",
+    "audioSha256": "02be53c4fc20a466599c559356909b302a5900230f37f56dc65ebd7962a0071a",
+    "displayedText": "Muddy wants a cool mud pool.",
+    "displayedTextSha256": "4c5a7fc831f2114e3c57054769682610af74c2317046ce3146cc2330f6a5102d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-stacks-wet-mud-blocks-1b1047ffd9.mp3",
+    "audioSha256": "c4faa6f1afbbd9520ce0def489772b42092fbd6b349cc4d4ab20d7dd4f335548",
+    "displayedText": "He stacks wet mud blocks.",
+    "displayedTextSha256": "0ec11d0387d5e8a2cb8f239eef448c970d6824effd2643f962738d49877954ef",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::3": {
+    "audioPath": "/audio/production/en-US/guided_page/the-soft-wall-slumps-down-ac3730378c.mp3",
+    "audioSha256": "9131e694fb93065df8999c476e13ba33e6007e1547a1544b298ced9e3d808a02",
+    "displayedText": "The soft wall slumps down.",
+    "displayedTextSha256": "9dd8d1ec4d8927b5435985ff474fb0bae4e7bf84ac2b6ecb3c8dd6012b295191",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::4": {
+    "audioPath": "/audio/production/en-US/guided_page/sunshine-warms-the-open-pool-50c4dee664.mp3",
+    "audioSha256": "44094eb02cb14573764d38bec2b5bbd30c8c1a79e4826fd20f49a835c32a993f",
+    "displayedText": "Sunshine warms the open pool.",
+    "displayedTextSha256": "fd2d2831213bb4cd405caf26b312c975f6bf0195c64f90f04e6ffb35db0a00a8",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::5": {
+    "audioPath": "/audio/production/en-US/guided_page/muddy-dries-new-blocks-43bec405cc.mp3",
+    "audioSha256": "d93cadb8a7a10ce533c9a888a6a2e2b5d8b00ece3f59b8596a6ebcfdc22b5b76",
+    "displayedText": "Muddy dries new blocks.",
+    "displayedTextSha256": "9c1e73d342ebec50216f12f90ec0a085c23f43815c323bcbb5e632bc49069fdc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::6": {
+    "audioPath": "/audio/production/en-US/guided_page/he-stacks-the-hard-blocks-ae64d6540a.mp3",
+    "audioSha256": "44264a83c79885c1c8c9f91666707b97cec8bddcc048a3cf2a2368e9e49ea1bd",
+    "displayedText": "He stacks the hard blocks.",
+    "displayedTextSha256": "5de0666c724cf75a0e39eaad723103adef34f317199095ec53db8df5bbf6584d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-wall-makes-cool-shade-9234ed0fc9.mp3",
+    "audioSha256": "01aa4fb63504808e862cd7fa63c1b4b6e37429a75fd4ec003f8ea9018d7bfed6",
+    "displayedText": "The wall makes cool shade.",
+    "displayedTextSha256": "8ba26e43edae347d98fff7b7a919d20a5b1d6f9280bce3f2e406dea983dfef66",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-26-muddys-cool-wall::8": {
+    "audioPath": "/audio/production/en-US/guided_page/muddy-sinks-into-cool-mud-17799df431.mp3",
+    "audioSha256": "4c88ab6cdf986f14f5103d893905f5b43c9ab5007e738a4b088645fe7084fc34",
+    "displayedText": "Muddy sinks into cool mud.",
+    "displayedTextSha256": "548c5a2f78815aeb6a0ecf7f7731c49f527c99f4357c6d20af9dafa4a7797556",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::1": {
+    "audioPath": "/audio/production/en-US/guided_page/splashy-builds-a-reed-boat-1e1b072d8b.mp3",
+    "audioSha256": "d2e86604133e100cec132ab12f3bdb1f3bb3c1def161f429ea5e46a369f61a28",
+    "displayedText": "Splashy builds a reed boat.",
+    "displayedTextSha256": "37576c3bb7e7d3f4af89a9b9e12272540c41d22c2e4f17e2ef7c7dd5335c8888",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-sends-it-across-dc3c80c5fe.mp3",
+    "audioSha256": "9b0bd2cb53abde73d252656c4c775ac6509e4d1e7035422f4e7901f2ca000ee8",
+    "displayedText": "She sends it across.",
+    "displayedTextSha256": "5507fa5707026007de50b3d359341f213a4de2e4c2eed61f1f2c2b7b1ccc7d24",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::3": {
+    "audioPath": "/audio/production/en-US/guided_page/wind-spins-the-little-boat-1ba2a004d6.mp3",
+    "audioSha256": "9bb909284b0219cd8696b780617e4bd28556b993b5033fa475d7e6b6b569b7b8",
+    "displayedText": "Wind spins the little boat.",
+    "displayedTextSha256": "99c366ce510e5919a797827ab1c3811338bfe82c380de350c628fd8051c3ccad",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::4": {
+    "audioPath": "/audio/production/en-US/guided_page/splashy-pushes-it-harder-fa2fead0a5.mp3",
+    "audioSha256": "a93713fa7f5ff6075ad64ee9df882104035c13540a01f9047da525dd298e8eae",
+    "displayedText": "Splashy pushes it harder.",
+    "displayedTextSha256": "e14997fd4f0485fbfaec6357798a0cc983e955600d383aed48860031dc306407",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::5": {
+    "audioPath": "/audio/production/en-US/guided_page/it-spins-back-again-fae93138c9.mp3",
+    "audioSha256": "acceaf795bdb61d62db54b673e07c0923e86e595e59fa03443f73e3b3d523171",
+    "displayedText": "It spins back again.",
+    "displayedTextSha256": "1b0899fea6850096017529a2a1d66eb1587b392c9ff5465017131828d24f1328",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::6": {
+    "audioPath": "/audio/production/en-US/guided_page/splashy-lowers-the-tall-sail-ea8ef75888.mp3",
+    "audioSha256": "957f08fd01b48c1d082babcf1ef51676246e0ae18ef93dbfcd4a75bdc4ac2dc8",
+    "displayedText": "Splashy lowers the tall sail.",
+    "displayedTextSha256": "0bb70c5cb7b3fca88672f707df79f0a076db142307616c37d292a797fec37311",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-boat-glides-straight-9e3a5c1fb6.mp3",
+    "audioSha256": "e6358e98b9bfa9d308e21f11ae6c6cadba94854378b268f0ad7e699afae5378c",
+    "displayedText": "The boat glides straight.",
+    "displayedTextSha256": "753ae2f13871143aebbe4ec6e8ba45b2c1dde376cbfe571b57a2019dc32b1a55",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-27-splashys-reed-boat::8": {
+    "audioPath": "/audio/production/en-US/guided_page/splashy-meets-it-downstream-79a0471681.mp3",
+    "audioSha256": "c706ab1d123157d7cef721e443bbbe5ddc26909a55cef9572f3af7daa0f3509b",
+    "displayedText": "Splashy meets it downstream.",
+    "displayedTextSha256": "b76ab87d590f704af74a9c183040b5356b0fd849a6cc72f803bb48c52ce35f40",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::1": {
+    "audioPath": "/audio/production/en-US/guided_page/woolly-wants-a-cloud-picture-04464b039d.mp3",
+    "audioSha256": "7c2c747b81fd8c63eac671b05d9fc0c7ea3135078d18059cb4022aaea293ea7a",
+    "displayedText": "Woolly wants a cloud picture.",
+    "displayedTextSha256": "0695ec27687c07765c06fded38b7f8325173017498b87db33aab97260ff70329",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-gathers-soft-shed-wool-2b602874d2.mp3",
+    "audioSha256": "618fda05d8ccfa6ad18619a33af695c1fbe76d959a6ec7e942a0446d1a081b73",
+    "displayedText": "She gathers soft shed wool.",
+    "displayedTextSha256": "5a6976f6528033167702f0baba857ad1d08eed3098339706652685d34291ed28",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::3": {
+    "audioPath": "/audio/production/en-US/guided_page/wind-scatters-every-fluffy-piece-c905749e88.mp3",
+    "audioSha256": "0bcaf433cf85342188c8164459b9d20b8d4aba5da90d2903e8a7231f8bfd3c01",
+    "displayedText": "Wind scatters every fluffy piece.",
+    "displayedTextSha256": "369a0aa122e76156ddeb146bd776d6be4e3d2bda0e50419f95a143dab1a74f63",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::4": {
+    "audioPath": "/audio/production/en-US/guided_page/woolly-chases-the-flying-wool-b66178989d.mp3",
+    "audioSha256": "8c6321412b40e2248895d39ceebf0f0afe08f059452d0c80c71ceb7d36614f19",
+    "displayedText": "Woolly chases the flying wool.",
+    "displayedTextSha256": "4db06635fa1cf6415a91d05a59623f96272e1275df38b0c9dcd133d79286f2e4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::5": {
+    "audioPath": "/audio/production/en-US/guided_page/muddy-spreads-thin-sticky-mud-9ede698ed6.mp3",
+    "audioSha256": "6d758bea1815088a55f751f2830b2d351a9c917ea133aa4261f643aad20177e9",
+    "displayedText": "Muddy spreads thin sticky mud.",
+    "displayedTextSha256": "a20b2fe6e2ecf18c59acbe263dfcd0909ba158ea3adf2ab5dbffc5ff217022c3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::6": {
+    "audioPath": "/audio/production/en-US/guided_page/woolly-pats-the-wool-down-05af440c60.mp3",
+    "audioSha256": "5bac812144936c5c0e499f9431a10008cb51893244e1baf485e033ee52bc80b0",
+    "displayedText": "Woolly pats the wool down.",
+    "displayedTextSha256": "c3fc699ad0d2191c7edb4a796663347d093681488eba0b54806cf44ea724d344",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::7": {
+    "audioPath": "/audio/production/en-US/guided_page/sunshine-dries-the-muddy-board-804b6fd0eb.mp3",
+    "audioSha256": "3992e07bb713950bd57de0ecc7d9329561948226c70c6b495452abd0aecad4a1",
+    "displayedText": "Sunshine dries the muddy board.",
+    "displayedTextSha256": "262e79fb4e730eb3ac286221357522e0505bfb0dcb1cfb229152721aa3837f24",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-28-woollys-wool-cloud::8": {
+    "audioPath": "/audio/production/en-US/guided_page/her-wool-cloud-stays-put-02774b16a7.mp3",
+    "audioSha256": "2ad9c47537e9e28f5ad6be2c18d798ae0dd66b10ae670db8c0efff7f2880214f",
+    "displayedText": "Her wool cloud stays put.",
+    "displayedTextSha256": "d1ea8a358c4ec4cd132fcd8aa275fc34b906d02ac6c11d699c5a19e9527a7d1c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::1": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-sees-rings-on-pond-1f8f2884de.mp3",
+    "audioSha256": "9b172fda4664a7903beb1f00c8c4acfa66ced17413e8dc854d4437dde1751afb",
+    "displayedText": "Shy sees rings on pond.",
+    "displayedTextSha256": "20c1f080427ca496fbbfa3288c283e1c2bc959237d99f785db4caf4a7874d48e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-seeks-the-hidden-swimmer-42c5717e37.mp3",
+    "audioSha256": "6bf587a182c0f1dee3b114f1214bf8396724ac7990ba6b3724f115b59d71d6a0",
+    "displayedText": "She seeks the hidden swimmer.",
+    "displayedTextSha256": "fbccc47429af4d1d5c3e8e328c17a0e176b2de3275ffa2fb4bc4f4df5954456f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::3": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-creeps-along-the-bank-11ae8e94a6.mp3",
+    "audioSha256": "6412f70615dcf3c890c27be830a5ac2b901d35445fc334471ab2a0073ea1ca96",
+    "displayedText": "Shy creeps along the bank.",
+    "displayedTextSha256": "0ca4f4e4e51cb3017a0ec7bcfee8b36a6eca132243df8d42779de5edd682c41c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::4": {
+    "audioPath": "/audio/production/en-US/guided_page/her-loose-stone-splashes-loudly-82875db3d3.mp3",
+    "audioSha256": "944b7326cf0d623eb1ca9f3cb7bececb05911dc474cf8728b04ab7585a537820",
+    "displayedText": "Her loose stone splashes loudly.",
+    "displayedTextSha256": "3855b589558576fcf6cb41bb010416ad216d2575f24611d108f7f8627efffe6c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::5": {
+    "audioPath": "/audio/production/en-US/guided_page/the-rings-vanish-at-once-4dd56b77bb.mp3",
+    "audioSha256": "0e88e41abd035acf11a39b6c099ee302961270fda25dca994ab9bcd63926bc86",
+    "displayedText": "The rings vanish at once.",
+    "displayedTextSha256": "2562bdb298ed88b09ec1b95476a58c3dc48530b7a9b1378dd81c3f9365e71bf5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::6": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-waits-behind-tall-grass-2b0f5e2f09.mp3",
+    "audioSha256": "b359f66947dfe0d2830daa32cc93939f5641004304496984fafb3a9deba56f12",
+    "displayedText": "Shy waits behind tall grass.",
+    "displayedTextSha256": "c85bc2ec0bebc1f5e53212a6d22ef3c33f3ce2e57a3bf6045844db712226fe1d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::7": {
+    "audioPath": "/audio/production/en-US/guided_page/a-green-frog-pops-up-ca708275f8.mp3",
+    "audioSha256": "f2c5da203da87c1ff4d534a948dae6b2b4f5aed6bd87e2e7a5a3428d554490b5",
+    "displayedText": "A green frog pops up.",
+    "displayedTextSha256": "59e0d4616bd33e221f7b21a6794461591e3f7fbf30b48d2f868e42ad5c748f9d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-29-shys-pond-rings::8": {
+    "audioPath": "/audio/production/en-US/guided_page/shy-sees-its-bright-leap-2c703d6e91.mp3",
+    "audioSha256": "793ded359540ae3408211e721f6f9e8ba47fc51d16cbbcf8d33439e7cdb229bf",
+    "displayedText": "Shy sees its bright leap.",
+    "displayedTextSha256": "303a6d4b951ac8e26d5b7682ddba98b9f26f64786dd110455357d167221d9c31",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::1": {
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-finds-loose-red-yarn-6bb98294fb.mp3",
+    "audioSha256": "25ddb45baf0273c03b75524dd47f229be97ebd724ccf64771356a831ce455717",
+    "displayedText": "Cuddly finds loose red yarn.",
+    "displayedTextSha256": "75b70cc82e61c41be2b82c86bfa6a35c9b6f7bc1f2c4ee5ffe31808b605d395d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-wants-one-round-ball-fcea4aadb6.mp3",
+    "audioSha256": "8364e139ea9c2cf5fd31547600a23b32783e9f257fb817137435c2837f529766",
+    "displayedText": "She wants one round ball.",
+    "displayedTextSha256": "ac0a1b9562d3269528060c26eac6ca5558dffb8a5b3991fb6c2c9843d029aca4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::3": {
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-pulls-the-long-strand-9af13b020b.mp3",
+    "audioSha256": "356e02e2e543252464e9f87b90959d691e8ea228332dd506e8247cf40d508e39",
+    "displayedText": "Cuddly pulls the long strand.",
+    "displayedTextSha256": "11d26dc01338fcd7bd379a57a00550bc6bd4d2e5f8a678f0d990fa4fe4ff553b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::4": {
+    "audioPath": "/audio/production/en-US/guided_page/three-knots-grow-even-tighter-260a09b100.mp3",
+    "audioSha256": "209dd829902947a00aeaf47b4d2d3d0744470888356ed79aa17cadae596cc797",
+    "displayedText": "Three knots grow even tighter.",
+    "displayedTextSha256": "97a3b27986e445e044c312c6756addc7b817a6488926643dd3ac9c995df89f7f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::5": {
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-follows-the-strand-backward-02d9b04b24.mp3",
+    "audioSha256": "9ab65e2f54361587ce8025b3c3b6e1da41a3e5028246b1ad2c054ab8cc7ea15f",
+    "displayedText": "Cuddly follows the strand backward.",
+    "displayedTextSha256": "83d5d53fee8886423fb8d9c402b6a4034ed5af1a4c4ab7312d9ef9538c5c78bc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::6": {
+    "audioPath": "/audio/production/en-US/guided_page/she-frees-each-little-loop-9febe6a1c8.mp3",
+    "audioSha256": "e8bfb8f97fc2a909a69db0609d799ef7e48a41ed343b8090d4f302ec4d7eeb8c",
+    "displayedText": "She frees each little loop.",
+    "displayedTextSha256": "4255676eaba553678fc7eaf0a94bbe152105d71f7ff97a10c4be0a3e5f25f9b1",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-red-yarn-rolls-round-b3e85334f1.mp3",
+    "audioSha256": "ff337ec3c09f2623ecbdd530177498ddfd9b80d22db25e160cad29869cdb010d",
+    "displayedText": "The red yarn rolls round.",
+    "displayedTextSha256": "a0cc8bf58de179c2c8257d737de43b84bc2b934810f298542667de43c0471981",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-30-cuddlys-yarn-ball::8": {
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-pats-her-tidy-ball-5331863810.mp3",
+    "audioSha256": "23d36baa6bf08cb0d4fc2cbb51d03accbffb039b5e5c8b747fddf32c9291f675",
+    "displayedText": "Cuddly pats her tidy ball.",
+    "displayedTextSha256": "c74f4c8685b3c42d47416fbf62a51fa546cd7ab230e1319dc955697459a2e5e1",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::1": {
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-stacks-hay-for-woolly-e6bcd7b42b.mp3",
+    "audioSha256": "c78815a605933094d7cc525902aa4ba61e58f96610579e5b3495a8e9bfacfdec",
+    "displayedText": "Bouncy stacks hay for Woolly.",
+    "displayedTextSha256": "4e1ba6d3a7c12b44b18d7e7aeeb90ce45d85b2bec695b751ef76ea54461a62b9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::2": {
+    "audioPath": "/audio/production/en-US/guided_page/the-top-bale-sits-high-370c33bb6f.mp3",
+    "audioSha256": "c6d6670ad77ed7539cc66a867ec940cc5fd2e2fa5ce0c8fb8c9c0ea1dc97a19d",
+    "displayedText": "The top bale sits high.",
+    "displayedTextSha256": "c32d20276364c3dbd79f4786c4cbbe18e92ec0caaaef19d284478d931595d78c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::3": {
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-springs-with-one-bale-ca36646763.mp3",
+    "audioSha256": "4ef1c1a5b4c525ad4bfce2115707d60a1bceffce34d2f85791f88a9ec841443e",
+    "displayedText": "Bouncy springs with one bale.",
+    "displayedTextSha256": "b60a374c45dac433e5c7c2b40349feb2df877674064f6170a6f6dad7862febae",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::4": {
+    "audioPath": "/audio/production/en-US/guided_page/the-bale-flies-past-f20ea3de1f.mp3",
+    "audioSha256": "9ed9cf9e7d93f97998a70621ab3fb01d456aececc612179a9d7642286da6daab",
+    "displayedText": "The bale flies past.",
+    "displayedTextSha256": "df9ffda8656f15ae9571e0bd407907eb0712a1225256007a902903a2fd1ac24f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::5": {
+    "audioPath": "/audio/production/en-US/guided_page/it-lands-inside-the-cart-e2903c76b1.mp3",
+    "audioSha256": "7b4cccc9baf22fe23b1a0016d45827329299ff76a6d4e6903284c4182ba8b612",
+    "displayedText": "It lands inside the cart.",
+    "displayedTextSha256": "c691bd76760a24c9a93bd79b3b664a45d903f8d0676673c267436591f0fd919b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::6": {
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-lowers-both-strong-springs-16b2519b6c.mp3",
+    "audioSha256": "ba5a05de116ff0b5bc52240054401eadd5e8dc4709142c88a96f26d9c6bbdd37",
+    "displayedText": "Bouncy lowers both strong springs.",
+    "displayedTextSha256": "7806527c4b54064dc95d9eb68d65e3fbfde53b5945f543f71759c6fcbfff3f28",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::7": {
+    "audioPath": "/audio/production/en-US/guided_page/she-makes-one-small-bounce-5296c5d42c.mp3",
+    "audioSha256": "5b80d0c4ca9fdc67bb26794d5b7312feadd5b75a338d722fc906184f0d532d41",
+    "displayedText": "She makes one small bounce.",
+    "displayedTextSha256": "4d483b145c67bfef69338a54bf106d4970e25d26b11f8145db78c35a8266fca5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-31-bouncys-hay-lift::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-bale-fits-on-top-e2c8d5009e.mp3",
+    "audioSha256": "cb8565c36e3fc7cf70680124b036834b248f91b6cc3e74641fe6fc2c53594e13",
+    "displayedText": "The bale fits on top.",
+    "displayedTextSha256": "cbceff02046b56dee66dffac100bb260963eb2cf6621bb1281bdfe158cb9e1e3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::1": {
+    "audioPath": "/audio/production/en-US/guided_page/tiny-finds-a-giant-berry-7bdd86e628.mp3",
+    "audioSha256": "17441e45e372ffa72d11fd190055fcd3cbcd39124b92cd182afd4ec1c8aaf203",
+    "displayedText": "Tiny finds a giant berry.",
+    "displayedTextSha256": "f16c791ebb4bddea7c6d994beb734693242a57efa8f002ea847f0c7661735071",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-rolls-it-toward-home-875ecdcf19.mp3",
+    "audioSha256": "e4dc7671c5216930fd5f8885e98fe9ce160d9c5938bb0558277de29bd80ea4a6",
+    "displayedText": "He rolls it toward home.",
+    "displayedTextSha256": "86e8c6c0ca8745c60286aaa68ae0c628418d4b82e1732a53ec6413b5ca266b10",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::3": {
+    "audioPath": "/audio/production/en-US/guided_page/the-berry-meets-one-root-44698cb6f9.mp3",
+    "audioSha256": "61d45fe0d33fda06b63ee9a9247b95e1ca2d4e74760527a4bf85ccc04b9416c1",
+    "displayedText": "The berry meets one root.",
+    "displayedTextSha256": "c3b3f5ce5dea649658e7a6a50e2da551ed50469a1f22861ade55698be6ee6599",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::4": {
+    "audioPath": "/audio/production/en-US/guided_page/tiny-pushes-with-both-paws-389189b1af.mp3",
+    "audioSha256": "a4c7f3c5bc6b5845dfc69aef4b780774f02f6e121e91402ff6691eb739d670fd",
+    "displayedText": "Tiny pushes with both paws.",
+    "displayedTextSha256": "d1879e28fd478a2e1779947f4369d5e1f494b6cef8d08a11549a1516505ccff4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::5": {
+    "audioPath": "/audio/production/en-US/guided_page/the-berry-rolls-back-downhill-382d49891c.mp3",
+    "audioSha256": "94e88852ceca099fcdc097e0ed8295c8f103b5f8f588dc6908275794145d6a1b",
+    "displayedText": "The berry rolls back downhill.",
+    "displayedTextSha256": "979ef252219e7b9b246839515a93a3979263b1762afdd977dccd120218e034aa",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::6": {
+    "audioPath": "/audio/production/en-US/guided_page/tiny-wedges-a-flat-pebble-d39bee5ed3.mp3",
+    "audioSha256": "c270ddf8001e3c41ef03e0a4f157c03d41cad9ced3a4a4be1b09d4f1360c9801",
+    "displayedText": "Tiny wedges a flat pebble.",
+    "displayedTextSha256": "c9afd479d9de1d664d8ec1666dae0a6783677ecd3a72ed555b5562cb5aa67c65",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::7": {
+    "audioPath": "/audio/production/en-US/guided_page/he-turns-the-berry-sideways-706d6f958e.mp3",
+    "audioSha256": "da864989deee36819f0d9e4a7fcb67273e1afef2af7dddc799e9888d3b54d8f4",
+    "displayedText": "He turns the berry sideways.",
+    "displayedTextSha256": "6f9595345c9ae138db692c4a1e0128cd3b773046b5920220fbb0625a06e72a53",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-32-tinys-giant-berry::8": {
+    "audioPath": "/audio/production/en-US/guided_page/tiny-rolls-it-past-safely-3052602182.mp3",
+    "audioSha256": "010b18601e609762c77d8a4136292cd299338098546c3481537492ffcd065d21",
+    "displayedText": "Tiny rolls it past safely.",
+    "displayedTextSha256": "4f111aa2cef214f21d36475b3a64ff317c6aef7fb6450fe604e1ddd56dc97161",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::1": {
+    "audioPath": "/audio/production/en-US/guided_page/a-beetle-waits-on-path-de9f2af3d8.mp3",
+    "audioSha256": "7764fd5d4eb7e77755f4754382b98a89055094d7a4d584742fd8afcbf88d4408",
+    "displayedText": "A beetle waits on path.",
+    "displayedTextSha256": "6d34cc446b05f51462630068281053e8ab3ae83a2340315e52c53bb1cbf25eac",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::2": {
+    "audioPath": "/audio/production/en-US/guided_page/brave-wants-it-safely-across-3e7ba034fb.mp3",
+    "audioSha256": "c815b285a02653aeb7bd2b9c936a577356ffee61997b9f1da6d3d744352e134a",
+    "displayedText": "Brave wants it safely across.",
+    "displayedTextSha256": "b34c3c34a027b18eb593a4069235f5f6b05c5e534e9bb85e2ce659efcfa1f126",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::3": {
+    "audioPath": "/audio/production/en-US/guided_page/brave-nudges-its-shiny-shell-965bd9c82c.mp3",
+    "audioSha256": "df80670ebefa8c1d4175a4167a235068e1c08f2ebdf83ad1b8229ae173a3c655",
+    "displayedText": "Brave nudges its shiny shell.",
+    "displayedTextSha256": "1363971262a5293146319d24fcae381657e0defbdda83a1eec0ef8df764ae396",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::4": {
+    "audioPath": "/audio/production/en-US/guided_page/the-beetle-curls-up-tight-ed3a8235fc.mp3",
+    "audioSha256": "d6b8007bcc102d6b7dad68d30c0d39c37aa593eeb04826fe904482e83bb48cc0",
+    "displayedText": "The beetle curls up tight.",
+    "displayedTextSha256": "8f577edca1e6bbbbc9f8f279c184ab034bd1b8dfb411c2c27419a04a628998a3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::5": {
+    "audioPath": "/audio/production/en-US/guided_page/brave-builds-a-leaf-tunnel-b42c6eb1dd.mp3",
+    "audioSha256": "5eaf90a8d416fbb2f66caf582fb14cc50f86672ce6d728f7b69f73d3256d247c",
+    "displayedText": "Brave builds a leaf tunnel.",
+    "displayedTextSha256": "635c95883240d5bd72942ba1df06ce9092bc047b8bfc918a506f3a275b3f01bb",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::6": {
+    "audioPath": "/audio/production/en-US/guided_page/he-waits-beside-the-opening-04f0a6e307.mp3",
+    "audioSha256": "74803aebf40b879dfade1c481f4d529e75dcbdb96a3ce71f827f08ce511cf0f7",
+    "displayedText": "He waits beside the opening.",
+    "displayedTextSha256": "a27708641dc88f4972ac223cb6c101bb24edec205d6b424a19c051d1dc25f02f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-beetle-walks-straight-through-dee8a2b9ae.mp3",
+    "audioSha256": "f87650be2b849126ab62aa94a946421a6cdec8fbbe413165219f92b564c1f1c8",
+    "displayedText": "The beetle walks straight through.",
+    "displayedTextSha256": "9a0e179c553a408dc1bf3a938bdc3d6322193fa08ad8ceca7feb746b76c4a47d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-33-braves-beetle-bridge::8": {
+    "audioPath": "/audio/production/en-US/guided_page/brave-sees-it-reach-flowers-f8bb02677f.mp3",
+    "audioSha256": "ffc5c038c9696df6444370cff72499c3dc0fc789481b2a9e3c365346cb2b0f13",
+    "displayedText": "Brave sees it reach flowers.",
+    "displayedTextSha256": "20a79cfddfd998c5f4d50574d4c5dda97603afb72e563b6a7068d1cc5d969c10",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::1": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-keeps-lunch-for-noon-3758429245.mp3",
+    "audioSha256": "cb6aee3a0a82948ecc260d988d56616c5a886799f11d3d5d37b64a57ae929605",
+    "displayedText": "Grumpy keeps lunch for noon.",
+    "displayedTextSha256": "54c201595ea847de5710033f80aa5d262eb3a988f6dd17461bef32ede9d48a0e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::2": {
+    "audioPath": "/audio/production/en-US/guided_page/he-marks-the-morning-shadow-993ac9ab78.mp3",
+    "audioSha256": "74427ee24508ee050f4ca7c6098dc402e66b156573871b99e225375c8cc37ba5",
+    "displayedText": "He marks the morning shadow.",
+    "displayedTextSha256": "26aa2e356019e8382aafd4f895e38c0a7f8b188e1801de11adf4f60c29ea1995",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::3": {
+    "audioPath": "/audio/production/en-US/guided_page/sunlight-reaches-the-basket-ea71f02877.mp3",
+    "audioSha256": "7068f52e0cdedbedd16818424871f31ee11eab02d964d3c90ea67995a2eb83d9",
+    "displayedText": "Sunlight reaches the basket.",
+    "displayedTextSha256": "f38938525504b036be3136475c22f2029a973055965d7afe138acd1d14c27c32",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::4": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-drags-lunch-into-shade-ce9bce59fc.mp3",
+    "audioSha256": "48724645b0842cc662ce5709d711297de68d81246ac9086068f10f6c302b1329",
+    "displayedText": "Grumpy drags lunch into shade.",
+    "displayedTextSha256": "0676e00cd51f1a335301698431bbcc03b7a1c91eccb0ffcc42020a69640968d7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::5": {
+    "audioPath": "/audio/production/en-US/guided_page/the-shade-moves-once-more-facb41f67e.mp3",
+    "audioSha256": "079373ad1678e58edb97c2faab648d41f4fcd09e2e769f5915c186584e42e90e",
+    "displayedText": "The shade moves once more.",
+    "displayedTextSha256": "ac3cadb0eba719354ed4c5a9c64fddb1a93cb3b2970236ca619b6114c60f3b9d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::6": {
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-watches-its-steady-path-a5017120e7.mp3",
+    "audioSha256": "eac159635931a54623dea0701f154f288d0aa65a7d8761d1ff48ba2e86364997",
+    "displayedText": "Grumpy watches its steady path.",
+    "displayedTextSha256": "09236629e2c5cbc71337ebb84f9d20575dce3f328c5bdbf391414854a45a2ad7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::7": {
+    "audioPath": "/audio/production/en-US/guided_page/he-adds-one-noon-stone-42938a8b4a.mp3",
+    "audioSha256": "56b68085204c1a32b627228bfad9b3a90cd32b23ff8b64517f31809f50a62c85",
+    "displayedText": "He adds one noon stone.",
+    "displayedTextSha256": "2d4d5e3f3729c6fcc050b36f8a48c42aaf0d033e9d3052dbec1772b3d3f6faa6",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-34-grumpys-sun-clock::8": {
+    "audioPath": "/audio/production/en-US/guided_page/his-lunch-stays-cool-there-80726ca4a4.mp3",
+    "audioSha256": "fd0b6bba74324995e78e2a89a0952ba26b645acda3a38add44d5fac6295f8399",
+    "displayedText": "His lunch stays cool there.",
+    "displayedTextSha256": "e825d21a1bff23921050f8fdff753826fec41999985859570c699e9483a98b98",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::1": {
+    "audioPath": "/audio/production/en-US/guided_page/giggly-pulls-a-flower-cart-6e3dda2e79.mp3",
+    "audioSha256": "5ddbacde39bc1633e3f5128dd38f766b1c2b168f5feedc9c5d23e52e4caa4578",
+    "displayedText": "Giggly pulls a flower cart.",
+    "displayedTextSha256": "a955a3919ae39e2cef1f3654ceea7442100bf1c83fd0353a672be6a5b6d9af71",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::2": {
+    "audioPath": "/audio/production/en-US/guided_page/one-broken-wheel-bumps-hard-412d486b6d.mp3",
+    "audioSha256": "e7cc5d4888ff3d7f374d49a8c854f24b460d30d0ae833b27e9e1082fa2f8046c",
+    "displayedText": "One broken wheel bumps hard.",
+    "displayedTextSha256": "cdabab7e14c349c747ffac9079da1eb30641bbd8af8b1117c213fae3be8fb6ab",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::3": {
+    "audioPath": "/audio/production/en-US/guided_page/giggly-pulls-much-faster-81ab3146d2.mp3",
+    "audioSha256": "54548f86e8a63529c6a652033256686b987eb6bbaa3e458e97d079de577153cb",
+    "displayedText": "Giggly pulls much faster.",
+    "displayedTextSha256": "b9104157229c659c56cd10f217145024a56f3d4ef5aa9cc1d8722a46e0a0840b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::4": {
+    "audioPath": "/audio/production/en-US/guided_page/flowers-bounce-onto-soft-grass-f9d997c874.mp3",
+    "audioSha256": "c48173add3edafe87d06693e53d4945e58dc32c59d08e511eb7997e3da2c9387",
+    "displayedText": "Flowers bounce onto soft grass.",
+    "displayedTextSha256": "aff96bec26904f5dc8baac7a6a489006d1e8b93e0c1ca94c45ff27aaaea0860e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::5": {
+    "audioPath": "/audio/production/en-US/guided_page/giggly-stops-and-looks-closely-8a83beefd9.mp3",
+    "audioSha256": "f3557c5ad8b00aac1ada737b3b65feef4fa787c15e58731c0af85450bb677dc1",
+    "displayedText": "Giggly stops and looks closely.",
+    "displayedTextSha256": "ab9f8ee46a8caf53a1f0164421180e2f539a677b2dd037c1f66f5b812ab94848",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::6": {
+    "audioPath": "/audio/production/en-US/guided_page/a-round-wood-slice-fits-4bf7659ec5.mp3",
+    "audioSha256": "91cd0cf0731478c2cc503a81119f829f65d74464e4694bd97767b434bfb6d944",
+    "displayedText": "A round wood slice fits.",
+    "displayedTextSha256": "9748f3b94726d528ec4cb89774afdfff2e1cb3374f4050f732f1b6f71e22bff3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-cart-rolls-without-bumps-f811b33437.mp3",
+    "audioSha256": "89491de7e42badd3cd7d7880ae57466cce270391674c8406d9189c716522dbdc",
+    "displayedText": "The cart rolls without bumps.",
+    "displayedTextSha256": "fa846f9828b3b2f08c1c81a1af66681a3fe446cb0620a9b36c8c757cc33cc991",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "meadow-pals-35-gigglys-round-wheel::8": {
+    "audioPath": "/audio/production/en-US/guided_page/giggly-delivers-every-flower-2261cd9a8c.mp3",
+    "audioSha256": "ebd3aec94a312c6a3e0896f1dda4c8aa4514914cf8a7619f88585aafd6eb5a53",
+    "displayedText": "Giggly delivers every flower.",
+    "displayedTextSha256": "06f1a9ce6652ba1184cd27335bc711fc1d05b205ae2e1afdde7a07cf11535e45",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
   "moonwood-tales-c-01::1": {
     "audioPath": "/audio/production/en-US/guided_page/pip-kicks-a-tiny-gold-stone-on-a-moonwood-path-fa53f47f9b.mp3",
     "audioSha256": "e5204264b78415d7f9cb1adb190a91f70e9bfb6188dfecaa1c845d098e8a9eff",
@@ -11207,6 +12327,706 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "fa29ffc6bdefc9374c95f6c3fb37dbf20ab6de8465f9d447f7832e81514ad88a",
     "displayedText": "Burrow smells familiar soil and uncovers a tunnel below the roots.",
     "displayedTextSha256": "7541275d794462d4a5b49218155f287acbe041c4344257280d5520bf7c26f38c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::1": {
+    "audioPath": "/audio/production/en-US/guided_page/a-bell-rings-under-hollow-oak-although-nobody-pulls-its-rope-f2824b764c.mp3",
+    "audioSha256": "edc21e403cb64f5220a8afc717b614606e8ec026819e5d28649743dbb648697d",
+    "displayedText": "A bell rings under Hollow Oak although nobody pulls its rope.",
+    "displayedTextSha256": "d7c6e84bf519302002cab684ddcb690b394dd611c7f4654e7b3e18b50777a918",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::10": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-hangs-one-fallen-lantern-beside-the-silent-bell-f5d4038319.mp3",
+    "audioSha256": "d9f9c39964ddd00c8045a385059645bea1216cec8a897648b1c74ed25fa3b91a",
+    "displayedText": "Pip hangs one fallen lantern beside the silent bell.",
+    "displayedTextSha256": "348f7e97ac4ba3ff7f9c9d619047406ebcf1ebe2eeb6ca1679d564132084e183",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::2": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-must-quiet-it-before-the-hanging-lanterns-shake-loose-3c3228a4b3.mp3",
+    "audioSha256": "4eb6d905da88957315ecb9efe865081fbb2ba183d794f5cbb4d6e53fdb1cbda1",
+    "displayedText": "Pip must quiet it before the hanging lanterns shake loose.",
+    "displayedTextSha256": "82abfd559f6c4d320969fbf254f5acefb317cd0668d8a21966a5709f8f59fa59",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::3": {
+    "audioPath": "/audio/production/en-US/guided_page/he-holds-the-rope-still-but-the-bell-rings-harder-37534db015.mp3",
+    "audioSha256": "ea16f17f7accbf9019307e6b1987ff06b6e0cad6fcec9956e11b28ba4ac14e79",
+    "displayedText": "He holds the rope still but the bell rings harder.",
+    "displayedTextSha256": "4fcceebca83e7951977bd3fcdba000de6b94a4cdc291669fb4f5f1792e9f394a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::4": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-feels-each-chime-tremble-upward-through-the-roots-8fa47e4303.mp3",
+    "audioSha256": "a279d3f3247fd1f6b7b4603320dcb4e13141a69d893a725540c1be01592aa00f",
+    "displayedText": "Pip feels each chime tremble upward through the roots.",
+    "displayedTextSha256": "bc02bae62b93ffb0a90d5917f503c82a4ff9ea3f0f42c7d6b1042d86a914ddd0",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::5": {
+    "audioPath": "/audio/production/en-US/guided_page/burrow-uncovers-a-buried-branch-tugging-the-bell-s-lower-rope-559caf5230.mp3",
+    "audioSha256": "cb13e6f1e58bdedc11fba4869ab04228ed7929120b001b9d2098a01dd5a1e526",
+    "displayedText": "Burrow uncovers a buried branch tugging the bell's lower rope.",
+    "displayedTextSha256": "dfe5865005b907c5a939898b61dd9074400983e35969c1b1f0ee86d7df5ce47d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::6": {
+    "audioPath": "/audio/production/en-US/guided_page/wind-bends-an-old-tree-and-pulls-that-branch-underground-2cac551863.mp3",
+    "audioSha256": "96a12bbee66769af8de0eeeeb6324e9c8c76bf6cdacd6ebcd282ef18fa21009c",
+    "displayedText": "Wind bends an old tree and pulls that branch underground.",
+    "displayedTextSha256": "bd04e165406e176e56de1fb205b71650d2a94ca6182683f9be9e8ebbd0e1a66c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::7": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-wedges-the-branch-free-but-one-gust-knocks-it-back-bde7f57a44.mp3",
+    "audioSha256": "6b10a1805476107dc5a4d7de4d0c6f999fb629069336636ec959a03b11cbdf64",
+    "displayedText": "Pip wedges the branch free but one gust knocks it back.",
+    "displayedTextSha256": "051700fd049b43be5c7eff985140f6adc5fbf39127aa0ccb132d521b5d95bac3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::8": {
+    "audioPath": "/audio/production/en-US/guided_page/he-loops-the-loose-rope-around-one-smooth-root-peg-3cc3f2fcc9.mp3",
+    "audioSha256": "eb835703a2b4e5bdc8672c679e7d50c804b6cb7fa155c356216fcbacf38b4464",
+    "displayedText": "He loops the loose rope around one smooth root peg.",
+    "displayedTextSha256": "021df5df7b73e950bc17cd22bc100fbf34b61eeb4b21f9ade29545de889535b9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-26::9": {
+    "audioPath": "/audio/production/en-US/guided_page/the-wind-bends-harmlessly-while-the-bell-remains-still-db672b0b79.mp3",
+    "audioSha256": "4f8abd6215b6684bef0709adaa6481f85efe5abca40bd3d8d94b344cc4660840",
+    "displayedText": "The wind bends harmlessly while the bell remains still.",
+    "displayedTextSha256": "bc036daf6e35ee533e97fef48a163a3b7f82b537e3115042c6c3f5cc51bf7d3d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::1": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-s-glassleaf-buds-need-one-moonbeam-before-they-close-6ee1c277f0.mp3",
+    "audioSha256": "f408558697654670185cb8bf91046d1fdf7de1d65a5a03a4a2152be92fc56c9d",
+    "displayedText": "Fern's glassleaf buds need one moonbeam before they close.",
+    "displayedTextSha256": "bd70d62a561dec7f68e9d89bdfe5e821b552db4fc62684a219e405d7b3785c18",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::10": {
+    "audioPath": "/audio/production/en-US/guided_page/tiny-moon-shapes-shine-across-stone-s-broad-hands-b5d221dbf9.mp3",
+    "audioSha256": "576e1940d130f338d4f4547d5bd633d7f4d3951c90ac81f1d934c6ffb0af0fec",
+    "displayedText": "Tiny moon shapes shine across Stone's broad hands.",
+    "displayedTextSha256": "fe4fc8621d138fa18f7de77bc502b93580de3748dfa9c81003b036316dda8e7f",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::2": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-offers-to-clear-the-branches-shading-their-garden-d2313901e0.mp3",
+    "audioSha256": "abbf59c21f815fb49ee70e80510ed859a002001622d909abc96e7d667187d0fe",
+    "displayedText": "Stone offers to clear the branches shading their garden.",
+    "displayedTextSha256": "9c1af05a4a41b55c11c3104e4b509a4ddb45a6cf16d669eaeb6c16721179912e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::3": {
+    "audioPath": "/audio/production/en-US/guided_page/his-enormous-shadow-covers-every-bud-while-he-works-61ccce49cd.mp3",
+    "audioSha256": "9b0dccb7727c739a5831f4c99e3fbac2bd5add1675a1c40008aa742c29a9a345",
+    "displayedText": "His enormous shadow covers every bud while he works.",
+    "displayedTextSha256": "fe872ec1ce42390d5d30da764f50f330c1e8e91c53eb14aadf083769ef3bddb7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::4": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-moves-left-but-the-curving-roots-block-his-reach-686d8d0efa.mp3",
+    "audioSha256": "5ce7565adef9d8840c1faba306db5595f1eaccaa6064a892af7ef15a0ceac5ae",
+    "displayedText": "Stone moves left but the curving roots block his reach.",
+    "displayedTextSha256": "912a6bf77afa1f6be83bd1bd41ee51daed04390dcd803d1b35f88b78d0ad4be7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::5": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-spots-silver-stream-light-beneath-the-opposite-roots-ee3ab01e58.mp3",
+    "audioSha256": "60cf21442279ef5dd91cb0c55b4c224dd41375c71bc07f387444adaff93620e5",
+    "displayedText": "Pip spots silver stream light beneath the opposite roots.",
+    "displayedTextSha256": "b09fb41c95fb6f8a66cf2f8dfbdd956e4c982488ba8b66b370aae4f5ac8e98a5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::6": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-carries-one-flat-wet-rock-beside-the-stream-c559635491.mp3",
+    "audioSha256": "ec450215bc0394f867ae0e73e0982214d4a0c7a263d6441ac917baa6bb321df6",
+    "displayedText": "Stone carries one flat wet rock beside the stream.",
+    "displayedTextSha256": "0e0bb04b7e3a3dfe4c51f25c67cda00764c7f0c70c4bff4e6d99bd1e4a7ba4ec",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::7": {
+    "audioPath": "/audio/production/en-US/guided_page/his-first-tilt-sends-the-moonbeam-above-the-buds-87052ffbc8.mp3",
+    "audioSha256": "f848609acf80050a923581a4969083b54eda638fa7e0798a6f827c24cece81d6",
+    "displayedText": "His first tilt sends the moonbeam above the buds.",
+    "displayedTextSha256": "92bed27e8e0505f5c3c58d607483b220e2b75a4130f11649de816f93b0e1c339",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::8": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-guides-stone-s-hands-one-finger-width-lower-50cf34888a.mp3",
+    "audioSha256": "b7665a3a47798ad03fd6dcca58520a1765f72c6faea1dddb08921eb0bd51ec0c",
+    "displayedText": "Fern guides Stone's hands one finger-width lower.",
+    "displayedTextSha256": "6caf581cdd79ddac15b33aed5050c3bd6e127690b8066e8cc498e078f943b3c3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-27::9": {
+    "audioPath": "/audio/production/en-US/guided_page/reflected-moonlight-opens-every-glassleaf-bell-c9dd9491ac.mp3",
+    "audioSha256": "f20c6efadb5292e578848ffbcc988f95347a438b1b98d91d7b9d91df74f60982",
+    "displayedText": "Reflected moonlight opens every glassleaf bell.",
+    "displayedTextSha256": "82515037795cda649991b3f271bc6d09b22ce8231b9fd6696fb467f6c881b7a3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::1": {
+    "audioPath": "/audio/production/en-US/guided_page/a-silver-root-curls-across-hollow-oak-s-front-step-751cd29d4a.mp3",
+    "audioSha256": "377b41ffc369bf66c8d7df6b74bed1d2b010f189cc336fe0e12d24bb1d61b41e",
+    "displayedText": "A silver root curls across Hollow Oak's front step.",
+    "displayedTextSha256": "8a2a3cca1b559ea80651ec26cc7b09682f3af006b9d9fc2dd79e7d45135e1c8e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::10": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-s-class-enters-beneath-the-living-silver-arch-1f80dbd58c.mp3",
+    "audioSha256": "64e8684d1e02a13a8b64e3fd1db3422b6c1028b031f61d0544ac71c5ddb1d698",
+    "displayedText": "Luna's class enters beneath the living silver arch.",
+    "displayedTextSha256": "5e820ac2070889a919ef8526720914969ba15cc896fe5deddec15260c2e313a7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::2": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-hears-it-hum-every-note-the-forest-makes-245bf0376e.mp3",
+    "audioSha256": "570997486c6552c11bdef996e5efff2897180bdb9e2a6745e549c39131a2abbf",
+    "displayedText": "Fern hears it hum every note the forest makes.",
+    "displayedTextSha256": "af9ca338c198caa28e394bee525ee596ed753ea3b2d4546e855e032a41768935",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::3": {
+    "audioPath": "/audio/production/en-US/guided_page/she-must-clear-the-step-before-luna-s-night-class-709ad105d4.mp3",
+    "audioSha256": "560cee3d9b4d7292967dcf2efda4c471a3614cfe95bdc4aa63519743e174bec0",
+    "displayedText": "She must clear the step before Luna's night class.",
+    "displayedTextSha256": "ecf5950fc3ef35d3dee6aadff88d673664407efa18a4f411fdf8221c9b98a138",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::4": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-sings-calmly-the-root-copies-each-note-with-a-loop-6849fbf897.mp3",
+    "audioSha256": "8a12364fa34710f27d63b1275a77a18b884b48d703fa61772bf7c22bdd6aa046",
+    "displayedText": "Fern sings calmly. The root copies each note with a loop.",
+    "displayedTextSha256": "370913f164977f76ba2fbe4cf054e0c6abacd8ad93c66058d4ba84f98be52c30",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::5": {
+    "audioPath": "/audio/production/en-US/guided_page/more-singing-ties-three-tight-loops-around-the-rail-a38297dc4f.mp3",
+    "audioSha256": "7a2516e7e817c6d4f152e8a5adbab400c28a5422a7e32d65c1d1b20753e367c4",
+    "displayedText": "More singing ties three tight loops around the rail.",
+    "displayedTextSha256": "ff00882bef93ed133b6f2fbbe2ccf44535c1bb1c6ec46e82dfcf29785964f31b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::6": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-notices-the-root-rests-whenever-the-clearing-falls-silent-0351789fed.mp3",
+    "audioSha256": "7c0f661c07257ae1aaea2dc448f990b6bfdf09b202b532c859b6016532acd898",
+    "displayedText": "Fern notices the root rests whenever the clearing falls silent.",
+    "displayedTextSha256": "5f7722be6d0b9cb3cb15fafb2fedf38f1e3b4a86f7b9fb462ee31096e54fa511",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::7": {
+    "audioPath": "/audio/production/en-US/guided_page/she-taps-once-beside-an-empty-wooden-frame-b4dd1d5776.mp3",
+    "audioSha256": "9c023378aadd4e0b86820471345f02d197b246d9946c278a95f2f139e5dd3ca7",
+    "displayedText": "She taps once beside an empty wooden frame.",
+    "displayedTextSha256": "c0c3675df8cb35477192f80815450ad926715aba904aa6162ad6b0f187129ae2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-root-follows-that-single-vibration-instead-of-many-songs-db0c384e16.mp3",
+    "audioSha256": "595b07edafb87a2a919a0bf6927c8e875a2d3b644cf8c34948946932d4679ceb",
+    "displayedText": "The root follows that single vibration instead of many songs.",
+    "displayedTextSha256": "599f0812ffb72d5af04fc14a2789ac9ecebe5afe9a6577c65016a1c51582eb9c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-28::9": {
+    "audioPath": "/audio/production/en-US/guided_page/three-spaced-taps-guide-it-around-the-frame-0a62d9189b.mp3",
+    "audioSha256": "24580947fac3aa08abd443d1fcdd8dc72f82a2e2ccd65f7735b284fe920d520d",
+    "displayedText": "Three spaced taps guide it around the frame.",
+    "displayedTextSha256": "6d4d512ba506a6055e12d78711d4f55d94b1d6c560847cab13b3ae3723a8ac1c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::1": {
+    "audioPath": "/audio/production/en-US/guided_page/rain-threatens-fern-s-ten-dry-moonberries-3893746055.mp3",
+    "audioSha256": "0ca8ec29167231082f8aa225597aedc794e2c5c70fcd38746ec0d39f3e223a94",
+    "displayedText": "Rain threatens Fern's ten dry moonberries.",
+    "displayedTextSha256": "c5f72a464188a15e196aed6818d214e548bcf05096d250a232d1727b7526e5e8",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::10": {
+    "audioPath": "/audio/production/en-US/guided_page/rain-drums-outside-while-ten-berries-fill-fern-s-bowl-ac8d88c9f1.mp3",
+    "audioSha256": "776c1b0bd0da8aa4a1220654b36bfc83879b7abfb9f0957d70a0a0d0986beab0",
+    "displayedText": "Rain drums outside while ten berries fill Fern's bowl.",
+    "displayedTextSha256": "961d862d0d4a89c2cbc18631de5758adb0e5c65ebf22aa3fde4c9354cbadc4e2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::2": {
+    "audioPath": "/audio/production/en-US/guided_page/wren-promises-to-carry-them-inside-before-the-first-drop-4d863a37e2.mp3",
+    "audioSha256": "d40b61a8cfada28cb41ae8a493af2d93ce54b8f06686de85cdcea56893e45bee",
+    "displayedText": "Wren promises to carry them inside before the first drop.",
+    "displayedTextSha256": "5d0cd036c892fb756ea635ba179239d4ac2fb5ad6ef42ef065899f9157ca7f41",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::3": {
+    "audioPath": "/audio/production/en-US/guided_page/her-pocket-spell-holds-one-object-without-weight-aa54237850.mp3",
+    "audioSha256": "02c09124dc2bce92e4ce844192697c5d70dea36ae007481608dcd960d36f1432",
+    "displayedText": "Her pocket spell holds one object without weight.",
+    "displayedTextSha256": "f090a0fc28032216773f1344f4419890c6d735593d2a104a0138126fbbbddaef",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::4": {
+    "audioPath": "/audio/production/en-US/guided_page/wren-drops-berry-after-berry-inside-c018f4e9d6.mp3",
+    "audioSha256": "6629870dc1c0e6b1c0e3478c9fd05022af836068462125a6ae20448da85da90b",
+    "displayedText": "Wren drops berry after berry inside.",
+    "displayedTextSha256": "c3bf052d3dbf19fee8ab1ce945fd2e98bb69005f3798d0866989c9f76f1390c5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::5": {
+    "audioPath": "/audio/production/en-US/guided_page/each-new-berry-pops-the-last-one-onto-the-path-d0ec1a9b22.mp3",
+    "audioSha256": "870154eecd8471ad9351d552fb629b856aaaf4daef0858f63a32c89054cb4a19",
+    "displayedText": "Each new berry pops the last one onto the path.",
+    "displayedTextSha256": "0faff0e70d4b8c1a8f8418c3777c63e93424ebf1046ea4c2b79e36b095fef9e3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::6": {
+    "audioPath": "/audio/production/en-US/guided_page/she-reaches-hollow-oak-carrying-only-one-berry-eb67f92359.mp3",
+    "audioSha256": "472b669315ba955e44a264eaeb7d23bc2ca2b68415a2f13492dd813c0c6b167f",
+    "displayedText": "She reaches Hollow Oak carrying only one berry.",
+    "displayedTextSha256": "e3203c2bcba7d9d727fbe4d55b8fbfa30c6a1c74e483fbc9b4b17ddadb85fc5d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::7": {
+    "audioPath": "/audio/production/en-US/guided_page/one-broad-leaf-can-hold-the-other-nine-together-544ae67ff0.mp3",
+    "audioSha256": "8030ed5ca010e6187e1bde5626c97ccf2b9d3897357667431092e76ed05996ae",
+    "displayedText": "One broad leaf can hold the other nine together.",
+    "displayedTextSha256": "6421541380e0ae6370f95e10f9febfa1b82c57cad0d87b8d9306c8f24d2d6153",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::8": {
+    "audioPath": "/audio/production/en-US/guided_page/wren-ties-all-ten-berries-inside-the-leaf-337bd2dd58.mp3",
+    "audioSha256": "8ed70f96bb62390b50b21fea810c376c566d3ad73c3eb25608256bd52e5af172",
+    "displayedText": "Wren ties all ten berries inside the leaf.",
+    "displayedTextSha256": "ad191a667b9dcbac8eac0c0ef3423d6c5e27677dbfb812f7e9450abe46049945",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-29::9": {
+    "audioPath": "/audio/production/en-US/guided_page/the-single-bundle-slips-into-the-weightless-pocket-e26d30f668.mp3",
+    "audioSha256": "b84e3544118859307a40dee521fa1f3d23a2afc2dfe7829d1391222cdc63caad",
+    "displayedText": "The single bundle slips into the weightless pocket.",
+    "displayedTextSha256": "16b61cdaeb1524eaefdda527c7192864f6c23bf063889aa7d5017d4be0e9f0c4",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::1": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-finds-the-star-room-mobile-tangled-after-a-windy-night-f1724a0fc9.mp3",
+    "audioSha256": "c967e8d56ad201183946997b336c0f92eb6c7dd6ac4aa08f24d32f5eb78dd2c3",
+    "displayedText": "Luna finds the star-room mobile tangled after a windy night.",
+    "displayedTextSha256": "984c6c0dfcc3fbaf9b8c203a11d26a8c5c8ee44c5718036e3adc91504b141c3b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::10": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-ties-the-window-latch-before-the-next-wind-6890f8fc78.mp3",
+    "audioSha256": "06b37ab10ec72cd97958694607388ed4e4afc1b742f69645495487f2b478ba24",
+    "displayedText": "Luna ties the window latch before the next wind.",
+    "displayedTextSha256": "990b1ac21890439d0fed930c2a3b3ce79c3391bc297ff3edec3d5413f21ae1f6",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::2": {
+    "audioPath": "/audio/production/en-US/guided_page/she-must-restore-its-pattern-before-the-young-owls-arrive-1fdb74eb98.mp3",
+    "audioSha256": "f965cdab02d2e7b9a99ee5b3dcc974582608c900414ab0242eab652136833e5b",
+    "displayedText": "She must restore its pattern before the young owls arrive.",
+    "displayedTextSha256": "d2df9988343c4518a6d8fc83914c5074e82d756940909fbc8f995ab37f2f3e27",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::3": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-sorts-the-glass-stars-from-smallest-to-largest-f1326fa0a5.mp3",
+    "audioSha256": "b367ae4ea372f01e512ea1afd8bf1a3b78ded395278fb1ae2c01d27c91606f81",
+    "displayedText": "Luna sorts the glass stars from smallest to largest.",
+    "displayedTextSha256": "815a71ad582f18be84d0702fbadef43e6a9abbdd8e19ebc231cfa95211ceff30",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::4": {
+    "audioPath": "/audio/production/en-US/guided_page/the-neat-row-forms-no-constellation-in-the-ceiling-light-c7b3bb44ae.mp3",
+    "audioSha256": "acb66353f93787788e36bfc2fe12956ace2a35035e41e1e974d9f954ea466c85",
+    "displayedText": "The neat row forms no constellation in the ceiling light.",
+    "displayedTextSha256": "e26ae192def9c93e38d042f5e099ed7fd660d0f59059a72b11897dc2acf203bd",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::5": {
+    "audioPath": "/audio/production/en-US/guided_page/she-opens-the-round-roof-window-and-studies-the-true-stars-856408ccdd.mp3",
+    "audioSha256": "b2608fbd27724c0a1aa09d8a8009287ea78e4b3f8782a6d3a3af5e7e00b794df",
+    "displayedText": "She opens the round roof window and studies the true stars.",
+    "displayedTextSha256": "35c7312fd9186b6a06c726035b7f6896459c788797c5492223037397599a280b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::6": {
+    "audioPath": "/audio/production/en-US/guided_page/one-red-star-hangs-east-of-three-silver-points-9dc93edd10.mp3",
+    "audioSha256": "144dbeee13e2296fc07f3f9280e9c47714fb682b86ecbd1d27d024093feb7d81",
+    "displayedText": "One red star hangs east of three silver points.",
+    "displayedTextSha256": "0b7e98b0dc434f33fbcf45588aaf956643b6c7cbc544e2c5ec623709630fd057",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::7": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-turns-each-thread-until-its-shadow-matches-the-sky-5cc14195fe.mp3",
+    "audioSha256": "b9a066eba2e786deb9a2d5c390cb90083af8380ffbae9ff8fb7cd272d68e8a57",
+    "displayedText": "Luna turns each thread until its shadow matches the sky.",
+    "displayedTextSha256": "750a64ad0de3ee22deeab23524dbe33c1f0cf1363da43d0aa2c9ab9ebc8dbe45",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-mobile-s-seven-lights-join-into-an-owl-shape-f449e410a1.mp3",
+    "audioSha256": "ee7d069aacaeb071f1a28491ce4644c4e714c8ddc9ce89db2a25525998240a18",
+    "displayedText": "The mobile's seven lights join into an owl shape.",
+    "displayedTextSha256": "c2fbfcc023ea98f2cef844f584af7394ab49fe4562ddc43a77375feefc311ee2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-30::9": {
+    "audioPath": "/audio/production/en-US/guided_page/young-owls-enter-and-trace-that-shape-overhead-dc47ccd8fe.mp3",
+    "audioSha256": "7d36f3e8d9c1b3395cf093b3944ea4e91ba5820d82f4e3551311d5656d18710c",
+    "displayedText": "Young owls enter and trace that shape overhead.",
+    "displayedTextSha256": "0405d4a3d9bbe507ef128a60776d16ebe9fa95859e693af0006fc4ae0c1d021b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::1": {
+    "audioPath": "/audio/production/en-US/guided_page/burrow-plans-a-short-tunnel-from-hollow-oak-to-fern-s-garden-36778805fc.mp3",
+    "audioSha256": "4d1577d324708bad82b22ccecefe3785b2b76d0544646177685cee4811dce676",
+    "displayedText": "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+    "displayedTextSha256": "457b2bba1af79ac46758d6ae3a7b08d5deafbbfb443d21eea186089ac283c487",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::10": {
+    "audioPath": "/audio/production/en-US/guided_page/burrow-adds-the-hidden-root-circle-to-his-map-9a1dfb0cad.mp3",
+    "audioSha256": "5b13d0ef1e91e069f2b45d48a473d0368d5d6ebee59276a8e2d456a9d85debca",
+    "displayedText": "Burrow adds the hidden root circle to his map.",
+    "displayedTextSha256": "e0a3f77414eca5962d533121e2f9ea099b1656e1621f017253ab341f678e8012",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::2": {
+    "audioPath": "/audio/production/en-US/guided_page/his-map-shows-one-straight-line-beneath-the-clearing-6e0353885b.mp3",
+    "audioSha256": "ce6c2b1c3ef50c47282d1efc0e93079594d6e131c142506845480fd8dc7bdfaa",
+    "displayedText": "His map shows one straight line beneath the clearing.",
+    "displayedTextSha256": "6f7ca347cf88cfb9b5a200d1b05aeeb85d93bbdfce76d1bcd2d510e805db9ea8",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::3": {
+    "audioPath": "/audio/production/en-US/guided_page/a-thick-root-bends-his-tunnel-left-66b80c2452.mp3",
+    "audioSha256": "f1c1f9b9128210cd8d29c757f35502d9e16bddaba13c132635c3cdea3e17f184",
+    "displayedText": "A thick root bends his tunnel left.",
+    "displayedTextSha256": "fa3f8e28d9aa480856a90b60ebb6efc380b3cc78973019224f3587afeef0179a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::4": {
+    "audioPath": "/audio/production/en-US/guided_page/burrow-follows-it-and-emerges-beside-his-starting-shovel-169e1a83bf.mp3",
+    "audioSha256": "fefbca382747cdd4d209a4e6e8ccc3f431d9390c880fff5bd6b4597ad532fcbf",
+    "displayedText": "Burrow follows it and emerges beside his starting shovel.",
+    "displayedTextSha256": "aa05fd87e09e7649b9e667be7c920862e795b7c7c9176fc8b48ff41db6ae89c2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::5": {
+    "audioPath": "/audio/production/en-US/guided_page/he-marks-the-curved-root-and-measures-its-full-circle-9b39141051.mp3",
+    "audioSha256": "3c9947f30bc10103588b6676d98aa6b135a9974020a4adc6a15fe4150e59d3dc",
+    "displayedText": "He marks the curved root and measures its full circle.",
+    "displayedTextSha256": "6a7cd1c782cf844f6bac5f257834cb08da047d2461d0608790137477dfbfb7d3",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::6": {
+    "audioPath": "/audio/production/en-US/guided_page/a-narrow-firm-gap-crosses-beneath-its-deepest-point-c89209790b.mp3",
+    "audioSha256": "82382121842d703f62a44381e872fdb238ad91fd52fa44027a7162cf85a02b1a",
+    "displayedText": "A narrow firm gap crosses beneath its deepest point.",
+    "displayedTextSha256": "be08f70cd4378c9807aef1eb4bb43dea1c6f7954971c5054c288946d12557608",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::7": {
+    "audioPath": "/audio/production/en-US/guided_page/burrow-checks-the-soil-then-digs-through-that-gap-6160c092fd.mp3",
+    "audioSha256": "715c724aa7fc805f4d84317e690c8e3a917832bfadfb96d1afc5b5e8c4be9ecb",
+    "displayedText": "Burrow checks the soil then digs through that gap.",
+    "displayedTextSha256": "365f396533cc1035fef301b317681c4fd6f84b6150d7a22e5e5ec51110dcdcf7",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::8": {
+    "audioPath": "/audio/production/en-US/guided_page/the-new-tunnel-rises-beneath-fern-s-empty-potting-bench-c332aa0f91.mp3",
+    "audioSha256": "874cdb6191c169a3b86d697360dac8e8c860835fd2a8a81b1ec137d25c4ae88c",
+    "displayedText": "The new tunnel rises beneath Fern's empty potting bench.",
+    "displayedTextSha256": "d9a15b6170a1386709b7a13f9f845e993810f9c7aa109b27be7bbfc7e34789bd",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-31::9": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-plants-soft-moss-above-both-safe-entrances-e320bdf51a.mp3",
+    "audioSha256": "57676803ea145fb518af141afd5466d4b7bf4b7d39cac81042e1affe24903b6e",
+    "displayedText": "Fern plants soft moss above both safe entrances.",
+    "displayedTextSha256": "0ef6370e65aae3e6718952fc3640c5ce1e42eae88114ac61a1768a878da1cb94",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::1": {
+    "audioPath": "/audio/production/en-US/guided_page/flint-tests-his-lantern-before-carrying-maps-through-deep-dark-651263c7b4.mp3",
+    "audioSha256": "93801202d2cdbdd818528dec0d15f4fe5ae9da39847ba507aad925d6e7a95cca",
+    "displayedText": "Flint tests his lantern before carrying maps through Deep Dark.",
+    "displayedTextSha256": "ac0acbe32fc767a09cf74581dfb15d6711092d9e43841c3c7b7b598ddfad27fc",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::10": {
+    "audioPath": "/audio/production/en-US/guided_page/flint-enters-deep-dark-with-the-tested-lantern-held-low-cb33a55670.mp3",
+    "audioSha256": "ca719becc3f08262c135bde37bacb9b281a80e63d746e827e61e0089287bee8e",
+    "displayedText": "Flint enters Deep Dark with the tested lantern held low.",
+    "displayedTextSha256": "8bddd85b52b865739217bddb997a5c85bdce1c822b331cf75e25085a36d39283",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::2": {
+    "audioPath": "/audio/production/en-US/guided_page/every-root-casts-two-shadows-in-different-directions-7de21641a5.mp3",
+    "audioSha256": "dd9b4c5c42c77ffcd400ec4818a65fd54d607856f552f1f96fc4572fa8f402dc",
+    "displayedText": "Every root casts two shadows in different directions.",
+    "displayedTextSha256": "d985612b9a4abd0d4b69a81c6d922fe6fe9e090bfdab0a53705c0cd9547c1d4b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::3": {
+    "audioPath": "/audio/production/en-US/guided_page/he-covers-one-lantern-panel-but-both-shadows-remain-2356ed3fc0.mp3",
+    "audioSha256": "bec5993e4137b2e913f4dba3df356ad2a3033a80956097ca732a5c58d8e91e3f",
+    "displayedText": "He covers one lantern panel but both shadows remain.",
+    "displayedTextSha256": "b993ecc49324475ac9ce91ef1f740e86242b1486273453dc602d4b8ee84cb061",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::4": {
+    "audioPath": "/audio/production/en-US/guided_page/flint-follows-the-darker-shadow-and-meets-a-fern-wall-97a8bdf0a8.mp3",
+    "audioSha256": "de9db33dec79a8788b78710addde2e17a7ae61e9d58397bfd5a0c87606a03c3a",
+    "displayedText": "Flint follows the darker shadow and meets a fern wall.",
+    "displayedTextSha256": "c651bccc1e25da4fd9b8990314b6924d970df5b5429cf8c5a7cc347b684265f1",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::5": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-notices-one-bright-crystal-beneath-the-lantern-handle-0ee4350ae5.mp3",
+    "audioSha256": "5edc1ad22fa77f01392bab9203d7e01b11877b8f598e6a4fef0eb6185e5f52f5",
+    "displayedText": "Pip notices one bright crystal beneath the lantern handle.",
+    "displayedTextSha256": "f32ede789d4be31a9c1f6804d5f7ca1a850fd14caddffd9401ffdd4283d12f24",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::6": {
+    "audioPath": "/audio/production/en-US/guided_page/the-crystal-splits-the-beam-through-its-angled-sides-aef1fbdb23.mp3",
+    "audioSha256": "ce5bb286863a7a4ef257e5618fb877ac84356ef29641cbaf87a936f25b6017fe",
+    "displayedText": "The crystal splits the beam through its angled sides.",
+    "displayedTextSha256": "244ee8bfbb73b3b35ed4439df0dcb7af63a65fd20836a6a639f99dc7f804e0af",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::7": {
+    "audioPath": "/audio/production/en-US/guided_page/flint-pulls-it-free-but-drops-it-into-the-beam-again-d6eb588abf.mp3",
+    "audioSha256": "5435c2de533e7e298cb8cd8c7f06a92992e3014e2219629c94eb643e97c011b9",
+    "displayedText": "Flint pulls it free but drops it into the beam again.",
+    "displayedTextSha256": "3b84b5a5006ea80a44e18549cf5d802b2312dfa959d85042074caa7418ce1c53",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::8": {
+    "audioPath": "/audio/production/en-US/guided_page/he-wraps-the-crystal-inside-his-brown-pouch-3895a98e67.mp3",
+    "audioSha256": "02b6934fe6bdfeb84c290135b302964ea6b9d76961b508753177a1b1f1b64d6b",
+    "displayedText": "He wraps the crystal inside his brown pouch.",
+    "displayedTextSha256": "16233d3bf43854cd0afbc46b5dc1207e49f505cb87f6304c18e021fc39a517f6",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-32::9": {
+    "audioPath": "/audio/production/en-US/guided_page/one-clear-shadow-now-points-away-from-every-root-c80a069020.mp3",
+    "audioSha256": "566251c42e580a9dae445341d30c629d974193dfdc35bf60e227ba0985a9463f",
+    "displayedText": "One clear shadow now points away from every root.",
+    "displayedTextSha256": "bcc818c27d389724eb6cb8f47399a1b670922f0561eedf9570b44a9653c65222",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::1": {
+    "audioPath": "/audio/production/en-US/guided_page/cold-tree-sap-glues-luna-s-paper-stars-into-one-stack-841c53dbcb.mp3",
+    "audioSha256": "c19460dd7c8b578f4e5dbdec899b12fc75cf70189767a0d16c8f743a9ab7b52b",
+    "displayedText": "Cold tree sap glues Luna's paper stars into one stack.",
+    "displayedTextSha256": "837b554cf5e886b8ea92061bee2af6efac459c111dc22a18108fb779c026ed46",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::10": {
+    "audioPath": "/audio/production/en-US/guided_page/the-repaired-stars-turn-above-luna-s-evening-lesson-c19e0ee24d.mp3",
+    "audioSha256": "105b85ca70f4537ab7036d6246a16bb7578cb84509d062c66039de19f1f44e2b",
+    "displayedText": "The repaired stars turn above Luna's evening lesson.",
+    "displayedTextSha256": "1d063288d4ec7cc1a4dbfd85b096fca6568e05e7cb12f408899273864df48fae",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::2": {
+    "audioPath": "/audio/production/en-US/guided_page/glimmer-must-separate-them-before-the-star-room-opens-88d9fe7ca1.mp3",
+    "audioSha256": "15177455fb9c11262c9a459496781db1a5e15d71a2df3cd88c99e55eeadec821",
+    "displayedText": "Glimmer must separate them before the star room opens.",
+    "displayedTextSha256": "0fc59d67343bd3275a333903aab91a5cf1f5eccd0e24677979ae8c34f689e1e5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::3": {
+    "audioPath": "/audio/production/en-US/guided_page/he-blows-cinnamon-warmth-directly-across-the-top-star-de62666f2f.mp3",
+    "audioSha256": "a06cca45d8ebf5f98367b772d6b24deac2f19430248699d705d74f083fdecd64",
+    "displayedText": "He blows cinnamon warmth directly across the top star.",
+    "displayedTextSha256": "d863d90b85e05aa0bc30d0be6e6b7fd78ee6fd7794cb0aa26961c756858da43e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::4": {
+    "audioPath": "/audio/production/en-US/guided_page/its-points-curl-inward-while-the-deeper-sap-stays-cold-f3081af98e.mp3",
+    "audioSha256": "3bf4db982e5dfc27190af7f106c31475a57d17111aefc67693c7d5a93653b550",
+    "displayedText": "Its points curl inward while the deeper sap stays cold.",
+    "displayedTextSha256": "092700d97c9eb29134de6fe5e114ddd08cc475befdd692f489b16e0517622884",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::5": {
+    "audioPath": "/audio/production/en-US/guided_page/glimmer-stops-and-measures-three-tail-lengths-from-the-table-77bf7b7cf8.mp3",
+    "audioSha256": "721ed244f99126aaecb0f23f5976af8ccc44b4395844e47b001084b9792851dd",
+    "displayedText": "Glimmer stops and measures three tail-lengths from the table.",
+    "displayedTextSha256": "e2f0162d9e79718853210c95cb4e63bed37ce7cb616b820f67aceacad6f481ff",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::6": {
+    "audioPath": "/audio/production/en-US/guided_page/he-warms-one-flat-rock-inside-the-marked-circle-d74940071a.mp3",
+    "audioSha256": "a5b76a5629ff93ac9210c0c9db5d82afaf619d6174b62d226dd5ca99ef6e924f",
+    "displayedText": "He warms one flat rock inside the marked circle.",
+    "displayedTextSha256": "8b72d95ff0a252e876766a5c9a1efa5796e6b0f582b3e1c630656697ac9d23b5",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::7": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-slides-the-warm-rock-beneath-the-paper-stack-cab56ce563.mp3",
+    "audioSha256": "df91247b5dda3af955d7a0f402562a4334449dfe64bec7c5f585fa24e92cf1e6",
+    "displayedText": "Luna slides the warm rock beneath the paper stack.",
+    "displayedTextSha256": "0fa4abb861a88533f06e728a05a466a83c585216b83d338091fff51926331490",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::8": {
+    "audioPath": "/audio/production/en-US/guided_page/heat-rises-slowly-and-softens-every-layer-of-sap-3bd462fe9a.mp3",
+    "audioSha256": "c33a5517f9e6a0d34d9a110c8d60e2b5f43c903407050c3dcc38e78f0c16eae0",
+    "displayedText": "Heat rises slowly and softens every layer of sap.",
+    "displayedTextSha256": "680f9ba177799d97d19adb5e1cb3d0852119be0bcb157e2a10a007c2ca5c5952",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-33::9": {
+    "audioPath": "/audio/production/en-US/guided_page/glimmer-lifts-each-flat-star-without-tearing-a-point-c6bf05c51b.mp3",
+    "audioSha256": "39f73529aade48f4907060c52590a3831009e0f651aa1940bd35faa8bfc739f6",
+    "displayedText": "Glimmer lifts each flat star without tearing a point.",
+    "displayedTextSha256": "a29d559d357b31e07fcd9aae1e060c1e5a3196d7dca346255152710cd263032b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::1": {
+    "audioPath": "/audio/production/en-US/guided_page/hollow-oak-needs-a-new-curved-hook-for-its-lowest-lantern-056c9c844c.mp3",
+    "audioSha256": "c9e0024d2a27ab2538d24f28f67ce3167dd7705cb2c5bc73f2c53b91e975854f",
+    "displayedText": "Hollow Oak needs a new curved hook for its lowest lantern.",
+    "displayedTextSha256": "d41aba011d265b897e1a099e7cb345d35e17af40d00a4fe8097dd9ba61c1a160",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::10": {
+    "audioPath": "/audio/production/en-US/guided_page/spark-hangs-the-lantern-and-counts-far-past-ten-9ee41958e8.mp3",
+    "audioSha256": "32b5896fbdfcc522bfc6eeb14a42739579616f2eb6a689a54be2063233d8bf1e",
+    "displayedText": "Spark hangs the lantern and counts far past ten.",
+    "displayedTextSha256": "821e90fe99f959bf46f07e52a835208bb4fd0e6b5657ac2350231a193ae0cb2c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::2": {
+    "audioPath": "/audio/production/en-US/guided_page/spark-s-copy-spell-lasts-exactly-ten-spoken-counts-a4c61cc045.mp3",
+    "audioSha256": "9bd7c8dbdf094a8e5e186c38b9cf8a94f5ec05fdf19f9d4b9f2363f412aefa7d",
+    "displayedText": "Spark's copy spell lasts exactly ten spoken counts.",
+    "displayedTextSha256": "b50c8703ef779119e0bd952fbd877fc24d522429faeddcd26cb9d8579f923e1d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::3": {
+    "audioPath": "/audio/production/en-US/guided_page/he-copies-the-good-hook-and-hangs-the-lantern-immediately-38cff0377c.mp3",
+    "audioSha256": "5f8e52f413afb8fcf6de63a46516de928c54ae46377b4e30a71da4c50a64139f",
+    "displayedText": "He copies the good hook and hangs the lantern immediately.",
+    "displayedTextSha256": "7ea4af34f682df0b69f363b5857b0fb30d90f7c497eed466df54c29ca100d917",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::4": {
+    "audioPath": "/audio/production/en-US/guided_page/at-count-ten-the-copy-vanishes-and-luna-catches-the-lantern-c8ae20c392.mp3",
+    "audioSha256": "cd09822fe67cbbc91629e85c4b8c447008a5a079524e02ee7532d57ad48516e7",
+    "displayedText": "At count ten the copy vanishes and Luna catches the lantern.",
+    "displayedTextSha256": "d3d7d4d033793f8d64363f05f890454a4cd87968d08cd7e927f811c14e70db34",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::5": {
+    "audioPath": "/audio/production/en-US/guided_page/repeating-the-spell-cannot-make-the-copy-last-longer-1999b9336c.mp3",
+    "audioSha256": "75b9d09c9675d3db20e9bd087f75f115a574141645e068d68e2c273d61fc30c1",
+    "displayedText": "Repeating the spell cannot make the copy last longer.",
+    "displayedTextSha256": "11e6c5ddba67e0849e763a31d7f53ab6b6b55cda2717433884d271c238a8644e",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::6": {
+    "audioPath": "/audio/production/en-US/guided_page/spark-presses-soft-clay-around-the-next-ten-count-copy-882ea8c26d.mp3",
+    "audioSha256": "ef8322036b1b832c454f0c70298659d100e6e68198bd594da08f23db0013465f",
+    "displayedText": "Spark presses soft clay around the next ten-count copy.",
+    "displayedTextSha256": "84148154c340ec99e24552ab45e8f12698eaf9696e862fdbff701b58c4eea9f9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::7": {
+    "audioPath": "/audio/production/en-US/guided_page/the-shape-vanishes-but-leaves-a-perfect-curved-mould-2d34ffcbf8.mp3",
+    "audioSha256": "729c3a0ab2ff58178ab3051e2fe29841688cd7f65c4b933f65a8b60b832ee7db",
+    "displayedText": "The shape vanishes but leaves a perfect curved mould.",
+    "displayedTextSha256": "f4f51f7fe7373b921cf3bdac175a1ce305c640c369fb3b30ba821b688b28a12c",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::8": {
+    "audioPath": "/audio/production/en-US/guided_page/fern-packs-the-mould-with-strong-root-fibre-44ac94ce9c.mp3",
+    "audioSha256": "a8ee3334e57aab05a18985c155002171c290e5e065c7d37c9dee92c0a4f487fc",
+    "displayedText": "Fern packs the mould with strong root fibre.",
+    "displayedTextSha256": "0eaedd000e9d66501df96b8e190bc79adb8b27d73829815b0a72288262a0350b",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-34::9": {
+    "audioPath": "/audio/production/en-US/guided_page/the-fibre-dries-into-a-solid-matching-hook-4dee95a631.mp3",
+    "audioSha256": "792a31e05e7c77f533d1c905140e6dfd0423f1bfeb9f8fab7d6743f3799466af",
+    "displayedText": "The fibre dries into a solid matching hook.",
+    "displayedTextSha256": "6d3a6dec915c305b2158eddfe5e2027aad5866280a79d24a5cbc007074c95475",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::1": {
+    "audioPath": "/audio/production/en-US/guided_page/hollow-oak-s-four-root-chimes-sound-wrong-before-moonrise-82b8c08b2e.mp3",
+    "audioSha256": "caff6a626e2e6014b6d64d481f70dbfb698d4b2397a22c830fbb1e4586366276",
+    "displayedText": "Hollow Oak's four root chimes sound wrong before moonrise.",
+    "displayedTextSha256": "91bc79251ae4a5e56b929f9e8be5ba9a9f817d11fdcef9c1a721c2878689875d",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::10": {
+    "audioPath": "/audio/production/en-US/guided_page/luna-opens-the-doors-as-one-clear-pattern-crosses-moonwood-e684a89b3b.mp3",
+    "audioSha256": "f030190af463e01bb4fb68237778ce8d0a4b50c0cf2c86c28708fa8a47948490",
+    "displayedText": "Luna opens the doors as one clear pattern crosses Moonwood.",
+    "displayedTextSha256": "43b59ad3c793b35b8c41a2af4fdb42c0f37a12f9a2d25a61ff7637fd01912356",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::2": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-and-stone-must-tune-them-before-luna-opens-the-doors-72c2173bdb.mp3",
+    "audioSha256": "95558fee75c44be1aecd7160f1e11295b84fd411aa8cfbeb08be94448f9bca45",
+    "displayedText": "Pip and Stone must tune them before Luna opens the doors.",
+    "displayedTextSha256": "4cca9386ab7f093cd71c03f51da7ce0c2a638b54cf3ca696a2c65e76a541a006",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::3": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-taps-every-chime-with-the-same-large-pebble-530bf618c3.mp3",
+    "audioSha256": "79a93b402835d95dad0feec176dbcf9777878d2007c2174f081ee0501f33b0fb",
+    "displayedText": "Stone taps every chime with the same large pebble.",
+    "displayedTextSha256": "2b3a2ca4ead4c43c014617252f64e524222269950b1a7d88caa7b4aba2d9ed88",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::4": {
+    "audioPath": "/audio/production/en-US/guided_page/four-harsh-notes-collide-and-the-smallest-chime-twists-e97e8da23f.mp3",
+    "audioSha256": "b2119745fe5dc9073e85ea3c24c5d5fa19a7541e38f1ec8b1eb18c78c8169429",
+    "displayedText": "Four harsh notes collide and the smallest chime twists.",
+    "displayedTextSha256": "c04b828fb5927448c24cb7d09e53cdfb1c9944c41b99017294729981d1bb4ee9",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::5": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-tests-an-acorn-leaf-stem-smooth-stone-and-fingertip-4cfb05952e.mp3",
+    "audioSha256": "7ffc1ace16fb32291e2228630a762a9b19b26397b97afa44e380168c3c9c57d5",
+    "displayedText": "Pip tests an acorn, leaf stem, smooth stone, and fingertip.",
+    "displayedTextSha256": "786aaa0be4f8c1c99e22e664e37dd82770f3d94240228077120fb02143680707",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::6": {
+    "audioPath": "/audio/production/en-US/guided_page/each-chime-answers-clearly-to-one-different-touch-991143e6ea.mp3",
+    "audioSha256": "1cee7c1de709cb5ade057c7caa70c9e41c85cf43b1a329b6d97d42acff6a3029",
+    "displayedText": "Each chime answers clearly to one different touch.",
+    "displayedTextSha256": "628dc40cd548bab1cab5cfa676e7bae62d403f2f4b1b67447ccb1ef9dd73b6da",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::7": {
+    "audioPath": "/audio/production/en-US/guided_page/stone-steadies-the-twisted-chime-with-one-careful-finger-4894c31b32.mp3",
+    "audioSha256": "77311fbfe7b22d404c6a9ce38db1242cb007e61eda79d427323e3714c5f41211",
+    "displayedText": "Stone steadies the twisted chime with one careful finger.",
+    "displayedTextSha256": "8ebaf8c2822b78d4e29faac40729501f685fa88792d3332cb51133c3c447d3d2",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::8": {
+    "audioPath": "/audio/production/en-US/guided_page/pip-places-each-matching-object-beneath-its-chime-1ee850448f.mp3",
+    "audioSha256": "a31f7bde28cc467489552ccab1b14d2191c2ce8edbbb1a702baaea3dffec46af",
+    "displayedText": "Pip places each matching object beneath its chime.",
+    "displayedTextSha256": "1dd20197698d3fd3861c4764ab7b5c3bd6c7419d46e4499115d248684f87790a",
+    "voice": "en-US-Chirp3-HD-Leda"
+  },
+  "moonwood-tales-c-35::9": {
+    "audioPath": "/audio/production/en-US/guided_page/together-they-play-the-notes-from-low-roots-upward-c5a5f4dd73.mp3",
+    "audioSha256": "e0d30512d6e67a82c5178aedd145cd7038b0b60b39b23fab62bf21a3df5b15fc",
+    "displayedText": "Together they play the notes from low roots upward.",
+    "displayedTextSha256": "e3c03028b81b725125284fdbc065c2f4f408cc4f5283fa6fbb072c5beb8ab532",
     "voice": "en-US-Chirp3-HD-Leda"
   }
 });

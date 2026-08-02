@@ -18,9 +18,22 @@ test("consonants resolve to the reviewed phoneme bank", () => {
   assert.equal(getGraphemeAudioPath("t", ""), "/audio/phonemes/t.mp3");
 });
 
-test("deferred sounds stay silent after their old audio is deleted", () => {
-  for (const sound of ["e", "b", "j", "ch", "sh", "th", "nk", "zz"]) {
-    assert.equal(getGraphemeAudioPath(sound, sound === "e" ? "e" : ""), "");
+test("the human-ear approved additions resolve through the reviewed bank", () => {
+  const expected = {
+    e: "short-e",
+    b: "b",
+    j: "j-soft-g",
+    ch: "ch",
+    sh: "sh",
+    th: "th-unvoiced",
+    nk: "nk",
+    zz: "zz-temporary-fallback"
+  };
+  for (const [sound, fileName] of Object.entries(expected)) {
+    assert.equal(
+      getGraphemeAudioPath(sound, sound === "e" ? "e" : ""),
+      `/audio/phonemes/reviewed/${fileName}.mp3`
+    );
   }
 });
 

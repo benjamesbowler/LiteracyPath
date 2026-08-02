@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-32-tinys-giant-berry",
+  "contentHash": "sha256:be39e1f9c913528c604b8c05892d05271081fa6ee3e9962e6944479e0d146b34",
+  "questions": [
+    {
+      "id": "meadow-pals-32-tinys-giant-berry-q1",
+      "prompt": "What happens first in Tiny's Giant Berry?",
+      "choices": [
+        "Tiny finds a giant berry.",
+        "The berry rolls back downhill.",
+        "Tiny rolls it past safely."
+      ],
+      "answer": "Tiny finds a giant berry.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Tiny finds a giant berry."
+    },
+    {
+      "id": "meadow-pals-32-tinys-giant-berry-q2",
+      "prompt": "What goes wrong in Tiny's Giant Berry?",
+      "choices": [
+        "The berry rolls back downhill.",
+        "Tiny finds a giant berry.",
+        "Tiny rolls it past safely."
+      ],
+      "answer": "The berry rolls back downhill.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The berry rolls back downhill. This shows that the first attempt does not solve the central problem introduced by Tiny finds a giant berry.",
+      "evidencePage": 5,
+      "evidenceText": "The berry rolls back downhill."
+    },
+    {
+      "id": "meadow-pals-32-tinys-giant-berry-q3",
+      "prompt": "What solves the problem in Tiny's Giant Berry?",
+      "choices": [
+        "Tiny rolls it past safely.",
+        "Tiny finds a giant berry.",
+        "The berry rolls back downhill."
+      ],
+      "answer": "Tiny rolls it past safely.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Tiny rolls it past safely. This event shows how the central problem is resolved after The berry rolls back downhill.",
+      "evidencePage": 8,
+      "evidenceText": "Tiny rolls it past safely."
+    }
+  ]
+}

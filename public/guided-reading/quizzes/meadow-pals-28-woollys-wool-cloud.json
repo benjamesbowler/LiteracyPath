@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-28-woollys-wool-cloud",
+  "contentHash": "sha256:043bd49dc7ca9eeda5eacdcd8be02cc30759a1f9285584a87d9ea978d5cc5adf",
+  "questions": [
+    {
+      "id": "meadow-pals-28-woollys-wool-cloud-q1",
+      "prompt": "What happens first in Woolly's Wool Cloud?",
+      "choices": [
+        "Woolly wants a cloud picture.",
+        "Wind scatters every fluffy piece.",
+        "Her wool cloud stays put."
+      ],
+      "answer": "Woolly wants a cloud picture.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Woolly wants a cloud picture."
+    },
+    {
+      "id": "meadow-pals-28-woollys-wool-cloud-q2",
+      "prompt": "What goes wrong in Woolly's Wool Cloud?",
+      "choices": [
+        "Wind scatters every fluffy piece.",
+        "Woolly wants a cloud picture.",
+        "Her wool cloud stays put."
+      ],
+      "answer": "Wind scatters every fluffy piece.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Wind scatters every fluffy piece. This shows that the first attempt does not solve the central problem introduced by Woolly wants a cloud picture.",
+      "evidencePage": 3,
+      "evidenceText": "Wind scatters every fluffy piece."
+    },
+    {
+      "id": "meadow-pals-28-woollys-wool-cloud-q3",
+      "prompt": "What solves the problem in Woolly's Wool Cloud?",
+      "choices": [
+        "Her wool cloud stays put.",
+        "Woolly wants a cloud picture.",
+        "Wind scatters every fluffy piece."
+      ],
+      "answer": "Her wool cloud stays put.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Her wool cloud stays put. This event shows how the central problem is resolved after Wind scatters every fluffy piece.",
+      "evidencePage": 8,
+      "evidenceText": "Her wool cloud stays put."
+    }
+  ]
+}

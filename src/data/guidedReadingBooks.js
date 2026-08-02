@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
+import { guidedReadingWorldExpansionBooks } from "./guidedReadingWorldExpansionBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
 import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
 import { firstFactsActualLevelABooks } from "./firstFactsActualLevelABooks.js";
@@ -3285,7 +3286,8 @@ const activeGuidedReadingBaseBooks = [
   ...firstFactsActualLevelABooks,
   ...firstFactsLevelABooks,
   ...firstFactsLevelCBooks,
-  ...approvedSeriesBooks
+  ...approvedSeriesBooks,
+  ...guidedReadingWorldExpansionBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

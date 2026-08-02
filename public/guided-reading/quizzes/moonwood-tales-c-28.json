@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-28",
+  "contentHash": "sha256:3981e22801d53c2e6f80c60b9048ac38c601b74138e87fe59a8ec63af8a060cc",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-28-q1",
+      "prompt": "Which event introduces the situation in Fern and the Humming Root?",
+      "choices": [
+        "A silver root curls across Hollow Oak's front step.",
+        "Fern sings calmly. The root copies each note with a loop.",
+        "Three spaced taps guide it around the frame."
+      ],
+      "answer": "A silver root curls across Hollow Oak's front step.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "A silver root curls across Hollow Oak's front step."
+    },
+    {
+      "id": "moonwood-tales-c-28-q2",
+      "prompt": "Which event shows that the first attempt fails in Fern and the Humming Root?",
+      "choices": [
+        "Fern sings calmly. The root copies each note with a loop.",
+        "A silver root curls across Hollow Oak's front step.",
+        "Three spaced taps guide it around the frame."
+      ],
+      "answer": "Fern sings calmly. The root copies each note with a loop.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Fern sings calmly. The root copies each note with a loop. This shows that the first attempt does not solve the central problem introduced by A silver root curls across Hollow Oak's front step.",
+      "evidencePage": 4,
+      "evidenceText": "Fern sings calmly. The root copies each note with a loop."
+    },
+    {
+      "id": "moonwood-tales-c-28-q3",
+      "prompt": "Which event resolves the central problem in Fern and the Humming Root?",
+      "choices": [
+        "Three spaced taps guide it around the frame.",
+        "A silver root curls across Hollow Oak's front step.",
+        "Fern sings calmly. The root copies each note with a loop."
+      ],
+      "answer": "Three spaced taps guide it around the frame.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Three spaced taps guide it around the frame. This event shows how the central problem is resolved after Fern sings calmly. The root copies each note with a loop.",
+      "evidencePage": 9,
+      "evidenceText": "Three spaced taps guide it around the frame."
+    }
+  ]
+}

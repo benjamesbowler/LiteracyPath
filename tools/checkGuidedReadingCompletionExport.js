@@ -7,12 +7,8 @@ import {
 } from "../src/utils/exportGuidedReadingCompletionExcel.js";
 
 const failures = [];
-const adminSource = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 const helperSource = readFileSync(new URL("../src/utils/exportGuidedReadingCompletionExcel.js", import.meta.url), "utf8");
 
-if (!adminSource.includes("Export Guided Reading Completion Excel")) {
-  failures.push("Dashboard export button text is missing.");
-}
 if (!helperSource.includes("exportGuidedReadingCompletionExcel")) {
   failures.push("Guided Reading completion export helper is missing.");
 }

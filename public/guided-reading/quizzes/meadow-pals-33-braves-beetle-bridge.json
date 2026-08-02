@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-33-braves-beetle-bridge",
+  "contentHash": "sha256:2c7d5891eedfa038b3db5eb230a915484aac1a7449e9da4e8ecad7f0af56f547",
+  "questions": [
+    {
+      "id": "meadow-pals-33-braves-beetle-bridge-q1",
+      "prompt": "What happens first in Brave's Beetle Bridge?",
+      "choices": [
+        "A beetle waits on path.",
+        "The beetle curls up tight.",
+        "The beetle walks straight through."
+      ],
+      "answer": "A beetle waits on path.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "A beetle waits on path."
+    },
+    {
+      "id": "meadow-pals-33-braves-beetle-bridge-q2",
+      "prompt": "What goes wrong in Brave's Beetle Bridge?",
+      "choices": [
+        "The beetle curls up tight.",
+        "A beetle waits on path.",
+        "The beetle walks straight through."
+      ],
+      "answer": "The beetle curls up tight.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The beetle curls up tight. This shows that the first attempt does not solve the central problem introduced by A beetle waits on path.",
+      "evidencePage": 4,
+      "evidenceText": "The beetle curls up tight."
+    },
+    {
+      "id": "meadow-pals-33-braves-beetle-bridge-q3",
+      "prompt": "What solves the problem in Brave's Beetle Bridge?",
+      "choices": [
+        "The beetle walks straight through.",
+        "A beetle waits on path.",
+        "The beetle curls up tight."
+      ],
+      "answer": "The beetle walks straight through.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The beetle walks straight through. This event shows how the central problem is resolved after The beetle curls up tight.",
+      "evidencePage": 7,
+      "evidenceText": "The beetle walks straight through."
+    }
+  ]
+}

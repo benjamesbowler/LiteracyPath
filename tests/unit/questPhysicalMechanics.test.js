@@ -116,7 +116,7 @@ test("multi-letter endings are described as letters, not as one ending sound", (
   }
 });
 
-test("unrecorded advanced graphemes use audible example-word cues instead of disappearing", () => {
+test("advanced graphemes use their reviewed cue, or an audible word fallback", () => {
   for (const [stopId, target] of [["s32", "aw"], ["s32", "ore"], ["s34", "are"], ["s35", "ear"], ["s36", "ure"], ["s39", "le"], ["s40", "tion"]]) {
     const section = buildTrailSection(stopId, { seed: Number(stopId.slice(1)), targets: [target] });
     const entries = section.encounters.flatMap(encounter => (
@@ -125,12 +125,17 @@ test("unrecorded advanced graphemes use audible example-word cues instead of dis
         task: buildPhysicalTask(section, encounter, beat, beatIndex)
       }))
     ));
-    const fallback = entries.find(entry => entry.beat.target === target && entry.beat.cue?.kind === "word");
-    const wordLed = fallback?.task.stages.find(stage => stage.items.some(item => item.correct && item.value === target));
-    assert.ok(fallback && wordLed, `${target} has no audible physical fallback`);
-    assert.ok(hasWordAudio(fallback.beat.cue.word), `${target} fallback word is silent`);
-    assert.equal(wordLed.audioCue.value, fallback.beat.cue.word);
-    assert.match(wordLed.prompt, /Find the (first|middle|ending) (sound|letters) in/);
+    const targetEntry = entries.find(entry => entry.beat.target === target);
+    const targetStage = targetEntry?.task.stages.find(stage => stage.items.some(item => item.correct && item.value === target));
+    assert.ok(targetEntry && targetStage, `${target} has no physical sound task`);
+    if (hasGraphemeAudio(target)) {
+      assert.deepEqual(targetStage.audioCue, { kind: "grapheme", value: target });
+      continue;
+    }
+    assert.equal(targetEntry.beat.cue?.kind, "word", `${target} has no audible fallback`);
+    assert.ok(hasWordAudio(targetEntry.beat.cue.word), `${target} fallback word is silent`);
+    assert.equal(targetStage.audioCue.value, targetEntry.beat.cue.word);
+    assert.match(targetStage.prompt, /Find the (first|middle|ending) (sound|letters) in/);
   }
 });
 

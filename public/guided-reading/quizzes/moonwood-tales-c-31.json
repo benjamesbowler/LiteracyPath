@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-31",
+  "contentHash": "sha256:ca5752b185d9baa3b19386528b3185f10d72110ae3ffe5b5109fe2c06ca4cd91",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-31-q1",
+      "prompt": "Which event introduces the situation in Burrow's Round Tunnel?",
+      "choices": [
+        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+        "Burrow follows it and emerges beside his starting shovel.",
+        "The new tunnel rises beneath Fern's empty potting bench."
+      ],
+      "answer": "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Burrow plans a short tunnel from Hollow Oak to Fern's garden."
+    },
+    {
+      "id": "moonwood-tales-c-31-q2",
+      "prompt": "Which event shows that the first attempt fails in Burrow's Round Tunnel?",
+      "choices": [
+        "Burrow follows it and emerges beside his starting shovel.",
+        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+        "The new tunnel rises beneath Fern's empty potting bench."
+      ],
+      "answer": "Burrow follows it and emerges beside his starting shovel.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Burrow follows it and emerges beside his starting shovel. This shows that the first attempt does not solve the central problem introduced by Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+      "evidencePage": 4,
+      "evidenceText": "Burrow follows it and emerges beside his starting shovel."
+    },
+    {
+      "id": "moonwood-tales-c-31-q3",
+      "prompt": "Which event resolves the central problem in Burrow's Round Tunnel?",
+      "choices": [
+        "The new tunnel rises beneath Fern's empty potting bench.",
+        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+        "Burrow follows it and emerges beside his starting shovel."
+      ],
+      "answer": "The new tunnel rises beneath Fern's empty potting bench.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The new tunnel rises beneath Fern's empty potting bench. This event shows how the central problem is resolved after Burrow follows it and emerges beside his starting shovel.",
+      "evidencePage": 8,
+      "evidenceText": "The new tunnel rises beneath Fern's empty potting bench."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-34-grumpys-sun-clock",
+  "contentHash": "sha256:981e025290588452632b350047e5c03555612370efba5c59637cfe83f1691b73",
+  "questions": [
+    {
+      "id": "meadow-pals-34-grumpys-sun-clock-q1",
+      "prompt": "What happens first in Grumpy's Sun Clock?",
+      "choices": [
+        "Grumpy keeps lunch for noon.",
+        "The shade moves once more.",
+        "His lunch stays cool there."
+      ],
+      "answer": "Grumpy keeps lunch for noon.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Grumpy keeps lunch for noon."
+    },
+    {
+      "id": "meadow-pals-34-grumpys-sun-clock-q2",
+      "prompt": "What goes wrong in Grumpy's Sun Clock?",
+      "choices": [
+        "The shade moves once more.",
+        "Grumpy keeps lunch for noon.",
+        "His lunch stays cool there."
+      ],
+      "answer": "The shade moves once more.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The shade moves once more. This shows that the first attempt does not solve the central problem introduced by Grumpy keeps lunch for noon.",
+      "evidencePage": 5,
+      "evidenceText": "The shade moves once more."
+    },
+    {
+      "id": "meadow-pals-34-grumpys-sun-clock-q3",
+      "prompt": "What solves the problem in Grumpy's Sun Clock?",
+      "choices": [
+        "His lunch stays cool there.",
+        "Grumpy keeps lunch for noon.",
+        "The shade moves once more."
+      ],
+      "answer": "His lunch stays cool there.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "His lunch stays cool there. This event shows how the central problem is resolved after The shade moves once more.",
+      "evidencePage": 8,
+      "evidenceText": "His lunch stays cool there."
+    }
+  ]
+}

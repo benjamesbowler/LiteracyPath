@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-30",
+  "contentHash": "sha256:dfc41e926500d84f3551199b674ce63ea99c014570d2140bdd5837efee0921e7",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-30-q1",
+      "prompt": "Which event introduces the situation in Luna and the Wandering Constellation?",
+      "choices": [
+        "Luna finds the star-room mobile tangled after a windy night.",
+        "The neat row forms no constellation in the ceiling light.",
+        "The mobile's seven lights join into an owl shape."
+      ],
+      "answer": "Luna finds the star-room mobile tangled after a windy night.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Luna finds the star-room mobile tangled after a windy night."
+    },
+    {
+      "id": "moonwood-tales-c-30-q2",
+      "prompt": "Which event shows that the first attempt fails in Luna and the Wandering Constellation?",
+      "choices": [
+        "The neat row forms no constellation in the ceiling light.",
+        "Luna finds the star-room mobile tangled after a windy night.",
+        "The mobile's seven lights join into an owl shape."
+      ],
+      "answer": "The neat row forms no constellation in the ceiling light.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The neat row forms no constellation in the ceiling light. This shows that the first attempt does not solve the central problem introduced by Luna finds the star-room mobile tangled after a windy night.",
+      "evidencePage": 4,
+      "evidenceText": "The neat row forms no constellation in the ceiling light."
+    },
+    {
+      "id": "moonwood-tales-c-30-q3",
+      "prompt": "Which event resolves the central problem in Luna and the Wandering Constellation?",
+      "choices": [
+        "The mobile's seven lights join into an owl shape.",
+        "Luna finds the star-room mobile tangled after a windy night.",
+        "The neat row forms no constellation in the ceiling light."
+      ],
+      "answer": "The mobile's seven lights join into an owl shape.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The mobile's seven lights join into an owl shape. This event shows how the central problem is resolved after The neat row forms no constellation in the ceiling light.",
+      "evidencePage": 8,
+      "evidenceText": "The mobile's seven lights join into an owl shape."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-26-sunnys-two-part-picnic",
+  "contentHash": "sha256:709cce775f4e648726d632eb15c033829c595e65a7601789b8b59bc53df4d05f",
+  "questions": [
+    {
+      "id": "dino-pals-26-sunnys-two-part-picnic-q1",
+      "prompt": "Which event begins Sunny's Two-Part Picnic?",
+      "choices": [
+        "Sunny chooses Big Flat Rock for a picnic.",
+        "Grumpy cools down but Chompy's berries stay damp.",
+        "Sunny serves one picnic across two temperatures."
+      ],
+      "answer": "Sunny chooses Big Flat Rock for a picnic.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Sunny chooses Big Flat Rock for a picnic."
+    },
+    {
+      "id": "dino-pals-26-sunnys-two-part-picnic-q2",
+      "prompt": "Which event shows the first plan fails in Sunny's Two-Part Picnic?",
+      "choices": [
+        "Grumpy cools down but Chompy's berries stay damp.",
+        "Sunny chooses Big Flat Rock for a picnic.",
+        "Sunny serves one picnic across two temperatures."
+      ],
+      "answer": "Grumpy cools down but Chompy's berries stay damp.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Grumpy cools down but Chompy's berries stay damp. This shows that the first attempt does not solve the central problem introduced by Sunny chooses Big Flat Rock for a picnic.",
+      "evidencePage": 4,
+      "evidenceText": "Grumpy cools down but Chompy's berries stay damp."
+    },
+    {
+      "id": "dino-pals-26-sunnys-two-part-picnic-q3",
+      "prompt": "Which event solves the problem in Sunny's Two-Part Picnic?",
+      "choices": [
+        "Sunny serves one picnic across two temperatures.",
+        "Sunny chooses Big Flat Rock for a picnic.",
+        "Grumpy cools down but Chompy's berries stay damp."
+      ],
+      "answer": "Sunny serves one picnic across two temperatures.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Sunny serves one picnic across two temperatures. This event shows how the central problem is resolved after Grumpy cools down but Chompy's berries stay damp.",
+      "evidencePage": 8,
+      "evidenceText": "Sunny serves one picnic across two temperatures."
+    }
+  ]
+}

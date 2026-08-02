@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-35",
+  "contentHash": "sha256:f02e76d596d93c433cc490eb83f1f514a3c09da8f85bf08d7895f11e339ab3d4",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-35-q1",
+      "prompt": "Which event introduces the situation in Pip and Stone Tune the Root Chimes?",
+      "choices": [
+        "Hollow Oak's four root chimes sound wrong before moonrise.",
+        "Four harsh notes collide and the smallest chime twists.",
+        "Together they play the notes from low roots upward."
+      ],
+      "answer": "Hollow Oak's four root chimes sound wrong before moonrise.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Hollow Oak's four root chimes sound wrong before moonrise."
+    },
+    {
+      "id": "moonwood-tales-c-35-q2",
+      "prompt": "Which event shows that the first attempt fails in Pip and Stone Tune the Root Chimes?",
+      "choices": [
+        "Four harsh notes collide and the smallest chime twists.",
+        "Hollow Oak's four root chimes sound wrong before moonrise.",
+        "Together they play the notes from low roots upward."
+      ],
+      "answer": "Four harsh notes collide and the smallest chime twists.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Four harsh notes collide and the smallest chime twists. This shows that the first attempt does not solve the central problem introduced by Hollow Oak's four root chimes sound wrong before moonrise.",
+      "evidencePage": 4,
+      "evidenceText": "Four harsh notes collide and the smallest chime twists."
+    },
+    {
+      "id": "moonwood-tales-c-35-q3",
+      "prompt": "Which event resolves the central problem in Pip and Stone Tune the Root Chimes?",
+      "choices": [
+        "Together they play the notes from low roots upward.",
+        "Hollow Oak's four root chimes sound wrong before moonrise.",
+        "Four harsh notes collide and the smallest chime twists."
+      ],
+      "answer": "Together they play the notes from low roots upward.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Together they play the notes from low roots upward. This event shows how the central problem is resolved after Four harsh notes collide and the smallest chime twists.",
+      "evidencePage": 9,
+      "evidenceText": "Together they play the notes from low roots upward."
+    }
+  ]
+}

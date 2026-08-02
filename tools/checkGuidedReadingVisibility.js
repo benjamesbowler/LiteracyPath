@@ -6,6 +6,7 @@ import {
   guidedReadingBooks,
   normalizeGuidedReadingType
 } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingWorldExpansionBooks } from "../src/data/guidedReadingWorldExpansionBooks.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(repoRoot, "docs", "guided_reading_level_c_visibility_fix.md");
@@ -120,6 +121,7 @@ const allowedFictionIds = new Set([
   "moonwood-tales-c-24",
   "moonwood-tales-c-25"
 ]);
+guidedReadingWorldExpansionBooks.forEach(book => allowedFictionIds.add(book.id));
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
@@ -130,14 +132,16 @@ if (unexpectedFictionBooks.length) {
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
 }
-if (fictionBooks.length !== 100) {
-  failures.push(`Expected 100 fiction books, found ${fictionBooks.length}.`);
+const expectedFictionCount = 100 + guidedReadingWorldExpansionBooks.length;
+if (fictionBooks.length !== expectedFictionCount) {
+  failures.push(`Expected ${expectedFictionCount} fiction books, found ${fictionBooks.length}.`);
 }
 if (nonfictionBooks.length !== 76) {
   failures.push(`Expected 76 nonfiction books after true Level A nonfiction import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 176) {
-  failures.push(`Expected 176 total Guided Reading books after true Level A nonfiction import, found ${guidedReadingBooks.length}.`);
+const expectedBookCount = 176 + guidedReadingWorldExpansionBooks.length;
+if (guidedReadingBooks.length !== expectedBookCount) {
+  failures.push(`Expected ${expectedBookCount} total Guided Reading books after the approved world expansion, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);

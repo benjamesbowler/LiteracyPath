@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-26",
+  "contentHash": "sha256:9d7558ad3d119a7fe8e604fafa804dc10831f0da7ddc50d65818053f1b9c7d60",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-26-q1",
+      "prompt": "Which event introduces the situation in Pip and the Bell Below?",
+      "choices": [
+        "A bell rings under Hollow Oak although nobody pulls its rope.",
+        "He holds the rope still but the bell rings harder.",
+        "The wind bends harmlessly while the bell remains still."
+      ],
+      "answer": "A bell rings under Hollow Oak although nobody pulls its rope.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "A bell rings under Hollow Oak although nobody pulls its rope."
+    },
+    {
+      "id": "moonwood-tales-c-26-q2",
+      "prompt": "Which event shows that the first attempt fails in Pip and the Bell Below?",
+      "choices": [
+        "He holds the rope still but the bell rings harder.",
+        "A bell rings under Hollow Oak although nobody pulls its rope.",
+        "The wind bends harmlessly while the bell remains still."
+      ],
+      "answer": "He holds the rope still but the bell rings harder.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "He holds the rope still but the bell rings harder. This shows that the first attempt does not solve the central problem introduced by A bell rings under Hollow Oak although nobody pulls its rope.",
+      "evidencePage": 3,
+      "evidenceText": "He holds the rope still but the bell rings harder."
+    },
+    {
+      "id": "moonwood-tales-c-26-q3",
+      "prompt": "Which event resolves the central problem in Pip and the Bell Below?",
+      "choices": [
+        "The wind bends harmlessly while the bell remains still.",
+        "A bell rings under Hollow Oak although nobody pulls its rope.",
+        "He holds the rope still but the bell rings harder."
+      ],
+      "answer": "The wind bends harmlessly while the bell remains still.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The wind bends harmlessly while the bell remains still. This event shows how the central problem is resolved after He holds the rope still but the bell rings harder.",
+      "evidencePage": 9,
+      "evidenceText": "The wind bends harmlessly while the bell remains still."
+    }
+  ]
+}

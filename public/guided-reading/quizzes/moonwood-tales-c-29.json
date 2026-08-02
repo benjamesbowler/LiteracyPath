@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-29",
+  "contentHash": "sha256:50940506745f443aa02f6f1d98d3a50d71c158a101616a1c2307268c1d3e7310",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-29-q1",
+      "prompt": "Which event introduces the situation in Wren's One-Object Pocket?",
+      "choices": [
+        "Rain threatens Fern's ten dry moonberries.",
+        "Each new berry pops the last one onto the path.",
+        "The single bundle slips into the weightless pocket."
+      ],
+      "answer": "Rain threatens Fern's ten dry moonberries.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Rain threatens Fern's ten dry moonberries."
+    },
+    {
+      "id": "moonwood-tales-c-29-q2",
+      "prompt": "Which event shows that the first attempt fails in Wren's One-Object Pocket?",
+      "choices": [
+        "Each new berry pops the last one onto the path.",
+        "Rain threatens Fern's ten dry moonberries.",
+        "The single bundle slips into the weightless pocket."
+      ],
+      "answer": "Each new berry pops the last one onto the path.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Each new berry pops the last one onto the path. This shows that the first attempt does not solve the central problem introduced by Rain threatens Fern's ten dry moonberries.",
+      "evidencePage": 5,
+      "evidenceText": "Each new berry pops the last one onto the path."
+    },
+    {
+      "id": "moonwood-tales-c-29-q3",
+      "prompt": "Which event resolves the central problem in Wren's One-Object Pocket?",
+      "choices": [
+        "The single bundle slips into the weightless pocket.",
+        "Rain threatens Fern's ten dry moonberries.",
+        "Each new berry pops the last one onto the path."
+      ],
+      "answer": "The single bundle slips into the weightless pocket.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The single bundle slips into the weightless pocket. This event shows how the central problem is resolved after Each new berry pops the last one onto the path.",
+      "evidencePage": 9,
+      "evidenceText": "The single bundle slips into the weightless pocket."
+    }
+  ]
+}

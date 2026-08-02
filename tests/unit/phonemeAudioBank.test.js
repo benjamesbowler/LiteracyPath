@@ -5,6 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 import { approvedPhonicsPatternAudio } from "../../src/data/approvedPhonicsPatternAudio.js";
+import { APPROVED_PHONEME_AUDIO_BY_KEY } from "../../src/data/approvedPhonemeAudio.js";
 import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.generated.js";
 import {
   DEFERRED_ATOMIC_SOUND_KEYS,
@@ -22,12 +23,13 @@ test("approved atomic sounds use the single reviewed runtime bank", () => {
   }
 });
 
-test("deferred sounds have no candidates and no runtime file", async () => {
-  for (const sound of DEFERRED_ATOMIC_SOUND_KEYS) {
-    assert.deepEqual(phonemeAudioCandidates(sound), []);
-    assert.equal(getPreferredPhonemeAudioPath(sound), "");
-    const fileName = sound === "e" ? "short_e.mp3" : `${sound}.mp3`;
-    await assert.rejects(access(path.join(repositoryRoot, "public/audio/phonemes", fileName)));
+test("every human-ear approved cue is present in the runtime manifest", async () => {
+  assert.deepEqual(DEFERRED_ATOMIC_SOUND_KEYS, []);
+  for (const [sound, audioPath] of Object.entries(APPROVED_PHONEME_AUDIO_BY_KEY)) {
+    assert.deepEqual(phonemeAudioCandidates(sound), [audioPath]);
+    assert.equal(getPreferredPhonemeAudioPath(sound), audioPath);
+    assert.ok(AUDIO_FILE_PATHS.has(audioPath), `${sound} is absent from the generated audio manifest`);
+    await access(path.join(repositoryRoot, "public", audioPath.replace(/^\//, "")));
   }
 });
 

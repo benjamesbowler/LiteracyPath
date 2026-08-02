@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-27-splashys-reed-boat",
+  "contentHash": "sha256:2f023f65a8db21134b6cd7ad92a61f57b22ec19d4e3332ab0ae631697466fc42",
+  "questions": [
+    {
+      "id": "meadow-pals-27-splashys-reed-boat-q1",
+      "prompt": "What happens first in Splashy's Reed Boat?",
+      "choices": [
+        "Splashy builds a reed boat.",
+        "It spins back again.",
+        "The boat glides straight."
+      ],
+      "answer": "Splashy builds a reed boat.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Splashy builds a reed boat."
+    },
+    {
+      "id": "meadow-pals-27-splashys-reed-boat-q2",
+      "prompt": "What goes wrong in Splashy's Reed Boat?",
+      "choices": [
+        "It spins back again.",
+        "Splashy builds a reed boat.",
+        "The boat glides straight."
+      ],
+      "answer": "It spins back again.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "It spins back again. This shows that the first attempt does not solve the central problem introduced by Splashy builds a reed boat.",
+      "evidencePage": 5,
+      "evidenceText": "It spins back again."
+    },
+    {
+      "id": "meadow-pals-27-splashys-reed-boat-q3",
+      "prompt": "What solves the problem in Splashy's Reed Boat?",
+      "choices": [
+        "The boat glides straight.",
+        "Splashy builds a reed boat.",
+        "It spins back again."
+      ],
+      "answer": "The boat glides straight.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The boat glides straight. This event shows how the central problem is resolved after It spins back again.",
+      "evidencePage": 7,
+      "evidenceText": "The boat glides straight."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-30-cuddlys-yarn-ball",
+  "contentHash": "sha256:9393e5b8ef643c0d4c372da9d284bb893301516e19ee07ceff9027cd4b356776",
+  "questions": [
+    {
+      "id": "meadow-pals-30-cuddlys-yarn-ball-q1",
+      "prompt": "What happens first in Cuddly's Yarn Ball?",
+      "choices": [
+        "Cuddly finds loose red yarn.",
+        "Three knots grow even tighter.",
+        "The red yarn rolls round."
+      ],
+      "answer": "Cuddly finds loose red yarn.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Cuddly finds loose red yarn."
+    },
+    {
+      "id": "meadow-pals-30-cuddlys-yarn-ball-q2",
+      "prompt": "What goes wrong in Cuddly's Yarn Ball?",
+      "choices": [
+        "Three knots grow even tighter.",
+        "Cuddly finds loose red yarn.",
+        "The red yarn rolls round."
+      ],
+      "answer": "Three knots grow even tighter.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Three knots grow even tighter. This shows that the first attempt does not solve the central problem introduced by Cuddly finds loose red yarn.",
+      "evidencePage": 4,
+      "evidenceText": "Three knots grow even tighter."
+    },
+    {
+      "id": "meadow-pals-30-cuddlys-yarn-ball-q3",
+      "prompt": "What solves the problem in Cuddly's Yarn Ball?",
+      "choices": [
+        "The red yarn rolls round.",
+        "Cuddly finds loose red yarn.",
+        "Three knots grow even tighter."
+      ],
+      "answer": "The red yarn rolls round.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The red yarn rolls round. This event shows how the central problem is resolved after Three knots grow even tighter.",
+      "evidencePage": 7,
+      "evidenceText": "The red yarn rolls round."
+    }
+  ]
+}

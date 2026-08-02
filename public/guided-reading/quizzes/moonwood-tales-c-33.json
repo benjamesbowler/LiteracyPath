@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-33",
+  "contentHash": "sha256:9108a38bff69acb3e2ee5271720dad52fc7be34e057d3f77b6ab1352f89a2249",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-33-q1",
+      "prompt": "Which event introduces the situation in Glimmer and the Sticky Stars?",
+      "choices": [
+        "Cold tree sap glues Luna's paper stars into one stack.",
+        "Its points curl inward while the deeper sap stays cold.",
+        "Glimmer lifts each flat star without tearing a point."
+      ],
+      "answer": "Cold tree sap glues Luna's paper stars into one stack.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Cold tree sap glues Luna's paper stars into one stack."
+    },
+    {
+      "id": "moonwood-tales-c-33-q2",
+      "prompt": "Which event shows that the first attempt fails in Glimmer and the Sticky Stars?",
+      "choices": [
+        "Its points curl inward while the deeper sap stays cold.",
+        "Cold tree sap glues Luna's paper stars into one stack.",
+        "Glimmer lifts each flat star without tearing a point."
+      ],
+      "answer": "Its points curl inward while the deeper sap stays cold.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Its points curl inward while the deeper sap stays cold. This shows that the first attempt does not solve the central problem introduced by Cold tree sap glues Luna's paper stars into one stack.",
+      "evidencePage": 4,
+      "evidenceText": "Its points curl inward while the deeper sap stays cold."
+    },
+    {
+      "id": "moonwood-tales-c-33-q3",
+      "prompt": "Which event resolves the central problem in Glimmer and the Sticky Stars?",
+      "choices": [
+        "Glimmer lifts each flat star without tearing a point.",
+        "Cold tree sap glues Luna's paper stars into one stack.",
+        "Its points curl inward while the deeper sap stays cold."
+      ],
+      "answer": "Glimmer lifts each flat star without tearing a point.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Glimmer lifts each flat star without tearing a point. This event shows how the central problem is resolved after Its points curl inward while the deeper sap stays cold.",
+      "evidencePage": 9,
+      "evidenceText": "Glimmer lifts each flat star without tearing a point."
+    }
+  ]
+}

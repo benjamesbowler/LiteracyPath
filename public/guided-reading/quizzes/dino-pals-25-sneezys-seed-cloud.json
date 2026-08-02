@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-25-sneezys-seed-cloud",
+  "contentHash": "sha256:3045c8d1f11122f248da802ff695851db2519e566b9fb4eb03e73640e5675b3e",
+  "questions": [
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud-q1",
+      "prompt": "Which event begins Sneezy's Seed Cloud?",
+      "choices": [
+        "Dry seed fluff drifts toward Cozy Cave.",
+        "The fluff bursts into a bigger tickly cloud.",
+        "Dozy enters while Sneezy plants seeds outside."
+      ],
+      "answer": "Dry seed fluff drifts toward Cozy Cave.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Dry seed fluff drifts toward Cozy Cave."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud-q2",
+      "prompt": "Which event shows the first plan fails in Sneezy's Seed Cloud?",
+      "choices": [
+        "The fluff bursts into a bigger tickly cloud.",
+        "Dry seed fluff drifts toward Cozy Cave.",
+        "Dozy enters while Sneezy plants seeds outside."
+      ],
+      "answer": "The fluff bursts into a bigger tickly cloud.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "The fluff bursts into a bigger tickly cloud. This shows that the first attempt does not solve the central problem introduced by Dry seed fluff drifts toward Cozy Cave.",
+      "evidencePage": 4,
+      "evidenceText": "The fluff bursts into a bigger tickly cloud."
+    },
+    {
+      "id": "dino-pals-25-sneezys-seed-cloud-q3",
+      "prompt": "Which event solves the problem in Sneezy's Seed Cloud?",
+      "choices": [
+        "Dozy enters while Sneezy plants seeds outside.",
+        "Dry seed fluff drifts toward Cozy Cave.",
+        "The fluff bursts into a bigger tickly cloud."
+      ],
+      "answer": "Dozy enters while Sneezy plants seeds outside.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Dozy enters while Sneezy plants seeds outside. This event shows how the central problem is resolved after The fluff bursts into a bigger tickly cloud.",
+      "evidencePage": 8,
+      "evidenceText": "Dozy enters while Sneezy plants seeds outside."
+    }
+  ]
+}

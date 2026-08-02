@@ -21,8 +21,12 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
   for (const digraph of ["wh", "ck", "ng"]) {
     assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${digraph}.mp3`), true, `${digraph} needs recorded reinforcement`);
   }
-  for (const deferred of ["sh", "ch", "th"]) {
-    assert.equal(hasPhonicsAudioSource(`/audio/phonemes/${deferred}.mp3`), false, `${deferred} must not revive deleted audio`);
+  for (const reviewed of ["sh", "ch", "th-unvoiced", "th-voiced"]) {
+    assert.equal(
+      hasPhonicsAudioSource(`/audio/phonemes/reviewed/${reviewed}.mp3`),
+      true,
+      `${reviewed} must use its human-ear approved recording`
+    );
   }
   assert.equal(hasPhonicsAudioSource(getLedaInstructionAudioPath("Great job")), true);
   assert.equal(hasPhonicsAudioSource(getLedaWordAudioPath("tap")), true);

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "meadow-pals-35-gigglys-round-wheel",
+  "contentHash": "sha256:00ba9725ec2b2a5bfbfaa4445360925d13be431694c6ee36118a5b026ffec235",
+  "questions": [
+    {
+      "id": "meadow-pals-35-gigglys-round-wheel-q1",
+      "prompt": "What happens first in Giggly's Round Wheel?",
+      "choices": [
+        "Giggly pulls a flower cart.",
+        "Flowers bounce onto soft grass.",
+        "Giggly delivers every flower."
+      ],
+      "answer": "Giggly pulls a flower cart.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Giggly pulls a flower cart."
+    },
+    {
+      "id": "meadow-pals-35-gigglys-round-wheel-q2",
+      "prompt": "What goes wrong in Giggly's Round Wheel?",
+      "choices": [
+        "Flowers bounce onto soft grass.",
+        "Giggly pulls a flower cart.",
+        "Giggly delivers every flower."
+      ],
+      "answer": "Flowers bounce onto soft grass.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Flowers bounce onto soft grass. This shows that the first attempt does not solve the central problem introduced by Giggly pulls a flower cart.",
+      "evidencePage": 4,
+      "evidenceText": "Flowers bounce onto soft grass."
+    },
+    {
+      "id": "meadow-pals-35-gigglys-round-wheel-q3",
+      "prompt": "What solves the problem in Giggly's Round Wheel?",
+      "choices": [
+        "Giggly delivers every flower.",
+        "Giggly pulls a flower cart.",
+        "Flowers bounce onto soft grass."
+      ],
+      "answer": "Giggly delivers every flower.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Giggly delivers every flower. This event shows how the central problem is resolved after Flowers bounce onto soft grass.",
+      "evidencePage": 8,
+      "evidenceText": "Giggly delivers every flower."
+    }
+  ]
+}

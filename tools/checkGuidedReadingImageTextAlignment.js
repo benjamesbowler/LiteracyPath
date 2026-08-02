@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { guidedReadingBooks, normalizeGuidedReadingType } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingWorldExpansionBooks } from "../src/data/guidedReadingWorldExpansionBooks.js";
 import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReadableBook.js";
 
 const rootDir = process.cwd();
@@ -12,6 +13,10 @@ function publicFileExists(publicPath = "") {
 }
 
 function expectedImagePatterns(bookId, storyPageNumber) {
+  const expansionBook = guidedReadingWorldExpansionBooks.find(book => book.id === bookId);
+  if (expansionBook) {
+    return [`/guided-reading/series/${expansionBook.seriesId}/book-${String(expansionBook.bookNumber).padStart(2, "0")}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
   const bobAndNanMap = {
     "bob-and-nan-01": "01",
     "bob-and-nan-02-park": "02",
@@ -278,6 +283,7 @@ const allowedFictionIds = new Set([
   "moonwood-tales-c-24",
   "moonwood-tales-c-25"
 ]);
+guidedReadingWorldExpansionBooks.forEach(book => allowedFictionIds.add(book.id));
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
@@ -321,7 +327,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-25 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction includes Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-30, Meadow Pals Level A books 1-35, and Moonwood Tales Level C books 1-35 in student public release. First Facts nonfiction books 1-25 are Level B, First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

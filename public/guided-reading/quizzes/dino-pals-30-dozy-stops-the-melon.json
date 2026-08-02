@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-30-dozy-stops-the-melon",
+  "contentHash": "sha256:ed90e5326b10b592a6f3be593a2954621f78f4eab5cb52437849dcc1bee046b8",
+  "questions": [
+    {
+      "id": "dino-pals-30-dozy-stops-the-melon-q1",
+      "prompt": "Which event begins Dozy Stops the Melon?",
+      "choices": [
+        "Dozy agrees to guard one round melon.",
+        "Zippy chases them but bumps the melon faster.",
+        "The melon stops gently beside sleepy Dozy."
+      ],
+      "answer": "Dozy agrees to guard one round melon.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Dozy agrees to guard one round melon."
+    },
+    {
+      "id": "dino-pals-30-dozy-stops-the-melon-q2",
+      "prompt": "Which event shows the first plan fails in Dozy Stops the Melon?",
+      "choices": [
+        "Zippy chases them but bumps the melon faster.",
+        "Dozy agrees to guard one round melon.",
+        "The melon stops gently beside sleepy Dozy."
+      ],
+      "answer": "Zippy chases them but bumps the melon faster.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Zippy chases them but bumps the melon faster. This shows that the first attempt does not solve the central problem introduced by Dozy agrees to guard one round melon.",
+      "evidencePage": 5,
+      "evidenceText": "Zippy chases them but bumps the melon faster."
+    },
+    {
+      "id": "dino-pals-30-dozy-stops-the-melon-q3",
+      "prompt": "Which event solves the problem in Dozy Stops the Melon?",
+      "choices": [
+        "The melon stops gently beside sleepy Dozy.",
+        "Dozy agrees to guard one round melon.",
+        "Zippy chases them but bumps the melon faster."
+      ],
+      "answer": "The melon stops gently beside sleepy Dozy.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The melon stops gently beside sleepy Dozy. This event shows how the central problem is resolved after Zippy chases them but bumps the melon faster.",
+      "evidencePage": 8,
+      "evidenceText": "The melon stops gently beside sleepy Dozy."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-24-clumsys-steady-bowls",
+  "contentHash": "sha256:419b56041b1ea083905dd6f6b3bb3c772cebc6439bda81bd3d4a33af9ec5ae08",
+  "questions": [
+    {
+      "id": "dino-pals-24-clumsys-steady-bowls-q1",
+      "prompt": "Which event begins Clumsy's Steady Bowls?",
+      "choices": [
+        "Clumsy must place four water bowls before the games.",
+        "One turn sends every bowl rolling downhill.",
+        "The drinking route stays full and steady."
+      ],
+      "answer": "Clumsy must place four water bowls before the games.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Clumsy must place four water bowls before the games."
+    },
+    {
+      "id": "dino-pals-24-clumsys-steady-bowls-q2",
+      "prompt": "Which event shows the first plan fails in Clumsy's Steady Bowls?",
+      "choices": [
+        "One turn sends every bowl rolling downhill.",
+        "Clumsy must place four water bowls before the games.",
+        "The drinking route stays full and steady."
+      ],
+      "answer": "One turn sends every bowl rolling downhill.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "One turn sends every bowl rolling downhill. This shows that the first attempt does not solve the central problem introduced by Clumsy must place four water bowls before the games.",
+      "evidencePage": 3,
+      "evidenceText": "One turn sends every bowl rolling downhill."
+    },
+    {
+      "id": "dino-pals-24-clumsys-steady-bowls-q3",
+      "prompt": "Which event solves the problem in Clumsy's Steady Bowls?",
+      "choices": [
+        "The drinking route stays full and steady.",
+        "Clumsy must place four water bowls before the games.",
+        "One turn sends every bowl rolling downhill."
+      ],
+      "answer": "The drinking route stays full and steady.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "The drinking route stays full and steady. This event shows how the central problem is resolved after One turn sends every bowl rolling downhill.",
+      "evidencePage": 8,
+      "evidenceText": "The drinking route stays full and steady."
+    }
+  ]
+}

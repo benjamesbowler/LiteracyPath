@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "dino-pals-28-honkys-echo-tunnel",
+  "contentHash": "sha256:d61a36a96995664e4289c7fed524e5550df986134d11cfd9dae994bb2736e7cd",
+  "questions": [
+    {
+      "id": "dino-pals-28-honkys-echo-tunnel-q1",
+      "prompt": "Which event begins Honky's Echo Tunnel?",
+      "choices": [
+        "Honky finds three tunnels behind Cozy Cave.",
+        "Crashing echoes hide every direction at once.",
+        "Honky marks the open tunnel and turns back."
+      ],
+      "answer": "Honky finds three tunnels behind Cozy Cave.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Honky finds three tunnels behind Cozy Cave."
+    },
+    {
+      "id": "dino-pals-28-honkys-echo-tunnel-q2",
+      "prompt": "Which event shows the first plan fails in Honky's Echo Tunnel?",
+      "choices": [
+        "Crashing echoes hide every direction at once.",
+        "Honky finds three tunnels behind Cozy Cave.",
+        "Honky marks the open tunnel and turns back."
+      ],
+      "answer": "Crashing echoes hide every direction at once.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Crashing echoes hide every direction at once. This shows that the first attempt does not solve the central problem introduced by Honky finds three tunnels behind Cozy Cave.",
+      "evidencePage": 4,
+      "evidenceText": "Crashing echoes hide every direction at once."
+    },
+    {
+      "id": "dino-pals-28-honkys-echo-tunnel-q3",
+      "prompt": "Which event solves the problem in Honky's Echo Tunnel?",
+      "choices": [
+        "Honky marks the open tunnel and turns back.",
+        "Honky finds three tunnels behind Cozy Cave.",
+        "Crashing echoes hide every direction at once."
+      ],
+      "answer": "Honky marks the open tunnel and turns back.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "Honky marks the open tunnel and turns back. This event shows how the central problem is resolved after Crashing echoes hide every direction at once.",
+      "evidencePage": 8,
+      "evidenceText": "Honky marks the open tunnel and turns back."
+    }
+  ]
+}

@@ -6,8 +6,8 @@ const warnings = [];
 const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
 const nonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
 
-if (fictionBooks.length) {
-  failures.push(`Fiction books leaked into Guided Reading after removal: ${fictionBooks.map(book => book.id).join(", ")}`);
+if (!fictionBooks.length) {
+  failures.push("No fiction Guided Reading books remain.");
 }
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain.");
@@ -31,9 +31,9 @@ if (warnings.length) {
 }
 
 if (failures.length) {
-  console.error("\nGuided Reading registry separation failed:");
+  console.error("\nGuided Reading registry integrity failed:");
   failures.forEach(item => console.error(`- ${item}`));
   process.exit(1);
 }
 
-console.log("Guided Reading registry separation passed.");
+console.log("Guided Reading registry integrity passed.");

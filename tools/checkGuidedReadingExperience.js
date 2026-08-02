@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingWorldExpansionBooks } from "../src/data/guidedReadingWorldExpansionBooks.js";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../src/utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../src/utils/guidedReading/recommendBooksForStudent.js";
 
@@ -117,6 +118,7 @@ const allowedFictionIds = new Set([
   "moonwood-tales-c-24",
   "moonwood-tales-c-25"
 ]);
+guidedReadingWorldExpansionBooks.forEach(book => allowedFictionIds.add(book.id));
 const unexpectedFictionBooks = visibleFictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
@@ -127,8 +129,9 @@ if (unexpectedFictionBooks.length) {
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
-if (guidedReadingBooks.length !== 176) {
-  failures.push(`Expected 176 total Guided Reading books after true Level A nonfiction import, found ${guidedReadingBooks.length}.`);
+const expectedBookCount = 176 + guidedReadingWorldExpansionBooks.length;
+if (guidedReadingBooks.length !== expectedBookCount) {
+  failures.push(`Expected ${expectedBookCount} total Guided Reading books after the approved world expansion, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {
@@ -156,8 +159,12 @@ for (const book of guidedReadingBooks) {
   if (allowedFictionIds.has(book.id) && (book.qaStatus !== "approved" || book.teacherPreviewOnly || book.active === false)) {
     failures.push(`${book.id}: fiction series books should be approved, active, and available to student readers.`);
   }
-  if (book.qaStatus === "approved" && (book.pages || []).some(page => page.qaStatus && !["approved", "needs_image_alignment_review"].includes(page.qaStatus))) {
-    failures.push(`${book.id}: approved book contains non-approved/review page status.`);
+  const childVisiblePages = (book.pages || []).filter(page => page.active !== false);
+  if (book.qaStatus === "approved" && childVisiblePages.some(page => page.qaStatus && !["approved", "needs_image_alignment_review"].includes(page.qaStatus))) {
+    failures.push(`${book.id}: approved book contains a child-visible page with non-approved/review status.`);
+  }
+  if ((book.pages || []).some(page => page.qaStatus === "story_bible_removed" && page.active !== false)) {
+    failures.push(`${book.id}: Story Bible removed page is still child-visible.`);
   }
 
   enriched.dominantPhonicsPatterns.forEach(pattern => patternCounts.set(pattern, (patternCounts.get(pattern) || 0) + 1));

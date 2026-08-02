@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "quizVersion": "2026-08-01.1",
+  "bookId": "moonwood-tales-c-32",
+  "contentHash": "sha256:856814dbc4471cdbf5a028de00696671c5e1b72d416c7281383924d2b770d327",
+  "questions": [
+    {
+      "id": "moonwood-tales-c-32-q1",
+      "prompt": "Which event introduces the situation in Flint's Two Shadows?",
+      "choices": [
+        "Flint tests his lantern before carrying maps through Deep Dark.",
+        "Flint follows the darker shadow and meets a fern wall.",
+        "One clear shadow now points away from every root."
+      ],
+      "answer": "Flint tests his lantern before carrying maps through Deep Dark.",
+      "kind": "text",
+      "skill": "sequence",
+      "evidencePage": 1,
+      "evidenceText": "Flint tests his lantern before carrying maps through Deep Dark."
+    },
+    {
+      "id": "moonwood-tales-c-32-q2",
+      "prompt": "Which event shows that the first attempt fails in Flint's Two Shadows?",
+      "choices": [
+        "Flint follows the darker shadow and meets a fern wall.",
+        "Flint tests his lantern before carrying maps through Deep Dark.",
+        "One clear shadow now points away from every root."
+      ],
+      "answer": "Flint follows the darker shadow and meets a fern wall.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "Flint follows the darker shadow and meets a fern wall. This shows that the first attempt does not solve the central problem introduced by Flint tests his lantern before carrying maps through Deep Dark.",
+      "evidencePage": 4,
+      "evidenceText": "Flint follows the darker shadow and meets a fern wall."
+    },
+    {
+      "id": "moonwood-tales-c-32-q3",
+      "prompt": "Which event resolves the central problem in Flint's Two Shadows?",
+      "choices": [
+        "One clear shadow now points away from every root.",
+        "Flint tests his lantern before carrying maps through Deep Dark.",
+        "Flint follows the darker shadow and meets a fern wall."
+      ],
+      "answer": "One clear shadow now points away from every root.",
+      "kind": "text",
+      "skill": "outcome",
+      "rationale": "One clear shadow now points away from every root. This event shows how the central problem is resolved after Flint follows the darker shadow and meets a fern wall.",
+      "evidencePage": 9,
+      "evidenceText": "One clear shadow now points away from every root."
+    }
+  ]
+}
