@@ -97,6 +97,18 @@ LiteracyPath product decision: the preschool touch target is **56 by 56 CSS pixe
 - Text is never baked into generated scenery or item art.
 - Colour is not the sole indicator of target, status or correctness. Selected and correct states also use shape, outline, label, motion or icon.
 
+### Premium reference implementation
+
+Rocket Run is the reference implementation for a visually intensive LiteracyPath game. This does not require every game to become 3D: the mechanic chooses the medium. It does require every game to reach the same level of finish in the areas that apply to it.
+
+- The learning action and the game action are one action. In Rocket Run, steering to a word is the beginning-sound decision; the learning is not an interruption laid over the game.
+- Art direction is coherent across the player, track, authored scenery, lighting, atmosphere, interface and effects. Owned production assets replace placeholder geometry when the device can render them reliably.
+- Camera motion, depth, contact shadows, particles, sound and score feedback make input feel immediate without obscuring words or becoming the source of correctness.
+- Touch, keyboard, audio, pause, resume, onboarding, recovery and completion are finished parts of the experience, not browser defaults around the game.
+- Quality tiers reduce scenery, shadows, particles and pixel density before they reduce legibility or input response. A failed decorative asset load falls back to a complete playable scene.
+- Reduced-motion mode keeps the route and feedback readable while removing non-essential intensity.
+- A visually simpler literacy game may use flat illustration, stop-motion, cards or physical-feeling type. It is premium when those choices are authored, coherent and responsive—not when it imitates Rocket Run's genre.
+
 ## 8. Motivation, rewards and replay
 
 - Rewards acknowledge demonstrated learning, effortful retry, discovery or meaningful creation.
@@ -151,3 +163,19 @@ Every new or substantially changed game records:
 - physical-device result when available.
 
 If a field is unknown, mark it unknown. Do not convert an untested assumption into “pass.”
+
+### Rocket Run reference record
+
+- **Age/reading band:** early readers practising taught initial sounds.
+- **Target construct:** decide whether a spoken and printed word begins with the shown target grapheme/phoneme.
+- **Non-target demands:** choose one of three lanes; hazards are supportive game pressure and never decide literacy correctness.
+- **Controls:** tap left/right screen regions, swipe, Arrow Left/Right, or A/D. The game pauses for the app exit prompt, hidden tabs and WebGL context loss.
+- **Level ladder:** completion-paced rounds move from common single-letter onsets towards later sounds and digraphs according to the selected difficulty. Difficulty changes the word/sound demand before hazard pressure.
+- **Prompt/audio:** “Catch the [target] words.” The target is shown, spoken and replayed after the first trusted iPad user gesture; easy mode also speaks incoming words.
+- **Generator/ambiguity proof:** `rocketRunRounds.js` builds unique correct words and distractors with a different onset sound; its full target set is exercised by `rocketRunRounds.test.js`.
+- **Feedback:** a correct catch repeats the word and celebrates it; a wrong catch names the word and its actual onset; missed correct words return with support instead of disappearing.
+- **Reward:** score, combo, sector progress and stars reflect correct catches and recovery. Cosmetic motion does not create learning evidence.
+- **Reduced motion/no audio:** reduced motion selects the low rendering tier and quiets non-essential movement; all essential cues remain printed when sound is off.
+- **Data:** normal local/cloud game progress only—score, stars, completed words and resumable round checkpoint. No new identifier, profile or network service.
+- **Automated checks:** `rocketRunRounds.test.js`, `premiumGameStandard.test.js`, `gameCheckpoints.test.js`, and the all-games iPad activity viewport browser check.
+- **Physical-device result:** unknown until the changed build is exercised on a real supported iPad; browser emulation is not recorded as a physical-device pass.

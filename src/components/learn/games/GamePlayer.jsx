@@ -307,6 +307,7 @@ export function GamePlayer({
                 onComplete={handleComplete}
                 onCheckpoint={handleCheckpoint}
                 onEngineReady={api => { engineRef.current = api; }}
+                onExit={closePlayer}
                 isSoundEnabled={soundEnabled}
               />
             )}

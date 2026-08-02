@@ -39,6 +39,15 @@ import {
   disposeObject as disposeGroup,
   setTextureSrgb
 } from "../shared/threeShell.js";
+import {
+  createOwnedModelInstance,
+  disposeOwnedModelInstance
+} from "../shared/premiumGameAssets.js";
+import {
+  hasCompletePremiumSetpieceSet,
+  laneDirectionForKey,
+  premiumSetpieceBudget
+} from "../shared/premiumGameStandard.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
@@ -50,6 +59,19 @@ const ROUNDS_PER_GAME = 8;
 const SHIP_BASE_SCALE = 0.74;
 const CAMERA_FOV = 66;
 const BOOST_FOV = 78;
+
+// CC0 KayKit scenery already ships in the owned runtime library. Rocket Run
+// uses it as environmental storytelling rather than a collision surface, so a
+// late or failed model load can never block the literacy mechanic. The
+// procedural corridor below remains the low-tier and load-failure fallback.
+const OWNED_SPACE_SETPIECES = Object.freeze([
+  { url: "/models/library/kaykit/space/models/basemodule_A.gltf", height: 2.9 },
+  { url: "/models/library/kaykit/space/models/cargodepot_A.gltf", height: 2.5 },
+  { url: "/models/library/kaykit/space/models/lander_A.gltf", height: 2.7 },
+  { url: "/models/library/kaykit/space/models/drill_structure.gltf", height: 3.8 },
+  { url: "/models/library/kaykit/space/models/windturbine_tall.gltf", height: 4.4 },
+  { url: "/models/library/kaykit/space/models/cargo_A_stacked.gltf", height: 1.8 }
+]);
 
 // Each round flies through a themed sector (Wipeout-style). Fog + ambient tint
 // tween in per round, and meteorMul scales the asteroid pressure.
@@ -512,6 +534,55 @@ function startGame(THREE, mount, opts) {
     scene.add(cluster);
     canyonPieces.push(cluster);
   }
+
+  // Premium scenery stream. Medium/high devices swap the repeated procedural
+  // skyline for coherent, authored low-poly space-base models. The budget is
+  // tiered and bounded; low-power/reduced-motion devices keep the much cheaper
+  // procedural silhouette. All assets are decorative and all failures settle
+  // into that fallback instead of failing the game.
+  const ownedScenery = new THREE.Group();
+  ownedScenery.name = "rocket-run-owned-space-base";
+  scene.add(ownedScenery);
+  let ownedSceneryDisposed = false;
+  const setpieceBudget = premiumSetpieceBudget(qualityTier);
+  const setpieceSpecs = OWNED_SPACE_SETPIECES.slice(0, setpieceBudget.setpieceKinds);
+  const setpieceWrap = Math.max(1, setpieceBudget.setpieceCopies) * 5.8;
+  const setpieceLoads = [];
+  for (let i = 0; i < setpieceBudget.setpieceCopies; i += 1) {
+    const spec = setpieceSpecs[i % Math.max(1, setpieceSpecs.length)];
+    if (!spec) break;
+    const load = createOwnedModelInstance(THREE, spec.url, {
+      height: spec.height,
+      castShadow: qualityTier === "high",
+      receiveShadow: qualityTier !== "low"
+    }).then(model => {
+      if (ownedSceneryDisposed) {
+        disposeOwnedModelInstance(model);
+        return;
+      }
+      const side = i % 2 === 0 ? -1 : 1;
+      model.position.set(
+        side * (5.3 + (i % 3) * 0.85),
+        0.08,
+        -16 - i * 5.8
+      );
+      model.rotation.y = side < 0 ? Math.PI * 0.42 : -Math.PI * 0.42;
+      model.userData.streamOffset = i * 0.17;
+      ownedScenery.add(model);
+    }).catch(() => {
+      // The procedural corridor is the deliberate, playable fallback.
+    });
+    setpieceLoads.push(load);
+  }
+  void Promise.allSettled(setpieceLoads).then(() => {
+    // Only replace the complete procedural skyline when every tier-budgeted
+    // authored model is ready. A partially cached/offline load may still add
+    // useful foreground detail, but it must never turn the dependable fallback
+    // into a sparse or apparently broken route.
+    if (ownedSceneryDisposed || !hasCompletePremiumSetpieceSet(ownedScenery.children.length, setpieceBudget)) return;
+    stationPieces.forEach(piece => { piece.visible = false; });
+    canyonPieces.forEach(piece => { piece.visible = false; });
+  });
 
   const nebulaPlanes = [];
   const cyanGlow = makeGlowTexture("rgba(103,232,249,0.88)", "rgba(74,144,226,0.18)");
@@ -1187,7 +1258,7 @@ function startGame(THREE, mount, opts) {
       '<div style="font-size:2rem;font-weight:800">You caught the comet!</div>' +
       '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
       '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
-      '<button data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Done</button>' +
+      '<button data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Back to Arcade</button>' +
       '</div>'
     );
     // Stars pop in one at a time, each with a chime; score counts up over ~800ms.
@@ -1209,7 +1280,10 @@ function startGame(THREE, mount, opts) {
     };
     requestAnimationFrame(countUp);
     const done = overlay.querySelector('[data-rr="done"]');
-    if (done) done.addEventListener("click", () => { overlay.style.display = "none"; });
+    if (done) done.addEventListener("click", () => {
+      if (opts.onExit) opts.onExit();
+      else overlay.style.display = "none";
+    });
     if (opts.onProgressUpdate) opts.onProgressUpdate(ROUNDS_PER_GAME, ROUNDS_PER_GAME);
     if (opts.onComplete) opts.onComplete(stars, score, caughtTotal);
   }
@@ -1219,8 +1293,11 @@ function startGame(THREE, mount, opts) {
   const onRight = () => moveLane(1);
   const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
   const onKey = event => {
-    if (event.key === "ArrowLeft") moveLane(-1);
-    else if (event.key === "ArrowRight") moveLane(1);
+    const direction = laneDirectionForKey(event.key);
+    if (direction) {
+      event.preventDefault();
+      moveLane(direction);
+    }
   };
   window.addEventListener("keydown", onKey);
   const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
@@ -1292,6 +1369,11 @@ function startGame(THREE, mount, opts) {
       group.position.z += trackDrift * 0.82;
       group.rotation.y = Math.sin(elapsed * 0.18 + group.position.z) * 0.035;
       if (group.position.z > 12) group.position.z -= 30 * 4.3;
+    }
+    for (const model of ownedScenery.children) {
+      model.position.z += trackDrift * 0.84;
+      model.rotation.y += Math.sin(elapsed * 0.28 + model.userData.streamOffset) * dt * 0.012;
+      if (model.position.z > 12) model.position.z -= setpieceWrap;
     }
     for (const plane of nebulaPlanes) {
       plane.position.z += dt * 0.75 * speed;
@@ -1442,6 +1524,11 @@ function startGame(THREE, mount, opts) {
     const overlay = el("overlay");
     if (overlay) overlay.style.display = "none";
     window.removeEventListener("keydown", onIntroKey, true);
+    // This is the first guaranteed user gesture on iPad. Replay the target here
+    // so Safari's audio lock cannot swallow the round's essential cue.
+    sfx(playTapSound);
+    if (roundTarget.length === 1) say(() => speakPhoneme(roundTarget));
+    else say(() => speak(roundTarget));
     resume();
   }
   function onIntroKey(event) {
@@ -1485,6 +1572,10 @@ function startGame(THREE, mount, opts) {
     for (const pair of pylonPairs) { scene.remove(pair); disposeGroup(pair); }
     for (const group of stationPieces) { scene.remove(group); disposeGroup(group); }
     for (const group of canyonPieces) { scene.remove(group); disposeGroup(group); }
+    ownedSceneryDisposed = true;
+    scene.remove(ownedScenery);
+    for (const model of ownedScenery.children) disposeOwnedModelInstance(model);
+    ownedScenery.clear();
     ridgeMats.forEach(mat => mat.dispose());
     for (const plane of nebulaPlanes) { scene.remove(plane); disposeGroup(plane); }
     scene.remove(planetGroup); disposeGroup(planetGroup);
@@ -1500,7 +1591,7 @@ function startGame(THREE, mount, opts) {
   return { teardown, pause, resume };
 }
 
-export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, onExit, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const soundRef = useRef(isSoundEnabled);
@@ -1516,7 +1607,7 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         try {
-          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, getSound: () => soundRef.current });
+          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onExit, getSound: () => soundRef.current });
           if (onEngineReady) onEngineReady(api);
           setStatus("playing");
         } catch (err) {
