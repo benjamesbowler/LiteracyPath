@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-10",
-  "contentHash": "sha256:a0af0d2614183bdb9b04123270ac0baecdff25632f1d360d5cb3c10dee59e320",
+  "contentHash": "sha256:bac2abe502bdc011139ebd39124d05812cef27d0b15bc0a2441ac6be6f2e34d6",
   "questions": [
     {
       "id": "ja-b-10-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Dad raises a green tent for one garden camping night.",
         "The horn scares the fox, but it startles Dad too.",
-        "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
+        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
       ],
       "answer": "Dad raises a green tent for one garden camping night.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "The horn scares the fox, but it startles Dad too.",
         "Dad raises a green tent for one garden camping night.",
-        "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
+        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
       ],
       "answer": "The horn scares the fox, but it startles Dad too.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ja-b-10-q3",
       "prompt": "Which event solves the problem in James, Anna and Chips go Camping?",
       "choices": [
-        "Chips grabs the zip. Anna removes it. Next time, he stays safely home.",
+        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors.",
         "Dad raises a green tent for one garden camping night.",
         "The horn scares the fox, but it startles Dad too."
       ],
-      "answer": "Chips grabs the zip. Anna removes it. Next time, he stays safely home.",
+      "answer": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Chips grabs the zip. Anna removes it. Next time, he stays safely home. This event shows how the central problem is resolved.",
+      "rationale": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Chips grabs the zip. Anna removes it. Next time, he stays safely home."
+      "evidenceText": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
     }
   ]
 }

@@ -9,8 +9,8 @@
       "prompt": "What happens first in Woolly's Wool Cloud?",
       "choices": [
         "Woolly wants a cloud picture.",
-        "Wind scatters every fluffy piece.",
-        "Her wool cloud stays put."
+        "She gathers soft shed wool.",
+        "Sunshine dries the muddy board."
       ],
       "answer": "Woolly wants a cloud picture.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-28-woollys-wool-cloud-q2",
       "prompt": "What goes wrong in Woolly's Wool Cloud?",
       "choices": [
-        "Wind scatters every fluffy piece.",
+        "She gathers soft shed wool.",
         "Woolly wants a cloud picture.",
-        "Her wool cloud stays put."
+        "Sunshine dries the muddy board."
       ],
-      "answer": "Wind scatters every fluffy piece.",
+      "answer": "She gathers soft shed wool.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wind scatters every fluffy piece. This shows that the first attempt does not solve the central problem introduced by Woolly wants a cloud picture.",
-      "evidencePage": 3,
-      "evidenceText": "Wind scatters every fluffy piece."
+      "rationale": "She gathers soft shed wool. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "She gathers soft shed wool."
     },
     {
       "id": "meadow-pals-28-woollys-wool-cloud-q3",
-      "prompt": "What solves the problem in Woolly's Wool Cloud?",
+      "prompt": "What happens at the end of Woolly's Wool Cloud?",
       "choices": [
-        "Her wool cloud stays put.",
+        "Sunshine dries the muddy board.",
         "Woolly wants a cloud picture.",
-        "Wind scatters every fluffy piece."
+        "She gathers soft shed wool."
       ],
-      "answer": "Her wool cloud stays put.",
+      "answer": "Sunshine dries the muddy board.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Her wool cloud stays put. This event shows how the central problem is resolved after Wind scatters every fluffy piece.",
-      "evidencePage": 8,
-      "evidenceText": "Her wool cloud stays put."
+      "rationale": "Sunshine dries the muddy board. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Sunshine dries the muddy board."
     }
   ]
 }

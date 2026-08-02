@@ -10,7 +10,7 @@
       "choices": [
         "Hollow Oak needs a new curved hook for its lowest lantern.",
         "At count ten the copy vanishes and Luna catches the lantern.",
-        "The fibre dries into a solid matching hook."
+        "Spark presses soft clay around the next ten-count copy."
       ],
       "answer": "Hollow Oak needs a new curved hook for its lowest lantern.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "At count ten the copy vanishes and Luna catches the lantern.",
         "Hollow Oak needs a new curved hook for its lowest lantern.",
-        "The fibre dries into a solid matching hook."
+        "Spark presses soft clay around the next ten-count copy."
       ],
       "answer": "At count ten the copy vanishes and Luna catches the lantern.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "At count ten the copy vanishes and Luna catches the lantern. This shows that the first attempt does not solve the central problem introduced by Hollow Oak needs a new curved hook for its lowest lantern.",
+      "rationale": "At count ten the copy vanishes and Luna catches the lantern. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "At count ten the copy vanishes and Luna catches the lantern."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-34-q3",
       "prompt": "Which event resolves the central problem in Spark's Ten-Count Hook?",
       "choices": [
-        "The fibre dries into a solid matching hook.",
+        "Spark presses soft clay around the next ten-count copy.",
         "Hollow Oak needs a new curved hook for its lowest lantern.",
         "At count ten the copy vanishes and Luna catches the lantern."
       ],
-      "answer": "The fibre dries into a solid matching hook.",
+      "answer": "Spark presses soft clay around the next ten-count copy.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The fibre dries into a solid matching hook. This event shows how the central problem is resolved after At count ten the copy vanishes and Luna catches the lantern.",
-      "evidencePage": 9,
-      "evidenceText": "The fibre dries into a solid matching hook."
+      "rationale": "Spark presses soft clay around the next ten-count copy. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "Spark presses soft clay around the next ten-count copy."
     }
   ]
 }

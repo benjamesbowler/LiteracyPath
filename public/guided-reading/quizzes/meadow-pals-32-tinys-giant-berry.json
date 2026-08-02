@@ -9,8 +9,8 @@
       "prompt": "What happens first in Tiny's Giant Berry?",
       "choices": [
         "Tiny finds a giant berry.",
-        "The berry rolls back downhill.",
-        "Tiny rolls it past safely."
+        "The berry meets one root.",
+        "He turns the berry sideways."
       ],
       "answer": "Tiny finds a giant berry.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-32-tinys-giant-berry-q2",
       "prompt": "What goes wrong in Tiny's Giant Berry?",
       "choices": [
-        "The berry rolls back downhill.",
+        "The berry meets one root.",
         "Tiny finds a giant berry.",
-        "Tiny rolls it past safely."
+        "He turns the berry sideways."
       ],
-      "answer": "The berry rolls back downhill.",
+      "answer": "The berry meets one root.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The berry rolls back downhill. This shows that the first attempt does not solve the central problem introduced by Tiny finds a giant berry.",
-      "evidencePage": 5,
-      "evidenceText": "The berry rolls back downhill."
+      "rationale": "The berry meets one root. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "The berry meets one root."
     },
     {
       "id": "meadow-pals-32-tinys-giant-berry-q3",
-      "prompt": "What solves the problem in Tiny's Giant Berry?",
+      "prompt": "What happens at the end of Tiny's Giant Berry?",
       "choices": [
-        "Tiny rolls it past safely.",
+        "He turns the berry sideways.",
         "Tiny finds a giant berry.",
-        "The berry rolls back downhill."
+        "The berry meets one root."
       ],
-      "answer": "Tiny rolls it past safely.",
+      "answer": "He turns the berry sideways.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Tiny rolls it past safely. This event shows how the central problem is resolved after The berry rolls back downhill.",
-      "evidencePage": 8,
-      "evidenceText": "Tiny rolls it past safely."
+      "rationale": "He turns the berry sideways. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "He turns the berry sideways."
     }
   ]
 }

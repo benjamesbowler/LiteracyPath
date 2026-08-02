@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-01-look-at-the-colours-q1",
-      "prompt": "Which fact about an apple is given in Colours We Can See?",
+      "prompt": "Which sentence tells about an apple in Colours We Can See?",
       "choices": [
         "An apple can look red. A robin has an orange-red breast.",
         "A clear sky looks blue. Forget-me-nots can have blue petals.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-01-look-at-the-colours-q2",
-      "prompt": "Which fact about a clear sky is given in Colours We Can See?",
+      "prompt": "Which sentence tells about a clear sky in Colours We Can See?",
       "choices": [
         "A clear sky looks blue. Forget-me-nots can have blue petals.",
         "An apple can look red. A robin has an orange-red breast.",

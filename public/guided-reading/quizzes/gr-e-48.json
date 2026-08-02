@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-e-48-q1",
-      "prompt": "Which fact about a magnet is given in Magnets?",
+      "prompt": "How many poles does a magnet have?",
       "choices": [
         "A magnet has two poles.",
-        "Magnets do not attract wood.",
-        "Matching poles push apart."
+        "A magnet has one pole.",
+        "A magnet has five poles."
       ],
       "answer": "A magnet has two poles.",
       "kind": "text",
@@ -20,17 +20,17 @@
     },
     {
       "id": "gr-e-48-q2",
-      "prompt": "Which fact about magnets is given in Magnets?",
+      "prompt": "What happens when a magnet is held near glass?",
       "choices": [
-        "Magnets do not attract wood.",
-        "A magnet has two poles.",
-        "Matching poles push apart."
+        "Magnets do not attract glass.",
+        "Magnets attract all glass.",
+        "Glass turns into a magnet."
       ],
-      "answer": "Magnets do not attract wood.",
+      "answer": "Magnets do not attract glass.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "Magnets do not attract wood."
+      "evidencePage": 4,
+      "evidenceText": "Magnets do not attract glass."
     },
     {
       "id": "gr-e-48-q3",

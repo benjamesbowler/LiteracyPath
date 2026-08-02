@@ -29,7 +29,7 @@
       "answer": "Zippy chases them but bumps the melon faster.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Zippy chases them but bumps the melon faster. This shows that the first attempt does not solve the central problem introduced by Dozy agrees to guard one round melon.",
+      "rationale": "Zippy chases them but bumps the melon faster. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
       "evidenceText": "Zippy chases them but bumps the melon faster."
     },
@@ -44,7 +44,7 @@
       "answer": "The melon stops gently beside sleepy Dozy.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The melon stops gently beside sleepy Dozy. This event shows how the central problem is resolved after Zippy chases them but bumps the melon faster.",
+      "rationale": "The melon stops gently beside sleepy Dozy. This event shows how the central problem is resolved.",
       "evidencePage": 8,
       "evidenceText": "The melon stops gently beside sleepy Dozy."
     }

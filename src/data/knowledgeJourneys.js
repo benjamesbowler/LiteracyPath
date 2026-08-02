@@ -103,10 +103,12 @@ export function getBookKnowledgeJourney(bookOrId = "") {
   return JOURNEY_BY_BOOK_ID.get(bookId) || null;
 }
 
-export function knowledgeJourneyBooks(journeyId = "", books = []) {
+export function knowledgeJourneyBooks(journeyId = "", books = [], level = "") {
   const journey = getKnowledgeJourney(journeyId);
   const byId = new Map(books.map(book => [book.id, book]));
-  return journey.bookIds.map(bookId => byId.get(bookId)).filter(Boolean);
+  return journey.bookIds
+    .map(bookId => byId.get(bookId))
+    .filter(book => book && (!level || book.level === level));
 }
 
 export function buildMeaningPrompts(book = {}) {

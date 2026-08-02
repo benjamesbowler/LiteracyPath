@@ -16,27 +16,6 @@ async function holdKey(page, key, duration = 320) {
   await page.waitForTimeout(80);
 }
 
-function boxesIntersect(left, right) {
-  return left.x < right.x + right.width
-    && left.x + left.width > right.x
-    && left.y < right.y + right.height
-    && left.y + left.height > right.y;
-}
-
-function boxSeparation(left, right) {
-  const horizontal = Math.max(
-    left.x - (right.x + right.width),
-    right.x - (left.x + left.width),
-    0
-  );
-  const vertical = Math.max(
-    left.y - (right.y + right.height),
-    right.y - (left.y + left.height),
-    0
-  );
-  return Math.hypot(horizontal, vertical);
-}
-
 for (const regression of [
   { name: "Hollow Tree", stopId: "s1", done: 0, target: "a", nextPrompt: "Find m" },
   { name: "Bramble Gate", stopId: "s5", done: 4, target: "c" },
@@ -112,7 +91,7 @@ test("all four keyboard arrows move the Beastie on their matching axis", async (
   expect(after.player.x).toBeGreaterThan(before.player.x + 8);
 });
 
-test("coarse-pointer answer controls leave every D-pad arrow usable and moving", async ({ browser, baseURL }) => {
+test("coarse-pointer trail hides the duplicate answer strip and leaves every D-pad arrow usable", async ({ browser, baseURL }) => {
   const context = await browser.newContext({
     baseURL,
     viewport: { width: 390, height: 844 },
@@ -125,14 +104,11 @@ test("coarse-pointer answer controls leave every D-pad arrow usable and moving",
     await page.goto(`${PREVIEW}&view=world&stop=s1&display=pixel&active=0`);
     await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 15_000 });
     const dpad = page.locator(".qp-dpad");
-    const answers = page.locator(".qp-semantic-choices.is-pinned");
+    const answers = page.locator(".qp-semantic-choices");
     await expect(dpad).toBeVisible();
-    await expect(answers).toBeVisible();
-
-    const [dpadBox, answerBox] = await Promise.all([dpad.boundingBox(), answers.boundingBox()]);
-    expect(dpadBox).toBeTruthy();
-    expect(answerBox).toBeTruthy();
-    expect(answerBox.y + answerBox.height).toBeLessThanOrEqual(dpadBox.y - 8);
+    await expect(answers).toHaveClass(/q-visually-hidden/);
+    await expect(answers).toHaveCSS("clip", "rect(0px, 0px, 0px, 0px)");
+    await expect(answers).not.toHaveClass(/is-pinned/);
 
     for (const direction of ["up", "left", "down", "right"]) {
       const button = page.getByRole("button", { name: `Move ${direction}`, exact: true });
@@ -160,7 +136,7 @@ test("coarse-pointer answer controls leave every D-pad arrow usable and moving",
 });
 
 for (const width of [568, 432, 424, 360]) {
-  test(`${width}x320 phone landscape keeps the prompt, answers and D-pad separate`, async ({ browser, baseURL }) => {
+  test(`${width}x320 phone landscape keeps the prompt and D-pad visible without the duplicate answer strip`, async ({ browser, baseURL }) => {
     const context = await browser.newContext({
       baseURL,
       viewport: { width, height: 320 },
@@ -174,24 +150,12 @@ for (const width of [568, 432, 424, 360]) {
       await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 15_000 });
 
       const cue = page.locator(".qp-cue");
-      const answers = page.locator(".qp-semantic-choices.is-pinned");
+      const answers = page.locator(".qp-semantic-choices");
       const dpad = page.locator(".qp-dpad");
       await expect(cue).toBeVisible();
-      await expect(answers).toBeVisible();
+      await expect(answers).toHaveClass(/q-visually-hidden/);
+      await expect(answers).toHaveCSS("clip", "rect(0px, 0px, 0px, 0px)");
       await expect(dpad).toBeVisible();
-
-      const [cueBox, answerBox, dpadBox] = await Promise.all([
-        cue.boundingBox(),
-        answers.boundingBox(),
-        dpad.boundingBox()
-      ]);
-      expect(cueBox).toBeTruthy();
-      expect(answerBox).toBeTruthy();
-      expect(dpadBox).toBeTruthy();
-      expect(boxesIntersect(answerBox, cueBox)).toBe(false);
-      expect(boxesIntersect(answerBox, dpadBox)).toBe(false);
-      expect(boxSeparation(answerBox, cueBox)).toBeGreaterThanOrEqual(8);
-      expect(boxSeparation(answerBox, dpadBox)).toBeGreaterThanOrEqual(8);
     } finally {
       await context.close();
     }

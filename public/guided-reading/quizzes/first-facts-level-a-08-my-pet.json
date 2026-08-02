@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-08-my-pet-q2",
-      "prompt": "What do we learn about a fish?",
+      "prompt": "Which sentence tells about a fish in Pets We Care For?",
       "choices": [
         "A fish swims in a tank.",
         "A dog sleeps in a bed.",

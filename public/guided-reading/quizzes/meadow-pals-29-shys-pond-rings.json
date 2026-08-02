@@ -9,7 +9,7 @@
       "prompt": "What happens first in Shy's Pond Rings?",
       "choices": [
         "Shy sees rings on pond.",
-        "Her loose stone splashes loudly.",
+        "The rings vanish at once.",
         "A green frog pops up."
       ],
       "answer": "Shy sees rings on pond.",
@@ -22,29 +22,29 @@
       "id": "meadow-pals-29-shys-pond-rings-q2",
       "prompt": "What goes wrong in Shy's Pond Rings?",
       "choices": [
-        "Her loose stone splashes loudly.",
+        "The rings vanish at once.",
         "Shy sees rings on pond.",
         "A green frog pops up."
       ],
-      "answer": "Her loose stone splashes loudly.",
+      "answer": "The rings vanish at once.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Her loose stone splashes loudly. This shows that the first attempt does not solve the central problem introduced by Shy sees rings on pond.",
-      "evidencePage": 4,
-      "evidenceText": "Her loose stone splashes loudly."
+      "rationale": "The rings vanish at once. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "The rings vanish at once."
     },
     {
       "id": "meadow-pals-29-shys-pond-rings-q3",
-      "prompt": "What solves the problem in Shy's Pond Rings?",
+      "prompt": "What happens at the end of Shy's Pond Rings?",
       "choices": [
         "A green frog pops up.",
         "Shy sees rings on pond.",
-        "Her loose stone splashes loudly."
+        "The rings vanish at once."
       ],
       "answer": "A green frog pops up.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "A green frog pops up. This event shows how the central problem is resolved after Her loose stone splashes loudly.",
+      "rationale": "A green frog pops up. This event shows how the central problem is resolved.",
       "evidencePage": 7,
       "evidenceText": "A green frog pops up."
     }

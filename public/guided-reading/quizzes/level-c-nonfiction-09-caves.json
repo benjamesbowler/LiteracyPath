@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "level-c-nonfiction-09-caves-q1",
-      "prompt": "Which fact about water waves and lava is given in Caves?",
+      "prompt": "Which sentence tells about water waves and lava in Caves?",
       "choices": [
         "Water waves and lava can form different kinds of caves.",
         "Mineral deposits hanging from ceilings are called stalactites.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-09-caves-q2",
-      "prompt": "Which fact about mineral deposits hanging from ceilings is given in Caves?",
+      "prompt": "Which sentence tells about mineral deposits hanging from ceilings in Caves?",
       "choices": [
         "Mineral deposits hanging from ceilings are called stalactites.",
         "Water waves and lava can form different kinds of caves.",

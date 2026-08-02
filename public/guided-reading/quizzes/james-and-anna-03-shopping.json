@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-03-shopping",
-  "contentHash": "sha256:7597c8849fa754a84c583f5c6d010a4cde3eed9aa186d96e94f824c8a68da1f4",
+  "contentHash": "sha256:c283020485ae1a834873ed802051a1d4352d9dd63442c801d2c83cc735764505",
   "questions": [
     {
       "id": "james-and-anna-03-shopping-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Mum needs help bringing every item on her list home.",
         "Then the shining cake stand makes them forget the list.",
-        "At the till, every listed item arrives safely, even the eggs."
+        "At the till, they check the list. Even the eggs have no cracks."
       ],
       "answer": "Mum needs help bringing every item on her list home.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Then the shining cake stand makes them forget the list.",
         "Mum needs help bringing every item on her list home.",
-        "At the till, every listed item arrives safely, even the eggs."
+        "At the till, they check the list. Even the eggs have no cracks."
       ],
       "answer": "Then the shining cake stand makes them forget the list.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "james-and-anna-03-shopping-q3",
       "prompt": "Which event solves the problem in James and Anna go Shopping?",
       "choices": [
-        "At the till, every listed item arrives safely, even the eggs.",
+        "At the till, they check the list. Even the eggs have no cracks.",
         "Mum needs help bringing every item on her list home.",
         "Then the shining cake stand makes them forget the list."
       ],
-      "answer": "At the till, every listed item arrives safely, even the eggs.",
+      "answer": "At the till, they check the list. Even the eggs have no cracks.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "At the till, every listed item arrives safely, even the eggs. This event shows how the central problem is resolved.",
+      "rationale": "At the till, they check the list. Even the eggs have no cracks. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "At the till, every listed item arrives safely, even the eggs."
+      "evidenceText": "At the till, they check the list. Even the eggs have no cracks."
     }
   ]
 }

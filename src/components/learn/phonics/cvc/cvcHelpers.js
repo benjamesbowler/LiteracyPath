@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { getCvcWordParts, getGraphemeAudioPath } from "../../../../data/cvcWordFamilies";
-import { usePhonicsAudio } from "../../../../hooks/usePhonicsAudio";
+import { playPhonicsAudio, stopPhonicsAudio } from "../../../../hooks/usePhonicsAudio";
 
 export const CVC_SOUND_DELAY = 720;
+export const CVC_SOUND_GAP = 90;
 const CVC_VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const VOWEL_SOUND_FALLBACKS = {
   a: "ah",
@@ -32,18 +33,53 @@ export function makeCvcWordModels(words, family) {
 }
 
 export function useCvcSoundCue() {
-  const [cue, setCue] = useState({ src: "", fallbackText: "", id: 0 });
-  const { play, isPlaying } = usePhonicsAudio(cue.src, cue.fallbackText);
-
-  useEffect(() => {
-    if (cue.id) play();
-  }, [cue.id, play]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const cueRequestRef = useRef(0);
 
   const playCue = useCallback((src, fallbackText) => {
-    setCue({ src: src || "", fallbackText: fallbackText || "", id: Date.now() + Math.random() });
+    void fallbackText;
+    const request = cueRequestRef.current + 1;
+    cueRequestRef.current = request;
+    return playPhonicsAudio(src || "", {
+      onStart: () => {
+        if (cueRequestRef.current === request) setIsPlaying(true);
+      },
+      onFinish: () => {
+        if (cueRequestRef.current === request) setIsPlaying(false);
+      }
+    });
   }, []);
 
-  return { playCue, isPlaying };
+  const stopCue = useCallback(() => {
+    cueRequestRef.current += 1;
+    stopPhonicsAudio();
+    setIsPlaying(false);
+  }, []);
+
+  return { playCue, stopCue, isPlaying };
+}
+
+export async function playCvcSoundSequence({
+  wordModel,
+  family,
+  playCue,
+  onLetter = () => {},
+  isCurrent = () => true,
+  wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
+}) {
+  if (!wordModel || typeof playCue !== "function") return false;
+  for (const [index, letter] of wordModel.letters.entries()) {
+    if (!isCurrent()) return false;
+    onLetter(index);
+    const cue = getLetterSoundCue(letter, family);
+    const status = await playCue(cue.src, cue.fallbackText);
+    if (!isCurrent() || status !== "ended") return false;
+    await wait(CVC_SOUND_GAP);
+  }
+  if (!isCurrent()) return false;
+  onLetter(-1);
+  const wordStatus = await playCue(wordModel.audio, wordModel.word);
+  return isCurrent() && wordStatus === "ended";
 }
 
 export function useCvcWordModels(words, family) {

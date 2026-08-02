@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-07-animals-on-the-farm-q2",
-      "prompt": "Which fact about a sheep is given in Animals on the Farm?",
+      "prompt": "Which sentence tells about a sheep in Animals on the Farm?",
       "choices": [
         "A sheep grows a woolly fleece.",
         "This cow eats grass and hay.",

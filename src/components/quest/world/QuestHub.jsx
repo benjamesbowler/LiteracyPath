@@ -12,9 +12,6 @@ import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
 import { budgetPhysicalSection } from "../../../utils/questPhysicalPlan.js";
 
-// Touch devices get the big-answer strip PINNED: focus-within only ever
-// helped keyboard users; a sighted motor-impaired child on touch saw nothing.
-const COARSE_POINTER = typeof window !== "undefined" && Boolean(window.matchMedia?.("(pointer: coarse)")?.matches);
 import {
   QuestRenderPipeline,
   attachBeveledLetterTokens,
@@ -5064,7 +5061,7 @@ export default function QuestHub({
       )}
 
       {sceneReady && activeFieldStage && (
-        <div ref={viewFocusRef} tabIndex={-1} className={`qh-semantic-choices${COARSE_POINTER ? " is-pinned" : ""}`} role="group" aria-label="Answer choices">
+        <div ref={viewFocusRef} tabIndex={-1} className="q-visually-hidden qh-semantic-choices" role="group" aria-label="Answer choices">
           {activeFieldStage.items
             .filter(item => activeCorrection.visibleIds.includes(item.id))
             .map(item => (

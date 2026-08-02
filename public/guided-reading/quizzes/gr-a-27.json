@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-a-27-q1",
-      "prompt": "Which fact about the Sun is given in The Sun?",
+      "prompt": "What is the Sun?",
       "choices": [
         "The Sun is a star.",
-        "Sunlight warms land and water.",
-        "Earth travels around the Sun."
+        "The Sun is a planet.",
+        "The Sun is a moon."
       ],
       "answer": "The Sun is a star.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-a-27-q2",
-      "prompt": "Which fact about sunlight is given in The Sun?",
+      "prompt": "Which sentence tells about sunlight in The Sun?",
       "choices": [
         "Sunlight warms land and water.",
         "The Sun is a star.",

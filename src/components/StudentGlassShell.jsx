@@ -30,20 +30,31 @@ import { getAvailableGuideStars, getCompanion } from "../utils/studentProfile.js
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger } from "../utils/hollowState.js";
+import { localProgressKeysForStudent } from "../utils/progressKeys.js";
 
 let studentProfileRevision = 0;
 
 function subscribeToStudentProfile(scopeKey, callback) {
+  const progressKeys = new Set(localProgressKeysForStudent(scopeKey));
   const refresh = event => {
     if (event.detail?.studentId && event.detail.studentId !== scopeKey) return;
     studentProfileRevision += 1;
     callback();
   };
   window.addEventListener("lp-progress-hydrated", refresh);
+  window.addEventListener("lp-progress-updated", refresh);
   window.addEventListener("lp-student-profile-updated", refresh);
+  const refreshFromStorage = event => {
+    if (!event.key || !progressKeys.has(event.key)) return;
+    studentProfileRevision += 1;
+    callback();
+  };
+  window.addEventListener("storage", refreshFromStorage);
   return () => {
     window.removeEventListener("lp-progress-hydrated", refresh);
+    window.removeEventListener("lp-progress-updated", refresh);
     window.removeEventListener("lp-student-profile-updated", refresh);
+    window.removeEventListener("storage", refreshFromStorage);
   };
 }
 

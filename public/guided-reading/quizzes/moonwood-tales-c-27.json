@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Stone and the Glassleaf Moonbeam?",
       "choices": [
         "Fern's glassleaf buds need one moonbeam before they close.",
-        "His enormous shadow covers every bud while he works.",
-        "Reflected moonlight opens every glassleaf bell."
+        "His first tilt sends the moonbeam above the buds.",
+        "Tiny moon shapes shine across Stone's broad hands."
       ],
       "answer": "Fern's glassleaf buds need one moonbeam before they close.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-27-q2",
       "prompt": "Which event shows that the first attempt fails in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "His enormous shadow covers every bud while he works.",
+        "His first tilt sends the moonbeam above the buds.",
         "Fern's glassleaf buds need one moonbeam before they close.",
-        "Reflected moonlight opens every glassleaf bell."
+        "Tiny moon shapes shine across Stone's broad hands."
       ],
-      "answer": "His enormous shadow covers every bud while he works.",
+      "answer": "His first tilt sends the moonbeam above the buds.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "His enormous shadow covers every bud while he works. This shows that the first attempt does not solve the central problem introduced by Fern's glassleaf buds need one moonbeam before they close.",
-      "evidencePage": 3,
-      "evidenceText": "His enormous shadow covers every bud while he works."
+      "rationale": "His first tilt sends the moonbeam above the buds. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 7,
+      "evidenceText": "His first tilt sends the moonbeam above the buds."
     },
     {
       "id": "moonwood-tales-c-27-q3",
       "prompt": "Which event resolves the central problem in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "Reflected moonlight opens every glassleaf bell.",
+        "Tiny moon shapes shine across Stone's broad hands.",
         "Fern's glassleaf buds need one moonbeam before they close.",
-        "His enormous shadow covers every bud while he works."
+        "His first tilt sends the moonbeam above the buds."
       ],
-      "answer": "Reflected moonlight opens every glassleaf bell.",
+      "answer": "Tiny moon shapes shine across Stone's broad hands.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Reflected moonlight opens every glassleaf bell. This event shows how the central problem is resolved after His enormous shadow covers every bud while he works.",
-      "evidencePage": 9,
-      "evidenceText": "Reflected moonlight opens every glassleaf bell."
+      "rationale": "Tiny moon shapes shine across Stone's broad hands. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Tiny moon shapes shine across Stone's broad hands."
     }
   ]
 }

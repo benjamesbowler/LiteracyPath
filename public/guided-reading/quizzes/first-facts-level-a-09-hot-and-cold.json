@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-09-hot-and-cold-q1",
-      "prompt": "What do we learn about the Sun?",
+      "prompt": "Which sentence tells about the Sun in Hot and Cold?",
       "choices": [
         "The Sun feels hot.",
         "Fire feels very hot.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-09-hot-and-cold-q2",
-      "prompt": "What do we learn about fire?",
+      "prompt": "Which sentence tells about fire in Hot and Cold?",
       "choices": [
         "Fire feels very hot.",
         "The Sun feels hot.",

@@ -122,7 +122,7 @@ export default function CreatureCreator({
     <div className="q-screen q-creator">
       <h1 className="q-title" data-child-title="">{hatched ? "Change your book character" : "Choose your book character"}</h1>
       <p className="q-creator-instruction" data-child-instruction="">
-        Pick a book friend. Then choose one finished look made just for them.
+        Pick a book friend and a finished look.
       </p>
       <p className="q-creator-step" data-child-progress="">
         Part {activeTabIndex + 1} of {tabs.length}: {tabs[activeTabIndex].label}

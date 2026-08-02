@@ -5,7 +5,8 @@ import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../../src/data/generated/guidedReadingBookIndex.generated.js";
 import {
   KNOWLEDGE_JOURNEYS,
-  buildMeaningPrompts
+  buildMeaningPrompts,
+  knowledgeJourneyBooks
 } from "../../src/data/knowledgeJourneys.js";
 import { buildStationRounds } from "../../src/components/elQuest/elQuestEngine.js";
 import {
@@ -142,4 +143,25 @@ test("knowledge journeys use current books and include talk, vocabulary and writ
   assert.match(prompts.talk, /fact|explain/iu);
   assert.match(prompts.vocabulary, /seed/iu);
   assert.match(prompts.writing, /draw|write/iu);
+});
+
+test("knowledge journeys honour the child's selected reading level", () => {
+  const books = [
+    { id: "first-facts-level-a-17-a-seed-grows", level: "A" },
+    { id: "first-facts-a-03-little-seeds-grow", level: "B" },
+    { id: "level-c-nonfiction-05-how-seeds-grow", level: "C" }
+  ];
+
+  assert.deepEqual(
+    knowledgeJourneyBooks("plants-and-growth", books, "A").map(row => row.level),
+    ["A"]
+  );
+  assert.deepEqual(
+    knowledgeJourneyBooks("plants-and-growth", books, "B").map(row => row.level),
+    ["B"]
+  );
+  assert.deepEqual(
+    knowledgeJourneyBooks("plants-and-growth", books, "C").map(row => row.level),
+    ["C"]
+  );
 });

@@ -378,9 +378,16 @@ function startSoundPictures(cycle, card, page) {
   const items = rotate([...targets, ...decoys], page).map(word =>
     `<span class="ws-pic"><img src="${esc(wordImage(word))}" alt="${esc(word)}"/></span>`).join("");
   return `<div class="ws-block" data-task-kind="initial-sound-pictures" data-task-id="initial-${esc(card.spelling)}-${page}">
-      <div class="ws-block-title small ws-instruction">Circle the pictures that start with <b>${esc(card.grapheme)}</b> ${esc(card.sound || "")}</div>
+      <div class="ws-block-title small ws-instruction">Circle the pictures that start with the <b class="ws-school-model">${esc(card.spelling)}</b> sound.</div>
       <div class="ws-pics">${items}</div>
     </div>`;
+}
+
+function childSoundExample(card) {
+  const example = (LETTER_EXAMPLES[card.spelling] || []).find(word => word.startsWith(card.spelling))
+    || (LETTER_EXAMPLES[card.spelling] || [])[0]
+    || "";
+  return example ? `as in ${example}` : `Say the ${card.spelling} sound`;
 }
 
 export const WORKSHEET_PAGE_STAGES = [
@@ -399,9 +406,9 @@ function stageFor(page) {
 function traceCardRows(cards, page, lineCount = 2) {
   return cards.slice(0, 2).map((card, index) => {
     const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.grapheme;
-    const trace = Array.from({ length: 4 }, () => `<span class="ws-trace">${esc(big)}</span>`).join("");
+    const trace = Array.from({ length: 4 }, () => `<span class="ws-trace ws-school-model">${esc(big)}</span>`).join("");
     return `<div class="ws-block" data-task-kind="letter-trace" data-task-id="trace-${esc(card.spelling)}-${page}-${index}">
-      <div class="ws-block-title">${esc(big)} <span class="ws-sound">${esc(card.sound || "")}</span></div>
+      <div class="ws-block-title ws-school-model">${esc(big)} <span class="ws-sound">${esc(childSoundExample(card))}</span></div>
       <div class="ws-trace-row">${trace}</div>
       ${traceLines(lineCount)}
     </div>`;
@@ -455,7 +462,7 @@ function initialLetterPictureBlock(cards, page) {
 function letterMemoryBlock(cards, page) {
   return `<div class="ws-block" data-task-kind="letter-retrieval" data-task-id="letter-memory-${page}">
       <div class="ws-block-title small ws-instruction">Write each letter you are learning. Write the capital and small letter.</div>
-      <div class="ws-memory">${cards.slice(0, 2).map(card => `<div data-answer="${esc(card.spelling.toUpperCase())}${esc(card.spelling)}"><b>${esc(card.sound || card.grapheme)}</b>${traceLines(2)}</div>`).join("")}</div>
+      <div class="ws-memory">${cards.slice(0, 2).map(card => `<div data-answer="${esc(card.spelling.toUpperCase())}${esc(card.spelling)}"><b class="ws-school-model">${esc(card.spelling)} ${esc(childSoundExample(card))}</b>${traceLines(2)}</div>`).join("")}</div>
     </div>`;
 }
 
@@ -738,7 +745,7 @@ const PAGE_BUILDERS = {
 const WS_STYLES = `
   @page { size: A4 portrait; margin: 13mm; }
   * { box-sizing: border-box; }
-  html { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  html { --ws-school-font: "Comic Sans MS", "Chalkboard SE", "Chalkboard", "Comic Neue", cursive; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body { margin: 0; background: #fff; font-family: Andika, Atkinson Hyperlegible, Arial, sans-serif; color: #14110c; font-size: 16px; line-height: 1.35; }
   .page { min-height: 267mm; padding: 0 0 5mm; page-break-after: always; break-after: page; display: flex; flex-direction: column; }
   .page:last-child { page-break-after: auto; }
@@ -756,6 +763,24 @@ const WS_STYLES = `
   .ws-block-title.small { font-size: 17px; color: #8a4109; }
   .ws-instruction { max-width: 68ch; }
   .ws-sound { font-size: 18px; color: #475569; font-weight: 400; }
+  .ws-school-model,
+  .ws-trace-row,
+  .ws-find,
+  .ws-fill-grid,
+  .ws-copy,
+  .ws-tiles,
+  .ws-match,
+  .ws-picture-match,
+  .ws-choice-rows,
+  .ws-memory,
+  .ws-cover-grid,
+  .ws-grid,
+  .ws-sentence,
+  .ws-sentence-copy,
+  .ws-wordstrip,
+  .ws-chain,
+  .ws-pattern-row,
+  .ws-poem { font-family: var(--ws-school-font); }
   .ws-trace-row { display: flex; gap: 26px; font-size: 52px; line-height: 1; margin-bottom: 6px; }
   .ws-trace { color: #aeb8c2; }
   .ws-write { display: grid; gap: 14px; }

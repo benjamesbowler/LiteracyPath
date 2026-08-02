@@ -3,6 +3,52 @@ import { expect, test } from "@playwright/test";
 const SCREENSHOT_VIEWPORT = Object.freeze({ width: 1920, height: 1030 });
 const COMMON_CHILD_VIEWPORT = Object.freeze({ width: 1366, height: 768 });
 const MACBOOK_CHROME_VIEWPORT = Object.freeze({ width: 1470, height: 775 });
+const IPAD_SAFARI_VISIBLE_VIEWPORT = Object.freeze({ width: 1194, height: 720 });
+
+async function childFlowGeometry(page) {
+  return page.evaluate(() => {
+    const main = document.querySelector(".kg-main");
+    const tabbar = document.querySelector(".kg-tabbar");
+    const route = document.querySelector(".student-surface-phonics");
+    const shell = document.querySelector(".phonics-tab-shell");
+    const flow = document.querySelector(".kg-child-flow");
+    const step = document.querySelector(".kg-child-flow__step");
+    const content = document.querySelector(".kg-child-flow__content");
+    const mainBox = main.getBoundingClientRect();
+    const tabBox = tabbar.getBoundingClientRect();
+    const contentLimit = Math.min(mainBox.bottom, tabBox.top);
+    const visible = element => {
+      const box = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return style.display !== "none"
+        && style.visibility !== "hidden"
+        && box.width > 0
+        && box.height > 0;
+    };
+    const insideContentViewport = element => {
+      const box = element.getBoundingClientRect();
+      return box.top >= mainBox.top - 1 && box.bottom <= contentLimit + 1;
+    };
+    const containers = [main, route, shell, flow, step, content];
+    const visibleControls = [...flow.querySelectorAll("button")].filter(visible);
+    const visibleStepRows = [...content.children].filter(visible);
+
+    return {
+      containersDoNotScroll: containers.every(element => (
+        !["auto", "scroll"].includes(getComputedStyle(element).overflowY)
+      )),
+      containersStayAboveTabs: [route, shell, flow, step, content].every(element => {
+        const box = element.getBoundingClientRect();
+        return box.top >= mainBox.top - 1 && box.bottom <= contentLimit + 1;
+      }),
+      controlsStayAboveTabs: visibleControls.every(insideContentViewport),
+      stepRowsStayAboveTabs: visibleStepRows.every(insideContentViewport),
+      mainAboveTabs: mainBox.bottom <= tabBox.top + 1,
+      flowOverflowPixels: Math.max(0, flow.scrollHeight - flow.clientHeight),
+      contentOverflowPixels: Math.max(0, content.scrollHeight - content.clientHeight)
+    };
+  });
+}
 
 test("Letters and Arcade clear the bottom navigation in the live MacBook viewport", async ({ page }) => {
   await page.setViewportSize(MACBOOK_CHROME_VIEWPORT);
@@ -183,6 +229,67 @@ test("all Letters content fits a common child laptop viewport", async ({ page })
   });
 });
 
+test("Explore ideas follows every selected reading level", async ({ page }) => {
+  await page.setViewportSize(COMMON_CHILD_VIEWPORT);
+  await page.goto("/preview/child-surfaces.html?surface=reading-library");
+  await page.getByRole("button", { name: "Explore ideas" }).click();
+
+  for (const level of ["A", "B", "C"]) {
+    await page.getByRole("button", { name: `Level ${level}`, exact: true }).click();
+    const panel = page.locator(".kg-knowledge");
+    await expect(panel).toHaveAttribute("data-reading-level", level);
+    const books = panel.locator(".kg-knowledge-book");
+    await expect(books.first()).toBeVisible();
+    expect(await books.count()).toBeGreaterThan(0);
+    expect(await books.evaluateAll(nodes => nodes.map(node => node.dataset.bookLevel)))
+      .toEqual(Array(await books.count()).fill(level));
+  }
+});
+
+test("every post-selection phonics and word-building step fits the visible iPad stage", async ({ page }) => {
+  await page.setViewportSize(IPAD_SAFARI_VISIBLE_VIEWPORT);
+  const states = [
+    { id: "letter-trace", query: "surface=phonics&step=1", launchName: "Letter K" },
+    { id: "letter-listen", query: "surface=phonics&step=2", launchName: "Letter K" },
+    { id: "letter-match", query: "surface=phonics&step=3", launchName: "Letter K" },
+    { id: "word-hear", query: "surface=phonics&island=words&unlockWords=1&step=1", launchName: "at word nest" },
+    { id: "word-build", query: "surface=phonics&island=words&unlockWords=1&step=2", launchName: "at word nest" },
+    { id: "word-magic", query: "surface=phonics&island=words&unlockWords=1&step=3", launchName: "at word nest" }
+  ];
+
+  for (const state of states) {
+    await page.goto(`/preview/child-surfaces.html?${state.query}`);
+    await page.getByRole("button", { name: state.launchName, exact: true }).click();
+    await expect(page.locator(".kg-child-flow__content")).toBeVisible();
+    await page.waitForTimeout(900);
+
+    const geometry = await childFlowGeometry(page);
+    expect(geometry, `${state.id}: ${JSON.stringify(geometry)}`).toEqual({
+      containersDoNotScroll: true,
+      containersStayAboveTabs: true,
+      controlsStayAboveTabs: true,
+      stepRowsStayAboveTabs: true,
+      mainAboveTabs: true,
+      flowOverflowPixels: 0,
+      contentOverflowPixels: expect.any(Number)
+    });
+    // Infinite sound-ring and focus-shadow animation can extend the scroll
+    // measurement by a few decorative pixels. It must never displace content.
+    expect(geometry.contentOverflowPixels, state.id).toBeLessThanOrEqual(12);
+
+    if (state.id === "word-hear") {
+      await page.getByRole("button", { name: "Sound out the word", exact: true }).click();
+      const nextWord = page.getByRole("button", { name: "Next Word", exact: true });
+      await expect(nextWord).toBeVisible({ timeout: 5_000 });
+      const nextWordBox = await nextWord.boundingBox();
+      const tabBox = await page.locator(".kg-tabbar").boundingBox();
+      expect((nextWordBox?.y || 0) + (nextWordBox?.height || 0)).toBeLessThanOrEqual(
+        (tabBox?.y || 0) + 1,
+      );
+    }
+  }
+});
+
 test("the phone arcade keeps every card in the scroll flow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/preview/child-surfaces.html?surface=arcade");
@@ -250,8 +357,13 @@ test("the earned-coins notice is opaque and clears the navigation", async ({ pag
 test("Sound Seekers world maps move gently and respect reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/child-surfaces.html?surface=sound-seekers");
-  await page.getByRole("button", { name: "Go to Hollow Tree" }).click();
-  await page.getByRole("button", { name: "Start my adventure" }).click();
+  const creatorStart = page.getByRole("button", { name: "Start my adventure", exact: true });
+  if (await creatorStart.isVisible()) {
+    await creatorStart.click();
+  } else {
+    await page.getByRole("button", { name: "Go to Hollow Tree" }).click();
+    await page.getByRole("button", { name: "Start my adventure", exact: true }).click();
+  }
   await page.getByRole("button", { name: "Back to the map" }).click();
 
   const ambientPieces = page.locator(".q-map-v2-ambient > i");

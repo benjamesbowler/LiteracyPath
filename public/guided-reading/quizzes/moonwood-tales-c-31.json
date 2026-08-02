@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Burrow's Round Tunnel?",
       "choices": [
         "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "Burrow follows it and emerges beside his starting shovel.",
-        "The new tunnel rises beneath Fern's empty potting bench."
+        "A thick root bends his tunnel left.",
+        "A narrow firm gap crosses beneath its deepest point."
       ],
       "answer": "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-31-q2",
       "prompt": "Which event shows that the first attempt fails in Burrow's Round Tunnel?",
       "choices": [
-        "Burrow follows it and emerges beside his starting shovel.",
+        "A thick root bends his tunnel left.",
         "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "The new tunnel rises beneath Fern's empty potting bench."
+        "A narrow firm gap crosses beneath its deepest point."
       ],
-      "answer": "Burrow follows it and emerges beside his starting shovel.",
+      "answer": "A thick root bends his tunnel left.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Burrow follows it and emerges beside his starting shovel. This shows that the first attempt does not solve the central problem introduced by Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-      "evidencePage": 4,
-      "evidenceText": "Burrow follows it and emerges beside his starting shovel."
+      "rationale": "A thick root bends his tunnel left. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "A thick root bends his tunnel left."
     },
     {
       "id": "moonwood-tales-c-31-q3",
       "prompt": "Which event resolves the central problem in Burrow's Round Tunnel?",
       "choices": [
-        "The new tunnel rises beneath Fern's empty potting bench.",
+        "A narrow firm gap crosses beneath its deepest point.",
         "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "Burrow follows it and emerges beside his starting shovel."
+        "A thick root bends his tunnel left."
       ],
-      "answer": "The new tunnel rises beneath Fern's empty potting bench.",
+      "answer": "A narrow firm gap crosses beneath its deepest point.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The new tunnel rises beneath Fern's empty potting bench. This event shows how the central problem is resolved after Burrow follows it and emerges beside his starting shovel.",
-      "evidencePage": 8,
-      "evidenceText": "The new tunnel rises beneath Fern's empty potting bench."
+      "rationale": "A narrow firm gap crosses beneath its deepest point. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "A narrow firm gap crosses beneath its deepest point."
     }
   ]
 }

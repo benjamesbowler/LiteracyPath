@@ -34,6 +34,12 @@ current selection path and the losing variant must be removed when the test ends
 
 - Preserve current user-visible behavior unless the requested change says to
   alter it.
+- Treat every reported bug as evidence of a potentially wider defect class.
+  Fix the reported instance, then audit every sibling book, page, question,
+  screen, mode, device path, data source, and component that can share the same
+  failure pattern. Add behavioural coverage for the general rule, not only the
+  example that exposed it. A one-record patch is incomplete until the wider
+  audit is clean or its remaining findings are explicitly resolved.
 - Delete disconnected code and assets only after confirming they have no live
   runtime, package-script, test, or operational reference.
 - Do not restore deleted files merely because Git still lists them as tracked

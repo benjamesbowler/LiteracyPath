@@ -10,7 +10,7 @@
       "choices": [
         "Cuddly finds loose red yarn.",
         "Three knots grow even tighter.",
-        "The red yarn rolls round."
+        "Cuddly pats her tidy ball."
       ],
       "answer": "Cuddly finds loose red yarn.",
       "kind": "text",
@@ -24,29 +24,29 @@
       "choices": [
         "Three knots grow even tighter.",
         "Cuddly finds loose red yarn.",
-        "The red yarn rolls round."
+        "Cuddly pats her tidy ball."
       ],
       "answer": "Three knots grow even tighter.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Three knots grow even tighter. This shows that the first attempt does not solve the central problem introduced by Cuddly finds loose red yarn.",
+      "rationale": "Three knots grow even tighter. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Three knots grow even tighter."
     },
     {
       "id": "meadow-pals-30-cuddlys-yarn-ball-q3",
-      "prompt": "What solves the problem in Cuddly's Yarn Ball?",
+      "prompt": "What happens at the end of Cuddly's Yarn Ball?",
       "choices": [
-        "The red yarn rolls round.",
+        "Cuddly pats her tidy ball.",
         "Cuddly finds loose red yarn.",
         "Three knots grow even tighter."
       ],
-      "answer": "The red yarn rolls round.",
+      "answer": "Cuddly pats her tidy ball.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The red yarn rolls round. This event shows how the central problem is resolved after Three knots grow even tighter.",
-      "evidencePage": 7,
-      "evidenceText": "The red yarn rolls round."
+      "rationale": "Cuddly pats her tidy ball. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Cuddly pats her tidy ball."
     }
   ]
 }

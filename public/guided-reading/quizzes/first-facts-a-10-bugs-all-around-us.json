@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-a-10-bugs-all-around-us-q1",
-      "prompt": "Which fact about many small creatures is given in Small Creatures Around Us?",
+      "prompt": "Where do many small creatures live?",
       "choices": [
         "Many small creatures live near us.",
-        "Ladybirds are insects that eat aphids.",
-        "Small creatures perform many ecosystem jobs."
+        "Many small creatures live inside the Sun.",
+        "Many small creatures live only on the Moon."
       ],
       "answer": "Many small creatures live near us.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q2",
-      "prompt": "Which fact about ladybirds is given in Small Creatures Around Us?",
+      "prompt": "Which sentence tells about ladybirds in Small Creatures Around Us?",
       "choices": [
         "Ladybirds are insects that eat aphids.",
         "Many small creatures live near us.",

@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-c-37-q1",
-      "prompt": "Which fact about water is given in Water?",
+      "prompt": "What can water do as a liquid?",
       "choices": [
         "Water can flow as a liquid.",
-        "Frozen water becomes solid ice.",
-        "Life on Earth needs water."
+        "Water can burn as a liquid.",
+        "Water can bark as a liquid."
       ],
       "answer": "Water can flow as a liquid.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-c-37-q2",
-      "prompt": "Which fact about frozen water is given in Water?",
+      "prompt": "Which sentence tells about frozen water in Water?",
       "choices": [
         "Frozen water becomes solid ice.",
         "Water can flow as a liquid.",

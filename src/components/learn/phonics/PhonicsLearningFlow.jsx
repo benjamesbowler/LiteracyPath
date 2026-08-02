@@ -7,9 +7,9 @@ import StepListen from "./components/learning/StepListen";
 import StepMatch from "./components/learning/StepMatch";
 import StepTracer from "./components/learning/StepTracer";
 
-export function PhonicsLearningFlow({ letter, onBack, onComplete }) {
+export function PhonicsLearningFlow({ letter, initialStep = 1, onBack, onComplete }) {
   const lesson = useMemo(() => getLessonByLetter(letter), [letter]);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(initialStep);
 
   useEffect(() => {
     if (!lesson) onBack();
@@ -29,8 +29,8 @@ export function PhonicsLearningFlow({ letter, onBack, onComplete }) {
   if (!lesson) return null;
 
   return (
-    <div className="phonics-learning-flow">
-      <div className="phonics-flow-header">
+    <div className="phonics-learning-flow kg-child-flow">
+      <div className="phonics-flow-header kg-child-flow__header">
         <button className="phonics-back-button" onClick={onBack} type="button">
           Back to letters
         </button>
@@ -41,19 +41,19 @@ export function PhonicsLearningFlow({ letter, onBack, onComplete }) {
 
       <AnimatePresence mode="wait">
         {currentStep === 1 && (
-          <motion.div key="step1" className="phonics-flow-step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
+          <motion.div key="step1" className="phonics-flow-step kg-child-flow__step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
             <StepTracer lesson={lesson} onComplete={handleStep1Complete} />
           </motion.div>
         )}
 
         {currentStep === 2 && (
-          <motion.div key="step2" className="phonics-flow-step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
+          <motion.div key="step2" className="phonics-flow-step kg-child-flow__step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
             <StepListen lesson={lesson} onComplete={handleStep2Complete} />
           </motion.div>
         )}
 
         {currentStep === 3 && (
-          <motion.div key="step3" className="phonics-flow-step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
+          <motion.div key="step3" className="phonics-flow-step kg-child-flow__step" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}>
             <StepMatch lesson={lesson} onComplete={handleStep3Complete} />
           </motion.div>
         )}

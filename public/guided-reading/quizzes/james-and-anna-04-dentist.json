@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-04-dentist",
-  "contentHash": "sha256:3614bbf6bb800254df3ad59936f3c42159e4b6c9cc3ced0efe08c68f05b7498b",
+  "contentHash": "sha256:8c0815ac0627e9fdcb21f35f905f877408cddb30d74e407c2c2ffc42389b8947",
   "questions": [
     {
       "id": "james-and-anna-04-dentist-q1",
       "prompt": "Which event begins James and Anna go to the Dentist?",
       "choices": [
-        "James and Anna feel worried about their dentist visit.",
-        "When the chair rises, James's worried feeling rushes back.",
-        "Anna climbs into the chair and remembers his calm breath."
+        "James does not want to sit in the dentist's chair. Anna is not keen either.",
+        "The chair hums upwards. James grips both armrests.",
+        "Anna climbs into the chair and copies James's slow breath."
       ],
-      "answer": "James and Anna feel worried about their dentist visit.",
+      "answer": "James does not want to sit in the dentist's chair. Anna is not keen either.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "James and Anna feel worried about their dentist visit."
+      "evidenceText": "James does not want to sit in the dentist's chair. Anna is not keen either."
     },
     {
       "id": "james-and-anna-04-dentist-q2",
       "prompt": "Which event shows the first plan fails in James and Anna go to the Dentist?",
       "choices": [
-        "When the chair rises, James's worried feeling rushes back.",
-        "James and Anna feel worried about their dentist visit.",
-        "Anna climbs into the chair and remembers his calm breath."
+        "The chair hums upwards. James grips both armrests.",
+        "James does not want to sit in the dentist's chair. Anna is not keen either.",
+        "Anna climbs into the chair and copies James's slow breath."
       ],
-      "answer": "When the chair rises, James's worried feeling rushes back.",
+      "answer": "The chair hums upwards. James grips both armrests.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "When the chair rises, James's worried feeling rushes back. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The chair hums upwards. James grips both armrests. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "When the chair rises, James's worried feeling rushes back."
+      "evidenceText": "The chair hums upwards. James grips both armrests."
     },
     {
       "id": "james-and-anna-04-dentist-q3",
       "prompt": "Which event solves the problem in James and Anna go to the Dentist?",
       "choices": [
-        "Anna climbs into the chair and remembers his calm breath.",
-        "James and Anna feel worried about their dentist visit.",
-        "When the chair rises, James's worried feeling rushes back."
+        "Anna climbs into the chair and copies James's slow breath.",
+        "James does not want to sit in the dentist's chair. Anna is not keen either.",
+        "The chair hums upwards. James grips both armrests."
       ],
-      "answer": "Anna climbs into the chair and remembers his calm breath.",
+      "answer": "Anna climbs into the chair and copies James's slow breath.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Anna climbs into the chair and remembers his calm breath. This event shows how the central problem is resolved.",
+      "rationale": "Anna climbs into the chair and copies James's slow breath. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Anna climbs into the chair and remembers his calm breath."
+      "evidenceText": "Anna climbs into the chair and copies James's slow breath."
     }
   ]
 }

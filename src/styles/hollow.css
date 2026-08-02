@@ -67,7 +67,7 @@
   background: #fff; color: var(--hw-ink); cursor: pointer;
   transition: transform 100ms ease, background 100ms ease;
 }
-.hollow-tab:hover { transform: translateY(-1px); }
+.hollow-tab:hover { background: #FFF3C9; }
 .hollow-tab.active { background: var(--hw-green); border-color: rgba(20, 50, 36, 0.6); color: #F2FBF5; }
 .hollow-tab-note {
   font-size: 0.72rem; font-weight: 800; padding: 1px 8px; border-radius: 999px;
@@ -152,6 +152,11 @@
   font-weight: 800;
   z-index: 2;
 }
+/* Placement coordinates depend on this transform. Generic button hover/focus
+   resets must never replace it, including Safari's sticky touch-hover state. */
+main.hollow-page button.hollow-spot:is(:hover, :focus, :focus-visible, :active):not(:disabled) {
+  transform: translate(-50%, -50%);
+}
 .hollow-spot.empty {
   width: 64px; height: 64px; border-radius: 50%;
   color: #FFF7DF; font-size: 1.7rem; line-height: 1;
@@ -224,7 +229,9 @@
 }
 .hollow-room-arrow.left { left: 14px; }
 .hollow-room-arrow.right { right: 14px; }
-.hollow-room-arrow:hover:not(:disabled) { transform: translateY(-50%) scale(1.08); }
+main.hollow-page button.hollow-room-arrow:is(:hover, :focus, :focus-visible, :active):not(:disabled) {
+  transform: translateY(-50%);
+}
 .hollow-room-arrow:disabled { opacity: 0.25; cursor: default; }
 .hollow-room-dots {
   position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 5;
@@ -297,7 +304,7 @@
   background: #fff; font-weight: 800; font-size: 0.75rem; color: var(--hw-ink);
   cursor: pointer;
 }
-.hollow-pick:hover { background: #FFF3C9; transform: translateY(-1px); }
+.hollow-pick:hover { background: #FFF3C9; }
 .hollow-pick.cancel { min-width: 40px; font-size: 1rem; background: #F4EDDE; }
 .hollow-picker-empty { margin: 0; font-weight: 700; color: var(--hw-ink-soft); font-size: 0.9rem; }
 
@@ -309,9 +316,7 @@
   background: linear-gradient(180deg, #FFDD75, var(--hw-gold) 55%, var(--hw-gold-deep));
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(20, 15, 5, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  transition: transform 100ms ease;
 }
-.hollow-buy:hover:not(:disabled) { transform: translateY(-2px); }
 .hollow-page .hollow-buy:disabled {
   background: #EFE8D8; color: #5E4A30; border-color: #7A6546;
   cursor: default; box-shadow: none;
@@ -366,9 +371,7 @@
   border: 1px solid var(--hw-line); border-radius: 16px; background: #fff;
   font-weight: 800; color: var(--hw-ink); cursor: pointer;
   box-shadow: 0 4px 10px rgba(20, 15, 5, 0.12);
-  transition: transform 100ms ease;
 }
-.hollow-gear:hover { transform: translateY(-2px); }
 .hollow-gear em { font-style: normal; font-size: 0.78rem; color: var(--hw-ink-soft); font-weight: 700; }
 .hollow-gear.worn { background: #EAF6EE; border-color: var(--hw-green); }
 .hollow-gear.worn em { color: var(--hw-green); }
@@ -521,9 +524,7 @@
   padding: 14px 10px; border: 1px solid var(--hw-line); border-radius: 16px; background: #fff;
   cursor: pointer; font-weight: 800; color: var(--hw-ink);
   box-shadow: 0 4px 10px rgba(20, 15, 5, 0.14);
-  transition: transform 100ms ease;
 }
-.hollow-ware:hover:not(:disabled) { transform: translateY(-3px); }
 /* A broke wallet must never grey the dream - art stays vivid; only the
    price pill changes. Disabled just means "not clickable yet". */
 .hollow-page .hollow-ware:disabled {
@@ -532,7 +533,6 @@
   cursor: default;
   opacity: 1;
 }
-.hollow-page .hollow-ware:disabled:hover { transform: none; }
 .hollow-egg-note { font-style: normal; font-size: 0.76rem; color: var(--hw-ink-soft); font-weight: 700; }
 .hollow-eggs { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 .hollow-eggs .hollow-ware { padding: 20px 14px; }

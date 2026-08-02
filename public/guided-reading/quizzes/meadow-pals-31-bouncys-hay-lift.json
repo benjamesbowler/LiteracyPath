@@ -29,13 +29,13 @@
       "answer": "The bale flies past.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The bale flies past. This shows that the first attempt does not solve the central problem introduced by Bouncy stacks hay for Woolly.",
+      "rationale": "The bale flies past. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "The bale flies past."
     },
     {
       "id": "meadow-pals-31-bouncys-hay-lift-q3",
-      "prompt": "What solves the problem in Bouncy's Hay Lift?",
+      "prompt": "What happens at the end of Bouncy's Hay Lift?",
       "choices": [
         "The bale fits on top.",
         "Bouncy stacks hay for Woolly.",
@@ -44,7 +44,7 @@
       "answer": "The bale fits on top.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The bale fits on top. This event shows how the central problem is resolved after The bale flies past.",
+      "rationale": "The bale fits on top. This event shows how the central problem is resolved.",
       "evidencePage": 8,
       "evidenceText": "The bale fits on top."
     }

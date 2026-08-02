@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-05",
-  "contentHash": "sha256:aeaa2a245ed63953639910011cf4033ddc5645c6cab749fd301eee2084d9c3ea",
+  "contentHash": "sha256:b32492d73afd0d756b28ef98daf33110d264b78d98071c754ff2827a1067f2de",
   "questions": [
     {
       "id": "ab-c-05-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Socks's red harness hook was empty. So was his sleeping crate.",
         "They called along the windy street. Only dry leaves answered.",
-        "They fixed the latch, added a tracker tag and walked Socks home securely."
+        "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
       ],
       "answer": "Socks's red harness hook was empty. So was his sleeping crate.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "They called along the windy street. Only dry leaves answered.",
         "Socks's red harness hook was empty. So was his sleeping crate.",
-        "They fixed the latch, added a tracker tag and walked Socks home securely."
+        "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
       ],
       "answer": "They called along the windy street. Only dry leaves answered.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ab-c-05-q3",
       "prompt": "Which event resolves the central problem in Socks Goes Missing?",
       "choices": [
-        "They fixed the latch, added a tracker tag and walked Socks home securely.",
+        "They fixed the latch and added a tracker tag. Socks trotted home on his lead.",
         "Socks's red harness hook was empty. So was his sleeping crate.",
         "They called along the windy street. Only dry leaves answered."
       ],
-      "answer": "They fixed the latch, added a tracker tag and walked Socks home securely.",
+      "answer": "They fixed the latch and added a tracker tag. Socks trotted home on his lead.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They fixed the latch, added a tracker tag and walked Socks home securely. This event shows how the central problem is resolved.",
+      "rationale": "They fixed the latch and added a tracker tag. Socks trotted home on his lead. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "They fixed the latch, added a tracker tag and walked Socks home securely."
+      "evidenceText": "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
     }
   ]
 }

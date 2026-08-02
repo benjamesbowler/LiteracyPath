@@ -34,7 +34,8 @@ import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 
-const SURFACE_ID = new URLSearchParams(window.location.search).get("surface") || "student-home";
+const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
+const SURFACE_ID = PREVIEW_PARAMS.get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
@@ -44,6 +45,12 @@ window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("story_quests", PREVIEW_SCOPE));
+if (PREVIEW_PARAMS.get("unlockWords") === "1") {
+  window.localStorage.setItem(
+    `lp_phonics_progress_${PREVIEW_SCOPE}`,
+    JSON.stringify(Object.fromEntries(["A", "B", "C", "D", "E", "F"].map(letter => [letter, "completed"])))
+  );
+}
 
 const loginClient = {
   async rpc() {
@@ -128,7 +135,7 @@ function Surface() {
         />
       );
     case "phonics":
-      return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland="letters" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland={PREVIEW_PARAMS.get("island") || "letters"} initialStep={Number(PREVIEW_PARAMS.get("step")) || 1} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "arcade":
       return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     // Both of these are the phase-C front doors now, which is what a child

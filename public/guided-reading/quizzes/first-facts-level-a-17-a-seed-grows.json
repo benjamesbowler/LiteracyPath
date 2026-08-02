@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-level-a-17-a-seed-grows-q1",
-      "prompt": "What do we learn about a seed?",
+      "prompt": "Where does the seed rest?",
       "choices": [
         "A seed rests in soil.",
-        "A root grows down.",
-        "The bud becomes a flower."
+        "A seed rests in the sky.",
+        "A seed rests on the Moon."
       ],
       "answer": "A seed rests in soil.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-17-a-seed-grows-q2",
-      "prompt": "What do we learn about a root?",
+      "prompt": "Which sentence tells about a root in A Seed Grows?",
       "choices": [
         "A root grows down.",
         "A seed rests in soil.",

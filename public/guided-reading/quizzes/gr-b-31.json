@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-b-31-q1",
-      "prompt": "Which fact about spring is given in Seasons?",
+      "prompt": "Which sentence tells about spring in Seasons?",
       "choices": [
         "In many temperate places spring brings rain.",
         "Many leaves change colour in autumn.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-b-31-q2",
-      "prompt": "Which fact about many leaves is given in Seasons?",
+      "prompt": "Which sentence tells about many leaves in Seasons?",
       "choices": [
         "Many leaves change colour in autumn.",
         "In many temperate places spring brings rain.",

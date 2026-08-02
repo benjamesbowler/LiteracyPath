@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-a-17-hello-sun-q1",
-      "prompt": "Which fact about the Sun is given in Watching the Sun Safely?",
+      "prompt": "What is the Sun?",
       "choices": [
         "The Sun is our nearest star.",
-        "Earth's turning makes sunrise appear.",
-        "Earth's rotation changes the Sun's position in our sky."
+        "The Sun is our nearest planet.",
+        "The Sun is our nearest moon."
       ],
       "answer": "The Sun is our nearest star.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-17-hello-sun-q2",
-      "prompt": "Which fact about Earth's turning is given in Watching the Sun Safely?",
+      "prompt": "Which sentence tells about Earth's turning in Watching the Sun Safely?",
       "choices": [
         "Earth's turning makes sunrise appear.",
         "The Sun is our nearest star.",

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q1",
-      "prompt": "Which fact about fish is given in Animals in the Ocean?",
+      "prompt": "Which sentence tells about fish in Animals in the Ocean?",
       "choices": [
         "Fish use fins to move through water.",
         "An octopus has eight arms and can change colour.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q2",
-      "prompt": "Which fact about an octopus is given in Animals in the Ocean?",
+      "prompt": "Which sentence tells about an octopus in Animals in the Ocean?",
       "choices": [
         "An octopus has eight arms and can change colour.",
         "Fish use fins to move through water.",

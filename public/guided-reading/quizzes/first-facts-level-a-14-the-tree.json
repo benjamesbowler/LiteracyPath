@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-level-a-14-the-tree-q1",
-      "prompt": "What do we learn about the tree?",
+      "prompt": "What grows tall?",
       "choices": [
         "The tree grows tall.",
-        "The trunk holds the tree.",
-        "Every part helps the tree."
+        "The soil grows tall.",
+        "The sky grows tall."
       ],
       "answer": "The tree grows tall.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-14-the-tree-q2",
-      "prompt": "What do we learn about the trunk?",
+      "prompt": "Which sentence tells about the trunk in The Apple Tree?",
       "choices": [
         "The trunk holds the tree.",
         "The tree grows tall.",

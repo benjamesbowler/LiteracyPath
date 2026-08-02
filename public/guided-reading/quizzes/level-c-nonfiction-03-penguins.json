@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "level-c-nonfiction-03-penguins-q1",
-      "prompt": "Which fact about penguins is given in Emperor Penguins and Their Relatives?",
+      "prompt": "What do penguins use their wings for?",
       "choices": [
         "Penguins are flightless birds whose wings work as swimming flippers.",
-        "A male balances one egg on his feet beneath warm skin.",
-        "Eighteen penguin species live from Antarctica to warmer southern coasts."
+        "Penguins use their wings to fly above mountains.",
+        "Penguins use their wings to dig tree holes."
       ],
       "answer": "Penguins are flightless birds whose wings work as swimming flippers.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-03-penguins-q2",
-      "prompt": "Which fact about a male is given in Emperor Penguins and Their Relatives?",
+      "prompt": "Which sentence tells about a male in Emperor Penguins and Their Relatives?",
       "choices": [
         "A male balances one egg on his feet beneath warm skin.",
         "Penguins are flightless birds whose wings work as swimming flippers.",

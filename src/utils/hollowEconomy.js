@@ -44,6 +44,16 @@ export function earnedBerries(breakdown = {}) {
   return (Number(b.booksRead) || 0) + (Number(b.storiesDone) || 0) * 2;
 }
 
+// A reward notice must never promise money the wallet cannot spend. This can
+// differ after a purchase, a cross-device merge, or recovery of older ledger
+// data even though the child genuinely earned coins since their last visit.
+export function freshSpendableCoinCount(balance, earnedSinceLastVisit) {
+  return Math.max(0, Math.min(
+    Number(balance) || 0,
+    Number(earnedSinceLastVisit) || 0
+  ));
+}
+
 // ── Seasons (the caravan shelf) ──────────────────────────────────────────────
 // 42-day windows anchored on a fixed Monday. Season index cycles the caravans
 // forever - the shelf always has a name, a countdown, and a return date.
@@ -238,8 +248,27 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   const chests = Array.isArray(ledger.chests) ? ledger.chests : [];
   const layout = ledger.layout && typeof ledger.layout === "object" ? ledger.layout : {};
 
+  // Treat the catalogue as the authority, not an old or corrupt stored row.
+  // Unknown items buy nothing and therefore cost nothing. A stored charge can
+  // preserve a genuine lower historical price, but it can never exceed the
+  // item's current real price. Non-repeatable items are charged once even if
+  // two offline devices produced different purchase ids for the same item.
+  const seenOwnedOnce = new Set();
+  const acceptedPurchases = purchases.flatMap(purchase => {
+    const item = findCatalogItem(purchase?.item);
+    if (!item) return [];
+    const repeatable = item.id.startsWith("egg-") && item.id !== WELCOME_EGG.id;
+    if (!repeatable && seenOwnedOnce.has(item.id)) return [];
+    if (!repeatable) seenOwnedOnce.add(item.id);
+    const storedCost = Number(purchase?.cost);
+    const cost = Number.isFinite(storedCost)
+      ? Math.max(0, Math.min(item.price, storedCost))
+      : item.price;
+    return [{ ...purchase, item: item.id, cost }];
+  });
+
   const coinsEarnedTotal = earnedCoins(breakdown, chests.length);
-  const coinsSpent = purchases.reduce((total, p) => total + Math.max(0, Number(p?.cost) || 0), 0);
+  const coinsSpent = acceptedPurchases.reduce((total, p) => total + p.cost, 0);
   const coins = Math.max(0, coinsEarnedTotal - coinsSpent);
   // Cross-device double-spends are resolved GENEROUSLY (never un-buy from a
   // child) but no longer silently: the flag reaches the teacher report.
@@ -248,7 +277,7 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   // Hatch eggs in purchase order so "prefer unowned" is stable.
   const beastieMap = new Map();
   const eggTiers = { "egg-bronze": "bronze", "egg-silver": "silver", "egg-gold": "gold", "egg-welcome": "bronze" };
-  for (const p of purchases) {
+  for (const p of acceptedPurchases) {
     const tier = eggTiers[p?.item];
     if (!tier) continue;
     const species = hatchSpecies(tier, p.id, [...beastieMap.keys()]);
@@ -263,7 +292,7 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   const berriesEarnedTotal = earnedBerries(breakdown);
   const berries = Math.max(0, berriesEarnedTotal - feeds.length);
 
-  const ownedIds = new Set(purchases.map(p => p?.item).filter(Boolean));
+  const ownedIds = new Set(acceptedPurchases.map(p => p.item));
   const ownedGear = GEAR.filter(g => ownedIds.has(g.id));
   const ownedHollowItems = HOLLOW_ITEMS.filter(i => ownedIds.has(i.id));
   const ownedExpansions = EXPANSIONS.filter(e => ownedIds.has(e.id));

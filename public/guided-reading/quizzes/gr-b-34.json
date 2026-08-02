@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-b-34-q1",
-      "prompt": "Which fact about sunlight is given in Day and Night?",
+      "prompt": "What reaches one side of Earth?",
       "choices": [
         "Sunlight reaches one side of Earth.",
-        "That side has daytime.",
-        "Earth turns us toward sunlight again."
+        "A river reaches one side of Earth.",
+        "A road reaches one side of Earth."
       ],
       "answer": "Sunlight reaches one side of Earth.",
       "kind": "text",

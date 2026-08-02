@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-20-my-five-senses-q1",
-      "prompt": "Which fact about my senses is given in My Five Senses?",
+      "prompt": "Which sentence tells about my senses in My Five Senses?",
       "choices": [
         "My senses help me learn about the world.",
         "My nose detects smells.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-20-my-five-senses-q2",
-      "prompt": "Which fact about my nose is given in My Five Senses?",
+      "prompt": "Which sentence tells about my nose in My Five Senses?",
       "choices": [
         "My nose detects smells.",
         "My senses help me learn about the world.",

@@ -72,7 +72,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.4 }}
-      className="phonics-step phonics-step-match"
+      className="phonics-step phonics-step-match kg-child-flow__content"
     >
       <motion.div className="phonics-step-heading" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
         <h2>{lesson.matchPrompt || `Find all the words that start with ${lesson.letter}!`}</h2>

@@ -49,7 +49,7 @@ import {
 import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
-import { computeHollow } from "../utils/hollowEconomy.js";
+import { computeHollow, freshSpendableCoinCount } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
@@ -324,7 +324,10 @@ export function StudentHomePage({
   const [freshCoins, setFreshCoins] = useState(() => {
     const t = computeTreasury(progressScopeKey);
     const h = computeHollow(loadHollowLedger(progressScopeKey), t.breakdown);
-    return coinsSinceLastVisit(progressScopeKey, h.coinsEarnedTotal);
+    return freshSpendableCoinCount(
+      h.coins,
+      coinsSinceLastVisit(progressScopeKey, h.coinsEarnedTotal)
+    );
   });
   const [accountOpen, setAccountOpen] = useState(false);
 
@@ -340,9 +343,19 @@ export function StudentHomePage({
       setCompanionState(getCompanion(progressScopeKey));
       setGuideChoiceReady(true);
       setHydrationTick(tick => tick + 1);
+      const treasury = computeTreasury(progressScopeKey);
+      const hollow = computeHollow(loadHollowLedger(progressScopeKey), treasury.breakdown);
+      setFreshCoins(freshSpendableCoinCount(
+        hollow.coins,
+        coinsSinceLastVisit(progressScopeKey, hollow.coinsEarnedTotal)
+      ));
     }
     window.addEventListener("lp-progress-hydrated", handleHydrated);
-    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+    window.addEventListener("lp-progress-updated", handleHydrated);
+    return () => {
+      window.removeEventListener("lp-progress-hydrated", handleHydrated);
+      window.removeEventListener("lp-progress-updated", handleHydrated);
+    };
   }, [progressScopeKey]);
 
   // A returning child's profile may arrive from the cloud after Home mounts.

@@ -3,7 +3,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import {
-  WELCOME_GIFT, COIN_RATES, earnedCoins, earnedBerries,
+  WELCOME_GIFT, COIN_RATES, earnedCoins, earnedBerries, freshSpendableCoinCount,
   seasonForDate, marketCatalog, stageForFeeds, hatchSpecies,
   computeHollow, canBuy, tryHollowFeed, tryHollowPurchase,
   GEAR, EGGS, BEASTIES, CARAVANS
@@ -17,6 +17,12 @@ import { computeHydratedValue } from "../../src/utils/progressMerge.js";
 import { PROGRESS_AREAS, localProgressStorageKey } from "../../src/utils/progressKeys.js";
 
 const BREAKDOWN = { questStars: 7, gameStars: 25, soundSeekerStars: 9, storiesDone: 0, booksRead: 5 };
+
+test("reward notices never promise more coins than the live wallet can spend", () => {
+  assert.equal(freshSpendableCoinCount(0, 10), 0);
+  assert.equal(freshSpendableCoinCount(6, 10), 6);
+  assert.equal(freshSpendableCoinCount(52, 10), 10);
+});
 
 test("earnedCoins pays welcome gift + rates per derived progress unit", () => {
   assert.equal(earnedCoins({}, 0), WELCOME_GIFT);
@@ -262,6 +268,28 @@ test("hollow merge: ledgers union by id, layout is last-write-wins", () => {
   assert.equal(merged.feeds.length, 1);
   assert.equal(merged.chests.length, 2);
   assert.equal(merged.layout.equipped.head, "x"); // local is newer
+});
+
+test("duplicate or corrupt synced purchases cannot drain a child's wallet", () => {
+  const local = {
+    purchases: [{ id: "local-lamp", item: "hollow-glow-jar", cost: 20, at: "2026-08-01T10:00:00Z" }]
+  };
+  const cloud = {
+    purchases: [
+      { id: "cloud-lamp", item: "hollow-glow-jar", cost: 20, at: "2026-08-01T10:00:01Z" },
+      { id: "unknown", item: "retired-phantom-item", cost: 999999, at: "2026-08-01T10:00:02Z" },
+      { id: "bad-price", item: "hollow-mushroom-stool", cost: 999999, at: "2026-08-01T10:00:03Z" }
+    ]
+  };
+
+  const merged = computeHydratedValue("hollow", "__all__", local, cloud);
+  const beforeBook = computeHollow(merged, {});
+  const afterBook = computeHollow(merged, { booksRead: 1 });
+
+  assert.equal(merged.purchases.filter(row => row.item === "hollow-glow-jar").length, 1);
+  assert.equal(beforeBook.coinsSpent, 55, "one glow jar and one real mushroom stool are charged once at catalogue prices");
+  assert.equal(beforeBook.coins, 45);
+  assert.equal(afterBook.coins, 55, "a completed book immediately adds its ten coins to the same wallet");
 });
 
 test("the free welcome egg resolves, costs nothing, and hatches a common", async () => {

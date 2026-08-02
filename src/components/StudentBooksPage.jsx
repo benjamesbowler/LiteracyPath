@@ -228,10 +228,18 @@ export function StudentBooksPage({
   const resuming = Boolean(continueRow);
   const panelRecommendation = recommended.find(item => item.book.id === panelBook?.id) || null;
 
-  const knowledgeJourney = getKnowledgeJourney(knowledgeJourneyId);
+  const knowledgeJourneys = useMemo(
+    () => KNOWLEDGE_JOURNEYS.filter(journey => (
+      knowledgeJourneyBooks(journey.id, library, shownLevel).length > 0
+    )),
+    [library, shownLevel]
+  );
+  const knowledgeJourney = knowledgeJourneys.find(journey => journey.id === knowledgeJourneyId)
+    || knowledgeJourneys[0]
+    || getKnowledgeJourney(knowledgeJourneyId);
   const journeyBooks = useMemo(
-    () => knowledgeJourneyBooks(knowledgeJourneyId, library).slice(0, 4),
-    [knowledgeJourneyId, library]
+    () => knowledgeJourneyBooks(knowledgeJourney.id, library, shownLevel).slice(0, 4),
+    [knowledgeJourney.id, library, shownLevel]
   );
 
   function purposeFor(book) {
@@ -448,7 +456,11 @@ export function StudentBooksPage({
             </section>
           ))}
 
-        {showKnowledge && <section className="kg-glass kg-glass--quiet kg-knowledge" aria-labelledby="kg-knowledge-title">
+        {showKnowledge && <section
+          className="kg-glass kg-glass--quiet kg-knowledge"
+          aria-labelledby="kg-knowledge-title"
+          data-reading-level={shownLevel}
+        >
           <div className="kg-knowledge-head">
             <div>
               <span className="kg-eyebrow">Explore an idea</span>
@@ -456,7 +468,7 @@ export function StudentBooksPage({
               <p className="kg-body">{knowledgeJourney.guidingQuestion}</p>
             </div>
             <div className="kg-knowledge-tabs" role="group" aria-label="Choose an idea to explore">
-              {KNOWLEDGE_JOURNEYS.map(journey => (
+              {knowledgeJourneys.map(journey => (
                 <button
                   key={journey.id}
                   type="button"
@@ -481,6 +493,7 @@ export function StudentBooksPage({
                   type="button"
                   className="kg-knowledge-book"
                   onClick={() => setOpenBookId(book.id)}
+                  data-book-level={book.level}
                 >
                   <img src={coverFor(book)} alt="" loading="lazy" onError={hideOnError} />
                   <span>

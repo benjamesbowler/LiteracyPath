@@ -19,6 +19,15 @@ export function GuidedReadingPreview() {
   const book = guidedReadingBooks.find(item => item.id === requestedBookId) || guidedReadingBooks[0];
   const [records, setRecords] = useState({});
   const [quizResult, setQuizResult] = useState(null);
+  const staleGroupHost = params.has("stale-group") ? {
+    session: {
+      id: "stale-preview-session",
+      book_id: book.id,
+      page_numbers: [1],
+      page_index: 0,
+      status: "ended"
+    }
+  } : null;
 
   if (params.has("quiz")) {
     return (
@@ -41,6 +50,7 @@ export function GuidedReadingPreview() {
         guidedReadingRecords={records}
         initialBookId={book.id}
         mode="student"
+        sessionHost={staleGroupHost}
         saveGuidedReadingRecord={(bookId, nextRecord) => {
           setRecords(current => ({ ...current, [bookId]: nextRecord }));
         }}

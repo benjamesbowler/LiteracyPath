@@ -63,6 +63,7 @@ function IslandLockIcon() {
 
 export function PhonicsLearnTab({
   initialIsland = "",
+  initialStep = 1,
   progressScopeKey = "default"
 }) {
   const [activeLetter, setActiveLetter] = useState(null);
@@ -141,6 +142,7 @@ export function PhonicsLearnTab({
     return (
       <PhonicsLearningFlow
         letter={activeLetter}
+        initialStep={initialStep}
         onBack={handleBack}
         onComplete={() => handleLetterComplete(activeLetter)}
       />
@@ -151,6 +153,7 @@ export function PhonicsLearnTab({
     return (
       <CvcLearningFlow
         family={activeFamily}
+        initialStep={initialStep}
         onBack={handleBack}
         onComplete={() => handleFamilyComplete(activeFamily)}
       />

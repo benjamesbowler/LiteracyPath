@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-b-33-q1",
-      "prompt": "Which fact about a hammer is given in Tools?",
+      "prompt": "Which sentence tells about a hammer in Tools?",
       "choices": [
         "A hammer drives nails.",
         "A wrench turns bolts.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-b-33-q2",
-      "prompt": "Which fact about a wrench is given in Tools?",
+      "prompt": "Which sentence tells about a wrench in Tools?",
       "choices": [
         "A wrench turns bolts.",
         "A hammer drives nails.",

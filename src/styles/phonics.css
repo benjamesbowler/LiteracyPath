@@ -12,6 +12,7 @@
   --phonics-soft-ink: #667085;
   --phonics-font-display: "Lexend", "Inter", sans-serif;
   --phonics-font-body: "Inter", system-ui, sans-serif;
+  --phonics-font-letter: var(--lp-font-letter, "Fredoka", "Comic Sans MS", sans-serif);
 }
 
 .learn-tab-bar {
@@ -180,7 +181,7 @@
 }
 
 .phonics-letter-symbol {
-  font: 800 clamp(2rem, 4.6vw, 3.35rem) var(--phonics-font-display);
+  font: 700 clamp(2rem, 4.6vw, 3.35rem) var(--phonics-font-letter);
   line-height: 1;
 }
 
@@ -595,7 +596,7 @@
 
 .phonics-big-letter {
   color: var(--phonics-ocean-blue);
-  font: 900 clamp(6rem, 16vw, 10rem) / 0.9 var(--phonics-font-display);
+  font: 700 clamp(6rem, 16vw, 10rem) / 0.9 var(--phonics-font-letter);
   text-shadow: none;
 }
 
@@ -680,7 +681,7 @@
 
 .phonics-img-placeholder-letter {
   color: var(--phonics-ocean-blue);
-  font: 900 3.5rem var(--phonics-font-display);
+  font: 700 3.5rem var(--phonics-font-letter);
   opacity: 0.6;
 }
 
@@ -1240,7 +1241,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  font: 900 clamp(2rem, 5vw, 3.1rem) var(--phonics-font-display);
+  font: 700 clamp(2rem, 5vw, 3.1rem) var(--phonics-font-letter);
   line-height: 1;
   text-transform: lowercase;
 }

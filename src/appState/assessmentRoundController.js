@@ -20,6 +20,7 @@ import { APP_VIEWS } from "./appViews.js";
 import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
 import { preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
+import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
 import {
   getLedaInstructionAudioPath,
@@ -2100,18 +2101,12 @@ export function createAssessmentRoundController(context) {
     if (requireApprovedAudio && !preferredAudioPath) return;
 
     if (preferredAudioPath) {
-      try {
-        if (window.speechSynthesis) {
-          window.speechSynthesis.cancel();
+      playCueAudio(preferredAudioPath, {
+        onUnavailable: () => {
+          if (allowBrowserFallback) speakWithBrowser(text);
         }
-
-        const audio = new Audio(preferredAudioPath);
-        await audio.play();
-        return;
-      } catch (error) {
-        console.warn("Static audio unavailable.", error);
-        if (!allowBrowserFallback) return;
-      }
+      });
+      return;
     }
 
     if (requireApprovedAudio) return;

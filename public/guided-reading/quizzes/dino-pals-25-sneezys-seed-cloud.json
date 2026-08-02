@@ -9,8 +9,8 @@
       "prompt": "Which event begins Sneezy's Seed Cloud?",
       "choices": [
         "Dry seed fluff drifts toward Cozy Cave.",
-        "The fluff bursts into a bigger tickly cloud.",
-        "Dozy enters while Sneezy plants seeds outside."
+        "He warns everyone then blows one careful sneeze.",
+        "Sneezy sweeps the fluff onto the wet leaf."
       ],
       "answer": "Dry seed fluff drifts toward Cozy Cave.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-25-sneezys-seed-cloud-q2",
       "prompt": "Which event shows the first plan fails in Sneezy's Seed Cloud?",
       "choices": [
-        "The fluff bursts into a bigger tickly cloud.",
+        "He warns everyone then blows one careful sneeze.",
         "Dry seed fluff drifts toward Cozy Cave.",
-        "Dozy enters while Sneezy plants seeds outside."
+        "Sneezy sweeps the fluff onto the wet leaf."
       ],
-      "answer": "The fluff bursts into a bigger tickly cloud.",
+      "answer": "He warns everyone then blows one careful sneeze.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The fluff bursts into a bigger tickly cloud. This shows that the first attempt does not solve the central problem introduced by Dry seed fluff drifts toward Cozy Cave.",
-      "evidencePage": 4,
-      "evidenceText": "The fluff bursts into a bigger tickly cloud."
+      "rationale": "He warns everyone then blows one careful sneeze. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "He warns everyone then blows one careful sneeze."
     },
     {
       "id": "dino-pals-25-sneezys-seed-cloud-q3",
       "prompt": "Which event solves the problem in Sneezy's Seed Cloud?",
       "choices": [
-        "Dozy enters while Sneezy plants seeds outside.",
+        "Sneezy sweeps the fluff onto the wet leaf.",
         "Dry seed fluff drifts toward Cozy Cave.",
-        "The fluff bursts into a bigger tickly cloud."
+        "He warns everyone then blows one careful sneeze."
       ],
-      "answer": "Dozy enters while Sneezy plants seeds outside.",
+      "answer": "Sneezy sweeps the fluff onto the wet leaf.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Dozy enters while Sneezy plants seeds outside. This event shows how the central problem is resolved after The fluff bursts into a bigger tickly cloud.",
-      "evidencePage": 8,
-      "evidenceText": "Dozy enters while Sneezy plants seeds outside."
+      "rationale": "Sneezy sweeps the fluff onto the wet leaf. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Sneezy sweeps the fluff onto the wet leaf."
     }
   ]
 }

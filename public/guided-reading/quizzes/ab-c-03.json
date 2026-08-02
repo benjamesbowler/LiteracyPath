@@ -2,28 +2,28 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-03",
-  "contentHash": "sha256:bbd4a8f3ecf11064442a68c57fa7d6480785dd7b9e92bf4132e62f47a71c297f",
+  "contentHash": "sha256:cabbd8c15b71ef35e43b650efb5abc95ab5aa21390ac7f12e1db170e9075a003",
   "questions": [
     {
       "id": "ab-c-03-q1",
       "prompt": "Which event introduces the situation in Aiden and Betty go on Holiday?",
       "choices": [
-        "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun.",
+        "The final bell rang. Aiden and Betty raced home shouting, “Holiday!”",
         "Then hard rain cancelled their outdoor plans. The holiday clock kept moving.",
         "Betty chose one smooth white pebble. Aiden chose his filled notebook."
       ],
-      "answer": "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun.",
+      "answer": "The final bell rang. Aiden and Betty raced home shouting, “Holiday!”",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun."
+      "evidenceText": "The final bell rang. Aiden and Betty raced home shouting, “Holiday!”"
     },
     {
       "id": "ab-c-03-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden and Betty go on Holiday?",
       "choices": [
         "Then hard rain cancelled their outdoor plans. The holiday clock kept moving.",
-        "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun.",
+        "The final bell rang. Aiden and Betty raced home shouting, “Holiday!”",
         "Betty chose one smooth white pebble. Aiden chose his filled notebook."
       ],
       "answer": "Then hard rain cancelled their outdoor plans. The holiday clock kept moving.",
@@ -38,7 +38,7 @@
       "prompt": "Which event resolves the central problem in Aiden and Betty go on Holiday?",
       "choices": [
         "Betty chose one smooth white pebble. Aiden chose his filled notebook.",
-        "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun.",
+        "The final bell rang. Aiden and Betty raced home shouting, “Holiday!”",
         "Then hard rain cancelled their outdoor plans. The holiday clock kept moving."
       ],
       "answer": "Betty chose one smooth white pebble. Aiden chose his filled notebook.",

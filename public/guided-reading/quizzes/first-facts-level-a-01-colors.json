@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-01-colors-q1",
-      "prompt": "What do we learn about a ball and hat?",
+      "prompt": "Which sentence tells about a ball and hat in Colors?",
       "choices": [
         "A ball and hat are red.",
         "The bright sun is yellow.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-01-colors-q2",
-      "prompt": "What do we learn about the bright sun?",
+      "prompt": "Which sentence tells about the bright sun in Colors?",
       "choices": [
         "The bright sun is yellow.",
         "A ball and hat are red.",

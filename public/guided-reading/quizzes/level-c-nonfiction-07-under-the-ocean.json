@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-07-under-the-ocean-q2",
-      "prompt": "Which fact about Tiny coral animals is given in Under the Ocean?",
+      "prompt": "Which sentence tells about Tiny coral animals in Under the Ocean?",
       "choices": [
         "Tiny coral animals build hard skeletons that can form reefs.",
         "Oceans cover over two thirds of Earth and remain largely unexplored.",

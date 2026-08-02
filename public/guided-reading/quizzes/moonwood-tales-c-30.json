@@ -10,7 +10,7 @@
       "choices": [
         "Luna finds the star-room mobile tangled after a windy night.",
         "The neat row forms no constellation in the ceiling light.",
-        "The mobile's seven lights join into an owl shape."
+        "Luna turns each thread until its shadow matches the sky."
       ],
       "answer": "Luna finds the star-room mobile tangled after a windy night.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "The neat row forms no constellation in the ceiling light.",
         "Luna finds the star-room mobile tangled after a windy night.",
-        "The mobile's seven lights join into an owl shape."
+        "Luna turns each thread until its shadow matches the sky."
       ],
       "answer": "The neat row forms no constellation in the ceiling light.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The neat row forms no constellation in the ceiling light. This shows that the first attempt does not solve the central problem introduced by Luna finds the star-room mobile tangled after a windy night.",
+      "rationale": "The neat row forms no constellation in the ceiling light. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "The neat row forms no constellation in the ceiling light."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-30-q3",
       "prompt": "Which event resolves the central problem in Luna and the Wandering Constellation?",
       "choices": [
-        "The mobile's seven lights join into an owl shape.",
+        "Luna turns each thread until its shadow matches the sky.",
         "Luna finds the star-room mobile tangled after a windy night.",
         "The neat row forms no constellation in the ceiling light."
       ],
-      "answer": "The mobile's seven lights join into an owl shape.",
+      "answer": "Luna turns each thread until its shadow matches the sky.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The mobile's seven lights join into an owl shape. This event shows how the central problem is resolved after The neat row forms no constellation in the ceiling light.",
-      "evidencePage": 8,
-      "evidenceText": "The mobile's seven lights join into an owl shape."
+      "rationale": "Luna turns each thread until its shadow matches the sky. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Luna turns each thread until its shadow matches the sky."
     }
   ]
 }

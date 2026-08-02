@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-05-flowers-and-trees-q1",
-      "prompt": "Which fact about many flowers is given in Flowering Plants and Trees?",
+      "prompt": "Which sentence tells about many flowers in Flowering Plants and Trees?",
       "choices": [
         "Many flowers have petals stems and roots.",
         "Roses come in many colours and may have prickles.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-05-flowers-and-trees-q2",
-      "prompt": "Which fact about roses is given in Flowering Plants and Trees?",
+      "prompt": "Which sentence tells about roses in Flowering Plants and Trees?",
       "choices": [
         "Roses come in many colours and may have prickles.",
         "Many flowers have petals stems and roots.",

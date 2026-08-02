@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-e-47-q1",
-      "prompt": "Which fact about living things is given in Living Things Change?",
+      "prompt": "Which sentence tells about living things in Living Things Change?",
       "choices": [
         "Living things change over time.",
         "A seedling can grow into a plant.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-e-47-q2",
-      "prompt": "Which fact about a seedling is given in Living Things Change?",
+      "prompt": "Which sentence tells about a seedling in Living Things Change?",
       "choices": [
         "A seedling can grow into a plant.",
         "Living things change over time.",

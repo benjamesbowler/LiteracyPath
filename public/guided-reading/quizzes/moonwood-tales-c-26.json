@@ -10,7 +10,7 @@
       "choices": [
         "A bell rings under Hollow Oak although nobody pulls its rope.",
         "He holds the rope still but the bell rings harder.",
-        "The wind bends harmlessly while the bell remains still."
+        "He loops the loose rope around one smooth root peg."
       ],
       "answer": "A bell rings under Hollow Oak although nobody pulls its rope.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "He holds the rope still but the bell rings harder.",
         "A bell rings under Hollow Oak although nobody pulls its rope.",
-        "The wind bends harmlessly while the bell remains still."
+        "He loops the loose rope around one smooth root peg."
       ],
       "answer": "He holds the rope still but the bell rings harder.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "He holds the rope still but the bell rings harder. This shows that the first attempt does not solve the central problem introduced by A bell rings under Hollow Oak although nobody pulls its rope.",
+      "rationale": "He holds the rope still but the bell rings harder. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
       "evidenceText": "He holds the rope still but the bell rings harder."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-26-q3",
       "prompt": "Which event resolves the central problem in Pip and the Bell Below?",
       "choices": [
-        "The wind bends harmlessly while the bell remains still.",
+        "He loops the loose rope around one smooth root peg.",
         "A bell rings under Hollow Oak although nobody pulls its rope.",
         "He holds the rope still but the bell rings harder."
       ],
-      "answer": "The wind bends harmlessly while the bell remains still.",
+      "answer": "He loops the loose rope around one smooth root peg.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The wind bends harmlessly while the bell remains still. This event shows how the central problem is resolved after He holds the rope still but the bell rings harder.",
-      "evidencePage": 9,
-      "evidenceText": "The wind bends harmlessly while the bell remains still."
+      "rationale": "He loops the loose rope around one smooth root peg. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "He loops the loose rope around one smooth root peg."
     }
   ]
 }

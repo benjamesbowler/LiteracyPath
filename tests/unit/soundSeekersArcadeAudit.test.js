@@ -205,7 +205,7 @@ test("the early adventure and skate routes stay book-led, physical, and recovera
   ]);
 
   assert.match(creator, /BookCharacterAvatar/);
-  assert.match(creator, /Pick a book friend\. Then choose one finished look made just for them\./);
+  assert.match(creator, /Pick a book friend and a finished look\./);
   assert.match(avatarPolicy, /sound-seekers\/characters\/muddy/);
   assert.match(avatarPolicy, /painted artwork, never a Phaser\/CSS tint/);
   assert.doesNotMatch(creator, /Your adventure look/);

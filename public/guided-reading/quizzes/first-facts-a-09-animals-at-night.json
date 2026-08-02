@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-09-animals-at-night-q1",
-      "prompt": "Which fact about nocturnal animals is given in Animals at Night?",
+      "prompt": "Which sentence tells about nocturnal animals in Animals at Night?",
       "choices": [
         "Nocturnal animals are active mostly at night.",
         "Many bats use echoes to find flying insects.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-09-animals-at-night-q2",
-      "prompt": "Which fact about many bats is given in Animals at Night?",
+      "prompt": "Which sentence tells about many bats in Animals at Night?",
       "choices": [
         "Many bats use echoes to find flying insects.",
         "Nocturnal animals are active mostly at night.",

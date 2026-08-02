@@ -55,6 +55,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [1, 2, 3, 4, 10]
   },
   {
+    id: "guided-reading-human-voice",
+    label: "Guided Reading fiction uses concrete, character-specific human prose",
+    command: ["npm", "run", "check:guided-reading-human-voice"],
+    areas: [1, 2, 3, 4, 10]
+  },
+  {
     id: "guided-reading-visual-alignment",
     label: "Every Guided Reading page has hash-locked Story-Bible-aligned illustration approval",
     command: ["npm", "run", "check:guided-reading-visual-alignment"],

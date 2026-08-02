@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-e-46-q1",
-      "prompt": "Which fact about reptiles is given in Reptiles?",
+      "prompt": "What covers a reptile's body?",
       "choices": [
         "Reptiles have dry scaly skin.",
-        "Snakes are reptiles without legs.",
-        "Outside heat changes reptile body temperature."
+        "Reptiles have thick woolly fur.",
+        "Reptiles have bright soft feathers."
       ],
       "answer": "Reptiles have dry scaly skin.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-e-46-q2",
-      "prompt": "Which fact about snakes is given in Reptiles?",
+      "prompt": "Which sentence tells about snakes in Reptiles?",
       "choices": [
         "Snakes are reptiles without legs.",
         "Reptiles have dry scaly skin.",

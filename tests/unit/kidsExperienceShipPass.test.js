@@ -17,6 +17,7 @@ const teacherToday = stripComments(read("src/components/TeacherTodayPage.jsx"));
 const teacherController = stripComments(read("src/appState/useAppSessionController.js"));
 const kidsCss = stripComments(read("src/styles/kids-glass.css"));
 const hollowCss = stripComments(read("src/styles/hollow.css"));
+const cvcBuild = stripComments(read("src/components/learn/phonics/cvc/StepBuildWord.jsx"));
 
 test("child hubs use the fluid one-screen shell instead of page scrolling", () => {
   assert.match(app, /contentScrolls = false/);
@@ -55,6 +56,32 @@ test("hatched beasties have a visible home in the main Hollow room", () => {
   assert.match(hollow, /hollow\.beasties\.slice\(0, 8\)/);
   assert.match(hollow, /onClick=\{\(\) => setTab\("beasties"\)\}/);
   assert.match(hollowCss, /\.hollow-beastie-nook/);
+});
+
+test("Hollow touch targets keep their map position and do not lift on sticky hover", () => {
+  assert.match(
+    hollowCss,
+    /main\.hollow-page button\.hollow-spot:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translate\(-50%, -50%\)/
+  );
+  assert.match(
+    hollowCss,
+    /main\.hollow-page button\.hollow-room-arrow:is\(:hover, :focus, :focus-visible, :active\):not\(:disabled\)\s*\{[^}]*transform:\s*translateY\(-50%\)/
+  );
+  assert.doesNotMatch(
+    hollowCss,
+    /\.hollow-(?:tab|pick|buy|gear|ware):hover[^{}]*\{[^}]*transform:/
+  );
+});
+
+test("completed CVC builds always provide an explicit way forward", () => {
+  assert.match(cvcBuild, /const wordComplete =/);
+  assert.match(cvcBuild, /if \(hasAdvancedRef\.current\) return;/);
+  assert.match(cvcBuild, /\{isLastWord \? "Continue" : "Next Word"\}/);
+  assert.doesNotMatch(cvcBuild, /const nextTimer = setTimeout/);
+  assert.match(
+    kidsCss,
+    /\.cvc-build-step\.kg-child-flow__content\s*\{[^}]*grid-template-rows:\s*minmax\(0, 1fr\) auto auto 72px/
+  );
 });
 
 test("the child library is category then series then book, with read ticks", () => {

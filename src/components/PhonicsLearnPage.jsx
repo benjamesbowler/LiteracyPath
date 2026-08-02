@@ -3,6 +3,7 @@ import { PhonicsLearnTab } from "./learn/phonics/PhonicsLearnTab";
 
 export function PhonicsLearnPage({
   initialIsland = "letters",
+  initialStep = 1,
   progressScopeKey = "default"
 }) {
   return (
@@ -15,6 +16,7 @@ export function PhonicsLearnPage({
         <PhonicsLearnTab
           key={`${progressScopeKey}-${initialIsland}`}
           initialIsland={initialIsland}
+          initialStep={initialStep}
           progressScopeKey={progressScopeKey}
         />
       </section>

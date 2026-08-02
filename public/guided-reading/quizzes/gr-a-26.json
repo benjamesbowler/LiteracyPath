@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-a-26-q1",
-      "prompt": "Which fact about a dog is given in Pets?",
+      "prompt": "Which sentence tells about a dog in Pets?",
       "choices": [
         "A dog can be a pet.",
         "A fish can be a pet.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-a-26-q2",
-      "prompt": "Which fact about a fish is given in Pets?",
+      "prompt": "Which sentence tells about a fish in Pets?",
       "choices": [
         "A fish can be a pet.",
         "A dog can be a pet.",

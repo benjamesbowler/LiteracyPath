@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-01-bees-q2",
-      "prompt": "Which fact about pollen is given in Honeybees and Pollination?",
+      "prompt": "Which sentence tells about pollen in Honeybees and Pollination?",
       "choices": [
         "Pollen sticks to bees and moves between flowers.",
         "Thousands of bee species exist. This book follows social honeybees.",

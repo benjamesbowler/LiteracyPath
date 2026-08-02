@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-a-16-push-and-pull-q1",
-      "prompt": "Which fact about a is given in Push and Pull?",
+      "prompt": "What can move something away?",
       "choices": [
         "A push can move something away.",
-        "Doors can move with pushes or pulls.",
-        "Forces can change an object's motion."
+        "A colour can move something away.",
+        "A shadow can move something away."
       ],
       "answer": "A push can move something away.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-16-push-and-pull-q2",
-      "prompt": "Which fact about doors is given in Push and Pull?",
+      "prompt": "Which sentence tells about doors in Push and Pull?",
       "choices": [
         "Doors can move with pushes or pulls.",
         "A push can move something away.",

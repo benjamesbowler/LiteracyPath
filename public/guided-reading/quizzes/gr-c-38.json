@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-c-38-q1",
-      "prompt": "Which fact about eyes is given in Five Senses?",
+      "prompt": "Which sentence tells about eyes in Five Senses?",
       "choices": [
         "Eyes help us see.",
         "Noses help us smell.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-c-38-q2",
-      "prompt": "Which fact about noses is given in Five Senses?",
+      "prompt": "Which sentence tells about noses in Five Senses?",
       "choices": [
         "Noses help us smell.",
         "Eyes help us see.",

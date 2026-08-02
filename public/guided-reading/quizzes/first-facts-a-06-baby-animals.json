@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-06-baby-animals-q1",
-      "prompt": "Which fact about a young dog is given in Baby Animals?",
+      "prompt": "Which sentence tells about a young dog in Baby Animals?",
       "choices": [
         "A young dog is called a puppy.",
         "A young chicken is called a chick.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-06-baby-animals-q2",
-      "prompt": "Which fact about a young chicken is given in Baby Animals?",
+      "prompt": "Which sentence tells about a young chicken in Baby Animals?",
       "choices": [
         "A young chicken is called a chick.",
         "A young dog is called a puppy.",

@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "level-c-nonfiction-06-spiders-q1",
-      "prompt": "Which fact about spiders is given in Spiders?",
+      "prompt": "How many legs does a spider have?",
       "choices": [
         "Spiders are arachnids with eight legs and two main body sections.",
-        "Other spiders build sheet or tangled webs for different prey.",
-        "Most spiders cannot harm people and help control insect populations."
+        "Spiders are insects with six legs and three body sections.",
+        "Spiders are animals with four legs and one body section."
       ],
       "answer": "Spiders are arachnids with eight legs and two main body sections.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-06-spiders-q2",
-      "prompt": "Which fact about other spiders is given in Spiders?",
+      "prompt": "Which sentence tells about other spiders in Spiders?",
       "choices": [
         "Other spiders build sheet or tangled webs for different prey.",
         "Spiders are arachnids with eight legs and two main body sections.",

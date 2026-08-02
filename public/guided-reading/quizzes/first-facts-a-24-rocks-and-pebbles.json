@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q1",
-      "prompt": "Which fact about rocks is given in Rocks and Pebbles?",
+      "prompt": "What can rocks be like?",
       "choices": [
         "Rocks can be hard large or small.",
-        "Moving water can slowly smooth pebbles.",
-        "Observe rocks without removing protected specimens."
+        "Rocks can be made from feathers.",
+        "Rocks can be soft like a cloud."
       ],
       "answer": "Rocks can be hard large or small.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q2",
-      "prompt": "Which fact about moving water is given in Rocks and Pebbles?",
+      "prompt": "Which sentence tells about moving water in Rocks and Pebbles?",
       "choices": [
         "Moving water can slowly smooth pebbles.",
         "Rocks can be hard large or small.",

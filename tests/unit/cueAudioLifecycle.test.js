@@ -21,6 +21,10 @@ test("an active phonics cue pauses and resumes from the same place", async () =>
       this.listeners.set(type, handler);
     }
 
+    removeEventListener(type, handler) {
+      if (this.listeners.get(type) === handler) this.listeners.delete(type);
+    }
+
     play() {
       this.paused = false;
       this.playCount += 1;
@@ -81,6 +85,11 @@ test("a failed cue advances to the next recorded clip in a sequence", async () =
       this.listeners.set(type, handlers);
     }
 
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
     emit(type) {
       for (const handler of this.listeners.get(type) || []) handler();
     }
@@ -100,8 +109,8 @@ test("a failed cue advances to the next recorded clip in a sequence", async () =
     cue.playCueSequence(["/audio/first.mp3", "/audio/second.mp3"], { gapMs: 0 });
     assert.equal(instances.length, 1);
     instances[0].emit("error");
-    assert.equal(instances.length, 2);
-    assert.equal(instances[1].src, "/audio/second.mp3");
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].src, "/audio/second.mp3");
   } finally {
     cue?.stopCueAudio();
     globalThis.window = originalWindow;
@@ -128,8 +137,14 @@ test("a rejected cue play promise also advances the sequence", async () => {
       this.listeners.set(type, handlers);
     }
 
+    removeEventListener(type, handler) {
+      const handlers = this.listeners.get(type) || [];
+      this.listeners.set(type, handlers.filter(candidate => candidate !== handler));
+    }
+
     play() {
-      return instances.length === 1
+      this.playCount = (this.playCount || 0) + 1;
+      return this.playCount === 1
         ? Promise.reject(new Error("network failed"))
         : Promise.resolve();
     }
@@ -148,8 +163,9 @@ test("a rejected cue play promise also advances the sequence", async () => {
     cue.playCueSequence(["/audio/first.mp3", "/audio/second.mp3"], { gapMs: 0 });
     await Promise.resolve();
     await Promise.resolve();
-    assert.equal(instances.length, 2);
-    assert.equal(instances[1].src, "/audio/second.mp3");
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].src, "/audio/second.mp3");
+    assert.equal(instances[0].playCount, 2);
   } finally {
     cue?.stopCueAudio();
     globalThis.window = originalWindow;

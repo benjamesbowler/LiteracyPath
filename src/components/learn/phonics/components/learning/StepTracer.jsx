@@ -397,7 +397,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.4 }}
-      className="phonics-step phonics-step-tracer"
+      className="phonics-step phonics-step-tracer kg-child-flow__content"
     >
       <div className="phonics-step-heading">
         <h2>Trace the Letter</h2>

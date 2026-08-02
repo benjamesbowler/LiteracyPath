@@ -221,7 +221,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Woolly listens again.",
       "Hungry goes moo.",
       "Woolly is still awake.",
-      "At last all is quiet.",
+      "The wind stops. The meadow rests.",
       "Woolly falls asleep."
     ]
   }),
@@ -493,7 +493,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Three friends wake.",
       "Sleepy stays asleep.",
       "Noisy calls again.",
-      "Sleepy finally wakes.",
+      "Sleepy opens one eye.",
       "The sky is still dark.",
       "Noisy waits for sunrise."
     ]
@@ -511,7 +511,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Tiny crawls through the log.",
       "Tiny reaches the red hat.",
       "Tiny carries it outside.",
-      "Brave ties the hat safely.",
+      "Brave ties the hat under Tiny's chin.",
       "They walk home together."
     ]
   }),

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-05-the-sky-q1",
-      "prompt": "What do we learn about the Sun?",
+      "prompt": "Which sentence tells about the Sun in The Sky?",
       "choices": [
         "The Sun shines above us.",
         "Stars shine at night.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-05-the-sky-q2",
-      "prompt": "What do we learn about stars?",
+      "prompt": "Which sentence tells about stars in The Sky?",
       "choices": [
         "Stars shine at night.",
         "The Sun shines above us.",

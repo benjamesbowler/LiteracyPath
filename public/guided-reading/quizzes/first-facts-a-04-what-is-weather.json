@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-04-what-is-weather-q1",
-      "prompt": "Which fact about Sunny weather is given in What is Weather?",
+      "prompt": "Which sentence tells about Sunny weather in What is Weather?",
       "choices": [
         "Sunny weather brings bright sunlight.",
         "Snowy weather brings frozen flakes.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-04-what-is-weather-q2",
-      "prompt": "Which fact about snowy weather is given in What is Weather?",
+      "prompt": "Which sentence tells about snowy weather in What is Weather?",
       "choices": [
         "Snowy weather brings frozen flakes.",
         "Sunny weather brings bright sunlight.",

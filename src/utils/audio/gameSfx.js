@@ -145,6 +145,7 @@ export function startSoundBeatMusic({ bpm = 96, volume = 0.14 } = {}) {
 // Recorded UI sounds (public/audio/ui). Each falls back to the original
 // synth tones if the file is missing or playback is blocked.
 const soundFileCache = {};
+const activeSoundFiles = new Set();
 
 function playSoundFile(name, fallback, volume = 0.55) {
   if (typeof window === "undefined") return;
@@ -157,8 +158,15 @@ function playSoundFile(name, fallback, volume = 0.55) {
     }
     const sound = base.cloneNode();
     sound.volume = applyLearnerAudioIntensity(volume);
+    activeSoundFiles.add(sound);
+    const release = () => activeSoundFiles.delete(sound);
+    sound.addEventListener("ended", release, { once: true });
+    sound.addEventListener("error", release, { once: true });
     const result = sound.play();
-    if (result?.catch) result.catch(() => fallback?.());
+    if (result?.catch) result.catch(() => {
+      release();
+      fallback?.();
+    });
   } catch {
     fallback?.();
   }
@@ -219,6 +227,15 @@ export function playTrainWhistle() {
 
 export function cancelGameSfx() {
   if (activeMusic) activeMusic.stop();
+  activeSoundFiles.forEach(sound => {
+    try {
+      sound.pause();
+      sound.currentTime = 0;
+    } catch {
+      // The sound is already effectively stopped.
+    }
+  });
+  activeSoundFiles.clear();
   if (audioContext?.state === "running") {
     audioContext.suspend().catch(() => {});
   }

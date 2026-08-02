@@ -1,8 +1,9 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { CVC_SOUND_DELAY, getLetterSoundCue, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, playCvcSoundSequence, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
@@ -20,9 +21,14 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
   const [wobbleTile, setWobbleTile] = useState("");
   const [imageBounce, setImageBounce] = useState(0);
   const [blendyExpression, setBlendyExpression] = useState("idle");
+  const [completionAudioDone, setCompletionAudioDone] = useState(false);
   const timersRef = useRef([]);
-  const { playCue } = useCvcSoundCue();
+  const completionRunRef = useRef(0);
+  const hasAdvancedRef = useRef(false);
+  const { playCue, stopCue } = useCvcSoundCue();
   const currentWord = words[wordIndex];
+  const wordComplete = Boolean(currentWord) && filledLetters.length === currentWord.letters.length;
+  const isLastWord = wordIndex >= words.length - 1;
 
   const trayLetters = useMemo(() => {
     if (!currentWord) return [];
@@ -33,15 +39,19 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
   }, [currentWord, family.distractorLetters]);
 
   const clearTimers = useCallback(() => {
+    completionRunRef.current += 1;
     timersRef.current.forEach(timer => clearTimeout(timer));
     timersRef.current = [];
-  }, []);
+    stopCue();
+  }, [stopCue]);
 
   useEffect(() => {
     setFilledLetters([]);
     setUsedTileIds(new Set());
     setActiveLetterIndex(-1);
     setBlendyExpression("idle");
+    setCompletionAudioDone(false);
+    hasAdvancedRef.current = false;
     clearTimers();
   }, [clearTimers, wordIndex]);
 
@@ -51,70 +61,72 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     return () => clearTimeout(timer);
   }, [currentWord, playCue]);
 
-  const runCompletionSequence = useCallback(() => {
-    if (!currentWord) return;
+  const runCompletionSequence = useCallback(async () => {
+    if (!currentWord) return false;
     clearTimers();
-    currentWord.letters.forEach((letter, index) => {
-      const timer = setTimeout(() => {
-        setActiveLetterIndex(index);
-        const cue = getLetterSoundCue(letter, family);
-        playCue(cue.src, cue.fallbackText);
-      }, index * CVC_SOUND_DELAY);
-      timersRef.current.push(timer);
+    const run = completionRunRef.current;
+    const completed = await playCvcSoundSequence({
+      wordModel: currentWord,
+      family,
+      playCue,
+      onLetter: setActiveLetterIndex,
+      isCurrent: () => completionRunRef.current === run
     });
-
-    const wordTimer = setTimeout(() => {
-      setActiveLetterIndex(-1);
-      playCue(currentWord.audio, currentWord.word);
-      setImageBounce(value => value + 1);
-      setBlendyExpression("munching");
-    }, currentWord.letters.length * CVC_SOUND_DELAY + 140);
-    timersRef.current.push(wordTimer);
-
-    const praiseTimer = setTimeout(() => {
-      playCue(getLedaInstructionAudioPath("Great job"), "Great job");
-      setBlendyExpression("cheering");
-    }, currentWord.letters.length * CVC_SOUND_DELAY + 1000);
-    timersRef.current.push(praiseTimer);
-
-    const nextTimer = setTimeout(() => {
-      if (wordIndex >= words.length - 1) {
-        onComplete();
-      } else {
-        setWordIndex(index => index + 1);
-      }
-    }, currentWord.letters.length * CVC_SOUND_DELAY + 1900);
-    timersRef.current.push(nextTimer);
-  }, [clearTimers, currentWord, family, onComplete, playCue, wordIndex, words.length]);
-
-  useEffect(() => {
-    if (!currentWord || filledLetters.length !== currentWord.letters.length) return;
-    runCompletionSequence();
-  }, [currentWord, filledLetters.length, runCompletionSequence]);
+    if (!completed || completionRunRef.current !== run) return false;
+    setImageBounce(value => value + 1);
+    setBlendyExpression("munching");
+    const praiseStatus = await playCue(getLedaInstructionAudioPath("Great job"), "Great job");
+    if (praiseStatus !== "ended" || completionRunRef.current !== run) return false;
+    setBlendyExpression("cheering");
+    setCompletionAudioDone(true);
+    return true;
+  }, [clearTimers, currentWord, family, playCue]);
 
   useEffect(() => clearTimers, [clearTimers]);
+
+  const advanceWord = useCallback(() => {
+    if (hasAdvancedRef.current) return;
+    hasAdvancedRef.current = true;
+    clearTimers();
+    if (isLastWord) {
+      onComplete();
+      return;
+    }
+    setWordIndex(index => index + 1);
+  }, [clearTimers, isLastWord, onComplete]);
 
   const handleTileTap = useCallback((tile) => {
     if (!currentWord || filledLetters.length >= currentWord.letters.length) return;
     const cue = getLetterSoundCue(tile.letter, family);
-    playCue(cue.src, cue.fallbackText);
+    const cuePlayback = playCue(cue.src, cue.fallbackText);
 
     const expectedLetter = currentWord.letters[filledLetters.length];
     if (tile.letter === expectedLetter) {
+      const completesWord = filledLetters.length + 1 === currentWord.letters.length;
       setFilledLetters(previous => [...previous, tile.letter]);
       setUsedTileIds(previous => new Set([...previous, tile.id]));
+      if (completesWord) {
+        void cuePlayback.then(status => {
+          if (status === "ended") void runCompletionSequence();
+        });
+      }
       return;
     }
 
     setWobbleTile(tile.id);
-    setTimeout(() => playCue(getLedaInstructionAudioPath("Try again"), "Try again"), 460);
-    setTimeout(() => setWobbleTile(""), 520);
-  }, [currentWord, family, filledLetters.length, playCue]);
+    void cuePlayback.then(status => {
+      if (status === "ended") {
+        void playCue(getLedaInstructionAudioPath("Try again"), "Try again");
+      }
+    });
+    const wobbleTimer = setTimeout(() => setWobbleTile(""), 520);
+    timersRef.current.push(wobbleTimer);
+  }, [currentWord, family, filledLetters.length, playCue, runCompletionSequence]);
 
   if (!currentWord) return null;
 
   return (
-    <motion.div className="phonics-step cvc-step cvc-build-step" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
+    <motion.div className="phonics-step cvc-step cvc-build-step kg-child-flow__content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, x: -80 }}>
       <div className="cvc-build-stage">
         <Blendy expression={blendyExpression} />
         <motion.button
@@ -160,6 +172,23 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
           </motion.button>
         ))}
       </div>
+
+      <AnimatePresence>
+        {wordComplete && completionAudioDone && (
+          <motion.div
+            className="cvc-step-actions cvc-build-actions"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            role="status"
+            aria-label={`You built ${currentWord.word}`}
+          >
+            <PhonicsButton onClick={advanceWord}>
+              {isLastWord ? "Continue" : "Next Word"}
+            </PhonicsButton>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 });

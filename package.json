@@ -23,6 +23,7 @@
     "check:validate:guided-reading": "node tools/runAuditScript.mjs --check tools/auditGuidedReadingContent.js",
     "check:validate:guided-reading-questions": "node tools/runAuditScript.mjs --check tools/auditGuidedReadingQuestions.js",
     "check:validate:guided-stories": "node tools/runAuditScript.mjs --check tools/auditGuidedStoryBooks.js",
+    "check:guided-reading-human-voice": "node tools/checkGuidedReadingHumanVoice.mjs",
     "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
     "check:media-quality": "node --test tests/unit/assessmentMediaEvidence.test.js tests/unit/assessmentMediaPicker.test.js",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",

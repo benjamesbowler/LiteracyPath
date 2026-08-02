@@ -10,7 +10,7 @@
       "choices": [
         "Cheeky plans a shadow show beside Big Flat Rock.",
         "Cheeky waves harder but shows only his feet.",
-        "Their giant shadow dinosaur bows to the Pals."
+        "Fancy adds ears while Wiggly adds a tail."
       ],
       "answer": "Cheeky plans a shadow show beside Big Flat Rock.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Cheeky waves harder but shows only his feet.",
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "Their giant shadow dinosaur bows to the Pals."
+        "Fancy adds ears while Wiggly adds a tail."
       ],
       "answer": "Cheeky waves harder but shows only his feet.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Cheeky waves harder but shows only his feet. This shows that the first attempt does not solve the central problem introduced by Cheeky plans a shadow show beside Big Flat Rock.",
+      "rationale": "Cheeky waves harder but shows only his feet. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Cheeky waves harder but shows only his feet."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-29-cheekys-shadow-show-q3",
       "prompt": "Which event solves the problem in Cheeky's Shadow Show?",
       "choices": [
-        "Their giant shadow dinosaur bows to the Pals.",
+        "Fancy adds ears while Wiggly adds a tail.",
         "Cheeky plans a shadow show beside Big Flat Rock.",
         "Cheeky waves harder but shows only his feet."
       ],
-      "answer": "Their giant shadow dinosaur bows to the Pals.",
+      "answer": "Fancy adds ears while Wiggly adds a tail.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Their giant shadow dinosaur bows to the Pals. This event shows how the central problem is resolved after Cheeky waves harder but shows only his feet.",
-      "evidencePage": 8,
-      "evidenceText": "Their giant shadow dinosaur bows to the Pals."
+      "rationale": "Fancy adds ears while Wiggly adds a tail. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Fancy adds ears while Wiggly adds a tail."
     }
   ]
 }

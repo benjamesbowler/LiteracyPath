@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-20-space-q1",
-      "prompt": "What do we learn about the Moon?",
+      "prompt": "Which sentence tells about the Moon in Space?",
       "choices": [
         "The Moon looks round.",
         "Earth is our blue home.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-20-space-q2",
-      "prompt": "What do we learn about Earth?",
+      "prompt": "Which sentence tells about Earth in Space?",
       "choices": [
         "Earth is our blue home.",
         "The Moon looks round.",

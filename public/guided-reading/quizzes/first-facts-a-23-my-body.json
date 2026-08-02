@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-23-my-body-q1",
-      "prompt": "Which fact about my head is given in My Body?",
+      "prompt": "Which sentence tells about my head in My Body?",
       "choices": [
         "My head holds my face and brain.",
         "My legs and feet help me move.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-23-my-body-q2",
-      "prompt": "Which fact about my legs and feet is given in My Body?",
+      "prompt": "Which sentence tells about my legs and feet in My Body?",
       "choices": [
         "My legs and feet help me move.",
         "My head holds my face and brain.",

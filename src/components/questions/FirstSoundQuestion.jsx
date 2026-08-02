@@ -1,5 +1,6 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { normalizeAnswerOption } from "../../utils/answerOptions";
+import { playCueAudio } from "../../utils/audio/cuePlayer.js";
 
 export default function FirstSoundQuestion({
   item,
@@ -8,7 +9,6 @@ export default function FirstSoundQuestion({
   onAnswer,
   disabled = false
 }) {
-  const audioRef = useRef(null);
   // Keyed by item id so state resets naturally when the question changes.
   const [response, setResponse] = useState(null);
   const [failedImageFor, setFailedImageFor] = useState("");
@@ -29,19 +29,11 @@ export default function FirstSoundQuestion({
       return;
     }
 
-    try {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+    playCueAudio(audioUrl, {
+      onUnavailable: () => {
+        if (import.meta.env.DEV) console.warn("Initial Sounds audio unavailable", item?.id);
       }
-      const audio = new Audio(audioUrl);
-      audioRef.current = audio;
-      audio.play().catch(error => {
-        if (import.meta.env.DEV) console.warn("Initial Sounds audio unavailable", item?.id, error);
-      });
-    } catch (error) {
-      if (import.meta.env.DEV) console.warn("Initial Sounds audio failed", item?.id, error);
-    }
+    });
   }
 
   function chooseAnswer(option) {

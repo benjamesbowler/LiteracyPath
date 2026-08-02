@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-06",
-  "contentHash": "sha256:e8abea88794a228d416669d6c148fb8d55cfe769cc64578620dffb0d445eb430",
+  "contentHash": "sha256:0bbda2afcb7a1b6e3b8f848711b20e400c7a682c04ec61b6abee6a2006ab7870",
   "questions": [
     {
       "id": "ab-c-06-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
         "For several mornings, the closed jar looked unchanged on its high shelf.",
-        "Their project won third place and recognition for its careful method."
+        "Their project won third place. The judges praised their daily record."
       ],
       "answer": "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "For several mornings, the closed jar looked unchanged on its high shelf.",
         "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
-        "Their project won third place and recognition for its careful method."
+        "Their project won third place. The judges praised their daily record."
       ],
       "answer": "For several mornings, the closed jar looked unchanged on its high shelf.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ab-c-06-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and the Science Fair?",
       "choices": [
-        "Their project won third place and recognition for its careful method.",
+        "Their project won third place. The judges praised their daily record.",
         "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
         "For several mornings, the closed jar looked unchanged on its high shelf."
       ],
-      "answer": "Their project won third place and recognition for its careful method.",
+      "answer": "Their project won third place. The judges praised their daily record.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Their project won third place and recognition for its careful method. This event shows how the central problem is resolved.",
+      "rationale": "Their project won third place. The judges praised their daily record. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "Their project won third place and recognition for its careful method."
+      "evidenceText": "Their project won third place. The judges praised their daily record."
     }
   ]
 }

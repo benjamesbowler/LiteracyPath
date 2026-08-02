@@ -10,7 +10,7 @@
       "choices": [
         "Bossy plans eight stones across Muddy Puddle Pool.",
         "Grumpy reaches the middle and cannot step farther.",
-        "Large and small Pals cross without splashing."
+        "Stone and branch stations replace the equal row."
       ],
       "answer": "Bossy plans eight stones across Muddy Puddle Pool.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Grumpy reaches the middle and cannot step farther.",
         "Bossy plans eight stones across Muddy Puddle Pool.",
-        "Large and small Pals cross without splashing."
+        "Stone and branch stations replace the equal row."
       ],
       "answer": "Grumpy reaches the middle and cannot step farther.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Grumpy reaches the middle and cannot step farther. This shows that the first attempt does not solve the central problem introduced by Bossy plans eight stones across Muddy Puddle Pool.",
+      "rationale": "Grumpy reaches the middle and cannot step farther. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
       "evidenceText": "Grumpy reaches the middle and cannot step farther."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-27-bossys-three-paths-q3",
       "prompt": "Which event solves the problem in Bossy's Three Paths?",
       "choices": [
-        "Large and small Pals cross without splashing.",
+        "Stone and branch stations replace the equal row.",
         "Bossy plans eight stones across Muddy Puddle Pool.",
         "Grumpy reaches the middle and cannot step farther."
       ],
-      "answer": "Large and small Pals cross without splashing.",
+      "answer": "Stone and branch stations replace the equal row.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Large and small Pals cross without splashing. This event shows how the central problem is resolved after Grumpy reaches the middle and cannot step farther.",
-      "evidencePage": 8,
-      "evidenceText": "Large and small Pals cross without splashing."
+      "rationale": "Stone and branch stations replace the equal row. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "Stone and branch stations replace the equal row."
     }
   ]
 }

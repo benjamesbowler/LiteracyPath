@@ -477,6 +477,11 @@ test("a wallet that cannot be read says so instead of claiming the child has not
   assert.match(shellSource, /still loading/);
 });
 
+test("the child wallet refreshes for every local progress write and cross-tab change", () => {
+  assert.match(shellSource, /lp-progress-updated/);
+  assert.match(shellSource, /addEventListener\("storage"/);
+});
+
 test("the shell adds the focus ring the prototype does not ship", () => {
   const focus = css.match(/\.kg-stage :is\(button[^{]*\):focus-visible \{[\s\S]*?\n\}/);
   assert.ok(focus, "no focus-visible rule — the a11y pass needs one");

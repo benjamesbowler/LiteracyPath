@@ -540,6 +540,11 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
     payload: sanitizeCloudProgressPayload(area, payload)
   };
   const queued = enqueueWrite(entry);
+  if (isBrowser()) {
+    window.dispatchEvent(new CustomEvent("lp-progress-updated", {
+      detail: { studentId: scopeKey, area, key }
+    }));
+  }
   if (!queued.stored) emitProgressSyncState("storage-failed", queued.entry);
   const timerKey = progressEntryIdentity(queued.entry);
   window.clearTimeout?.(pendingTimers.get(timerKey));

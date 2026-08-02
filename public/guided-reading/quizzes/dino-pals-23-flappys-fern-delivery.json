@@ -29,7 +29,7 @@
       "answer": "Wind catches both sides. The fern spins Flappy.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wind catches both sides. The fern spins Flappy. This shows that the first attempt does not solve the central problem introduced by Flappy must carry one wide fern before rain.",
+      "rationale": "Wind catches both sides. The fern spins Flappy. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
       "evidenceText": "Wind catches both sides. The fern spins Flappy."
     },
@@ -44,7 +44,7 @@
       "answer": "The fern roof covers Cozy Cave before rain.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The fern roof covers Cozy Cave before rain. This event shows how the central problem is resolved after Wind catches both sides. The fern spins Flappy.",
+      "rationale": "The fern roof covers Cozy Cave before rain. This event shows how the central problem is resolved.",
       "evidencePage": 8,
       "evidenceText": "The fern roof covers Cozy Cave before rain."
     }

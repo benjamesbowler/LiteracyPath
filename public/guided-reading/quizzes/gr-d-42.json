@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "gr-d-42-q1",
-      "prompt": "Which fact about Earth is given in Our Earth?",
+      "prompt": "Which planet is our home?",
       "choices": [
         "Earth is our home planet.",
-        "Mountains rise above the land.",
-        "People share and care for Earth."
+        "Mars is our home planet.",
+        "Jupiter is our home planet."
       ],
       "answer": "Earth is our home planet.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-d-42-q2",
-      "prompt": "Which fact about mountains is given in Our Earth?",
+      "prompt": "Which sentence tells about mountains in Our Earth?",
       "choices": [
         "Mountains rise above the land.",
         "Earth is our home planet.",

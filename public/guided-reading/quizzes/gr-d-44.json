@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-d-44-q1",
-      "prompt": "Which fact about many birds is given in Animal Shelters and Habitats?",
+      "prompt": "Which sentence tells about many birds in Animal Shelters and Habitats?",
       "choices": [
         "Many birds build nests for young.",
         "Ponds provide fish food and shelter.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-d-44-q2",
-      "prompt": "Which fact about ponds is given in Animal Shelters and Habitats?",
+      "prompt": "Which sentence tells about ponds in Animal Shelters and Habitats?",
       "choices": [
         "Ponds provide fish food and shelter.",
         "Many birds build nests for young.",

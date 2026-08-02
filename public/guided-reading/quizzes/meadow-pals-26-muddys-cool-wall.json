@@ -9,8 +9,8 @@
       "prompt": "What happens first in Muddy's Cool Wall?",
       "choices": [
         "Muddy wants a cool mud pool.",
-        "The soft wall slumps down.",
-        "The wall makes cool shade."
+        "He stacks wet mud blocks.",
+        "The soft wall slumps down."
       ],
       "answer": "Muddy wants a cool mud pool.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-26-muddys-cool-wall-q2",
       "prompt": "What goes wrong in Muddy's Cool Wall?",
       "choices": [
-        "The soft wall slumps down.",
-        "Muddy wants a cool mud pool.",
-        "The wall makes cool shade."
-      ],
-      "answer": "The soft wall slumps down.",
-      "kind": "text",
-      "skill": "problem_solution",
-      "rationale": "The soft wall slumps down. This shows that the first attempt does not solve the central problem introduced by Muddy wants a cool mud pool.",
-      "evidencePage": 3,
-      "evidenceText": "The soft wall slumps down."
-    },
-    {
-      "id": "meadow-pals-26-muddys-cool-wall-q3",
-      "prompt": "What solves the problem in Muddy's Cool Wall?",
-      "choices": [
-        "The wall makes cool shade.",
+        "He stacks wet mud blocks.",
         "Muddy wants a cool mud pool.",
         "The soft wall slumps down."
       ],
-      "answer": "The wall makes cool shade.",
+      "answer": "He stacks wet mud blocks.",
+      "kind": "text",
+      "skill": "problem_solution",
+      "rationale": "He stacks wet mud blocks. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "He stacks wet mud blocks."
+    },
+    {
+      "id": "meadow-pals-26-muddys-cool-wall-q3",
+      "prompt": "What happens at the end of Muddy's Cool Wall?",
+      "choices": [
+        "The soft wall slumps down.",
+        "Muddy wants a cool mud pool.",
+        "He stacks wet mud blocks."
+      ],
+      "answer": "The soft wall slumps down.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The wall makes cool shade. This event shows how the central problem is resolved after The soft wall slumps down.",
-      "evidencePage": 7,
-      "evidenceText": "The wall makes cool shade."
+      "rationale": "The soft wall slumps down. This event shows how the central problem is resolved.",
+      "evidencePage": 3,
+      "evidenceText": "The soft wall slumps down."
     }
   ]
 }

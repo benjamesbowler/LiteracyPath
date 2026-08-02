@@ -8,8 +8,31 @@ let currentCue = null;
 let currentCueFinish = null;
 let cueSuspended = false;
 let cueResumeAfterSuspend = false;
+let sharedCueElement = null;
+let cueListeners = [];
+
+function getSharedCueElement() {
+  if (!sharedCueElement) {
+    sharedCueElement = new Audio();
+    sharedCueElement.preload = "auto";
+  }
+  return sharedCueElement;
+}
+
+function clearCueListeners() {
+  if (!sharedCueElement) return;
+  cueListeners.forEach(([type, listener]) => sharedCueElement.removeEventListener?.(type, listener));
+  cueListeners = [];
+}
+
+function listenForCue(type, listener, options) {
+  const audio = getSharedCueElement();
+  audio.addEventListener(type, listener, options);
+  cueListeners.push([type, listener]);
+}
 
 export function stopCueAudio() {
+  clearCueListeners();
   if (currentCue) {
     try {
       currentCue.pause();
@@ -35,7 +58,11 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
     return;
   }
   try {
-    const audio = new Audio(src);
+    const audio = getSharedCueElement();
+    audio.pause();
+    audio.currentTime = 0;
+    audio.src = src;
+    audio.load?.();
     audio.volume = applyLearnerAudioIntensity(volume);
     currentCue = audio;
     setQuestActionSfxInstructionActive(true);
@@ -55,8 +82,8 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
       onUnavailable?.();
     };
     currentCueFinish = finish;
-    audio.addEventListener("ended", finish, { once: true });
-    audio.addEventListener("error", unavailable, { once: true });
+    listenForCue("ended", finish, { once: true });
+    listenForCue("error", unavailable, { once: true });
     if (cueSuspended) {
       cueResumeAfterSuspend = true;
       return;
@@ -102,8 +129,8 @@ export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150 } = {}) 
       advance();
       return;
     }
-    audio.addEventListener("ended", advance, { once: true });
-    audio.addEventListener("error", advance, { once: true });
+    listenForCue("ended", advance, { once: true });
+    listenForCue("error", advance, { once: true });
   };
   playNext();
 }

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-11-pets-we-love-q1",
-      "prompt": "Which fact about dogs is given in Caring for Pets?",
+      "prompt": "Which sentence tells about dogs in Caring for Pets?",
       "choices": [
         "Dogs need play exercise and rest.",
         "Rabbits need space hay shelter and company.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-11-pets-we-love-q2",
-      "prompt": "Which fact about rabbits is given in Caring for Pets?",
+      "prompt": "Which sentence tells about rabbits in Caring for Pets?",
       "choices": [
         "Rabbits need space hay shelter and company.",
         "Dogs need play exercise and rest.",

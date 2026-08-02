@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-02-farm-animals-q1",
-      "prompt": "What do we learn about a pig?",
+      "prompt": "Which sentence tells about a pig in Farm Animals?",
       "choices": [
         "A pig says oink.",
         "A cow says moo.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-02-farm-animals-q2",
-      "prompt": "What do we learn about a cow?",
+      "prompt": "Which sentence tells about a cow in Farm Animals?",
       "choices": [
         "A cow says moo.",
         "A pig says oink.",

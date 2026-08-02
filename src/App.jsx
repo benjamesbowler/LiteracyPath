@@ -52,6 +52,10 @@ import {
   getBrowserFullscreenElement,
   requestBrowserFullscreen
 } from "./utils/browserFullscreen.js";
+import {
+  installChildAudioPageLifecycle,
+  stopAllChildAudio
+} from "./utils/audio/childAudioLifecycle.js";
 
 const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
@@ -106,6 +110,7 @@ export default function App() {
     if (sessionMode !== "student") return undefined;
     return applyLearnerAccessibilityToDocument(learnerAccessibility);
   }, [learnerAccessibility, sessionMode]);
+  useEffect(() => installChildAudioPageLifecycle(), []);
   const [studentList, setStudentList] = useState([]);
   const [archivedStudentList, setArchivedStudentList] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
@@ -136,6 +141,9 @@ export default function App() {
   // who ask for reduced motion — get exactly the instant swap they get today:
   // the wrapper is pure progressive enhancement around the raw setter.
   const setAppView = useCallback(next => {
+    if (activeAppViewRef.current !== next) {
+      stopAllChildAudio("route-change");
+    }
     if (
       typeof window !== "undefined"
       && activeAppViewRef.current === APP_VIEWS.ADMIN_DASHBOARD

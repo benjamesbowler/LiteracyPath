@@ -10,7 +10,7 @@
       "choices": [
         "Clumsy must place four water bowls before the games.",
         "One turn sends every bowl rolling downhill.",
-        "The drinking route stays full and steady."
+        "Small bowls fit between roots where feet cannot tip them."
       ],
       "answer": "Clumsy must place four water bowls before the games.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "One turn sends every bowl rolling downhill.",
         "Clumsy must place four water bowls before the games.",
-        "The drinking route stays full and steady."
+        "Small bowls fit between roots where feet cannot tip them."
       ],
       "answer": "One turn sends every bowl rolling downhill.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "One turn sends every bowl rolling downhill. This shows that the first attempt does not solve the central problem introduced by Clumsy must place four water bowls before the games.",
+      "rationale": "One turn sends every bowl rolling downhill. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
       "evidenceText": "One turn sends every bowl rolling downhill."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-24-clumsys-steady-bowls-q3",
       "prompt": "Which event solves the problem in Clumsy's Steady Bowls?",
       "choices": [
-        "The drinking route stays full and steady.",
+        "Small bowls fit between roots where feet cannot tip them.",
         "Clumsy must place four water bowls before the games.",
         "One turn sends every bowl rolling downhill."
       ],
-      "answer": "The drinking route stays full and steady.",
+      "answer": "Small bowls fit between roots where feet cannot tip them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The drinking route stays full and steady. This event shows how the central problem is resolved after One turn sends every bowl rolling downhill.",
-      "evidencePage": 8,
-      "evidenceText": "The drinking route stays full and steady."
+      "rationale": "Small bowls fit between roots where feet cannot tip them. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "Small bowls fit between roots where feet cannot tip them."
     }
   ]
 }

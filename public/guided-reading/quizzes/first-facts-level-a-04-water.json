@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-04-water-q2",
-      "prompt": "What do we learn about fish?",
+      "prompt": "Which sentence tells about fish in Water?",
       "choices": [
         "Fish swim in water.",
         "We drink water.",

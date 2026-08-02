@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-13-big-and-small-q1",
-      "prompt": "Which fact about an elephant is given in Big and Small?",
+      "prompt": "Which sentence tells about an elephant in Big and Small?",
       "choices": [
         "An elephant is big beside a mouse.",
         "A bus is big beside a toy car.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-13-big-and-small-q2",
-      "prompt": "Which fact about a bus is given in Big and Small?",
+      "prompt": "Which sentence tells about a bus in Big and Small?",
       "choices": [
         "A bus is big beside a toy car.",
         "An elephant is big beside a mouse.",

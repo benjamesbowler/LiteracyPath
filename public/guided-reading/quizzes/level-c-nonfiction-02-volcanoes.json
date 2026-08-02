@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q2",
-      "prompt": "Which fact about explosive eruptions is given in Volcanoes?",
+      "prompt": "Which sentence tells about explosive eruptions in Volcanoes?",
       "choices": [
         "Explosive eruptions can release ash rocks and volcanic gases.",
         "Deep underground some rock melts into hot magma.",

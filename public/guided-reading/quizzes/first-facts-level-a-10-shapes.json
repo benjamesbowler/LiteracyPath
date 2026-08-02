@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-10-shapes-q1",
-      "prompt": "What do we learn about a ball?",
+      "prompt": "Which sentence tells about a ball in Shapes?",
       "choices": [
         "A ball looks round.",
         "A door looks rectangular.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-10-shapes-q2",
-      "prompt": "What do we learn about a door?",
+      "prompt": "Which sentence tells about a door in Shapes?",
       "choices": [
         "A door looks rectangular.",
         "A ball looks round.",

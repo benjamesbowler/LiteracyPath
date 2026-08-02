@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q1",
-      "prompt": "Which fact about a hollow toy duck is given in Why Things Float or Sink?",
+      "prompt": "Which sentence tells about a hollow toy duck in Why Things Float or Sink?",
       "choices": [
         "A hollow toy duck can float.",
         "A leaf may float while a coin sinks.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-15-things-that-float-and-sink-q2",
-      "prompt": "Which fact about a leaf is given in Why Things Float or Sink?",
+      "prompt": "Which sentence tells about a leaf in Why Things Float or Sink?",
       "choices": [
         "A leaf may float while a coin sinks.",
         "A hollow toy duck can float.",

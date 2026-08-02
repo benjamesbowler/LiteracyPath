@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "level-c-nonfiction-10-frogs-q1",
-      "prompt": "Which fact about common frogs is given in The Common Frog Life Cycle?",
+      "prompt": "Where do common frogs live?",
       "choices": [
         "Common frogs are amphibians that use freshwater and damp land.",
-        "Back legs then front legs grow as tails shrink during metamorphosis.",
-        "Male common frogs make soft spring calls near breeding ponds."
+        "Common frogs live only in dry deserts.",
+        "Common frogs live only in high treetops."
       ],
       "answer": "Common frogs are amphibians that use freshwater and damp land.",
       "kind": "text",
@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-10-frogs-q2",
-      "prompt": "Which fact about back legs then front legs is given in The Common Frog Life Cycle?",
+      "prompt": "Which sentence tells about back legs then front legs in The Common Frog Life Cycle?",
       "choices": [
         "Back legs then front legs grow as tails shrink during metamorphosis.",
         "Common frogs are amphibians that use freshwater and damp land.",

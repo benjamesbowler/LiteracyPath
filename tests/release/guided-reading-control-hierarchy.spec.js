@@ -5,7 +5,7 @@ test("A2.8 Guided Reading makes Read Page primary and groups view controls", asy
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
 
-  const reader = page.getByLabel("Bees full-screen reader");
+  const reader = page.getByRole("region", { name: /full-screen reader/ });
   const readAloud = reader.getByRole("group", { name: "Read aloud controls" });
   const readPage = readAloud.getByRole("button", { name: "Read page", exact: true });
   const progress = reader.getByRole("status", { name: "Reading progress" });
@@ -46,4 +46,23 @@ test("A2.8 Guided Reading makes Read Page primary and groups view controls", asy
     .toHaveText(/Page 2 of \d+/);
 
   expect(pageErrors).toEqual([]);
+});
+
+test("normal child full-book audio ignores stale group-reading state", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__guidedReadingPlayCalls = [];
+    HTMLMediaElement.prototype.play = function play() {
+      window.__guidedReadingPlayCalls.push(this.currentSrc || this.src || "");
+      return Promise.resolve();
+    };
+  });
+  await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&stale-group=1");
+
+  const reader = page.getByRole("region", { name: /full-screen reader/ });
+  const readWholeBook = reader.getByRole("button", { name: "Read whole book", exact: true });
+  await expect(readWholeBook).toBeVisible();
+  await expect(readWholeBook).toBeEnabled();
+  await readWholeBook.click();
+  await expect(reader.getByRole("button", { name: "Stop book", exact: true })).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.__guidedReadingPlayCalls.length)).toBeGreaterThan(0);
 });

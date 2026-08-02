@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-18-my-body-q1",
-      "prompt": "What do we learn about my two eyes?",
+      "prompt": "Which sentence tells about my two eyes in My Body?",
       "choices": [
         "My two eyes can see.",
         "My nose can smell.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-18-my-body-q2",
-      "prompt": "What do we learn about my nose?",
+      "prompt": "Which sentence tells about my nose in My Body?",
       "choices": [
         "My nose can smell.",
         "My two eyes can see.",

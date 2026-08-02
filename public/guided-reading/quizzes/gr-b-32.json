@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-b-32-q1",
-      "prompt": "Which fact about an apple is given in Fruits?",
+      "prompt": "Which sentence tells about an apple in Fruits?",
       "choices": [
         "An apple is a fruit.",
         "A grape is a fruit.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-b-32-q2",
-      "prompt": "Which fact about a grape is given in Fruits?",
+      "prompt": "Which sentence tells about a grape in Fruits?",
       "choices": [
         "A grape is a fruit.",
         "An apple is a fruit.",

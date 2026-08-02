@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-12-shapes-everywhere-q1",
-      "prompt": "Which fact about a circle is given in Shapes on Everyday Objects?",
+      "prompt": "Which sentence tells about a circle in Shapes on Everyday Objects?",
       "choices": [
         "A circle is round. A wheel face looks circular.",
         "A triangle has three sides. This roof edge forms one.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-12-shapes-everywhere-q2",
-      "prompt": "Which fact about a triangle is given in Shapes on Everyday Objects?",
+      "prompt": "Which sentence tells about a triangle in Shapes on Everyday Objects?",
       "choices": [
         "A triangle has three sides. This roof edge forms one.",
         "A circle is round. A wheel face looks circular.",

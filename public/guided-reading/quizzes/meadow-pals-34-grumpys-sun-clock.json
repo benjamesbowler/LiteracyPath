@@ -9,8 +9,8 @@
       "prompt": "What happens first in Grumpy's Sun Clock?",
       "choices": [
         "Grumpy keeps lunch for noon.",
-        "The shade moves once more.",
-        "His lunch stays cool there."
+        "Sunlight reaches the basket.",
+        "Grumpy drags lunch into shade."
       ],
       "answer": "Grumpy keeps lunch for noon.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-34-grumpys-sun-clock-q2",
       "prompt": "What goes wrong in Grumpy's Sun Clock?",
       "choices": [
-        "The shade moves once more.",
+        "Sunlight reaches the basket.",
         "Grumpy keeps lunch for noon.",
-        "His lunch stays cool there."
+        "Grumpy drags lunch into shade."
       ],
-      "answer": "The shade moves once more.",
+      "answer": "Sunlight reaches the basket.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The shade moves once more. This shows that the first attempt does not solve the central problem introduced by Grumpy keeps lunch for noon.",
-      "evidencePage": 5,
-      "evidenceText": "The shade moves once more."
+      "rationale": "Sunlight reaches the basket. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Sunlight reaches the basket."
     },
     {
       "id": "meadow-pals-34-grumpys-sun-clock-q3",
-      "prompt": "What solves the problem in Grumpy's Sun Clock?",
+      "prompt": "What happens at the end of Grumpy's Sun Clock?",
       "choices": [
-        "His lunch stays cool there.",
+        "Grumpy drags lunch into shade.",
         "Grumpy keeps lunch for noon.",
-        "The shade moves once more."
+        "Sunlight reaches the basket."
       ],
-      "answer": "His lunch stays cool there.",
+      "answer": "Grumpy drags lunch into shade.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "His lunch stays cool there. This event shows how the central problem is resolved after The shade moves once more.",
-      "evidencePage": 8,
-      "evidenceText": "His lunch stays cool there."
+      "rationale": "Grumpy drags lunch into shade. This event shows how the central problem is resolved.",
+      "evidencePage": 4,
+      "evidenceText": "Grumpy drags lunch into shade."
     }
   ]
 }

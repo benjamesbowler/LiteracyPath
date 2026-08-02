@@ -162,6 +162,37 @@ function semanticPageBody(page) {
     .trim();
 }
 
+function visibleWorksheetText(html) {
+  return html
+    .replace(/<style>[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;|&middot;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+test("printable child copy never exposes slash or IPA sound notation", () => {
+  for (const cycle of allCycles) {
+    for (const type of availableWorksheetTypes(cycle)) {
+      const { html } = buildWorksheetDocument({ cycleId: cycle.id, type, pages: 6 });
+      const text = visibleWorksheetText(html);
+      assert.doesNotMatch(
+        text,
+        /\/[a-zɑæɛɪɒʊʌəɜːˈˌθðʃʒŋăĕĭŏŭ]+\//iu,
+        `cycle ${cycle.cycleNumber} ${type}: child copy contains phonetic slash notation`
+      );
+    }
+  }
+});
+
+test("letter and word models use the school-style single-storey font stack", () => {
+  const { html } = buildWorksheetDocument({ cycleId: "cycle-1", type: "letterFormation", pages: 6 });
+  assert.match(html, /--ws-school-font:\s*"Comic Sans MS", "Chalkboard SE", "Chalkboard", "Comic Neue", cursive/);
+  assert.match(html, /\.ws-school-model,[\s\S]*?\.ws-poem\s*\{\s*font-family:\s*var\(--ws-school-font\)/);
+  assert.match(html, /class="ws-trace ws-school-model">Aa<\/span>/);
+  assert.doesNotMatch(html, /class="ws-sound">\s*\//);
+});
+
 test("no two cycles print the same worksheet content", () => {
   for (const type of ["letterFormation", "wordBuilding", "sightWords", "patternFluency"]) {
     const seen = new Map();

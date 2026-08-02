@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-d-45-q1",
-      "prompt": "Which fact about the Sun is given in Space?",
+      "prompt": "Which sentence tells about the Sun in Space?",
       "choices": [
         "The Sun is our nearest star.",
         "The Moon travels around Earth.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-d-45-q2",
-      "prompt": "Which fact about the Moon is given in Space?",
+      "prompt": "Which sentence tells about the Moon in Space?",
       "choices": [
         "The Moon travels around Earth.",
         "The Sun is our nearest star.",

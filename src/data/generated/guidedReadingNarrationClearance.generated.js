@@ -185,10 +185,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::1": {
-    "audioPath": "/audio/production/en-US/guided_page/school-ended-and-aiden-and-betty-shouted-because-their-coastal-holiday-had-finally-begun-f261690042.mp3",
-    "audioSha256": "2984ef0957ad597dc05d5555c5557bbf735247541acfd6a323f4ae638492b0e8",
-    "displayedText": "School ended, and Aiden and Betty shouted because their coastal holiday had finally begun.",
-    "displayedTextSha256": "cb9f61bb4da13e0a301b206dc71672e5401fe96f0d062b382830dd9e72d608aa",
+    "audioPath": "/audio/production/en-US/guided_page/the-final-bell-rang-aiden-and-betty-raced-home-shouting-holiday-d6af5cf643.mp3",
+    "audioSha256": "5c0e025d0e4e5215a500f841a109921f09f59e3285909d455a3b113024f8e7cf",
+    "displayedText": "The final bell rang. Aiden and Betty raced home shouting, \"Holiday!\"",
+    "displayedTextSha256": "36c83e46665e05396f6ea60f297e444f3c48b7b601ea3690f5581fa5c79c8676",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-03::10": {
@@ -311,10 +311,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::14": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-opened-his-field-notebook-understanding-socks-had-finally-begun-6941985c27.mp3",
-    "audioSha256": "4f788c1f809a8a09b3533f76e466f0cfaa0a2421f14feb50272f096704b7204c",
-    "displayedText": "Aiden opened his field notebook. Understanding Socks had finally begun.",
-    "displayedTextSha256": "9bc7210ca98b9da1fa088bacd2eda0eeba99c77974dae7602823d2a8a6129cb2",
+    "audioPath": "/audio/production/en-US/guided_page/aiden-added-one-last-note-socks-sleeps-wherever-i-leave-my-torch-125a727b5c.mp3",
+    "audioSha256": "c5c8443c98239544c6a39b0d89377d537d64948171d61e1d7a9252eea0db8bfc",
+    "displayedText": "Aiden added one last note: Socks sleeps wherever I leave my torch.",
+    "displayedTextSha256": "843d05fbd4adf98af4d38b95e7269875b43c42773be909d92e388ef5facf95f5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::2": {
@@ -360,10 +360,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::8": {
-    "audioPath": "/audio/production/en-US/guided_page/they-learned-he-loved-warmth-shiny-objects-and-interesting-work-bdc1fcc3df.mp3",
-    "audioSha256": "a8b494196aededf531b9e48c71593af10d0b7bafc7329d01321d4de3668e1c54",
-    "displayedText": "They learned he loved warmth, shiny objects and interesting work.",
-    "displayedTextSha256": "3ca1e981e8a21dd22ce2be484850047f85322b134f193c479cf06a8e48cd7b36",
+    "audioPath": "/audio/production/en-US/guided_page/hide-anything-shiny-uncle-eddie-said-and-shut-the-airing-cupboard-ada89e368a.mp3",
+    "audioSha256": "3ccef5fa6f2f8518dafc4e64f88db548a0942a6a9a93872c73f112d9c866fd08",
+    "displayedText": "\"Hide anything shiny,\" Uncle Eddie said, \"and shut the airing cupboard.\"",
+    "displayedTextSha256": "b93d6dc2dd724d2a14b1c34169640a5b1bc544dd1c9cb5854ece8b26b3bc541e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::9": {
@@ -388,10 +388,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::11": {
-    "audioPath": "/audio/production/en-US/guided_page/socks-lay-safely-on-the-warm-mat-chewing-a-dog-biscuit-df9331fd99.mp3",
-    "audioSha256": "acb2e6ae52a6645790b320c0df41435a599ce4183892db314fb56c4596441d03",
-    "displayedText": "Socks lay safely on the warm mat, chewing a dog biscuit.",
-    "displayedTextSha256": "87b6ac4ef05ce2f1928d58afe51601ef42138f9eb7ccab3e15f99471ee2ac831",
+    "audioPath": "/audio/production/en-US/guided_page/socks-lay-beside-the-warm-radiator-chewing-a-dog-biscuit-78fe4825ea.mp3",
+    "audioSha256": "1599686cea5121d977e00a8e9f1405305f7c71ea46b343dc687d16f9d783f35e",
+    "displayedText": "Socks lay beside the warm radiator, chewing a dog biscuit.",
+    "displayedTextSha256": "982ee29262b6309c6501000b3b4a437a8be4af310fa216b22d91881a96636d85",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::12": {
@@ -402,17 +402,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::13": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-held-socks-close-until-his-tight-worried-breath-softened-048bb63866.mp3",
-    "audioSha256": "932a60116ebce74c029c5f4fa688d48ed0e7dbd8baddbe75e047a99c0cf46dc9",
-    "displayedText": "Aiden held Socks close until his tight, worried breath softened.",
-    "displayedTextSha256": "1f2a28a74bd6ddcbae8170fc8c3916baab130251d64ccf0214eee9a059b8f22c",
+    "audioPath": "/audio/production/en-US/guided_page/aiden-held-socks-close-and-let-out-the-breath-he-had-been-holding-0c59e1211f.mp3",
+    "audioSha256": "7c4dad939f826308d4431bda479e4a9a63c6b0e4ff29b8a46632abf2dfcb06eb",
+    "displayedText": "Aiden held Socks close and let out the breath he had been holding.",
+    "displayedTextSha256": "4a18ef8ec63089c32f65c270fa8ca395c8bf911f8ebde3f569df5efa5fdd7f9c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::14": {
-    "audioPath": "/audio/production/en-US/guided_page/they-fixed-the-latch-added-a-tracker-tag-and-walked-socks-home-securely-51c1801eed.mp3",
-    "audioSha256": "62567b89bc462783826e50d8574fa00cf66946e81a7fd54d4acf98450b8e0d57",
-    "displayedText": "They fixed the latch, added a tracker tag and walked Socks home securely.",
-    "displayedTextSha256": "8ca8ab05a33242c384f3d2efce11c3fb207e925cab9d4a7dba61067af24e3c23",
+    "audioPath": "/audio/production/en-US/guided_page/they-fixed-the-latch-and-added-a-tracker-tag-socks-trotted-home-on-his-lead-ddf4f58468.mp3",
+    "audioSha256": "4c9fc88df88984b736926daa3b886c1f21b9d69e79ecaab69a4c52dfaa494b39",
+    "displayedText": "They fixed the latch and added a tracker tag. Socks trotted home on his lead.",
+    "displayedTextSha256": "0ddd8e19e9920418abe457af653a1b5f19f7736817100b3bc3682bdb39c8d802",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::2": {
@@ -451,10 +451,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::7": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-checked-his-notes-socks-followed-warmth-shine-and-interesting-smells-12cfb7b680.mp3",
-    "audioSha256": "b6b00da80731e0c5946d83e14b846b1892b6dee1cffa1257930c4655eae1290c",
-    "displayedText": "Aiden checked his notes: Socks followed warmth, shine and interesting smells.",
-    "displayedTextSha256": "2836a23fe34898bb7fb9931778a990f4aabf764a718aaa14af62803a2cbf65c6",
+    "audioPath": "/audio/production/en-US/guided_page/aiden-opened-his-notes-warm-spots-shiny-things-interesting-smells-f896591ecd.mp3",
+    "audioSha256": "2a29ea3851d7a4cfea9529923745b9fb5c906f2913243977271a67cc90a03bef",
+    "displayedText": "Aiden opened his notes: warm spots, shiny things, interesting smells.",
+    "displayedTextSha256": "7f83beb2ec4db7f5702bb4969d7cab3612f92f7f999daf0d4aa3aed2b9df2598",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-05::8": {
@@ -486,10 +486,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::11": {
-    "audioPath": "/audio/production/en-US/guided_page/their-project-won-third-place-and-recognition-for-its-careful-method-36052b7a41.mp3",
-    "audioSha256": "f7cde48276f3210dc9ac905f7857f4917a84f27d0d09584345ff1082c569805f",
-    "displayedText": "Their project won third place and recognition for its careful method.",
-    "displayedTextSha256": "7abd21cf932eb43e31bb680deea532d6301fa53dbc70d2e49eba7deb29f08010",
+    "audioPath": "/audio/production/en-US/guided_page/their-project-won-third-place-the-judges-praised-their-daily-record-d669c7ae6e.mp3",
+    "audioSha256": "ef927152e52291b2ee1fbd000ffd29476b94ce62be1c60408ca614de397b989b",
+    "displayedText": "Their project won third place. The judges praised their daily record.",
+    "displayedTextSha256": "fdfbf50b38b93923c20f2049916c6d76cfb310813db6e0624b0dee91be6d5f28",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::12": {
@@ -542,24 +542,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::7": {
-    "audioPath": "/audio/production/en-US/guided_page/at-last-crystals-grew-giving-their-blue-display-a-clear-sequence-60e7632e55.mp3",
-    "audioSha256": "c5e8645bc53dff79775e139beb4ef7e0e70e9272d3db5dc155b4fdc3c97829ef",
-    "displayedText": "At last crystals grew, giving their blue display a clear sequence.",
-    "displayedTextSha256": "963025321b1f893e135f5a08d2d9e190f37d6a57e08e7ed832877f2b9a6255e4",
+    "audioPath": "/audio/production/en-US/guided_page/then-sharp-blue-crystals-began-to-climb-the-sides-of-the-jar-fcd5e96047.mp3",
+    "audioSha256": "7883ca504217789ddacec0b1143acf9b282fdf1c25c8e89c4481d60dcbe2d01e",
+    "displayedText": "Then sharp blue crystals began to climb the sides of the jar.",
+    "displayedTextSha256": "1ef0866fe9e3be8e0dcaf73999ee53e0cadb6b556416ad40466714b5b199b24a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::8": {
-    "audioPath": "/audio/production/en-US/guided_page/betty-packed-the-board-while-aiden-carried-the-closed-jar-carefully-7fd4995028.mp3",
-    "audioSha256": "d39b2ebfd43ef09b53e1a330442b361bc8516341960287e893a6af70fe3fc760",
-    "displayedText": "Betty packed the board while Aiden carried the closed jar carefully.",
-    "displayedTextSha256": "ad370894b002549a35c71c777066f3b3d8f257da0f9e8f2928350e5adf5c6576",
+    "audioPath": "/audio/production/en-US/guided_page/betty-packed-the-board-aiden-held-the-closed-jar-in-both-hands-7f29c69127.mp3",
+    "audioSha256": "2c7a5f069ac9ab81f5f0a74f889b0d35d448af52366b71ae9f0343147537aff8",
+    "displayedText": "Betty packed the board. Aiden held the closed jar in both hands.",
+    "displayedTextSha256": "e73a3e885538248ff98bf81a3a8f110b4e685531e63d8bf717609143ec7eec53",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-06::9": {
-    "audioPath": "/audio/production/en-US/guided_page/in-the-crowded-hall-bigger-projects-made-their-careful-crystals-look-small-ef5494ace4.mp3",
-    "audioSha256": "cc6f9343724ccda1b85066e60ff813ed0d0e714e7a99f0ece2834343aca3d9e2",
-    "displayedText": "In the crowded hall, bigger projects made their careful crystals look small.",
-    "displayedTextSha256": "00d02882d28c0cd7c671df9149d7c8d7f28aaf51b827591e96b8c689970218a1",
+    "audioPath": "/audio/production/en-US/guided_page/in-the-crowded-hall-their-small-jar-looked-lost-beside-the-bigger-projects-6723301388.mp3",
+    "audioSha256": "47038ba587521adb5d1d5548cf37b01fe663627cd307c13f19c6c5d4974bec9b",
+    "displayedText": "In the crowded hall, their small jar looked lost beside the bigger projects.",
+    "displayedTextSha256": "7f2f0e78fdee830ea26135ab147291e5d0b0064acdf372791a8c61588e3f10a3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::1": {
@@ -661,10 +661,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::10": {
-    "audioPath": "/audio/production/en-US/guided_page/betty-squeezed-his-shoulder-she-would-keep-standing-beside-him-3ee19b97fb.mp3",
-    "audioSha256": "011f1594cb477ed48690eac1fe8243981c04e0925e35074546603a77a324f842",
-    "displayedText": "Betty squeezed his shoulder. She would keep standing beside him.",
-    "displayedTextSha256": "a9ac994a6f064c59cc2865cc6844703e3fafc6dff980cedb8039d2cbd9360172",
+    "audioPath": "/audio/production/en-US/guided_page/betty-bumped-his-shoulder-with-hers-i-heard-you-she-said-5240f3e53d.mp3",
+    "audioSha256": "e0f2616b51aa85572c5caff0fdb05a70c9a8b318e36ae3c72dd54a5460cc9c17",
+    "displayedText": "Betty bumped his shoulder with hers. \"I heard you,\" she said.",
+    "displayedTextSha256": "65c1dc63b7df58668bcc0cee166bee9e9441ca6f9999c1cedc194997d4c0dbad",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::11": {
@@ -717,10 +717,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::6": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-appreciated-her-help-and-decided-to-use-his-own-voice-next-time-db4a2e645d.mp3",
-    "audioSha256": "cebb83b76b0fe6d2eea8966a5e0ce800e13989e95772742b2371474e983892e1",
-    "displayedText": "Aiden appreciated her help and decided to use his own voice next time.",
-    "displayedTextSha256": "e01050bd9b8df2718b48abbc058d1a4adc8a384ad8e36d0d4064745e6ead4104",
+    "audioPath": "/audio/production/en-US/guided_page/aiden-was-glad-betty-had-helped-but-next-time-he-wanted-to-say-it-himself-3ac16c6fef.mp3",
+    "audioSha256": "dc1edae9657f96ec9bb15bd6e5867718d34a04072c7600dc23ebfc02c1991c24",
+    "displayedText": "Aiden was glad Betty had helped, but next time he wanted to say it himself.",
+    "displayedTextSha256": "748ea538c237d563ea675674c0b632da9419eabee93976ad2f077603a219357f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::7": {
@@ -738,10 +738,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::9": {
-    "audioPath": "/audio/production/en-US/guided_page/speaking-had-felt-difficult-but-aiden-was-proud-he-had-asked-for-help-48ef71040a.mp3",
-    "audioSha256": "4d02b435bcc30088cd918219d8b5a762af2c25034feb6f69c929385c32143d8a",
-    "displayedText": "Speaking had felt difficult, but Aiden was proud he had asked for help.",
-    "displayedTextSha256": "3d150f8d69cc4888f03392a0a27d43f3eb7452058eaf4ba3b73e9a8428be6db8",
+    "audioPath": "/audio/production/en-US/guided_page/his-voice-had-wobbled-but-he-had-said-the-words-and-found-help-739ae7e1eb.mp3",
+    "audioSha256": "20794c72e7821e632c69fff14e8d73fcf9f17b220bcb98a39d4b980e1a142c99",
+    "displayedText": "His voice had wobbled, but he had said the words and found help.",
+    "displayedTextSha256": "c39b19617cf8d6d849ffad18f7c77c95baaea0d992a778e9e662dc2a05596e98",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::1": {
@@ -759,10 +759,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::11": {
-    "audioPath": "/audio/production/en-US/guided_page/betty-said-he-looked-older-not-strange-the-mirror-agreed-6b4d40749f.mp3",
-    "audioSha256": "d75ea402f0fc4b7ecf0bf03136af0472e2e310363c881f4c016ca7c2a886a788",
-    "displayedText": "Betty said he looked older, not strange. The mirror agreed.",
-    "displayedTextSha256": "a2951c5f07d4b3da7dbe39428071671ece07f2194e99e9f8f4bbf142c38d28e8",
+    "audioPath": "/audio/production/en-US/guided_page/betty-said-he-looked-older-not-strange-aiden-grinned-at-the-mirror-782cfa8cfe.mp3",
+    "audioSha256": "cbac99be106138b800d6b6482a78eb3100218b46f5738f44153dd606393e5548",
+    "displayedText": "Betty said he looked older, not strange. Aiden grinned at the mirror.",
+    "displayedTextSha256": "7d1a60517658d78fbe8bd57d82028e7486968e05ae9a3591e8f7a39e4ba7245f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::12": {
@@ -773,17 +773,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::13": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-welcomed-the-new-tooth-now-he-knew-what-growing-could-feel-like-3887121d68.mp3",
-    "audioSha256": "f2d4baa3a95da65d63a082bcdcba81c0c88656df197d21bf4358de46b875b52e",
-    "displayedText": "Aiden welcomed the new tooth. Now he knew what growing could feel like.",
-    "displayedTextSha256": "c7aa3ad26cf90acdc8640e6d8a95bba3dc3dfa77f11359094c912a1d99759226",
+    "audioPath": "/audio/production/en-US/guided_page/aiden-could-not-stop-checking-the-new-tooth-with-his-tongue-12133a5723.mp3",
+    "audioSha256": "7ce2013fc8bbabe0abe5bed404ae7a667a01e1b9aa06287aee4d824bdb72d90d",
+    "displayedText": "Aiden could not stop checking the new tooth with his tongue.",
+    "displayedTextSha256": "e50c0e2011405108c554d26f8195e8cccd4feb616bb2e46c61d1b381b30aa572",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::2": {
-    "audioPath": "/audio/production/en-US/guided_page/betty-checked-gently-and-explained-that-a-new-tooth-would-replace-it-3cfa8b42fb.mp3",
-    "audioSha256": "5480bedcd293cfa7469dced942639d0a3ef143bfaa7dec241a084d784fd454d7",
-    "displayedText": "Betty checked gently and explained that a new tooth would replace it.",
-    "displayedTextSha256": "919861aa44b05f973d685fb5a81d040c702c252e65e5a20e2a23d312bc405dd6",
+    "audioPath": "/audio/production/en-US/guided_page/betty-gave-the-tooth-one-tiny-wiggle-a-new-one-grows-underneath-she-said-bd07f1eb95.mp3",
+    "audioSha256": "07281b170fa15e59b27a158cf74cae05d29573063b2b1a396aa78a444782ccc7",
+    "displayedText": "Betty gave the tooth one tiny wiggle. \"A new one grows underneath,\" she said.",
+    "displayedTextSha256": "8137e318a683f106fcdd772c41d06bfb7147455b3f5b5cdb90965689e3bb53e7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::3": {
@@ -801,10 +801,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::5": {
-    "audioPath": "/audio/production/en-US/guided_page/next-day-betty-lost-a-tooth-and-wrapped-it-carefully-in-tissue-9369096be8.mp3",
-    "audioSha256": "086401083816b68d25374fa383faac61a5cc5e3a74cfeb877f00d35d8a39c5d1",
-    "displayedText": "Next day, Betty lost a tooth and wrapped it carefully in tissue.",
-    "displayedTextSha256": "44b3e882477ad46113ba872ca1894898344d0dc8267bb3c06f1292400c09c510",
+    "audioPath": "/audio/production/en-US/guided_page/next-day-betty-lost-a-tooth-and-wrapped-the-tiny-thing-in-tissue-4a0ef78962.mp3",
+    "audioSha256": "14a7b644c5d00f5147aa340563da60faba9376da0ecb9d77a0eda74f1a71941b",
+    "displayedText": "Next day, Betty lost a tooth and wrapped the tiny thing in tissue.",
+    "displayedTextSha256": "b736f1ba3156f993d396d029f3f70ec26e08a696a21c62a3edf2906e69304087",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::6": {
@@ -843,10 +843,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::10": {
-    "audioPath": "/audio/production/en-US/guided_page/descending-aiden-spotted-an-arrow-slit-and-finally-understood-the-thick-wall-c3c0b3c7c5.mp3",
-    "audioSha256": "d4ce939bde4ad3bc792f85cddca6164d43d16a19d41b7a9fae314df5946aa195",
-    "displayedText": "Descending, Aiden spotted an arrow slit and finally understood the thick wall.",
-    "displayedTextSha256": "73a8bb9bcee50f4c51ab140247753098e6493e093c6b367272ebb1c940ec258e",
+    "audioPath": "/audio/production/en-US/guided_page/on-the-way-down-aiden-spotted-an-arrow-slit-the-thick-wall-made-sense-now-7482833f02.mp3",
+    "audioSha256": "85dffcd7d4f9deadd07caedeb24b6aa9ea12f3102cc61736338e0127d4de6264",
+    "displayedText": "On the way down, Aiden spotted an arrow slit. The thick wall made sense now.",
+    "displayedTextSha256": "d4efd56545c09132f8d87b5d894a3a5936b4f65d2a1fe3704181ff9502d8287b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-10::11": {
@@ -2488,10 +2488,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-16-chompy-and-grumpys-day-out::6": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-settles-into-the-perfect-quiet-spot-10dd223c0a.mp3",
-    "audioSha256": "ed78660ab33e5b4e27ac75189f6590b586973c10f2093eea2233578c5ba6ea82",
-    "displayedText": "Grumpy settles into the perfect quiet spot.",
-    "displayedTextSha256": "5d6f67ab1dc08f4aa8fabdba796758b46526f5119c28f27979751b4025164c64",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-stretches-out-on-the-flat-sun-warmed-rock-b9dbf1ee01.mp3",
+    "audioSha256": "ff398a86716e5d1b0fb8249ddfcfcaf320841f182f5e8b041f64cad7ea73b000",
+    "displayedText": "Grumpy stretches out on the flat, sun-warmed rock.",
+    "displayedTextSha256": "985cfb4d1d2b599e904fbd1a6004719f1a22ea9f9b518f15e648e72b206634d9",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-16-chompy-and-grumpys-day-out::7": {
@@ -6604,10 +6604,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::3": {
-    "audioPath": "/audio/production/en-US/guided_page/james-gathers-five-eggs-carefully-into-one-basket-eb01877bad.mp3",
-    "audioSha256": "d566184efb269efecd1e2378e64d8c0e5d2036e0e9f03e387ed9954870a43336",
-    "displayedText": "James gathers five eggs carefully into one basket.",
-    "displayedTextSha256": "b88b1b0813f15dd4a6b5569c13f9be7255f13ae37568f067a4ab8eb23da141fd",
+    "audioPath": "/audio/production/en-US/guided_page/james-gathers-five-eggs-not-one-shell-cracks-3054922c7b.mp3",
+    "audioSha256": "039c6a90020045056459179c257b7ecc21c343aa913f497041b5f45085b0bcbe",
+    "displayedText": "James gathers five eggs. Not one shell cracks.",
+    "displayedTextSha256": "8fde2bb5dc53cebd4fffaca038a8434ea7e885a7f2b2191b1b5630905ca6a0b0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::4": {
@@ -6618,10 +6618,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::5": {
-    "audioPath": "/audio/production/en-US/guided_page/james-gently-strokes-bess-s-enormous-soft-nose-e017481d99.mp3",
-    "audioSha256": "ceffce100435cea9c3113e88fbdcc8ee16df793cd307d20f041ff45f639a74f1",
-    "displayedText": "James gently strokes Bess's enormous, soft nose.",
-    "displayedTextSha256": "48f4220071cce5460ee9fa91441a48e36c53f356c6c5ae2803f672e0522bc5ee",
+    "audioPath": "/audio/production/en-US/guided_page/bess-lowers-her-enormous-nose-and-james-strokes-the-white-blaze-198c5d381b.mp3",
+    "audioSha256": "a74858b4b6e55482fe4ffa5a08f8eb8b5964de7b96b0965c8603ccb7a4c2ee29",
+    "displayedText": "Bess lowers her enormous nose, and James strokes the white blaze.",
+    "displayedTextSha256": "857203812cad14b2c78df4f7f6f4831545adc0146c8a808cbcd9967d4a0819c4",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::6": {
@@ -6632,10 +6632,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::7": {
-    "audioPath": "/audio/production/en-US/guided_page/suddenly-percy-escapes-scattering-hens-across-the-sunny-yard-de802101c0.mp3",
-    "audioSha256": "7e3aa98e875b4b3f083ffb8b5e150d9aa7419f8410aea1932dc2b25176818f0b",
-    "displayedText": "Suddenly Percy escapes, scattering hens across the sunny yard.",
-    "displayedTextSha256": "8e9d06729032ec79ba854f10ea1dbbc768eecb4c6a11fe2201f85e54300c7667",
+    "audioPath": "/audio/production/en-US/guided_page/a-gate-bangs-percy-charges-out-and-scatters-the-hens-f3e1d09540.mp3",
+    "audioSha256": "560b1f41fa77e801dcdb638b6b67d0f673d681181a4081c4a3f8978f938ee718",
+    "displayedText": "A gate bangs. Percy charges out and scatters the hens.",
+    "displayedTextSha256": "1983fd2a716c9db16c60ba151683eac1a001259679e3aae706fdbc95e32c2d23",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-06::8": {
@@ -6779,10 +6779,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::4": {
-    "audioPath": "/audio/production/en-US/guided_page/bella-circles-chips-until-he-suddenly-chases-her-9b0c771a73.mp3",
-    "audioSha256": "85686a95d0f90fe652ad1398776240b4b42375ef031081d8d51ab74751a9f355",
-    "displayedText": "Bella circles Chips until he suddenly chases her.",
-    "displayedTextSha256": "0a5c3362fbf8290ba3071a140fefbec09468402749cc16eadf68bf981f681d75",
+    "audioPath": "/audio/production/en-US/guided_page/bella-circles-chips-once-he-bolts-after-her-d7b427782e.mp3",
+    "audioSha256": "2d0eaa182dd81aa72f15745bf68991e91150b0338a04be7a21a0dee306df0830",
+    "displayedText": "Bella circles Chips once. He bolts after her.",
+    "displayedTextSha256": "7de9a9846565e1dc5f80a1f648eb4a8f3ac207c0d7bbd71ea24ce837dd5bc9f6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::5": {
@@ -6814,10 +6814,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::9": {
-    "audioPath": "/audio/production/en-US/guided_page/at-last-chips-and-bella-rest-together-on-the-lawn-35c4ffc939.mp3",
-    "audioSha256": "0c7c341384a9b6b9411d5f2d1d9dd081f27eb7658fcb4f1a74c063109ace28ad",
-    "displayedText": "At last, Chips and Bella rest together on the lawn.",
-    "displayedTextSha256": "ecd30c7beea7f1cdee79ef3edbe370ffd754106e65450cea5994af38ab21c302",
+    "audioPath": "/audio/production/en-US/guided_page/after-three-wild-laps-chips-and-bella-flop-onto-the-lawn-48a9bc4b00.mp3",
+    "audioSha256": "0d422b6d76f3db549d8269b10fb2cff7056d83cf58b2d591451a7a1649debad4",
+    "displayedText": "After three wild laps, Chips and Bella flop onto the lawn.",
+    "displayedTextSha256": "27a3ebb356803321141f883e37557ecbdaa57e5b0d7a225a0ea489d3141f4b0c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-09::1": {
@@ -6933,17 +6933,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::13": {
-    "audioPath": "/audio/production/en-US/guided_page/they-last-all-night-and-breakfast-tastes-wonderful-b7c7ecb8d0.mp3",
-    "audioSha256": "ca629ed0bc2cf2cea9ba4baf33b9c9476d9b17e39255791d168f6ea51f7fdca3",
-    "displayedText": "They last all night, and breakfast tastes wonderful.",
-    "displayedTextSha256": "fd94d6fb09d325f8061b8aaf4b15309c3527607c6c4bc71b8a259950880db6f0",
+    "audioPath": "/audio/production/en-US/guided_page/at-sunrise-they-crawl-from-the-tent-and-eat-hot-toast-with-jam-00ff218714.mp3",
+    "audioSha256": "7d44d948e45063290922117ed75f19f56810bf6d64b23f7984fd1de15202a2c9",
+    "displayedText": "At sunrise, they crawl from the tent and eat hot toast with jam.",
+    "displayedTextSha256": "0af922bec136f7f28cbdccc3e59ce29d7cbce96a5d345e994dc5b3208a47592d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::14": {
-    "audioPath": "/audio/production/en-US/guided_page/chips-grabs-the-zip-anna-removes-it-next-time-he-stays-safely-home-1f47a96c53.mp3",
-    "audioSha256": "0249fc3e209d5cc0fa36dfe612698f7e034576d9adf3af0b5606a99e06a3c7db",
-    "displayedText": "Chips grabs the zip. Anna removes it. Next time, he stays safely home.",
-    "displayedTextSha256": "53ac9e274a827cec872d9c0dd5c2f45b9fc79f9932980fdf2d7586c64295aa0d",
+    "audioPath": "/audio/production/en-US/guided_page/chips-grabs-the-zip-anna-rescues-it-next-time-he-sleeps-indoors-16c722e2b8.mp3",
+    "audioSha256": "722a9c23e401c0b06841c0818db9e3c50a1745c2bd77a171799004c0698bf481",
+    "displayedText": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors.",
+    "displayedTextSha256": "243f5985e578d8f1fe2e9ea8d52086ef653b02bb0b692ded3099356c5907cee3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-10::2": {
@@ -7052,17 +7052,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::6": {
-    "audioPath": "/audio/production/en-US/guided_page/at-last-their-garden-rocket-is-ready-to-fly-66779999a5.mp3",
-    "audioSha256": "6317da7f948483aa84e5b8c045711ffa70e6bd8d6a46628227969aa00b131600",
-    "displayedText": "At last, their garden rocket is ready to fly.",
-    "displayedTextSha256": "e1dc38f26b14fa1e74dd89f1f289f299c8f274140e85767e632f316322354fa2",
+    "audioPath": "/audio/production/en-US/guided_page/by-lunchtime-their-garden-rocket-has-wings-a-door-and-a-pointed-nose-5258e44cd2.mp3",
+    "audioSha256": "8ac8f0d234f826a1dfd0fc1d2811a153fa37cb8b2a00bb62796b0baee4a4a991",
+    "displayedText": "By lunchtime, their garden rocket has wings, a door and a pointed nose.",
+    "displayedTextSha256": "84cedf8429f2ff87884fa18f8e92dd8c44249a19324514fff61fd1c7fff3a065",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::7": {
-    "audioPath": "/audio/production/en-US/guided_page/they-count-down-but-the-cardboard-rocket-stays-completely-still-9eeca8628b.mp3",
-    "audioSha256": "3802bb29000e2bb8da7c0ed4d187e8ae7c80f462fe9ab1ee7a53e97f184b7540",
-    "displayedText": "They count down, but the cardboard rocket stays completely still.",
-    "displayedTextSha256": "7f4d64a232fd336c78e3278e2fe9e585a5d9b5692532df3feb82557a698d7184",
+    "audioPath": "/audio/production/en-US/guided_page/they-count-down-nothing-moves-except-one-loose-strip-of-tape-5e369da192.mp3",
+    "audioSha256": "32a85b9891d65719fcd67c0a202f217c5cd1c77b9ebd36e16e57641f200c3655",
+    "displayedText": "They count down. Nothing moves except one loose strip of tape.",
+    "displayedTextSha256": "72a53811ca55098fba901caba663c31d1f2126353a96aac6898ecee902d77a2a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-01-space::8": {
@@ -7171,10 +7171,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::11": {
-    "audioPath": "/audio/production/en-US/guided_page/at-the-till-every-listed-item-arrives-safely-even-the-eggs-739c19dce4.mp3",
-    "audioSha256": "37f7f53768cc48b75becbe7a2f3503e35aea557cd6ad70ce5dc71374ac060961",
-    "displayedText": "At the till, every listed item arrives safely, even the eggs.",
-    "displayedTextSha256": "61ac0d4415be258d381ccdcb2b0f2aeca44a3c51a750535b5d7fae898a8f4a5f",
+    "audioPath": "/audio/production/en-US/guided_page/at-the-till-they-check-the-list-even-the-eggs-have-no-cracks-a53fa20d31.mp3",
+    "audioSha256": "e18f458b000f9e416568f4a54ebaf2b48c7ef3302aa8ab0bffe6f291b491b183",
+    "displayedText": "At the till, they check the list. Even the eggs have no cracks.",
+    "displayedTextSha256": "8a7468dd5dbe641a17d1032ce56ccdb3dba64d1eac7d8d0f55879225d2f6b0ff",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::12": {
@@ -7199,10 +7199,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::3": {
-    "audioPath": "/audio/production/en-US/guided_page/inside-the-bright-shop-fresh-bread-and-fruit-smell-wonderful-d64a892a4f.mp3",
-    "audioSha256": "dca88b4b4b4e28213b119de095c3ad6c3e928c30c7cc12b7ccb3165013552940",
-    "displayedText": "Inside the bright shop, fresh bread and fruit smell wonderful.",
-    "displayedTextSha256": "842276892f3b398cc7562ae1e635633aaab5907d8ad3f9ab626bb2e9bc5f19bc",
+    "audioPath": "/audio/production/en-US/guided_page/inside-the-bright-shop-warm-bread-and-ripe-fruit-fill-the-air-8d654daf99.mp3",
+    "audioSha256": "c29a76b845eb3937f5d2f24d21eeb001a93038a66786df16acf6790ede4eae9f",
+    "displayedText": "Inside the bright shop, warm bread and ripe fruit fill the air.",
+    "displayedTextSha256": "825a68f65d703b32ff0dc39c9480c762abf49fd3acb7f3007fcf2bfd58948d38",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::4": {
@@ -7241,17 +7241,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::1": {
-    "audioPath": "/audio/production/en-US/guided_page/james-and-anna-feel-worried-about-their-dentist-visit-eab3a6b677.mp3",
-    "audioSha256": "e0deb3aae3734eacc5e1292dddcac2526caeb98f26d161cd83d762d908ea42e8",
-    "displayedText": "James and Anna feel worried about their dentist visit.",
-    "displayedTextSha256": "1035e4e0da03fd80b5e49af0cb2fc6d1801ac2605ee6288f0616e747e9af1d96",
+    "audioPath": "/audio/production/en-US/guided_page/james-does-not-want-to-sit-in-the-dentist-s-chair-anna-is-not-keen-either-bd83eb6d37.mp3",
+    "audioSha256": "bdc6dc3e1004ddc0475d6c3b25bf0d42c690df7ea5f29942087a293b212d34c4",
+    "displayedText": "James does not want to sit in the dentist's chair. Anna is not keen either.",
+    "displayedTextSha256": "64465a436b40c6d650c796f049e958497f837539bd33efd9975a4b5eb2490401",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::10": {
-    "audioPath": "/audio/production/en-US/guided_page/anna-climbs-into-the-chair-and-remembers-his-calm-breath-947f9f53c6.mp3",
-    "audioSha256": "552657e51feb50689c7e0c6e9f4824925f76a5bcaf8f46ef74774337223daa6e",
-    "displayedText": "Anna climbs into the chair and remembers his calm breath.",
-    "displayedTextSha256": "b519f1fdc8eee84e47ed06efc041930119cbe5e728cd12ed3e64923f46f2383b",
+    "audioPath": "/audio/production/en-US/guided_page/anna-climbs-into-the-chair-and-copies-james-s-slow-breath-537eb1e66d.mp3",
+    "audioSha256": "3fe3c09f5576dcb07b5c993820c6ca7e9303f55a402567e276293f3e576585d1",
+    "displayedText": "Anna climbs into the chair and copies James's slow breath.",
+    "displayedTextSha256": "e4357496ef9b13743bfd8d63d6a254500b639f4d4b41e3275bf236bec16dd89a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::11": {
@@ -7269,10 +7269,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::13": {
-    "audioPath": "/audio/production/en-US/guided_page/that-night-they-brush-carefully-while-chips-watches-1169908ab9.mp3",
-    "audioSha256": "056b258c64087a3fbc729a9dfe36360550e2eb6132e9f1a32eed9029cfa8390b",
-    "displayedText": "That night, they brush carefully while Chips watches.",
-    "displayedTextSha256": "74d9c2295428af4be62dc26ebec93e4fddb092f1f6a1d8dca061b188851f471f",
+    "audioPath": "/audio/production/en-US/guided_page/that-night-they-brush-for-two-whole-minutes-chips-watches-the-foam-1f5f1597b7.mp3",
+    "audioSha256": "7491a53ae3ccaeb817a65b112521ef7db4c2745a9dee0d070a9a39b1b0e6eaee",
+    "displayedText": "That night, they brush for two whole minutes. Chips watches the foam.",
+    "displayedTextSha256": "dde8281dba95f2abe4f03886f0d1da6e782a0b717a1f329f27321866d63b6491",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::2": {
@@ -7283,10 +7283,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::3": {
-    "audioPath": "/audio/production/en-US/guided_page/anna-holds-james-s-hand-but-his-worried-feeling-stays-bea6cead37.mp3",
-    "audioSha256": "fa8f16dc4718f44edc3958a4552c6ba2ffb443dd830ee417c6e44295a7435220",
-    "displayedText": "Anna holds James's hand, but his worried feeling stays.",
-    "displayedTextSha256": "88c4f012506f18dddd31898c7065988659ac4adcaed7e91d18b78039f1b30934",
+    "audioPath": "/audio/production/en-US/guided_page/anna-squeezes-james-s-hand-he-keeps-watching-the-door-68086a0d4f.mp3",
+    "audioSha256": "7d1bfd00d6050468d5547b890cc9e53c5ce9f53797b489173deb559225c17b5d",
+    "displayedText": "Anna squeezes James's hand. He keeps watching the door.",
+    "displayedTextSha256": "57e799dfcb11f959eaa6b4b12da0f8ed705030bbf36750e236e42d7f9604ae02",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::4": {
@@ -7297,24 +7297,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::6": {
-    "audioPath": "/audio/production/en-US/guided_page/anna-reads-about-sharks-until-her-breathing-feels-calm-d861c1fc4f.mp3",
-    "audioSha256": "ee57fec530d4ae2fe8aaa4ace1457f62be72c91461faac94bcbd1b6189d68bca",
-    "displayedText": "Anna reads about sharks until her breathing feels calm.",
-    "displayedTextSha256": "4e773b269147616ca0dbf07628a47e1c9606b6381d02ccf31e74584b37705340",
+    "audioPath": "/audio/production/en-US/guided_page/anna-reads-about-sharks-soon-she-stops-twisting-her-sleeve-a13e2b525f.mp3",
+    "audioSha256": "683e90e36d12b037b7bbfb40e8a0ac228dcb997770cf44ab04d35c32182943c2",
+    "displayedText": "Anna reads about sharks. Soon she stops twisting her sleeve.",
+    "displayedTextSha256": "f622eac21a5af98d4f2b9b5259c846f07e95c56a773b3a6107313879dc99ea17",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::7": {
-    "audioPath": "/audio/production/en-US/guided_page/when-the-chair-rises-james-s-worried-feeling-rushes-back-b9c420ed1e.mp3",
-    "audioSha256": "f3ab133ce86a127e9f9f205a4e9d85d67413723b9447ce38482e7e8f5bdd7b50",
-    "displayedText": "When the chair rises, James's worried feeling rushes back.",
-    "displayedTextSha256": "fe0c183e42b4da9af21fd01ac79fa35b1876d077a684aad03fea29d91879cfd5",
+    "audioPath": "/audio/production/en-US/guided_page/the-chair-hums-upwards-james-grips-both-armrests-8dde3006c1.mp3",
+    "audioSha256": "448ba26774c241e6b67272e12780ef599bffa267e3ed219003b7a6724e62aa4f",
+    "displayedText": "The chair hums upwards. James grips both armrests.",
+    "displayedTextSha256": "0382827ea5a4077c1f8a3e76403238ffa5424144d7c288bbc420e09e65dbd1c3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::8": {
-    "audioPath": "/audio/production/en-US/guided_page/he-breathes-slowly-then-opens-wide-for-the-quick-gentle-check-0973a89b2a.mp3",
-    "audioSha256": "9da51692a94d1590c856a304415911f8811523119729c2562d50a3ae7c4c922d",
-    "displayedText": "He breathes slowly, then opens wide for the quick, gentle check.",
-    "displayedTextSha256": "30c0c8b0997bf206c42933f70bb4cc8f39a8c07892af09312472d661bf77e645",
+    "audioPath": "/audio/production/en-US/guided_page/he-takes-one-slow-breath-then-opens-wide-the-check-is-over-quickly-9ca32e42d2.mp3",
+    "audioSha256": "ca0d232823a9d91d71c4c95d13f4a0e9f85f90155b893b6911fed47de1eebc73",
+    "displayedText": "He takes one slow breath, then opens wide. The check is over quickly.",
+    "displayedTextSha256": "d26ad27e59d0631d1f3b3ff73946cfe522b58417f3c095b185853bcfe05216b9",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::9": {
@@ -7332,10 +7332,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::10": {
-    "audioPath": "/audio/production/en-US/guided_page/they-move-the-paint-safely-then-raise-anna-s-red-star-flag-02fbcaa0de.mp3",
-    "audioSha256": "439829cd6eae2f81f9ce2db6eca35fea0f2ab2b8a2b36b568417e7333d65a96a",
-    "displayedText": "They move the paint safely, then raise Anna's red-star flag.",
-    "displayedTextSha256": "12aea2388ce6e1e2de49d38f1d73f25fb32edb1436db2a8824e11505c3d55633",
+    "audioPath": "/audio/production/en-US/guided_page/they-put-the-paint-beyond-chips-s-reach-then-raise-anna-s-red-star-flag-1a5e8076a9.mp3",
+    "audioSha256": "d753e85fa07ac263e46132df2265d62885fe96c7d2537926d83de4415246ee21",
+    "displayedText": "They put the paint beyond Chips's reach, then raise Anna's red-star flag.",
+    "displayedTextSha256": "ae5bc9e9df47afb1df282ee23b785daee0e5a2f871076ef776fd4c73a965b2f5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::11": {
@@ -7360,10 +7360,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::14": {
-    "audioPath": "/audio/production/en-US/guided_page/that-night-they-sleep-safely-beneath-the-shining-stars-a5199ef1f5.mp3",
-    "audioSha256": "2e02d16139fed6774d79e707dcdd16a628b57532c85e817e550096b8bebcf8e1",
-    "displayedText": "That night, they sleep safely beneath the shining stars.",
-    "displayedTextSha256": "18d61e79834af355858d20df92f090f2b3cbaa7af5e325d5e79bdc6179c684a5",
+    "audioPath": "/audio/production/en-US/guided_page/that-night-their-sleeping-bags-rustle-beneath-the-shining-stars-f4142b1d8a.mp3",
+    "audioSha256": "b572d01c8d2ea905087e4d2a771e84bb3dc3a95390e06c8e203879d6b5343a36",
+    "displayedText": "That night, their sleeping bags rustle beneath the shining stars.",
+    "displayedTextSha256": "c88ec07543201feea013139ee730dcc81c69745f76637d3e270600a5050bd39f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::2": {
@@ -8151,10 +8151,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::8": {
-    "audioPath": "/audio/production/en-US/guided_page/at-last-all-is-quiet-2daf89ccdf.mp3",
-    "audioSha256": "e258bb43dd8f92d64145fbab0cbdecc8bc9041d822d24520334305f5a6e27419",
-    "displayedText": "At last all is quiet.",
-    "displayedTextSha256": "d904b0009a568bf80b72f08ba3657b099ae65bb8b47ac8d5d6443222aacedf4b",
+    "audioPath": "/audio/production/en-US/guided_page/the-wind-stops-the-meadow-rests-bfdcc0c81b.mp3",
+    "audioSha256": "a15c1a91f4c17f3a717c84804114658945ef743706dbbbe25ba0e4a5b140c42c",
+    "displayedText": "The wind stops. The meadow rests.",
+    "displayedTextSha256": "0ecca39bef6cb412f7a378a83d8369c148736f8f0929e61f1e7b43088e008a49",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::9": {
@@ -9159,10 +9159,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::7": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-finally-wakes-3729eb8ed3.mp3",
-    "audioSha256": "30e4ae654fcaee7cbf7d2d4263677bfe3437eea9ca355d2c7a402d1f94179764",
-    "displayedText": "Sleepy finally wakes.",
-    "displayedTextSha256": "bcda14cf72b437367772b6ab13ae6808bd02201c73f5e9c77e3ad4e895e26785",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-opens-one-eye-cdb541da8c.mp3",
+    "audioSha256": "6d64e12413a5ea23e049eb0d814e46b8115fbae924cf423b5fb42a33aa9a34fd",
+    "displayedText": "Sleepy opens one eye.",
+    "displayedTextSha256": "9b7994b71a01e70bcb56611629e94449a28ea133ebc1883883ed3b01bd1b0e67",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::8": {
@@ -9229,10 +9229,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::8": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-ties-the-hat-safely-e74e5a083f.mp3",
-    "audioSha256": "6b6e8292a6982fd5d2974190415b9a429fcd62ed79240c977f1d48fb690c8bc9",
-    "displayedText": "Brave ties the hat safely.",
-    "displayedTextSha256": "84882b604c9fbd0e6a6a7366e2fce02a9861c53ccdeddcbdea77bdf14a1aa83b",
+    "audioPath": "/audio/production/en-US/guided_page/brave-ties-the-hat-under-tiny-s-chin-efcfec5a75.mp3",
+    "audioSha256": "dd07c93e068f78ced3ad36952d19a9231e9089725ba7a020f5f2ebd07ac717e3",
+    "displayedText": "Brave ties the hat under Tiny's chin.",
+    "displayedTextSha256": "238d09767a61a49dbbcf310ac0ca1833dc7132f7d24411f8d998cc78a00efcfd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::9": {
@@ -10678,10 +10678,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-06::7": {
-    "audioPath": "/audio/production/en-US/guided_page/flint-sits-a-perfect-map-of-yesterday-cannot-guide-today-769803a95e.mp3",
-    "audioSha256": "3cca5985759d9f1737f29e88a2b231fb41c83e67c392943ca9a21767173e6bd1",
-    "displayedText": "Flint sits. A perfect map of yesterday cannot guide today.",
-    "displayedTextSha256": "3bd3cb08261fe92fbd100cfe727da5a4bc7e7b4d6ac8665a2dde8653c4d5afaf",
+    "audioPath": "/audio/production/en-US/guided_page/flint-sighs-yesterday-s-map-cannot-guide-him-today-e56f59e0f1.mp3",
+    "audioSha256": "c867fe072883486ec4663867bb4df948e18ac8bbeeec6ffdefc6e7c556d67b0c",
+    "displayedText": "Flint sighs. Yesterday's map cannot guide him today.",
+    "displayedTextSha256": "93e06db013320b0dc8ca6cde27c46af649dca08f09b677e887663d31625a8cea",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-06::8": {
@@ -10769,10 +10769,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::8": {
-    "audioPath": "/audio/production/en-US/guided_page/the-fish-circles-slowly-being-new-made-it-want-a-grand-past-b4514b2fe9.mp3",
-    "audioSha256": "8f1296bec6e36cc218e612b392405541eb307b2fc235def00c5f3087148e1243",
-    "displayedText": "The fish circles slowly. Being new made it want a grand past.",
-    "displayedTextSha256": "ba5690fc667e874b3937caa1483da3dd659c79ec9e83032a8eb7352afd5d6fe5",
+    "audioPath": "/audio/production/en-US/guided_page/the-fish-makes-one-small-circle-i-wanted-to-sound-important-62615ed755.mp3",
+    "audioSha256": "260a14079204be8a3abbf61051ab674809d4f861c42887d1505f372fbf6114fb",
+    "displayedText": "The fish makes one small circle. \"I wanted to sound important.\"",
+    "displayedTextSha256": "8ad5adee25c7bc1a86784d3c9df41fcf498ff2d3bdcbb4b0b2808bc00cf9901f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-07::9": {
@@ -11077,10 +11077,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::10": {
-    "audioPath": "/audio/production/en-US/guided_page/stone-kneels-i-am-large-so-i-will-call-carefully-eb0c0757cb.mp3",
-    "audioSha256": "3168eff3a2e9427f35f63970aaa2bdec44d09f51fcaaf545821cf763e4214648",
-    "displayedText": "Stone kneels. \"I am large, so I will call carefully.\"",
-    "displayedTextSha256": "83fd5f851166b1fa6b219b9126ec97b720a6b16c237333584593ccf7662a8b3c",
+    "audioPath": "/audio/production/en-US/guided_page/stone-kneels-i-will-try-a-small-call-bef85fdc29.mp3",
+    "audioSha256": "2d25d683cbea5554a1b2cfb3bffb088fa0cbf43ef7ebadd1ed20c1c151e16f78",
+    "displayedText": "Stone kneels. \"I will try a small call.\"",
+    "displayedTextSha256": "555fde01b6f659b4fda3e114781958df9ae33d7b345604aef1c20300f2a6cc93",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-11::11": {
@@ -11301,10 +11301,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::7": {
-    "audioPath": "/audio/production/en-US/guided_page/glimmer-replaces-the-charts-with-one-feeling-warm-breath-released-slowly-41ad466e2f.mp3",
-    "audioSha256": "ab6e69ee22dca0a88256ed570a1b2cf6213080cbfee8bf7eecbffc0b635d536c",
-    "displayedText": "Glimmer replaces the charts with one feeling: warm breath, released slowly.",
-    "displayedTextSha256": "c0584cbd56d90e9f4b2dcecf01bc8954bac32098d11d4dbefa325c08fbc5578b",
+    "audioPath": "/audio/production/en-US/guided_page/glimmer-pushes-the-charts-aside-breathe-out-as-if-the-air-is-warm-1619d7a6e5.mp3",
+    "audioSha256": "f11f647800b47ac670bfbf8ac19935389b8b618e70b5b45035f37374ca3f4df5",
+    "displayedText": "Glimmer pushes the charts aside. \"Breathe out as if the air is warm.\"",
+    "displayedTextSha256": "172c023cad1bc4608e446de5913e2407a3382c05bbbb187c3fa19ecad70deed8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-13::8": {

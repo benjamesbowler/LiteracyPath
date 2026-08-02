@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-b-35-q1",
-      "prompt": "Which fact about a chef is given in Community Helpers?",
+      "prompt": "Which sentence tells about a chef in Community Helpers?",
       "choices": [
         "A chef prepares food.",
         "A firefighter fights fires.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-b-35-q2",
-      "prompt": "Which fact about a firefighter is given in Community Helpers?",
+      "prompt": "Which sentence tells about a firefighter in Community Helpers?",
       "choices": [
         "A firefighter fights fires.",
         "A chef prepares food.",

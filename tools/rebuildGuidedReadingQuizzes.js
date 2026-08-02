@@ -17,6 +17,104 @@ const quizDirectory = path.join(repoRoot, "public", "guided-reading", "quizzes")
 const QUIZ_VERSION = "2026-08-01.1";
 const BIG_IDEA_QUIZ_VERSION = "2026-08-01.2";
 
+// These are the cases where several true pages share the same subject. A
+// generic "Which sentence tells about X?" stem would therefore make more than
+// one choice defensible. The reviewed stem narrows the fact and every
+// distractor is clearly wrong for that exact question.
+const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
+  "gr-a-27:0": {
+    prompt: "What is the Sun?",
+    answerText: "The Sun is a star.",
+    choiceTexts: ["The Sun is a star.", "The Sun is a planet.", "The Sun is a moon."]
+  },
+  "gr-b-34:0": {
+    prompt: "What reaches one side of Earth?",
+    answerText: "Sunlight reaches one side of Earth.",
+    choiceTexts: ["Sunlight reaches one side of Earth.", "A river reaches one side of Earth.", "A road reaches one side of Earth."]
+  },
+  "gr-c-37:0": {
+    prompt: "What can water do as a liquid?",
+    answerText: "Water can flow as a liquid.",
+    choiceTexts: ["Water can flow as a liquid.", "Water can burn as a liquid.", "Water can bark as a liquid."]
+  },
+  "gr-d-42:0": {
+    prompt: "Which planet is our home?",
+    answerText: "Earth is our home planet.",
+    choiceTexts: ["Earth is our home planet.", "Mars is our home planet.", "Jupiter is our home planet."]
+  },
+  "gr-e-46:0": {
+    prompt: "What covers a reptile's body?",
+    answerText: "Reptiles have dry scaly skin.",
+    choiceTexts: ["Reptiles have dry scaly skin.", "Reptiles have thick woolly fur.", "Reptiles have bright soft feathers."]
+  },
+  "gr-e-48:0": {
+    prompt: "How many poles does a magnet have?",
+    answerText: "A magnet has two poles.",
+    choiceTexts: ["A magnet has two poles.", "A magnet has one pole.", "A magnet has five poles."]
+  },
+  "gr-e-48:1": {
+    prompt: "What happens when a magnet is held near glass?",
+    answerIndex: 3,
+    answerText: "Magnets do not attract glass.",
+    choiceTexts: ["Magnets do not attract glass.", "Magnets attract all glass.", "Glass turns into a magnet."]
+  },
+  "first-facts-level-a-14-the-tree:0": {
+    prompt: "What grows tall?",
+    answerText: "The tree grows tall.",
+    choiceTexts: ["The tree grows tall.", "The soil grows tall.", "The sky grows tall."]
+  },
+  "first-facts-level-a-17-a-seed-grows:0": {
+    prompt: "Where does the seed rest?",
+    answerText: "A seed rests in soil.",
+    choiceTexts: ["A seed rests in soil.", "A seed rests in the sky.", "A seed rests on the Moon."]
+  },
+  "first-facts-a-10-bugs-all-around-us:0": {
+    prompt: "Where do many small creatures live?",
+    answerText: "Many small creatures live near us.",
+    choiceTexts: ["Many small creatures live near us.", "Many small creatures live inside the Sun.", "Many small creatures live only on the Moon."]
+  },
+  "first-facts-a-16-push-and-pull:0": {
+    prompt: "What can move something away?",
+    answerText: "A push can move something away.",
+    choiceTexts: ["A push can move something away.", "A colour can move something away.", "A shadow can move something away."]
+  },
+  "first-facts-a-17-hello-sun:0": {
+    prompt: "What is the Sun?",
+    answerText: "The Sun is our nearest star.",
+    choiceTexts: ["The Sun is our nearest star.", "The Sun is our nearest planet.", "The Sun is our nearest moon."]
+  },
+  "first-facts-a-18-the-moon:0": {
+    prompt: "What is the Moon?",
+    answerText: "The Moon is Earth's natural satellite.",
+    choiceTexts: ["The Moon is Earth's natural satellite.", "The Moon is Earth's second Sun.", "The Moon is Earth's largest ocean."]
+  },
+  "first-facts-a-19-day-and-night:1": {
+    prompt: "What does Earth do all day and night?",
+    answerText: "Earth rotates all day and night.",
+    choiceTexts: ["Earth rotates all day and night.", "Earth stops all day and night.", "Earth shrinks all day and night."]
+  },
+  "first-facts-a-24-rocks-and-pebbles:0": {
+    prompt: "What can rocks be like?",
+    answerText: "Rocks can be hard large or small.",
+    choiceTexts: ["Rocks can be hard large or small.", "Rocks can be made from feathers.", "Rocks can be soft like a cloud."]
+  },
+  "level-c-nonfiction-03-penguins:0": {
+    prompt: "What do penguins use their wings for?",
+    answerText: "Penguins are flightless birds whose wings work as swimming flippers.",
+    choiceTexts: ["Penguins are flightless birds whose wings work as swimming flippers.", "Penguins use their wings to fly above mountains.", "Penguins use their wings to dig tree holes."]
+  },
+  "level-c-nonfiction-06-spiders:0": {
+    prompt: "How many legs does a spider have?",
+    answerText: "Spiders are arachnids with eight legs and two main body sections.",
+    choiceTexts: ["Spiders are arachnids with eight legs and two main body sections.", "Spiders are insects with six legs and three body sections.", "Spiders are animals with four legs and one body section."]
+  },
+  "level-c-nonfiction-10-frogs:0": {
+    prompt: "Where do common frogs live?",
+    answerText: "Common frogs are amphibians that use freshwater and damp land.",
+    choiceTexts: ["Common frogs are amphibians that use freshwater and damp land.", "Common frogs live only in dry deserts.", "Common frogs live only in high treetops."]
+  }
+});
+
 // Page anchors are editorial decisions, not similarity guesses. They identify
 // the exact opening/problem/resolution evidence that the Story Bible names.
 // Keeping them explicit prevents a nearby repeated character name from being
@@ -354,9 +452,7 @@ function detailPrompt(book, pageIndex, position) {
   const subject = statementSubject(book.pages[pageIndex].text);
   const promptTitle = String(book.title).replace(/[?!.]+$/, "");
   if (subject && !/^(?:i|it|this|that|they|these|those|he|she|we)(?:\s|$)/i.test(subject)) {
-    return book.level === "A"
-      ? `What do we learn about ${lowerInitial(subject)}?`
-      : `Which fact about ${lowerInitial(subject)} is given in ${promptTitle}?`;
+    return `Which sentence tells about ${lowerInitial(subject)} in ${promptTitle}?`;
   }
   return position === "start"
     ? `Which fact is introduced first in ${promptTitle}?`
@@ -417,6 +513,16 @@ function nonfictionQuestions(book) {
       bigIdeaPolicy: GUIDED_READING_BIG_IDEA_POLICY_VERSION
     })
   ];
+
+  [openingIndex, middleIndex].forEach((answerIndex, questionIndex) => {
+    const override = NONFICTION_DETAIL_OVERRIDES[`${book.id}:${questionIndex}`];
+    if (!override) return;
+    questions[questionIndex] = makeQuestion(book, questionIndex, {
+      ...override,
+      answerIndex: override.answerIndex ?? answerIndex,
+      skill: questionIndex === 0 ? "key_detail" : middleSkill
+    });
+  });
 
   if (book.id === "first-facts-level-a-03-big-and-little") {
     questions[0] = makeQuestion(book, 0, {

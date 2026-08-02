@@ -2,14 +2,14 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-01-space",
-  "contentHash": "sha256:dd1992a8c1febda95bf65846e6402678fb42e0cf30da771bdd3fd6e4289e8e2b",
+  "contentHash": "sha256:b567f7765afb1cccae4225089c41e87472a68d563f320d8f2a655962654dc052",
   "questions": [
     {
       "id": "james-and-anna-01-space-q1",
       "prompt": "Which event begins James and Anna go to Space?",
       "choices": [
         "James and Anna find big, flat boxes in the garden.",
-        "They count down, but the cardboard rocket stays completely still.",
+        "They count down. Nothing moves except one loose strip of tape.",
         "They open their eyes in the garden. Mum brings cake."
       ],
       "answer": "James and Anna find big, flat boxes in the garden.",
@@ -22,16 +22,16 @@
       "id": "james-and-anna-01-space-q2",
       "prompt": "Which event shows the first plan fails in James and Anna go to Space?",
       "choices": [
-        "They count down, but the cardboard rocket stays completely still.",
+        "They count down. Nothing moves except one loose strip of tape.",
         "James and Anna find big, flat boxes in the garden.",
         "They open their eyes in the garden. Mum brings cake."
       ],
-      "answer": "They count down, but the cardboard rocket stays completely still.",
+      "answer": "They count down. Nothing moves except one loose strip of tape.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "They count down, but the cardboard rocket stays completely still. This shows that the first attempt does not solve the central problem.",
+      "rationale": "They count down. Nothing moves except one loose strip of tape. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "They count down, but the cardboard rocket stays completely still."
+      "evidenceText": "They count down. Nothing moves except one loose strip of tape."
     },
     {
       "id": "james-and-anna-01-space-q3",
@@ -39,7 +39,7 @@
       "choices": [
         "They open their eyes in the garden. Mum brings cake.",
         "James and Anna find big, flat boxes in the garden.",
-        "They count down, but the cardboard rocket stays completely still."
+        "They count down. Nothing moves except one loose strip of tape."
       ],
       "answer": "They open their eyes in the garden. Mum brings cake.",
       "kind": "text",

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "level-c-nonfiction-08-butterflies-q1",
-      "prompt": "Which fact about butterflies is given in The Monarch Butterfly Life Cycle?",
+      "prompt": "Which sentence tells about butterflies in The Monarch Butterfly Life Cycle?",
       "choices": [
         "Butterflies are six-legged insects with four wings and two antennae.",
         "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q2",
-      "prompt": "Which fact about the caterpillar is given in The Monarch Butterfly Life Cycle?",
+      "prompt": "Which sentence tells about the caterpillar in The Monarch Butterfly Life Cycle?",
       "choices": [
         "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
         "Butterflies are six-legged insects with four wings and two antennae.",

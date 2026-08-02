@@ -49,6 +49,10 @@
   --lp-font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-reading: Lexend, "Atkinson Hyperlegible", Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-readable: "Atkinson Hyperlegible", Lexend, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Letter models use school-style single-storey a and g. Reading and UI
+     copy keep their own highly legible fonts; this token is for glyphs a
+     child is being asked to recognise, copy, build or write. */
+  --lp-font-letter: "Fredoka", "Comic Sans MS", sans-serif;
   --lp-space-1: 4px;
   --lp-space-2: 6px;
   --lp-space-3: 8px;

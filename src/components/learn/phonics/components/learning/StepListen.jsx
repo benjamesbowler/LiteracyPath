@@ -53,7 +53,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.4 }}
-      className="phonics-step phonics-step-listen"
+      className="phonics-step phonics-step-listen kg-child-flow__content"
     >
       <motion.div className="phonics-big-letter" initial={{ opacity: 0, scale: 0.3 }} animate={{ opacity: 1, scale: 1 }}>
         {lesson.letter}

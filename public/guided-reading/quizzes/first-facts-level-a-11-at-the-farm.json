@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-11-at-the-farm-q1",
-      "prompt": "What do we learn about a red barn?",
+      "prompt": "Which sentence tells about a red barn in At the Farm?",
       "choices": [
         "A red barn stands tall.",
         "A chick says peep.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-11-at-the-farm-q2",
-      "prompt": "What do we learn about a chick?",
+      "prompt": "Which sentence tells about a chick in At the Farm?",
       "choices": [
         "A chick says peep.",
         "A red barn stands tall.",

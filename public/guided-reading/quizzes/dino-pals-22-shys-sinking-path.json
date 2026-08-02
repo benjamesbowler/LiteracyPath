@@ -9,8 +9,8 @@
       "prompt": "Which event begins Shy's Sinking Path?",
       "choices": [
         "Shy spots bubbles under the Fernwood path.",
-        "The stone sinks. Mud covers the usual trail.",
-        "Every berry basket follows Shy's bright detour."
+        "Shy lays one flat stone across the bubbles.",
+        "Shy lines the safe track with yellow leaves."
       ],
       "answer": "Shy spots bubbles under the Fernwood path.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-22-shys-sinking-path-q2",
       "prompt": "Which event shows the first plan fails in Shy's Sinking Path?",
       "choices": [
-        "The stone sinks. Mud covers the usual trail.",
+        "Shy lays one flat stone across the bubbles.",
         "Shy spots bubbles under the Fernwood path.",
-        "Every berry basket follows Shy's bright detour."
+        "Shy lines the safe track with yellow leaves."
       ],
-      "answer": "The stone sinks. Mud covers the usual trail.",
+      "answer": "Shy lays one flat stone across the bubbles.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The stone sinks. Mud covers the usual trail. This shows that the first attempt does not solve the central problem introduced by Shy spots bubbles under the Fernwood path.",
-      "evidencePage": 4,
-      "evidenceText": "The stone sinks. Mud covers the usual trail."
+      "rationale": "Shy lays one flat stone across the bubbles. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Shy lays one flat stone across the bubbles."
     },
     {
       "id": "dino-pals-22-shys-sinking-path-q3",
       "prompt": "Which event solves the problem in Shy's Sinking Path?",
       "choices": [
-        "Every berry basket follows Shy's bright detour.",
+        "Shy lines the safe track with yellow leaves.",
         "Shy spots bubbles under the Fernwood path.",
-        "The stone sinks. Mud covers the usual trail."
+        "Shy lays one flat stone across the bubbles."
       ],
-      "answer": "Every berry basket follows Shy's bright detour.",
+      "answer": "Shy lines the safe track with yellow leaves.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Every berry basket follows Shy's bright detour. This event shows how the central problem is resolved after The stone sinks. Mud covers the usual trail.",
-      "evidencePage": 8,
-      "evidenceText": "Every berry basket follows Shy's bright detour."
+      "rationale": "Shy lines the safe track with yellow leaves. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "Shy lines the safe track with yellow leaves."
     }
   ]
 }

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "gr-a-28-q1",
-      "prompt": "Which fact about an apple is given in Colors?",
+      "prompt": "Which sentence tells about an apple in Colors?",
       "choices": [
         "An apple can look red.",
         "The Sun can look yellow.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "gr-a-28-q2",
-      "prompt": "Which fact about the Sun is given in Colors?",
+      "prompt": "Which sentence tells about the Sun in Colors?",
       "choices": [
         "The Sun can look yellow.",
         "An apple can look red.",

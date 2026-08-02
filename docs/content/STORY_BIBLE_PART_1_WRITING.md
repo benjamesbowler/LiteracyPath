@@ -457,6 +457,64 @@ Weak:
 
 > Flint learned that listening is always better than rushing.
 
+### 6.5 Natural voice edit
+
+Readable is not enough. A sentence can be grammatical and still sound as if it came from
+a report, a lesson plan or a text generator. Every manuscript therefore needs a separate
+natural-voice edit after its reading-level edit.
+
+Use these rules:
+
+- Put the thing on the page. Prefer a warm windowsill, a muddy paw or a bent red hat to
+  *warmth*, *curiosity*, *teamwork* or another abstract label.
+- Let behaviour reveal character. Do not convert several funny actions into a neat list of
+  personality traits.
+- Use the words that character would actually choose. Child dialogue is usually shorter,
+  less formal and less complete than narration. Use contractions when the reading level
+  allows them.
+- Give different characters different rhythms, favourite words and ways of avoiding a
+  question. If a line can move to another character unchanged, rewrite it.
+- Vary sentence length and openings within the level limits. Reject a run of sentences with
+  the same shape, repeated three-part lists or a metronomic subject-verb-object rhythm.
+- Remove empty intensifiers, scene summaries and explanations that add no new picture or
+  action. Strong nouns and verbs should carry the sentence.
+- Keep one small surprise, joke, awkward pause or imperfect response when it belongs to the
+  character. Do not polish every exchange into equally helpful, equally sensible speech.
+- End on an action, image or line of dialogue when possible. Do not add a tidy optimistic
+  conclusion to explain what the child should have understood.
+- Read every page sequence aloud twice. Rewrite any tongue-catch, unnatural emphasis,
+  repeated cadence or line that no adult would comfortably say to a child.
+
+Reject:
+
+> They learned he loved warmth, shiny objects and interesting work.
+
+That describes a puppy like an employee appraisal. Show the puppy or let a person speak:
+
+> “Hide anything shiny,” Uncle Eddie said, “and shut the airing cupboard.”
+
+The second line belongs to this dog, this family and this moment. It also gives the
+illustrator and the child something concrete to picture.
+
+Editorial test: remove the character names and world nouns. If the sentence still reads like
+a generic summary that could fit almost any story, it has not passed.
+
+Research basis for this standard:
+
+- George Mason University's Writing Center recommends saying exactly what is meant,
+  deleting words without lost meaning, using concrete examples and reading prose aloud.
+- Texas A&M's Writing Center recommends reading aloud and varying sentence lengths, types
+  and openings to improve rhythm and flow.
+- Expert readers in the ACL 2025 study *What Makes AI-Generated Text Detectable?* repeatedly
+  identified predictable structure, repetitive or overly formal wording, homogeneous voices,
+  over-explanation and overly tidy positive conclusions as signs of generated prose.
+
+Sources:
+
+- https://writingcenter.gmu.edu/writing-resources/general-writing-practices/writing-concisely
+- https://writingcenter.tamu.edu/guides/resources/flow.html
+- https://aclanthology.org/2025.acl-long.267/
+
 ---
 
 ## 7. Story creation workflow

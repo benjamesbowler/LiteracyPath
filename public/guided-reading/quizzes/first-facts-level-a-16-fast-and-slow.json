@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-16-fast-and-slow-q1",
-      "prompt": "What do we learn about a car?",
+      "prompt": "Which sentence tells about a car in Fast and Slow?",
       "choices": [
         "A car can move fast.",
         "A jet moves very fast.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-16-fast-and-slow-q2",
-      "prompt": "What do we learn about a jet?",
+      "prompt": "Which sentence tells about a jet in Fast and Slow?",
       "choices": [
         "A jet moves very fast.",
         "A car can move fast.",

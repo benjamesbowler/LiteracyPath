@@ -6,11 +6,11 @@
   "questions": [
     {
       "id": "first-facts-a-18-the-moon-q1",
-      "prompt": "Which fact about the Moon is given in The Moon?",
+      "prompt": "What is the Moon?",
       "choices": [
         "The Moon is Earth's natural satellite.",
-        "We see different sunlit parts during Moon phases.",
-        "The Moon can appear by day or night."
+        "The Moon is Earth's second Sun.",
+        "The Moon is Earth's largest ocean."
       ],
       "answer": "The Moon is Earth's natural satellite.",
       "kind": "text",

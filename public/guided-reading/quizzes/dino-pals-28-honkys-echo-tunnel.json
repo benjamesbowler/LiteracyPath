@@ -10,7 +10,7 @@
       "choices": [
         "Honky finds three tunnels behind Cozy Cave.",
         "Crashing echoes hide every direction at once.",
-        "Honky marks the open tunnel and turns back."
+        "Two branches answer with deep closed echoes."
       ],
       "answer": "Honky finds three tunnels behind Cozy Cave.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Crashing echoes hide every direction at once.",
         "Honky finds three tunnels behind Cozy Cave.",
-        "Honky marks the open tunnel and turns back."
+        "Two branches answer with deep closed echoes."
       ],
       "answer": "Crashing echoes hide every direction at once.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Crashing echoes hide every direction at once. This shows that the first attempt does not solve the central problem introduced by Honky finds three tunnels behind Cozy Cave.",
+      "rationale": "Crashing echoes hide every direction at once. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Crashing echoes hide every direction at once."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-28-honkys-echo-tunnel-q3",
       "prompt": "Which event solves the problem in Honky's Echo Tunnel?",
       "choices": [
-        "Honky marks the open tunnel and turns back.",
+        "Two branches answer with deep closed echoes.",
         "Honky finds three tunnels behind Cozy Cave.",
         "Crashing echoes hide every direction at once."
       ],
-      "answer": "Honky marks the open tunnel and turns back.",
+      "answer": "Two branches answer with deep closed echoes.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Honky marks the open tunnel and turns back. This event shows how the central problem is resolved after Crashing echoes hide every direction at once.",
-      "evidencePage": 8,
-      "evidenceText": "Honky marks the open tunnel and turns back."
+      "rationale": "Two branches answer with deep closed echoes. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "Two branches answer with deep closed echoes."
     }
   ]
 }

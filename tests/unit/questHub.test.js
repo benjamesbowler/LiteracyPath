@@ -20,8 +20,10 @@ test("Sound Seekers keeps the three findable choices and removes the duplicate t
   const threeDimensionalWorld = readFileSync("src/components/quest/world/QuestHub.jsx", "utf8");
   assert.doesNotMatch(pixelWorld, /qp-build-strip|Word progress:/);
   assert.doesNotMatch(threeDimensionalWorld, /qh-phoneme-build|qh-phoneme-slots/);
-  assert.match(pixelWorld, /className=\{`qp-semantic-choices/);
-  assert.match(threeDimensionalWorld, /className=\{`qh-semantic-choices/);
+  assert.match(pixelWorld, /className="q-visually-hidden qp-semantic-choices"/);
+  assert.match(threeDimensionalWorld, /className="q-visually-hidden qh-semantic-choices"/);
+  assert.doesNotMatch(pixelWorld, /qp-semantic-choices\$\{COARSE_POINTER/);
+  assert.doesNotMatch(threeDimensionalWorld, /qh-semantic-choices\$\{COARSE_POINTER/);
 });
 
 test("every curriculum stop becomes one long ordered trail section", () => {

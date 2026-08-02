@@ -619,7 +619,7 @@ function PictureSequenceOrderQuestion({
           onClick={() => answerQuestion(orderedValues.join(" → "))}
           type="button"
         >
-          Check order
+          Put in order
         </button>
       </div>
     </div>

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-04",
-  "contentHash": "sha256:8d45556c71113c69b7e68d073632d8515e979c09caf70d3e075434cda54dad31",
+  "contentHash": "sha256:754e1f44951d8fde24cf63e39dcba86760aa62bd773265cb7f7deed40aa9d429",
   "questions": [
     {
       "id": "ab-c-04-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
         "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
-        "Aiden opened his field notebook. Understanding Socks had finally begun."
+        "Aiden added one last note: Socks sleeps wherever I leave my torch."
       ],
       "answer": "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
         "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
-        "Aiden opened his field notebook. Understanding Socks had finally begun."
+        "Aiden added one last note: Socks sleeps wherever I leave my torch."
       ],
       "answer": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ab-c-04-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and Socks?",
       "choices": [
-        "Aiden opened his field notebook. Understanding Socks had finally begun.",
+        "Aiden added one last note: Socks sleeps wherever I leave my torch.",
         "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
         "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead."
       ],
-      "answer": "Aiden opened his field notebook. Understanding Socks had finally begun.",
+      "answer": "Aiden added one last note: Socks sleeps wherever I leave my torch.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Aiden opened his field notebook. Understanding Socks had finally begun. This event shows how the central problem is resolved.",
+      "rationale": "Aiden added one last note: Socks sleeps wherever I leave my torch. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Aiden opened his field notebook. Understanding Socks had finally begun."
+      "evidenceText": "Aiden added one last note: Socks sleeps wherever I leave my torch."
     }
   ]
 }

@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-07-bugs-q1",
-      "prompt": "What do we learn about a little bug?",
+      "prompt": "Which sentence tells about a little bug in Small Creatures?",
       "choices": [
         "A little bug can fly.",
         "An ant can dig.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-07-bugs-q2",
-      "prompt": "What do we learn about an ant?",
+      "prompt": "Which sentence tells about an ant in Small Creatures?",
       "choices": [
         "An ant can dig.",
         "A little bug can fly.",

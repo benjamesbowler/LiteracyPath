@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-04-the-moon-q2",
-      "prompt": "Which fact about apollo 11 astronauts is given in The Moon?",
+      "prompt": "Which sentence tells about apollo 11 astronauts in The Moon?",
       "choices": [
         "Apollo 11 astronauts first walked on the Moon in 1969.",
         "The rocky Moon orbits Earth about once each month.",

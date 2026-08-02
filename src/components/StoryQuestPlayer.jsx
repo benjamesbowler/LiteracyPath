@@ -11,6 +11,7 @@ import {
   getBrowserFullscreenElement,
   requestBrowserFullscreen
 } from "../utils/browserFullscreen.js";
+import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -125,6 +126,17 @@ export function StoryQuestPlayer({
     if (!currentPageId || isComplete) return;
     onProgress?.(currentPageId, progressSnapshot);
   }, [currentPageId, isComplete, onProgress, progressSnapshot]);
+
+  useEffect(() => {
+    const stopForRouteChange = () => {
+      const audio = audioRef.current;
+      audioRef.current = null;
+      audio?.pause();
+      setIsAudioPlaying(false);
+    };
+    window.addEventListener(STOP_CHILD_AUDIO_EVENT, stopForRouteChange);
+    return () => window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopForRouteChange);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;

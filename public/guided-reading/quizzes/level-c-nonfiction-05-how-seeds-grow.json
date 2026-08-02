@@ -20,7 +20,7 @@
     },
     {
       "id": "level-c-nonfiction-05-how-seeds-grow-q2",
-      "prompt": "Which fact about a shoot is given in How a Flowering Plant Grows?",
+      "prompt": "Which sentence tells about a shoot in How a Flowering Plant Grows?",
       "choices": [
         "A shoot reaches light and opens its first leaves.",
         "Many flowering plants begin as seeds containing embryos and food stores.",

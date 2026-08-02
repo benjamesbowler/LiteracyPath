@@ -226,6 +226,29 @@ function hasCorrectAnswerLengthGiveaway(question = {}) {
   return conspicuouslyLong || conspicuouslyShort;
 }
 
+function targetedDetailFairnessIssues(question = {}) {
+  const prompt = String(question.prompt || "").trim();
+  if (/^What do we learn about\b/i.test(prompt)) {
+    return ["broad 'What do we learn?' wording can make several true book facts defensible"];
+  }
+  const match = prompt.match(/^Which sentence tells about (.+?) in .+\?$/i);
+  if (!match) return [];
+  const targetTokens = uniqueContentTokens(match[1]);
+  if (!targetTokens.length) return ["the detail prompt has no concrete target"];
+  const matchingChoices = (question.choices || []).filter(choice => {
+    const choiceTokens = new Set(uniqueContentTokens(choice));
+    return targetTokens.every(token => choiceTokens.has(token));
+  });
+  const answerTokens = new Set(uniqueContentTokens(question.answer));
+  const answerMatches = targetTokens.every(token => answerTokens.has(token));
+  const issues = [];
+  if (!answerMatches) issues.push("the marked answer does not name the prompt's target");
+  if (matchingChoices.length !== 1) {
+    issues.push(`exactly one choice must name the prompt's target; found ${matchingChoices.length}`);
+  }
+  return issues;
+}
+
 function parseQuizFile(filePath) {
   try {
     return { data: JSON.parse(fs.readFileSync(filePath, "utf8")), error: "" };
@@ -312,6 +335,11 @@ export function auditGuidedReadingQuestionBank({ books = [], quizDirectory = "" 
         }
         if (hasCorrectAnswerLengthGiveaway(question)) {
           bookFailures.push(`${label}: correct answer is a conspicuous length outlier among its choices`);
+        }
+        if (book.type === "nonfiction" && question.skill !== "main_idea") {
+          targetedDetailFairnessIssues(question).forEach(issue => (
+            bookFailures.push(`${label}: detail-question fairness: ${issue}`)
+          ));
         }
 
         const normalizedPrompt = normalizeText(question.prompt);

@@ -29,7 +29,7 @@
       "answer": "Fern sings calmly. The root copies each note with a loop.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Fern sings calmly. The root copies each note with a loop. This shows that the first attempt does not solve the central problem introduced by A silver root curls across Hollow Oak's front step.",
+      "rationale": "Fern sings calmly. The root copies each note with a loop. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Fern sings calmly. The root copies each note with a loop."
     },
@@ -44,7 +44,7 @@
       "answer": "Three spaced taps guide it around the frame.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Three spaced taps guide it around the frame. This event shows how the central problem is resolved after Fern sings calmly. The root copies each note with a loop.",
+      "rationale": "Three spaced taps guide it around the frame. This event shows how the central problem is resolved.",
       "evidencePage": 9,
       "evidenceText": "Three spaced taps guide it around the frame."
     }

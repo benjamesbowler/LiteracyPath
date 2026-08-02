@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-a-19-day-and-night-q1",
-      "prompt": "Which fact about sunlight is given in Day and Night?",
+      "prompt": "Which sentence tells about sunlight in Day and Night?",
       "choices": [
         "Sunlight brightens one side of Earth.",
         "Earth rotates all day and night.",
@@ -20,11 +20,11 @@
     },
     {
       "id": "first-facts-a-19-day-and-night-q2",
-      "prompt": "Which fact about Earth is given in Day and Night?",
+      "prompt": "What does Earth do all day and night?",
       "choices": [
         "Earth rotates all day and night.",
-        "Sunlight brightens one side of Earth.",
-        "The cycle repeats as Earth turns."
+        "Earth stops all day and night.",
+        "Earth shrinks all day and night."
       ],
       "answer": "Earth rotates all day and night.",
       "kind": "text",

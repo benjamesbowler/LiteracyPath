@@ -6,7 +6,7 @@
   "questions": [
     {
       "id": "first-facts-level-a-06-animals-can-q1",
-      "prompt": "What do we learn about a dog?",
+      "prompt": "Which sentence tells about a dog in Animals Can?",
       "choices": [
         "A dog can run.",
         "A fish can swim.",
@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-level-a-06-animals-can-q2",
-      "prompt": "What do we learn about a fish?",
+      "prompt": "Which sentence tells about a fish in Animals Can?",
       "choices": [
         "A fish can swim.",
         "A dog can run.",

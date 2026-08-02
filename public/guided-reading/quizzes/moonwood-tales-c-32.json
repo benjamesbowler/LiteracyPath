@@ -10,7 +10,7 @@
       "choices": [
         "Flint tests his lantern before carrying maps through Deep Dark.",
         "Flint follows the darker shadow and meets a fern wall.",
-        "One clear shadow now points away from every root."
+        "Flint enters Deep Dark with the tested lantern held low."
       ],
       "answer": "Flint tests his lantern before carrying maps through Deep Dark.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Flint follows the darker shadow and meets a fern wall.",
         "Flint tests his lantern before carrying maps through Deep Dark.",
-        "One clear shadow now points away from every root."
+        "Flint enters Deep Dark with the tested lantern held low."
       ],
       "answer": "Flint follows the darker shadow and meets a fern wall.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Flint follows the darker shadow and meets a fern wall. This shows that the first attempt does not solve the central problem introduced by Flint tests his lantern before carrying maps through Deep Dark.",
+      "rationale": "Flint follows the darker shadow and meets a fern wall. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Flint follows the darker shadow and meets a fern wall."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-32-q3",
       "prompt": "Which event resolves the central problem in Flint's Two Shadows?",
       "choices": [
-        "One clear shadow now points away from every root.",
+        "Flint enters Deep Dark with the tested lantern held low.",
         "Flint tests his lantern before carrying maps through Deep Dark.",
         "Flint follows the darker shadow and meets a fern wall."
       ],
-      "answer": "One clear shadow now points away from every root.",
+      "answer": "Flint enters Deep Dark with the tested lantern held low.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "One clear shadow now points away from every root. This event shows how the central problem is resolved after Flint follows the darker shadow and meets a fern wall.",
-      "evidencePage": 9,
-      "evidenceText": "One clear shadow now points away from every root."
+      "rationale": "Flint enters Deep Dark with the tested lantern held low. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Flint enters Deep Dark with the tested lantern held low."
     }
   ]
 }

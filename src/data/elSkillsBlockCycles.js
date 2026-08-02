@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
+import { makeChildFacingTextSafe } from "../utils/childFacingText.js";
+
 export const EL_LEARN_SECTION_IDS = [
   "overview",
   "letterLearning",
@@ -1351,7 +1353,7 @@ function buildCycle(seed) {
       ...(seed.phonemicAwareness || [])
     ].filter(Boolean).join(" ").toLowerCase()
   };
-  return applyPriorityCycleContent(cycle);
+  return makeChildFacingTextSafe(applyPriorityCycleContent(cycle));
 }
 
 export const elSkillsBlockCycles = CYCLE_SEEDS.map(buildCycle);

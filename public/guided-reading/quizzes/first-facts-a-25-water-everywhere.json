@@ -20,7 +20,7 @@
     },
     {
       "id": "first-facts-a-25-water-everywhere-q2",
-      "prompt": "Which fact about people is given in Water Everywhere?",
+      "prompt": "Which sentence tells about people in Water Everywhere?",
       "choices": [
         "People drink water every day.",
         "Water fills oceans rivers and clouds.",

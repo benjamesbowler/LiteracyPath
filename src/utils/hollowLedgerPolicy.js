@@ -32,7 +32,20 @@ export function boundedHollowPurchases(records = []) {
   // Keep the earliest accepted history. Purchases are irreversible ownership
   // and spend records; if a corrupt legacy ledger exceeds the generous cap,
   // retaining later rows at the expense of early gear would take items away.
-  return uniqueHollowRecords(records).slice(0, MAX_HOLLOW_PURCHASE_RECORDS);
+  const ownedOnce = new Set();
+  return uniqueHollowRecords(records).filter(record => {
+    const itemId = String(record?.item || "");
+    if (!itemId) return true;
+    // Priced eggs may repeat because each one hatches. Every other catalogue
+    // item is owned once; two devices buying the same item before sync must not
+    // charge the child twice when those ledgers meet. The welcome egg is also
+    // a one-time gift despite its egg-shaped id.
+    const repeatable = itemId.startsWith("egg-") && itemId !== "egg-welcome";
+    if (repeatable) return true;
+    if (ownedOnce.has(itemId)) return false;
+    ownedOnce.add(itemId);
+    return true;
+  }).slice(0, MAX_HOLLOW_PURCHASE_RECORDS);
 }
 
 export function boundedHollowFeeds(records = []) {

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-09",
-  "contentHash": "sha256:10cc31fe7c1a99dadd811cb80bc45833f72391c5e5edb29e64c8a83268dd92b1",
+  "contentHash": "sha256:6f6fe27af191c76638c049aa6432097d0fcd850ba0708f0c0d7237633d8831b6",
   "questions": [
     {
       "id": "ab-c-09-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Aiden bit an apple and felt one front tooth wobble.",
         "Mum explained that loose baby teeth were normal, but he still wondered.",
-        "Aiden welcomed the new tooth. Now he knew what growing could feel like."
+        "Aiden could not stop checking the new tooth with his tongue."
       ],
       "answer": "Aiden bit an apple and felt one front tooth wobble.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Mum explained that loose baby teeth were normal, but he still wondered.",
         "Aiden bit an apple and felt one front tooth wobble.",
-        "Aiden welcomed the new tooth. Now he knew what growing could feel like."
+        "Aiden could not stop checking the new tooth with his tongue."
       ],
       "answer": "Mum explained that loose baby teeth were normal, but he still wondered.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ab-c-09-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty: New Teeth?",
       "choices": [
-        "Aiden welcomed the new tooth. Now he knew what growing could feel like.",
+        "Aiden could not stop checking the new tooth with his tongue.",
         "Aiden bit an apple and felt one front tooth wobble.",
         "Mum explained that loose baby teeth were normal, but he still wondered."
       ],
-      "answer": "Aiden welcomed the new tooth. Now he knew what growing could feel like.",
+      "answer": "Aiden could not stop checking the new tooth with his tongue.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Aiden welcomed the new tooth. Now he knew what growing could feel like. This event shows how the central problem is resolved.",
+      "rationale": "Aiden could not stop checking the new tooth with his tongue. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "Aiden welcomed the new tooth. Now he knew what growing could feel like."
+      "evidenceText": "Aiden could not stop checking the new tooth with his tongue."
     }
   ]
 }

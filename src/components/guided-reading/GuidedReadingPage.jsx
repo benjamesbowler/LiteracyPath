@@ -58,8 +58,14 @@ import {
   requestBrowserFullscreen
 } from "../../utils/browserFullscreen.js";
 import { ReadingSessionBar } from "./ReadingSessionBar.jsx";
-import { promptForReadingMarkTarget } from "./readingSessionUi.js";
+import {
+  canUseGuidedReadingReadAloud,
+  getActiveGuidedReadingSessionHost,
+  promptForReadingMarkTarget
+} from "./readingSessionUi.js";
 import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
+import { STOP_CHILD_AUDIO_EVENT } from "../../utils/audio/childAudioLifecycle.js";
+import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 const GUIDED_READING_WORD_RATE = 0.9;
@@ -531,6 +537,7 @@ export function GuidedReadingPage({
   const missionReturnPendingRef = useRef(false);
   const pageAudioRef = useRef(null);
   const wordSupportAudioRef = useRef(null);
+  const wordSupportElementRef = useRef(null);
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
   const wholeBookAbortRef = useRef(null);
@@ -548,14 +555,19 @@ export function GuidedReadingPage({
   const prefersReducedMotion = useReducedMotion();
   const runtimeGuidedReadingBooks = useMemo(() => getRuntimeGuidedReadingBooks(), []);
   const runtimeSelectedBook = runtimeGuidedReadingBooks.find(book => book.id === selectedBookId) || runtimeGuidedReadingBooks[0];
-  const selectedBook = useMemo(() => sessionHost?.session && runtimeSelectedBook?.id === sessionHost.session.book_id
+  const isStudentMode = mode === "student";
+  const isClassMode = mode === "class";
+  const activeSessionHost = getActiveGuidedReadingSessionHost(mode, sessionHost);
+  const activeGroupSession = activeSessionHost?.session || null;
+  const readAloudControlsEnabled = canUseGuidedReadingReadAloud(mode, sessionHost);
+  const selectedBook = useMemo(() => activeGroupSession && runtimeSelectedBook?.id === activeGroupSession.book_id
     ? {
         ...runtimeSelectedBook,
-        pages: (sessionHost.session.page_numbers || [])
+        pages: (activeGroupSession.page_numbers || [])
           .map(pageNumber => runtimeSelectedBook.pages.find(item => item.pageNumber === pageNumber))
           .filter(Boolean)
       }
-    : runtimeSelectedBook, [runtimeSelectedBook, sessionHost?.session]);
+    : runtimeSelectedBook, [activeGroupSession, runtimeSelectedBook]);
   const page = selectedBook?.pages?.[pageIndex];
   const readingMeasure = getGuidedReadingMeasure(selectedBook?.level);
   const record = guidedReadingRecords[selectedBook?.id] || {
@@ -585,19 +597,17 @@ export function GuidedReadingPage({
   const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
-  const isStudentMode = mode === "student";
   // "class" is the whole-class read opened from the Resources shelf: a teacher
   // reading to the room, with no single student to attribute anything to. It
   // keeps every reading tool and drops every capture control, because a note or
   // a running record with nobody to save it against is discarded silently.
-  const isClassMode = mode === "class";
-  const canRecord = !isStudentMode && (!isClassMode || Boolean(sessionHost?.session));
+  const canRecord = !isStudentMode && (!isClassMode || Boolean(activeGroupSession));
   const canShowScoreSummary = shouldShowGuidedReadingScoreSummary({ mode, studentId });
   const scoreSummaryOpen = showSummary && canShowScoreSummary;
-  const sessionWordMarks = sessionHost?.markTarget
-    ? sessionHost.marksByStudent?.[sessionHost.markTarget.id]?.[pageIndex] || {}
+  const sessionWordMarks = activeSessionHost?.markTarget
+    ? activeSessionHost.marksByStudent?.[activeSessionHost.markTarget.id]?.[pageIndex] || {}
     : {};
-  const displayedWordMarks = sessionHost?.session ? sessionWordMarks : currentPageRecord.wordMarks || {};
+  const displayedWordMarks = activeGroupSession ? sessionWordMarks : currentPageRecord.wordMarks || {};
   const guidedReadingSurfaceLabel = isStudentMode
     ? "Reading library"
     : isClassMode
@@ -608,6 +618,11 @@ export function GuidedReadingPage({
     : TEACHER_COPY.guidedReading.controls;
   const changeInitialBook = useEffectEvent(bookId => changeBook(bookId));
   const stopCurrentPageAudio = useEffectEvent(() => stopPageAudio());
+  const stopAllGuidedReadingAudio = useEffectEvent(() => {
+    wordSupportPlaybackTokenRef.current += 1;
+    stopWordSupportAudio();
+    stopPageAudio();
+  });
   const recordCurrentGuidedPageVisit = useEffectEvent(nextPageIndex => {
     recordGuidedPageVisit(nextPageIndex);
   });
@@ -632,13 +647,13 @@ export function GuidedReadingPage({
   }, [initialBookId]);
 
   useEffect(() => {
-    if (!sessionHost?.session) return;
-    setSelectedBookId(sessionHost.session.book_id);
-    setPageIndex(sessionHost.session.page_index || 0);
+    if (!activeGroupSession) return;
+    setSelectedBookId(activeGroupSession.book_id);
+    setPageIndex(activeGroupSession.page_index || 0);
     setReaderOpen(true);
     setReadingMode("marking");
     setIsReaderFullscreen(false);
-  }, [sessionHost?.session]);
+  }, [activeGroupSession]);
 
   useEffect(() => {
     if (!readerOpen || !selectedBook || !page) return;
@@ -738,6 +753,11 @@ export function GuidedReadingPage({
     readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page",
     guidedReadingModeClass
   ].join(" ");
+
+  useEffect(() => {
+    window.addEventListener(STOP_CHILD_AUDIO_EVENT, stopAllGuidedReadingAudio);
+    return () => window.removeEventListener(STOP_CHILD_AUDIO_EVENT, stopAllGuidedReadingAudio);
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -999,7 +1019,7 @@ export function GuidedReadingPage({
   }
 
   function cycleWordMark(wordIndex) {
-    if (sessionHost?.session && !sessionHost.markTarget) {
+    if (activeGroupSession && !activeSessionHost.markTarget) {
       promptForReadingMarkTarget(document.querySelector(".reading-session-bar"));
       return;
     }
@@ -1010,9 +1030,9 @@ export function GuidedReadingPage({
     if (next) wordMarks[wordIndex] = next;
     else delete wordMarks[wordIndex];
 
-    if (sessionHost?.session) {
-      sessionHost.onMark(
-        sessionHost.markTarget.id,
+    if (activeGroupSession) {
+      activeSessionHost.onMark(
+        activeSessionHost.markTarget.id,
         pageIndex,
         wordIndex,
         next
@@ -1140,13 +1160,13 @@ export function GuidedReadingPage({
   function goToPreviousPage() {
     const nextIndex = Math.max(0, pageIndex - 1);
     setPageIndex(nextIndex);
-    if (nextIndex !== pageIndex) sessionHost?.onTurn?.(nextIndex);
+    if (nextIndex !== pageIndex) activeSessionHost?.onTurn?.(nextIndex);
   }
 
   function goToNextPage() {
     const nextIndex = Math.min(selectedBook.pages.length - 1, pageIndex + 1);
     setPageIndex(nextIndex);
-    if (nextIndex !== pageIndex) sessionHost?.onTurn?.(nextIndex);
+    if (nextIndex !== pageIndex) activeSessionHost?.onTurn?.(nextIndex);
   }
 
   function handlePageTouchStart(event) {
@@ -1539,17 +1559,19 @@ export function GuidedReadingPage({
     );
   }
 
-  async function findExistingGuidedReadingWordAudio(word = {}) {
+  function findExistingGuidedReadingWordAudio(word = {}) {
     const candidates = [...new Set(getGuidedReadingWordAudioCandidates(word))];
-    for (const candidate of candidates) {
-      try {
-        const response = await fetch(candidate, { method: "HEAD" });
-        if (response.ok) return candidate;
-      } catch {
-        // Try the next candidate. Missing word audio is reported below in development.
-      }
-    }
-    return "";
+    return candidates.find(candidate => AUDIO_FILE_PATHS.has(candidate)) || "";
+  }
+
+  function prepareWordSupportAudio(audioPath) {
+    const audio = wordSupportElementRef.current || new Audio();
+    wordSupportElementRef.current = audio;
+    audio.pause();
+    audio.currentTime = 0;
+    audio.src = audioPath;
+    audio.load();
+    return audio;
   }
 
   function stopWordSupportAudio() {
@@ -1570,7 +1592,7 @@ export function GuidedReadingPage({
       stopWordSupportAudio();
     }
     setLoadingWordAudioIndex(wordIndex);
-    const resolvedAudioPath = await findExistingGuidedReadingWordAudio(word);
+    const resolvedAudioPath = findExistingGuidedReadingWordAudio(word);
     if (playbackToken !== wordSupportPlaybackTokenRef.current) {
       return resolvedAudioPath;
     }
@@ -1595,7 +1617,7 @@ export function GuidedReadingPage({
         window.speechSynthesis.cancel();
       }
       stopWordSupportAudio();
-      const audio = new Audio(resolvedAudioPath);
+      const audio = prepareWordSupportAudio(resolvedAudioPath);
       wordSupportAudioRef.current = audio;
       audio.playbackRate = GUIDED_READING_WORD_RATE;
       audio.volume = applyLearnerAudioIntensity(1);
@@ -1628,7 +1650,7 @@ export function GuidedReadingPage({
     for (const audioPath of audioPaths) {
       if (playbackToken !== wordSupportPlaybackTokenRef.current) return;
       await new Promise(resolve => {
-        const audio = new Audio(audioPath);
+        const audio = prepareWordSupportAudio(audioPath);
         wordSupportAudioRef.current = audio;
         audio.playbackRate = 0.88;
         audio.volume = applyLearnerAudioIntensity(1);
@@ -1716,7 +1738,7 @@ export function GuidedReadingPage({
       setFocusedSentenceIndex(sentenceIndexForWord(wordIndex) ?? 0);
     }
 
-    if (sessionHost?.session) {
+    if (activeGroupSession) {
       cycleWordMark(wordIndex);
       return;
     }
@@ -1829,10 +1851,10 @@ export function GuidedReadingPage({
         </div>
       )}
 
-      {sessionHost?.session && (
+      {activeGroupSession && (
         <ReadingSessionBar
           book={selectedBook}
-          host={sessionHost}
+          host={activeSessionHost}
           pageCount={selectedBook.pages.length}
           pageIndex={pageIndex}
         />
@@ -2210,7 +2232,7 @@ export function GuidedReadingPage({
                     Narration is on — each page reads aloud.
                   </p>
                 )}
-                {!sessionHost?.session && <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">
+                {readAloudControlsEnabled && <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">
                   <button
                     className={[
                       "lp-button lp-button-primary guided-read-page-primary",
@@ -2257,7 +2279,7 @@ export function GuidedReadingPage({
                     Page {pageIndex + 1} of {selectedBook.pages.length}
                   </p>
                 )}
-                {!sessionHost?.session && !isReaderFullscreen && !isStudentMode && (
+                {!activeGroupSession && !isReaderFullscreen && !isStudentMode && (
                   <label className="guided-auto-advance-toggle">
                     <input
                       checked={autoAdvanceReadAloud}
@@ -2288,7 +2310,7 @@ export function GuidedReadingPage({
                   </div>
                 )}
                 <div className="guided-reader-secondary-controls" role="group" aria-label="Reader view controls">
-                  {canRecord && !sessionHost?.session && !isReaderFullscreen && (
+                  {canRecord && !activeGroupSession && !isReaderFullscreen && (
                     <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
                       {TEACHER_COPY.guidedReading.controls.teacherNotes}
                     </button>
@@ -2304,10 +2326,10 @@ export function GuidedReadingPage({
                   >
                     {readerCopy.lineFocus}
                   </button>
-                  {!sessionHost?.session && <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
+                  {!activeGroupSession && <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
                     {isReaderFullscreen ? readerCopy.exitFullScreen : readerCopy.fullScreen}
                   </button>}
-                  {!sessionHost?.session && !isReaderFullscreen && (
+                  {!activeGroupSession && !isReaderFullscreen && (
                     <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
                       {isStudentMode ? readerCopy.backToLibrary : readerCopy.closeReader}
                     </button>
@@ -2332,9 +2354,9 @@ export function GuidedReadingPage({
                       : "Listen or tap words, then talk about the ideas."}
                   </span>
                 </div>
-              ) : sessionHost?.session ? (
+              ) : activeGroupSession ? (
                 <div className="guided-session-mark-legend">
-                  <strong>{sessionHost.markTarget ? `Listening to ${sessionHost.markTarget.name}` : "Choose who is reading"}</strong>
+                  <strong>{activeSessionHost.markTarget ? `Listening to ${activeSessionHost.markTarget.name}` : "Choose who is reading"}</strong>
                   <span>Tap words to mark read correctly or needs support.</span>
                 </div>
               ) : canRecord ? (
@@ -2357,7 +2379,7 @@ export function GuidedReadingPage({
               ) : null}
               {!isStudentMode && (
                 <p>
-                  {sessionHost?.session
+                  {activeGroupSession
                     ? "The selected child's name stays beside the marking guide. Choose again after every page turn."
                     : isClassMode
                     ? "Tap a word for help: hear the word, use its sounds, then reread the sentence. Nothing is saved against a student on a whole-class read."
@@ -2435,11 +2457,11 @@ export function GuidedReadingPage({
                               onClick={event => handleWordClick(item.token, item.wordIndex, event)}
                               onContextMenu={event => {
                                 event.preventDefault();
-                                if (!sessionHost?.session) {
+                                if (!activeGroupSession) {
                                   playWordAudio({ text: item.token }, item.wordIndex);
                                 }
                               }}
-                              title={sessionHost?.session
+                              title={activeGroupSession
                                 ? "Mark word"
                                 : readingMode === "marking"
                                   ? "Mark word. Alt-click for the reading-help ladder or right-click to hear the whole word."
@@ -2492,7 +2514,7 @@ export function GuidedReadingPage({
                     </div>
                   )}
 
-                  {canRecord && !sessionHost?.session && !isReaderFullscreen && <details className="guided-note-drawer">
+                  {canRecord && !activeGroupSession && !isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Page notes</summary>
                     <label className="guided-note-field">
                       <strong>Page note</strong>

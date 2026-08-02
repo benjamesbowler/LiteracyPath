@@ -10,7 +10,7 @@
       "choices": [
         "Rain threatens Fern's ten dry moonberries.",
         "Each new berry pops the last one onto the path.",
-        "The single bundle slips into the weightless pocket."
+        "Rain drums outside while ten berries fill Fern's bowl."
       ],
       "answer": "Rain threatens Fern's ten dry moonberries.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Each new berry pops the last one onto the path.",
         "Rain threatens Fern's ten dry moonberries.",
-        "The single bundle slips into the weightless pocket."
+        "Rain drums outside while ten berries fill Fern's bowl."
       ],
       "answer": "Each new berry pops the last one onto the path.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Each new berry pops the last one onto the path. This shows that the first attempt does not solve the central problem introduced by Rain threatens Fern's ten dry moonberries.",
+      "rationale": "Each new berry pops the last one onto the path. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
       "evidenceText": "Each new berry pops the last one onto the path."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-29-q3",
       "prompt": "Which event resolves the central problem in Wren's One-Object Pocket?",
       "choices": [
-        "The single bundle slips into the weightless pocket.",
+        "Rain drums outside while ten berries fill Fern's bowl.",
         "Rain threatens Fern's ten dry moonberries.",
         "Each new berry pops the last one onto the path."
       ],
-      "answer": "The single bundle slips into the weightless pocket.",
+      "answer": "Rain drums outside while ten berries fill Fern's bowl.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The single bundle slips into the weightless pocket. This event shows how the central problem is resolved after Each new berry pops the last one onto the path.",
-      "evidencePage": 9,
-      "evidenceText": "The single bundle slips into the weightless pocket."
+      "rationale": "Rain drums outside while ten berries fill Fern's bowl. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Rain drums outside while ten berries fill Fern's bowl."
     }
   ]
 }

@@ -10,7 +10,7 @@
       "choices": [
         "Cold tree sap glues Luna's paper stars into one stack.",
         "Its points curl inward while the deeper sap stays cold.",
-        "Glimmer lifts each flat star without tearing a point."
+        "Heat rises slowly and softens every layer of sap."
       ],
       "answer": "Cold tree sap glues Luna's paper stars into one stack.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Its points curl inward while the deeper sap stays cold.",
         "Cold tree sap glues Luna's paper stars into one stack.",
-        "Glimmer lifts each flat star without tearing a point."
+        "Heat rises slowly and softens every layer of sap."
       ],
       "answer": "Its points curl inward while the deeper sap stays cold.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Its points curl inward while the deeper sap stays cold. This shows that the first attempt does not solve the central problem introduced by Cold tree sap glues Luna's paper stars into one stack.",
+      "rationale": "Its points curl inward while the deeper sap stays cold. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
       "evidenceText": "Its points curl inward while the deeper sap stays cold."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-33-q3",
       "prompt": "Which event resolves the central problem in Glimmer and the Sticky Stars?",
       "choices": [
-        "Glimmer lifts each flat star without tearing a point.",
+        "Heat rises slowly and softens every layer of sap.",
         "Cold tree sap glues Luna's paper stars into one stack.",
         "Its points curl inward while the deeper sap stays cold."
       ],
-      "answer": "Glimmer lifts each flat star without tearing a point.",
+      "answer": "Heat rises slowly and softens every layer of sap.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Glimmer lifts each flat star without tearing a point. This event shows how the central problem is resolved after Its points curl inward while the deeper sap stays cold.",
-      "evidencePage": 9,
-      "evidenceText": "Glimmer lifts each flat star without tearing a point."
+      "rationale": "Heat rises slowly and softens every layer of sap. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "Heat rises slowly and softens every layer of sap."
     }
   ]
 }
