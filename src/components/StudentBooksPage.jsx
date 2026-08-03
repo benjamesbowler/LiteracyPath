@@ -33,6 +33,7 @@ import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js
 import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
+import { filterApprovedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
   KNOWLEDGE_JOURNEYS,
@@ -142,6 +143,8 @@ export function StudentBooksPage({
   // screen that draws an empty library because nobody passed it a list is the
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
+  approvedBookIds = null,
+  publicationStatus = "ready",
   guidedReadingRecords = {},
   studentProgress = null,
   recommendationEvidenceReady = true,
@@ -170,7 +173,12 @@ export function StudentBooksPage({
   // Memoised, not a default parameter: the list is 176 books deep and every
   // call rebuilds it, which would also hand a new array identity to every
   // memo below on every render.
-  const library = useMemo(() => books || getRuntimeGuidedReadingBooks(), [books]);
+  const library = useMemo(() => {
+    const runtimeBooks = books || getRuntimeGuidedReadingBooks();
+    return approvedBookIds === null
+      ? runtimeBooks
+      : filterApprovedGuidedReadingBooks(runtimeBooks, approvedBookIds);
+  }, [approvedBookIds, books]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is
@@ -267,7 +275,39 @@ export function StudentBooksPage({
   }
 
   if (openBookId && renderReader && library.some(book => book.id === openBookId)) {
-    return renderReader({ bookId: openBookId, onExit: () => setOpenBookId("") });
+    return renderReader({ bookId: openBookId, books: library, onExit: () => setOpenBookId("") });
+  }
+
+  if (library.length === 0) {
+    const libraryMessage = publicationStatus === "loading"
+      ? "Your books are getting ready."
+      : publicationStatus === "ready"
+        ? "Your grown-ups are preparing your reading choices."
+        : "Books are not available right now. Ask a grown-up to try again later.";
+    return (
+      <StudentGlassShell
+        studentName={studentName}
+        scopeKey={progressScopeKey}
+        active="books"
+        onNavigate={onNavigate}
+        onHome={onHome}
+        onGrownUps={onGrownUps}
+      >
+        <div className="kg-screen kg-books kg-books-empty" data-child-surface="reading-library" data-library-empty="true">
+          <div className="kg-books-head">
+            <div>
+              <h1 className="kg-title" data-child-title="">Books</h1>
+              <p className="kg-body kg-books-headline" data-child-instruction="">{libraryMessage}</p>
+            </div>
+          </div>
+          <div className="kg-glass kg-library-preparing" role="status">
+            <span aria-hidden="true">📚</span>
+            <strong>Come back soon</strong>
+            <p>There are no reading books to choose just yet.</p>
+          </div>
+        </div>
+      </StudentGlassShell>
+    );
   }
 
   return (

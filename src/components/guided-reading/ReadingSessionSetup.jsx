@@ -4,9 +4,11 @@ import { warmQuestOfflineAssets } from "../../utils/offlineShell.js";
 import { TeacherFunnelStep } from "../TeacherFunnelStep.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import "./readingSession.css";
+import { filterApprovedGuidedReadingBooks } from "../../data/guidedReadingPublication.js";
 
 export function ReadingSessionSetup({
   open,
+  approvedBookIds = [],
   client,
   classId,
   students = [],
@@ -26,10 +28,13 @@ export function ReadingSessionSetup({
     let active = true;
     import("../../utils/guidedReading/runtimeBooks.js").then(module => {
       if (!active) return;
-      setBooks(module.getRuntimeGuidedReadingBooks());
+      setBooks(filterApprovedGuidedReadingBooks(
+        module.getRuntimeGuidedReadingBooks(),
+        approvedBookIds
+      ));
     });
     return () => { active = false; };
-  }, [open]);
+  }, [approvedBookIds, open]);
 
   useEffect(() => {
     if (step === 2) secondStepRef.current?.focus();
@@ -107,6 +112,9 @@ export function ReadingSessionSetup({
           title="Choose the book"
         >
           <div className="reading-session-book-grid">
+            {books.length === 0 && (
+              <p>No Guided Reading books have been approved for children yet.</p>
+            )}
             {books.map(book => (
               <button
                 aria-pressed={book.id === bookId}

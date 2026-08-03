@@ -24,7 +24,7 @@ const sessionControllerSource = readFileSync(
 
 test("every operational Admin page has one stable direct URL", () => {
   const entries = Object.entries(ADMIN_SECTION_ROUTES);
-  assert.equal(entries.length, 8);
+  assert.equal(entries.length, 9);
   assert.equal(new Set(entries.map(([, route]) => route.path)).size, entries.length);
   for (const [sectionId, expected] of entries) {
     assert.deepEqual(adminRouteForPath(expected.path), {

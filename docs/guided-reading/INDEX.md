@@ -11,6 +11,20 @@ Every readable word and page narration must resolve through the current producti
 audio paths. Continuous reading follows page order and page timing. Current automated
 coverage tests enforce these contracts.
 
+Child publication is fail-closed and controlled by the app-admin role. A book with
+no review row is awaiting review and is hidden from every child surface. A passed
+book has an `approved` row and becomes available immediately. A failed book has a
+`quarantined` row with a required repair note and remains hidden until it passes a
+later review. The current authority for this gate is:
+
+- `supabase/migrations/20260803120000_guided_reading_publication_gate.sql`
+- `src/data/guidedReadingPublication.js`
+- `src/components/admin/GuidedReadingReviewPanel.jsx`
+- the child and shared-reading filters wired through `src/components/AppSurface.jsx`
+
+This is a role-based content publication decision. It does not depend on a named
+person, an automated quality score, or a historical approval record.
+
 Teacher-led shared reading is part of the current Guided Reading runtime. Its
 authoritative implementation is:
 
@@ -26,7 +40,7 @@ authoritative implementation is:
 The child token remains opaque. Student devices poll at one-second cadence while
 visible; no Realtime, WebSocket, broadcast, or peer-to-peer path is authoritative.
 The teacher's frozen page-number list is the only page-alignment source during a
-session.
+session. Only approved books can start a new child-followed shared-reading session.
 
 Import receipts, contact sheets, text-revision queues, audio inventories, replacement
 manifests, and provider-specific handoff reports are retired. They must not be restored

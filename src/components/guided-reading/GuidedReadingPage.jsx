@@ -451,9 +451,9 @@ async function fetchWholeBookSyncData(book = {}, audioPath = "") {
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
-function getGuidedReadingTypeStats(type) {
+function getGuidedReadingTypeStats(type, library = getRuntimeGuidedReadingBooks()) {
   const normalizedType = normalizeGuidedReadingType(type);
-  const books = getRuntimeGuidedReadingBooks().filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
+  const books = library.filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
   return {
     type: normalizedType,
     label: formatGuidedReadingType(normalizedType),
@@ -463,17 +463,18 @@ function getGuidedReadingTypeStats(type) {
   };
 }
 
-function getGuidedReadingLevelBooks(type, level) {
-  return getRuntimeGuidedReadingBooks().filter(book =>
+function getGuidedReadingLevelBooks(type, level, library = getRuntimeGuidedReadingBooks()) {
+  return library.filter(book =>
     normalizeGuidedReadingType(book.type) === normalizeGuidedReadingType(type) &&
     book.level === level
   );
 }
 
 function getGuidedReadingSeries(type) {
+  const library = arguments[1] || getRuntimeGuidedReadingBooks();
   const normalizedType = normalizeGuidedReadingType(type);
   const groups = new Map();
-  getRuntimeGuidedReadingBooks()
+  library
     .filter(book => normalizeGuidedReadingType(book.type) === normalizedType)
     .forEach(book => {
       const id = book.seriesId || `${normalizedType}-more`;
@@ -485,6 +486,7 @@ function getGuidedReadingSeries(type) {
 }
 
 export function GuidedReadingPage({
+  books = null,
   initialBookId = "",
   studentId,
   studentName,
@@ -498,13 +500,15 @@ export function GuidedReadingPage({
   launchBookId = "",
   onLaunchBookHandled = null,
   sessionHost = null,
+  reviewByBookId = {},
+  onReviewBook = null,
   // Phase D (2026-07-29): the child's Books screen is the front door for this
   // page in student mode, so "back to library" has somewhere to go that is not
   // the old shelf underneath. Absent (teacher and whole-class modes), closing
   // the reader behaves exactly as it always did.
   onCloseReader = null
 }) {
-  const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
+  const [selectedBookId, setSelectedBookId] = useState(() => (books || getRuntimeGuidedReadingBooks())[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
   const [selectedLibrarySeries, setSelectedLibrarySeries] = useState("");
@@ -512,6 +516,10 @@ export function GuidedReadingPage({
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [reviewNoteDraft, setReviewNoteDraft] = useState("");
+  const [reviewBusy, setReviewBusy] = useState(false);
+  const [reviewMessage, setReviewMessage] = useState("");
+  const [reviewError, setReviewError] = useState("");
   const initialBookHandledRef = useRef(false);
 
   const [levelUp, setLevelUp] = useState(null);
@@ -553,10 +561,11 @@ export function GuidedReadingPage({
   const wordSupportPlaybackTokenRef = useRef(0);
   const recordDraftRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
-  const runtimeGuidedReadingBooks = useMemo(() => getRuntimeGuidedReadingBooks(), []);
+  const runtimeGuidedReadingBooks = useMemo(() => books || getRuntimeGuidedReadingBooks(), [books]);
   const runtimeSelectedBook = runtimeGuidedReadingBooks.find(book => book.id === selectedBookId) || runtimeGuidedReadingBooks[0];
   const isStudentMode = mode === "student";
   const isClassMode = mode === "class";
+  const isReviewMode = mode === "adminReview";
   const activeSessionHost = getActiveGuidedReadingSessionHost(mode, sessionHost);
   const activeGroupSession = activeSessionHost?.session || null;
   const readAloudControlsEnabled = canUseGuidedReadingReadAloud(mode, sessionHost);
@@ -585,6 +594,9 @@ export function GuidedReadingPage({
   };
   const summary = summarizeGuidedReadingRecord(record);
   const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
+  const selectedReview = selectedBook
+    ? reviewByBookId[selectedBook.id] || { status: "pending", reviewNote: "" }
+    : { status: "pending", reviewNote: "" };
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
   const selectedReadingPurpose = selectedBook
     ? classifyBookReadingPurpose(selectedBook, studentProgress || {})
@@ -601,7 +613,7 @@ export function GuidedReadingPage({
   // reading to the room, with no single student to attribute anything to. It
   // keeps every reading tool and drops every capture control, because a note or
   // a running record with nobody to save it against is discarded silently.
-  const canRecord = !isStudentMode && (!isClassMode || Boolean(activeGroupSession));
+  const canRecord = !isStudentMode && !isReviewMode && (!isClassMode || Boolean(activeGroupSession));
   const canShowScoreSummary = shouldShowGuidedReadingScoreSummary({ mode, studentId });
   const scoreSummaryOpen = showSummary && canShowScoreSummary;
   const sessionWordMarks = activeSessionHost?.markTarget
@@ -610,6 +622,8 @@ export function GuidedReadingPage({
   const displayedWordMarks = activeGroupSession ? sessionWordMarks : currentPageRecord.wordMarks || {};
   const guidedReadingSurfaceLabel = isStudentMode
     ? "Reading library"
+    : isReviewMode
+      ? "Admin guided reading review"
     : isClassMode
       ? "Whole-class guided reading"
       : `${studentName || "Student"} guided reading`;
@@ -640,11 +654,19 @@ export function GuidedReadingPage({
   useEffect(() => {
     if (!initialBookId || initialBookHandledRef.current) return;
     initialBookHandledRef.current = true;
-    const target = getRuntimeGuidedReadingBooks().find(book => book.id === initialBookId);
+    const target = runtimeGuidedReadingBooks.find(book => book.id === initialBookId);
     if (!target) return;
     const timer = window.setTimeout(() => changeInitialBook(initialBookId), 0);
     return () => window.clearTimeout(timer);
-  }, [initialBookId]);
+  }, [initialBookId, runtimeGuidedReadingBooks]);
+
+  useEffect(() => {
+    if (!isReviewMode || !selectedBook?.id) return;
+    const currentReview = reviewByBookId[selectedBook.id];
+    setReviewNoteDraft(currentReview?.status === "quarantined" ? currentReview.reviewNote || "" : "");
+    setReviewMessage("");
+    setReviewError("");
+  }, [isReviewMode, reviewByBookId, selectedBook?.id]);
 
   useEffect(() => {
     if (!activeGroupSession) return;
@@ -740,13 +762,13 @@ export function GuidedReadingPage({
       tokens: readingTokens
     }];
   const typeCards = ["fiction", "nonfiction"]
-    .map(getGuidedReadingTypeStats)
+    .map(type => getGuidedReadingTypeStats(type, runtimeGuidedReadingBooks))
     .filter(card => card.count > 0);
   const availableLevels = selectedLibraryType
-    ? guidedReadingLevels.filter(level => getGuidedReadingLevelBooks(selectedLibraryType, level).length > 0)
+    ? guidedReadingLevels.filter(level => getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks).length > 0)
     : [];
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
-    ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
+    ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel, runtimeGuidedReadingBooks)
     : [];
   const guidedReadingModeClass = isStudentMode ? "student-guided-reading-page" : "teacher-guided-reading-page";
   const guidedReadingPageClassName = [
@@ -1094,7 +1116,11 @@ export function GuidedReadingPage({
     });
 
     // Level-up: every book of this type + level is now completed.
-    const levelBooks = getGuidedReadingLevelBooks(selectedBook.type, selectedBook.level);
+    const levelBooks = getGuidedReadingLevelBooks(
+      selectedBook.type,
+      selectedBook.level,
+      runtimeGuidedReadingBooks
+    );
     const allDone = levelBooks.length > 1 && levelBooks.every(book =>
       book.id === selectedBook.id ||
       Boolean(guidedReadingRecords[book.id]?.completed || guidedReadingRecords[book.id]?.completedAt)
@@ -1116,6 +1142,40 @@ export function GuidedReadingPage({
     setShowQuiz(false);
     setReaderOpen(true);
     setReadingMode("reading");
+  }
+
+  async function submitPublicationReview(status) {
+    if (!selectedBook || !onReviewBook || reviewBusy) return;
+    const note = String(reviewNoteDraft || "").trim();
+    if (status === "quarantined" && !note) {
+      setReviewError("Add a short note explaining what needs fixing before failing this book.");
+      setReviewMessage("");
+      return;
+    }
+
+    setReviewBusy(true);
+    setReviewError("");
+    setReviewMessage("");
+    try {
+      const result = await onReviewBook({
+        bookId: selectedBook.id,
+        status,
+        reviewNote: status === "quarantined" ? note : ""
+      });
+      if (!result?.ok) {
+        setReviewError(result?.error?.message || "The review was not saved. Try again.");
+        return;
+      }
+      setReviewMessage(status === "approved"
+        ? "Passed and activated in every child's reading library."
+        : "Failed and moved to quarantine.");
+      if (status === "approved") setReviewNoteDraft("");
+    } catch (error) {
+      console.error("Guided Reading review failed.", error);
+      setReviewError("The review was not saved. Try again.");
+    } finally {
+      setReviewBusy(false);
+    }
   }
 
   function closeReader() {
@@ -1752,7 +1812,7 @@ export function GuidedReadingPage({
   }
 
   const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
-  const completedLibraryBooks = getRuntimeGuidedReadingBooks()
+  const completedLibraryBooks = runtimeGuidedReadingBooks
     .filter(book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed)
     .slice(0, 8);
 
@@ -1894,7 +1954,7 @@ export function GuidedReadingPage({
         {selectedLibrarySeries && (
           <>
             <span>/</span>
-            <strong>{getGuidedReadingSeries(selectedLibraryType).find(item => item.id === selectedLibrarySeries)?.title}</strong>
+            <strong>{getGuidedReadingSeries(selectedLibraryType, runtimeGuidedReadingBooks).find(item => item.id === selectedLibrarySeries)?.title}</strong>
           </>
         )}
         {selectedLibraryLevel && (
@@ -1934,7 +1994,7 @@ export function GuidedReadingPage({
         {isStudentMode && (() => {
           const booksRead = countBooksRead(guidedReadingRecords);
           const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
-          const selectedSeries = getGuidedReadingSeries(selectedLibraryType)
+          const selectedSeries = getGuidedReadingSeries(selectedLibraryType, runtimeGuidedReadingBooks)
             .find(item => item.id === selectedLibrarySeries);
           const orderedBooks = [...(selectedSeries?.books || [])].sort((a, b) => {
             const aProgress = prog(a);
@@ -1946,7 +2006,7 @@ export function GuidedReadingPage({
           const pageCount = Math.max(1, Math.ceil(orderedBooks.length / pageSize));
           const safePage = Math.min(libraryPage, pageCount - 1);
           const visibleBooks = orderedBooks.slice(safePage * pageSize, (safePage + 1) * pageSize);
-          const seriesGroups = selectedLibraryType ? getGuidedReadingSeries(selectedLibraryType) : [];
+          const seriesGroups = selectedLibraryType ? getGuidedReadingSeries(selectedLibraryType, runtimeGuidedReadingBooks) : [];
           const openType = type => {
             setSelectedLibraryType(type);
             setSelectedLibrarySeries("");
@@ -1986,7 +2046,7 @@ export function GuidedReadingPage({
                     >
                       <span>{card.type === "fiction" ? "Story books" : "True books"}</span>
                       <strong>{card.label}</strong>
-                      <em>{card.count} books · {getGuidedReadingSeries(card.type).length} groups</em>
+                      <em>{card.count} books · {getGuidedReadingSeries(card.type, runtimeGuidedReadingBooks).length} groups</em>
                     </button>
                   ))}
                 </div>
@@ -2078,7 +2138,7 @@ export function GuidedReadingPage({
         {selectedLibraryType && !selectedLibraryLevel && (
           <div className="guided-level-grid">
             {availableLevels.map(level => {
-              const books = getGuidedReadingLevelBooks(selectedLibraryType, level);
+              const books = getGuidedReadingLevelBooks(selectedLibraryType, level, runtimeGuidedReadingBooks);
               const completedCount = books.filter(book =>
                 getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed
               ).length;
@@ -2209,8 +2269,20 @@ export function GuidedReadingPage({
               <div>
                 <div className="guided-reader-title-row">
                   {!isStudentMode && <p className="panel-label">{formatGuidedReadingType(selectedBook.type)} · Level {selectedBook.level}</p>}
-                  {!isStudentMode && (
+                  {!isStudentMode && !isReviewMode && (
                     <span className="guided-reading-mode-pill compact">Teacher conference</span>
+                  )}
+                  {isReviewMode && (
+                    <span
+                      className="guided-reading-review-status"
+                      data-review-status={selectedReview.status}
+                    >
+                      {selectedReview.status === "approved"
+                        ? "Live for children"
+                        : selectedReview.status === "quarantined"
+                          ? "Quarantined"
+                          : "Awaiting review"}
+                    </span>
                   )}
                   {isStudentMode && (
                     <>
@@ -2540,6 +2612,52 @@ export function GuidedReadingPage({
               </motion.div>
             </AnimatePresence>
 
+            {isReviewMode && !isReaderFullscreen && pageIndex === selectedBook.pages.length - 1 && (
+              <section className="guided-publication-review" aria-labelledby={`review-${selectedBook.id}`}>
+                <div>
+                  <p className="panel-label">Admin publication decision</p>
+                  <h4 id={`review-${selectedBook.id}`}>Pass or quarantine this book</h4>
+                  <p>
+                    Pass activates it immediately in every child library. Fail keeps it hidden and records what must be fixed.
+                  </p>
+                </div>
+                {selectedReview.status === "quarantined" && selectedReview.reviewNote && (
+                  <p className="guided-review-existing-note">
+                    <strong>Current quarantine note:</strong> {selectedReview.reviewNote}
+                  </p>
+                )}
+                <label>
+                  What needs fixing if this book fails?
+                  <textarea
+                    disabled={reviewBusy}
+                    onChange={event => setReviewNoteDraft(event.target.value)}
+                    placeholder="For example: page 4 narration does not match the text."
+                    value={reviewNoteDraft}
+                  />
+                </label>
+                {reviewError && <p className="guided-review-error" role="alert">{reviewError}</p>}
+                {reviewMessage && <p className="guided-review-success" role="status">{reviewMessage}</p>}
+                <div className="guided-review-actions" role="group" aria-label="Book publication decision">
+                  <button
+                    className="lp-button lp-button-primary"
+                    disabled={reviewBusy}
+                    onClick={() => submitPublicationReview("approved")}
+                    type="button"
+                  >
+                    {reviewBusy ? "Saving…" : "Pass and activate"}
+                  </button>
+                  <button
+                    className="lp-button lp-button-danger"
+                    disabled={reviewBusy}
+                    onClick={() => submitPublicationReview("quarantined")}
+                    type="button"
+                  >
+                    {reviewBusy ? "Saving…" : "Fail to quarantine"}
+                  </button>
+                </div>
+              </section>
+            )}
+
             {!isReaderFullscreen && <div className="guided-reader-actions">
               <button
                 className="lp-button lp-button-secondary"
@@ -2557,6 +2675,8 @@ export function GuidedReadingPage({
                 >
                   {readerCopy.nextPage}
                 </button>
+              ) : isReviewMode ? (
+                <span className="guided-review-end-label">Review decision required above</span>
               ) : (
                 <button className="lp-button lp-button-primary" onClick={completeBook} type="button">
                   {readerCopy.finishBook}

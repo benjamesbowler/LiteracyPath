@@ -26768,3 +26768,211 @@ body {
   background: transparent;
   box-shadow: none;
 }
+
+/* Guided Reading publication review */
+.admin-guided-review {
+  padding: clamp(1rem, 2vw, 1.75rem);
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+}
+
+.admin-guided-review-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.admin-guided-review-filters button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 0.8rem;
+  color: var(--lp-color-text);
+  background: var(--lp-color-surface-muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-guided-review-filters button.active {
+  border-color: var(--lp-color-primary);
+  background: color-mix(in srgb, var(--lp-color-primary) 10%, white);
+}
+
+.admin-guided-review-filters strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-guided-review-queue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.admin-guided-review-book {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 0.85rem;
+  min-height: 116px;
+  padding: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 1rem;
+  color: var(--lp-color-text);
+  background: var(--lp-color-surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-guided-review-book:hover {
+  border-color: var(--lp-color-primary);
+  transform: translateY(-1px);
+}
+
+.admin-guided-review-book img {
+  width: 72px;
+  height: 96px;
+  border-radius: 0.55rem;
+  object-fit: cover;
+  background: var(--lp-color-surface-muted);
+}
+
+.admin-guided-review-book span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.admin-guided-review-book small,
+.admin-guided-review-book em,
+.admin-guided-review-book b {
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.admin-guided-review-book b {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.admin-guided-review-book[data-review-status="approved"] em,
+.guided-reading-review-status[data-review-status="approved"] {
+  color: #17643b;
+}
+
+.admin-guided-review-book[data-review-status="quarantined"] em,
+.guided-reading-review-status[data-review-status="quarantined"] {
+  color: #9b2c2c;
+}
+
+.admin-guided-review-back {
+  align-self: flex-start;
+}
+
+.guided-reading-review-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: #8a5b08;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.guided-publication-review {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 1.25rem 1rem;
+  padding: 1rem;
+  border: 2px solid color-mix(in srgb, var(--lp-color-primary) 32%, var(--lp-color-border));
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--lp-color-primary) 6%, white);
+}
+
+.guided-publication-review h4,
+.guided-publication-review p {
+  margin: 0.2rem 0 0;
+}
+
+.guided-publication-review label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 750;
+}
+
+.guided-publication-review textarea {
+  min-height: 5rem;
+  padding: 0.7rem;
+  resize: vertical;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 0.75rem;
+  background: white;
+  font: inherit;
+}
+
+.guided-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.guided-review-error {
+  color: #9b2c2c;
+}
+
+.guided-review-success {
+  color: #17643b;
+  font-weight: 750;
+}
+
+.guided-review-existing-note {
+  padding: 0.7rem;
+  border-radius: 0.65rem;
+  background: #fff3f3;
+  color: #7f1d1d;
+}
+
+.guided-review-end-label {
+  align-self: center;
+  color: var(--lp-color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.kg-library-preparing {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  max-width: 34rem;
+  margin: clamp(2rem, 8vh, 5rem) auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.kg-library-preparing > span {
+  font-size: 3rem;
+}
+
+.kg-library-preparing p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .admin-guided-review-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guided-publication-review {
+    margin-inline: 0.7rem;
+  }
+}

@@ -4,6 +4,7 @@ import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { readErrorLog, clearErrorLog } from "../utils/errorLog.js";
 import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
 import { SchoolRetentionPolicyPanel } from "./admin/SchoolRetentionPolicyPanel.jsx";
+import { GuidedReadingReviewPanel } from "./admin/GuidedReadingReviewPanel.jsx";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { TeacherDialog } from "./teacher/ui/TeacherDialog.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
@@ -50,6 +51,11 @@ export function AdminDashboardPage({
   refreshDashboard,
   deleteClass,
   updateTeacherAccountStatus,
+  guidedReadingReviews = [],
+  guidedReadingReviewStatus = "loading",
+  guidedReadingReviewError = null,
+  refreshGuidedReadingReviews,
+  reviewGuidedReadingBook,
   supabase = null,
   message,
   onLoadStudent
@@ -235,6 +241,7 @@ export function AdminDashboardPage({
 
   const adminSections = [
     { id: "overview", label: "Overview", count: null },
+    { id: "readingBooks", label: "Reading books", count: null },
     { id: "signups", label: "Teacher requests", count: pendingAccountsWarning ? null : visibleSignupCount },
     { id: "schools", label: "Schools", count: schools.length },
     { id: "teachers", label: "Teachers", count: teachers.length },
@@ -992,6 +999,16 @@ export function AdminDashboardPage({
           </table>
         </div>
       </section>
+      )}
+
+      {activeSection === "readingBooks" && (
+        <GuidedReadingReviewPanel
+          onRefresh={refreshGuidedReadingReviews}
+          onReviewBook={reviewGuidedReadingBook}
+          reviewError={guidedReadingReviewError}
+          reviews={guidedReadingReviews}
+          reviewStatus={guidedReadingReviewStatus}
+        />
       )}
 
       {activeSection === "operations" && (

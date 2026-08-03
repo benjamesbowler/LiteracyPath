@@ -79,6 +79,12 @@ import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js
 import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
 import { ReadingSessionRecoveryDialog } from "./guided-reading/ReadingSessionRecoveryDialog.jsx";
 import { endReadingSession } from "../data/readingSession.js";
+import {
+  approvedGuidedReadingBookIds,
+  filterApprovedGuidedReadingBooks,
+  loadGuidedReadingBookReviews,
+  saveGuidedReadingBookReview
+} from "../data/guidedReadingPublication.js";
 
 export function AppSurface({ surface }) {
   const {
@@ -132,19 +138,73 @@ export function AppSurface({ surface }) {
   const abandonedSessionCheckedForRef = useRef("");
   const [readingFollowerBooks, setReadingFollowerBooks] = useState([]);
   const [adminConfirmError, setAdminConfirmError] = useState("");
+  const [guidedReadingReviewState, setGuidedReadingReviewState] = useState({
+    error: null,
+    rows: [],
+    status: "loading"
+  });
   // A Dashboard sound-map tile opens Reports scoped to one skill. The tile
   // does not name a skill yet, so this stays empty and Reports opens unfiltered
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
 
+  const refreshGuidedReadingReviews = useCallback(async () => {
+    setGuidedReadingReviewState({ error: null, rows: [], status: "loading" });
+    const result = await loadGuidedReadingBookReviews({
+      client: isSupabaseConfigured ? supabase : null
+    });
+    setGuidedReadingReviewState({
+      error: result.error || null,
+      rows: result.complete ? result.rows : [],
+      status: result.status
+    });
+    return result;
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void refreshGuidedReadingReviews();
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId]);
+
+  const approvedReadingBookIds = useMemo(
+    () => approvedGuidedReadingBookIds(guidedReadingReviewState.rows),
+    [guidedReadingReviewState.rows]
+  );
+
+  const reviewGuidedReadingBook = useCallback(async review => {
+    if (!isAdmin) return { ok: false, error: new Error("App admin access is required.") };
+    const result = await saveGuidedReadingBookReview({
+      client: isSupabaseConfigured ? supabase : null,
+      reviewerId: teacherId,
+      ...review
+    });
+    if (!result.ok) return result;
+    setGuidedReadingReviewState(previous => ({
+      error: null,
+      rows: [
+        result.review,
+        ...previous.rows.filter(row => row.bookId !== result.review.bookId)
+      ],
+      status: "ready"
+    }));
+    return result;
+  }, [isAdmin, teacherId]);
+
   useEffect(() => {
     if (sessionMode !== "student" || !studentSession?.token) return undefined;
     let active = true;
     import("../utils/guidedReading/runtimeBooks.js").then(module => {
-      if (active) setReadingFollowerBooks(module.getRuntimeGuidedReadingBooks());
+      if (active) {
+        setReadingFollowerBooks(filterApprovedGuidedReadingBooks(
+          module.getRuntimeGuidedReadingBooks(),
+          approvedReadingBookIds
+        ));
+      }
     });
     return () => { active = false; };
-  }, [sessionMode, studentSession?.token]);
+  }, [approvedReadingBookIds, sessionMode, studentSession?.token]);
 
   const handleReadingSessionEnded = useCallback(() => {
     setActiveReadingSession(null);
@@ -1113,6 +1173,11 @@ export function AppSurface({ surface }) {
               deleteClass={adminDeleteClass}
               deleteStudent={adminDeleteStudent}
               updateTeacherAccountStatus={updateTeacherAccountStatus}
+              guidedReadingReviewError={guidedReadingReviewState.error}
+              guidedReadingReviews={guidedReadingReviewState.rows}
+              guidedReadingReviewStatus={guidedReadingReviewState.status}
+              refreshGuidedReadingReviews={refreshGuidedReadingReviews}
+              reviewGuidedReadingBook={reviewGuidedReadingBook}
               mediaQuestions={allQuestions}
               assessmentHistory={assessmentHistory}
               assessmentHistoryReadState={assessmentHistoryReadState}
@@ -1430,6 +1495,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
+              approvedBookIds={approvedReadingBookIds}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
               teacherId={teacherId}
@@ -1445,8 +1511,10 @@ export function AppSurface({ surface }) {
                 setStudentArcadeOpen(false);
                 setAppView(APP_VIEWS.LEARN);
               }}
-              renderReader={({ bookId, onExit }) => withStudentRail("books", (
+              publicationStatus={guidedReadingReviewState.status}
+              renderReader={({ bookId, books, onExit }) => withStudentRail("books", (
                 <GuidedReadingPage
+                  books={books}
                   initialBookId={bookId}
                   onCloseReader={onExit}
                   studentId={studentId}
@@ -1826,6 +1894,7 @@ export function AppSurface({ surface }) {
       /></Suspense>}
 
       <ReadingSessionSetup
+        approvedBookIds={approvedReadingBookIds}
         classId={selectedClassId}
         client={isSupabaseConfigured ? supabase : null}
         onClose={() => setReadingSetupOpen(false)}

@@ -45,11 +45,19 @@ The only current assessment phase threshold is 70%, defined once by
 - `src/data/readingSession.js`
 - `src/hooks/useReadingSessionFollower.js`
 - `src/hooks/useReadingSessionHost.js`
+- `supabase/migrations/20260803120000_guided_reading_publication_gate.sql`
+- `src/data/guidedReadingPublication.js`
 
 Shared reading uses the existing opaque child token boundary and visible-only
 one-second polling. The frozen session page list, six reviewed RPCs, and ordinary
 per-child `guided_reading` progress rows are the single current synchronization
 and marking path; there is no parallel push implementation.
+
+Guided Reading child publication is separately fail-closed and role-based. Missing
+reviews and quarantined books are hidden on all child paths; an app-admin Pass
+decision is the single action that makes a book available to children. A Fail
+decision requires a repair note and keeps the book quarantined. This does not
+restore any named-person approval rule.
 
 ## Problems corrected
 
