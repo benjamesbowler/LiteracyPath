@@ -1,6 +1,10 @@
 import { assertOptionalFields, validateCommonRow } from "./schema.js";
 
-export const CONTENT_TABLES = new Set(["app_config", "worksheet_bank"]);
+export const CONTENT_TABLES = new Set([
+  "app_config",
+  "guided_reading_book_reviews",
+  "worksheet_bank"
+]);
 
 export const CONTENT_RPCS = new Set([
   "admin_error_monitor_summary",
@@ -19,8 +23,13 @@ export const CONTENT_RPCS = new Set([
 export function validateContentRow(row, label) {
   validateCommonRow(row, label);
   return assertOptionalFields(row, {
+    book_id: "string",
     key: "string",
     name: "string",
+    review_note: "string",
+    reviewed_at: "string",
+    reviewed_by: "string",
+    status: "string",
     title: "string",
     value: ["string", "number", "boolean", "object", "array"],
     payload: "object"

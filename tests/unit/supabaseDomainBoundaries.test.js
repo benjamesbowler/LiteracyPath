@@ -50,13 +50,14 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 }
 
 test("all five domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 22);
+  assert.equal(BOUNDARY_TABLES.length, 23);
   assert.equal(BOUNDARY_RPCS.length, 60);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_question_reports"));
   assert.ok(BOUNDARY_TABLES.includes("el_assessment_reports"));
+  assert.ok(BOUNDARY_TABLES.includes("guided_reading_book_reviews"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_groups"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_group_reviews"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_intervention_events"));
@@ -106,6 +107,32 @@ test("a valid class response crosses the boundary unchanged", async () => {
   }));
   const result = await client.table("classes").select("*");
   assert.equal(result.data[0].name, "Audit Class A");
+});
+
+test("Guided Reading publication reviews cross the validated boundary", async () => {
+  const client = createValidatedSupabaseClient(fakeRawClient({
+    tableResponses: {
+      guided_reading_book_reviews: {
+        data: {
+          book_id: "meadow-pals-b-01",
+          status: "approved",
+          review_note: "",
+          reviewed_by: "20000000-0000-4000-8000-000000000001",
+          reviewed_at: "2026-08-03T12:00:00.000Z"
+        },
+        error: null
+      }
+    }
+  }));
+
+  const result = await client
+    .table("guided_reading_book_reviews")
+    .upsert({ book_id: "meadow-pals-b-01", status: "approved" })
+    .select("book_id,status,review_note,reviewed_by,reviewed_at")
+    .single();
+
+  assert.equal(result.data.book_id, "meadow-pals-b-01");
+  assert.equal(result.data.status, "approved");
 });
 
 test("malformed seeded class and evidence payloads fail closed", async () => {
