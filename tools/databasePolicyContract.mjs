@@ -4,12 +4,12 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260807111000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260807131000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "get_game_leaderboard(text, integer)",
-  "list_school_names()",
+  "search_school_names(text)",
   "report_app_error(uuid, text, text, text, text, text, text, text[], numeric)",
   "report_assessment_question(text, uuid, text, uuid, jsonb)",
   "student_class_by_code(text, text)",
@@ -86,6 +86,9 @@ export const TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS = Object.freeze(
 );
 
 const LEGACY_RPC_SIGNATURES = Object.freeze([
+  // Replaced by search_school_names(text): the no-argument form returned every
+  // school name to anon in one call.
+  "list_school_names()",
   "student_list_schools()",
   "student_list_classes(uuid)",
   "student_list_students(uuid)",

@@ -2,7 +2,7 @@ import { assertOptionalFields, assertPlainRecord } from "./schema.js";
 
 export const AUTH_RPCS = new Set([
   "find_or_create_school",
-  "list_school_names",
+  "search_school_names",
   "teacher_set_school"
 ]);
 
