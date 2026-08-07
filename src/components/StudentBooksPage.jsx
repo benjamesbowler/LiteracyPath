@@ -34,6 +34,7 @@ import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
 import { filterPublishedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
+import { filterToEntitlement } from "../policy/freeTierContent.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
   KNOWLEDGE_JOURNEYS,
@@ -144,6 +145,11 @@ export function StudentBooksPage({
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
   quarantinedBookIds = null,
+  // The sample plan's book ids, or null for an account that sees everything.
+  allowedBookIds = null,
+  // Shown where the shelf stops. Null for a full-content account, which is why
+  // an existing child never sees an explanation for a limit they do not have.
+  sampleLimitCopy = null,
   publicationStatus = "ready",
   guidedReadingRecords = {},
   studentProgress = null,
@@ -177,8 +183,14 @@ export function StudentBooksPage({
     const runtimeBooks = books || getRuntimeGuidedReadingBooks();
     // Every book is live unless an admin has pulled it. `null` means the review
     // list could not be read, which shows everything rather than nothing.
-    return filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
-  }, [quarantinedBookIds, books]);
+    const live = filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
+    // The entitlement slice is applied AFTER the publication blocklist, and the
+    // two fail in opposite directions on purpose. An unreadable blocklist shows
+    // every book, because emptying a five-year-old's library is the worse
+    // outcome. A missing entitlement list shows none, because the worse outcome
+    // there is giving away the paid product.
+    return filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
+  }, [quarantinedBookIds, allowedBookIds, books]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is
@@ -326,7 +338,18 @@ export function StudentBooksPage({
         data-learning-lane="language_and_meaning"
         data-read-state={recordsOk ? "ready" : "unreadable"}
         data-library-view={showKnowledge ? "knowledge" : "books"}
+        data-sample-library={sampleLimitCopy ? "true" : undefined}
       >
+        {/* Where the shelf stops, and why — never a padlock with nothing behind
+            it. The child sentence is readable by a five-year-old; the second is
+            for the grown-up beside them, who is the one who can act on it. */}
+        {sampleLimitCopy && (
+          <div className="kg-sample-note" role="note">
+            <strong>{sampleLimitCopy.childHeading}</strong>
+            <p>{sampleLimitCopy.childBody}</p>
+            <p className="kg-sample-adult">{sampleLimitCopy.adultBody}</p>
+          </div>
+        )}
         <div className="kg-books-head">
           <div>
             <h1 className="kg-title" data-child-title="">Books</h1>

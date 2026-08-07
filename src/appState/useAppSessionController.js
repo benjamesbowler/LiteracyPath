@@ -13,6 +13,8 @@ import {
   updateRosterStudentName
 } from "../data/teacherRosterOperations.js";
 import { selectAllRows } from "../data/pagedSelect.js";
+import { setEphemeralNetworkMode } from "../data/boundaries/facade.js";
+import { beginTryModeSession } from "../policy/tryModeSession.js";
 import {
   isUnconfirmedEmailError,
   teacherAuthErrorMessage,
@@ -132,6 +134,7 @@ export function useAppSessionController(context) {
     setAssessmentMode, setAssessmentTransitioning, setAuthLoading, setAuthMessage,
     setAuthMode, setAuthPassword, setAuthReady, awaitingEmailConfirmation, setAwaitingEmailConfirmation, setCheckpointDecision,
     teacherAccountNudgeBusy, setTeacherAccountNudgeBusy,
+    trySession, setTrySession,
     setPendingAccountAlert,
     setClassDashboard, setClassList, setCorrectAnswered, setCurrentQuestion,
     setCurrentSkillIndex, setDiagnosticFollowUp, setElBenchmarkDraftSaveFailed, setElBenchmarkSession,
@@ -234,6 +237,65 @@ export function useAppSessionController(context) {
     void hydrateCloudProgress({ ...session, mode: "student" }).catch(error => {
       console.warn("Could not hydrate student cloud progress.", error);
     });
+  }
+
+  /**
+   * Starts the anonymous try-mode.
+   *
+   * Deliberately NOT applyStudentSession with a fake token. That function
+   * configures progress sync and hydrates cloud progress — both network calls,
+   * both of which would now throw against the ephemeral boundary, and neither of
+   * which should be attempted in the first place. A mode that promises to send
+   * nothing should not be making requests and swallowing the refusals.
+   *
+   * Order matters. Storage is swapped FIRST, because if that fails the session
+   * must not begin at all, and the network is closed before any child surface
+   * can mount and ask for something.
+   *
+   * Returns null when the storage swap fails. The caller must show the
+   * unavailable screen rather than continue: running the demo against real
+   * storage would collect data from a child while the screen promised it
+   * would not, which is worse than the demo being unavailable.
+   */
+  function startTryMode(level = "A") {
+    const session = beginTryModeSession({ level });
+    if (!session) return null;
+
+    setEphemeralNetworkMode(true);
+
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
+    setSessionMode("student");
+    // A synthetic id so per-child storage keys stay separated within the
+    // session. It is random, is never sent anywhere, and dies with the tab, so
+    // it cannot identify or re-identify anybody.
+    setStudentSessionId(`try-${session.nickname.toLowerCase().replace(/\s+/g, "-")}`);
+    setStudentSessionName(session.nickname);
+    setSelectedClassId(null);
+    setNameSaved(true);
+    setAppView(APP_VIEWS.STUDENT_HOME);
+    setMessage("");
+    setTrySession(session);
+    return session;
+  }
+
+  /** Ends try-mode: real storage back, network reopened, nothing kept. */
+  function endTryMode() {
+    try {
+      trySession?.end?.();
+    } catch (error) {
+      console.warn("Could not restore storage after the try session.", error);
+    }
+    setEphemeralNetworkMode(false);
+    setTrySession(null);
+    setSessionMode("teacher");
+    setStudentSessionId("");
+    setStudentSessionName("");
+    setNameSaved(false);
   }
 
   function restoreStudentSession() {
@@ -4103,6 +4165,7 @@ export function useAppSessionController(context) {
     retryTeacherSchoolName,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     resendEmailConfirmation, nudgeTeacherAccountReview, loadPendingAccountAlert,
+    startTryMode, endTryMode,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   };
 }

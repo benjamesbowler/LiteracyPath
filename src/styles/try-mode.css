@@ -1,0 +1,155 @@
+/* The anonymous try-mode front door and exit.
+
+   Two audiences on one screen. The notice is styled for an adult — quiet, and
+   set apart so it reads as information rather than decoration — while the level
+   choices are large, high-contrast targets a five-year-old could hit unaided. */
+
+.try-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+
+.try-card {
+  max-width: 720px;
+  width: 100%;
+}
+
+.try-card h1 {
+  margin: 0 0 4px;
+}
+
+/* Set apart rather than shouted. An adult reads this once; a warning styled as
+   an alarm gets dismissed as one. */
+.try-notice {
+  background: #f4f7f9;
+  border: 1px solid #b9c8d2;
+  border-left: 4px solid #2f6d8c;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0 4px;
+}
+
+.try-notice strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.try-notice p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.try-question {
+  margin: 12px 0 0;
+  font-size: 1.15rem;
+}
+
+.try-help {
+  margin: 0 0 4px;
+}
+
+.try-levels {
+  display: grid;
+  gap: 10px;
+}
+
+/* Big enough for a child, and the whole card is the target rather than a
+   radio dot beside it. */
+.try-level {
+  display: grid;
+  gap: 3px;
+  text-align: left;
+  padding: 14px 16px;
+  border: 2px solid var(--lp-color-border-strong, #b9c8d2);
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.try-level:hover,
+.try-level:focus-visible {
+  border-color: #2f6d8c;
+}
+
+.try-level.is-selected {
+  border-color: #176b4a;
+  background: #f0faf4;
+}
+
+.try-level-label {
+  font-weight: 750;
+  font-size: 1.05rem;
+}
+
+.try-level-detail {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.try-nickname {
+  font-style: italic;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* The try-out entry on the public landing page. Deliberately quieter than the
+   two primary cards — it is a way in for somebody without a code, not a third
+   kind of user, and giving it equal weight would push children who DO have a
+   code towards the mode that keeps none of their work. */
+.student-entry-try {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px dashed var(--lp-color-border-strong, #b9c8d2);
+  border-radius: 10px;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.student-entry-try:hover,
+.student-entry-try:focus-visible {
+  border-style: solid;
+  background: #f6f9fb;
+}
+
+.student-entry-try-title {
+  font-weight: 700;
+}
+
+.student-entry-try-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Where a sample shelf stops. Sits inside the child library, so it has to read
+   as part of that world rather than as an error — hence the warm background and
+   the child sentence first, with the grown-up's explanation beneath it. */
+.kg-sample-note {
+  background: #fdf6e6;
+  border: 1px solid #d9b45f;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+.kg-sample-note strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.kg-sample-note p {
+  margin: 4px 0 0;
+}
+
+.kg-sample-adult {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}

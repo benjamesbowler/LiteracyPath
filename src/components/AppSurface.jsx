@@ -20,6 +20,9 @@ import { ErrorBoundary } from "./ErrorBoundary.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { StudentAdventureMapPage } from "./StudentAdventureMapPage.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
+import { TryModePage, TryModeEndPage } from "./TryModePage.jsx";
+import { SAMPLE_LIMIT_COPY, sampleBookIds } from "../policy/freeTierContent.js";
+import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { StudentHomePage } from "./StudentHomePage.jsx";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
 import { StudentSoundTrailPage } from "./StudentSoundTrailPage.jsx";
@@ -107,6 +110,7 @@ export function AppSurface({ surface }) {
     loadingStudents,
     awaitingEmailConfirmation, resendEmailConfirmation,
     nudgeTeacherAccountReview, teacherAccountNudgeBusy, pendingAccountAlert,
+    startTryMode, endTryMode, trySession,
     logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
@@ -134,6 +138,26 @@ export function AppSurface({ surface }) {
   // Which setup step the teacher pressed "Continue" on over on Today. Students
   // picks it up once, opens the right control, then clears it.
   const [setupFocus, setSetupFocus] = useState("");
+  // Set when ephemeral storage could not be installed, which makes the
+  // try-mode unrunnable rather than degraded.
+  const [tryUnavailable, setTryUnavailable] = useState(false);
+  // The nickname is kept for the exit screen, because by the time it renders
+  // the session object has already been torn down.
+  const [endedTryNickname, setEndedTryNickname] = useState("");
+
+  /**
+   * Ends a try session and shows the exit screen.
+   *
+   * The nickname is captured BEFORE teardown, because the exit screen names it
+   * and by then the session object is gone. That screen is where the "nothing
+   * was kept" message actually lands — a warning at the front door is read by
+   * somebody who has not lost anything yet.
+   */
+  function finishTrySession() {
+    setEndedTryNickname(trySession?.nickname || "");
+    endTryMode();
+    setEntryMode("try-ended");
+  }
   const [readingSetupOpen, setReadingSetupOpen] = useState(false);
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
@@ -175,6 +199,20 @@ export function AppSurface({ surface }) {
   const quarantinedReadingBookIds = useMemo(
     () => quarantinedGuidedReadingBookIds(guidedReadingReviewState.rows),
     [guidedReadingReviewState.rows]
+  );
+
+  /**
+   * The sample entitlement's allowed book ids, or null when this session sees
+   * everything.
+   *
+   * Null rather than "the full set" on purpose: `filterToEntitlement` takes a
+   * full-content flag and returns the SAME ARRAY untouched, so no account that
+   * exists today travels a new code path because a sample plan was added for
+   * somebody else.
+   */
+  const sampleBookIdSet = useMemo(
+    () => (trySession ? sampleBookIds(GUIDED_READING_BOOK_INDEX) : null),
+    [trySession]
   );
 
   const reviewGuidedReadingBook = useCallback(async review => {
@@ -471,6 +509,42 @@ export function AppSurface({ surface }) {
             setAppView(APP_VIEWS.STUDENT_LOGIN);
           }}
           onTeacher={() => setEntryMode("teacher")}
+          onTry={() => setEntryMode("try")}
+        />
+      </PageBoundary>
+    );
+  }
+
+  // The anonymous try-mode front door. No account exists and none is created,
+  // so this sits before every auth branch rather than inside them.
+  if (!teacherUser && sessionMode !== "student" && entryMode === "try") {
+    return (
+      <PageBoundary resetKey="try-start">
+        <TryModePage
+          unavailable={tryUnavailable}
+          onBack={() => {
+            setTryUnavailable(false);
+            setEntryMode("entry");
+          }}
+          onStart={level => {
+            // Null means ephemeral storage could not be installed. REFUSE the
+            // demo rather than degrade it — running against real storage would
+            // collect from a child while the previous screen promised otherwise.
+            if (!startTryMode(level)) setTryUnavailable(true);
+          }}
+        />
+      </PageBoundary>
+    );
+  }
+
+  if (!teacherUser && sessionMode !== "student" && entryMode === "try-ended") {
+    return (
+      <PageBoundary resetKey="try-ended">
+        <TryModeEndPage
+          nickname={endedTryNickname}
+          onRestart={() => setEntryMode("try")}
+          onSeeFullVersion={() => setEntryMode("teacher")}
+          onBack={() => setEntryMode("entry")}
         />
       </PageBoundary>
     );
@@ -1168,9 +1242,9 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.STUDENT_REWARDS);
             }}
-            onLogout={isStudentMode ? logOutStudent : returnToTeacherDashboard}
-            logoutLabel={isStudentMode ? "Sign out" : "Teacher dashboard"}
-            logoutAriaLabel={isStudentMode ? "Log out" : "Return to teacher dashboard"}
+            onLogout={trySession ? finishTrySession : isStudentMode ? logOutStudent : returnToTeacherDashboard}
+            logoutLabel={trySession ? "Finish" : isStudentMode ? "Sign out" : "Teacher dashboard"}
+            logoutAriaLabel={trySession ? "Finish the try-out" : isStudentMode ? "Log out" : "Return to teacher dashboard"}
           />
         </PageBoundary>
       )}
@@ -1587,6 +1661,8 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
               quarantinedBookIds={quarantinedReadingBookIds}
+              allowedBookIds={sampleBookIdSet}
+              sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
               teacherId={teacherId}

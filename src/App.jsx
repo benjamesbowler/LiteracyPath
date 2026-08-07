@@ -230,6 +230,9 @@ export default function App() {
   // The waiting-teacher count, loaded on admin sign-in rather than when the
   // admin dashboard is opened. Nothing else in the app announces a queue.
   const [pendingAccountAlert, setPendingAccountAlert] = useState(null);
+  // The live anonymous try session, or null. Held here so the exit screen can
+  // name the nickname after the session has already been torn down.
+  const [trySession, setTrySession] = useState(null);
   const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
   const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
   const [teacherSchoolName, setTeacherSchoolName] = useState("");
@@ -867,6 +870,7 @@ export default function App() {
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     retryTeacherSchoolName, resendEmailConfirmation, nudgeTeacherAccountReview,
+    startTryMode, endTryMode,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
     assignMissingSymbolPasswords,
@@ -902,6 +906,7 @@ export default function App() {
     awaitingEmailConfirmation, setAwaitingEmailConfirmation,
     teacherAccountNudgeBusy, setTeacherAccountNudgeBusy,
     pendingAccountAlert, setPendingAccountAlert,
+    trySession, setTrySession,
     setAuthMode, setAuthPassword, setAuthReady, setCheckpointDecision,
     setClassDashboard, setClassList, setCorrectAnswered, setCurrentQuestion,
     setCurrentSkillIndex, setDiagnosticFollowUp, setElBenchmarkDraftSaveFailed, setElBenchmarkSession,
@@ -2913,6 +2918,7 @@ export default function App() {
       applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentHistoryReadState, assessmentMode, assessmentTransitioning,
       assignQuestPractice, authDisplayName, authEmail, authLoading, authMessage, authMode, awaitingEmailConfirmation,
       resendEmailConfirmation, nudgeTeacherAccountReview, teacherAccountNudgeBusy, pendingAccountAlert,
+      startTryMode, endTryMode, trySession,
       authPassword, authReady, authReconnecting, authSchoolName, authUsername,
       checkpointDecision, chunkLoadFailure, classDashboard, classDashboardReadState, classList, classListReadState,
       clearQuestPractice, completePasswordReset, continueCheckpointSkill, correctAnswered, coverageSnapshot, createClass,
