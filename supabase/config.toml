@@ -53,7 +53,16 @@ password_requirements = ""
 [auth.email]
 enable_signup = true
 double_confirm_changes = true
-enable_confirmations = false
+# An unverified address can no longer be approved into teacher access
+# (20260807110000_teacher_email_confirmation.sql). With manual approval kept
+# rather than domain-anchored auto-approval, the administrator is judging a
+# person by their email address, so the address has to be real.
+#
+# THIS FILE IS LOCAL/CI ONLY — see the header comment. The hosted project's auth
+# settings do not live in this repository and must be changed there too:
+# Authentication -> Sign In / Providers -> Email -> Confirm email. Until that is
+# done, hosted signups still auto-confirm and the database rule never bites.
+enable_confirmations = true
 secure_password_change = false
 max_frequency = "1s"
 otp_length = 6

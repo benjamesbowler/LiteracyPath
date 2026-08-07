@@ -105,6 +105,7 @@ export function AppSurface({ surface }) {
     keepPracticingSkill, learnFullscreen, learnerAccessibility, letterAssessment, letterIndex,
     letterItems, loadAdminDashboard, loadClassDashboard, loadClasses, loadStudentProgress, loadStudents, loadingClasses,
     loadingStudents,
+    awaitingEmailConfirmation, resendEmailConfirmation,
     logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
@@ -561,6 +562,8 @@ export function AppSurface({ surface }) {
             completePasswordReset={completePasswordReset}
             demoTeacherEnabled={demoTeacherEnabled}
             logInDemoTeacher={logInDemoTeacher}
+            awaitingEmailConfirmation={awaitingEmailConfirmation}
+            resendEmailConfirmation={resendEmailConfirmation}
           />
         </div>
       </PageBoundary>

@@ -14,6 +14,7 @@ import {
 } from "../data/teacherRosterOperations.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import {
+  isUnconfirmedEmailError,
   teacherAuthErrorMessage,
   teacherMutationErrorMessage
 } from "./teacherErrorMessages.js";
@@ -79,7 +80,7 @@ export const SCHOOL_NAME_MAX_LENGTH = 120;
 const PENDING_ACCOUNT_COLUMNS =
   "id, user_id, email, username, display_name, name, role, status, approval_status, school_id, " +
   "created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, " +
-  "rejected_by, rejection_reason";
+  "rejected_by, rejection_reason, email_confirmed_at, email_confirmation_source";
 
 /** Postgres unique_violation — the pending row already exists. */
 function isDuplicatePendingAccountError(error) {
@@ -128,7 +129,7 @@ export function useAppSessionController(context) {
     setAdminSchools, setAdminStatusError, setAdminStudents, setAdminTeachers,
     setAnswerHistory, setAppView, setArchivedStudentList, setAssessmentHistory,
     setAssessmentMode, setAssessmentTransitioning, setAuthLoading, setAuthMessage,
-    setAuthMode, setAuthPassword, setAuthReady, setCheckpointDecision,
+    setAuthMode, setAuthPassword, setAuthReady, awaitingEmailConfirmation, setAwaitingEmailConfirmation, setCheckpointDecision,
     setClassDashboard, setClassList, setCorrectAnswered, setCurrentQuestion,
     setCurrentSkillIndex, setDiagnosticFollowUp, setElBenchmarkDraftSaveFailed, setElBenchmarkSession,
     setEntryMode, setFeedback, setGuidedReadingRecords, setIsAdmin,
@@ -2002,6 +2003,21 @@ export function useAppSessionController(context) {
     }
 
     const newUserId = data?.user?.id;
+
+    // With email confirmation on, signUp returns a user but NO session — the
+    // browser is not authenticated, so reading the pending row would fail on
+    // row-level security. Nothing more to do here: the address has to be proved
+    // before this account is anyone's problem.
+    if (!data?.session) {
+      setAuthPassword("");
+      setAwaitingEmailConfirmation(email);
+      setAuthMessage(
+        `Check ${email} and click the link to confirm your address. `
+        + "Your request reaches an administrator once you have."
+      );
+      return;
+    }
+
     if (newUserId) {
       // READ, never write. The `create_pending_teacher_account_for_new_user`
       // trigger has already created this row, with the school resolved through
@@ -2052,12 +2068,42 @@ export function useAppSessionController(context) {
     if (error) {
       freshAuthActionRef.current = false;
       console.error("Teacher sign-in failed.", error);
+      // An unconfirmed address is not a failed sign-in, it is an unfinished
+      // one. Surfacing the resend button here matters more than anywhere else:
+      // this is where someone lands weeks later having lost the original email,
+      // and without it the only route back is asking an administrator.
+      if (isUnconfirmedEmailError(error)) {
+        setAwaitingEmailConfirmation(email);
+      }
       setAuthMessage(teacherAuthErrorMessage(error, "login"));
       return;
     }
 
     setAuthPassword("");
     setAuthMessage("");
+    setAwaitingEmailConfirmation("");
+  }
+
+  /**
+   * Sends the confirmation link again. Supabase rate-limits this itself, and
+   * that refusal is reported plainly rather than as a failure — "wait a minute"
+   * and "it is broken" call for very different reactions from the person
+   * reading it.
+   */
+  async function resendEmailConfirmation() {
+    const email = String(awaitingEmailConfirmation || authEmail || "").trim();
+    if (!email) return;
+
+    setAuthLoading(true);
+    const { error } = await supabase.auth.resend({ type: "signup", email });
+    setAuthLoading(false);
+
+    if (error) {
+      console.error("Could not resend the confirmation email.", error);
+      setAuthMessage(teacherAuthErrorMessage(error, "login"));
+      return;
+    }
+    setAuthMessage(`Confirmation link sent again to ${email}. It can take a minute to arrive.`);
   }
 
   // ── Preview-only demo teacher login ─────────────────────────────────────
@@ -3962,6 +4008,7 @@ export function useAppSessionController(context) {
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     retryTeacherSchoolName,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
+    resendEmailConfirmation,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   };
 }

@@ -1145,24 +1145,22 @@ export function FinishedReportPage({
          * them by hand. This is the whole picture, in the screen's own words,
          * plus a Teach next sheet the screen cannot put on paper.
          */
-        const provenanceRows = buildExportProvenanceRows({
-          reportTitle: "Student report",
-          className,
-          learnerName: studentName,
-          learnerId: progressScopeKey || assessmentHistory[0]?.studentId || "",
-          generatedAt: reportGeneratedAt,
-          timeZone: reportTimeZone,
-          filters: { "Opened from": activeReportView },
-          evidenceSource: reportEvidenceSource
-        });
-        const { exportStudentReportWorkbook } = await import("../utils/exportStudentReportWorkbook.js");
-        await exportStudentReportWorkbook({
-          workspace: reportingWorkspace,
+        // The SIMPLE workbook: one sheet to read, one to look things up in.
+        //
+        // exportStudentReportWorkbook.js still exists and still builds the
+        // twelve-sheet version — Cover, Summary, Teach next, Reading profile,
+        // What they know, Skills, Common words, Guided reading, Practice, How to
+        // read this, Data, About this report. Every sheet was defensible on its
+        // own and the total was not: a teacher opening it met twelve tabs and
+        // had to work out which one answered their question. Same information,
+        // same vocabulary, two sheets.
+        const { exportSimpleStudentProgressExcel } =
+          await import("../utils/exportStudentProgressSimple.js");
+        await exportSimpleStudentProgressExcel(reportingWorkspace, {
           studentName,
           className,
           generatedAt: new Date(),
-          periodLabel: `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`,
-          provenanceRows
+          periodLabel: `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`
         });
       }
       setActionFeedback({ kind: "success", message: "Report data downloaded." });

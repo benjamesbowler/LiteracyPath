@@ -2658,8 +2658,29 @@ export async function exportStudentElAssessmentExcel(options = {}) {
   });
   const report = buildStudentElAssessmentExportReport({ ...options, previousReports });
   assertResolvedElExportScope(report);
-  const workbook = await createStudentElAssessmentWorkbook(report, { teacherFacing: true });
-  await downloadWorkbook(workbook, safeElAssessmentFileName(report.fileName));
+
+  // The teacher gets the SIMPLE workbook — two sheets, read in thirty seconds.
+  //
+  // createStudentElAssessmentWorkbook (above) is unchanged and still backs the
+  // class report and the saved-report re-download; its detail is what an
+  // intervention meeting or a records request needs. It is simply no longer
+  // what a kindergarten teacher gets when they press Download. That version had
+  // a 27-column sheet with 25 columns repeating one sentence on every row, two
+  // 42-column sheets containing nothing but "No saved results", and
+  // "assessment_attempts: 13 row(s)" printed where a teacher could read it.
+  //
+  // The report object is identical either way — same hydration, same scope
+  // assertion, same persistence. Only the presentation changed.
+  const { exportSimpleElAssessmentExcel } = await import("./exportElAssessmentSimple.js");
+  await exportSimpleElAssessmentExcel(report, {
+    studentName: report.studentName || "Student",
+    className: report.className || "",
+    scopeLabel: report.benchmarkScope?.label || "",
+    generatedAt: report.generatedAt instanceof Date
+      ? report.generatedAt
+      : new Date(report.generatedAt || Date.now())
+  });
+
   report.persistence = await saveElAssessmentReport(report, options);
   return report;
 }

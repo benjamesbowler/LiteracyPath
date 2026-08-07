@@ -191,7 +191,9 @@
     "check:audit:assessment-rebuild": "node tools/assessmentRebuild/gate.mjs",
     "check:skill-status-policy": "node --test tests/unit/skillStatusPolicy.test.js",
     "check:reporting-bible": "node tools/checkReportingBible.mjs && node --test tests/unit/reportingBible.test.js tests/unit/mllLanguageReporting.test.js",
-    "check:teacher-gate-live": "node tools/db/checkTeacherGateDrift.mjs"
+    "check:teacher-gate-live": "node tools/db/checkTeacherGateDrift.mjs",
+    "check:teacher-email-confirmation": "node tools/db/verifyTeacherEmailConfirmation.mjs",
+    "check:gate-migration-resilience": "node tools/db/verifyGateMigrationOnPartialDatabase.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

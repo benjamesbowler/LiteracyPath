@@ -571,9 +571,16 @@ export function addStatusMatrix(sheet, startRow, {
   columnHeaders = [],
   rows = [],
   startColumn = 2,
-  emptyMessage = "No results yet."
+  emptyMessage = "No results yet.",
+  // Long headers print on the diagonal, which is the only way a thirty-column
+  // class matrix fits a page. With a handful of columns it just looks broken —
+  // and worse, a 12-character header sits flat immediately beside a
+  // 13-character one standing on its end. Callers with few columns raise this.
+  rotateHeadersOver = 12,
+  columnWidth = 13
 } = {}) {
   const colLetter = n => sheet.getColumn(n).letter;
+  const rotates = header => String(header).length > rotateHeadersOver;
 
   writeCell(sheet, `${colLetter(startColumn)}${startRow}`, rowHeader, {
     font: WORKBOOK_FONTS.tableHeader,
@@ -590,11 +597,14 @@ export function addStatusMatrix(sheet, startRow, {
     writeCell(sheet, `${colLetter(position)}${startRow}`, header, {
       font: WORKBOOK_FONTS.tableHeader,
       fill: WORKBOOK_COLORS.primaryStrong,
-      alignment: { vertical: "bottom", horizontal: "center", wrapText: true, textRotation: header.length > 12 ? 60 : 0 }
+      alignment: { vertical: "bottom", horizontal: "center", wrapText: true, textRotation: rotates(header) ? 60 : 0 }
     });
-    sheet.getColumn(position).width = 13;
+    sheet.getColumn(position).width = Math.max(
+      columnWidth,
+      rotates(header) ? columnWidth : String(header).length + 2
+    );
   });
-  sheet.getRow(startRow).height = columnHeaders.some(header => header.length > 12) ? 74 : 28;
+  sheet.getRow(startRow).height = columnHeaders.some(rotates) ? 74 : 28;
 
   if (!rows.length) {
     writeCell(sheet, `${colLetter(startColumn)}${startRow + 1}`, emptyMessage, {

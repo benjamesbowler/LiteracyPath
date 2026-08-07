@@ -14,6 +14,15 @@ function isRateLimited(error) {
     || /rate.?limit|too many requests|over_email_send_rate_limit|429/.test(errorText(error));
 }
 
+/**
+ * An unconfirmed address is an unfinished sign-up, not a failed sign-in. The
+ * caller uses this to offer a resend rather than leaving the person to guess
+ * that the email they never received is the problem.
+ */
+export function isUnconfirmedEmailError(error) {
+  return /email not confirmed|email_not_confirmed/.test(errorText(error));
+}
+
 function sharedFailureMessage(error) {
   if (isNetworkFailure(error)) {
     return "We couldn't reach the server. Check your internet and try again.";
@@ -33,8 +42,8 @@ export function teacherAuthErrorMessage(error, action) {
     if (/invalid login credentials|invalid credentials|wrong password|email.*password/.test(text)) {
       return "That email or password was not recognised. Check both and try again.";
     }
-    if (/email not confirmed|email_not_confirmed/.test(text)) {
-      return "Check your email and confirm the account before signing in.";
+    if (isUnconfirmedEmailError(error)) {
+      return "This account still needs its email address confirmed. Check your inbox for the link, or send it again below.";
     }
     return "We couldn't sign you in. Nothing changed. Check your details and try again.";
   }

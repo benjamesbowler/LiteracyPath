@@ -16877,6 +16877,24 @@ select:focus {
   flex: 1 1 112px;
 }
 
+/* The "confirm your email" block on the sign-in card. Given its own panel
+   rather than another line of message text, because it is the only thing
+   standing between this person and an account. */
+.auth-confirm-pending {
+  background: #eef6f4;
+  border: 1px solid #9fc7bd;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.auth-confirm-pending p {
+  margin: 0;
+}
+
 .admin-account-school-missing {
   color: #8f2525;
   font-weight: 750;

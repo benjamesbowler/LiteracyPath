@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260801091000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260807111000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([

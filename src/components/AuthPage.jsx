@@ -19,7 +19,12 @@ export function AuthPage({
   requestPasswordReset,
   completePasswordReset,
   demoTeacherEnabled = false,
-  logInDemoTeacher
+  logInDemoTeacher,
+  // The address a signup or sign-in is waiting on. Empty most of the time; when
+  // set, it is the only thing standing between this person and an account, so
+  // the way out gets its own button rather than a line of advice.
+  awaitingEmailConfirmation = "",
+  resendEmailConfirmation
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const isForgotPassword = authMode === "forgotPassword";
@@ -158,6 +163,27 @@ export function AuthPage({
       )}
 
       {authMessage && <p className="message auth-message" role="status" aria-live="polite">{authMessage}</p>}
+
+      {awaitingEmailConfirmation && (
+        <div className="auth-confirm-pending">
+          <p>
+            <strong>Confirm your email address to finish.</strong> We sent a link to{" "}
+            {awaitingEmailConfirmation}. Your request only reaches an administrator once you
+            have clicked it.
+          </p>
+          <p className="muted-text">
+            Not arrived? Check the spam folder first — then send it again.
+          </p>
+          <button
+            className="report-button"
+            disabled={authLoading || !resendEmailConfirmation}
+            onClick={resendEmailConfirmation}
+            type="button"
+          >
+            Send the link again
+          </button>
+        </div>
+      )}
 
       {!isForgotPassword && !isResetPassword && !isSignup && (
         <p className="auth-footnote">Secure classroom access for teachers and reading specialists.</p>
