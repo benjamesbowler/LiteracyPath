@@ -63,6 +63,10 @@ export function AdminDashboardPage({
   const [expandedTeacherId, setExpandedTeacherId] = useState("");
   const [retentionSchoolId, setRetentionSchoolId] = useState("");
   const [teacherSchoolDraft, setTeacherSchoolDraft] = useState("");
+  // Per-row school drafts for the signup queue. Keyed by account, because more
+  // than one request can be waiting on a school at the same time and a single
+  // shared draft would let a fix land on the wrong teacher.
+  const [signupSchoolDrafts, setSignupSchoolDrafts] = useState({});
   const initialAdminRoute = typeof window === "undefined"
     ? null
     : adminRouteForPath(window.location.pathname);
@@ -238,6 +242,13 @@ export function AdminDashboardPage({
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
   const reviewedSignupAccounts = pendingAccounts.filter(account => !isPendingTeacherAccount(account));
   const visibleSignupCount = pendingSignupAccounts.length;
+  // Requests you cannot act on. They are counted in the pill like any other, so
+  // without this the number reads as work waiting for a decision when in fact
+  // Approve is disabled on them and no decision is possible until the school is
+  // set. Surfacing it separately is the difference between "3 to review" and
+  // "3 to review, 3 of which are stuck".
+  const blockedSignupCount = pendingSignupAccounts
+    .filter(account => !schoolForTeacherAccount(account)).length;
 
   const adminSections = [
     { id: "overview", label: "Overview", count: null },
@@ -346,6 +357,13 @@ export function AdminDashboardPage({
           <div>
             <h3>Signup Requests</h3>
             <p className="muted-text">Approve or reject teacher account requests. Pending requests are blocked from the app until approved.</p>
+            {!pendingAccountsWarning && blockedSignupCount > 0 && (
+              <p className="message admin-account-blocked-notice" role="status">
+                {blockedSignupCount === 1
+                  ? "1 request cannot be approved until its school is set. Set it in the School column."
+                  : `${blockedSignupCount} requests cannot be approved until their school is set. Set it in the School column.`}
+              </p>
+            )}
           </div>
           <span className="admin-count-pill">{pendingAccountsWarning ? "Unavailable" : visibleSignupCount}</span>
         </div>
@@ -390,9 +408,10 @@ export function AdminDashboardPage({
                   const accountStatus = getTeacherAccountApprovalStatus(account);
                   const isPending = accountStatus === "pending";
                   const accountSchool = schoolForTeacherAccount(account);
+                  const accountKey = account.id || account.user_id || account.email;
 
                   return (
-                    <tr key={account.id || account.user_id || account.email}>
+                    <tr key={accountKey} data-account-blocked={!accountSchool ? "no-school" : undefined}>
                       <td data-label="Email">{account.email || "Email unavailable"}</td>
                       <td data-label="Username">{account.username || "-"}</td>
                       <td data-label="Name">{account.display_name || account.name || "-"}</td>
@@ -400,9 +419,36 @@ export function AdminDashboardPage({
                         {accountSchool ? (
                           accountSchool.name
                         ) : (
-                          <span className="admin-account-school-missing">
-                            School not resolved — approval blocked
-                          </span>
+                          // An unresolved school used to be a dead end: Approve
+                          // was disabled, the only school editor lived in the
+                          // Teachers section, and that list is built from
+                          // classes/students/answers — which a pending teacher
+                          // has none of. The account could only be rescued with
+                          // hand-written SQL. This is the way out.
+                          <div className="admin-account-school-repair">
+                            <span className="admin-account-school-missing">
+                              School not resolved — set it to approve
+                            </span>
+                            <SchoolNameInput
+                              value={signupSchoolDrafts[accountKey] ?? ""}
+                              placeholder="Choose or type this teacher's school"
+                              onChange={value => setSignupSchoolDrafts(drafts => ({
+                                ...drafts,
+                                [accountKey]: value
+                              }))}
+                            />
+                            <button
+                              className="report-button"
+                              type="button"
+                              disabled={!(signupSchoolDrafts[accountKey] || "").trim() || !account.user_id}
+                              onClick={() => setTeacherSchool?.(
+                                account.user_id,
+                                signupSchoolDrafts[accountKey]
+                              )}
+                            >
+                              Save school
+                            </button>
+                          </div>
                         )}
                       </td>
                       <td data-label="Status">{accountStatus}</td>

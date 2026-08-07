@@ -96,6 +96,17 @@ const LEGACY_RPC_SIGNATURES = Object.freeze([
   "student_log_activity(text, text, text, text, jsonb)"
 ]);
 
+/**
+ * Removes `-- line` and block comments so a guard reads SQL rather than prose.
+ * Dollar-quoted function bodies are left alone: `--` inside one is still a
+ * comment to PostgreSQL, and nothing here needs to distinguish them.
+ */
+export function withoutSqlComments(sql = "") {
+  return String(sql)
+    .replace(/\/\*[\s\S]*?\*\//g, " ")
+    .replace(/--[^\n]*/g, " ");
+}
+
 function comparableSignature(value) {
   return String(value || "")
     .replace(/^public\./, "")
@@ -134,7 +145,12 @@ export function auditSecurityBoundarySource({
   const laterSecurityDefiners = files
     .filter(file => file > SECURITY_BOUNDARY_MIGRATION)
     .filter(file => /security\s+definer/i.test(
-      fs.readFileSync(path.join(migrationDir, file), "utf8")
+      // Comments stripped first. The guard is about a later migration DEFINING
+      // a SECURITY DEFINER function without re-running the boundary. A
+      // migration that only mentions the phrase while explaining why it did not
+      // add one is not a violation, and failing on prose teaches people to stop
+      // writing the explanation rather than to stop writing the function.
+      withoutSqlComments(fs.readFileSync(path.join(migrationDir, file), "utf8"))
     ));
   if (laterSecurityDefiners.length) {
     failures.push(
@@ -247,5 +263,104 @@ export function auditSecurityDefinerCatalog(rows) {
     ).length,
     anonymousRpcCount: anon.length,
     authenticatedRpcCount: authenticated.length
+  };
+}
+
+/* ------------------------------------------------------------------ *
+ * Teacher-owned TABLE policies
+ * ------------------------------------------------------------------ */
+
+/**
+ * The RPC audit above covers SECURITY DEFINER functions. Nothing covered
+ * tables, and on 2026-08-07 four tables created after the July gate migration
+ * were found checking only `teacher_id = auth.uid()`:
+ * reading_sessions, mll_language_assessments, mll_exit_criteria and
+ * mll_family_contacts. All four hold direct grants to `authenticated`, so a
+ * rejected or disabled teacher with a live token kept reading and writing them.
+ *
+ * A policy is a teacher-owned surface if it is NAMED as one — the repository
+ * uses two conventions and only two, verified against a real PostgreSQL with
+ * every migration applied (tools/db/checkTeacherGateDrift.mjs):
+ *
+ *   "Teachers ..."            quoted, 20 policies
+ *   <table>_teacher_access    bare identifier, 3 policies
+ *
+ * Matching on the NAME rather than on the policy body is what makes this
+ * precise. The first attempt at this check matched any policy whose USING
+ * expression mentioned `auth.uid()`, which also matches
+ * `public.is_app_admin(auth.uid())` — every admin policy on every table. It
+ * flagged sixteen tables. Admin policies are correctly not gated on teacher
+ * access, because an app admin is not a teacher.
+ */
+const TEACHER_POLICY_NAME = /^(?:teachers\s|.*_teacher_access$)/i;
+const TEACHER_ACCESS_GATE = "current_actor_has_teacher_access";
+
+function policyStatements(sql) {
+  // `create policy <name> on <table> ... ;` — a policy body never contains a
+  // semicolon, so the first one terminates the statement.
+  const pattern = /create\s+policy\s+("(?:[^"]+)"|[a-z0-9_]+)\s+on\s+([a-z0-9_.]+)([\s\S]*?);/gi;
+  const found = [];
+  let match;
+  while ((match = pattern.exec(sql)) !== null) {
+    found.push({
+      name: match[1].replace(/^"|"$/g, ""),
+      table: match[2].replace(/^public\./i, ""),
+      body: match[3]
+    });
+  }
+  return found;
+}
+
+function droppedPolicies(sql) {
+  const pattern = /drop\s+policy\s+(?:if\s+exists\s+)?("(?:[^"]+)"|[a-z0-9_]+)\s+on\s+([a-z0-9_.]+)/gi;
+  const found = [];
+  let match;
+  while ((match = pattern.exec(sql)) !== null) {
+    found.push({
+      name: match[1].replace(/^"|"$/g, ""),
+      table: match[2].replace(/^public\./i, "")
+    });
+  }
+  return found;
+}
+
+/**
+ * Replays every migration in filename order and returns the policies that are
+ * live at the end — a later file's create replaces an earlier one, and a drop
+ * removes it. Reading a single migration would report policies that no longer
+ * exist.
+ */
+export function resolveLivePolicies({
+  files = fs.readdirSync(migrationDir).filter(file => file.endsWith(".sql")).sort(),
+  read = file => fs.readFileSync(path.join(migrationDir, file), "utf8")
+} = {}) {
+  const live = new Map();
+  for (const file of files) {
+    const sql = read(file);
+    for (const dropped of droppedPolicies(sql)) {
+      live.delete(`${dropped.table}::${dropped.name}`);
+    }
+    for (const created of policyStatements(sql)) {
+      live.set(`${created.table}::${created.name}`, { ...created, file });
+    }
+  }
+  return [...live.values()];
+}
+
+export function auditTeacherTablePolicies(options = {}) {
+  const live = resolveLivePolicies(options);
+  const teacherPolicies = live.filter(policy => TEACHER_POLICY_NAME.test(policy.name));
+  const failures = teacherPolicies
+    .filter(policy => !policy.body.includes(TEACHER_ACCESS_GATE))
+    .map(policy =>
+      `policy "${policy.name}" on ${policy.table} (${policy.file}) is a teacher surface `
+      + `but does not gate on ${TEACHER_ACCESS_GATE}(); a rejected or disabled teacher `
+      + "would keep access to it"
+    );
+  return {
+    failures,
+    teacherPolicyCount: teacherPolicies.length,
+    totalPolicyCount: live.length,
+    teacherTables: [...new Set(teacherPolicies.map(policy => policy.table))].sort()
   };
 }

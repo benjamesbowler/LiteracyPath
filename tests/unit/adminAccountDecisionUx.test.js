@@ -96,7 +96,20 @@ test("review UI confirms, single-flights, retries failures and keeps reviewed de
   assert.match(adminSource, /result\?\.errorMessage \|\| "The decision was not saved\. Try again\."/);
   assert.match(adminSource, /finally \{\s*setAccountDecisionBusy\(false\)/);
   assert.match(adminSource, /account\.rejection_reason/);
-  assert.match(adminSource, /School not resolved — approval blocked/);
+  // An unresolved school used to be a dead end — the copy said "approval
+  // blocked" and there was no screen anywhere that could unblock it, because
+  // the only school editor was in the Teachers section and that list is built
+  // from classes/students/answers, which a pending teacher has none of. The
+  // account could only be rescued with SQL. The cell now carries the repair.
+  assert.match(adminSource, /School not resolved — set it to approve/);
+  assert.match(
+    adminSource,
+    /admin-account-school-repair[\s\S]*?<SchoolNameInput[\s\S]*?setTeacherSchool\?\.\(\s*account\.user_id/
+  );
+  // And the queue says how many of the waiting requests are actually stuck, so
+  // the pill is a number you can act on rather than one you cannot.
+  assert.match(adminSource, /blockedSignupCount/);
+  assert.match(adminSource, /cannot be approved until (its|their) school is set/);
   assert.match(
     controllerSource,
     /p_rejection_reason:\s*normalizedStatus === "approved"[\s\S]*?: normalizedReason/

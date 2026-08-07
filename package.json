@@ -175,7 +175,7 @@
     "check:database-bootstrap-schema": "node tools/checkDatabaseBootstrapSchema.mjs",
     "check:audit-school-seed": "node tools/seedAuditSchool.mjs --check",
     "check:audit-school-live": "node tools/verifyAuditSchoolLive.mjs",
-    "check:db-policies": "node tools/seedAuditSchool.mjs --apply && node tools/verifyDatabasePolicyContract.mjs && node --test tests/unit/databasePolicyContract.test.js tests/unit/hostedSchemaDriftContract.test.js && node tools/verifyDatabasePoliciesLive.mjs",
+    "check:db-policies": "node tools/seedAuditSchool.mjs --apply && node tools/verifyDatabasePolicyContract.mjs && node --test tests/unit/databasePolicyContract.test.js tests/unit/hostedSchemaDriftContract.test.js tests/unit/teacherAccessGateCoverage.test.js && node tools/verifyDatabasePoliciesLive.mjs",
     "seed:audit-school": "node tools/seedAuditSchool.mjs --apply",
     "check:release": "node tools/releaseGate.mjs",
     "check:release-environment": "node tools/releaseGate.mjs --preflight",
@@ -190,7 +190,8 @@
     "build:v3-banks": "node tools/assessmentRebuild/gate.mjs --write",
     "check:audit:assessment-rebuild": "node tools/assessmentRebuild/gate.mjs",
     "check:skill-status-policy": "node --test tests/unit/skillStatusPolicy.test.js",
-    "check:reporting-bible": "node tools/checkReportingBible.mjs && node --test tests/unit/reportingBible.test.js tests/unit/mllLanguageReporting.test.js"
+    "check:reporting-bible": "node tools/checkReportingBible.mjs && node --test tests/unit/reportingBible.test.js tests/unit/mllLanguageReporting.test.js",
+    "check:teacher-gate-live": "node tools/db/checkTeacherGateDrift.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -217,6 +218,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
+    "@electric-sql/pglite": "^0.5.4",
     "@eslint/js": "^10.0.1",
     "@jridgewell/trace-mapping": "^0.3.31",
     "@playwright/test": "^1.60.0",

@@ -63,6 +63,29 @@ import {
   withoutAdminQaHistoryState
 } from "./adminQaNavigation.js";
 
+/**
+ * Signup input limits, mirrored from the database so a bad value fails on the
+ * form with a useful message instead of at the database with a generic one.
+ *
+ * `TEACHER_PASSWORD_MIN_LENGTH` mirrors `minimum_password_length` in
+ * supabase/config.toml. The school bounds mirror `create_school_directory_entry`
+ * in 20260728120000_security_integrity_hardening.sql, which raises 22023 outside
+ * this range — and that raise aborts the whole auth.users INSERT.
+ */
+export const TEACHER_PASSWORD_MIN_LENGTH = 8;
+export const SCHOOL_NAME_MIN_LENGTH = 2;
+export const SCHOOL_NAME_MAX_LENGTH = 120;
+
+const PENDING_ACCOUNT_COLUMNS =
+  "id, user_id, email, username, display_name, name, role, status, approval_status, school_id, " +
+  "created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, " +
+  "rejected_by, rejection_reason";
+
+/** Postgres unique_violation — the pending row already exists. */
+function isDuplicatePendingAccountError(error) {
+  return String(error?.code || "") === "23505";
+}
+
 async function settleTeacherRead(source, read, fallback) {
   try {
     return await read();
@@ -1202,9 +1225,37 @@ export function useAppSessionController(context) {
   async function fetchTeacherAccountRecord(userId) {
     return supabase
       .table("pending_teacher_accounts")
-      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+      .select(PENDING_ACCOUNT_COLUMNS)
       .eq("user_id", userId)
       .maybeSingle();
+  }
+
+  /**
+   * Create the pending row ONLY when there is not one already.
+   *
+   * This used to be `.upsert(pendingRecord, { onConflict: "user_id" })`, which
+   * also ran as an UPDATE against an existing row. `buildPendingAccountRecord`
+   * always produces `school_id: null` — the signup metadata carries
+   * `school_name`, not `school_id` — so every run silently wiped the school the
+   * signup trigger had just resolved. A null `school_id` makes the account
+   * permanently unapprovable: the admin screen disables Approve, and
+   * `admin_set_teacher_account_status` raises 22023 'Resolve the teacher
+   * account school before approving access.' There is no screen that can put
+   * the school back, so the account could only be rescued with hand-written SQL.
+   *
+   * An INSERT cannot do that. If the row turned up in the meantime — the signup
+   * trigger racing this call is the normal case, not the exception — read it
+   * rather than write over it.
+   */
+  async function ensurePendingAccountRecord(userId, pendingRecord) {
+    const inserted = await supabase
+      .table("pending_teacher_accounts")
+      .insert(pendingRecord)
+      .select(PENDING_ACCOUNT_COLUMNS)
+      .maybeSingle();
+    if (!inserted?.error) return inserted;
+    if (!isDuplicatePendingAccountError(inserted.error)) return inserted;
+    return fetchTeacherAccountRecord(userId);
   }
 
   async function applyTeacherAccountStatusResult(
@@ -1247,11 +1298,7 @@ export function useAppSessionController(context) {
         ? await awaitCurrentAccountAccessStage({
             checkSequence: accessCheck.checkSequence,
             checkedUserId: accessCheck.checkedUserId,
-            read: () => supabase
-              .table("pending_teacher_accounts")
-              .upsert(pendingRecord, { onConflict: "user_id" })
-              .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-              .maybeSingle(),
+            read: () => ensurePendingAccountRecord(userId, pendingRecord),
             getActiveIdentity: () => ({
               activeSequence: accountAccessCheckSeqRef.current,
               activeCheckUserId: accountAccessCheckUserIdRef.current,
@@ -1260,11 +1307,7 @@ export function useAppSessionController(context) {
           })
         : {
             current: true,
-            result: await supabase
-              .table("pending_teacher_accounts")
-              .upsert(pendingRecord, { onConflict: "user_id" })
-              .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-              .maybeSingle()
+            result: await ensurePendingAccountRecord(userId, pendingRecord)
           };
       if (!pendingStage.current) return "stale";
       const {
@@ -1573,7 +1616,7 @@ export function useAppSessionController(context) {
       ),
       selectAllRows(() => supabase
         .table("pending_teacher_accounts")
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+        .select(PENDING_ACCOUNT_COLUMNS)
         .order("created_at", { ascending: false })
       ),
       selectAllRows(() =>
@@ -1887,8 +1930,26 @@ export function useAppSessionController(context) {
       setAuthMessage("Enter an email and password.");
       return;
     }
+    // Matches Supabase's own minimum. Without this the app submits, GoTrue
+    // refuses, and the teacher is told to "choose a stronger password" with no
+    // idea what would count as stronger.
+    if (authPassword.length < TEACHER_PASSWORD_MIN_LENGTH) {
+      setAuthMessage(`Use a password of at least ${TEACHER_PASSWORD_MIN_LENGTH} characters.`);
+      return;
+    }
     if (!schoolName) {
       setAuthMessage("Enter your school.");
+      return;
+    }
+    // `create_school_directory_entry` raises on a name outside 2-120 characters,
+    // and that raise aborts the auth.users INSERT — so no account is created at
+    // all, the teacher sees only the generic "we couldn't submit" message, and
+    // retrying with the same input fails forever. Catch it here, where we can
+    // say what is actually wrong.
+    if (schoolName.length < SCHOOL_NAME_MIN_LENGTH || schoolName.length > SCHOOL_NAME_MAX_LENGTH) {
+      setAuthMessage(
+        `Enter a school name between ${SCHOOL_NAME_MIN_LENGTH} and ${SCHOOL_NAME_MAX_LENGTH} characters.`
+      );
       return;
     }
     setAuthLoading(true);
@@ -1942,21 +2003,26 @@ export function useAppSessionController(context) {
 
     const newUserId = data?.user?.id;
     if (newUserId) {
-      const pendingRecord = buildPendingAccountRecord(newUserId, email, {
+      // READ, never write. The `create_pending_teacher_account_for_new_user`
+      // trigger has already created this row, with the school resolved through
+      // `create_school_directory_entry`. This code used to upsert its own
+      // version over the top, and that version always carried school_id: null,
+      // which wiped the resolved school and left the account unapprovable with
+      // no in-app way back. The trigger owns this row; the client only reads it.
+      const { data: pendingAccount, error: readError } =
+        await fetchTeacherAccountRecord(newUserId);
+
+      if (readError) {
+        console.warn("Could not read the pending teacher request after signup. The trigger creates it; this read is only for display.", readError);
+      }
+
+      // Falling back to a locally-built record keeps the waiting screen
+      // populated if the read races the trigger. It is display-only and is
+      // never written anywhere.
+      const nextRecord = pendingAccount || buildPendingAccountRecord(newUserId, email, {
         username,
         display_name: visibleDisplayName
       });
-      const { data: pendingAccount, error: notificationError } = await supabase
-        .table("pending_teacher_accounts")
-        .upsert(pendingRecord, { onConflict: "user_id" })
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-        .maybeSingle();
-
-      if (notificationError) {
-        console.warn("Could not upsert pending teacher notification after signup. The database trigger should create this request.", notificationError);
-      }
-
-      const nextRecord = pendingAccount || pendingRecord;
       setTeacherAccountStatus("pending");
       setTeacherAccountRecord(nextRecord);
     }

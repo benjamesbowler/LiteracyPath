@@ -16882,6 +16882,32 @@ select:focus {
   font-weight: 750;
 }
 
+/* The in-row rescue for a signup whose school never resolved. Stacked rather
+   than side by side because it sits in a table cell already competing with
+   seven other columns. */
+.admin-account-school-repair {
+  display: grid;
+  gap: 6px;
+  min-width: 200px;
+}
+
+.admin-account-school-repair input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+}
+
+.admin-account-blocked-notice {
+  background: #fdf0ea;
+  border: 1px solid #d98b6a;
+  color: #7a3512;
+  margin-top: 8px;
+}
+
 .admin-account-decision-overlay {
   align-items: center;
   background: rgba(15, 23, 42, 0.5);
