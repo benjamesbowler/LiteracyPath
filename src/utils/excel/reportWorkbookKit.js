@@ -592,19 +592,25 @@ export function addStatusMatrix(sheet, startRow, {
     Math.min(34, rows.reduce((widest, row) => Math.max(widest, String(row.label || "").length), rowHeader.length) + 2)
   );
 
+  // ALL OR NONE. Deciding per header meant "Short a CVC" lay flat beside
+  // "Letter sounds a-m" standing on its end in the same row, which reads as a
+  // rendering fault rather than a space-saving choice. One long name is enough
+  // to tip the whole header row onto the diagonal.
+  const anyRotates = columnHeaders.some(rotates);
+
   columnHeaders.forEach((header, index) => {
     const position = startColumn + 1 + index;
     writeCell(sheet, `${colLetter(position)}${startRow}`, header, {
       font: WORKBOOK_FONTS.tableHeader,
       fill: WORKBOOK_COLORS.primaryStrong,
-      alignment: { vertical: "bottom", horizontal: "center", wrapText: true, textRotation: rotates(header) ? 60 : 0 }
+      alignment: { vertical: "bottom", horizontal: "center", wrapText: true, textRotation: anyRotates ? 60 : 0 }
     });
     sheet.getColumn(position).width = Math.max(
       columnWidth,
-      rotates(header) ? columnWidth : String(header).length + 2
+      anyRotates ? columnWidth : String(header).length + 2
     );
   });
-  sheet.getRow(startRow).height = columnHeaders.some(rotates) ? 74 : 28;
+  sheet.getRow(startRow).height = anyRotates ? 74 : 28;
 
   if (!rows.length) {
     writeCell(sheet, `${colLetter(startColumn)}${startRow + 1}`, emptyMessage, {

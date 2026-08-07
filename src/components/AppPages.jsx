@@ -1654,13 +1654,21 @@ export function TeacherReportsPage({
         evidenceSource: classAssessmentHistory,
         definitions: "Each Data row is one student-by-skill result inside the selected class assessment period."
       });
-      const { exportClassReportWorkbook } = await import("../utils/exportClassReportWorkbook.js");
-      await exportClassReportWorkbook({
+      // The SIMPLE class workbook: one sheet answering who needs you and what to
+      // teach the group, plus the class grid to look things up in.
+      //
+      // exportClassReportWorkbook.js still builds the ten-sheet version — Cover,
+      // Summary, Teach next, Students, Skills, Skill matrix, Tricky items, How
+      // to read this, Data, About this report. Each sheet was defensible alone
+      // and the total was not: a teacher had to work out which of ten tabs
+      // answered the question they arrived with. Students are now ordered worst
+      // first rather than by the register, because a register-ordered list of
+      // thirty buries the three the report was opened for.
+      const { exportSimpleClassReportExcel } = await import("../utils/exportClassReportSimple.js");
+      await exportSimpleClassReportExcel({
         model: classReportingModel,
         periodLabel: selectedDatePeriod.label,
-        teacherName,
-        generatedAt: new Date(),
-        provenanceRows
+        generatedAt: new Date()
       });
     } catch (error) {
       console.error("Class report workbook export failed:", error);
