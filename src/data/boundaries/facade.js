@@ -86,6 +86,38 @@ function wrapAuth(auth) {
  * @param {T} rawClient
  * @returns {T}
  */
+/**
+ * EPHEMERAL MODE. When on, this client reaches the network for nothing at all.
+ *
+ * The anonymous try-mode's entire legal basis is that it collects nothing from
+ * a child. Because every Supabase call in the application passes through the
+ * Proxy below — enforced by tools/checkSupabaseDomainBoundaries.mjs, which
+ * fails the build on any raw `.from(` or `.rpc(` elsewhere — one refusal here
+ * covers the whole surface, including features written long after this.
+ *
+ * It THROWS rather than quietly returning nothing. A silent no-op would let a
+ * caller believe a write succeeded, and the failure would surface later as data
+ * that mysteriously vanished. A loud throw in development is exactly what stops
+ * someone wiring a persistent feature into a mode that must not persist.
+ */
+let ephemeralMode = false;
+
+export function setEphemeralNetworkMode(enabled) {
+  ephemeralMode = Boolean(enabled);
+}
+
+export function isEphemeralNetworkMode() {
+  return ephemeralMode;
+}
+
+function refuseInEphemeralMode(kind, name) {
+  throw new Error(
+    `Ephemeral session: refused ${kind} "${name}". This mode stores and sends nothing — `
+    + "no account, no identifier, no row. A feature that needs the network does not "
+    + "belong in the anonymous try-mode."
+  );
+}
+
 export function createValidatedSupabaseClient(rawClient) {
   if (!rawClient || typeof rawClient !== "object") {
     throw new TypeError("Supabase client must be an object.");
@@ -93,15 +125,22 @@ export function createValidatedSupabaseClient(rawClient) {
   const auth = wrapAuth(rawClient.auth);
   return new Proxy(rawClient, {
     get(target, property) {
-      if (property === "auth") return auth;
+      if (property === "auth") {
+        // Signing in is itself a collection event, and the try-mode has no
+        // account to sign into.
+        if (ephemeralMode) refuseInEphemeralMode("auth access", "auth");
+        return auth;
+      }
       if (property === "table") {
         return table => {
+          if (ephemeralMode) refuseInEphemeralMode("table access", table);
           if (!TABLES.has(table)) throw new TypeError(`Unregistered Supabase table: ${table}`);
           return wrapQuery(target.from(table), "table", table);
         };
       }
       if (property === "call") {
         return (name, args) => {
+          if (ephemeralMode) refuseInEphemeralMode("RPC", name);
           if (!RPCS.has(name)) throw new TypeError(`Unregistered Supabase RPC: ${name}`);
           return wrapQuery(target.rpc(name, args), "rpc", name);
         };
